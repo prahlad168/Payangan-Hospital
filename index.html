@@ -126,6 +126,17 @@
             text-decoration: none;
         }
 
+        .logo-img {
+            width: 50px;
+            height: auto;
+            object-fit: contain;
+        }
+
+        .logo-text-wrapper {
+            display: flex;
+            flex-direction: column;
+        }
+
         .logo-icon {
             width: 48px;
             height: 48px;
@@ -145,7 +156,7 @@
 
         .logo-text {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             font-weight: 700;
             color: var(--white);
             transition: color 0.3s;
@@ -153,11 +164,10 @@
 
         .slogan {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 0.65rem;
+            font-size: 0.6rem;
             font-style: italic;
             color: var(--secondary);
             letter-spacing: 1px;
-            margin-left: 0.5rem;
             opacity: 0.9;
         }
 
@@ -1236,11 +1246,11 @@
     <!-- Navigation -->
     <nav id="navbar">
         <a href="#" class="logo">
-            <div class="logo-icon">
-                <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-1 11h-4v4h-4v-4H6v-4h4V6h4v4h4v4z"/></svg>
+            <img src="https://raw.githubusercontent.com/prahlad168/Payangan-Hospital/main/logo.png" alt="Payangan Hospital" class="logo-img">
+            <div class="logo-text-wrapper">
+                <span class="logo-text">Payangan Hospital</span>
+                <span class="slogan">Pavitram Idam Uttamam</span>
             </div>
-            <span class="logo-text">Payangan Hospital</span>
-                    <span class="slogan">Pavitram Idam Uttamam</span>
         </a>
         <ul class="nav-links">
             <li><a href="#beranda">Beranda</a></li>
@@ -1615,11 +1625,11 @@
         <div class="footer-container">
             <div class="footer-brand">
                 <a href="#" class="logo">
-                    <div class="logo-icon">
-                        <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-1 11h-4v4h-4v-4H6v-4h4V6h4v4h4v4z"/></svg>
+                    <img src="https://raw.githubusercontent.com/prahlad168/Payangan-Hospital/main/logo.png" alt="Payangan Hospital" class="logo-img">
+                    <div class="logo-text-wrapper">
+                        <span class="logo-text">Payangan Hospital</span>
+                        <span class="slogan">Pavitram Idam Uttamam</span>
                     </div>
-                    <span class="logo-text">Payangan Hospital</span>
-                    <span class="slogan">Pavitram Idam Uttamam</span>
                 </a>
                 <p>Rumah Sakit Payangan Hospital menyediakan layanan kesehatan berkualitas dengan tenaga medis profesional dan fasilitas modern untuk keluarga Indonesia.</p>
             </div>
