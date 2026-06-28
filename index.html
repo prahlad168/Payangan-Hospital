@@ -7,6 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
             --primary: #1a5f5a;
@@ -148,8 +149,12 @@
 
         .nav-links {
             display: flex;
-            gap: 3rem;
+            gap: 8px;
             list-style: none;
+        }
+
+        .nav-links > li {
+            position: relative;
         }
 
         .nav-links a {
@@ -158,8 +163,15 @@
             font-weight: 300;
             font-size: 0.85rem;
             letter-spacing: 0.05em;
-            position: relative;
+            padding: 10px 16px;
+            border-radius: 50px;
+            display: block;
             transition: all 0.3s ease;
+        }
+
+        .nav-links a i {
+            font-size: 10px;
+            margin-left: 4px;
         }
 
         nav.scrolled .nav-links a {
@@ -174,19 +186,79 @@
             color: var(--primary);
         }
 
-        .nav-links a::after {
-            content: '';
+        /* Mega Menu */
+        .mega-menu {
             position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--secondary);
-            transition: width 0.3s;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%) translateY(20px);
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 25px 80px rgba(0,0,0,0.12);
+            padding: 20px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s ease;
+            min-width: 500px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px;
+            z-index: 100;
         }
 
-        .nav-links a:hover::after {
-            width: 100%;
+        .nav-links > li:hover .mega-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(10px);
+        }
+
+        .mega-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            padding: 16px;
+            border-radius: 14px;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .mega-item:hover {
+            background: var(--bg-light);
+        }
+
+        .mega-item .icon {
+            width: 44px;
+            height: 44px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .mega-item .icon i {
+            color: white;
+            font-size: 16px;
+        }
+
+        .mega-item .text h4 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text-dark);
+            margin-bottom: 2px;
+            transition: color 0.3s;
+        }
+
+        .mega-item:hover .text h4 {
+            color: var(--primary);
+        }
+
+        .mega-item .text p {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            line-height: 1.4;
         }
 
         .nav-cta {
@@ -202,10 +274,6 @@
             background: var(--secondary-light);
             transform: translateY(-2px);
             box-shadow: var(--shadow-md);
-        }
-
-        .nav-cta::after {
-            display: none !important;
         }
 
         .mobile-toggle {
@@ -1211,9 +1279,48 @@
         <ul class="nav-links">
             <li><a href="#beranda">Beranda</a></li>
             <li><a href="#layanan">Layanan</a></li>
-            <li><a href="#galeri">Galeri</a></li>
-            <li><a href="#tentang">Tentang</a></li>
+            <li>
+                <a href="about.html">Tentang <i class="fas fa-chevron-down"></i></a>
+                <div class="mega-menu">
+                    <a href="about.html#sejarah" class="mega-item">
+                        <div class="icon"><i class="fas fa-landmark"></i></div>
+                        <div class="text">
+                            <h4>Sejarah</h4>
+                            <p>Perjalanan Payangan Hospital</p>
+                        </div>
+                    </a>
+                    <a href="about.html#visimisi" class="mega-item">
+                        <div class="icon"><i class="fas fa-bullseye"></i></div>
+                        <div class="text">
+                            <h4>Visi & Misi</h4>
+                            <p>Arah dan tujuan kami</p>
+                        </div>
+                    </a>
+                    <a href="about.html#standar" class="mega-item">
+                        <div class="icon"><i class="fas fa-clipboard-check"></i></div>
+                        <div class="text">
+                            <h4>Standar Pelayanan</h4>
+                            <p>Standar kualitas kami</p>
+                        </div>
+                    </a>
+                    <a href="about.html#maklumat" class="mega-item">
+                        <div class="icon"><i class="fas fa-file-contract"></i></div>
+                        <div class="text">
+                            <h4>Maklumat</h4>
+                            <p>Janji pelayanan</p>
+                        </div>
+                    </a>
+                    <a href="about.html#mutu" class="mega-item">
+                        <div class="icon"><i class="fas fa-award"></i></div>
+                        <div class="text">
+                            <h4>Mutu</h4>
+                            <p>Komitmen kualitas</p>
+                        </div>
+                    </a>
+                </div>
+            </li>
             <li><a href="#dokter">Dokter</a></li>
+            <li><a href="#galeri">Galeri</a></li>
             <li><a href="#kontak">Kontak</a></li>
         </ul>
         <div class="mobile-toggle" onclick="toggleMobileMenu()">
@@ -1228,9 +1335,14 @@
         <ul>
             <li><a href="#beranda" onclick="toggleMobileMenu()">Beranda</a></li>
             <li><a href="#layanan" onclick="toggleMobileMenu()">Layanan</a></li>
-            <li><a href="#galeri" onclick="toggleMobileMenu()">Galeri</a></li>
-            <li><a href="#tentang" onclick="toggleMobileMenu()">Tentang</a></li>
+            <li><a href="about.html" onclick="toggleMobileMenu()">Tentang</a></li>
+            <li><a href="about.html#sejarah" onclick="toggleMobileMenu()">- Sejarah</a></li>
+            <li><a href="about.html#visimisi" onclick="toggleMobileMenu()">- Visi Misi</a></li>
+            <li><a href="about.html#standar" onclick="toggleMobileMenu()">- Standar</a></li>
+            <li><a href="about.html#maklumat" onclick="toggleMobileMenu()">- Maklumat</a></li>
+            <li><a href="about.html#mutu" onclick="toggleMobileMenu()">- Mutu</a></li>
             <li><a href="#dokter" onclick="toggleMobileMenu()">Dokter</a></li>
+            <li><a href="#galeri" onclick="toggleMobileMenu()">Galeri</a></li>
             <li><a href="#kontak" onclick="toggleMobileMenu()">Kontak</a></li>
         </ul>
     </div>

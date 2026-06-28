@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tentang Kami - Payangan Hospital</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #1a5f5a;
+            --primary-light: #4d9d97;
+            --primary-dark: #0f3d3a;
+            --secondary: #c9a86c;
+            --accent: #f59e0b;
+            --bg-white: #ffffff;
+            --bg-light: #f8fafc;
+            --bg-cream: #f8f6f3;
+            --text-dark: #2c3e3c;
+            --text-muted: #8a9a9a;
+            --border: #e2e8f0;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Outfit', sans-serif; font-weight: 300; background: var(--bg-white); color: var(--text-dark); line-height: 1.7; overflow-x: hidden; }
+        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; font-weight: 500; line-height: 1.2; }
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+        .navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 20px 0; background: white; box-shadow: 0 1px 20px rgba(0,0,0,0.05); }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+        .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .logo img { width: 45px; height: auto; }
+        .logo-text { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 500; color: var(--primary); }
+        .nav-links { display: flex; gap: 8px; list-style: none; }
+        .nav-links > li { position: relative; }
+        .nav-links a { text-decoration: none; color: var(--text-muted); font-size: 0.95rem; font-weight: 400; padding: 10px 16px; border-radius: 50px; display: block; transition: all 0.3s; }
+        .nav-links > li > a:hover, .nav-links > li > a.active { background: var(--bg-light); color: var(--primary); }
+        .nav-links a i { font-size: 10px; margin-left: 4px; }
+        .mega-menu { position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(20px); background: white; border-radius: 20px; box-shadow: 0 25px 80px rgba(0,0,0,0.12); padding: 20px; opacity: 0; visibility: hidden; transition: all 0.4s ease; min-width: 500px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; z-index: 100; }
+        .nav-links > li:hover .mega-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(10px); }
+        .mega-item { display: flex; align-items: flex-start; gap: 14px; padding: 16px; border-radius: 14px; text-decoration: none; transition: all 0.3s; }
+        .mega-item:hover { background: var(--bg-light); }
+        .mega-item .icon { width: 44px; height: 44px; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .mega-item .icon i { color: white; font-size: 16px; }
+        .mega-item .text h4 { font-family: 'Outfit', sans-serif; font-size: 0.95rem; font-weight: 500; color: var(--text-dark); margin-bottom: 2px; transition: color 0.3s; }
+        .mega-item:hover .text h4 { color: var(--primary); }
+        .mega-item .text p { font-size: 0.8rem; color: var(--text-muted); line-height: 1.4; }
+        .page-header { padding: 160px 0 100px; background: linear-gradient(135deg, var(--bg-cream) 0%, var(--bg-white) 100%); text-align: center; position: relative; overflow: hidden; }
+        .page-header::before { content: ''; position: absolute; top: -50%; right: -10%; width: 60%; height: 150%; background: radial-gradient(circle, rgba(26, 95, 90, 0.05) 0%, transparent 70%); }
+        .page-header .section-label { font-size: 0.8rem; font-weight: 500; color: var(--primary); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 16px; }
+        .page-header h1 { font-size: 3.5rem; color: var(--text-dark); margin-bottom: 20px; }
+        .page-header p { font-size: 1.1rem; color: var(--text-muted); max-width: 600px; margin: 0 auto; }
+        .content-section { padding: 100px 0; }
+        .content-section:nth-child(even) { background: var(--bg-light); }
+        .section-container { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+        .section-container.reverse { direction: rtl; }
+        .section-container.reverse > * { direction: ltr; }
+        .section-icon { width: 100%; aspect-ratio: 1; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); border-radius: 30px; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+        .section-icon::before { content: ''; position: absolute; inset: 0; background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.08'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); }
+        .section-icon i { font-size: 80px; color: white; opacity: 0.3; position: relative; z-index: 1; }
+        .section-content h2 { font-size: 2.5rem; margin-bottom: 20px; color: var(--text-dark); }
+        .section-content h2 span { color: var(--primary); }
+        .section-content p { font-size: 1.05rem; color: var(--text-muted); line-height: 1.8; margin-bottom: 20px; }
+        .feature-list { display: flex; flex-direction: column; gap: 16px; }
+        .feature-item { display: flex; align-items: flex-start; gap: 16px; padding: 16px; background: var(--bg-light); border-radius: 12px; transition: all 0.3s; }
+        .feature-item:hover { background: white; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        .feature-item i { width: 36px; height: 36px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 14px; flex-shrink: 0; }
+        .feature-item .text h4 { font-family: 'Outfit', sans-serif; font-size: 1rem; font-weight: 500; color: var(--text-dark); margin-bottom: 4px; }
+        .feature-item .text p { font-size: 0.9rem; color: var(--text-muted); margin: 0; line-height: 1.5; }
+        .vm-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; margin-top: 40px; }
+        .vm-card { background: white; padding: 40px; border-radius: 24px; box-shadow: 0 10px 40px rgba(0,0,0,0.05); transition: all 0.4s; }
+        .vm-card:hover { transform: translateY(-5px); box-shadow: 0 20px 60px rgba(0,0,0,0.1); }
+        .vm-card.visi { border-top: 4px solid var(--primary); }
+        .vm-card.misi { border-top: 4px solid var(--accent); }
+        .vm-card h3 { font-size: 1.5rem; margin-bottom: 20px; display: flex; align-items: center; gap: 12px; }
+        .vm-card.visi h3 { color: var(--primary); }
+        .vm-card.misi h3 { color: var(--accent); }
+        .vm-card ul { list-style: none; }
+        .vm-card li { position: relative; padding-left: 28px; margin-bottom: 12px; font-size: 1rem; color: var(--text-muted); line-height: 1.6; }
+        .vm-card li::before { content: ''; position: absolute; left: 0; top: 8px; width: 8px; height: 8px; border-radius: 50%; }
+        .vm-card.visi li::before { background: var(--primary); }
+        .vm-card.misi li::before { background: var(--accent); }
+        .standar-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; }
+        .standar-card { background: white; padding: 30px; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.05); transition: all 0.4s; }
+        .standar-card:hover { transform: translateY(-5px); box-shadow: 0 20px 60px rgba(0,0,0,0.1); }
+        .standar-card .number { width: 50px; height: 50px; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); border-radius: 14px; display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 600; color: white; margin-bottom: 20px; }
+        .standar-card h4 { font-family: 'Outfit', sans-serif; font-size: 1.1rem; font-weight: 500; color: var(--text-dark); margin-bottom: 10px; }
+        .standar-card p { font-size: 0.95rem; color: var(--text-muted); line-height: 1.6; }
+        .mutu-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+        .mutu-card { background: white; padding: 40px 30px; border-radius: 24px; text-align: center; box-shadow: 0 10px 40px rgba(0,0,0,0.05); transition: all 0.4s; }
+        .mutu-card:hover { transform: translateY(-10px); box-shadow: 0 30px 80px rgba(0,0,0,0.1); }
+        .mutu-card .icon { width: 80px; height: 80px; background: var(--bg-light); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 24px; transition: all 0.4s; }
+        .mutu-card:hover .icon { background: var(--primary); }
+        .mutu-card .icon i { font-size: 32px; color: var(--primary); transition: color 0.4s; }
+        .mutu-card:hover .icon i { color: white; }
+        .mutu-card h4 { font-family: 'Outfit', sans-serif; font-size: 1.2rem; font-weight: 500; color: var(--text-dark); margin-bottom: 12px; }
+        .mutu-card p { font-size: 0.95rem; color: var(--text-muted); line-height: 1.6; }
+        footer { background: var(--primary-dark); padding: 80px 0 30px; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 60px; margin-bottom: 60px; max-width: 1280px; margin-left: auto; margin-right: auto; padding: 0 24px; }
+        .footer-brand .logo { margin-bottom: 20px; }
+        .footer-brand .logo-text { color: white; }
+        .footer-brand p { color: rgba(255,255,255,0.6); font-size: 0.95rem; line-height: 1.7; }
+        .footer-links h4 { font-family: 'Outfit', sans-serif; font-size: 0.85rem; font-weight: 500; color: var(--secondary); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 24px; }
+        .footer-links ul { list-style: none; }
+        .footer-links li { margin-bottom: 12px; }
+        .footer-links a { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.95rem; transition: color 0.3s; }
+        .footer-links a:hover { color: white; }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 30px; display: flex; justify-content: space-between; align-items: center; color: rgba(255,255,255,0.5); font-size: 0.9rem; max-width: 1280px; margin: 0 auto; padding-left: 24px; padding-right: 24px; }
+        .footer-social { display: flex; gap: 12px; }
+        .footer-social a { width: 40px; height: 40px; background: rgba(255,255,255,0.1); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.6); transition: all 0.3s; }
+        .footer-social a:hover { background: var(--primary); color: white; }
+        .animate-on-scroll { opacity: 0; transform: translateY(40px); transition: all 0.8s ease; }
+        .animate-on-scroll.visible { opacity: 1; transform: translateY(0); }
+        .mobile-menu { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: var(--primary); z-index: 998; padding: 100px 40px; transform: translateX(100%); transition: transform 0.4s ease; }
+        .mobile-menu.active { transform: translateX(0); }
+        .mobile-menu ul { list-style: none; }
+        .mobile-menu li { margin-bottom: 24px; }
+        .mobile-menu a { color: white; text-decoration: none; font-size: 1.5rem; font-weight: 400; }
+        .mobile-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 10px; }
+        .mobile-toggle span { width: 24px; height: 2px; background: var(--text-dark); transition: all 0.3s; }
+        @media (max-width: 1024px) { .mega-menu { grid-template-columns: 1fr; min-width: 400px; } .mutu-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 768px) { .nav-links { display: none; } .mobile-toggle { display: flex; } .mobile-menu { display: block; } .page-header h1 { font-size: 2.5rem; } .section-container { grid-template-columns: 1fr; } .section-container.reverse { direction: ltr; } .section-icon { aspect-ratio: 16/9; } .vm-grid, .standar-grid { grid-template-columns: 1fr; } .mutu-grid { grid-template-columns: 1fr; } .footer-grid { grid-template-columns: 1fr; text-align: center; } .footer-bottom { flex-direction: column; gap: 20px; } }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo"><img src="https://raw.githubusercontent.com/prahlad168/Payangan-Hospital/main/logo.png" alt="Payangan Hospital"><span class="logo-text">Payangan Hospital</span></a>
+            <ul class="nav-links">
+                <li><a href="index.html">Beranda</a></li>
+                <li><a href="index.html#layanan">Layanan</a></li>
+                <li><a href="#">Tentang <i class="fas fa-chevron-down"></i></a>
+                    <div class="mega-menu">
+                        <a href="#sejarah" class="mega-item"><div class="icon"><i class="fas fa-landmark"></i></div><div class="text"><h4>Sejarah</h4><p>Perjalanan Payangan Hospital</p></div></a>
+                        <a href="#visimisi" class="mega-item"><div class="icon"><i class="fas fa-bullseye"></i></div><div class="text"><h4>Visi & Misi</h4><p>Arah dan tujuan kami</p></div></a>
+                        <a href="#standar" class="mega-item"><div class="icon"><i class="fas fa-clipboard-check"></i></div><div class="text"><h4>Standar Pelayanan</h4><p>Standar kualitas kami</p></div></a>
+                        <a href="#maklumat" class="mega-item"><div class="icon"><i class="fas fa-file-contract"></i></div><div class="text"><h4>Maklumat</h4><p>Janji pelayanan</p></div></a>
+                        <a href="#mutu" class="mega-item"><div class="icon"><i class="fas fa-award"></i></div><div class="text"><h4>Mutu</h4><p>Komitmen kualitas</p></div></a>
+                    </div>
+                </li>
+                <li><a href="index.html#dokter">Dokter</a></li>
+                <li><a href="index.html#kontak">Kontak</a></li>
+            </ul>
+            <div class="mobile-toggle" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+        </div>
+    </nav>
+    <div class="mobile-menu" id="mobileMenu">
+        <ul>
+            <li><a href="index.html" onclick="toggleMenu()">Beranda</a></li>
+            <li><a href="index.html#layanan" onclick="toggleMenu()">Layanan</a></li>
+            <li><a href="#sejarah" onclick="toggleMenu()">Sejarah</a></li>
+            <li><a href="#visimisi" onclick="toggleMenu()">Visi Misi</a></li>
+            <li><a href="#standar" onclick="toggleMenu()">Standar</a></li>
+            <li><a href="#maklumat" onclick="toggleMenu()">Maklumat</a></li>
+            <li><a href="#mutu" onclick="toggleMenu()">Mutu</a></li>
+            <li><a href="index.html#dokter" onclick="toggleMenu()">Dokter</a></li>
+            <li><a href="index.html#kontak" onclick="toggleMenu()">Kontak</a></li>
+        </ul>
+    </div>
+
+    <section class="page-header">
+        <div class="container">
+            <div class="section-label">Tentang Kami</div>
+            <h1>Mewujudkan Kesehatan Terbaik untuk Masyarakat</h1>
+            <p>Kenali lebih dalam tentang Payangan Hospital, komitmen kami dalam memberikan pelayanan kesehatan berkualitas</p>
+        </div>
+    </section>
+
+    <section class="content-section" id="sejarah">
+        <div class="section-container">
+            <div class="section-icon"><i class="fas fa-landmark"></i></div>
+            <div class="section-content">
+                <h2>Sejarah <span>Payangan Hospital</span></h2>
+                <p>Payangan Hospital didirikan pada tahun 2008 di Gianyar, Bali, sebagai respons terhadap kebutuhan masyarakat akan fasilitas kesehatan yang berkualitas di wilayah Payangan dan sekitarnya.</p>
+                <p>Dengan dukungan tenaga medis profesional dan fasilitas modern, Payangan Hospital berkembang menjadi salah satu rumah sakit terpercaya di Kabupaten Gianyar, melayani ribuan pasien setiap tahun dengan dedikasi tinggi.</p>
+                <div class="feature-list">
+                    <div class="feature-item"><i class="fas fa-calendar"></i><div class="text"><h4>Didirikan 2008</h4><p>Berawal dari klinik kecil, berkembang menjadi rumah sakit lengkap</p></div></div>
+                    <div class="feature-item"><i class="fas fa-users"></i><div class="text"><h4>5.000+ Pasien</h4><p>Telah melayani ribuan pasien dari Gianyar dan sekitarnya</p></div></div>
+                    <div class="feature-item"><i class="fas fa-user-md"></i><div class="text"><h4>25+ Dokter Spesialis</h4><p>Tim medis profesional dari berbagai bidang spesialis</p></div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section" id="visimisi" style="background: var(--bg-light);">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 60px;">
+                <div class="section-label">Visi & Misi</div>
+                <h2 style="font-size: 2.5rem; color: var(--text-dark);">Arah dan Tujuan Kami</h2>
+                <p style="font-size: 1.1rem; color: var(--text-muted); max-width: 600px; margin: 16px auto 0;">Komitmen kami dalam memberikan pelayanan kesehatan terbaik untuk masyarakat</p>
+            </div>
+            <div class="vm-grid">
+                <div class="vm-card visi animate-on-scroll">
+                    <h3><i class="fas fa-eye"></i> Visi</h3>
+                    <ul>
+                        <li>Menjadi rumah sakit pilihan utama masyarakat Gianyar dan sekitarnya dalam pelayanan kesehatan yang berkualitas dan terjangkau</li>
+                        <li>Menjadi pusat rujukan pelayanan kesehatan primer yang terpercaya dengan standar internasional</li>
+                        <li>Mengedepankan keselamatan pasien dan kepuasan keluarga pasien dalam setiap pelayanan</li>
+                    </ul>
+                </div>
+                <div class="vm-card misi animate-on-scroll">
+                    <h3><i class="fas fa-bullseye"></i> Misi</h3>
+                    <ul>
+                        <li>Memberikan pelayanan kesehatan yang profesional, aman, dan bermutu tinggi</li>
+                        <li>Mengembangkan SDM tenaga medis dan non-medis yang kompeten dan professional</li>
+                        <li>Memperluas dan meningkatkan fasilitas serta peralatan medis terkini</li>
+                        <li>Menerapkan standar pelayanan yang efektif dan efisien</li>
+                        <li>Menjalin kerja sama dengan institusi kesehatan lain untuk meningkatkan kualitas</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section" id="standar">
+        <div class="section-container reverse">
+            <div class="section-icon"><i class="fas fa-clipboard-check"></i></div>
+            <div class="section-content">
+                <h2>Standar <span>Pelayanan</span></h2>
+                <p>Kami menerapkan standar pelayanan yang ketat untuk memastikan setiap pasien mendapatkan perawatan terbaik. Standar ini mencakup berbagai aspek mulai dari keselamatan, kualitas, hingga kepuasan pasien.</p>
+                <div class="standar-grid">
+                    <div class="standar-card animate-on-scroll"><div class="number">01</div><h4>Keselamatan Pasien</h4><p>Mengutamakan keselamatan pasien dengan prosedur yang ketat dan monitoring berkelanjutan</p></div>
+                    <div class="standar-card animate-on-scroll"><div class="number">02</div><h4>Pelayanan Prima</h4><p>Memberikan pelayanan terbaik dengan ramah, cepat, dan tepat waktu</p></div>
+                    <div class="standar-card animate-on-scroll"><div class="number">03</div><h4>Fasilitas Memadai</h4><p>Menyediakan fasilitas dan peralatan medis yang modern dan terawat</p></div>
+                    <div class="standar-card animate-on-scroll"><div class="number">04</div><h4>Tenaga Profesional</h4><p>Tim medis berlisensi dengan pengalaman dan kompetensi terverifikasi</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section" id="maklumat" style="background: var(--bg-light);">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 60px;">
+                <div class="section-label">Maklumat Pelayanan</div>
+                <h2 style="font-size: 2.5rem; color: var(--text-dark);">Janji Kami Kepada Masyarakat</h2>
+                <p style="font-size: 1.1rem; color: var(--text-muted); max-width: 700px; margin: 16px auto 0;">Maklumat ini adalah komitmen kami dalam memberikan pelayanan kesehatan yang terbaik</p>
+            </div>
+            <div class="standar-grid">
+                <div class="standar-card animate-on-scroll"><div class="number" style="background: linear-gradient(135deg, var(--accent) 0%, #fbbf24 100%);">1</div><h4>Melayani dengan Sepenuh Hati</h4><p>Setiap pasien dilayani dengan penuh empati, rasa hormat, dan perhatian tanpa membedakan status sosial</p></div>
+                <div class="standar-card animate-on-scroll"><div class="number" style="background: linear-gradient(135deg, var(--accent) 0%, #fbbf24 100%);">2</div><h4>Proses Cepat dan Tepat</h4><p>Pelayanan administrasi dan medis diselesaikan dengan cepat, tepat, dan transparan</p></div>
+                <div class="standar-card animate-on-scroll"><div class="number" style="background: linear-gradient(135deg, var(--accent) 0%, #fbbf24 100%);">3</div><h4>Informasi yang Jelas</h4><p>Memberikan informasi yang jelas tentang diagnosis, tindakan, dan biaya kepada pasien</p></div>
+                <div class="standar-card animate-on-scroll"><div class="number" style="background: linear-gradient(135deg, var(--accent) 0%, #fbbf24 100%);">4</div><h4>Privasi dan Kerahasiaan</h4><p>Menjaga privasi dan kerahasiaan medis setiap pasien sesuai etika kedokteran</p></div>
+                <div class="standar-card animate-on-scroll"><div class="number" style="background: linear-gradient(135deg, var(--accent) 0%, #fbbf24 100%);">5</div><h4>Pelayanan 24 Jam</h4><p>IGD dan layanan kritis tersedia 24 jam untuk menangani keadaan darurat</p></div>
+                <div class="standar-card animate-on-scroll"><div class="number" style="background: linear-gradient(135deg, var(--accent) 0%, #fbbf24 100%);">6</div><h4>Hargai Masukan</h4><p>Menampung dan menindaklanjuti keluhan serta saran dari pasien dan keluarga</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section" id="mutu">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 60px;">
+                <div class="section-label">Mutu</div>
+                <h2 style="font-size: 2.5rem; color: var(--text-dark);">Komitmen Mutu Kami</h2>
+                <p style="font-size: 1.1rem; color: var(--text-muted); max-width: 600px; margin: 16px auto 0;">Standar kualitas yang kami terapkan untuk menjaga kepercayaan pasien</p>
+            </div>
+            <div class="mutu-grid">
+                <div class="mutu-card animate-on-scroll"><div class="icon"><i class="fas fa-heartbeat"></i></div><h4>AKREDITASI</h4><p>Berusaha memenuhi standar akreditasi rumah sakit dari Kemenkes RI untuk menjamin kualitas pelayanan</p></div>
+                <div class="mutu-card animate-on-scroll"><div class="icon"><i class="fas fa-shield-alt"></i></div><h4>KESELAMATAN</h4><p>Menerapkan protokol keselamatan pasien (patient safety) di seluruh unit pelayanan</p></div>
+                <div class="mutu-card animate-on-scroll"><div class="icon"><i class="fas fa-chart-line"></i></div><h4>PENGENDALIAN MUTU</h4><p>Melakukan evaluasi dan perbaikan mutu secara berkala untuk meningkatkan kualitas layanan</p></div>
+                <div class="mutu-card animate-on-scroll"><div class="icon"><i class="fas fa-user-md"></i></div><h4>PELATIHAN SDM</h4><p>Mengadakan pelatihan dan pengembangan kompetensi tenaga medis secara berkelanjutan</p></div>
+                <div class="mutu-card animate-on-scroll"><div class="icon"><i class="fas fa-tools"></i></div><h4>PERALATAN</h4><p>Melakukan kalibrasi dan pemeliharaan berkala terhadap seluruh peralatan medis</p></div>
+                <div class="mutu-card animate-on-scroll"><div class="icon"><i class="fas fa-comments"></i></div><h4>KEPUASAN PASIEN</h4><p>Mengukur dan meningkatkan kepuasan pasien melalui survei dan umpan balik berkala</p></div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-brand"><a href="index.html" class="logo"><img src="https://raw.githubusercontent.com/prahlad168/Payangan-Hospital/main/logo.png" alt="Payangan Hospital"><span class="logo-text">Payangan Hospital</span></a><p>Rumah Sakit Payangan Hospital menyediakan layanan kesehatan berkualitas dengan tenaga medis profesional dan fasilitas modern.</p></div>
+            <div class="footer-links"><h4>Layanan</h4><ul><li><a href="index.html#layanan">IGD 24 Jam</a></li><li><a href="index.html#layanan">Rawat Inap</a></li><li><a href="index.html#layanan">Konsultasi</a></li><li><a href="index.html#layanan">Laboratorium</a></li></ul></div>
+            <div class="footer-links"><h4>Tentang</h4><ul><li><a href="#sejarah">Sejarah</a></li><li><a href="#visimisi">Visi Misi</a></li><li><a href="#standar">Standar</a></li><li><a href="#maklumat">Maklumat</a></li></ul></div>
+            <div class="footer-links"><h4>Kontak</h4><ul><li><a href="tel:+623619088087">+62 361 9088087</a></li><li><a href="index.html#kontak">Jl. Raya Payangan</a></li><li><a href="index.html#kontak">Gianyar, Bali</a></li></ul></div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Payangan Hospital. All rights reserved.</p>
+            <div class="footer-social"><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fab fa-twitter"></i></a><a href="#"><i class="fab fa-youtube"></i></a></div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('active'); }
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => { anchor.addEventListener('click', function(e) { const href = this.getAttribute('href'); if (href !== '#') { e.preventDefault(); const target = document.querySelector(href); if (target) { setTimeout(() => { target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 100); } } }); });
+        const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); } }); }, { threshold: 0.1 });
+        document.querySelectorAll('.animate-on-scroll').forEach(el => { observer.observe(el); });
+    </script>
+</body>
+</html>
