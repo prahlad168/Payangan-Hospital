@@ -3,1845 +3,447 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rumah Sakit Payangan Hospital - Pusat Layanan Kesehatan Terpercaya</title>
+    <meta name="description" content="Payangan Hospital - Rumah Sakit terpercaya di Gianyar, Bali. Layanan kesehatan berkualitas dengan tenaga medis profesional dan fasilitas modern.">
+    <title>Payangan Hospital - Pavitram Idam Uttamam</title>
+    <link rel="icon" type="image/png" href="logo.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
             --primary: #1a5f5a;
-            --primary-light: #4d9d97;
+            --primary-light: #2d8a84;
             --primary-dark: #0f3d3a;
             --secondary: #c9a86c;
-            --bg-light: #fdfcfb;
+            --accent: #f59e0b;
+            --bg-white: #ffffff;
+            --bg-light: #f8fafc;
             --bg-cream: #f8f6f3;
             --text-dark: #2c3e3c;
             --text-muted: #8a9a9a;
-            --text-light: #a8b5b4;
-            --white: #ffffff;
-            --shadow-sm: 0 2px 12px rgba(26, 95, 90, 0.05);
-            --shadow-md: 0 8px 40px rgba(26, 95, 90, 0.08);
-            --shadow-lg: 0 20px 60px rgba(26, 95, 90, 0.1);
-            --radius-sm: 8px;
-            --radius-md: 16px;
-            --radius-lg: 24px;
         }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            font-weight: 300;
-            background: var(--bg-light);
-            color: var(--text-dark);
-            line-height: 1.8;
-            overflow-x: hidden;
-            letter-spacing: 0.01em;
-        }
-
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Cormorant Garamond', serif;
-            font-weight: 400;
-            line-height: 1.3;
-            letter-spacing: 0.02em;
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        .animate-on-scroll {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .animate-on-scroll.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Outfit', sans-serif; font-weight: 300; background: var(--bg-white); color: var(--text-dark); line-height: 1.7; overflow-x: hidden; }
+        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; font-weight: 500; line-height: 1.2; }
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+        
         /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            padding: 1.5rem 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: all 0.5s ease;
-        }
-
-        nav.scrolled {
-            background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(20px);
-            box-shadow: var(--shadow-sm);
-            padding: 1rem 5%;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            text-decoration: none;
-        }
-
-        .logo-img {
-            width: 45px;
-            height: auto;
-            object-fit: contain;
-            transition: transform 0.3s ease;
-        }
-
-        .logo:hover .logo-img {
-            transform: scale(1.05);
-        }
-
-        .logo-text-wrapper {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .logo-text {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.4rem;
-            font-weight: 400;
-            color: var(--white);
-            letter-spacing: 0.03em;
-            transition: color 0.4s ease;
-        }
-
-        .slogan {
-            font-family: 'Inter', sans-serif;
-            font-size: 0.65rem;
-            font-weight: 300;
-            color: var(--secondary);
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-        }
-
-        nav.scrolled .slogan {
-            color: var(--text-muted);
-        }
-
-        nav.scrolled .logo-text {
-            color: var(--primary);
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 8px;
-            list-style: none;
-        }
-
-        .nav-links > li {
-            position: relative;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: rgba(255, 255, 255, 0.9);
-            font-weight: 300;
-            font-size: 0.85rem;
-            letter-spacing: 0.05em;
-            padding: 10px 16px;
-            border-radius: 50px;
-            display: block;
-            transition: all 0.3s ease;
-        }
-
-        .nav-links a i {
-            font-size: 10px;
-            margin-left: 4px;
-        }
-
-        nav.scrolled .nav-links a {
-            color: var(--text-muted);
-        }
-
-        .nav-links a:hover {
-            color: var(--secondary);
-        }
-
-        nav.scrolled .nav-links a:hover {
-            color: var(--primary);
-        }
-
-        /* Mega Menu */
-        .mega-menu {
-            position: absolute;
-            top: 100%;
-            left: 50%;
-            transform: translateX(-50%) translateY(20px);
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 25px 80px rgba(0,0,0,0.12);
-            padding: 20px;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.4s ease;
-            min-width: 500px;
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 8px;
-            z-index: 100;
-        }
-
-        .nav-links > li:hover .mega-menu {
-            opacity: 1;
-            visibility: visible;
-            transform: translateX(-50%) translateY(10px);
-        }
-
-        .mega-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 14px;
-            padding: 16px;
-            border-radius: 14px;
-            text-decoration: none;
-            transition: all 0.3s;
-        }
-
-        .mega-item:hover {
-            background: var(--bg-light);
-        }
-
-        .mega-item .icon {
-            width: 44px;
-            height: 44px;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-        }
-
-        .mega-item .icon i {
-            color: white;
-            font-size: 16px;
-        }
-
-        .mega-item .text h4 {
-            font-family: 'Outfit', sans-serif;
-            font-size: 0.95rem;
-            font-weight: 500;
-            color: var(--text-dark);
-            margin-bottom: 2px;
-            transition: color 0.3s;
-        }
-
-        .mega-item:hover .text h4 {
-            color: var(--primary);
-        }
-
-        .mega-item .text p {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            line-height: 1.4;
-        }
-
-        .nav-cta {
-            background: var(--secondary);
-            color: var(--text-dark) !important;
-            padding: 0.7rem 1.5rem;
-            border-radius: 50px;
-            font-weight: 600 !important;
-            transition: all 0.3s;
-        }
-
-        .nav-cta:hover {
-            background: var(--secondary-light);
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-md);
-        }
-
-        .mobile-toggle {
-            display: none;
-            flex-direction: column;
-            gap: 5px;
-            cursor: pointer;
-            padding: 10px;
-        }
-
-        .mobile-toggle span {
-            width: 25px;
-            height: 2px;
-            background: var(--white);
-            transition: all 0.3s;
-        }
-
-        nav.scrolled .mobile-toggle span {
-            background: var(--text-dark);
-        }
-
-        /* Hero Section */
-        .hero {
-            min-height: 100vh;
-            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 50%;
-            height: 100%;
-            background: linear-gradient(180deg, rgba(201, 168, 108, 0.08) 0%, transparent 100%);
-        }
-
-        .hero-container {
-            width: 90%;
-            max-width: 1400px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1.2fr 1fr;
-            gap: 6rem;
-            align-items: center;
-            position: relative;
-            z-index: 1;
-        }
-
-        .hero-content {
-            animation: fadeInUp 1s ease forwards;
-        }
-
-        .hero-badge {
-            display: inline-block;
-            color: var(--secondary);
-            font-size: 0.75rem;
-            font-weight: 400;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            margin-bottom: 1.5rem;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            color: var(--white);
-            line-height: 1.2;
-            margin-bottom: 1.5rem;
-            font-weight: 300;
-        }
-
-        .hero h1 span {
-            color: var(--secondary);
-        }
-
-        .hero p {
-            font-size: 1.1rem;
-            color: rgba(255, 255, 255, 0.75);
-            margin-bottom: 2.5rem;
-            max-width: 450px;
-            font-weight: 300;
-            line-height: 1.9;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 1.5rem;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.9rem 2rem;
-            border-radius: 4px;
-            font-weight: 400;
-            font-size: 0.9rem;
-            letter-spacing: 0.03em;
-            text-decoration: none;
-            transition: all 0.4s ease;
-            cursor: pointer;
-            border: none;
-        }
-
-        .btn-primary {
-            background: var(--secondary);
-            color: var(--text-dark);
-        }
-
-        .btn-primary:hover {
-            background: #d4b87a;
-            transform: translateY(-2px);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: var(--white);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-        }
-
-        .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: rgba(255, 255, 255, 0.5);
-        }
-
-        .btn svg {
-            width: 18px;
-            height: 18px;
-        }
-
-        .btn-primary svg {
-            fill: var(--text-dark);
-        }
-
-        .hero-visual {
-            position: relative;
-            animation: fadeInUp 1s ease 0.3s forwards;
-            opacity: 0;
-        }
-
-        .hero-image-container {
-            position: relative;
-            width: 100%;
-            aspect-ratio: 4/5;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: var(--shadow-lg);
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .hero-image {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .hero-image svg {
-            width: 40%;
-            height: 40%;
-            fill: rgba(255, 255, 255, 0.15);
-        }
-
-        .floating-card {
-            position: absolute;
-            background: rgba(255, 255, 255, 0.95);
-            padding: 1rem 1.5rem;
-            border-radius: 12px;
-            box-shadow: var(--shadow-md);
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            backdrop-filter: blur(10px);
-        }
-
-        .floating-card.card-1 {
-            top: 10%;
-            right: -8%;
-        }
-
-        .floating-card.card-2 {
-            bottom: 10%;
-            left: -8%;
-        }
-
-        .floating-card .icon {
-            width: 40px;
-            height: 40px;
-            background: linear-gradient(135deg, var(--primary), var(--primary-light));
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .floating-card .icon svg {
-            width: 24px;
-            height: 24px;
-            fill: white;
-        }
-
-        .floating-card .info h4 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.5rem;
-            font-weight: 500;
-            color: var(--text-dark);
-        }
-
-        .floating-card .info p {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            margin: 0;
-            font-weight: 300;
-        }
-
-        /* Stats Section */
-        .stats {
-            background: var(--white);
-            padding: 5rem 5%;
-            position: relative;
-        }
-
-        .stats-container {
-            max-width: 1100px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 3rem;
-        }
-
-        .stat-item {
-            text-align: center;
-        }
-
-        .stat-number {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 3rem;
-            font-weight: 400;
-            color: var(--primary);
-            line-height: 1;
-        }
-
-        .stat-label {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            margin-top: 0.75rem;
-            font-weight: 300;
-        }
-
-        /* Services Section */
-        .services {
-            padding: 8rem 5%;
-            background: var(--bg-cream);
-        }
-
-        .section-header {
-            text-align: center;
-            max-width: 600px;
-            margin: 0 auto 5rem;
-        }
-
-        .section-label {
-            display: inline-block;
-            font-size: 0.7rem;
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 0.2em;
-            color: var(--primary);
-            margin-bottom: 1rem;
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            color: var(--text-dark);
-            margin-bottom: 1rem;
-            font-weight: 400;
-        }
-
-        .section-subtitle {
-            font-size: 1rem;
-            color: var(--text-muted);
-            font-weight: 300;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .service-card {
-            background: var(--white);
-            padding: 2.5rem;
-            border-radius: 16px;
-            text-align: center;
-            transition: all 0.5s ease;
-            border: 1px solid rgba(26, 95, 90, 0.05);
-        }
-
-        .service-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .service-icon {
-            width: 70px;
-            height: 70px;
-            background: var(--bg-cream);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1.5rem;
-            transition: all 0.4s ease;
-        }
-
-        .service-card:hover .service-icon {
-            background: var(--primary);
-        }
-
-        .service-icon svg {
-            width: 30px;
-            height: 30px;
-            fill: var(--primary);
-            transition: fill 0.4s ease;
-        }
-
-        .service-card:hover .service-icon svg {
-            fill: var(--white);
-        }
-
-        .service-card h3 {
-            font-size: 1.4rem;
-            color: var(--text-dark);
-            margin-bottom: 0.75rem;
-            font-weight: 500;
-        }
-
-        .service-card p {
-            font-size: 0.95rem;
-            color: var(--text-muted);
-            line-height: 1.7;
-            font-weight: 300;
-        }
-
-        /* About Section */
-        .about {
-            padding: 8rem 5%;
-            background: var(--white);
-        }
-
-        .about-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 5rem;
-            align-items: center;
-        }
-
-        .about-visual {
-            position: relative;
-        }
-
-        .about-image {
-            width: 100%;
-            aspect-ratio: 4/5;
-            background: var(--bg-cream);
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .about-image svg {
-            width: 50%;
-            height: 50%;
-            fill: var(--primary);
-            opacity: 0.3;
-        }
-
-        .experience-badge {
-            position: absolute;
-            bottom: -20px;
-            right: -20px;
-            background: var(--secondary);
-            padding: 1.5rem 2rem;
-            border-radius: 12px;
-            text-align: center;
-            box-shadow: var(--shadow-lg);
-        }
-
-        .experience-badge .number {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 2.8rem;
-            font-weight: 400;
-            color: var(--text-dark);
-            line-height: 1;
-        }
-
-        .experience-badge .text {
-            font-size: 0.8rem;
-            color: var(--text-dark);
-            font-weight: 400;
-        }
-
-        .about-content h2 {
-            font-size: 2.5rem;
-            color: var(--text-dark);
-            margin-bottom: 1.5rem;
-            font-weight: 400;
-        }
-
-        .about-content h2 span {
-            color: var(--primary);
-        }
-
-        .about-content > p {
-            color: var(--text-muted);
-            font-size: 1rem;
-            margin-bottom: 2rem;
-            line-height: 1.9;
-            font-weight: 300;
-        }
-
-        .about-features {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
-        }
-
-        .about-feature {
-            display: flex;
-            align-items: flex-start;
-            gap: 1rem;
-        }
-
-        .about-feature .icon {
-            width: 40px;
-            height: 40px;
-            min-width: 40px;
-            background: var(--bg-cream);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .about-feature .icon svg {
-            width: 20px;
-            height: 20px;
-            fill: var(--primary);
-        }
-
-        .about-feature h4 {
-            font-size: 0.95rem;
-            font-weight: 500;
-            color: var(--text-dark);
-            margin-bottom: 0.2rem;
-        }
-
-        .about-feature p {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            font-weight: 300;
-        }
-
-        /* Doctors Section */
-        .doctors {
-            padding: 8rem 5%;
-            background: var(--bg-cream);
-        }
-
-        .doctors-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .doctor-card {
-            background: var(--white);
-            border-radius: 16px;
-            overflow: hidden;
-            transition: all 0.4s ease;
-            border: 1px solid rgba(26, 95, 90, 0.05);
-        }
-
-        .doctor-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .doctor-image {
-            width: 100%;
-            aspect-ratio: 1;
-            background: linear-gradient(135deg, var(--bg-cream), var(--white));
-            position: relative;
-            overflow: hidden;
-        }
-
-        .doctor-image svg {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 50%;
-            height: 50%;
-            fill: var(--primary);
-            opacity: 0.2;
-        }
-
-        .doctor-info {
-            padding: 1.5rem;
-            text-align: center;
-        }
-
-        .doctor-info h3 {
-            font-size: 1.2rem;
-            color: var(--text-dark);
-            margin-bottom: 0.3rem;
-            font-weight: 500;
-        }
-
-        .doctor-info .specialty {
-            color: var(--primary);
-            font-weight: 400;
-            font-size: 0.85rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .doctor-info .experience {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            font-weight: 300;
-        }
-
-        /* Gallery Slider Styles */
-        .gallery {
-            padding: 8rem 5%;
-            background: var(--white);
-        }
-
-        .gallery-slider {
-            position: relative;
-            max-width: 1000px;
-            margin: 0 auto;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: var(--shadow-lg);
-        }
-
-        .slides {
-            position: relative;
-            height: 450px;
-        }
-
-        .slide {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            transition: opacity 1s ease;
-        }
-
-        .slide.active {
-            opacity: 1;
-        }
-
-        .slide-content {
-            text-align: center;
-            color: white;
-            padding: 40px;
-            max-width: 600px;
-        }
-
-        .slide-content h2 {
-            font-size: 2rem;
-            font-weight: 400;
-            margin-bottom: 1rem;
-            letter-spacing: 0.02em;
-        }
-
-        .slide-content p {
-            font-size: 1rem;
-            opacity: 0.9;
-            line-height: 1.8;
-            font-weight: 300;
-        }
-
-        .slider-btn {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(255,255,255,0.9);
-            border: none;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            cursor: pointer;
-            font-size: 1.2rem;
-            color: var(--primary);
-            transition: all 0.3s ease;
-            backdrop-filter: blur(5px);
-        }
-
-        .slider-btn:hover {
-            background: white;
-            transform: translateY(-50%) scale(1.05);
-        }
-
-        .slider-btn.prev { left: 20px; }
-        .slider-btn.next { right: 20px; }
-
-        .slider-dots {
-            position: absolute;
-            bottom: 25px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 10px;
-        }
-
-        .dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.5);
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .dot.active {
-            background: white;
-            width: 24px;
-            border-radius: 4px;
-        }
-
-        .dot:hover {
-            background: rgba(255,255,255,0.8);
-        }
-
-        /* Contact Section */
-        .contact {
-            padding: 8rem 5%;
-            background: var(--bg-cream);
-        }
-
-        .contact-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1.5fr;
-            gap: 5rem;
-        }
-
-        .contact-info h2 {
-            font-size: 2.5rem;
-            color: var(--text-dark);
-            margin-bottom: 1rem;
-            font-weight: 400;
-        }
-
-        .contact-info > p {
-            color: var(--text-muted);
-            margin-bottom: 2rem;
-            font-weight: 300;
-        }
-
-        .contact-details {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 1rem;
-        }
-
-        .contact-item .icon {
-            width: 48px;
-            height: 48px;
-            min-width: 48px;
-            background: var(--white);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .contact-item .icon svg {
-            width: 22px;
-            height: 22px;
-            fill: var(--primary);
-        }
-
-        .contact-item h4 {
-            font-size: 1rem;
-            font-weight: 500;
-            color: var(--text-dark);
-            margin-bottom: 0.3rem;
-        }
-
-        .contact-item p {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            font-weight: 300;
-        }
-
-        .contact-map {
-            background: var(--white);
-            border-radius: 20px;
-            overflow: hidden;
-            position: relative;
-            min-height: 450px;
-            box-shadow: var(--shadow-md);
-        }
-
-        .contact-map iframe {
-            width: 100%;
-            height: 100%;
-            position: absolute;
-            inset: 0;
-            border: none;
-        }
-
+        .navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 20px 0; transition: all 0.4s ease; }
+        .navbar.scrolled { background: rgba(255,255,255,0.98); backdrop-filter: blur(20px); box-shadow: 0 1px 20px rgba(0,0,0,0.05); padding: 14px 0; }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; }
+        .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .logo img { width: 45px; height: auto; }
+        .logo-text { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 500; color: white; transition: color 0.4s; }
+        .logo-text-sub { font-size: 0.6rem; color: rgba(255,255,255,0.7); font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase; }
+        .navbar.scrolled .logo-text { color: var(--primary); }
+        .navbar.scrolled .logo-text-sub { color: var(--text-muted); }
+        .nav-links { display: flex; gap: 8px; list-style: none; }
+        .nav-links > li { position: relative; }
+        .nav-links a { text-decoration: none; color: rgba(255,255,255,0.9); font-size: 0.85rem; font-weight: 400; padding: 10px 16px; border-radius: 50px; display: block; transition: all 0.3s ease; }
+        .navbar.scrolled .nav-links a { color: var(--text-muted); }
+        .nav-links a i { font-size: 10px; margin-left: 4px; }
+        .nav-links a:hover { color: var(--secondary); }
+        .navbar.scrolled .nav-links a:hover { color: var(--primary); }
+        .mega-menu { position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(20px); background: white; border-radius: 20px; box-shadow: 0 25px 80px rgba(0,0,0,0.12); padding: 20px; opacity: 0; visibility: hidden; transition: all 0.4s ease; min-width: 500px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; z-index: 100; }
+        .nav-links > li:hover .mega-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(10px); }
+        .mega-item { display: flex; align-items: flex-start; gap: 14px; padding: 16px; border-radius: 14px; text-decoration: none; transition: all 0.3s; }
+        .mega-item:hover { background: var(--bg-light); }
+        .mega-item .icon { width: 44px; height: 44px; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .mega-item .icon i { color: white; font-size: 16px; }
+        .mega-item .text h4 { font-family: 'Outfit', sans-serif; font-size: 0.95rem; font-weight: 500; color: var(--text-dark); margin-bottom: 2px; }
+        .mega-item:hover .text h4 { color: var(--primary); }
+        .mega-item .text p { font-size: 0.8rem; color: var(--text-muted); }
+        .nav-cta { background: var(--secondary) !important; color: var(--text-dark) !important; }
+        .nav-cta:hover { background: var(--accent) !important; color: white !important; }
+        
+        /* Hero Slider */
+        .hero-slider { position: relative; min-height: 100vh; overflow: hidden; background: var(--primary-dark); }
+        .slides-container { position: relative; width: 100%; height: 100vh; }
+        .slide { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; align-items: center; opacity: 0; transition: opacity 1s ease; }
+        .slide.active { opacity: 1; }
+        .slide-bg { position: absolute; inset: 0; }
+        .slide-1 .slide-bg { background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 50%, var(--primary-light) 100%); }
+        .slide-2 .slide-bg { background: linear-gradient(135deg, #1e3a5f 0%, #2563eb 100%); }
+        .slide-3 .slide-bg { background: linear-gradient(135deg, #1e1b4b 0%, #4f46e5 100%); }
+        .slide-4 .slide-bg { background: linear-gradient(135deg, #134e4a 0%, #0d9488 100%); }
+        .slide-pattern { position: absolute; inset: 0; background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); }
+        .slide-inner { position: relative; z-index: 2; display: grid; grid-template-columns: 1.1fr 1fr; gap: 80px; align-items: center; width: 100%; max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+        .slide-content { color: white; }
+        .slide-badge { display: inline-flex; align-items: center; gap: 10px; background: rgba(255,255,255,0.15); backdrop-filter: blur(10px); padding: 10px 20px; border-radius: 50px; font-size: 0.8rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 24px; border: 1px solid rgba(255,255,255,0.2); }
+        .slide-badge i { color: var(--secondary); }
+        .slide-content h2 { font-size: 3.5rem; margin-bottom: 20px; font-weight: 400; line-height: 1.15; }
+        .slide-content p { font-size: 1.1rem; color: rgba(255,255,255,0.85); margin-bottom: 32px; max-width: 480px; line-height: 1.8; }
+        .slide-stats { display: flex; gap: 40px; }
+        .slide-stat { text-align: left; }
+        .slide-stat .number { font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 600; color: var(--secondary); line-height: 1; }
+        .slide-stat .label { font-size: 0.85rem; color: rgba(255,255,255,0.7); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 4px; }
+        .slide-visual { display: flex; justify-content: center; align-items: center; }
+        .slide-circle { width: 350px; height: 350px; background: rgba(255,255,255,0.08); backdrop-filter: blur(20px); border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 2px solid rgba(255,255,255,0.15); animation: pulse 4s ease-in-out infinite; }
+        .slide-circle i { font-size: 100px; color: rgba(255,255,255,0.2); }
+        @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.03); } }
+        
+        /* Slider Navigation */
+        .slider-nav { position: absolute; bottom: 60px; left: 50%; transform: translateX(-50%); display: flex; align-items: center; gap: 20px; z-index: 10; }
+        .slider-btn { width: 50px; height: 50px; background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; cursor: pointer; transition: all 0.3s ease; }
+        .slider-btn:hover { background: white; color: var(--primary); transform: scale(1.1); }
+        .slider-dots { display: flex; gap: 12px; }
+        .slider-dot { width: 40px; height: 4px; background: rgba(255,255,255,0.3); border-radius: 2px; cursor: pointer; transition: all 0.3s ease; }
+        .slider-dot.active { background: var(--secondary); width: 60px; }
+        .slider-dot:hover { background: rgba(255,255,255,0.5); }
+        
+        /* Slide Counter */
+        .slide-counter { position: absolute; bottom: 60px; right: 60px; display: flex; align-items: baseline; gap: 8px; color: white; z-index: 10; }
+        .slide-counter .current { font-family: 'Playfair Display', serif; font-size: 3rem; font-weight: 600; color: var(--secondary); }
+        .slide-counter .total { font-size: 1rem; color: rgba(255,255,255,0.5); }
+        
+        /* Scroll Indicator */
+        .scroll-indicator { position: absolute; bottom: 140px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 8px; color: rgba(255,255,255,0.5); font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; z-index: 10; }
+        .scroll-indicator .mouse { width: 24px; height: 38px; border: 2px solid rgba(255,255,255,0.3); border-radius: 12px; position: relative; }
+        .scroll-indicator .wheel { width: 4px; height: 8px; background: rgba(255,255,255,0.5); border-radius: 2px; position: absolute; top: 6px; left: 50%; transform: translateX(-50%); animation: scroll 2s ease-in-out infinite; }
+        @keyframes scroll { 0%, 100% { transform: translateX(-50%) translateY(0); opacity: 1; } 50% { transform: translateX(-50%) translateY(12px); opacity: 0.3; } }
+        
+        /* Stats Bar */
+        .stats-bar { background: var(--primary); padding: 50px 0; }
+        .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; }
+        .stat-item { text-align: center; }
+        .stat-number { font-family: 'Playfair Display', serif; font-size: 2.8rem; font-weight: 600; color: white; }
+        .stat-label { font-size: 0.9rem; color: rgba(255,255,255,0.8); margin-top: 4px; }
+        
+        /* Services */
+        .services { padding: 100px 0; background: var(--bg-white); }
+        .section-header { text-align: center; max-width: 600px; margin: 0 auto 60px; }
+        .section-label { font-size: 0.75rem; font-weight: 500; color: var(--primary); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 12px; }
+        .section-title { font-size: 2.5rem; color: var(--text-dark); margin-bottom: 16px; }
+        .section-subtitle { font-size: 1rem; color: var(--text-muted); }
+        .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+        .service-card { background: var(--bg-light); padding: 36px 28px; border-radius: 20px; text-align: center; transition: all 0.4s ease; border: 1px solid transparent; }
+        .service-card:hover { transform: translateY(-8px); box-shadow: 0 20px 50px rgba(0,0,0,0.08); border-color: var(--primary); }
+        .service-icon { width: 70px; height: 70px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; transition: all 0.4s ease; box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
+        .service-card:hover .service-icon { background: var(--primary); }
+        .service-icon i { font-size: 26px; color: var(--primary); transition: color 0.4s; }
+        .service-card:hover .service-icon i { color: white; }
+        .service-card h3 { font-size: 1.2rem; color: var(--text-dark); margin-bottom: 10px; }
+        .service-card p { font-size: 0.9rem; color: var(--text-muted); }
+        
         /* Footer */
-        footer {
-            background: var(--primary-dark);
-            padding: 5rem 5% 2rem;
-        }
-
-        .footer-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 4rem;
-            margin-bottom: 3rem;
-        }
-
-        .footer-brand .logo {
-            margin-bottom: 1.5rem;
-        }
-
-        .footer-brand .logo-text {
-            color: var(--white);
-        }
-
-        .footer-brand p {
-            color: rgba(255, 255, 255, 0.6);
-            font-size: 0.9rem;
-            line-height: 1.8;
-            font-weight: 300;
-        }
-
-        .footer-links h4 {
-            font-size: 0.85rem;
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: var(--secondary);
-            margin-bottom: 1.5rem;
-        }
-
-        .footer-links ul {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: 0.8rem;
-        }
-
-        .footer-links a {
-            color: rgba(255, 255, 255, 0.6);
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 300;
-            transition: color 0.3s ease;
-        }
-
-        .footer-links a:hover {
-            color: var(--white);
-        }
-
-        .footer-bottom {
-            border-top: 1px solid rgba(255, 255, 255, 0.08);
-            padding-top: 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            color: rgba(255, 255, 255, 0.5);
-            font-size: 0.85rem;
-            font-weight: 300;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .social-links a {
-            width: 36px;
-            height: 36px;
-            background: rgba(255, 255, 255, 0.08);
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-        }
-
-        .social-links a:hover {
-            background: var(--secondary);
-        }
-
-        .social-links svg {
-            width: 18px;
-            height: 18px;
-            fill: rgba(255, 255, 255, 0.7);
-        }
-
-        .social-links a:hover svg {
-            fill: var(--text-dark);
-        }
-
-        /* Mobile Navigation */
-        .mobile-menu {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: var(--primary);
-            z-index: 999;
-            padding: 6rem 2rem 2rem;
-            transform: translateX(100%);
-            transition: transform 0.4s;
-        }
-
-        .mobile-menu.active {
-            transform: translateX(0);
-        }
-
-        .mobile-menu ul {
-            list-style: none;
-        }
-
-        .mobile-menu li {
-            margin-bottom: 1.5rem;
-        }
-
-        .mobile-menu a {
-            color: var(--white);
-            text-decoration: none;
-            font-size: 1.5rem;
-            font-weight: 300;
-        }
-
-        /* Responsive */
+        footer { background: var(--primary-dark); padding: 60px 0 30px; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 50px; margin-bottom: 40px; }
+        .footer-brand .logo { margin-bottom: 16px; }
+        .footer-brand .logo-text { color: white; }
+        .footer-brand p { color: rgba(255,255,255,0.6); font-size: 0.9rem; line-height: 1.7; }
+        .footer-links h4 { font-size: 0.8rem; font-weight: 500; color: var(--secondary); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 16px; }
+        .footer-links ul { list-style: none; }
+        .footer-links li { margin-bottom: 10px; }
+        .footer-links a { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.9rem; transition: color 0.3s; }
+        .footer-links a:hover { color: white; }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; color: rgba(255,255,255,0.5); font-size: 0.85rem; }
+        .footer-social { display: flex; gap: 10px; }
+        .footer-social a { width: 36px; height: 36px; background: rgba(255,255,255,0.1); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.6); transition: all 0.3s; }
+        .footer-social a:hover { background: var(--primary); color: white; }
+        
+        /* Mobile */
+        .mobile-menu { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: var(--primary); z-index: 998; padding: 100px 40px; transform: translateX(100%); transition: transform 0.4s ease; }
+        .mobile-menu.active { transform: translateX(0); }
+        .mobile-menu ul { list-style: none; }
+        .mobile-menu li { margin-bottom: 20px; }
+        .mobile-menu a { color: white; text-decoration: none; font-size: 1.4rem; font-weight: 400; }
+        .mobile-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 10px; }
+        .mobile-toggle span { width: 24px; height: 2px; background: white; transition: all 0.3s; }
+        .navbar.scrolled .mobile-toggle span { background: var(--text-dark); }
+        
         @media (max-width: 1024px) {
-            .hero h1 {
-                font-size: 3rem;
-            }
-
-            .services-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .doctors-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .footer-container {
-                grid-template-columns: 1fr 1fr;
-            }
+            .slide-inner { grid-template-columns: 1fr; text-align: center; }
+            .slide-content { order: 2; }
+            .slide-content p { margin-left: auto; margin-right: auto; }
+            .slide-stats { justify-content: center; }
+            .slide-visual { order: 1; margin-bottom: 40px; }
+            .slide-circle { width: 250px; height: 250px; }
+            .slide-circle i { font-size: 70px; }
+            .slide-counter { display: none; }
+            .services-grid { grid-template-columns: repeat(2, 1fr); }
         }
-
         @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            .mobile-toggle {
-                display: flex;
-            }
-
-            .mobile-menu {
-                display: block;
-            }
-
-            .hero-container {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .hero-content {
-                order: 1;
-            }
-
-            .hero-visual {
-                order: 0;
-                display: none;
-            }
-
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero p {
-                margin-left: auto;
-                margin-right: auto;
-            }
-
-            .hero-buttons {
-                justify-content: center;
-            }
-
-            .stats-container {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .about-container {
-                grid-template-columns: 1fr;
-            }
-
-            .about-visual {
-                order: 1;
-            }
-
-            .about-content {
-                order: 0;
-            }
-
-            .doctors-grid {
-                grid-template-columns: 1fr;
-                max-width: 350px;
-            }
-
-            .form-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .form-group.full-width {
-                grid-column: span 1;
-            }
-
-            .contact-container {
-                grid-template-columns: 1fr;
-            }
-
-            .footer-container {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .footer-bottom {
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            .section-title {
-                font-size: 2.2rem;
-            }
+            .nav-links { display: none; }
+            .mobile-toggle { display: flex; }
+            .mobile-menu { display: block; }
+            .slide-content h2 { font-size: 2.5rem; }
+            .slide-stats { gap: 24px; }
+            .slide-stat .number { font-size: 2rem; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+            .services-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; text-align: center; }
+            .footer-bottom { flex-direction: column; gap: 16px; }
+            .slider-nav { bottom: 40px; }
+            .scroll-indicator { display: none; }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav id="navbar">
-        <a href="#" class="logo">
-            <img src="https://raw.githubusercontent.com/prahlad168/Payangan-Hospital/main/logo.png" alt="Payangan Hospital" class="logo-img">
-            <div class="logo-text-wrapper">
-                <span class="logo-text">Payangan Hospital</span>
-                <span class="slogan">Pavitram Idam Uttamam</span>
-            </div>
-        </a>
-        <ul class="nav-links">
-            <li><a href="#beranda">Beranda</a></li>
-            <li><a href="#layanan">Layanan</a></li>
-            <li>
-                <a href="about.html">Tentang <i class="fas fa-chevron-down"></i></a>
-                <div class="mega-menu">
-                    <a href="about.html#sejarah" class="mega-item">
-                        <div class="icon"><i class="fas fa-landmark"></i></div>
-                        <div class="text">
-                            <h4>Sejarah</h4>
-                            <p>Perjalanan Payangan Hospital</p>
-                        </div>
-                    </a>
-                    <a href="about.html#visimisi" class="mega-item">
-                        <div class="icon"><i class="fas fa-bullseye"></i></div>
-                        <div class="text">
-                            <h4>Visi & Misi</h4>
-                            <p>Arah dan tujuan kami</p>
-                        </div>
-                    </a>
-                    <a href="about.html#standar" class="mega-item">
-                        <div class="icon"><i class="fas fa-clipboard-check"></i></div>
-                        <div class="text">
-                            <h4>Standar Pelayanan</h4>
-                            <p>Standar kualitas kami</p>
-                        </div>
-                    </a>
-                    <a href="about.html#maklumat" class="mega-item">
-                        <div class="icon"><i class="fas fa-file-contract"></i></div>
-                        <div class="text">
-                            <h4>Maklumat</h4>
-                            <p>Janji pelayanan</p>
-                        </div>
-                    </a>
-                    <a href="about.html#mutu" class="mega-item">
-                        <div class="icon"><i class="fas fa-award"></i></div>
-                        <div class="text">
-                            <h4>Mutu</h4>
-                            <p>Komitmen kualitas</p>
-                        </div>
-                    </a>
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <img src="logo.png" alt="Payangan Hospital">
+                <div>
+                    <div class="logo-text">Payangan Hospital</div>
+                    <div class="logo-text-sub">Pavitram Idam Uttamam</div>
                 </div>
-            </li>
-            <li><a href="#dokter">Dokter</a></li>
-            <li><a href="#galeri">Galeri</a></li>
-            <li><a href="#kontak">Kontak</a></li>
-        </ul>
-        <div class="mobile-toggle" onclick="toggleMobileMenu()">
-            <span></span>
-            <span></span>
-            <span></span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#slider">Beranda</a></li>
+                <li><a href="#layanan">Layanan</a></li>
+                <li>
+                    <a href="about.html">Tentang <i class="fas fa-chevron-down"></i></a>
+                    <div class="mega-menu">
+                        <a href="about.html#sejarah" class="mega-item"><div class="icon"><i class="fas fa-landmark"></i></div><div class="text"><h4>Sejarah</h4><p>Perjalanan Payangan Hospital</p></div></a>
+                        <a href="about.html#visimisi" class="mega-item"><div class="icon"><i class="fas fa-bullseye"></i></div><div class="text"><h4>Visi & Misi</h4><p>Arah dan tujuan kami</p></div></a>
+                        <a href="about.html#standar" class="mega-item"><div class="icon"><i class="fas fa-clipboard-check"></i></div><div class="text"><h4>Standar Pelayanan</h4><p>Standar kualitas kami</p></div></a>
+                        <a href="about.html#maklumat" class="mega-item"><div class="icon"><i class="fas fa-file-contract"></i></div><div class="text"><h4>Maklumat</h4><p>Janji pelayanan</p></div></a>
+                        <a href="about.html#mutu" class="mega-item"><div class="icon"><i class="fas fa-award"></i></div><div class="text"><h4>Mutu</h4><p>Komitmen kualitas</p></div></a>
+                    </div>
+                </li>
+                <li><a href="#dokter">Dokter</a></li>
+                <li><a href="#kontak">Kontak</a></li>
+                <li><a href="#kontak" class="nav-cta">Buat Janji</a></li>
+            </ul>
+            <div class="mobile-toggle" onclick="toggleMenu()"><span></span><span></span><span></span></div>
         </div>
     </nav>
 
-    <!-- Mobile Menu -->
     <div class="mobile-menu" id="mobileMenu">
         <ul>
-            <li><a href="#beranda" onclick="toggleMobileMenu()">Beranda</a></li>
-            <li><a href="#layanan" onclick="toggleMobileMenu()">Layanan</a></li>
-            <li><a href="about.html" onclick="toggleMobileMenu()">Tentang</a></li>
-            <li><a href="about.html#sejarah" onclick="toggleMobileMenu()">- Sejarah</a></li>
-            <li><a href="about.html#visimisi" onclick="toggleMobileMenu()">- Visi Misi</a></li>
-            <li><a href="about.html#standar" onclick="toggleMobileMenu()">- Standar</a></li>
-            <li><a href="about.html#maklumat" onclick="toggleMobileMenu()">- Maklumat</a></li>
-            <li><a href="about.html#mutu" onclick="toggleMobileMenu()">- Mutu</a></li>
-            <li><a href="#dokter" onclick="toggleMobileMenu()">Dokter</a></li>
-            <li><a href="#galeri" onclick="toggleMobileMenu()">Galeri</a></li>
-            <li><a href="#kontak" onclick="toggleMobileMenu()">Kontak</a></li>
+            <li><a href="#slider" onclick="toggleMenu()">Beranda</a></li>
+            <li><a href="#layanan" onclick="toggleMenu()">Layanan</a></li>
+            <li><a href="about.html" onclick="toggleMenu()">Tentang</a></li>
+            <li><a href="about.html#sejarah" onclick="toggleMenu()">- Sejarah</a></li>
+            <li><a href="about.html#visimisi" onclick="toggleMenu()">- Visi Misi</a></li>
+            <li><a href="#dokter" onclick="toggleMenu()">Dokter</a></li>
+            <li><a href="#kontak" onclick="toggleMenu()">Kontak</a></li>
         </ul>
     </div>
 
-    <!-- Hero Section -->
-    <section class="hero" id="beranda">
-        <div class="hero-container">
-            <div class="hero-content">
-                <div class="hero-badge">
-                    <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                    "Pavitram Idam Uttamam" - Permata Kesehatan untuk Anda
-                </div>
-                <h1>Kesehatan Anda, <span>Tanggung Jawab Kami</span></h1>
-                <p>Rumah Sakit Payangan Hospital menyediakan layanan kesehatan berkualitas tinggi dengan tenaga medis profesional dan fasilitas modern untuk keluarga Anda.</p>
-                <div class="hero-buttons">
-                    <a href="#layanan" class="btn btn-primary">
-                        <svg viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
-                        Layanan Kami
-                    </a>
-                    <a href="tel:+623619088087" class="btn btn-secondary">
-                        <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-                        +62 361 9088087
-                    </a>
+    <!-- Hero Slider -->
+    <section class="hero-slider" id="slider">
+        <div class="slides-container">
+            <div class="slide slide-1 active">
+                <div class="slide-bg"></div>
+                <div class="slide-pattern"></div>
+                <div class="slide-inner">
+                    <div class="slide-content">
+                        <div class="slide-badge"><i class="fas fa-ambulance"></i> IGD 24 Jam</div>
+                        <h2>Pelayanan Darurat Siap Siaga</h2>
+                        <p>Tim medis profesional siaga 24 jam untuk menangani keadaan darurat dengan peralatan lengkap dan canggih.</p>
+                        <div class="slide-stats">
+                            <div class="slide-stat"><div class="number">24/7</div><div class="label">Siaga</div></div>
+                            <div class="slide-stat"><div class="number">5+</div><div class="label">Dokter</div></div>
+                            <div class="slide-stat"><div class="number">100%</div><div class="label">Siap</div></div>
+                        </div>
+                    </div>
+                    <div class="slide-visual"><div class="slide-circle"><i class="fas fa-heartbeat"></i></div></div>
                 </div>
             </div>
-            <div class="hero-visual">
-                <div class="hero-image-container">
-                    <div class="hero-image">
-                        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
-                    </div>
-                    <div class="floating-card card-1">
-                        <div class="icon">
-                            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-                        </div>
-                        <div class="info">
-                            <h4>98%</h4>
-                            <p>Pasien Puas</p>
-                        </div>
-                    </div>
-                    <div class="floating-card card-2">
-                        <div class="icon">
-                            <svg viewBox="0 0 24 24"><path d="M19 3h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm-2 14l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
-                        </div>
-                        <div class="info">
-                            <h4>50+</h4>
-                            <p>Dokter Spesialis</p>
+
+            <div class="slide slide-2">
+                <div class="slide-bg"></div>
+                <div class="slide-pattern"></div>
+                <div class="slide-inner">
+                    <div class="slide-content">
+                        <div class="slide-badge"><i class="fas fa-user-md"></i> Spesialis</div>
+                        <h2>Dokter Spesialis Berpengalaman</h2>
+                        <p>Dokter spesialis berpengalaman dari berbagai bidang siap memberikan konsultasi dan perawatan terbaik.</p>
+                        <div class="slide-stats">
+                            <div class="slide-stat"><div class="number">25+</div><div class="label">Spesialis</div></div>
+                            <div class="slide-stat"><div class="number">10+</div><div class="label">Tahun</div></div>
+                            <div class="slide-stat"><div class="number">98%</div><div class="label">Puas</div></div>
                         </div>
                     </div>
+                    <div class="slide-visual"><div class="slide-circle"><i class="fas fa-stethoscope"></i></div></div>
+                </div>
+            </div>
+
+            <div class="slide slide-3">
+                <div class="slide-bg"></div>
+                <div class="slide-pattern"></div>
+                <div class="slide-inner">
+                    <div class="slide-content">
+                        <div class="slide-badge"><i class="fas fa-microscope"></i> Modern</div>
+                        <h2>Fasilitas Medis Canggih</h2>
+                        <p>Peralatan medis terkini untuk diagnosis akurat dan perawatan yang efektif.</p>
+                        <div class="slide-stats">
+                            <div class="slide-stat"><div class="number">50+</div><div class="label">Alat</div></div>
+                            <div class="slide-stat"><div class="number">100%</div><div class="label">Modern</div></div>
+                            <div class="slide-stat"><div class="number">Akurat</div><div class="label">Hasil</div></div>
+                        </div>
+                    </div>
+                    <div class="slide-visual"><div class="slide-circle"><i class="fas fa-microscope"></i></div></div>
+                </div>
+            </div>
+
+            <div class="slide slide-4">
+                <div class="slide-bg"></div>
+                <div class="slide-pattern"></div>
+                <div class="slide-inner">
+                    <div class="slide-content">
+                        <div class="slide-badge"><i class="fas fa-procedures"></i> Kenyamanan</div>
+                        <h2>Kamar Perawatan Nyaman</h2>
+                        <p>Kamar perawatan bersih dan nyaman dengan fasilitas lengkap untuk pemulihan optimal.</p>
+                        <div class="slide-stats">
+                            <div class="slide-stat"><div class="number">50+</div><div class="label">Kamar</div></div>
+                            <div class="slide-stat"><div class="number">VIP</div><div class="label">Kelas</div></div>
+                            <div class="slide-stat"><div class="number">AC</div><div class="label">Semua</div></div>
+                        </div>
+                    </div>
+                    <div class="slide-visual"><div class="slide-circle"><i class="fas fa-hospital-alt"></i></div></div>
                 </div>
             </div>
         </div>
+
+        <div class="slider-nav">
+            <button class="slider-btn" onclick="prevSlide()"><i class="fas fa-chevron-left"></i></button>
+            <div class="slider-dots">
+                <div class="slider-dot active" onclick="goToSlide(0)"></div>
+                <div class="slider-dot" onclick="goToSlide(1)"></div>
+                <div class="slider-dot" onclick="goToSlide(2)"></div>
+                <div class="slider-dot" onclick="goToSlide(3)"></div>
+            </div>
+            <button class="slider-btn" onclick="nextSlide()"><i class="fas fa-chevron-right"></i></button>
+        </div>
+
+        <div class="slide-counter">
+            <span class="current">01</span>
+            <span class="total">/ 04</span>
+        </div>
+
+        <div class="scroll-indicator">
+            <div class="mouse"><div class="wheel"></div></div>
+            <span>Scroll</span>
+        </div>
     </section>
 
-    <!-- Stats Section -->
-    <section class="stats">
-        <div class="stats-container">
-            <div class="stat-item">
-                <div class="stat-number">25+</div>
-                <div class="stat-label">Tahun Pengalaman</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number">50+</div>
-                <div class="stat-label">Dokter Spesialis</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number">100K+</div>
-                <div class="stat-label">Pasien Terlayani</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number">98%</div>
-                <div class="stat-label">Tingkat Kepuasan</div>
+    <!-- Stats Bar -->
+    <section class="stats-bar">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item"><div class="stat-number">5000+</div><div class="stat-label">Pasien Terlayani</div></div>
+                <div class="stat-item"><div class="stat-number">25+</div><div class="stat-label">Dokter Spesialis</div></div>
+                <div class="stat-item"><div class="stat-number">15+</div><div class="stat-label">Tahun Pengalaman</div></div>
+                <div class="stat-item"><div class="stat-number">24/7</div><div class="stat-label">Layanan Darurat</div></div>
             </div>
         </div>
     </section>
 
     <!-- Services Section -->
     <section class="services" id="layanan">
-        <div class="section-header">
-            <span class="section-label">Layanan Kami</span>
-            <h2 class="section-title">Pelayanan Kesehatan Terlengkap</h2>
-            <p class="section-subtitle">Kami menyediakan berbagai layanan medis dengan standar internasional untuk memenuhi kebutuhan kesehatan Anda</p>
-        </div>
-        <div class="services-grid">
-            <div class="service-card animate-on-scroll">
-                <div class="service-icon">
-                    <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-1 11h-4v4h-4v-4H6v-4h4V6h4v4h4v4z"/></svg>
-                </div>
-                <h3>IGD 24 Jam</h3>
-                <p>Layanan gawat darurat siap melayani 24 jam dengan tim medis profesional dan peralatan canggih untuk menangani kondisi darurat.</p>
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">Layanan Kami</div>
+                <h2 class="section-title">Pelayanan Kesehatan Terpercaya</h2>
+                <p class="section-subtitle">Standar internasional untuk kebutuhan kesehatan Anda</p>
             </div>
-            <div class="service-card animate-on-scroll">
-                <div class="service-icon">
-                    <svg viewBox="0 0 24 24"><path d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z"/></svg>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-ambulance"></i></div>
+                    <h3>IGD 24 Jam</h3>
+                    <p>Layanan gawat darurat tersedia 24 jam dengan tim medis profesional</p>
                 </div>
-                <h3>Rawat Inap</h3>
-                <p>Kamar perawatan nyaman dengan fasilitas lengkap, didesain untuk memulihkan kesehatan pasien dengan tenang.</p>
-            </div>
-            <div class="service-card animate-on-scroll">
-                <div class="service-icon">
-                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"/></svg>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-stethoscope"></i></div>
+                    <h3>Konsultasi Spesialis</h3>
+                    <p>Dokter spesialis berpengalaman siap membantu</p>
                 </div>
-                <h3>Konsultasi Spesialis</h3>
-                <p>Daftar lengkap dokter spesialis untuk konsultasi meliputi penyakit dalam, bedah, anak, kebidanan, dan lainnya.</p>
-            </div>
-            <div class="service-card animate-on-scroll">
-                <div class="service-icon">
-                    <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-procedures"></i></div>
+                    <h3>Rawat Inap</h3>
+                    <p>Kamar perawatan nyaman dengan fasilitas lengkap</p>
                 </div>
-                <h3>Laboratorium</h3>
-                <p>Pemeriksaan laboratorium lengkap dengan hasil akurat dan cepat menggunakan peralatan modern berstandar internasional.</p>
-            </div>
-            <div class="service-card animate-on-scroll">
-                <div class="service-icon">
-                    <svg viewBox="0 0 24 24"><path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"/></svg>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-microscope"></i></div>
+                    <h3>Laboratorium</h3>
+                    <p>Pemeriksaan lengkap dengan hasil akurat</p>
                 </div>
-                <h3>Radiologi</h3>
-                <p>Layanan radiologi lengkap meliputi rontgen, USG, CT Scan, dan MRI dengan radiografer berpengalaman.</p>
-            </div>
-            <div class="service-card animate-on-scroll">
-                <div class="service-icon">
-                    <svg viewBox="0 0 24 24"><path d="M19 8h-1V3H6v5H5c-1.66 0-3 1.34-3 3v6h4v4h12v-4h4v-6c0-1.66-1.34-3-3-3zM8 5h8v3H8V5zm8 14H8v-4h8v4zm4-4h-2v-2H6v2H4v-4c0-.55.45-1 1-1h14c.55 0 1 .45 1 1v4z"/></svg>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-x-ray"></i></div>
+                    <h3>Radiologi</h3>
+                    <p>Fasilitas radiologi modern</p>
                 </div>
-                <h3>Apotek</h3>
-                <p>Apotek lengkap dengan stok obat melimpah, beroperasi 24 jam untuk memenuhi kebutuhan obat Anda.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section class="about" id="tentang">
-        <div class="about-container">
-            <div class="about-visual">
-                <div class="about-image">
-                    <svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-syringe"></i></div>
+                    <h3>Vaksinasi</h3>
+                    <p>Layanan vaksinasi untuk anak & dewasa</p>
                 </div>
-                <div class="experience-badge">
-                    <div class="number">25+</div>
-                    <div class="text">Tahun Pengalaman</div>
-                </div>
-            </div>
-            <div class="about-content">
-                <h2>Tentang <span>Rumah Sakit Payangan Hospital</span></h2>
-                <p>Didirikan pada tahun 1998, Rumah Sakit Payangan Hospital telah melayani masyarakat dengan dedication tinggi selama lebih dari dua dekade. Dengan visi menjadi pusat layanan kesehatan terdepan, kami terus berinovasi dan meningkatkan kualitas layanan.</p>
-                <div class="about-features">
-                    <div class="about-feature">
-                        <div class="icon">
-                            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-                        </div>
-                        <div>
-                            <h4>Akreditasi Paripurna</h4>
-                            <p>Terakreditasi penuh oleh Kemenkes RI</p>
-                        </div>
-                    </div>
-                    <div class="about-feature">
-                        <div class="icon">
-                            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-                        </div>
-                        <div>
-                            <h4>Fasilitas Modern</h4>
-                            <p>Peralatan medis terkini</p>
-                        </div>
-                    </div>
-                    <div class="about-feature">
-                        <div class="icon">
-                            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-                        </div>
-                        <div>
-                            <h4>Dokter Berpengalaman</h4>
-                            <p>50+ spesialis dan subspesialis</p>
-                        </div>
-                    </div>
-                    <div class="about-feature">
-                        <div class="icon">
-                            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-                        </div>
-                        <div>
-                            <h4>Layanan 24 Jam</h4>
-                            <p>IGD dan farmasi selalu siap</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Doctors Section -->
-    <section class="doctors" id="dokter">
-        <div class="section-header">
-            <span class="section-label">Tim Dokter Kami</span>
-            <h2 class="section-title">Spesialis Berpengalaman</h2>
-            <p class="section-subtitle">Kenali dokter-dokter spesialis kami yang berdedikasi tinggi untuk kesehatan Anda</p>
-        </div>
-        <div class="doctors-grid">
-            <div class="doctor-card animate-on-scroll">
-                <div class="doctor-image">
-                    <svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
-                </div>
-                <div class="doctor-info">
-                    <h3>Dr. Ahmad Wijaya, Sp.PD</h3>
-                    <div class="specialty">Penyakit Dalam</div>
-                    <div class="experience">18 Tahun Pengalaman</div>
-                </div>
-            </div>
-            <div class="doctor-card animate-on-scroll">
-                <div class="doctor-image">
-                    <svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
-                </div>
-                <div class="doctor-info">
-                    <h3>Dr. Sari Dewi, Sp.OG</h3>
-                    <div class="specialty">Kebidanan & Kandungan</div>
-                    <div class="experience">15 Tahun Pengalaman</div>
-                </div>
-            </div>
-            <div class="doctor-card animate-on-scroll">
-                <div class="doctor-image">
-                    <svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
-                </div>
-                <div class="doctor-info">
-                    <h3>Dr. Budi Santoso, Sp.B</h3>
-                    <div class="specialty">Bedah Umum</div>
-                    <div class="experience">20 Tahun Pengalaman</div>
-                </div>
-            </div>
-            <div class="doctor-card animate-on-scroll">
-                <div class="doctor-image">
-                    <svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
-                </div>
-                <div class="doctor-info">
-                    <h3>Dr. Maya Putri, Sp.A</h3>
-                    <div class="specialty">Anak</div>
-                    <div class="experience">12 Tahun Pengalaman</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Appointment Section -->
-    <!-- Gallery Slider Section -->
-    <section class="gallery" id="galeri">
-        <div class="gallery-slider">
-            <div class="slides">
-                <div class="slide active" style="background: linear-gradient(135deg, #065f46 0%, #10b981 100%);">
-                    <div class="slide-content">
-                        <h2>Layanan IGD 24 Jam</h2>
-                        <p>Siap melayani keadaan darurat dengan tim medis profesional dan peralatan lengkap</p>
-                    </div>
-                </div>
-                <div class="slide" style="background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);">
-                    <div class="slide-content">
-                        <h2>Fasilitas Modern</h2>
-                        <p>Kamar operasi dan perawatan dengan teknologi medis terkini untuk hasil terbaik</p>
-                    </div>
-                </div>
-                <div class="slide" style="background: linear-gradient(135deg, #7c3aed 0%, #a78bfa 100%);">
-                    <div class="slide-content">
-                        <h2>Tim Dokter Spesialis</h2>
-                        <p>Dokter berpengalaman dan berkomitmen memberikan pelayanan kesehatan terbaik</p>
-                    </div>
-                </div>
-                <div class="slide" style="background: linear-gradient(135deg, #dc2626 0%, #f87171 100%);">
-                    <div class="slide-content">
-                        <h2>Laboratorium Lengkap</h2>
-                        <p>Pemeriksaan laboratorium akurat dengan hasil cepat dan terpercaya</p>
-                    </div>
-                </div>
-            </div>
-            <button class="slider-btn prev" onclick="changeSlide(-1)">&#10094;</button>
-            <button class="slider-btn next" onclick="changeSlide(1)">&#10095;</button>
-            <div class="slider-dots">
-                <span class="dot active" onclick="goToSlide(0)"></span>
-                <span class="dot" onclick="goToSlide(1)"></span>
-                <span class="dot" onclick="goToSlide(2)"></span>
-                <span class="dot" onclick="goToSlide(3)"></span>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="contact" id="kontak">
-        <div class="contact-container">
-            <div class="contact-info">
-                <h2>Hubungi Kami</h2>
-                <p>Jangan ragu untuk menghubungi kami jika Anda memiliki pertanyaan atau membutuhkan bantuan.</p>
-                <div class="contact-details">
-                    <div class="contact-item">
-                        <div class="icon">
-                            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-                        </div>
-                        <div>
-                            <h4>Alamat</h4>
-                            <p>Jl. Raya Payangan No.104, Melinggih, Kec. Payangan, Kabupaten Gianyar, Bali 80572</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="icon">
-                            <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-                        </div>
-                        <div>
-                            <h4>Telepon</h4>
-                            <p>+62 361 9088087</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="icon">
-                            <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
-                        </div>
-                        <div>
-                            <h4>Jam Operasional</h4>
-                            <p>Buka 24 Jam</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="icon">
-                            <svg viewBox="0 0 24 24"><path d="M11.7 2.805c-3.04-.302-5.635.902-7.323 3.15-.35 1.18-.48 2.49-.34 3.84.13 1.27.5 2.47 1.04 3.48.64 1.21 1.53 2.18 2.61 2.85 1.68.65 3.66.76 5.5.1.88-.31 1.7-.82 2.37-1.51l2.07-1.71c.4-.34.48-.94.2-1.42l-2.23-3.16c-.32-.45-.96-.54-1.44-.21l-2.41 1.57c-.67.44-1.47.59-2.24.42-1.05-.23-1.95-.9-2.47-1.81-.55-.96-.7-2.09-.42-3.15.3-1.14.98-2.08 1.92-2.66 1.01-.63 2.26-.82 3.43-.52.86.22 1.64.77 2.14 1.58.31.51.38 1.1.22 1.64l-.67 2.29c-.14.47-.58.79-1.07.79-.25 0-.5-.09-.7-.27l-1.94-1.11c-.4-.23-.51-.75-.24-1.14l1.57-2.05c.27-.35.26-.84-.03-1.18z"/></svg>
-                        </div>
-                        <div>
-                            <h4>Website</h4>
-                            <p>gianyarkab.go.id</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="contact-map">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3946.1234567890123!2d115.2453005!3d-8.422235!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd2238cf5fb6905%3A0x6ec7e96f8ffabfff!2sPayangan%20Hospital!5e0!3m2!1sen!2sid!4v1678888000000!5m2!1sen!2sid" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
-        <div class="footer-container">
-            <div class="footer-brand">
-                <a href="#" class="logo">
-                    <img src="https://raw.githubusercontent.com/prahlad168/Payangan-Hospital/main/logo.png" alt="Payangan Hospital" class="logo-img">
-                    <div class="logo-text-wrapper">
-                        <span class="logo-text">Payangan Hospital</span>
-                        <span class="slogan">Pavitram Idam Uttamam</span>
-                    </div>
-                </a>
-                <p>Rumah Sakit Payangan Hospital menyediakan layanan kesehatan berkualitas dengan tenaga medis profesional dan fasilitas modern untuk keluarga Indonesia.</p>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="logo">
+                        <img src="logo.png" alt="Payangan Hospital">
+                        <div><div class="logo-text">Payangan Hospital</div><div class="logo-text-sub">Pavitram Idam Uttamam</div></div>
+                    </a>
+                    <p>Rumah Sakit Payangan Hospital - Layanan kesehatan berkualitas dengan tenaga medis profesional.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Layanan</h4>
+                    <ul>
+                        <li><a href="#layanan">IGD 24 Jam</a></li>
+                        <li><a href="#layanan">Rawat Inap</a></li>
+                        <li><a href="#layanan">Konsultasi</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Tentang</h4>
+                    <ul>
+                        <li><a href="about.html#sejarah">Sejarah</a></li>
+                        <li><a href="about.html#visimisi">Visi Misi</a></li>
+                        <li><a href="about.html#standar">Standar</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Kontak</h4>
+                    <ul>
+                        <li><a href="tel:+623619088087">+62 361 9088087</a></li>
+                        <li><a href="#">Jl. Raya Payangan</a></li>
+                        <li><a href="#">Gianyar, Bali</a></li>
+                    </ul>
+                </div>
             </div>
-            <div class="footer-links">
-                <h4>Layanan</h4>
-                <ul>
-                    <li><a href="#layanan">IGD 24 Jam</a></li>
-                    <li><a href="#layanan">Rawat Inap</a></li>
-                    <li><a href="#layanan">Konsultasi</a></li>
-                    <li><a href="#layanan">Laboratorium</a></li>
-                    <li><a href="#layanan">Radiologi</a></li>
-                </ul>
-            </div>
-            <div class="footer-links">
-                <h4>Informasi</h4>
-                <ul>
-                    <li><a href="#tentang">Tentang Kami</a></li>
-                    <li><a href="#dokter">Dokter Kami</a></li>
-                    <li><a href="#">Jadwal Praktik</a></li>
-                    <li><a href="#">Cara Berobat</a></li>
-                    <li><a href="#">FAQ</a></li>
-                </ul>
-            </div>
-            <div class="footer-links">
-                <h4>Kontak</h4>
-                <ul>
-                    <li><a href="tel:+623619088087">+62 361 9088087</a></li>
-                    <li><a href="https://gianyarkab.go.id">gianyarkab.go.id</a></li>
-                    <li><a href="#kontak">Jl. Raya Payangan No.104</a></li>
-                    <li><a href="#kontak">Gianyar, Bali 80572</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2024 Rumah Sakit Payangan Hospital. Hak Cipta Dilindungi.</p>
-            <div class="social-links">
-                <a href="#" aria-label="Facebook">
-                    <svg viewBox="0 0 24 24"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg>
-                </a>
-                <a href="#" aria-label="Instagram">
-                    <svg viewBox="0 0 24 24"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z"/></svg>
-                </a>
-                <a href="#" aria-label="Twitter">
-                    <svg viewBox="0 0 24 24"><path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"/></svg>
-                </a>
-                <a href="#" aria-label="YouTube">
-                    <svg viewBox="0 0 24 24"><path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/></svg>
-                </a>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Payangan Hospital - Gianyar, Bali</p>
+                <div class="footer-social">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
             </div>
         </div>
     </footer>
 
     <script>
-        // Navbar scroll effect
-        window.addEventListener('scroll', function() {
-            const navbar = document.getElementById('navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
+        window.addEventListener('scroll', () => {
+            document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
         });
 
-        // Mobile menu toggle
-        function toggleMobileMenu() {
-            const mobileMenu = document.getElementById('mobileMenu');
-            mobileMenu.classList.toggle('active');
-        }
+        function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('active'); }
 
-        // Scroll animation
-        const animateOnScroll = () => {
-            const elements = document.querySelectorAll('.animate-on-scroll');
-            elements.forEach(element => {
-                const elementTop = element.getBoundingClientRect().top;
-                const elementVisible = 150;
-                if (elementTop < window.innerHeight - elementVisible) {
-                    element.classList.add('visible');
-                }
-            });
-        };
-
-        window.addEventListener('scroll', animateOnScroll);
-        window.addEventListener('load', animateOnScroll);
-
-        // Form submission
-        document.getElementById('appointmentForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const name = document.getElementById('name').value;
-            const phone = document.getElementById('phone').value;
-            const service = document.getElementById('service').value;
-            const date = document.getElementById('date').value;
-            
-            // Validate date is not in the past
-            const selectedDate = new Date(date);
-            const today = new Date();
-            today.setHours(0, 0, 0, 0);
-            
-            if (selectedDate < today) {
-                alert('Mohon pilih tanggal yang akan datang.');
-                return;
-            }
-            
-            // Simulate form submission
-            alert(`Terima kasih ${name}! Permintaan janji temu Anda telah diterima.\n\nKami akan menghubungi Anda di nomor ${phone} untuk konfirmasi.`);
-            this.reset();
-        });
-
-        // Set minimum date for appointment
-        const dateInput = document.getElementById('date');
-        const today = new Date().toISOString().split('T')[0];
-        dateInput.setAttribute('min', today);
-
-        // Smooth scroll for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Slider functionality
         let currentSlide = 0;
-        const slides = document.querySelectorAll('.slide');
-        const dots = document.querySelectorAll('.dot');
-        const totalSlides = slides.length;
+        const totalSlides = 4;
 
-        function showSlide(index) {
-            if (index >= totalSlides) currentSlide = 0;
-            if (index < 0) currentSlide = totalSlides - 1;
-            
-            slides.forEach((slide, i) => {
-                slide.classList.remove('active');
-                dots[i].classList.remove('active');
-            });
-            
-            slides[currentSlide].classList.add('active');
-            dots[currentSlide].classList.add('active');
+        function updateSlider() {
+            document.querySelectorAll('.slide').forEach((s, i) => s.classList.toggle('active', i === currentSlide));
+            document.querySelectorAll('.slider-dot').forEach((d, i) => d.classList.toggle('active', i === currentSlide));
+            document.querySelector('.slide-counter .current').textContent = String(currentSlide + 1).padStart(2, '0');
         }
 
-        function changeSlide(direction) {
-            currentSlide += direction;
-            showSlide(currentSlide);
-        }
+        function nextSlide() { currentSlide = (currentSlide + 1) % totalSlides; updateSlider(); }
+        function prevSlide() { currentSlide = (currentSlide - 1 + totalSlides) % totalSlides; updateSlider(); }
+        function goToSlide(i) { currentSlide = i; updateSlider(); }
 
-        function goToSlide(index) {
-            currentSlide = index;
-            showSlide(currentSlide);
-        }
-
-        // Auto slide every 5 seconds
-        setInterval(() => {
-            currentSlide++;
-            showSlide(currentSlide);
-        }, 5000);
+        setInterval(nextSlide, 6000);
     </script>
 </body>
 </html>
