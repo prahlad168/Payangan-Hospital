@@ -1241,6 +1241,134 @@
             }
         }
     </style>
+    <style>
+        /* Gallery Slider Styles */
+        .gallery {
+            padding: 80px 5%;
+            background: var(--bg-light);
+        }
+
+        .gallery-slider {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+        }
+
+        .slides {
+            position: relative;
+            height: 400px;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.8s ease-in-out;
+        }
+
+        .slide.active {
+            opacity: 1;
+        }
+
+        .slide-content {
+            text-align: center;
+            color: white;
+            padding: 40px;
+            max-width: 700px;
+        }
+
+        .slide-content h2 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .slide-content p {
+            font-size: 1.2rem;
+            opacity: 0.95;
+            line-height: 1.6;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        }
+
+        .slider-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255,255,255,0.9);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: var(--primary);
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .slider-btn:hover {
+            background: white;
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .slider-btn.prev { left: 20px; }
+        .slider-btn.next { right: 20px; }
+
+        .slider-dots {
+            position: absolute;
+            bottom: 25px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 12px;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.5);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .dot.active {
+            background: white;
+            transform: scale(1.3);
+        }
+
+        .dot:hover {
+            background: rgba(255,255,255,0.8);
+        }
+
+        @media (max-width: 768px) {
+            .slides {
+                height: 300px;
+            }
+            .slide-content h2 {
+                font-size: 1.8rem;
+            }
+            .slide-content p {
+                font-size: 1rem;
+            }
+            .slider-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Navigation -->
@@ -1255,10 +1383,10 @@
         <ul class="nav-links">
             <li><a href="#beranda">Beranda</a></li>
             <li><a href="#layanan">Layanan</a></li>
+            <li><a href="#galeri">Galeri</a></li>
             <li><a href="#tentang">Tentang</a></li>
             <li><a href="#dokter">Dokter</a></li>
             <li><a href="#kontak">Kontak</a></li>
-            <li><a href="#daftar" class="nav-cta">Daftar Online</a></li>
         </ul>
         <div class="mobile-toggle" onclick="toggleMobileMenu()">
             <span></span>
@@ -1272,10 +1400,10 @@
         <ul>
             <li><a href="#beranda" onclick="toggleMobileMenu()">Beranda</a></li>
             <li><a href="#layanan" onclick="toggleMobileMenu()">Layanan</a></li>
+            <li><a href="#galeri" onclick="toggleMobileMenu()">Galeri</a></li>
             <li><a href="#tentang" onclick="toggleMobileMenu()">Tentang</a></li>
             <li><a href="#dokter" onclick="toggleMobileMenu()">Dokter</a></li>
             <li><a href="#kontak" onclick="toggleMobileMenu()">Kontak</a></li>
-            <li><a href="#daftar" onclick="toggleMobileMenu()">Daftar Online</a></li>
         </ul>
     </div>
 
@@ -1290,9 +1418,9 @@
                 <h1>Kesehatan Anda, <span>Tanggung Jawab Kami</span></h1>
                 <p>Rumah Sakit Payangan Hospital menyediakan layanan kesehatan berkualitas tinggi dengan tenaga medis profesional dan fasilitas modern untuk keluarga Anda.</p>
                 <div class="hero-buttons">
-                    <a href="#daftar" class="btn btn-primary">
+                    <a href="#layanan" class="btn btn-primary">
                         <svg viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
-                        Daftar Sekarang
+                        Layanan Kami
                     </a>
                     <a href="tel:+623619088087" class="btn btn-secondary">
                         <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
@@ -1512,60 +1640,43 @@
     </section>
 
     <!-- Appointment Section -->
-    <section class="appointment" id="daftar">
-        <div class="appointment-container">
-            <h2>Buat Janji Temu</h2>
-            <p>Isi formulir di bawah ini untuk membuat janji temu dengan dokter spesialis kami</p>
-            <form class="appointment-form" id="appointmentForm">
-                <div class="form-grid">
-                    <div class="form-group">
-                        <label for="name">Nama Lengkap</label>
-                        <input type="text" id="name" name="name" placeholder="Masukkan nama lengkap Anda" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="phone">Nomor Telepon</label>
-                        <input type="tel" id="phone" name="phone" placeholder="08xxxxxxxxxx" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" placeholder="email@contoh.com">
-                    </div>
-                    <div class="form-group">
-                        <label for="service">Pilih Layanan</label>
-                        <select id="service" name="service" required>
-                            <option value="">-- Pilih Layanan --</option>
-                            <option value="konsultasi">Konsultasi Spesialis</option>
-                            <option value="igd">IGD</option>
-                            <option value="rawat-inap">Rawat Inap</option>
-                            <option value="laboratorium">Laboratorium</option>
-                            <option value="radiologi">Radiologi</option>
-                            <option value="vaksinasi">Vaksinasi</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="doctor">Pilih Dokter</label>
-                        <select id="doctor" name="doctor">
-                            <option value="">-- Pilih Dokter (Opsional) --</option>
-                            <option value="dr-ahmad">Dr. Ahmad Wijaya, Sp.PD</option>
-                            <option value="dr-sari">Dr. Sari Dewi, Sp.OG</option>
-                            <option value="dr-budi">Dr. Budi Santoso, Sp.B</option>
-                            <option value="dr-maya">Dr. Maya Putri, Sp.A</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="date">Tanggal Kunjungan</label>
-                        <input type="date" id="date" name="date" required>
-                    </div>
-                    <div class="form-group full-width">
-                        <label for="complaint">Keluhan / Catatan</label>
-                        <textarea id="complaint" name="complaint" placeholder="Tuliskan keluhan atau catatan tambahan..."></textarea>
+    <!-- Gallery Slider Section -->
+    <section class="gallery" id="galeri">
+        <div class="gallery-slider">
+            <div class="slides">
+                <div class="slide active" style="background: linear-gradient(135deg, #065f46 0%, #10b981 100%);">
+                    <div class="slide-content">
+                        <h2>Layanan IGD 24 Jam</h2>
+                        <p>Siap melayani keadaan darurat dengan tim medis profesional dan peralatan lengkap</p>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary form-submit">
-                    <svg viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
-                    Kirim Permintaan Janji Temu
-                </button>
-            </form>
+                <div class="slide" style="background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);">
+                    <div class="slide-content">
+                        <h2>Fasilitas Modern</h2>
+                        <p>Kamar operasi dan perawatan dengan teknologi medis terkini untuk hasil terbaik</p>
+                    </div>
+                </div>
+                <div class="slide" style="background: linear-gradient(135deg, #7c3aed 0%, #a78bfa 100%);">
+                    <div class="slide-content">
+                        <h2>Tim Dokter Spesialis</h2>
+                        <p>Dokter berpengalaman dan berkomitmen memberikan pelayanan kesehatan terbaik</p>
+                    </div>
+                </div>
+                <div class="slide" style="background: linear-gradient(135deg, #dc2626 0%, #f87171 100%);">
+                    <div class="slide-content">
+                        <h2>Laboratorium Lengkap</h2>
+                        <p>Pemeriksaan laboratorium akurat dengan hasil cepat dan terpercaya</p>
+                    </div>
+                </div>
+            </div>
+            <button class="slider-btn prev" onclick="changeSlide(-1)">&#10094;</button>
+            <button class="slider-btn next" onclick="changeSlide(1)">&#10095;</button>
+            <div class="slider-dots">
+                <span class="dot active" onclick="goToSlide(0)"></span>
+                <span class="dot" onclick="goToSlide(1)"></span>
+                <span class="dot" onclick="goToSlide(2)"></span>
+                <span class="dot" onclick="goToSlide(3)"></span>
+            </div>
         </div>
     </section>
 
@@ -1756,6 +1867,41 @@
                 }
             });
         });
+
+        // Slider functionality
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const dots = document.querySelectorAll('.dot');
+        const totalSlides = slides.length;
+
+        function showSlide(index) {
+            if (index >= totalSlides) currentSlide = 0;
+            if (index < 0) currentSlide = totalSlides - 1;
+            
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active');
+                dots[i].classList.remove('active');
+            });
+            
+            slides[currentSlide].classList.add('active');
+            dots[currentSlide].classList.add('active');
+        }
+
+        function changeSlide(direction) {
+            currentSlide += direction;
+            showSlide(currentSlide);
+        }
+
+        function goToSlide(index) {
+            currentSlide = index;
+            showSlide(currentSlide);
+        }
+
+        // Auto slide every 5 seconds
+        setInterval(() => {
+            currentSlide++;
+            showSlide(currentSlide);
+        }, 5000);
     </script>
 </body>
 </html>
