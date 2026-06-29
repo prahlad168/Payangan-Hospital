@@ -34,7 +34,8 @@
         .navbar.scrolled { background: rgba(255,255,255,0.98); backdrop-filter: blur(20px); box-shadow: 0 1px 20px rgba(0,0,0,0.05); padding: 14px 0; }
         .nav-container { display: flex; justify-content: space-between; align-items: center; }
         .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
-        .logo img { width: 45px; height: auto; }
+        .logo img { width: 50px; height: auto; transition: transform 0.3s ease; }
+        .logo img:hover { transform: scale(1.05); }
         .logo-text { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 500; color: white; transition: color 0.4s; }
         .logo-text-sub { font-size: 0.6rem; color: rgba(255,255,255,0.7); font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase; }
         .navbar.scrolled .logo-text { color: var(--primary); }
