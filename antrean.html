@@ -136,7 +136,7 @@
         /* Poli Grid */
         .poli-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(4, 1fr);
             gap: 20px;
             margin-bottom: 30px;
         }
@@ -342,10 +342,17 @@
         }
         
         /* Responsive */
+        @media (max-width: 1200px) {
+            .poli-grid { grid-template-columns: repeat(3, 1fr) !important; }
+        }
+        @media (max-width: 900px) {
+            .poli-grid { grid-template-columns: repeat(2, 1fr) !important; }
+        }
         @media (max-width: 768px) {
             .header h1 { font-size: 2rem; }
             .queue-number { font-size: 6rem; }
             .poli-body { grid-template-columns: 1fr; gap: 15px; }
+            .poli-grid { grid-template-columns: 1fr !important; }
             .emergency-card { flex-direction: column; text-align: center; }
             .emergency-left { flex-direction: column; }
         }
