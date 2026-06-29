@@ -262,6 +262,85 @@
             font-weight: 600;
         }
         
+        /* Bed Availability */
+        .bed-section {
+            margin-top: 30px;
+        }
+        .bed-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+        .bed-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .bed-icon i {
+            font-size: 36px;
+            color: white;
+        }
+        .bed-info {
+            flex: 1;
+        }
+        .bed-info h3 {
+            color: var(--text-dark);
+            font-size: 1.3rem;
+            margin-bottom: 4px;
+        }
+        .bed-info p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+        .bed-count {
+            font-size: 4rem;
+            font-weight: 900;
+            color: var(--primary);
+            line-height: 1;
+        }
+        .bed-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .bed-class-card {
+            background: white;
+            border-radius: 16px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s;
+        }
+        .bed-class-card:hover {
+            transform: translateY(-3px);
+        }
+        .bed-class-card h4 {
+            color: var(--text-dark);
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+        }
+        .bed-class-card .count {
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--primary);
+            line-height: 1;
+        }
+        .bed-class-card .label {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-top: 4px;
+        }
+        
         /* Responsive */
         @media (max-width: 768px) {
             .header h1 { font-size: 2rem; }
@@ -456,6 +535,51 @@
             </div>
         </div>
 
+        <!-- Bed Availability -->
+        <section class="bed-section" style="margin-top: 30px;">
+            <div class="container">
+                <div style="display: grid; grid-template-columns: 1fr 3fr; gap: 20px; align-items: stretch;">
+                    <div class="bed-card" style="flex-direction: column; text-align: center; padding: 40px;">
+                        <div class="bed-icon" style="width: 80px; height: 80px; margin: 0 auto 20px;">
+                            <i class="fas fa-bed"></i>
+                        </div>
+                        <h3 style="color: var(--text-dark); font-size: 1.5rem; margin-bottom: 8px;">TOTAL BED</h3>
+                        <div class="bed-count" id="totalBed" style="font-size: 5rem;">100</div>
+                        <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 8px;">Tempat Tidur</p>
+                    </div>
+                    
+                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+                        <div class="bed-class-card" style="background: white; border-radius: 20px; padding: 40px 30px; text-align: center; box-shadow: 0 10px 40px rgba(0,0,0,0.1);">
+                            <div style="width: 60px; height: 60px; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); border-radius: 16px; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px;">
+                                <i class="fas fa-bed" style="color: white; font-size: 24px;"></i>
+                            </div>
+                            <h4 style="color: var(--text-dark); font-size: 1.2rem; margin-bottom: 12px;">KELAS I</h4>
+                            <div class="count" id="bedKelas1" style="font-size: 3.5rem; font-weight: 900; color: var(--primary); line-height: 1;">13</div>
+                            <div class="label" style="color: var(--text-muted); font-size: 0.9rem; margin-top: 8px;">Tempat Tidur</div>
+                        </div>
+                        
+                        <div class="bed-class-card" style="background: white; border-radius: 20px; padding: 40px 30px; text-align: center; box-shadow: 0 10px 40px rgba(0,0,0,0.1);">
+                            <div style="width: 60px; height: 60px; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); border-radius: 16px; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px;">
+                                <i class="fas fa-bed" style="color: white; font-size: 24px;"></i>
+                            </div>
+                            <h4 style="color: var(--text-dark); font-size: 1.2rem; margin-bottom: 12px;">KELAS II</h4>
+                            <div class="count" id="bedKelas2" style="font-size: 3.5rem; font-weight: 900; color: var(--primary); line-height: 1;">8</div>
+                            <div class="label" style="color: var(--text-muted); font-size: 0.9rem; margin-top: 8px;">Tempat Tidur</div>
+                        </div>
+                        
+                        <div class="bed-class-card" style="background: white; border-radius: 20px; padding: 40px 30px; text-align: center; box-shadow: 0 10px 40px rgba(0,0,0,0.1);">
+                            <div style="width: 60px; height: 60px; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); border-radius: 16px; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px;">
+                                <i class="fas fa-bed" style="color: white; font-size: 24px;"></i>
+                            </div>
+                            <h4 style="color: var(--text-dark); font-size: 1.2rem; margin-bottom: 12px;">KELAS III</h4>
+                            <div class="count" id="bedKelas3" style="font-size: 3.5rem; font-weight: 900; color: var(--primary); line-height: 1;">19</div>
+                            <div class="label" style="color: var(--text-muted); font-size: 0.9rem; margin-top: 8px;">Tempat Tidur</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Footer Info -->
         <div class="footer-info">
             <p><i class="fas fa-info-circle"></i> Antrean diupdate secara otomatis</p>
@@ -503,6 +627,16 @@
             // Update emergency queue
             document.getElementById('emergencyQueue').textContent = getRandomInt(0, 3);
             
+
+            // Update bed availability (simulated)
+            const bedKelas1 = getRandomInt(10, 15);
+            const bedKelas2 = getRandomInt(5, 10);
+            const bedKelas3 = getRandomInt(15, 22);
+            const totalBed = bedKelas1 + bedKelas2 + bedKelas3;
+            document.getElementById('bedKelas1').textContent = bedKelas1;
+            document.getElementById('bedKelas2').textContent = bedKelas2;
+            document.getElementById('bedKelas3').textContent = bedKelas3;
+            document.getElementById('totalBed').textContent = totalBed;
             // Remove flash animation
             setTimeout(() => {
                 document.querySelector('.main-display').classList.remove('refreshing');
