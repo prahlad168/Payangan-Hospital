@@ -185,7 +185,7 @@
             color: var(--secondary);
         }
         .poli-stat .value.done {
-            color: var(--success);
+            color: #28a745;
         }
         
         /* Emergency Queue */
@@ -549,31 +549,70 @@
                     </div>
                     
                     <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
-                        <div class="bed-class-card" style="background: white; border-radius: 20px; padding: 40px 30px; text-align: center; box-shadow: 0 10px 40px rgba(0,0,0,0.1);">
-                            <div style="width: 60px; height: 60px; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); border-radius: 16px; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px;">
-                                <i class="fas fa-bed" style="color: white; font-size: 24px;"></i>
+                        <!-- KELAS I -->
+                        <div class="bed-class-card" style="background: white; border-radius: 20px; padding: 30px 20px; text-align: center; box-shadow: 0 10px 40px rgba(0,0,0,0.1);">
+                            <div style="width: 50px; height: 50px; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin: 0 auto 12px;">
+                                <i class="fas fa-bed" style="color: white; font-size: 20px;"></i>
                             </div>
-                            <h4 style="color: var(--text-dark); font-size: 1.2rem; margin-bottom: 12px;">KELAS I</h4>
-                            <div class="count" id="bedKelas1" style="font-size: 3.5rem; font-weight: 900; color: var(--primary); line-height: 1;">13</div>
-                            <div class="label" style="color: var(--text-muted); font-size: 0.9rem; margin-top: 8px;">Tempat Tidur</div>
+                            <h4 style="color: var(--text-dark); font-size: 1.1rem; margin-bottom: 16px;">KELAS I</h4>
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+                                <div style="background: #e8f5e9; border-radius: 12px; padding: 16px 8px;">
+                                    <div id="bedKelas1Tersedia" style="font-size: 2.2rem; font-weight: 900; color: #28a745; line-height: 1;">13</div>
+                                    <div style="color: #388e3c; font-size: 0.75rem; font-weight: 500; margin-top: 4px;">Tersedia</div>
+                                </div>
+                                <div style="background: #ffebee; border-radius: 12px; padding: 16px 8px;">
+                                    <div id="bedKelas1Terpakai" style="font-size: 2.2rem; font-weight: 900; color: #d32f2f; line-height: 1;">0</div>
+                                    <div style="color: #c62828; font-size: 0.75rem; font-weight: 500; margin-top: 4px;">Terpakai</div>
+                                </div>
+                            </div>
+                            <div style="margin-top: 12px; background: #f5f5f5; border-radius: 8px; padding: 8px;">
+                                <span style="color: var(--text-muted); font-size: 0.8rem;">Total: </span>
+                                <span id="bedKelas1Total" style="color: var(--text-dark); font-weight: 700;">20</span>
+                            </div>
                         </div>
                         
-                        <div class="bed-class-card" style="background: white; border-radius: 20px; padding: 40px 30px; text-align: center; box-shadow: 0 10px 40px rgba(0,0,0,0.1);">
-                            <div style="width: 60px; height: 60px; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); border-radius: 16px; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px;">
-                                <i class="fas fa-bed" style="color: white; font-size: 24px;"></i>
+                        <!-- KELAS II -->
+                        <div class="bed-class-card" style="background: white; border-radius: 20px; padding: 30px 20px; text-align: center; box-shadow: 0 10px 40px rgba(0,0,0,0.1);">
+                            <div style="width: 50px; height: 50px; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin: 0 auto 12px;">
+                                <i class="fas fa-bed" style="color: white; font-size: 20px;"></i>
                             </div>
-                            <h4 style="color: var(--text-dark); font-size: 1.2rem; margin-bottom: 12px;">KELAS II</h4>
-                            <div class="count" id="bedKelas2" style="font-size: 3.5rem; font-weight: 900; color: var(--primary); line-height: 1;">8</div>
-                            <div class="label" style="color: var(--text-muted); font-size: 0.9rem; margin-top: 8px;">Tempat Tidur</div>
+                            <h4 style="color: var(--text-dark); font-size: 1.1rem; margin-bottom: 16px;">KELAS II</h4>
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+                                <div style="background: #e8f5e9; border-radius: 12px; padding: 16px 8px;">
+                                    <div id="bedKelas2Tersedia" style="font-size: 2.2rem; font-weight: 900; color: #28a745; line-height: 1;">8</div>
+                                    <div style="color: #388e3c; font-size: 0.75rem; font-weight: 500; margin-top: 4px;">Tersedia</div>
+                                </div>
+                                <div style="background: #ffebee; border-radius: 12px; padding: 16px 8px;">
+                                    <div id="bedKelas2Terpakai" style="font-size: 2.2rem; font-weight: 900; color: #d32f2f; line-height: 1;">0</div>
+                                    <div style="color: #c62828; font-size: 0.75rem; font-weight: 500; margin-top: 4px;">Terpakai</div>
+                                </div>
+                            </div>
+                            <div style="margin-top: 12px; background: #f5f5f5; border-radius: 8px; padding: 8px;">
+                                <span style="color: var(--text-muted); font-size: 0.8rem;">Total: </span>
+                                <span id="bedKelas2Total" style="color: var(--text-dark); font-weight: 700;">25</span>
+                            </div>
                         </div>
                         
-                        <div class="bed-class-card" style="background: white; border-radius: 20px; padding: 40px 30px; text-align: center; box-shadow: 0 10px 40px rgba(0,0,0,0.1);">
-                            <div style="width: 60px; height: 60px; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); border-radius: 16px; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px;">
-                                <i class="fas fa-bed" style="color: white; font-size: 24px;"></i>
+                        <!-- KELAS III -->
+                        <div class="bed-class-card" style="background: white; border-radius: 20px; padding: 30px 20px; text-align: center; box-shadow: 0 10px 40px rgba(0,0,0,0.1);">
+                            <div style="width: 50px; height: 50px; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin: 0 auto 12px;">
+                                <i class="fas fa-bed" style="color: white; font-size: 20px;"></i>
                             </div>
-                            <h4 style="color: var(--text-dark); font-size: 1.2rem; margin-bottom: 12px;">KELAS III</h4>
-                            <div class="count" id="bedKelas3" style="font-size: 3.5rem; font-weight: 900; color: var(--primary); line-height: 1;">19</div>
-                            <div class="label" style="color: var(--text-muted); font-size: 0.9rem; margin-top: 8px;">Tempat Tidur</div>
+                            <h4 style="color: var(--text-dark); font-size: 1.1rem; margin-bottom: 16px;">KELAS III</h4>
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+                                <div style="background: #e8f5e9; border-radius: 12px; padding: 16px 8px;">
+                                    <div id="bedKelas3Tersedia" style="font-size: 2.2rem; font-weight: 900; color: #28a745; line-height: 1;">19</div>
+                                    <div style="color: #388e3c; font-size: 0.75rem; font-weight: 500; margin-top: 4px;">Tersedia</div>
+                                </div>
+                                <div style="background: #ffebee; border-radius: 12px; padding: 16px 8px;">
+                                    <div id="bedKelas3Terpakai" style="font-size: 2.2rem; font-weight: 900; color: #d32f2f; line-height: 1;">0</div>
+                                    <div style="color: #c62828; font-size: 0.75rem; font-weight: 500; margin-top: 4px;">Terpakai</div>
+                                </div>
+                            </div>
+                            <div style="margin-top: 12px; background: #f5f5f5; border-radius: 8px; padding: 8px;">
+                                <span style="color: var(--text-muted); font-size: 0.8rem;">Total: </span>
+                                <span id="bedKelas3Total" style="color: var(--text-dark); font-weight: 700;">55</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -629,13 +668,30 @@
             
 
             // Update bed availability (simulated)
-            const bedKelas1 = getRandomInt(10, 15);
-            const bedKelas2 = getRandomInt(5, 10);
-            const bedKelas3 = getRandomInt(15, 22);
-            const totalBed = bedKelas1 + bedKelas2 + bedKelas3;
-            document.getElementById('bedKelas1').textContent = bedKelas1;
-            document.getElementById('bedKelas2').textContent = bedKelas2;
-            document.getElementById('bedKelas3').textContent = bedKelas3;
+            const bedKelas1Total = 20;
+            const bedKelas2Total = 25;
+            const bedKelas3Total = 55;
+            
+            const bedKelas1Tersedia = getRandomInt(8, 18);
+            const bedKelas2Tersedia = getRandomInt(5, 20);
+            const bedKelas3Tersedia = getRandomInt(15, 45);
+            
+            const bedKelas1Terpakai = bedKelas1Total - bedKelas1Tersedia;
+            const bedKelas2Terpakai = bedKelas2Total - bedKelas2Tersedia;
+            const bedKelas3Terpakai = bedKelas3Total - bedKelas3Tersedia;
+            
+            const totalBed = bedKelas1Tersedia + bedKelas2Tersedia + bedKelas3Tersedia;
+            
+            // Update DOM
+            document.getElementById('bedKelas1Tersedia').textContent = bedKelas1Tersedia;
+            document.getElementById('bedKelas1Terpakai').textContent = bedKelas1Terpakai;
+            document.getElementById('bedKelas2Tersedia').textContent = bedKelas2Tersedia;
+            document.getElementById('bedKelas2Terpakai').textContent = bedKelas2Terpakai;
+            document.getElementById('bedKelas3Tersedia').textContent = bedKelas3Tersedia;
+            document.getElementById('bedKelas3Terpakai').textContent = bedKelas3Terpakai;
+            document.getElementById('bedKelas1Total').textContent = bedKelas1Total;
+            document.getElementById('bedKelas2Total').textContent = bedKelas2Total;
+            document.getElementById('bedKelas3Total').textContent = bedKelas3Total;
             document.getElementById('totalBed').textContent = totalBed;
             // Remove flash animation
             setTimeout(() => {
