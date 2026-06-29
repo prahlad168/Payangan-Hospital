@@ -69,18 +69,25 @@
         .feature-item .text h4 { font-family: 'Outfit', sans-serif; font-size: 1rem; font-weight: 500; color: var(--text-dark); margin-bottom: 4px; }
         .feature-item .text p { font-size: 0.9rem; color: var(--text-muted); margin: 0; line-height: 1.5; }
         .vm-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; margin-top: 40px; }
-        .vm-card { background: white; padding: 40px; border-radius: 24px; box-shadow: 0 10px 40px rgba(0,0,0,0.05); transition: all 0.4s; }
-        .vm-card:hover { transform: translateY(-5px); box-shadow: 0 20px 60px rgba(0,0,0,0.1); }
-        .vm-card.visi { border-top: 4px solid var(--primary); }
-        .vm-card.misi { border-top: 4px solid var(--accent); }
-        .vm-card h3 { font-size: 1.5rem; margin-bottom: 20px; display: flex; align-items: center; gap: 12px; }
+        .vm-card { background: rgba(255,255,255,0.97); backdrop-filter: blur(20px); padding: 45px; border-radius: 24px; box-shadow: 0 20px 60px rgba(0,0,0,0.15); transition: all 0.4s ease; position: relative; overflow: hidden; }
+        .vm-card:hover { transform: translateY(-8px); box-shadow: 0 30px 80px rgba(0,0,0,0.2); }
+        .vm-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 5px; }
+        .vm-card.visi::before { background: linear-gradient(90deg, var(--primary), var(--primary-light)); }
+        .vm-card.misi::before { background: linear-gradient(90deg, var(--accent), #fbbf24); }
+        .vm-card.visi { border-top: none; }
+        .vm-card.misi { border-top: none; }
+        .vm-card h3 { font-size: 1.6rem; margin-bottom: 25px; padding-bottom: 15px; border-bottom: 2px solid rgba(0,0,0,0.05); display: flex; align-items: center; gap: 15px; }
         .vm-card.visi h3 { color: var(--primary); }
         .vm-card.misi h3 { color: var(--accent); }
+        .vm-card h3 i { width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; border-radius: 14px; font-size: 1.3rem; }
+        .vm-card.visi h3 i { background: rgba(26, 95, 90, 0.1); }
+        .vm-card.misi h3 i { background: rgba(245, 158, 11, 0.1); }
         .vm-card ul { list-style: none; }
-        .vm-card li { position: relative; padding-left: 28px; margin-bottom: 12px; font-size: 1rem; color: var(--text-muted); line-height: 1.6; }
-        .vm-card li::before { content: ''; position: absolute; left: 0; top: 8px; width: 8px; height: 8px; border-radius: 50%; }
-        .vm-card.visi li::before { background: var(--primary); }
-        .vm-card.misi li::before { background: var(--accent); }
+        .vm-card li { position: relative; padding: 14px 0 14px 38px; margin-bottom: 0; font-size: 1rem; color: var(--text-dark); line-height: 1.8; border-bottom: 1px solid rgba(0,0,0,0.04); }
+        .vm-card li:last-child { border-bottom: none; }
+        .vm-card li::before { content: ''; position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 10px; height: 10px; border-radius: 50%; }
+        .vm-card.visi li::before { background: linear-gradient(135deg, var(--primary), var(--primary-light)); }
+        .vm-card.misi li::before { background: linear-gradient(135deg, var(--accent), #fbbf24); }
         .standar-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; }
         .standar-card { background: white; padding: 30px; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.05); transition: all 0.4s; }
         .standar-card:hover { transform: translateY(-5px); box-shadow: 0 20px 60px rgba(0,0,0,0.1); }
@@ -185,12 +192,13 @@
             </div>
         </div>
     </section>
-    <section class="content-section" id="visimisi" style="background: var(--bg-light);">
-        <div class="container">
-            <div style="text-align: center; margin-bottom: 60px;">
-                <div class="section-label">Visi & Misi</div>
-                <h2 style="font-size: 2.5rem; color: var(--text-dark);">PAYANGAN HOSPITAL</h2>
-                <p style="font-size: 1.1rem; color: var(--primary); font-style: italic; margin-top: 8px;">Pavitram Idam Uttamam</p>
+    <section class="content-section" id="visimisi" style="position: relative; overflow: hidden; padding: 100px 0;">
+        <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(135deg, rgba(26, 95, 90, 0.93) 0%, rgba(15, 61, 58, 0.95) 100%), url('bg_medical.jpg') center/cover no-repeat; opacity: 1; z-index: 0;"></div>
+        <div class="container" style="position: relative; z-index: 1;">
+            <div class="vm-header" style="text-align: center; margin-bottom: 50px;">
+                <div class="section-label" style="color: rgba(255,255,255,0.7); font-size: 0.85rem; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 15px;">Visi & Misi</div>
+                <h2 style="font-size: 2.8rem; color: white; margin-bottom: 10px; font-weight: 600;">PAYANGAN HOSPITAL</h2>
+                <p style="font-size: 1.1rem; color: rgba(255,255,255,0.8); font-style: italic;">Pavitram Idam Uttamam</p>
             </div>
             <div class="vm-grid">
                 <div class="vm-card visi animate-on-scroll">
@@ -206,6 +214,11 @@
                         <li>Menjadi wahana yang mampu menginspirasi lingkungan sekitar melalui <em>green ekosistem</em> rumah sakit.</li>
                     </ul>
                 </div>
+            </div>
+            <div class="vm-director" style="text-align: center; margin-top: 50px; padding-top: 40px; border-top: 1px solid rgba(255,255,255,0.2);">
+                <img src="director.jpg" alt="Direktur" style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover; border: 4px solid rgba(255,255,255,0.3); margin-bottom: 15px;">
+                <h4 style="color: white; font-size: 1.2rem; margin-bottom: 5px;">dr. I Wayan Sugiada, Sp.PD</h4>
+                <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem;">Direktur Utama Payangan Hospital</p>
             </div>
         </div>
     </section>
