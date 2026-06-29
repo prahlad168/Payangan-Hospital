@@ -65,6 +65,34 @@
             .hero h1 { font-size: 1.8rem; }
             .cta { padding: 40px 20px; }
         }
+    
+        /* Mega Menu */
+        .mega-menu { position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(20px); background: white; border-radius: 20px; box-shadow: 0 25px 80px rgba(0,0,0,0.12); padding: 20px; opacity: 0; visibility: hidden; transition: all 0.4s ease; min-width: 500px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; z-index: 100; }
+        .nav-links > li:hover .mega-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(10px); }
+        .mega-item { display: flex; align-items: flex-start; gap: 14px; padding: 16px; border-radius: 14px; text-decoration: none; transition: all 0.3s; }
+        .mega-item:hover { background: var(--bg-light); }
+        .mega-item .icon { width: 44px; height: 44px; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .mega-item .icon i { color: white; font-size: 16px; }
+        .mega-item .text h4 { font-family: 'Outfit', sans-serif; font-size: 0.95rem; font-weight: 500; color: var(--text-dark); margin-bottom: 2px; }
+        .mega-item:hover .text h4 { color: var(--primary); }
+        .mega-item .text p { font-size: 0.8rem; color: var(--text-muted); }
+        .nav-cta { background: var(--secondary) !important; color: var(--text-dark) !important; }
+        .nav-cta:hover { background: var(--accent) !important; color: white !important; }
+        
+        /* Mobile Menu */
+        .mobile-toggle { display: none; flex-direction: column; gap: 6px; cursor: pointer; padding: 10px; }
+        .mobile-toggle span { width: 28px; height: 3px; background: var(--text-dark); border-radius: 2px; transition: all 0.3s; }
+        .mobile-menu { display: none; position: absolute; top: 100%; left: 0; right: 0; background: white; box-shadow: 0 10px 40px rgba(0,0,0,0.1); z-index: 99; }
+        .mobile-menu.active { display: block; }
+        .mobile-menu ul { list-style: none; padding: 20px; margin: 0; }
+        .mobile-menu li a { display: block; padding: 14px 0; color: var(--text-dark); text-decoration: none; font-weight: 500; border-bottom: 1px solid #eee; }
+        .mobile-menu li a:hover { color: var(--primary); }
+        
+        @media (max-width: 992px) {
+            .nav-links { display: none !important; }
+            .mobile-toggle { display: flex !important; }
+        }
+
     </style>
 </head>
 <body>
