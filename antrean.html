@@ -517,6 +517,17 @@
                 <div class="poli-header">
                     <h3><i class="fas fa-heart"></i> Poliklinik Jantung</h3>
                 </div>
+
+            <div class="poli-card">
+                <div class="poli-header">
+                    <h3><i class="fas fa-user-injured"></i> Poliklinik Kestrad</h3>
+                </div>
+                <div class="poli-body">
+                    <div class="poli-stat"><div class="label">Memanggil</div><div class="value now" id="poliKestradNow">011</div></div>
+                    <div class="poli-stat"><div class="label">Menunggu</div><div class="value waiting" id="poliKestradWait">2</div></div>
+                    <div class="poli-stat"><div class="label">Selesai</div><div class="value done" id="poliKestradDone">13</div></div>
+                </div>
+            </div>
                 <div class="poli-body">
                     <div class="poli-stat"><div class="label">Memanggil</div><div class="value now" id="poliJantungNow">007</div></div>
                     <div class="poli-stat"><div class="label">Menunggu</div><div class="value waiting" id="poliJantungWait">2</div></div>
@@ -642,7 +653,7 @@
             document.getElementById('mainQueue').textContent = mainQueue;
             
             // Update poli queues (simulated)
-            const polies = ['Umum', 'Saraf', 'Anak', 'Kandungan', 'THT', 'Gigi', 'PenyakitDalam', 'Bedah', 'Ortho', 'Jantung'];
+            const polies = ['Umum', 'Saraf', 'Anak', 'Kandungan', 'THT', 'Gigi', 'PenyakitDalam', 'Bedah', 'Ortho', 'Jantung', 'Kestrad'];
             polies.forEach(poli => {
                 const now = String(getRandomInt(1, 20)).padStart(3, '0');
                 const wait = getRandomInt(1, 10);
