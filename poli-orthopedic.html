@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poliklinik Orthopedic - RSU Payangan</title>
+    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root { --primary: #0d7377; --primary-dark: #095456; --primary-light: #14919b; --bg-light: #f8f9fa; --text-dark: #212529; --text-muted: #6c757d; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Outfit', sans-serif; color: var(--text-dark); line-height: 1.6; }
+        .navbar { background: white; padding: 15px 0; box-shadow: 0 2px 20px rgba(0,0,0,0.08); position: sticky; top: 0; z-index: 100; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .nav-logo img { width: 45px; height: 45px; }
+        .nav-logo span { font-weight: 700; color: var(--primary); font-size: 1.2rem; }
+        .nav-links { display: flex; gap: 30px; list-style: none; }
+        .nav-links a { text-decoration: none; color: var(--text-dark); font-weight: 500; transition: color 0.3s; }
+        .nav-links a:hover { color: var(--primary); }
+        .navbar .container { display: flex; justify-content: space-between; align-items: center; }
+        .hero { background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%); padding: 80px 0; text-align: center; color: white; }
+        .hero-icon { width: 100px; height: 100px; background: rgba(255,255,255,0.2); border-radius: 24px; display: flex; align-items: center; justify-content: center; margin: 0 auto 24px; }
+        .hero-icon i { font-size: 40px; }
+        .hero h1 { font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 12px; }
+        .hero p { font-size: 1.1rem; opacity: 0.9; max-width: 600px; margin: 0 auto; }
+        .content { padding: 60px 0; }
+        .section-title { font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--text-dark); margin-bottom: 30px; text-align: center; }
+        .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .card { background: white; border-radius: 20px; padding: 30px; box-shadow: 0 10px 40px rgba(0,0,0,0.08); }
+        .card h3 { color: var(--primary); font-size: 1.2rem; margin-bottom: 16px; display: flex; align-items: center; gap: 12px; }
+        .card h3 i { width: 40px; height: 40px; background: var(--bg-light); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 16px; }
+        .card ul { list-style: none; }
+        .card li { padding: 10px 0; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; }
+        .card li:last-child { border-bottom: none; }
+        .card .time { color: var(--primary); font-weight: 600; }
+        .cta { background: linear-gradient(135deg, var(--primary-dark), var(--primary)); padding: 60px; border-radius: 24px; text-align: center; color: white; margin-top: 40px; }
+        .cta h2 { font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: 16px; }
+        .cta p { margin-bottom: 24px; opacity: 0.9; }
+        .cta-btn { display: inline-flex; align-items: center; gap: 10px; background: white; color: var(--primary); padding: 14px 32px; border-radius: 50px; font-weight: 600; text-decoration: none; transition: transform 0.3s; }
+        .cta-btn:hover { transform: scale(1.05); }
+        .back-link { display: inline-flex; align-items: center; gap: 8px; color: var(--primary); text-decoration: none; font-weight: 500; margin-bottom: 30px; }
+        .back-link:hover { text-decoration: underline; }
+        footer { background: var(--text-dark); color: white; padding: 40px 0; text-align: center; margin-top: 60px; }
+        footer p { opacity: 0.8; font-size: 0.9rem; }
+        @media (max-width: 768px) { .nav-links { display: none; } .hero h1 { font-size: 1.8rem; } .cta { padding: 40px 20px; } }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="nav-logo"><img src="logo.png" alt="RSU Payangan"><span>RSU Payangan</span></a>
+            <ul class="nav-links">
+                <li><a href="index.html">Beranda</a></li>
+                <li><a href="about.html">Tentang</a></li>
+                <li><a href="rawat-jalan.html">Layanan</a></li>
+                <li><a href="antrean.html">Antrean</a></li>
+            </ul>
+        </div>
+    </nav>
+    <section class="hero">
+        <div class="container">
+            <div class="hero-icon"><i class="fas fa-bone"></i></div>
+            <h1>Poliklinik Orthopedic</h1>
+            <p>Penanganan gangguan tulang, sendi, dan otot</p>
+        </div>
+    </section>
+    <section class="content">
+        <div class="container">
+            <a href="rawat-jalan.html" class="back-link"><i class="fas fa-arrow-left"></i> Kembali ke Rawat Jalan</a>
+            <h2 class="section-title">Informasi Poliklinik</h2>
+            <div class="card-grid">
+                <div class="card">
+                    <h3><i class="fas fa-clock"></i> Jadwal Praktik</h3>
+                    <ul>
+                        <li><span>Senin - Kamis</span><span class="time">08:00 - 14:00</span></li>
+                        <li><span>Jumat</span><span class="time">08:00 - 11:00</span></li>
+                        <li><span>Sabtu</span><span class="time">08:00 - 12:00</span></li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3><i class="fas fa-user-md"></i> Dokter Praktik</h3>
+                    <ul>
+                        <li><span>dr. Orthopedic Sp.</span></li>
+                        <li><span>dr. Specialist</span></li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3><i class="fas fa-bone"></i> Layanan</h3>
+                    <ul>
+                        <li>Konsultasi Orthopedic</li>
+                        <li>Pemeriksaan dan diagnosis</li>
+                        <li>Penanganan dan terapi</li>
+                        <li>Follow-up dan kontrol</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="cta">
+                <h2>Butuh Konsultasi?</h2>
+                <p>Hubungi kami untuk pendaftaran dan informasi jadwal dokter</p>
+                <a href="tel:036198087" class="cta-btn"><i class="fas fa-phone"></i> Hubungi Kami</a>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="container">
+            <p>RSU Payangan - Pavitram Idam Uttamam</p>
+            <p>Jl. Raya Payangan, Gianyar, Bali | Telp: 0361 98087</p>
+        </div>
+    </footer>
+</body>
+</html>
