@@ -187,18 +187,30 @@
                 </div>
             </a>
             <ul class="nav-links">
-                <li><a href="index.html">Beranda</a></li>
-                <li><a href="about.html">Tentang</a></li>
+                <li><a href="index.html#slider">Beranda</a></li>
+                <li>
+                    <a href="about.html">Tentang <i class="fas fa-chevron-down"></i></a>
+                    <div class="mega-menu">
+                        <a href="about.html#sejarah" class="mega-item"><div class="icon"><i class="fas fa-landmark"></i></div><div class="text"><h4>Sejarah</h4><p>Perjalanan Payangan Hospital</p></div></a>
+                        <a href="about.html#visimisi" class="mega-item"><div class="icon"><i class="fas fa-bullseye"></i></div><div class="text"><h4>Visi & Misi</h4><p>Arah dan tujuan kami</p></div></a>
+                        <a href="about.html#standar" class="mega-item"><div class="icon"><i class="fas fa-clipboard-check"></i></div><div class="text"><h4>Standar Pelayanan</h4><p>Standar kualitas kami</p></div></a>
+                        <a href="about.html#maklumat" class="mega-item"><div class="icon"><i class="fas fa-file-contract"></i></div><div class="text"><h4>Maklumat</h4><p>Janji pelayanan</p></div></a>
+                        <a href="about.html#mutu" class="mega-item"><div class="icon"><i class="fas fa-award"></i></div><div class="text"><h4>Mutu</h4><p>Komitmen kualitas</p></div></a>
+                        <a href="about.html#budaya" class="mega-item"><div class="icon"><i class="fas fa-hands-helping"></i></div><div class="text"><h4>Budaya Kerja</h4><p>Nilai-nilai kerja kami</p></div></a>
+                    </div>
+                </li>
                 <li>
                     <a href="rawat-jalan.html" class="active">Layanan <i class="fas fa-chevron-down"></i></a>
                     <div class="mega-menu">
-                        <a href="rawat-jalan.html"><div class="icon"><i class="fas fa-hospital"></i></div><div><h4>Rawat Jalan</h4><p>Pelayanan rawat jalan</p></div></a>
-                        <a href="igd.html"><div class="icon"><i class="fas fa-ambulance"></i></div><div><h4>IGD 24 Jam</h4><p>Gawat darurat</p></div></a>
-                        <a href="rawat-inap.html"><div class="icon"><i class="fas fa-bed"></i></div><div><h4>Rawat Inap</h4><p>Inap pasien</p></div></a>
-                        <a href="dokter.html"><div class="icon"><i class="fas fa-user-md"></i></div><div><h4>Dokter</h4><p>Daftar dokter</p></div></a>
+                        <a href="rawat-jalan.html" class="mega-item"><div class="icon"><i class="fas fa-stethoscope"></i></div><div class="text"><h4>Rawat Jalan</h4><p>Konsultasi dokter spesialis</p></div></a>
+                        <a href="rawat-inap.html" class="mega-item"><div class="icon"><i class="fas fa-procedures"></i></div><div class="text"><h4>Rawat Inap</h4><p>Pelayanan inap nyaman</p></div></a>
+                        <a href="igd.html" class="mega-item"><div class="icon"><i class="fas fa-ambulance"></i></div><div class="text"><h4>IGD / UGD</h4><p>Gawat darurat 24 jam</p></div></a>
+                        <a href="dokter.html" class="mega-item"><div class="icon"><i class="fas fa-user-md"></i></div><div class="text"><h4>Daftar Dokter</h4><p>Profil dokter</p></div></a>
                     </div>
                 </li>
-                <li><a href="antrean.html">Antrean</a></li>
+                <li><a href="dokter.html">Dokter</a></li>
+                <li><a href="kontak.html">Kontak</a></li>
+                <li><a href="#login" class="nav-cta"><i class="fas fa-sign-in-alt"></i> Login</a></li>
             </ul>
             <div class="mobile-toggle" onclick="toggleMenu()">
                 <span></span><span></span><span></span>
@@ -209,11 +221,21 @@
     <!-- Mobile Menu -->
     <div class="mobile-menu" id="mobileMenu">
         <ul>
-            <li><a href="index.html">Beranda</a></li>
-            <li><a href="about.html">Tentang</a></li>
-            <li><a href="rawat-jalan.html">Layanan</a></li>
-            <li><a href="dokter.html">Dokter</a></li>
-            <li><a href="antrean.html">Antrean</a></li>
+            <li><a href="index.html#slider" onclick="toggleMenu()">Beranda</a></li>
+            <li><a href="about.html" onclick="toggleMenu()">Tentang</a></li>
+            <li><a href="about.html#sejarah" onclick="toggleMenu()">- Sejarah</a></li>
+            <li><a href="about.html#visimisi" onclick="toggleMenu()">- Visi Misi</a></li>
+            <li><a href="about.html#standar" onclick="toggleMenu()">- Standar</a></li>
+            <li><a href="about.html#maklumat" onclick="toggleMenu()">- Maklumat</a></li>
+            <li><a href="about.html#mutu" onclick="toggleMenu()">- Mutu</a></li>
+            <li><a href="about.html#budaya" onclick="toggleMenu()">- Budaya Kerja</a></li>
+            <li><a href="rawat-jalan.html" onclick="toggleMenu()">Layanan</a></li>
+            <li><a href="rawat-jalan.html" onclick="toggleMenu()">- Rawat Jalan</a></li>
+            <li><a href="rawat-inap.html" onclick="toggleMenu()">- Rawat Inap</a></li>
+            <li><a href="igd.html" onclick="toggleMenu()">- IGD / UGD</a></li>
+            <li><a href="dokter.html" onclick="toggleMenu()">Dokter</a></li>
+            <li><a href="kontak.html" onclick="toggleMenu()">Kontak</a></li>
+            <li><a href="#login" onclick="toggleMenu()">Login</a></li>
         </ul>
     </div>
 
