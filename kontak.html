@@ -79,49 +79,56 @@
         .section-title { font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--text-dark); margin-bottom: 16px; text-align: center; }
         .section-desc { text-align: center; color: var(--text-muted); font-size: 1.1rem; max-width: 600px; margin: 0 auto 50px; }
         
-        /* Contact Grid */
-        .contact-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 50px; }
-        @media (max-width: 992px) {
-            .contact-grid { grid-template-columns: 1fr; }
-        }
-        
-        /* Info Cards */
-        .info-column { display: flex; flex-direction: column; gap: 24px; }
-        .info-card { background: var(--white); border-radius: 20px; padding: 30px; box-shadow: 0 10px 40px rgba(0,0,0,0.06); transition: all 0.3s; }
-        .info-card:hover { transform: translateY(-5px); box-shadow: 0 20px 60px rgba(0,0,0,0.1); }
-        .info-card .icon { width: 60px; height: 60px; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); border-radius: 16px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; }
-        .info-card .icon i { font-size: 24px; color: white; }
-        .info-card h3 { font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--text-dark); margin-bottom: 12px; }
-        .info-card p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.8; }
-        .info-card a { color: var(--primary); text-decoration: none; font-weight: 500; transition: color 0.3s; }
-        .info-card a:hover { color: var(--primary-dark); }
+        /* Contact Cards - Elegant Grid */
+        .contact-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+        .info-card { background: var(--white); border-radius: 24px; padding: 32px; box-shadow: 0 10px 40px rgba(0,0,0,0.06); transition: all 0.4s ease; position: relative; overflow: hidden; }
+        .info-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--primary), var(--primary-light)); transform: scaleX(0); transition: transform 0.4s ease; }
+        .info-card:hover { transform: translateY(-8px); box-shadow: 0 25px 80px rgba(0,0,0,0.12); }
+        .info-card:hover::before { transform: scaleX(1); }
+        .info-card .icon { width: 70px; height: 70px; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); border-radius: 20px; display: flex; align-items: center; justify-content: center; margin-bottom: 24px; box-shadow: 0 10px 30px rgba(13, 115, 119, 0.3); }
+        .info-card .icon i { font-size: 28px; color: white; }
+        .info-card h3 { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--text-dark); margin-bottom: 16px; }
+        .info-card p { color: var(--text-muted); font-size: 1rem; line-height: 1.8; }
+        .info-card p strong { color: var(--text-dark); }
+        .info-card a { color: var(--primary); text-decoration: none; font-weight: 600; transition: color 0.3s; }
+        .info-card a:hover { color: var(--primary-dark); text-decoration: underline; }
         
         /* Quick Contact Buttons */
-        .quick-contact { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 16px; }
-        .quick-btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 20px; border-radius: 50px; font-size: 0.9rem; font-weight: 500; text-decoration: none; transition: all 0.3s; }
-        .quick-btn.phone { background: var(--primary); color: white; }
-        .quick-btn.phone:hover { background: var(--primary-dark); transform: scale(1.05); }
-        .quick-btn.whatsapp { background: #25D366; color: white; }
-        .quick-btn.whatsapp:hover { background: #128C7E; transform: scale(1.05); }
-        .quick-btn.email { background: #EA4335; color: white; }
-        .quick-btn.email:hover { background: #c5221f; transform: scale(1.05); }
+        .quick-contact { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+        .quick-btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; border-radius: 50px; font-size: 0.9rem; font-weight: 600; text-decoration: none; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        .quick-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0,0,0,0.15); }
+        .quick-btn.phone { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); color: white; }
+        .quick-btn.phone:hover { background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%); }
+        .quick-btn.whatsapp { background: linear-gradient(135deg, #25D366 0%, #128C7E 100%); color: white; }
+        .quick-btn.whatsapp:hover { background: linear-gradient(135deg, #128C7E 0%, #075E54 100%); }
+        .quick-btn.email { background: linear-gradient(135deg, #EA4335 0%, #c5221f 100%); color: white; }
+        .quick-btn.email:hover { background: linear-gradient(135deg, #c5221f 0%, #a50e0a 100%); }
         
         /* Social Media */
-        .social-links { display: flex; gap: 12px; margin-top: 16px; }
-        .social-link { width: 45px; height: 45px; background: var(--bg-light); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--text-dark); text-decoration: none; transition: all 0.3s; }
-        .social-link:hover { background: var(--primary); color: white; transform: scale(1.1); }
-        .social-link i { font-size: 18px; }
+        .social-links { display: flex; gap: 12px; margin-top: 20px; }
+        .social-link { width: 50px; height: 50px; background: var(--bg-light); border-radius: 16px; display: flex; align-items: center; justify-content: center; color: var(--text-dark); text-decoration: none; transition: all 0.3s ease; }
+        .social-link:hover { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); color: white; transform: translateY(-4px); box-shadow: 0 10px 25px rgba(13, 115, 119, 0.3); }
+        .social-link i { font-size: 20px; }
         
-        /* Map Section */
-        .map-column { display: flex; flex-direction: column; gap: 30px; }
-        .map-container { background: var(--white); border-radius: 20px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.06); }
-        .map-wrapper { position: relative; width: 100%; height: 400px; }
-        .map-wrapper iframe { width: 100%; height: 100%; border: none; }
-        .map-info { padding: 24px; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); color: white; }
-        .map-info h3 { font-family: 'Playfair Display', serif; font-size: 1.3rem; margin-bottom: 12px; }
-        .map-info p { font-size: 0.95rem; opacity: 0.9; margin-bottom: 8px; }
-        .map-info a { color: var(--secondary); text-decoration: none; font-weight: 500; }
-        .map-info a:hover { text-decoration: underline; }
+        /* Full Width Map Section */
+        .map-section { width: 100%; }
+        .map-container { position: relative; width: 100%; }
+        .map-wrapper { position: relative; width: 100%; height: 500px; }
+        .map-wrapper iframe { width: 100%; height: 100%; border: none; display: block; }
+        .map-overlay { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 100%); padding: 60px 40px 30px; }
+        .map-info-bar { background: var(--white); border-radius: 24px; padding: 30px 40px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px; box-shadow: 0 20px 60px rgba(0,0,0,0.2); max-width: 1200px; margin: 0 auto; }
+        .map-info-item { display: flex; align-items: center; gap: 16px; }
+        .map-info-item .icon { width: 50px; height: 50px; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); border-radius: 14px; display: flex; align-items: center; justify-content: center; color: white; font-size: 20px; }
+        .map-info-item h4 { font-family: 'Outfit', sans-serif; font-size: 0.85rem; font-weight: 500; color: var(--text-muted); margin-bottom: 4px; }
+        .map-info-item p { font-size: 1.1rem; font-weight: 600; color: var(--text-dark); }
+        .map-info-item a { color: var(--primary); text-decoration: none; }
+        .map-info-item a:hover { text-decoration: underline; }
+        .map-action { display: flex; gap: 12px; }
+        .map-action-btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 28px; border-radius: 50px; font-size: 0.95rem; font-weight: 600; text-decoration: none; transition: all 0.3s; }
+        .map-action-btn.primary { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); color: white; }
+        .map-action-btn.primary:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(13, 115, 119, 0.4); }
+        .map-action-btn.secondary { background: var(--white); color: var(--text-dark); border: 2px solid #eee; }
+        .map-action-btn.secondary:hover { border-color: var(--primary); color: var(--primary); }
         
         /* Reviews Section */
         .reviews-section { background: var(--bg-light); padding: 80px 0; }
@@ -261,135 +268,161 @@
     <!-- Contact Info Section -->
     <section class="contact-section">
         <div class="container">
-            <div class="contact-grid">
-                <!-- Left Column - Info -->
-                <div class="info-column">
-                    
-                    <!-- Alamat -->
-                    <div class="info-card">
-                        <div class="icon">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
-                        <h3>Alamat</h3>
-                        <p>
-                            Jl. Raya Payangan, Desa Payangan,<br>
-                            Kecamatan Payangan,<br>
-                            Kabupaten Gianyar,<br>
-                            Bali 80572, Indonesia
-                        </p>
-                        <div class="quick-contact">
-                            <a href="https://maps.google.com/?q=RSU+Payangan+Gianyar+Bali" target="_blank" class="quick-btn phone">
-                                <i class="fas fa-directions"></i> Petunjuk Arah
-                            </a>
-                        </div>
+            <div style="text-align: center; margin-bottom: 50px;">
+                <div class="section-label">Hubungi Kami</div>
+                <h2 class="section-title">Informasi Kontak</h2>
+                <p class="section-desc">Tim kami siap membantu Anda 24 jam. Jangan ragu untuk menghubungi kami.</p>
+            </div>
+            
+            <div class="contact-cards">
+                <!-- Alamat -->
+                <div class="info-card">
+                    <div class="icon">
+                        <i class="fas fa-map-marker-alt"></i>
                     </div>
-
-                    <!-- Telepon -->
-                    <div class="info-card">
-                        <div class="icon" style="background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);">
-                            <i class="fas fa-phone-alt"></i>
-                        </div>
-                        <h3>Telepon & WhatsApp</h3>
-                        <p>
-                            <strong>Telepon:</strong><br>
-                            <a href="tel:+6236198087">0361 98087</a><br>
-                            <a href="tel:+6236198088">0361 98088</a> (Ext.)
-                        </p>
-                        <p style="margin-top: 12px;">
-                            <strong>WhatsApp:</strong><br>
-                            <a href="https://wa.me/6281234567890">+62 812 3456 7890</a>
-                        </p>
-                        <div class="quick-contact">
-                            <a href="tel:+6236198087" class="quick-btn phone">
-                                <i class="fas fa-phone"></i> Telepon
-                            </a>
-                            <a href="https://wa.me/6281234567890" class="quick-btn whatsapp" target="_blank">
-                                <i class="fab fa-whatsapp"></i> WhatsApp
-                            </a>
-                        </div>
+                    <h3>Alamat</h3>
+                    <p>
+                        Jl. Raya Payangan, Desa Payangan,<br>
+                        Kec. Payangan, Kab. Gianyar,<br>
+                        Bali 80572, Indonesia
+                    </p>
+                    <div class="quick-contact">
+                        <a href="https://maps.google.com/?q=Payangan+Hospital+Gianyar+Bali" target="_blank" class="quick-btn phone">
+                            <i class="fas fa-directions"></i> Petunjuk Arah
+                        </a>
                     </div>
-
-                    <!-- Email -->
-                    <div class="info-card">
-                        <div class="icon" style="background: linear-gradient(135deg, #EA4335 0%, #c5221f 100%);">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <h3>Email</h3>
-                        <p>
-                            <strong>Email Utama:</strong><br>
-                            <a href="mailto:info@rsupayangan.co.id">info@rsupayangan.co.id</a>
-                        </p>
-                        <p style="margin-top: 12px;">
-                            <strong>Email reservations:</strong><br>
-                            <a href="mailto:reservasi@rsupayangan.co.id">reservasi@rsupayangan.co.id</a>
-                        </p>
-                        <div class="quick-contact">
-                            <a href="mailto:info@rsupayangan.co.id" class="quick-btn email">
-                                <i class="fas fa-envelope"></i> Kirim Email
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Jam Operasional -->
-                    <div class="info-card">
-                        <div class="icon" style="background: linear-gradient(135deg, #f4c430 0%, #e85d04 100%);">
-                            <i class="fas fa-clock"></i>
-                        </div>
-                        <h3>Jam Operasional</h3>
-                        <p>
-                            <strong>IGD / Emergensi:</strong><br>
-                            24 Jam Setiap Hari
-                        </p>
-                        <p style="margin-top: 12px;">
-                            <strong>Poliklinik:</strong><br>
-                            Senin - Jumat: 08:00 - 14:00<br>
-                            Sabtu: 08:00 - 12:00
-                        </p>
-                        <p style="margin-top: 12px;">
-                            <strong>Laboratorium:</strong><br>
-                            Senin - Sabtu: 07:00 - 14:00
-                        </p>
-                        <p style="margin-top: 12px;">
-                            <strong>Apotek:</strong><br>
-                            Setiap Hari: 08:00 - 21:00
-                        </p>
-                    </div>
-
-                    <!-- Media Sosial -->
-                    <div class="info-card">
-                        <div class="icon" style="background: linear-gradient(135deg, #E4405F 0%, #F77737 100%);">
-                            <i class="fas fa-share-alt"></i>
-                        </div>
-                        <h3>Media Sosial</h3>
-                        <p>Ikuti kami di media sosial untuk informasi terbaru</p>
-                        <div class="social-links">
-                            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                            <a href="#" class="social-link"><i class="fab fa-tiktok"></i></a>
-                            <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
-                            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                        </div>
-                    </div>
-
                 </div>
 
-                <!-- Right Column - Map -->
-                <div class="map-column">
-                    <div class="map-container">
-                        <div class="map-wrapper">
-                            <iframe 
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3946.5089!2d115.2427256!3d-8.422235!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd2238cf5fb6905%3A0x6ec7e96f8ffabfff!2sPayangan%20Hospital!5e0!3m2!1sen!2sid!4v1719720000000!5m2!1sen!2sid"
-                                allowfullscreen="" 
-                                loading="lazy" 
-                                referrerpolicy="no-referrer-when-downgrade">
-                            </iframe>
+                <!-- Telepon -->
+                <div class="info-card">
+                    <div class="icon" style="background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <h3>Telepon & WhatsApp</h3>
+                    <p>
+                        <strong>Telepon:</strong> <a href="tel:+6236198087">0361 98087</a><br>
+                        <strong>Ext:</strong> <a href="tel:+6236198088">0361 98088</a>
+                    </p>
+                    <p style="margin-top: 16px;">
+                        <strong>WhatsApp:</strong><br>
+                        <a href="https://wa.me/6281234567890">+62 812 3456 7890</a>
+                    </p>
+                    <div class="quick-contact">
+                        <a href="tel:+6236198087" class="quick-btn phone">
+                            <i class="fas fa-phone"></i> Telepon
+                        </a>
+                        <a href="https://wa.me/6281234567890" class="quick-btn whatsapp" target="_blank">
+                            <i class="fab fa-whatsapp"></i> WhatsApp
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Email -->
+                <div class="info-card">
+                    <div class="icon" style="background: linear-gradient(135deg, #EA4335 0%, #c5221f 100%);">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3>Email</h3>
+                    <p>
+                        <strong>Umum:</strong><br>
+                        <a href="mailto:info@rsupayangan.co.id">info@rsupayangan.co.id</a>
+                    </p>
+                    <p style="margin-top: 16px;">
+                        <strong>Reservasi:</strong><br>
+                        <a href="mailto:reservasi@rsupayangan.co.id">reservasi@rsupayangan.co.id</a>
+                    </p>
+                    <div class="quick-contact">
+                        <a href="mailto:info@rsupayangan.co.id" class="quick-btn email">
+                            <i class="fas fa-envelope"></i> Kirim Email
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Jam Operasional -->
+                <div class="info-card">
+                    <div class="icon" style="background: linear-gradient(135deg, #f4c430 0%, #e85d04 100%);">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Jam Operasional</h3>
+                    <p>
+                        <strong><i class="fas fa-ambulance"></i> IGD / Emergensi:</strong><br>
+                        24 Jam Setiap Hari
+                    </p>
+                    <p style="margin-top: 12px;">
+                        <strong><i class="fas fa-stethoscope"></i> Poliklinik:</strong><br>
+                        Senin - Jumat: 08:00 - 14:00<br>
+                        Sabtu: 08:00 - 12:00
+                    </p>
+                    <p style="margin-top: 12px;">
+                        <strong><i class="fas fa-flask"></i> Laboratorium:</strong> 07:00 - 14:00<br>
+                        <strong><i class="fas fa-pills"></i> Apotek:</strong> 08:00 - 21:00
+                    </p>
+                </div>
+
+                <!-- Media Sosial -->
+                <div class="info-card">
+                    <div class="icon" style="background: linear-gradient(135deg, #E4405F 0%, #F77737 100%);">
+                        <i class="fas fa-share-alt"></i>
+                    </div>
+                    <h3>Media Sosial</h3>
+                    <p>Ikuti kami untuk informasi terbaru dan promosi kesehatan</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-tiktok"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Full Width Map Section -->
+    <section class="map-section">
+        <div class="map-container">
+            <div class="map-wrapper">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3946.5089!2d115.2427256!3d-8.422235!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd2238cf5fb6905%3A0x6ec7e96f8ffabfff!2sPayangan%20Hospital!5e0!3m2!1sen!2sid!4v1719720000000!5m2!1sen!2sid"
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+                <div class="map-overlay">
+                    <div class="map-info-bar">
+                        <div class="map-info-item">
+                            <div class="icon">
+                                <i class="fas fa-hospital"></i>
+                            </div>
+                            <div>
+                                <h4>Lokasi</h4>
+                                <p>Jl. Raya Payangan, Gianyar, Bali</p>
+                            </div>
                         </div>
-                        <div class="map-info">
-                            <h3><i class="fas fa-hospital-alt"></i> RSU Payangan</h3>
-                            <p><i class="fas fa-map-marker-alt"></i> Jl. Raya Payangan, Gianyar, Bali</p>
-                            <p><i class="fas fa-star"></i> Rating: 4.5/5 (120+ ulasan)</p>
-                            <a href="https://maps.google.com/?q=RSU+Payangan+Gianyar+Bali" target="_blank">
-                                <i class="fas fa-external-link-alt"></i> Buka di Google Maps
+                        <div class="map-info-item">
+                            <div class="icon">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div>
+                                <h4>Telepon</h4>
+                                <p><a href="tel:+6236198087">0361 98087</a></p>
+                            </div>
+                        </div>
+                        <div class="map-info-item">
+                            <div class="icon">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div>
+                                <h4>Rating</h4>
+                                <p>4.5/5 (120+ ulasan)</p>
+                            </div>
+                        </div>
+                        <div class="map-action">
+                            <a href="https://maps.google.com/?q=Payangan+Hospital+Gianyar+Bali" target="_blank" class="map-action-btn primary">
+                                <i class="fas fa-directions"></i> Petunjuk Arah
+                            </a>
+                            <a href="https://g.page/rsu-payangan-gianyar/review" target="_blank" class="map-action-btn secondary">
+                                <i class="fas fa-star"></i> Beri Rating
                             </a>
                         </div>
                     </div>
