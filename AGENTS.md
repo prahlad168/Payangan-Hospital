@@ -193,6 +193,17 @@ Jika ada hasil, berarti ada link yang salah.
 
 ---
 
+## Available Skills
+
+### Web Builder Skills (`.agents/skills/`)
+| File | Description |
+|------|-------------|
+| `webbuilder.md` | Modern design patterns, component examples, responsive layouts |
+| `beautiful-ui.md` | Advanced UI effects (glassmorphism, neumorphism, animations) |
+| `tailwind-ref.md` | Complete Tailwind CSS class reference |
+
+---
+
 ## Git Workflow
 ```bash
 # 1. Stage perubahan
