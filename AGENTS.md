@@ -9,6 +9,14 @@
 
 ## Link Standards (WAJIB DIPATUH!)
 
+### Logo Link
+**Selalu gunakan `href="index.html"` untuk link logo (ke branda/beranda)**
+
+| ❌ SALAH | ✅ BENAR |
+|----------|----------|
+| `href="#"` | `href="index.html"` |
+| `href="about.html"` | `href="index.html"` |
+
 ### Link Halaman Dokter
 **Selalu gunakan `href="dokter.html"` untuk navigasi ke halaman daftar dokter**
 
@@ -20,15 +28,20 @@
 ### Verifikasi Link
 Sebelum commit, selalu jalankan:
 ```bash
+# Cek link dokter
 grep -rn 'href.*#dokter' *.html
+
+# Cek link logo
+grep -rn 'href="#" class="logo"' *.html
 ```
 Jika ada hasil, berarti ada link yang salah.
 
 ## Checklist Sebelum Commit HTML
-1. ✅ Semua link "Dokter" mengarah ke `dokter.html`
-2. ✅ Semua foto dokter ada di folder `img/dokter/`
-3. ✅ Nama file foto sesuai dengan referensi di HTML
-4. ✅ Tidak ada link rusak
+1. ✅ Semua link logo mengarah ke `index.html`
+2. ✅ Semua link "Dokter" mengarah ke `dokter.html`
+3. ✅ Semua foto dokter ada di folder `img/dokter/`
+4. ✅ Nama file foto sesuai dengan referensi di HTML
+5. ✅ Tidak ada link rusak (`href="#"` pada logo/nav)
 
 ## Git Workflow
 ```bash
