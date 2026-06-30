@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dokter - RSU Payangan</title>
+    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #0d7377;
+            --primary-dark: #095456;
+            --primary-light: #14919b;
+            --secondary: #f4c430;
+            --accent: #e85d04;
+            --bg-light: #f8f9fa;
+            --text-dark: #212529;
+            --text-muted: #6c757d;
+            --white: #ffffff;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Outfit', sans-serif; color: var(--text-dark); line-height: 1.6; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        
+        /* Navbar */
+        .navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 20px 0; transition: all 0.3s; }
+        .navbar.scrolled { background: var(--white); box-shadow: 0 2px 20px rgba(0,0,0,0.1); padding: 15px 0; }
+        .navbar .container { display: flex; justify-content: space-between; align-items: center; }
+        .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--white); }
+        .navbar.scrolled .logo { color: var(--text-dark); }
+        .logo img { height: 45px; }
+        .logo-text { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 600; }
+        .logo-text-sub { font-size: 0.7rem; opacity: 0.8; font-weight: 400; }
+        .nav-links { display: flex; gap: 8px; list-style: none; }
+        .nav-links > li { position: relative; }
+        .nav-links a { text-decoration: none; color: rgba(255,255,255,0.9); font-size: 0.85rem; font-weight: 400; padding: 10px 16px; border-radius: 50px; display: block; transition: all 0.3s; }
+        .navbar.scrolled .nav-links a { color: var(--text-muted); }
+        .nav-links a i { font-size: 10px; margin-left: 4px; }
+        .nav-links a:hover, .nav-links a.active { color: var(--secondary); background: rgba(255,255,255,0.1); }
+        .navbar.scrolled .nav-links a:hover, .navbar.scrolled .nav-links a.active { color: var(--primary); background: var(--bg-light); }
+        .nav-links > li:hover .mega-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(10px); }
+        .mega-menu { position: absolute; top: 100%; left: 50%; transform: translateX(-50%); background: var(--white); border-radius: 16px; box-shadow: 0 20px 60px rgba(0,0,0,0.15); padding: 20px; min-width: 500px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; opacity: 0; visibility: hidden; transition: all 0.3s; }
+        .mega-menu a { display: flex; align-items: center; gap: 16px; padding: 12px 16px; border-radius: 10px; color: var(--text-dark) !important; transition: all 0.3s; }
+        .mega-menu a:hover { background: var(--bg-light); }
+        .mega-menu .icon { width: 45px; height: 45px; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 18px; }
+        .mega-menu h4 { font-size: 0.95rem; font-weight: 600; margin-bottom: 2px; }
+        .mega-menu p { font-size: 0.8rem; color: var(--text-muted); }
+        .mobile-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 10px; }
+        .mobile-toggle span { width: 25px; height: 2px; background: var(--white); transition: 0.3s; }
+        .navbar.scrolled .mobile-toggle span { background: var(--text-dark); }
+        
+        /* Mobile Menu */
+        .mobile-menu { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: var(--primary); z-index: 999; padding: 100px 40px; transform: translateX(100%); transition: transform 0.4s; }
+        .mobile-menu.active { transform: translateX(0); }
+        .mobile-menu ul { list-style: none; }
+        .mobile-menu a { color: white; font-size: 1.1rem; padding: 12px 0; display: block; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        @media (max-width: 992px) {
+            .nav-links { display: none; }
+            .mobile-toggle { display: flex; }
+            .mobile-menu { display: block; }
+            .mega-menu { display: none; }
+        }
+        
+        /* Page Header */
+        .page-header { background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%); padding: 160px 0 100px; text-align: center; color: white; position: relative; overflow: hidden; }
+        .page-header::before { content: ''; position: absolute; inset: 0; background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); }
+        .page-header > * { position: relative; z-index: 1; }
+        .page-header h1 { font-family: 'Playfair Display', serif; font-size: 3rem; margin-bottom: 16px; }
+        .page-header p { font-size: 1.2rem; opacity: 0.9; max-width: 600px; margin: 0 auto; }
+        .breadcrumb { display: flex; justify-content: center; gap: 12px; margin-top: 24px; font-size: 0.9rem; opacity: 0.8; }
+        .breadcrumb a { color: white; text-decoration: none; }
+        .breadcrumb span { color: var(--secondary); }
+        
+        /* Stats Section */
+        .stats-section { background: var(--white); padding: 40px 0; margin-top: -50px; position: relative; z-index: 10; }
+        .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; max-width: 1000px; margin: 0 auto; }
+        .stat-card { background: var(--white); border-radius: 20px; padding: 30px; text-align: center; box-shadow: 0 10px 40px rgba(0,0,0,0.08); }
+        .stat-card i { font-size: 32px; color: var(--primary); margin-bottom: 12px; }
+        .stat-card .number { font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 700; color: var(--text-dark); }
+        .stat-card .label { font-size: 0.9rem; color: var(--text-muted); }
+        @media (max-width: 768px) {
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        
+        /* Content Section */
+        .content-section { padding: 80px 0; }
+        .section-label { display: inline-block; background: rgba(13, 115, 119, 0.1); color: var(--primary); padding: 8px 20px; border-radius: 50px; font-size: 0.85rem; font-weight: 500; margin-bottom: 16px; }
+        .section-title { font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--text-dark); margin-bottom: 16px; text-align: center; }
+        .section-desc { text-align: center; color: var(--text-muted); font-size: 1.1rem; max-width: 600px; margin: 0 auto 50px; }
+        
+        /* Filter Buttons */
+        .filter-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-bottom: 50px; }
+        .filter-btn { background: var(--white); border: 2px solid #eee; color: var(--text-muted); padding: 10px 24px; border-radius: 50px; font-size: 0.9rem; font-weight: 500; cursor: pointer; transition: all 0.3s; }
+        .filter-btn:hover, .filter-btn.active { background: var(--primary); border-color: var(--primary); color: white; }
+        
+        /* Doctor Grid */
+        .doctor-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 30px; }
+        .doctor-card { background: var(--white); border-radius: 20px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.06); transition: all 0.3s; }
+        .doctor-card:hover { transform: translateY(-8px); box-shadow: 0 20px 60px rgba(0,0,0,0.12); }
+        .doctor-header { display: flex; align-items: center; gap: 20px; padding: 24px; background: linear-gradient(135deg, rgba(13, 115, 119, 0.05) 0%, rgba(20, 145, 155, 0.05) 100%); }
+        .doctor-avatar { width: 80px; height: 80px; border-radius: 50%; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .doctor-avatar i { font-size: 32px; color: white; }
+        .doctor-avatar img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+        .doctor-info h3 { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--text-dark); margin-bottom: 4px; }
+        .doctor-info .specialty { color: var(--primary); font-size: 0.9rem; font-weight: 500; margin-bottom: 8px; }
+        .doctor-info .spesialisasi { color: var(--text-muted); font-size: 0.85rem; }
+        .doctor-body { padding: 24px; }
+        .doctor-detail { display: flex; align-items: center; gap: 12px; padding: 10px 0; border-bottom: 1px solid #f0f0f0; }
+        .doctor-detail:last-child { border-bottom: none; }
+        .doctor-detail i { width: 36px; height: 36px; background: var(--bg-light); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: var(--primary); font-size: 14px; }
+        .doctor-detail .text { flex: 1; }
+        .doctor-detail .label { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; }
+        .doctor-detail .value { font-size: 0.95rem; color: var(--text-dark); font-weight: 500; }
+        .doctor-footer { padding: 16px 24px; background: var(--bg-light); display: flex; justify-content: space-between; align-items: center; }
+        .doctor-action { color: var(--primary); font-weight: 600; font-size: 0.9rem; text-decoration: none; display: flex; align-items: center; gap: 6px; }
+        .doctor-action:hover { color: var(--primary-dark); }
+        .doctor-action i { font-size: 12px; }
+        
+        /* Poli Section */
+        .poli-section { background: var(--bg-light); padding: 80px 0; }
+        .poli-header { display: flex; align-items: center; gap: 16px; margin-bottom: 40px; }
+        .poli-icon { width: 60px; height: 60px; border-radius: 16px; display: flex; align-items: center; justify-content: center; }
+        .poli-icon i { color: white; font-size: 24px; }
+        .poli-header h2 { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--text-dark); }
+        .poli-header .badge { background: var(--primary); color: white; font-size: 0.75rem; padding: 4px 12px; border-radius: 50px; }
+        
+        /* CTA Section */
+        .cta-section { background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%); padding: 80px 0; text-align: center; color: white; }
+        .cta-section h2 { font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 16px; }
+        .cta-section p { font-size: 1.1rem; opacity: 0.9; margin-bottom: 32px; max-width: 500px; margin-left: auto; margin-right: auto; }
+        .cta-btn { display: inline-flex; align-items: center; gap: 10px; background: white; color: var(--primary); padding: 16px 36px; border-radius: 50px; font-weight: 600; text-decoration: none; transition: all 0.3s; font-size: 1rem; }
+        .cta-btn:hover { transform: scale(1.05); box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
+        
+        /* Footer */
+        footer { background: var(--text-dark); color: white; padding: 60px 0 30px; }
+        .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
+        .footer-brand .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; color: white; margin-bottom: 20px; }
+        .footer-brand .logo img { height: 45px; }
+        .footer-brand .logo-text { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 600; }
+        .footer-brand p { font-size: 0.9rem; opacity: 0.7; line-height: 1.7; }
+        .footer-links h4 { font-family: 'Outfit', sans-serif; font-size: 1rem; font-weight: 600; margin-bottom: 20px; }
+        .footer-links ul { list-style: none; }
+        .footer-links li { margin-bottom: 10px; }
+        .footer-links a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 0.9rem; transition: color 0.3s; }
+        .footer-links a:hover { color: white; }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 30px; display: flex; justify-content: space-between; align-items: center; }
+        .footer-bottom p { font-size: 0.9rem; opacity: 0.7; }
+        .footer-social { display: flex; gap: 16px; }
+        .footer-social a { width: 40px; height: 40px; background: rgba(255,255,255,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; transition: all 0.3s; }
+        .footer-social a:hover { background: var(--primary); }
+        @media (max-width: 992px) {
+            .footer-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 576px) {
+            .footer-grid { grid-template-columns: 1fr; }
+            .footer-bottom { flex-direction: column; gap: 16px; }
+            .doctor-grid { grid-template-columns: 1fr; }
+        }
+        
+        /* Animations */
+        .doctor-card { animation: fadeInUp 0.5s ease forwards; opacity: 0; }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .doctor-card:nth-child(1) { animation-delay: 0.1s; }
+        .doctor-card:nth-child(2) { animation-delay: 0.2s; }
+        .doctor-card:nth-child(3) { animation-delay: 0.3s; }
+        .doctor-card:nth-child(4) { animation-delay: 0.4s; }
+        .doctor-card:nth-child(5) { animation-delay: 0.5s; }
+        .doctor-card:nth-child(6) { animation-delay: 0.6s; }
+        .doctor-card:nth-child(7) { animation-delay: 0.7s; }
+        .doctor-card:nth-child(8) { animation-delay: 0.8s; }
+        
+        /* Hidden class for filter */
+        .hidden { display: none !important; }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="logo.png" alt="RSU Payangan">
+                <div>
+                    <div class="logo-text">RSU Payangan</div>
+                    <div class="logo-text-sub">Pavitram Idam Uttamam</div>
+                </div>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Beranda</a></li>
+                <li><a href="about.html">Tentang</a></li>
+                <li>
+                    <a href="rawat-jalan.html" class="active">Layanan <i class="fas fa-chevron-down"></i></a>
+                    <div class="mega-menu">
+                        <a href="rawat-jalan.html"><div class="icon"><i class="fas fa-hospital"></i></div><div><h4>Rawat Jalan</h4><p>Pelayanan rawat jalan</p></div></a>
+                        <a href="igd.html"><div class="icon"><i class="fas fa-ambulance"></i></div><div><h4>IGD 24 Jam</h4><p>Gawat darurat</p></div></a>
+                        <a href="rawat-inap.html"><div class="icon"><i class="fas fa-bed"></i></div><div><h4>Rawat Inap</h4><p>Inap pasien</p></div></a>
+                        <a href="dokter.html"><div class="icon"><i class="fas fa-user-md"></i></div><div><h4>Dokter</h4><p>Daftar dokter</p></div></a>
+                    </div>
+                </li>
+                <li><a href="antrean.html">Antrean</a></li>
+            </ul>
+            <div class="mobile-toggle" onclick="toggleMenu()">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <ul>
+            <li><a href="index.html">Beranda</a></li>
+            <li><a href="about.html">Tentang</a></li>
+            <li><a href="rawat-jalan.html">Layanan</a></li>
+            <li><a href="dokter.html">Dokter</a></li>
+            <li><a href="antrean.html">Antrean</a></li>
+        </ul>
+    </div>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Profil Dokter</h1>
+            <p>Kenali dokter profesional dan berpengalaman di RSU Payangan yang siap memberikan pelayanan kesehatan terbaik untuk Anda</p>
+            <div class="breadcrumb">
+                <a href="index.html">Beranda</a>
+                <span>/</span>
+                <span>Dokter</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <i class="fas fa-user-md"></i>
+                    <div class="number">25+</div>
+                    <div class="label">Dokter Spesialis</div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-stethoscope"></i>
+                    <div class="number">11</div>
+                    <div class="label">Poliklinik</div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-award"></i>
+                    <div class="number">15+</div>
+                    <div class="label">Tahun Pengalaman</div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-clock"></i>
+                    <div class="number">24/7</div>
+                    <div class="label">Siaga Darurat</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Doctor List Section -->
+    <section class="content-section">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 40px;">
+                <div class="section-label">Tim Medis</div>
+                <h2 class="section-title">Dokter Spesialis Kami</h2>
+                <p class="section-desc">Dokter-dokter profesional dengan keahlian khusus siap memberikan pelayanan terbaik untuk kesehatan Anda</p>
+            </div>
+            
+            <!-- Filter Buttons -->
+            <div class="filter-container">
+                <button class="filter-btn active" onclick="filterDoctors('all')">Semua</button>
+                <button class="filter-btn" onclick="filterDoctors('umum')">Poli Umum</button>
+                <button class="filter-btn" onclick="filterDoctors('saraf')">Saraf</button>
+                <button class="filter-btn" onclick="filterDoctors('anak')">Anak</button>
+                <button class="filter-btn" onclick="filterDoctors('kandungan')">Kandungan</button>
+                <button class="filter-btn" onclick="filterDoctors('tht')">THT</button>
+                <button class="filter-btn" onclick="filterDoctors('gigi')">Gigi</button>
+                <button class="filter-btn" onclick="filterDoctors('dalam')">Penyakit Dalam</button>
+                <button class="filter-btn" onclick="filterDoctors('bedah')">Bedah</button>
+                <button class="filter-btn" onclick="filterDoctors('ortho')">Orthopedi</button>
+                <button class="filter-btn" onclick="filterDoctors('jantung')">Jantung</button>
+            </div>
+
+            <!-- Doctor Grid -->
+            <div class="doctor-grid" id="doctorGrid">
+                
+                <!-- POLI UMUM -->
+                <div class="doctor-card" data-poli="umum">
+                    <div class="doctor-header">
+                        <div class="doctor-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="doctor-info">
+                            <h3>dr. I Nyoman Wraspati Paramana</h3>
+                            <div class="specialty">Dokter Umum</div>
+                            <div class="spesialisasi">Poliklinik Umum</div>
+                        </div>
+                    </div>
+                    <div class="doctor-body">
+                        <div class="doctor-detail">
+                            <i class="fas fa-clock"></i>
+                            <div class="text">
+                                <div class="label">Jadwal Praktik</div>
+                                <div class="value">Senin - Kamis: 08:00 - 14:00</div>
+                            </div>
+                        </div>
+                        <div class="doctor-detail">
+                            <i class="fas fa-graduation-cap"></i>
+                            <div class="text">
+                                <div class="label">Pendidikan</div>
+                                <div class="value">FK Universitas Udayana</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="doctor-footer">
+                        <a href="poli-umum.html" class="doctor-action">Lihat Poli <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="doctor-card" data-poli="umum">
+                    <div class="doctor-header">
+                        <div class="doctor-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="doctor-info">
+                            <h3>dr. Made Supartini</h3>
+                            <div class="specialty">Dokter Umum</div>
+                            <div class="spesialisasi">Poliklinik Umum</div>
+                        </div>
+                    </div>
+                    <div class="doctor-body">
+                        <div class="doctor-detail">
+                            <i class="fas fa-clock"></i>
+                            <div class="text">
+                                <div class="label">Jadwal Praktik</div>
+                                <div class="value">Senin - Jumat: 08:00 - 12:00</div>
+                            </div>
+                        </div>
+                        <div class="doctor-detail">
+                            <i class="fas fa-graduation-cap"></i>
+                            <div class="text">
+                                <div class="label">Pendidikan</div>
+                                <div class="value">FK Universitas Indonesia</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="doctor-footer">
+                        <a href="poli-umum.html" class="doctor-action">Lihat Poli <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="doctor-card" data-poli="umum">
+                    <div class="doctor-header">
+                        <div class="doctor-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="doctor-info">
+                            <h3>dr. Ketut Suardika</h3>
+                            <div class="specialty">Dokter Umum</div>
+                            <div class="spesialisasi">Poliklinik Umum</div>
+                        </div>
+                    </div>
+                    <div class="doctor-body">
+                        <div class="doctor-detail">
+                            <i class="fas fa-clock"></i>
+                            <div class="text">
+                                <div class="label">Jadwal Praktik</div>
+                                <div class="value">Senin - Sabtu: 13:00 - 18:00</div>
+                            </div>
+                        </div>
+                        <div class="doctor-detail">
+                            <i class="fas fa-graduation-cap"></i>
+                            <div class="text">
+                                <div class="label">Pendidikan</div>
+                                <div class="value">FK Universitas Brawijaya</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="doctor-footer">
+                        <a href="poli-umum.html" class="doctor-action">Lihat Poli <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- POLI SARAF -->
+                <div class="doctor-card" data-poli="saraf">
+                    <div class="doctor-header">
+                        <div class="doctor-avatar" style="background: linear-gradient(135deg, #6c5ce7 0%, #a29bfe 100%);">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <div class="doctor-info">
+                            <h3>dr. Sp.S -dr. I Wayan Sudira-</h3>
+                            <div class="specialty">Spesialis Saraf</div>
+                            <div class="spesialisasi">Poliklinik Saraf</div>
+                        </div>
+                    </div>
+                    <div class="doctor-body">
+                        <div class="doctor-detail">
+                            <i class="fas fa-clock"></i>
+                            <div class="text">
+                                <div class="label">Jadwal Praktik</div>
+                                <div class="value">Selasa & Kamis: 09:00 - 14:00</div>
+                            </div>
+                        </div>
+                        <div class="doctor-detail">
+                            <i class="fas fa-graduation-cap"></i>
+                            <div class="text">
+                                <div class="label">Pendidikan</div>
+                                <div class="value">Sp.S - FK Universitas Gadjah Mada</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="doctor-footer">
+                        <a href="poli-saraf.html" class="doctor-action">Lihat Poli <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- POLI ANAK -->
+                <div class="doctor-card" data-poli="anak">
+                    <div class="doctor-header">
+                        <div class="doctor-avatar" style="background: linear-gradient(135deg, #fdcb6e 0%, #f39c12 100%);">
+                            <i class="fas fa-child"></i>
+                        </div>
+                        <div class="doctor-info">
+                            <h3>dr. Sp.A -dr. Ni Luh Putu Wahyuni-</h3>
+                            <div class="specialty">Spesialis Anak</div>
+                            <div class="spesialisasi">Poliklinik Anak</div>
+                        </div>
+                    </div>
+                    <div class="doctor-body">
+                        <div class="doctor-detail">
+                            <i class="fas fa-clock"></i>
+                            <div class="text">
+                                <div class="label">Jadwal Praktik</div>
+                                <div class="value">Senin, Rabu & Jumat: 08:00 - 14:00</div>
+                            </div>
+                        </div>
+                        <div class="doctor-detail">
+                            <i class="fas fa-graduation-cap"></i>
+                            <div class="text">
+                                <div class="label">Pendidikan</div>
+                                <div class="value">Sp.A - FK Universitas Udayana</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="doctor-footer">
+                        <a href="poli-anak.html" class="doctor-action">Lihat Poli <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="doctor-card" data-poli="anak">
+                    <div class="doctor-header">
+                        <div class="doctor-avatar" style="background: linear-gradient(135deg, #fdcb6e 0%, #f39c12 100%);">
+                            <i class="fas fa-child"></i>
+                        </div>
+                        <div class="doctor-info">
+                            <h3>dr. Sp.A -dr. Anak Agung Gede Ngurah-</h3>
+                            <div class="specialty">Spesialis Anak</div>
+                            <div class="spesialisasi">Poliklinik Anak</div>
+                        </div>
+                    </div>
+                    <div class="doctor-body">
+                        <div class="doctor-detail">
+                            <i class="fas fa-clock"></i>
+                            <div class="text">
+                                <div class="label">Jadwal Praktik</div>
+                                <div class="value">Selasa & Kamis: 08:00 - 14:00</div>
+                            </div>
+                        </div>
+                        <div class="doctor-detail">
+                            <i class="fas fa-graduation-cap"></i>
+                            <div class="text">
+                                <div class="label">Pendidikan</div>
+                                <div class="value">Sp.A - FK Universitas Hasanuddin</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="doctor-footer">
+                        <a href="poli-anak.html" class="doctor-action">Lihat Poli <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- POLI KANDUNGAN -->
+                <div class="doctor-card" data-poli="kandungan">
+                    <div class="doctor-header">
+                        <div class="doctor-avatar" style="background: linear-gradient(135deg, #fd79a8 0%, #e84393 100%);">
+                            <i class="fas fa-female"></i>
+                        </div>
+                        <div class="doctor-info">
+                            <h3>dr. Sp.OG -dr. Dewa Ayu Martini-</h3>
+                            <div class="specialty">Spesialis Kandungan</div>
+                            <div class="spesialisasi">Poliklinik Kandungan & Kebidanan</div>
+                        </div>
+                    </div>
+                    <div class="doctor-body">
+                        <div class="doctor-detail">
+                            <i class="fas fa-clock"></i>
+                            <div class="text">
+                                <div class="label">Jadwal Praktik</div>
+                                <div class="value">Senin - Jumat: 09:00 - 15:00</div>
+                            </div>
+                        </div>
+                        <div class="doctor-detail">
+                            <i class="fas fa-graduation-cap"></i>
+                            <div class="text">
+                                <div class="label">Pendidikan</div>
+                                <div class="value">Sp.OG - FK Universitas Udayana</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="doctor-footer">
+                        <a href="poli-kandungan.html" class="doctor-action">Lihat Poli <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="doctor-card" data-poli="kandungan">
+                    <div class="doctor-header">
+                        <div class="doctor-avatar" style="background: linear-gradient(135deg, #fd79a8 0%, #e84393 100%);">
+                            <i class="fas fa-female"></i>
+                        </div>
+                        <div class="doctor-info">
+                            <h3>dr. Sp.OG -dr. Made Aryanti-</h3>
+                            <div class="specialty">Spesialis Kandungan</div>
+                            <div class="spesialisasi">Poliklinik Kandungan & Kebidanan</div>
+                        </div>
+                    </div>
+                    <div class="doctor-body">
+                        <div class="doctor-detail">
+                            <i class="fas fa-clock"></i>
+                            <div class="text">
+                                <div class="label">Jadwal Praktik</div>
+                                <div class="value">Senin, Rabu, Jumat: 10:00 - 16:00</div>
+                            </div>
+                        </div>
+                        <div class="doctor-detail">
+                            <i class="fas fa-graduation-cap"></i>
+                            <div class="text">
+                                <div class="label">Pendidikan</div>
+                                <div class="value">Sp.OG - FK Universitas Brawijaya</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="doctor-footer">
+                        <a href="poli-kandungan.html" class="doctor-action">Lihat Poli <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- POLI THT -->
+                <div class="doctor-card" data-poli="tht">
+                    <div class="doctor-header">
+                        <div class="doctor-avatar" style="background: linear-gradient(135deg, #00b894 0%, #00cec9 100%);">
+                            <i class="fas fa-ear-listen"></i>
+                        </div>
+                        <div class="doctor-info">
+                            <h3>dr. Sp.THT-KL -dr. I Gusti Ngurah Rai-</h3>
+                            <div class="specialty">Spesialis THT</div>
+                            <div class="spesialisasi">Poliklinik THT-KL</div>
+                        </div>
+                    </div>
+                    <div class="doctor-body">
+                        <div class="doctor-detail">
+                            <i class="fas fa-clock"></i>
+                            <div class="text">
+                                <div class="label">Jadwal Praktik</div>
+                                <div class="value">Senin & Kamis: 08:00 - 14:00</div>
+                            </div>
+                        </div>
+                        <div class="doctor-detail">
+                            <i class="fas fa-graduation-cap"></i>
+                            <div class="text">
+                                <div class="label">Pendidikan</div>
+                                <div class="value">Sp.THT-KL - FK Universitas Padjadjaran</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="doctor-footer">
+                        <a href="poli-tht.html" class="doctor-action">Lihat Poli <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- POLI GIGI -->
+                <div class="doctor-card" data-poli="gigi">
+                    <div class="doctor-header">
+                        <div class="doctor-avatar" style="background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);">
+                            <i class="fas fa-tooth"></i>
+                        </div>
+                        <div class="doctor-info">
+                            <h3>drg. Ni Made Suarningsih</h3>
+                            <div class="specialty">Dokter Gigi</div>
+                            <div class="spesialisasi">Poliklinik Gigi</div>
+                        </div>
+                    </div>
+                    <div class="doctor-body">
+                        <div class="doctor-detail">
+                            <i class="fas fa-clock"></i>
+                            <div class="text">
+                                <div class="label">Jadwal Praktik</div>
+                                <div class="value">Senin - Jumat: 08:00 - 14:00</div>
+                            </div>
+                        </div>
+                        <div class="doctor-detail">
+                            <i class="fas fa-graduation-cap"></i>
+                            <div class="text">
+                                <div class="label">Pendidikan</div>
+                                <div class="value">FKG Universitas Udayana</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="doctor-footer">
+                        <a href="poli-gigi.html" class="doctor-action">Lihat Poli <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="doctor-card" data-poli="gigi">
+                    <div class="doctor-header">
+                        <div class="doctor-avatar" style="background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);">
+                            <i class="fas fa-tooth"></i>
+                        </div>
+                        <div class="doctor-info">
+                            <h3>drg. I Putu Gede Dana</h3>
+                            <div class="specialty">Dokter Gigi</div>
+                            <div class="spesialisasi">Poliklinik Gigi</div>
+                        </div>
+                    </div>
+                    <div class="doctor-body">
+                        <div class="doctor-detail">
+                            <i class="fas fa-clock"></i>
+                            <div class="text">
+                                <div class="label">Jadwal Praktik</div>
+                                <div class="value">Senin - Sabtu: 14:00 - 18:00</div>
+                            </div>
+                        </div>
+                        <div class="doctor-detail">
+                            <i class="fas fa-graduation-cap"></i>
+                            <div class="text">
+                                <div class="label">Pendidikan</div>
+                                <div class="value">FKG Universitas Mahasaraswati</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="doctor-footer">
+                        <a href="poli-gigi.html" class="doctor-action">Lihat Poli <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- POLI PENYAKIT DALAM -->
+                <div class="doctor-card" data-poli="dalam">
+                    <div class="doctor-header">
+                        <div class="doctor-avatar" style="background: linear-gradient(135deg, #e17055 0%, #d63031 100%);">
+                            <i class="fas fa-heartbeat"></i>
+                        </div>
+                        <div class="doctor-info">
+                            <h3>dr. Sp.PD -dr. I Wayan Pasek Yasa-</h3>
+                            <div class="specialty">Spesialis Penyakit Dalam</div>
+                            <div class="spesialisasi">Poliklinik Penyakit Dalam</div>
+                        </div>
+                    </div>
+                    <div class="doctor-body">
+                        <div class="doctor-detail">
+                            <i class="fas fa-clock"></i>
+                            <div class="text">
+                                <div class="label">Jadwal Praktik</div>
+                                <div class="value">Senin - Jumat: 08:00 - 15:00</div>
+                            </div>
+                        </div>
+                        <div class="doctor-detail">
+                            <i class="fas fa-graduation-cap"></i>
+                            <div class="text">
+                                <div class="label">Pendidikan</div>
+                                <div class="value">Sp.PD - FK Universitas Udayana</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="doctor-footer">
+                        <a href="poli-dalam.html" class="doctor-action">Lihat Poli <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- POLI BEDAH -->
+                <div class="doctor-card" data-poli="bedah">
+                    <div class="doctor-header">
+                        <div class="doctor-avatar" style="background: linear-gradient(135deg, #636e72 0%, #2d3436 100%);">
+                            <i class="fas fa-cut"></i>
+                        </div>
+                        <div class="doctor-info">
+                            <h3>dr. Sp.B -dr. Komang Ngurah Suardana-</h3>
+                            <div class="specialty">Spesialis Bedah</div>
+                            <div class="spesialisasi">Poliklinik Bedah</div>
+                        </div>
+                    </div>
+                    <div class="doctor-body">
+                        <div class="doctor-detail">
+                            <i class="fas fa-clock"></i>
+                            <div class="text">
+                                <div class="label">Jadwal Praktik</div>
+                                <div class="value">Senin, Rabu, Jumat: 10:00 - 15:00</div>
+                            </div>
+                        </div>
+                        <div class="doctor-detail">
+                            <i class="fas fa-graduation-cap"></i>
+                            <div class="text">
+                                <div class="label">Pendidikan</div>
+                                <div class="value">Sp.B - FK Universitas Hasanuddin</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="doctor-footer">
+                        <a href="poli-bedah.html" class="doctor-action">Lihat Poli <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- POLI ORTHOPEDIC -->
+                <div class="doctor-card" data-poli="ortho">
+                    <div class="doctor-header">
+                        <div class="doctor-avatar" style="background: linear-gradient(135deg, #00cec9 0%, #00b894 100%);">
+                            <i class="fas fa-bone"></i>
+                        </div>
+                        <div class="doctor-info">
+                            <h3>dr. Sp.OT -dr. I Made Sumeru-</h3>
+                            <div class="specialty">Spesialis Orthopedi</div>
+                            <div class="spesialisasi">Poliklinik Orthopedi & Traumatologi</div>
+                        </div>
+                    </div>
+                    <div class="doctor-body">
+                        <div class="doctor-detail">
+                            <i class="fas fa-clock"></i>
+                            <div class="text">
+                                <div class="label">Jadwal Praktik</div>
+                                <div class="value">Selasa & Kamis: 09:00 - 14:00</div>
+                            </div>
+                        </div>
+                        <div class="doctor-detail">
+                            <i class="fas fa-graduation-cap"></i>
+                            <div class="text">
+                                <div class="label">Pendidikan</div>
+                                <div class="value">Sp.OT - FK Universitas Indonesia</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="doctor-footer">
+                        <a href="poli-orthopedic.html" class="doctor-action">Lihat Poli <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- POLI JANTUNG -->
+                <div class="doctor-card" data-poli="jantung">
+                    <div class="doctor-header">
+                        <div class="doctor-avatar" style="background: linear-gradient(135deg, #ff7675 0%, #d63031 100%);">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <div class="doctor-info">
+                            <h3>dr. Sp.JP -dr. I Gusti Lanang Parwata-</h3>
+                            <div class="specialty">Spesialis Jantung & Pembuluh Darah</div>
+                            <div class="spesialisasi">Poliklinik Jantung</div>
+                        </div>
+                    </div>
+                    <div class="doctor-body">
+                        <div class="doctor-detail">
+                            <i class="fas fa-clock"></i>
+                            <div class="text">
+                                <div class="label">Jadwal Praktik</div>
+                                <div class="value">Senin - Jumat: 08:00 - 12:00</div>
+                            </div>
+                        </div>
+                        <div class="doctor-detail">
+                            <i class="fas fa-graduation-cap"></i>
+                            <div class="text">
+                                <div class="label">Pendidikan</div>
+                                <div class="value">Sp.JP - FK Universitas Udayana</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="doctor-footer">
+                        <a href="poli-jantung.html" class="doctor-action">Lihat Poli <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Butuh Konsultasi Dokter?</h2>
+            <p>Hubungi kami untuk informasi jadwal dokter dan pendaftaran rawat jalan</p>
+            <a href="tel:036198087" class="cta-btn">
+                <i class="fas fa-phone-alt"></i> Hubungi Kami
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <img src="logo.png" alt="RSU Payangan">
+                        <span class="logo-text">RSU Payangan</span>
+                    </a>
+                    <p>Memberikan pelayanan kesehatan berkualitas berbasis Tri Hita Karana.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Layanan</h4>
+                    <ul>
+                        <li><a href="rawat-jalan.html">Rawat Jalan</a></li>
+                        <li><a href="rawat-inap.html">Rawat Inap</a></li>
+                        <li><a href="igd.html">IGD 24 Jam</a></li>
+                        <li><a href="dokter.html">Dokter</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Tentang</h4>
+                    <ul>
+                        <li><a href="about.html#sejarah">Sejarah</a></li>
+                        <li><a href="about.html#visimisi">Visi Misi</a></li>
+                        <li><a href="about.html#standar">Standar</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Kontak</h4>
+                    <ul>
+                        <li><a href="tel:+6236198087">0361 98087</a></li>
+                        <li><a href="#">Jl. Raya Payangan</a></li>
+                        <li><a href="#">Gianyar, Bali</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 RSU Payangan - Gianyar, Bali</p>
+                <div class="footer-social">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        window.addEventListener('scroll', () => {
+            document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
+        });
+        function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('active'); }
+        
+        function filterDoctors(poli) {
+            const cards = document.querySelectorAll('.doctor-card');
+            const buttons = document.querySelectorAll('.filter-btn');
+            
+            // Update active button
+            buttons.forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.textContent.toLowerCase().includes(poli) || (poli === 'all' && btn.textContent === 'Semua')) {
+                    btn.classList.add('active');
+                }
+            });
+            
+            // Filter cards
+            cards.forEach(card => {
+                if (poli === 'all' || card.dataset.poli === poli) {
+                    card.classList.remove('hidden');
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+        }
+    </script>
+</body>
+</html>
