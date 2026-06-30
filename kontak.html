@@ -79,36 +79,33 @@
         .section-title { font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--text-dark); margin-bottom: 16px; text-align: center; }
         .section-desc { text-align: center; color: var(--text-muted); font-size: 1.1rem; max-width: 600px; margin: 0 auto 50px; }
         
-        /* Contact Cards - Elegant Grid */
-        .contact-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
-        .info-card { background: var(--white); border-radius: 24px; padding: 32px; box-shadow: 0 10px 40px rgba(0,0,0,0.06); transition: all 0.4s ease; position: relative; overflow: hidden; }
-        .info-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--primary), var(--primary-light)); transform: scaleX(0); transition: transform 0.4s ease; }
-        .info-card:hover { transform: translateY(-8px); box-shadow: 0 25px 80px rgba(0,0,0,0.12); }
-        .info-card:hover::before { transform: scaleX(1); }
-        .info-card .icon { width: 70px; height: 70px; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); border-radius: 20px; display: flex; align-items: center; justify-content: center; margin-bottom: 24px; box-shadow: 0 10px 30px rgba(13, 115, 119, 0.3); }
-        .info-card .icon i { font-size: 28px; color: white; }
-        .info-card h3 { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--text-dark); margin-bottom: 16px; }
-        .info-card p { color: var(--text-muted); font-size: 1rem; line-height: 1.8; }
-        .info-card p strong { color: var(--text-dark); }
-        .info-card a { color: var(--primary); text-decoration: none; font-weight: 600; transition: color 0.3s; }
-        .info-card a:hover { color: var(--primary-dark); text-decoration: underline; }
-        
-        /* Quick Contact Buttons */
-        .quick-contact { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
-        .quick-btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; border-radius: 50px; font-size: 0.9rem; font-weight: 600; text-decoration: none; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
-        .quick-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0,0,0,0.15); }
-        .quick-btn.phone { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); color: white; }
-        .quick-btn.phone:hover { background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%); }
-        .quick-btn.whatsapp { background: linear-gradient(135deg, #25D366 0%, #128C7E 100%); color: white; }
-        .quick-btn.whatsapp:hover { background: linear-gradient(135deg, #128C7E 0%, #075E54 100%); }
-        .quick-btn.email { background: linear-gradient(135deg, #EA4335 0%, #c5221f 100%); color: white; }
-        .quick-btn.email:hover { background: linear-gradient(135deg, #c5221f 0%, #a50e0a 100%); }
-        
-        /* Social Media */
-        .social-links { display: flex; gap: 12px; margin-top: 20px; }
-        .social-link { width: 50px; height: 50px; background: var(--bg-light); border-radius: 16px; display: flex; align-items: center; justify-content: center; color: var(--text-dark); text-decoration: none; transition: all 0.3s ease; }
+        /* Single Full Width Contact Box */
+        .contact-box { background: var(--white); border-radius: 30px; padding: 50px; box-shadow: 0 20px 80px rgba(0,0,0,0.08); }
+        .contact-header { text-align: center; margin-bottom: 50px; padding-bottom: 30px; border-bottom: 2px solid var(--bg-light); }
+        .contact-header h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--text-dark); margin-bottom: 8px; }
+        .contact-header p { color: var(--text-muted); font-size: 1rem; }
+        .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; }
+        .contact-item { display: flex; gap: 20px; }
+        .contact-item .icon-box { width: 60px; height: 60px; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); border-radius: 16px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 10px 30px rgba(13, 115, 119, 0.3); }
+        .contact-item .icon-box i { font-size: 24px; color: white; }
+        .contact-item .details { flex: 1; }
+        .contact-item h4 { font-family: 'Outfit', sans-serif; font-size: 1.1rem; font-weight: 600; color: var(--text-dark); margin-bottom: 8px; }
+        .contact-item p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; margin-bottom: 4px; }
+        .contact-item a { color: var(--primary); text-decoration: none; font-weight: 500; transition: color 0.3s; }
+        .contact-item a:hover { color: var(--primary-dark); text-decoration: underline; }
+        .contact-buttons { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 15px; }
+        .contact-btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; text-decoration: none; transition: all 0.3s; }
+        .contact-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,0.15); }
+        .contact-btn.phone { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); color: white; }
+        .contact-btn.whatsapp { background: linear-gradient(135deg, #25D366 0%, #128C7E 100%); color: white; }
+        .contact-btn.email-btn { background: linear-gradient(135deg, #EA4335 0%, #c5221f 100%); color: white; }
+        .contact-btn.map { background: var(--bg-light); color: var(--text-dark); }
+        .social-section { margin-top: 40px; padding-top: 30px; border-top: 2px solid var(--bg-light); }
+        .social-section h4 { font-family: 'Outfit', sans-serif; font-size: 1rem; font-weight: 600; color: var(--text-dark); margin-bottom: 16px; text-align: center; }
+        .social-links { display: flex; justify-content: center; gap: 16px; }
+        .social-link { width: 55px; height: 55px; background: var(--bg-light); border-radius: 16px; display: flex; align-items: center; justify-content: center; color: var(--text-dark); text-decoration: none; transition: all 0.3s; }
         .social-link:hover { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); color: white; transform: translateY(-4px); box-shadow: 0 10px 25px rgba(13, 115, 119, 0.3); }
-        .social-link i { font-size: 20px; }
+        .social-link i { font-size: 22px; }
         
         /* Full Width Map Section */
         .map-section { width: 100%; }
@@ -268,104 +265,85 @@
     <!-- Contact Info Section -->
     <section class="contact-section">
         <div class="container">
-            <div style="text-align: center; margin-bottom: 50px;">
+            <div style="text-align: center; margin-bottom: 40px;">
                 <div class="section-label">Hubungi Kami</div>
                 <h2 class="section-title">Informasi Kontak</h2>
                 <p class="section-desc">Tim kami siap membantu Anda 24 jam. Jangan ragu untuk menghubungi kami.</p>
             </div>
             
-            <div class="contact-cards">
-                <!-- Alamat -->
-                <div class="info-card">
-                    <div class="icon">
-                        <i class="fas fa-map-marker-alt"></i>
+            <!-- Single Full Width Contact Box -->
+            <div class="contact-box">
+                <div class="contact-header">
+                    <h3>Payangan Hospital</h3>
+                    <p>Jl. Raya Payangan, Desa Payangan, Kec. Payangan, Kab. Gianyar, Bali 80572</p>
+                </div>
+                
+                <div class="contact-grid">
+                    <!-- Alamat -->
+                    <div class="contact-item">
+                        <div class="icon-box">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="details">
+                            <h4>Alamat</h4>
+                            <p>Jl. Raya Payangan, Desa Payangan,<br>Kec. Payangan, Kab. Gianyar, Bali 80572</p>
+                            <div class="contact-buttons">
+                                <a href="https://maps.google.com/?q=Payangan+Hospital+Gianyar+Bali" target="_blank" class="contact-btn map">
+                                    <i class="fas fa-directions"></i> Petunjuk Arah
+                                </a>
+                            </div>
+                        </div>
                     </div>
-                    <h3>Alamat</h3>
-                    <p>
-                        Jl. Raya Payangan, Desa Payangan,<br>
-                        Kec. Payangan, Kab. Gianyar,<br>
-                        Bali 80572, Indonesia
-                    </p>
-                    <div class="quick-contact">
-                        <a href="https://maps.google.com/?q=Payangan+Hospital+Gianyar+Bali" target="_blank" class="quick-btn phone">
-                            <i class="fas fa-directions"></i> Petunjuk Arah
-                        </a>
+
+                    <!-- Telepon -->
+                    <div class="contact-item">
+                        <div class="icon-box" style="background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div class="details">
+                            <h4>Telepon & WhatsApp</h4>
+                            <p>Telepon: <a href="tel:+6236198087">0361 98087</a> (Ext. 88)</p>
+                            <p>WhatsApp: <a href="https://wa.me/6281234567890">+62 812 3456 7890</a></p>
+                            <div class="contact-buttons">
+                                <a href="tel:+6236198087" class="contact-btn phone"><i class="fas fa-phone"></i> Telepon</a>
+                                <a href="https://wa.me/6281234567890" target="_blank" class="contact-btn whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Email -->
+                    <div class="contact-item">
+                        <div class="icon-box" style="background: linear-gradient(135deg, #EA4335 0%, #c5221f 100%);">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="details">
+                            <h4>Email</h4>
+                            <p>Umum: <a href="mailto:info@rsupayangan.co.id">info@rsupayangan.co.id</a></p>
+                            <p>Reservasi: <a href="mailto:reservasi@rsupayangan.co.id">reservasi@rsupayangan.co.id</a></p>
+                            <div class="contact-buttons">
+                                <a href="mailto:info@rsupayangan.co.id" class="contact-btn email-btn"><i class="fas fa-envelope"></i> Kirim Email</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Jam Operasional -->
+                    <div class="contact-item">
+                        <div class="icon-box" style="background: linear-gradient(135deg, #f4c430 0%, #e85d04 100%);">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="details">
+                            <h4>Jam Operasional</h4>
+                            <p><i class="fas fa-ambulance"></i> IGD / Emergensi: <strong>24 Jam</strong></p>
+                            <p><i class="fas fa-stethoscope"></i> Poliklinik: 08:00 - 14:00 (Senin-Jumat)</p>
+                            <p><i class="fas fa-flask"></i> Laboratorium: 07:00 - 14:00</p>
+                            <p><i class="fas fa-pills"></i> Apotek: 08:00 - 21:00</p>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Telepon -->
-                <div class="info-card">
-                    <div class="icon" style="background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);">
-                        <i class="fas fa-phone-alt"></i>
-                    </div>
-                    <h3>Telepon & WhatsApp</h3>
-                    <p>
-                        <strong>Telepon:</strong> <a href="tel:+6236198087">0361 98087</a><br>
-                        <strong>Ext:</strong> <a href="tel:+6236198088">0361 98088</a>
-                    </p>
-                    <p style="margin-top: 16px;">
-                        <strong>WhatsApp:</strong><br>
-                        <a href="https://wa.me/6281234567890">+62 812 3456 7890</a>
-                    </p>
-                    <div class="quick-contact">
-                        <a href="tel:+6236198087" class="quick-btn phone">
-                            <i class="fas fa-phone"></i> Telepon
-                        </a>
-                        <a href="https://wa.me/6281234567890" class="quick-btn whatsapp" target="_blank">
-                            <i class="fab fa-whatsapp"></i> WhatsApp
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Email -->
-                <div class="info-card">
-                    <div class="icon" style="background: linear-gradient(135deg, #EA4335 0%, #c5221f 100%);">
-                        <i class="fas fa-envelope"></i>
-                    </div>
-                    <h3>Email</h3>
-                    <p>
-                        <strong>Umum:</strong><br>
-                        <a href="mailto:info@rsupayangan.co.id">info@rsupayangan.co.id</a>
-                    </p>
-                    <p style="margin-top: 16px;">
-                        <strong>Reservasi:</strong><br>
-                        <a href="mailto:reservasi@rsupayangan.co.id">reservasi@rsupayangan.co.id</a>
-                    </p>
-                    <div class="quick-contact">
-                        <a href="mailto:info@rsupayangan.co.id" class="quick-btn email">
-                            <i class="fas fa-envelope"></i> Kirim Email
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Jam Operasional -->
-                <div class="info-card">
-                    <div class="icon" style="background: linear-gradient(135deg, #f4c430 0%, #e85d04 100%);">
-                        <i class="fas fa-clock"></i>
-                    </div>
-                    <h3>Jam Operasional</h3>
-                    <p>
-                        <strong><i class="fas fa-ambulance"></i> IGD / Emergensi:</strong><br>
-                        24 Jam Setiap Hari
-                    </p>
-                    <p style="margin-top: 12px;">
-                        <strong><i class="fas fa-stethoscope"></i> Poliklinik:</strong><br>
-                        Senin - Jumat: 08:00 - 14:00<br>
-                        Sabtu: 08:00 - 12:00
-                    </p>
-                    <p style="margin-top: 12px;">
-                        <strong><i class="fas fa-flask"></i> Laboratorium:</strong> 07:00 - 14:00<br>
-                        <strong><i class="fas fa-pills"></i> Apotek:</strong> 08:00 - 21:00
-                    </p>
-                </div>
-
-                <!-- Media Sosial -->
-                <div class="info-card">
-                    <div class="icon" style="background: linear-gradient(135deg, #E4405F 0%, #F77737 100%);">
-                        <i class="fas fa-share-alt"></i>
-                    </div>
-                    <h3>Media Sosial</h3>
-                    <p>Ikuti kami untuk informasi terbaru dan promosi kesehatan</p>
+                <!-- Social Media -->
+                <div class="social-section">
+                    <h4>Ikuti Kami di Media Sosial</h4>
                     <div class="social-links">
                         <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
                         <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
@@ -373,7 +351,6 @@
                         <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
