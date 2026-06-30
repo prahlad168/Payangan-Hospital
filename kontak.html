@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontak Kami - RSU Payangan</title>
+    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #0d7377;
+            --primary-dark: #095456;
+            --primary-light: #14919b;
+            --secondary: #f4c430;
+            --accent: #e85d04;
+            --bg-light: #f8f9fa;
+            --text-dark: #212529;
+            --text-muted: #6c757d;
+            --white: #ffffff;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Outfit', sans-serif; color: var(--text-dark); line-height: 1.6; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        
+        /* Navbar */
+        .navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 20px 0; transition: all 0.3s; }
+        .navbar.scrolled { background: var(--white); box-shadow: 0 2px 20px rgba(0,0,0,0.1); padding: 15px 0; }
+        .navbar .container { display: flex; justify-content: space-between; align-items: center; }
+        .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--white); }
+        .navbar.scrolled .logo { color: var(--text-dark); }
+        .logo img { height: 45px; }
+        .logo-text { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 600; }
+        .logo-text-sub { font-size: 0.7rem; opacity: 0.8; font-weight: 400; }
+        .nav-links { display: flex; gap: 8px; list-style: none; }
+        .nav-links > li { position: relative; }
+        .nav-links a { text-decoration: none; color: rgba(255,255,255,0.9); font-size: 0.85rem; font-weight: 400; padding: 10px 16px; border-radius: 50px; display: block; transition: all 0.3s; }
+        .navbar.scrolled .nav-links a { color: var(--text-muted); }
+        .nav-links a i { font-size: 10px; margin-left: 4px; }
+        .nav-links a:hover, .nav-links a.active { color: var(--secondary); background: rgba(255,255,255,0.1); }
+        .navbar.scrolled .nav-links a:hover, .navbar.scrolled .nav-links a.active { color: var(--primary); background: var(--bg-light); }
+        .nav-links > li:hover .mega-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(10px); }
+        .mega-menu { position: absolute; top: 100%; left: 50%; transform: translateX(-50%); background: var(--white); border-radius: 16px; box-shadow: 0 20px 60px rgba(0,0,0,0.15); padding: 20px; min-width: 500px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; opacity: 0; visibility: hidden; transition: all 0.3s; }
+        .mega-menu a { display: flex; align-items: center; gap: 16px; padding: 12px 16px; border-radius: 10px; color: var(--text-dark) !important; transition: all 0.3s; }
+        .mega-menu a:hover { background: var(--bg-light); }
+        .mega-menu .icon { width: 45px; height: 45px; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 18px; }
+        .mega-menu h4 { font-size: 0.95rem; font-weight: 600; margin-bottom: 2px; }
+        .mega-menu p { font-size: 0.8rem; color: var(--text-muted); }
+        .mobile-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 10px; }
+        .mobile-toggle span { width: 25px; height: 2px; background: var(--white); transition: 0.3s; }
+        .navbar.scrolled .mobile-toggle span { background: var(--text-dark); }
+        
+        /* Mobile Menu */
+        .mobile-menu { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: var(--primary); z-index: 999; padding: 100px 40px; transform: translateX(100%); transition: transform 0.4s; }
+        .mobile-menu.active { transform: translateX(0); }
+        .mobile-menu ul { list-style: none; }
+        .mobile-menu a { color: white; font-size: 1.1rem; padding: 12px 0; display: block; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        @media (max-width: 992px) {
+            .nav-links { display: none; }
+            .mobile-toggle { display: flex; }
+            .mobile-menu { display: block; }
+            .mega-menu { display: none; }
+        }
+        
+        /* Page Header */
+        .page-header { background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%); padding: 160px 0 100px; text-align: center; color: white; position: relative; overflow: hidden; }
+        .page-header::before { content: ''; position: absolute; inset: 0; background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); }
+        .page-header > * { position: relative; z-index: 1; }
+        .page-header h1 { font-family: 'Playfair Display', serif; font-size: 3rem; margin-bottom: 16px; }
+        .page-header p { font-size: 1.2rem; opacity: 0.9; max-width: 600px; margin: 0 auto; }
+        .breadcrumb { display: flex; justify-content: center; gap: 12px; margin-top: 24px; font-size: 0.9rem; opacity: 0.8; }
+        .breadcrumb a { color: white; text-decoration: none; }
+        .breadcrumb span { color: var(--secondary); }
+        
+        /* Contact Info Section */
+        .contact-section { padding: 80px 0; }
+        .section-label { display: inline-block; background: rgba(13, 115, 119, 0.1); color: var(--primary); padding: 8px 20px; border-radius: 50px; font-size: 0.85rem; font-weight: 500; margin-bottom: 16px; }
+        .section-title { font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--text-dark); margin-bottom: 16px; text-align: center; }
+        .section-desc { text-align: center; color: var(--text-muted); font-size: 1.1rem; max-width: 600px; margin: 0 auto 50px; }
+        
+        /* Contact Grid */
+        .contact-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 50px; }
+        @media (max-width: 992px) {
+            .contact-grid { grid-template-columns: 1fr; }
+        }
+        
+        /* Info Cards */
+        .info-column { display: flex; flex-direction: column; gap: 24px; }
+        .info-card { background: var(--white); border-radius: 20px; padding: 30px; box-shadow: 0 10px 40px rgba(0,0,0,0.06); transition: all 0.3s; }
+        .info-card:hover { transform: translateY(-5px); box-shadow: 0 20px 60px rgba(0,0,0,0.1); }
+        .info-card .icon { width: 60px; height: 60px; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); border-radius: 16px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; }
+        .info-card .icon i { font-size: 24px; color: white; }
+        .info-card h3 { font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--text-dark); margin-bottom: 12px; }
+        .info-card p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.8; }
+        .info-card a { color: var(--primary); text-decoration: none; font-weight: 500; transition: color 0.3s; }
+        .info-card a:hover { color: var(--primary-dark); }
+        
+        /* Quick Contact Buttons */
+        .quick-contact { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 16px; }
+        .quick-btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 20px; border-radius: 50px; font-size: 0.9rem; font-weight: 500; text-decoration: none; transition: all 0.3s; }
+        .quick-btn.phone { background: var(--primary); color: white; }
+        .quick-btn.phone:hover { background: var(--primary-dark); transform: scale(1.05); }
+        .quick-btn.whatsapp { background: #25D366; color: white; }
+        .quick-btn.whatsapp:hover { background: #128C7E; transform: scale(1.05); }
+        .quick-btn.email { background: #EA4335; color: white; }
+        .quick-btn.email:hover { background: #c5221f; transform: scale(1.05); }
+        
+        /* Social Media */
+        .social-links { display: flex; gap: 12px; margin-top: 16px; }
+        .social-link { width: 45px; height: 45px; background: var(--bg-light); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--text-dark); text-decoration: none; transition: all 0.3s; }
+        .social-link:hover { background: var(--primary); color: white; transform: scale(1.1); }
+        .social-link i { font-size: 18px; }
+        
+        /* Map Section */
+        .map-column { display: flex; flex-direction: column; gap: 30px; }
+        .map-container { background: var(--white); border-radius: 20px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.06); }
+        .map-wrapper { position: relative; width: 100%; height: 400px; }
+        .map-wrapper iframe { width: 100%; height: 100%; border: none; }
+        .map-info { padding: 24px; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); color: white; }
+        .map-info h3 { font-family: 'Playfair Display', serif; font-size: 1.3rem; margin-bottom: 12px; }
+        .map-info p { font-size: 0.95rem; opacity: 0.9; margin-bottom: 8px; }
+        .map-info a { color: var(--secondary); text-decoration: none; font-weight: 500; }
+        .map-info a:hover { text-decoration: underline; }
+        
+        /* Reviews Section */
+        .reviews-section { background: var(--bg-light); padding: 80px 0; }
+        .reviews-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px; flex-wrap: wrap; gap: 20px; }
+        .reviews-header h2 { font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--text-dark); }
+        .rating-overview { display: flex; align-items: center; gap: 16px; background: var(--white); padding: 20px 30px; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
+        .rating-big { font-family: 'Playfair Display', serif; font-size: 3rem; font-weight: 700; color: var(--primary); }
+        .rating-stars { color: #FBAD18; font-size: 1.2rem; }
+        .rating-stars .empty { color: #ddd; }
+        .rating-count { font-size: 0.9rem; color: var(--text-muted); }
+        
+        /* Review Cards */
+        .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 24px; }
+        .review-card { background: var(--white); border-radius: 20px; padding: 30px; box-shadow: 0 10px 40px rgba(0,0,0,0.05); transition: all 0.3s; }
+        .review-card:hover { transform: translateY(-5px); box-shadow: 0 20px 60px rgba(0,0,0,0.1); }
+        .review-header { display: flex; align-items: center; gap: 16px; margin-bottom: 16px; }
+        .review-avatar { width: 50px; height: 50px; border-radius: 50%; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); display: flex; align-items: center; justify-content: center; color: white; font-weight: 600; font-size: 1.1rem; }
+        .review-info h4 { font-family: 'Outfit', sans-serif; font-size: 1rem; font-weight: 600; color: var(--text-dark); }
+        .review-info .date { font-size: 0.85rem; color: var(--text-muted); }
+        .review-stars { color: #FBAD18; font-size: 0.9rem; margin-top: 4px; }
+        .review-stars .empty { color: #ddd; }
+        .review-text { color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; margin-bottom: 16px; }
+        .review-footer { display: flex; align-items: center; gap: 16px; padding-top: 16px; border-top: 1px solid #f0f0f0; }
+        .review-action { display: flex; align-items: center; gap: 6px; color: var(--text-muted); font-size: 0.85rem; }
+        .review-action i { font-size: 14px; }
+        .review-photos { display: flex; gap: 8px; margin-top: 12px; }
+        .review-photo { width: 60px; height: 60px; border-radius: 10px; object-fit: cover; }
+        
+        /* Map Reviews Full */
+        .map-reviews-full { background: var(--white); border-radius: 20px; padding: 30px; box-shadow: 0 10px 40px rgba(0,0,0,0.05); margin-top: 30px; }
+        .map-reviews-full h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--text-dark); margin-bottom: 24px; display: flex; align-items: center; gap: 12px; }
+        .map-reviews-full h3 i { color: var(--primary); }
+        
+        /* CTA Section */
+        .cta-section { background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%); padding: 80px 0; text-align: center; color: white; }
+        .cta-section h2 { font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 16px; }
+        .cta-section p { font-size: 1.1rem; opacity: 0.9; margin-bottom: 32px; max-width: 500px; margin-left: auto; margin-right: auto; }
+        .cta-btn { display: inline-flex; align-items: center; gap: 10px; background: white; color: var(--primary); padding: 16px 36px; border-radius: 50px; font-weight: 600; text-decoration: none; transition: all 0.3s; font-size: 1rem; }
+        .cta-btn:hover { transform: scale(1.05); box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
+        
+        /* Footer */
+        footer { background: var(--text-dark); color: white; padding: 60px 0 30px; }
+        .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
+        .footer-brand .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; color: white; margin-bottom: 20px; }
+        .footer-brand .logo img { height: 45px; }
+        .footer-brand .logo-text { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 600; }
+        .footer-brand p { font-size: 0.9rem; opacity: 0.7; line-height: 1.7; }
+        .footer-links h4 { font-family: 'Outfit', sans-serif; font-size: 1rem; font-weight: 600; margin-bottom: 20px; }
+        .footer-links ul { list-style: none; }
+        .footer-links li { margin-bottom: 10px; }
+        .footer-links a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 0.9rem; transition: color 0.3s; }
+        .footer-links a:hover { color: white; }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 30px; display: flex; justify-content: space-between; align-items: center; }
+        .footer-bottom p { font-size: 0.9rem; opacity: 0.7; }
+        .footer-social { display: flex; gap: 16px; }
+        .footer-social a { width: 40px; height: 40px; background: rgba(255,255,255,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; transition: all 0.3s; }
+        .footer-social a:hover { background: var(--primary); }
+        @media (max-width: 992px) {
+            .footer-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 576px) {
+            .footer-grid { grid-template: 1fr; }
+            .footer-bottom { flex-direction: column; gap: 16px; }
+            .reviews-grid { grid-template-columns: 1fr; }
+        }
+        
+        /* Animations */
+        .info-card, .review-card { animation: fadeInUp 0.5s ease forwards; opacity: 0; }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .info-card:nth-child(1) { animation-delay: 0.1s; }
+        .info-card:nth-child(2) { animation-delay: 0.2s; }
+        .info-card:nth-child(3) { animation-delay: 0.3s; }
+        .info-card:nth-child(4) { animation-delay: 0.4s; }
+        .review-card:nth-child(1) { animation-delay: 0.1s; }
+        .review-card:nth-child(2) { animation-delay: 0.2s; }
+        .review-card:nth-child(3) { animation-delay: 0.3s; }
+        .review-card:nth-child(4) { animation-delay: 0.4s; }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="logo.png" alt="RSU Payangan">
+                <div>
+                    <div class="logo-text">RSU Payangan</div>
+                    <div class="logo-text-sub">Pavitram Idam Uttamam</div>
+                </div>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Beranda</a></li>
+                <li><a href="about.html">Tentang</a></li>
+                <li>
+                    <a href="rawat-jalan.html">Layanan <i class="fas fa-chevron-down"></i></a>
+                    <div class="mega-menu">
+                        <a href="rawat-jalan.html"><div class="icon"><i class="fas fa-hospital"></i></div><div><h4>Rawat Jalan</h4><p>Pelayanan rawat jalan</p></div></a>
+                        <a href="igd.html"><div class="icon"><i class="fas fa-ambulance"></i></div><div><h4>IGD 24 Jam</h4><p>Gawat darurat</p></div></a>
+                        <a href="rawat-inap.html"><div class="icon"><i class="fas fa-bed"></i></div><div><h4>Rawat Inap</h4><p>Inap pasien</p></div></a>
+                        <a href="dokter.html"><div class="icon"><i class="fas fa-user-md"></i></div><div><h4>Daftar Dokter</h4><p>Profil dokter</p></div></a>
+                    </div>
+                </li>
+                <li><a href="antrean.html">Antrean</a></li>
+                <li><a href="kontak.html" class="active">Kontak</a></li>
+            </ul>
+            <div class="mobile-toggle" onclick="toggleMenu()">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <ul>
+            <li><a href="index.html">Beranda</a></li>
+            <li><a href="about.html">Tentang</a></li>
+            <li><a href="rawat-jalan.html">Layanan</a></li>
+            <li><a href="dokter.html">Dokter</a></li>
+            <li><a href="antrean.html">Antrean</a></li>
+            <li><a href="kontak.html">Kontak</a></li>
+        </ul>
+    </div>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Hubungi Kami</h1>
+            <p>RSU Payangan siap melayani Anda 24 jam. Jangan ragu untuk menghubungi kami kapan saja.</p>
+            <div class="breadcrumb">
+                <a href="index.html">Beranda</a>
+                <span>/</span>
+                <span>Kontak</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Info Section -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-grid">
+                <!-- Left Column - Info -->
+                <div class="info-column">
+                    
+                    <!-- Alamat -->
+                    <div class="info-card">
+                        <div class="icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <h3>Alamat</h3>
+                        <p>
+                            Jl. Raya Payangan, Desa Payangan,<br>
+                            Kecamatan Payangan,<br>
+                            Kabupaten Gianyar,<br>
+                            Bali 80572, Indonesia
+                        </p>
+                        <div class="quick-contact">
+                            <a href="https://maps.google.com/?q=RSU+Payangan+Gianyar+Bali" target="_blank" class="quick-btn phone">
+                                <i class="fas fa-directions"></i> Petunjuk Arah
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Telepon -->
+                    <div class="info-card">
+                        <div class="icon" style="background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <h3>Telepon & WhatsApp</h3>
+                        <p>
+                            <strong>Telepon:</strong><br>
+                            <a href="tel:+6236198087">0361 98087</a><br>
+                            <a href="tel:+6236198088">0361 98088</a> (Ext.)
+                        </p>
+                        <p style="margin-top: 12px;">
+                            <strong>WhatsApp:</strong><br>
+                            <a href="https://wa.me/6281234567890">+62 812 3456 7890</a>
+                        </p>
+                        <div class="quick-contact">
+                            <a href="tel:+6236198087" class="quick-btn phone">
+                                <i class="fas fa-phone"></i> Telepon
+                            </a>
+                            <a href="https://wa.me/6281234567890" class="quick-btn whatsapp" target="_blank">
+                                <i class="fab fa-whatsapp"></i> WhatsApp
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Email -->
+                    <div class="info-card">
+                        <div class="icon" style="background: linear-gradient(135deg, #EA4335 0%, #c5221f 100%);">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h3>Email</h3>
+                        <p>
+                            <strong>Email Utama:</strong><br>
+                            <a href="mailto:info@rsupayangan.co.id">info@rsupayangan.co.id</a>
+                        </p>
+                        <p style="margin-top: 12px;">
+                            <strong>Email reservations:</strong><br>
+                            <a href="mailto:reservasi@rsupayangan.co.id">reservasi@rsupayangan.co.id</a>
+                        </p>
+                        <div class="quick-contact">
+                            <a href="mailto:info@rsupayangan.co.id" class="quick-btn email">
+                                <i class="fas fa-envelope"></i> Kirim Email
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Jam Operasional -->
+                    <div class="info-card">
+                        <div class="icon" style="background: linear-gradient(135deg, #f4c430 0%, #e85d04 100%);">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <h3>Jam Operasional</h3>
+                        <p>
+                            <strong>IGD / Emergensi:</strong><br>
+                            24 Jam Setiap Hari
+                        </p>
+                        <p style="margin-top: 12px;">
+                            <strong>Poliklinik:</strong><br>
+                            Senin - Jumat: 08:00 - 14:00<br>
+                            Sabtu: 08:00 - 12:00
+                        </p>
+                        <p style="margin-top: 12px;">
+                            <strong>Laboratorium:</strong><br>
+                            Senin - Sabtu: 07:00 - 14:00
+                        </p>
+                        <p style="margin-top: 12px;">
+                            <strong>Apotek:</strong><br>
+                            Setiap Hari: 08:00 - 21:00
+                        </p>
+                    </div>
+
+                    <!-- Media Sosial -->
+                    <div class="info-card">
+                        <div class="icon" style="background: linear-gradient(135deg, #E4405F 0%, #F77737 100%);">
+                            <i class="fas fa-share-alt"></i>
+                        </div>
+                        <h3>Media Sosial</h3>
+                        <p>Ikuti kami di media sosial untuk informasi terbaru</p>
+                        <div class="social-links">
+                            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-tiktok"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Right Column - Map -->
+                <div class="map-column">
+                    <div class="map-container">
+                        <div class="map-wrapper">
+                            <iframe 
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3946.0675!2d115.2786!3d-8.4372!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd21f72a54e92c7%3A0x1234567890abcdef!2sRSU%20Payangan!5e0!3m2!1sen!2sid!4v1234567890"
+                                allowfullscreen="" 
+                                loading="lazy" 
+                                referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
+                        </div>
+                        <div class="map-info">
+                            <h3><i class="fas fa-hospital-alt"></i> RSU Payangan</h3>
+                            <p><i class="fas fa-map-marker-alt"></i> Jl. Raya Payangan, Gianyar, Bali</p>
+                            <p><i class="fas fa-star"></i> Rating: 4.5/5 (120+ ulasan)</p>
+                            <a href="https://maps.google.com/?q=RSU+Payangan+Gianyar+Bali" target="_blank">
+                                <i class="fas fa-external-link-alt"></i> Buka di Google Maps
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section class="reviews-section">
+        <div class="container">
+            <div class="reviews-header">
+                <div>
+                    <div class="section-label">Testimoni</div>
+                    <h2>Ulasan Pasien</h2>
+                </div>
+                <div class="rating-overview">
+                    <div class="rating-big">4.5</div>
+                    <div>
+                        <div class="rating-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span class="empty"><i class="fas fa-star"></i></span>
+                        </div>
+                        <div class="rating-count">Based on 120+ reviews</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="reviews-grid">
+                <!-- Review 1 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">WS</div>
+                        <div class="review-info">
+                            <h4>Wayan Sudiarta</h4>
+                            <div class="date">2 minggu yang lalu</div>
+                            <div class="review-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="review-text">
+                        "Pelayanan sangat memuaskan! Dokter dan perawat sangat ramah dan profesional. Fasilitas rumah sakit bersih dan nyaman. Sangat merekomendasikan RSU Payangan untuk keluarga."
+                    </p>
+                    <div class="review-footer">
+                        <span class="review-action"><i class="fas fa-thumbs-up"></i> 45 membantu</span>
+                        <span class="review-action"><i class="fas fa-reply"></i> Balas</span>
+                    </div>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar" style="background: linear-gradient(135deg, #fd79a8 0%, #e84393 100%);">NK</div>
+                        <div class="review-info">
+                            <h4>Nyoman Kariasa</h4>
+                            <div class="date">1 bulan yang lalu</div>
+                            <div class="review-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span class="empty"><i class="fas fa-star"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="review-text">
+                        "IGD 24 jam sangat membantu saat kondisi darurat. Waktu tunggu tidak lama dan dokter segera menangani. Tempat tidurnya nyaman untuk keluarga yang menunggu. Terima kasih RSU Payangan!"
+                    </p>
+                    <div class="review-footer">
+                        <span class="review-action"><i class="fas fa-thumbs-up"></i> 32 membantu</span>
+                        <span class="review-action"><i class="fas fa-reply"></i> Balas</span>
+                    </div>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar" style="background: linear-gradient(135deg, #00b894 0%, #00cec9 100%);">LP</div>
+                        <div class="review-info">
+                            <h4>Made Parta</h4>
+                            <div class="date">1 bulan yang lalu</div>
+                            <div class="review-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="review-text">
+                        "Poliklinik anak这里 sangat bagus! Dokter anak nya sangat sabar dan telaten dengan anak saya yang takut dokter. Sekarang kontrol rutin di sini. Peralatan medisnya juga modern."
+                    </p>
+                    <div class="review-footer">
+                        <span class="review-action"><i class="fas fa-thumbs-up"></i> 28 membantu</span>
+                        <span class="review-action"><i class="fas fa-reply"></i> Balas</span>
+                    </div>
+                </div>
+
+                <!-- Review 4 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar" style="background: linear-gradient(135deg, #6c5ce7 0%, #a29bfe 100%);">KW</div>
+                        <div class="review-info">
+                            <h4>Ketut Wartini</h4>
+                            <div class="date">2 bulan yang lalu</div>
+                            <div class="review-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span class="empty"><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="review-text">
+                        "Pelayanan rawat inap memuaskan. Kamar kelas III bersih dengan AC. Makanan rumah sakit enak dan bergizi. Harga terjangkau dengan cover BPJS. Mantap!"
+                    </p>
+                    <div class="review-footer">
+                        <span class="review-action"><i class="fas fa-thumbs-up"></i> 19 membantu</span>
+                        <span class="review-action"><i class="fas fa-reply"></i> Balas</span>
+                    </div>
+                </div>
+
+                <!-- Review 5 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar" style="background: linear-gradient(135deg, #fdcb6e 0%, #f39c12 100%);">IP</div>
+                        <div class="review-info">
+                            <h4>I Putu Ardana</h4>
+                            <div class="date">2 bulan yang lalu</div>
+                            <div class="review-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="review-text">
+                        "Laboratorium nya lengkap! Hasil cek darah cepat keluar. Staff ramah dan informatif. Parkir luas dan gratis. Good job RSU Payangan!"
+                    </p>
+                    <div class="review-footer">
+                        <span class="review-action"><i class="fas fa-thumbs-up"></i> 15 membantu</span>
+                        <span class="review-action"><i class="fas fa-reply"></i> Balas</span>
+                    </div>
+                </div>
+
+                <!-- Review 6 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar" style="background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);">DA</div>
+                        <div class="review-info">
+                            <h4>Dewi Antari</h4>
+                            <div class="date">3 bulan yang lalu</div>
+                            <div class="review-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span class="empty"><i class="fas fa-star"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="review-text">
+                        "Proses daftar dan administrasi sangat mudah. Bisa online lewat website. Pasien BPJS dilayani dengan baik tanpa diskriminasi. Apotek 24 jam sangat membantu."
+                    </p>
+                    <div class="review-footer">
+                        <span class="review-action"><i class="fas fa-thumbs-up"></i> 22 membantu</span>
+                        <span class="review-action"><i class="fas fa-reply"></i> Balas</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- More Reviews from Google Maps -->
+            <div class="map-reviews-full">
+                <h3><i class="fab fa-google"></i> Ulasan dari Google Maps</h3>
+                <div style="background: var(--bg-light); border-radius: 12px; padding: 20px; margin-bottom: 20px;">
+                    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+                        <div style="width: 40px; height: 40px; background: #4285F4; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">A</div>
+                        <div>
+                            <strong>Ayu Lestari</strong>
+                            <div style="color: #FBAD18; font-size: 0.85rem;">★★★★★</div>
+                        </div>
+                    </div>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">
+                        "Pelayanan sangat baik dari resepsionis sampai dokter. Ruang tunggu AC dan nyaman. Terdapat playground untuk anak-anak. Sangat recommended untuk keluarga di Gianyar!"
+                    </p>
+                </div>
+                <div style="background: var(--bg-light); border-radius: 12px; padding: 20px; margin-bottom: 20px;">
+                    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+                        <div style="width: 40px; height: 40px; background: #34A853; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">B</div>
+                        <div>
+                            <strong>Bagus Santoso</strong>
+                            <div style="color: #FBAD18; font-size: 0.85rem;">★★★★</div>
+                        </div>
+                    </div>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">
+                        "Dokter spesialis jantungnya bagus, menangani ayah saya dengan baik. Ruangan bersih dan modern. Hanya sometimes antrean agak lama di jam sibuk."
+                    </p>
+                </div>
+                <div style="background: var(--bg-light); border-radius: 12px; padding: 20px; margin-bottom: 20px;">
+                    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+                        <div style="width: 40px; height: 40px; background: #FBBC05; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">R</div>
+                        <div>
+                            <strong>Ratna Dewi</strong>
+                            <div style="color: #FBAD18; font-size: 0.85rem;">★★★★★</div>
+                        </div>
+                    </div>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">
+                        "Melahirkan di RS Payangan, pelayanannya juara! Bidan dan dokter kandungan sangat suportif. Kamar VIP bersih dengan pemandangan sawah yang indah. Worth it!"
+                    </p>
+                </div>
+                <div style="background: var(--bg-light); border-radius: 12px; padding: 20px; margin-bottom: 20px;">
+                    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+                        <div style="width: 40px; height: 40px; background: #EA4335; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">K</div>
+                        <div>
+                            <strong>Komang Suardana</strong>
+                            <div style="color: #FBAD18; font-size: 0.85rem;">★★★★</div>
+                        </div>
+                    </div>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">
+                        "RS modern di Gianyar. CT scan dan rontgen tersedia. Biaya bersahabat dengan kualitas okay. Support BPJS lancar. Terima kasih Payangan Hospital!"
+                    </p>
+                </div>
+                <div style="background: var(--bg-light); border-radius: 12px; padding: 20px;">
+                    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+                        <div style="width: 40px; height: 40px; background: #9C27B0; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">SM</div>
+                        <div>
+                            <strong>Sari Mahayanti</strong>
+                            <div style="color: #FBAD18; font-size: 0.85rem;">★★★★★</div>
+                        </div>
+                    </div>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">
+                        "Klinik gigi dan orthopedi lengkap. Dokter spacially baik. Parkir luas dan gratis. Toilet bersih. Coffee shop ada di lobby. Perfect untuk family!"
+                    </p>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="https://g.page/rsu-payangan-gianyar/review" target="_blank" class="cta-btn" style="background: var(--text-dark); color: white;">
+                    <i class="fab fa-google"></i> Lihat Semua Ulasan di Google Maps
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Butuh Bantuan?</h2>
+            <p>Tim kami siap membantu Anda 24 jam. Jangan ragu untuk menghubungi kami.</p>
+            <a href="tel:+6236198087" class="cta-btn">
+                <i class="fas fa-phone-alt"></i> Hubungi Kami Sekarang
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <img src="logo.png" alt="RSU Payangan">
+                        <span class="logo-text">RSU Payangan</span>
+                    </a>
+                    <p>Memberikan pelayanan kesehatan berkualitas berbasis Tri Hita Karana.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Layanan</h4>
+                    <ul>
+                        <li><a href="rawat-jalan.html">Rawat Jalan</a></li>
+                        <li><a href="rawat-inap.html">Rawat Inap</a></li>
+                        <li><a href="igd.html">IGD 24 Jam</a></li>
+                        <li><a href="dokter.html">Dokter</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Tentang</h4>
+                    <ul>
+                        <li><a href="about.html#sejarah">Sejarah</a></li>
+                        <li><a href="about.html#visimisi">Visi Misi</a></li>
+                        <li><a href="about.html#standar">Standar</a></li>
+                        <li><a href="kontak.html">Kontak</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Kontak</h4>
+                    <ul>
+                        <li><a href="tel:+6236198087">0361 98087</a></li>
+                        <li><a href="#">Jl. Raya Payangan</a></li>
+                        <li><a href="#">Gianyar, Bali</a></li>
+                        <li><a href="mailto:info@rsupayangan.co.id">info@rsupayangan.co.id</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 RSU Payangan - Gianyar, Bali</p>
+                <div class="footer-social">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        window.addEventListener('scroll', () => {
+            document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
+        });
+        function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('active'); }
+    </script>
+</body>
+</html>
