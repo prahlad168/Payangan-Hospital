@@ -291,13 +291,168 @@ Jika ada hasil, berarti ada link yang salah.
 ```
 
 ### Typography
-- **Heading**: Playfair Display (serif)
+- **Heading**: Montserrat (sans-serif)
 - **Body**: Montserrat (sans-serif)
 - Font weights: 300 (light), 400 (regular), 500, 600, 700, 800, 900
+- **IMPORTANT**: Semua text termasuk heading, logo, dan section titles HARUS menggunakan Montserrat
 
 ### Libraries
-- Google Fonts (Montserrat, Playfair Display)
+- Google Fonts (Montserrat only)
 - Font Awesome 6.4.0 (CDN)
+
+---
+
+## рҹҖ-p Image Assets Management
+
+### Complete Image Asset Inventory
+
+#### 1. Logo Files (Root Directory)
+| File | Usage | Size | Format |
+|------|-------|------|--------|
+| `logo.png` | Primary logo (navbar, footer) | ~159KB | PNG |
+| `logo_clean.png` | Clean version | ~5KB | PNG |
+| `logo_cropped.png` | Cropped version | ~4KB | PNG |
+| `logo_original.png` | Original version | ~8KB | PNG |
+
+**Usage in HTML:**
+```html
+<img src="logo.png" alt="Payangan Hospital">
+```
+
+#### 2. Slider Images (`img/slider/`)
+| File | Slide | Content | Color Overlay | Size |
+|------|-------|---------|---------------|------|
+| `slider-1.png` | Slide 1 | Pelayanan Darurat Siap Siaga | rgba(13, 115, 119, 0.85) - teal | ~685KB |
+| `slider-2.png` | Slide 2 | Dokter Spesialis Berpengalaman | rgba(30, 58, 95, 0.85) - navy | ~531KB |
+| `slider-3.png` | Slide 3 | Fasilitas Medis Canggih | rgba(30, 27, 75, 0.85) - purple | ~1.8MB |
+| `slider-4.png` | Slide 4 | Kamar Perawatan Nyaman | rgba(19, 78, 74, 0.85) - dark teal | ~1.9MB |
+
+**CSS Configuration (index.html):**
+```css
+.slide-1 .slide-bg { background-image: url('img/slider/slider-1.png'); background-color: rgba(13, 115, 119, 0.85); background-blend-mode: overlay; }
+.slide-2 .slide-bg { background-image: url('img/slider/slider-2.png'); background-color: rgba(30, 58, 95, 0.85); background-blend-mode: overlay; }
+.slide-3 .slide-bg { background-image: url('img/slider/slider-3.png'); background-color: rgba(30, 27, 75, 0.85); background-blend-mode: overlay; }
+.slide-4 .slide-bg { background-image: url('img/slider/slider-4.png'); background-color: rgba(19, 78, 74, 0.85); background-blend-mode: overlay; }
+```
+
+#### 3. Doctor Images (`img/dokter/`) - 22 Files
+Format: `dr. [Nama Lengkap, Sp.XX].png`
+
+| No | File Name | Spesialisasi |
+|----|-----------|---------------|
+| 1 | `dr. I Gusti Putu Hery Sikesa, Sp.PD.png` | Penyakit Dalam |
+| 2 | `dr. Sang Ketut Widiana, Sp.PD.png` | Penyakit Dalam |
+| 3 | `dr. Tjokorda Prima Dewi Pemayun, Sp.PD.png` | Penyakit Dalam |
+| 4 | `dr. Made Ayu Widyaningsih, Sp.A.png` | Anak |
+| 5 | `dr. Ni Made Ayu Agustini, M. Biomed., SpA.png` | Anak |
+| 6 | `dr. I Gede Agus Hendra Sujana, Sp.OG.png` | Kandungan |
+| 7 | `dr. I Made Brammartha Kusuma, Sp.OG.png` | Kandungan |
+| 8 | `dr. Pande Made Suwanpramana, Sp.OG.png` | Kandungan |
+| 9 | `dr. Kade Agus Sudha Naryana, Sp.N.png` | Saraf |
+| 10 | `dr. Ni Komang Dewi Mahayani, Sp.N.png` | Saraf |
+| 11 | `dr. I G N Bagus Arimanjaya, Sp.An.png` | Anestesi |
+| 12 | `dr. Manik Dirgayunitri, M.Biomed., Sp.An.png` | Anestesi |
+| 13 | `dr. I Wayan Eka Arnawa, Sp.An-TI.png` | Anestesi |
+| 14 | `dr. I Wayan Suwarna, S.Ked., Sp.B.png` | Bedah |
+| 15 | `dr. I Putu Swastika Kepakisan, M. Biomed., Sp.B.png` | Bedah |
+| 16 | `dr. I Ketut Wahyu Tri Saputra, Sp.OT.png` | Orthopedic |
+| 17 | `dr. I Gede Ketut Alit Satria Nugraha, SpOT.png` | Orthopedic |
+| 18 | `dr. Anak Agung Ayu Ngurah Desy Widya Putri, Sp.JP.png` | Jantung |
+| 19 | `dr. Herry Juniada, Sp. Rad.png` | Radiologi |
+| 20 | `dr. Ika Nurvidha Mahayanthi Mantra, Sp.MK.png` | Patologi Klinik |
+| 21 | `dr. Made Minarti Witarini Dewi, Sp.PK.png` | Patologi Klinik |
+| 22 | `dr. Theresia Maharani Sari Nastiti, Sp.PK.png` | Patologi Klinik |
+
+**Usage in HTML:**
+```html
+<img src="img/dokter/dr. [Nama Lengkap, Sp.XX].png" alt="dr. [Nama Lengkap]">
+```
+
+#### 4. Partner/mitra Images (`img/partners/`) - 10 Files
+| File | Partner Name |
+|------|-------------|
+| `BPJS Kesehatan.png` | BPJS Kesehatan |
+| `Kabupaten Gianyar.png` | Pemerintah Kabupaten Gianyar |
+| `Kominfo.png` | Kominfo |
+| `Jasa Raharja.png` | Jasa Raharja |
+| `JR Putera.png` | JR Putera |
+| `WIKA.png` | WIKA |
+| `MHC.png` | MHC |
+| `APG.png` | APG |
+| `OMSA MEDIC.png` | OMSA MEDIC |
+| `Alila Ubud.png` | Alila Ubud |
+
+**Usage in HTML:**
+```html
+<div class="partner-item"><img src="img/partners/[Partner Name].png" alt="[Partner Name]"></div>
+```
+
+#### 5. Other Images
+| File | Location | Usage |
+|------|----------|-------|
+| `director.jpg` | Root | Foto direktur (about.html) |
+| `bg_medical.jpg` | Root | Background medical image |
+| `img/wbk/WBK.jpg` | wbk folder | Sertifikat WBK (Wilayah Bebas Korupsi) |
+
+---
+
+### Image Naming Conventions
+
+1. **Doctor Photos**: `dr. [Nama Lengkap, Singkatan Sp.].png`
+   - Contoh: `dr. I Gusti Putu Hery Sikesa, Sp.PD.png`
+   - Spasi dengan koma, spasi sebelum singkatan
+
+2. **Slider Images**: `slider-[nomor].png`
+   - Format: `slider-1.png`, `slider-2.png`, dst
+
+3. **Partner Logos**: `[Nama Partner].png`
+   - Spasi diizinkan, tanpa koma
+
+4. **Certificate Images**: `[Nama Sertifikat].jpg`
+   - Format JPG untuk foto/sertifikat
+
+---
+
+### Image Validation Commands
+
+```bash
+# Cek semua gambar dokter ada
+ls img/dokter/ | wc -l  # Harus 22
+
+# Cek semua slider ada
+ls img/slider/  # Harus slider-1.png sampai slider-4.png
+
+# Cek logo ada
+ls logo.png
+
+# Cek partner logos
+ls img/partners/ | wc -l  # Harus 10
+
+# Validasi nama file dokter sesuai HTML
+grep -o 'img/dokter/[^"]*\.png' dokter.html | sort -u > /tmp/doctor_images.txt
+ls img/dokter/ | sort > /tmp/local_images.txt
+diff /tmp/doctor_images.txt /tmp/local_images.txt
+```
+
+---
+
+### Adding New Images
+
+1. **New Doctor Photo**:
+   - Simpan di `img/dokter/`
+   - Format: `dr. [Nama Lengkap, Sp.XX].png`
+   - Update `dokter.html` dengan tag img baru
+
+2. **New Slider**:
+   - Simpan di `img/slider/`
+   - Format: `slider-[nomor].png`
+   - Update CSS di `index.html`
+   - Update slide HTML content
+
+3. **New Partner Logo**:
+   - Simpan di `img/partners/`
+   - Format: `[Nama Partner].png`
+   - Update `index.html` partner section
 
 ---
 
