@@ -456,6 +456,178 @@ diff /tmp/doctor_images.txt /tmp/local_images.txt
 
 ---
 
+## рҹҖё Logo Editor Skill
+
+### Logo Files in Repository
+
+| File | Dimensions | Size | Usage |
+|------|------------|------|-------|
+| `logo.png` | 3543x3543 px | ~159KB | **Primary logo** (navbar, footer) |
+| `logo_clean.png` | 150x105 px | ~5KB | Clean, resized version |
+| `logo_cropped.png` | 150x105 px | ~4KB | Cropped version |
+| `logo_original.png` | 150x150 px | ~8KB | Square original |
+
+### Logo Requirements
+- **Format**: PNG with transparency (RGBA mode)
+- **Primary Logo**: Square or rectangular with padding
+- **Background**: Transparent (untuk overlay di hero section)
+- **Color Mode**: RGBA (supports transparency)
+
+### Python Logo Editing (Pillow)
+
+```bash
+# Install Pillow if needed
+pip install Pillow
+```
+
+#### 1. Resize Logo
+```python
+from PIL import Image
+
+img = Image.open('logo.png')
+# Resize maintaining aspect ratio
+img.thumbnail((200, 200), Image.Resampling.LANCZOS)
+img.save('logo_resized.png', optimize=True)
+```
+
+#### 2. Create Different Sizes
+```python
+from PIL import Image
+
+img = Image.open('logo.png')
+
+# Create multiple sizes
+sizes = [50, 100, 150, 200]
+for size in sizes:
+    resized = img.copy()
+    resized.thumbnail((size, size), Image.Resampling.LANCZOS)
+    resized.save(f'logo_{size}.png', optimize=True)
+```
+
+#### 3. Change Logo Background
+```python
+from PIL import Image
+
+# Add white background
+img = Image.open('logo.png')
+bg = Image.new('RGBA', img.size, (255, 255, 255, 255))
+bg.paste(img, (0, 0), img)  # Use alpha channel as mask
+bg.save('logo_with_bg.png')
+```
+
+#### 4. Darken/Lighten Logo
+```python
+from PIL import Image, ImageEnhance
+
+img = Image.open('logo.png')
+
+# Darken by 20%
+enhancer = ImageEnhance.Brightness(img)
+darker = enhancer.enhance(0.8)
+darker.save('logo_dark.png')
+
+# Lighten by 20%
+lighter = enhancer.enhance(1.2)
+lighter.save('logo_light.png')
+```
+
+#### 5. Change Logo Color
+```python
+from PIL import Image
+
+img = Image.open('logo.png').convert('RGBA')
+
+# Get pixels and modify
+pixels = img.load()
+for y in range(img.height):
+    for x in range(img.width):
+        r, g, b, a = pixels[x, y]
+        # Make more teal (reduce red, increase blue-green)
+        pixels[x, y] = (int(r*0.5), int(g*1.1), int(b*1.1), a)
+
+img.save('logo_teal.png')
+```
+
+#### 6. Crop to Content
+```python
+from PIL import Image
+
+img = Image.open('logo.png')
+img = img.convert('RGBA')
+
+# Find bounding box of non-transparent pixels
+bbox = img.getbbox()
+if bbox:
+    cropped = img.crop(bbox)
+    cropped.save('logo_cropped.png')
+```
+
+#### 7. Add Padding/Border
+```python
+from PIL import Image
+
+img = Image.open('logo.png')
+new_size = (img.width + 40, img.height + 40)  # Add 20px padding all sides
+new_img = Image.new('RGBA', new_size, (0, 0, 0, 0))  # Transparent
+new_img.paste(img, (20, 20))
+new_img.save('logo_padded.png')
+```
+
+#### 8. Optimize for Web
+```python
+from PIL import Image
+
+img = Image.open('logo.png')
+img.save('logo_optimized.png', optimize=True, quality=85)
+```
+
+### CSS Logo Styling Reference
+
+```css
+/* Navbar Logo */
+.logo img {
+    width: 50px;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+.logo img:hover { transform: scale(1.05); }
+
+/* Logo Text Colors */
+.logo-text { color: white; }
+.navbar.scrolled .logo-text { color: #333333; }
+.logo-text-sub { color: rgba(255,255,255,0.7); }
+.navbar.scrolled .logo-text-sub { color: #666666; }
+
+/* Footer Logo */
+.footer-brand .logo img {
+    height: 80px;
+    display: block;
+    margin: 0 auto 20px;
+}
+```
+
+### Logo Editing Workflow
+
+1. **Download/Select Logo** - From cPanel or external source
+2. **Analyze** - Check dimensions, mode, transparency
+3. **Edit** - Resize, crop, adjust colors as needed
+4. **Optimize** - Compress for web performance
+5. **Upload** - Replace in repository
+6. **Verify** - Check in browser on different backgrounds
+
+### Common Logo Fixes
+
+| Issue | Solution |
+|-------|----------|
+| Too large | Resize with `thumbnail()` |
+| Wrong background | Add/remove background with alpha paste |
+| Wrong colors | Use `ImageEnhance` or pixel manipulation |
+| Poor quality | Ensure high-res source, use LANCZOS resize |
+| File too big | Optimize with `save(optimize=True)` |
+| Transparent areas | Verify RGBA mode, not RGB |
+
+---
+
 ## Fitur Khusus
 
 ### Halaman Antrean (antrean.html)
