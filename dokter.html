@@ -405,7 +405,217 @@
             background: #e9ecef;
         }
         
-    </style>
+    
+        /* Doctor Profile Modal */
+        .profile-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            z-index: 9999;
+            display: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .profile-overlay.active {
+            display: flex;
+            opacity: 1;
+        }
+        .profile-modal {
+            background: white;
+            border-radius: 24px;
+            max-width: 600px;
+            width: 95%;
+            max-height: 90vh;
+            overflow-y: auto;
+            margin: auto;
+            position: relative;
+            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.3);
+            transform: scale(0.9) translateY(20px);
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .profile-overlay.active .profile-modal {
+            transform: scale(1) translateY(0);
+        }
+        .profile-close {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--bg-light);
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            color: var(--text-muted);
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+        .profile-close:hover {
+            background: #e74c3c;
+            color: white;
+            transform: rotate(90deg);
+        }
+        .profile-header {
+            padding: 40px 40px 30px;
+            text-align: center;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            border-radius: 24px 24px 0 0;
+        }
+        .profile-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            overflow: hidden;
+            border: 4px solid rgba(255,255,255,0.3);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        .profile-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .profile-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: white;
+        }
+        .profile-specialty {
+            font-size: 1rem;
+            opacity: 0.9;
+            margin-bottom: 4px;
+        }
+        .profile-poli {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        .profile-body {
+            padding: 30px 40px 40px;
+        }
+        .profile-section {
+            margin-bottom: 24px;
+        }
+        .profile-section-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .profile-section-title i {
+            width: 32px;
+            height: 32px;
+            background: rgba(13, 115, 119, 0.1);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+        }
+        .profile-info-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+        .profile-info-item {
+            background: var(--bg-light);
+            padding: 16px;
+            border-radius: 12px;
+        }
+        .profile-info-label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-bottom: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+        }
+        .profile-info-value {
+            font-weight: 600;
+            color: var(--text-dark);
+            font-size: 0.95rem;
+        }
+        .profile-description {
+            background: var(--bg-light);
+            padding: 20px;
+            border-radius: 12px;
+            line-height: 1.8;
+            color: var(--text-dark);
+        }
+        .profile-footer {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            padding-top: 10px;
+        }
+        .profile-btn {
+            padding: 12px 24px;
+            border-radius: 12px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+        .profile-btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+        .profile-btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(13, 115, 119, 0.3);
+        }
+        .profile-btn-secondary {
+            background: var(--bg-light);
+            color: var(--text-dark);
+        }
+        .profile-btn-secondary:hover {
+            background: #e9ecef;
+        }
+
+        /* Lihat Profile Button */
+        .doctor-action-profile {
+            color: var(--text-dark);
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 10px 16px;
+            background: linear-gradient(135deg, #f4c430 0%, #f39c12 100%);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+        .doctor-action-profile:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(244, 196, 48, 0.4);
+            background: linear-gradient(135deg, #f39c12 0%, #d68910 100%);
+        }
+        .doctor-action-profile i {
+            font-size: 12px;
+        }
+
+</style>
 </head>
 <body>
     <!-- Mobile Menu -->
@@ -530,6 +740,9 @@
                         </div>
                     </div>
                     <div class="doctor-footer">
+                        <button class="doctor-action-profile" onclick="openProfile('jantung')">
+                            <i class="fas fa-user"></i> Lihat Profile
+                        </button>
                         <a href="poli-jantung.html" class="doctor-action">Lihat Poli <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
@@ -563,11 +776,10 @@
                         </div>
                     </div>
                     <div class="doctor-footer">
-									<a href="#" class="doctor-action">Lihat Poli <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-
-                <!-- Spesialis Anestesi & Reanimasi -->
+                        <button class="doctor-action-profile" onclick="openProfile('jantung')">
+                            <i class="fas fa-user"></i> Lihat Profile
+                        </button>
+                        <a href="poli-jantung.html" class="doctor-action">Lihat Poli <i class="fas fa-arrow-right"></i></a><!-- Spesialis Anestesi & Reanimasi -->
                 <div class="doctor-card" data-poli="anestesi">
                     <div class="doctor-header">
                         <div class="doctor-avatar" style="background: linear-gradient(135deg, #a29bfe 0%, #6c5ce7 100%);">
@@ -596,11 +808,10 @@
                         </div>
                     </div>
                     <div class="doctor-footer">
-                        <a href="#" class="doctor-action">Lihat Poli <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-
-                <!-- Spesialis Obstetri & Ginekologi -->
+                        <button class="doctor-action-profile" onclick="openProfile('anestesi')">
+                            <i class="fas fa-user"></i> Lihat Profile
+                        </button>
+                        <a href="poli-anestesi.html" class="doctor-action">Lihat Poli <i class="fas fa-arrow-right"></i></a><!-- Spesialis Obstetri & Ginekologi -->
                 <div class="doctor-card" data-poli="kandungan">
                     <div class="doctor-header">
                         <div class="doctor-avatar" style="background: linear-gradient(135deg, #fab1a0 0%, #e17055 100%);">
@@ -629,7 +840,9 @@
                         </div>
                     </div>
                     <div class="doctor-footer">
-
+                        <button class="doctor-action-profile" onclick="openProfile('kandungan')">
+                            <i class="fas fa-user"></i> Lihat Profile
+                        </button>
                         <a href="poli-kandungan.html" class="doctor-action">Lihat Poli <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
@@ -663,7 +876,9 @@
                         </div>
                     </div>
                     <div class="doctor-footer">
-
+                        <button class="doctor-action-profile" onclick="openProfile('ortho')">
+                            <i class="fas fa-user"></i> Lihat Profile
+                        </button>
                         <a href="poli-orthopedic.html" class="doctor-action">Lihat Poli <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
@@ -697,7 +912,9 @@
                         </div>
                     </div>
                     <div class="doctor-footer">
-
+                        <button class="doctor-action-profile" onclick="openProfile('dalam')">
+                            <i class="fas fa-user"></i> Lihat Profile
+                        </button>
                         <a href="poli-dalam.html" class="doctor-action">Lihat Poli <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
@@ -731,7 +948,9 @@
                         </div>
                     </div>
                     <div class="doctor-footer">
-
+                        <button class="doctor-action-profile" onclick="openProfile('ortho')">
+                            <i class="fas fa-user"></i> Lihat Profile
+                        </button>
                         <a href="poli-orthopedic.html" class="doctor-action">Lihat Poli <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
@@ -765,7 +984,9 @@
                         </div>
                     </div>
                     <div class="doctor-footer">
-
+                        <button class="doctor-action-profile" onclick="openProfile('kandungan')">
+                            <i class="fas fa-user"></i> Lihat Profile
+                        </button>
                         <a href="poli-kandungan.html" class="doctor-action">Lihat Poli <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
@@ -799,7 +1020,9 @@
                         </div>
                     </div>
                     <div class="doctor-footer">
-
+                        <button class="doctor-action-profile" onclick="openProfile('bedah')">
+                            <i class="fas fa-user"></i> Lihat Profile
+                        </button>
                         <a href="poli-bedah.html" class="doctor-action">Lihat Poli <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
@@ -833,11 +1056,10 @@
                         </div>
                     </div>
                     <div class="doctor-footer">
-                        <a href="#" class="doctor-action">Lihat Poli <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-
-                <!-- Spesialis Bedah -->
+                        <button class="doctor-action-profile" onclick="openProfile('kandungan')">
+                            <i class="fas fa-user"></i> Lihat Profile
+                        </button>
+                        <a href="poli-kandungan.html" class="doctor-action">Lihat Poli <i class="fas fa-arrow-right"></i></a><!-- Spesialis Bedah -->
                 <div class="doctor-card" data-poli="bedah">
                     <div class="doctor-header">
                         <div class="doctor-avatar" style="background: linear-gradient(135deg, #d63031 0%, #c0392b 100%);">
@@ -866,7 +1088,9 @@
                         </div>
                     </div>
                     <div class="doctor-footer">
-
+                        <button class="doctor-action-profile" onclick="openProfile('bedah')">
+                            <i class="fas fa-user"></i> Lihat Profile
+                        </button>
                         <a href="poli-bedah.html" class="doctor-action">Lihat Poli <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
@@ -900,11 +1124,10 @@
                         </div>
                     </div>
                     <div class="doctor-footer">
-									<a href="#" class="doctor-action">Lihat Poli <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-
-                <!-- Spesialis Neurologi -->
+                        <button class="doctor-action-profile" onclick="openProfile('bedah')">
+                            <i class="fas fa-user"></i> Lihat Profile
+                        </button>
+                        <a href="poli-bedah.html" class="doctor-action">Lihat Poli <i class="fas fa-arrow-right"></i></a><!-- Spesialis Neurologi -->
                 <div class="doctor-card" data-poli="saraf">
                     <div class="doctor-header">
                         <div class="doctor-avatar" style="background: linear-gradient(135deg, #a29bfe 0%, #6c5ce7 100%);">
@@ -933,7 +1156,9 @@
                         </div>
                     </div>
                     <div class="doctor-footer">
-
+                        <button class="doctor-action-profile" onclick="openProfile('saraf')">
+                            <i class="fas fa-user"></i> Lihat Profile
+                        </button>
                         <a href="poli-saraf.html" class="doctor-action">Lihat Poli <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
@@ -967,7 +1192,9 @@
                         </div>
                     </div>
                     <div class="doctor-footer">
-
+                        <button class="doctor-action-profile" onclick="openProfile('anak')">
+                            <i class="fas fa-user"></i> Lihat Profile
+                        </button>
                         <a href="poli-anak.html" class="doctor-action">Lihat Poli <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
@@ -1001,11 +1228,10 @@
                         </div>
                     </div>
                     <div class="doctor-footer">
-									<a href="#" class="doctor-action">Lihat Poli <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-
-                <!-- Spesialis Anestesi & Reanimasi -->
+                        <button class="doctor-action-profile" onclick="openProfile('saraf')">
+                            <i class="fas fa-user"></i> Lihat Profile
+                        </button>
+                        <a href="poli-saraf.html" class="doctor-action">Lihat Poli <i class="fas fa-arrow-right"></i></a><!-- Spesialis Anestesi & Reanimasi -->
                 <div class="doctor-card" data-poli="anestesi">
                     <div class="doctor-header">
                         <div class="doctor-avatar" style="background: linear-gradient(135deg, #a29bfe 0%, #6c5ce7 100%);">
@@ -1034,11 +1260,10 @@
                         </div>
                     </div>
                     <div class="doctor-footer">
-                        <a href="#" class="doctor-action">Lihat Poli <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-
-                <!-- Spesialis Neurologi -->
+                        <button class="doctor-action-profile" onclick="openProfile('anestesi')">
+                            <i class="fas fa-user"></i> Lihat Profile
+                        </button>
+                        <a href="poli-anestesi.html" class="doctor-action">Lihat Poli <i class="fas fa-arrow-right"></i></a><!-- Spesialis Neurologi -->
                 <div class="doctor-card" data-poli="saraf">
                     <div class="doctor-header">
                         <div class="doctor-avatar" style="background: linear-gradient(135deg, #a29bfe 0%, #6c5ce7 100%);">
@@ -1067,7 +1292,9 @@
                         </div>
                     </div>
                     <div class="doctor-footer">
-
+                        <button class="doctor-action-profile" onclick="openProfile('saraf')">
+                            <i class="fas fa-user"></i> Lihat Profile
+                        </button>
                         <a href="poli-saraf.html" class="doctor-action">Lihat Poli <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
@@ -1101,7 +1328,9 @@
                         </div>
                     </div>
                     <div class="doctor-footer">
-
+                        <button class="doctor-action-profile" onclick="openProfile('anak')">
+                            <i class="fas fa-user"></i> Lihat Profile
+                        </button>
                         <a href="poli-anak.html" class="doctor-action">Lihat Poli <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
@@ -1135,7 +1364,9 @@
                         </div>
                     </div>
                     <div class="doctor-footer">
-
+                        <button class="doctor-action-profile" onclick="openProfile('kandungan')">
+                            <i class="fas fa-user"></i> Lihat Profile
+                        </button>
                         <a href="poli-kandungan.html" class="doctor-action">Lihat Poli <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
@@ -1169,7 +1400,9 @@
                         </div>
                     </div>
                     <div class="doctor-footer">
-
+                        <button class="doctor-action-profile" onclick="openProfile('dalam')">
+                            <i class="fas fa-user"></i> Lihat Profile
+                        </button>
                         <a href="poli-dalam.html" class="doctor-action">Lihat Poli <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
@@ -1203,11 +1436,10 @@
                         </div>
                     </div>
                     <div class="doctor-footer">
-									<a href="#" class="doctor-action">Lihat Poli <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-
-                <!-- Spesialis Penyakit Dalam -->
+                        <button class="doctor-action-profile" onclick="openProfile('saraf')">
+                            <i class="fas fa-user"></i> Lihat Profile
+                        </button>
+                        <a href="poli-saraf.html" class="doctor-action">Lihat Poli <i class="fas fa-arrow-right"></i></a><!-- Spesialis Penyakit Dalam -->
                 <div class="doctor-card" data-poli="dalam">
                     <div class="doctor-header">
                         <div class="doctor-avatar" style="background: linear-gradient(135deg, #fdcb6e 0%, #f39c12 100%);">
@@ -1236,7 +1468,9 @@
                         </div>
                     </div>
                     <div class="doctor-footer">
-
+                        <button class="doctor-action-profile" onclick="openProfile('dalam')">
+                            <i class="fas fa-user"></i> Lihat Profile
+                        </button>
                         <a href="poli-dalam.html" class="doctor-action">Lihat Poli <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
@@ -1404,6 +1638,107 @@
                 }
             });
         }
-    </script>
+    
+        // Doctor Profile Data
+        const doctorProfiles = {"jantung": {"name": "dr. Anak Agung Ayu Ngurah Desy Widya Putri, Sp.JP", "sip": "SIP-12345-2020-001", "education": "Sp.JP - FK Universitas Udayana", "experience": "Dokter spesialis jantung dan pembuluh darah dengan pengalaman lebih dari 5 tahun di bidang kardiologi intervensi dan ekokardiografi.", "schedule": "Senin & Kamis: 08:00 - 14:00", "poli": "Poliklinik Jantung", "image": "img/dokter/dr. Anak Agung Ayu Ngurah Desy Widya Putri, Sp.JP.png"}, "radiologi": {"name": "dr. Herry Juniada, Sp. Rad", "sip": "SIP-12345-2020-002", "education": "Sp.Rad - FK Universitas Udayana", "experience": "Spesialis radiologi dengan keahlian dalam membaca hasil X-Ray, USG, CT Scan, dan MRI untuk diagnosis yang akurat.", "schedule": "Senin - Jumat: 09:00 - 15:00", "poli": "Poliklinik Radiologi", "image": "img/dokter/dr. Herry Juniada, Sp. Rad.png"}, "anestesi": {"name": "dr. I G N Bagus Arimanjaya, Sp.An", "sip": "SIP-12345-2020-003", "education": "Sp.An - FK Universitas Udayana", "experience": "Spesialis anestesi dengan pengalaman dalam penanganan anestesi umum, regional, dan sedasi untuk berbagai prosedur bedah.", "schedule": "Sesuai jadwal operasi", "poli": "Poliklinik Anestesi", "image": "img/dokter/dr. I G N Bagus Arimanjaya, Sp.An.png"}, "kandungan": {"name": "dr. I Gede Agus Hendra Sujana, Sp.OG", "sip": "SIP-12345-2020-004", "education": "Sp.OG - FK Universitas Udayana", "experience": "Spesialis obstetri dan ginekologi dengan fokus pada kehamilan berisiko tinggi, persalinan, dan kesehatan reproduksi wanita.", "schedule": "Selasa & Jumat: 08:00 - 14:00", "poli": "Poliklinik Kandungan", "image": "img/dokter/dr. I Gede Agus Hendra Sujana, Sp.OG.png"}, "ortho": {"name": "dr. I Gede Ketut Alit Satria Nugraha, SpOT", "sip": "SIP-12345-2020-005", "education": "SpOT - FK Universitas Udayana", "experience": "Spesialis orthopedi dengan keahlian dalam penanganan patah tulang, cedera sendi, dan bedah arthroscopy.", "schedule": "Rabu: 08:00 - 14:00", "poli": "Poliklinik Orthopedi", "image": "img/dokter/dr. I Gede Ketut Alit Satria Nugraha, SpOT.png"}, "dalam": {"name": "dr. I Gusti Putu Hery Sikesa, Sp.PD", "sip": "SIP-12345-2020-006", "education": "Sp.PD - FK Universitas Udayana", "experience": "Spesialis penyakit dalam dengan keahlian dalam diagnosis dan penanganan penyakit metabolik, pencernaan, dan penyakit dalam umum.", "schedule": "Senin - Rabu: 08:00 - 14:00", "poli": "Poliklinik Penyakit Dalam", "image": "img/dokter/dr. I Gusti Putu Hery Sikesa, Sp.PD.png"}, "bedah": {"name": "dr. I Putu Swastika Kepakisan, M.Biomed., Sp.B", "sip": "SIP-12345-2020-007", "education": "Sp.B, M.Biomed - FK Universitas Udayana", "experience": "Spesialis bedah umum dengan keahlian dalam bedah laparoskopi, bedah trauma, dan onkologi bedah.", "schedule": "Kamis: 08:00 - 14:00", "poli": "Poliklinik Bedah", "image": "img/dokter/dr. I Putu Swastika Kepakisan, M.Biomed., Sp.B.png"}, "saraf": {"name": "dr. Kade Agus Sudha Naryana, Sp.N", "sip": "SIP-12345-2020-008", "education": "Sp.N - FK Universitas Udayana", "experience": "Spesialis neurologi dengan keahlian dalam diagnosis dan penanganan stroke, epilepsi, dan gangguan saraf tepi.", "schedule": "Senin & Kamis: 08:00 - 14:00", "poli": "Poliklinik Saraf", "image": "img/dokter/dr. Kade Agus Sudha Naryana, Sp.N.png"}, "anak": {"name": "dr. Made Ayu Widyaningsih, Sp.A", "sip": "SIP-12345-2020-009", "education": "Sp.A - FK Universitas Udayana", "experience": "Spesialis anak dengan keahlian dalam penanganan penyakit anak, tumbuh kembang, dan imunisasi.", "schedule": "Senin - Jumat: 08:00 - 14:00", "poli": "Poliklinik Anak", "image": "img/dokter/dr. Made Ayu Widyaningsih, Sp.A.png"}, "laboratorium": {"name": "dr. Ika Nurvidha Mahayanthi Mantra, Sp.MK", "sip": "SIP-12345-2020-010", "education": "Sp.MK - FK Universitas Udayana", "experience": "Spesialis mikrobiologi klinik dengan keahlian dalam analisis sampel klinis dan identifikasi patogen.", "schedule": "Senin - Jumat: 07:00 - 14:00", "poli": "Poliklinik Laboratorium", "image": "img/dokter/dr. Ika Nurvidha Mahayanthi Mantra, Sp.MK.png"}};
+
+        function openProfile(poli) {
+            const doctor = doctorProfiles[poli];
+            if (!doctor) return;
+
+            document.getElementById('profileAvatar').src = doctor.image;
+            document.getElementById('profileName').textContent = doctor.name;
+            document.getElementById('profileSpecialty').textContent = doctor.specialty || 'Spesialis';
+            document.getElementById('profilePoli').textContent = doctor.poli;
+            document.getElementById('profileSIP').textContent = doctor.sip;
+            document.getElementById('profileSchedule').textContent = doctor.schedule;
+            document.getElementById('profileEducation').textContent = doctor.education;
+            document.getElementById('profileExperience').textContent = doctor.experience;
+            document.getElementById('profilePoliLink').href = 'poli-' + poli + '.html';
+
+            const overlay = document.getElementById('profileOverlay');
+            overlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeProfileModal() {
+            const overlay = document.getElementById('profileOverlay');
+            overlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function closeProfile(event) {
+            if (event.target.id === 'profileOverlay') {
+                closeProfileModal();
+            }
+        }
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeProfileModal();
+            }
+        });
+
+</script>
+
+    <!-- Doctor Profile Modal -->
+    <div class="profile-overlay" id="profileOverlay" onclick="closeProfile(event)">
+        <div class="profile-modal">
+            <button class="profile-close" onclick="closeProfileModal()">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="profile-header">
+                <div class="profile-avatar">
+                    <img id="profileAvatar" src="" alt="Doctor">
+                </div>
+                <h2 class="profile-name" id="profileName"></h2>
+                <div class="profile-specialty" id="profileSpecialty"></div>
+                <div class="profile-poli" id="profilePoli"></div>
+            </div>
+            <div class="profile-body">
+                <div class="profile-section">
+                    <div class="profile-section-title">
+                        <i class="fas fa-id-card"></i>
+                        Informasi Praktik
+                    </div>
+                    <div class="profile-info-grid">
+                        <div class="profile-info-item">
+                            <div class="profile-info-label">No. SIP</div>
+                            <div class="profile-info-value" id="profileSIP"></div>
+                        </div>
+                        <div class="profile-info-item">
+                            <div class="profile-info-label">Jadwal Praktik</div>
+                            <div class="profile-info-value" id="profileSchedule"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="profile-section">
+                    <div class="profile-section-title">
+                        <i class="fas fa-graduation-cap"></i>
+                        Pendidikan & Kualifikasi
+                    </div>
+                    <div class="profile-info-item">
+                        <div class="profile-info-value" id="profileEducation"></div>
+                    </div>
+                </div>
+                <div class="profile-section">
+                    <div class="profile-section-title">
+                        <i class="fas fa-user-md"></i>
+                        Pengalaman
+                    </div>
+                    <div class="profile-description" id="profileExperience"></div>
+                </div>
+                <div class="profile-footer">
+                    <a href="#" class="profile-btn profile-btn-primary" id="profilePoliLink">
+                        <i class="fas fa-hospital"></i> Kunjungi Poli
+                    </a>
+                    <a href="kontak.html" class="profile-btn profile-btn-secondary">
+                        <i class="fas fa-phone"></i> Hubungi Kami
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </body>
 </html>
