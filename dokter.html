@@ -173,6 +173,294 @@
         
         /* Hidden class for filter */
         .hidden { display: none !important; }
+        
+        /* Doctor Profile Modal */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(8px);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            padding: 20px;
+        }
+        
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .modal-content {
+            background: var(--white);
+            border-radius: 24px;
+            max-width: 600px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            transform: scale(0.9) translateY(20px);
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.3);
+        }
+        
+        .modal-overlay.active .modal-content {
+            transform: scale(1) translateY(0);
+        }
+        
+        .modal-header {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 50%, var(--primary-light) 100%);
+            padding: 30px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            border-radius: 50%;
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal-close:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: rotate(90deg);
+        }
+        
+        .modal-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            border: 4px solid white;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .modal-avatar i {
+            font-size: 3rem;
+            color: white;
+        }
+        
+        .modal-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            color: white;
+            margin-bottom: 8px;
+        }
+        
+        .modal-specialty {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1rem;
+            font-weight: 500;
+        }
+        
+        .modal-body {
+            padding: 30px;
+        }
+        
+        .modal-section {
+            margin-bottom: 25px;
+        }
+        
+        .modal-section:last-child {
+            margin-bottom: 0;
+        }
+        
+        .modal-section-title {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .modal-section-title i {
+            width: 28px;
+            height: 28px;
+            background: rgba(13, 115, 119, 0.1);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+        }
+        
+        .modal-info-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+        
+        .modal-info-item {
+            background: var(--bg-light);
+            padding: 15px;
+            border-radius: 12px;
+        }
+        
+        .modal-info-item .label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+        }
+        
+        .modal-info-item .value {
+            font-size: 0.95rem;
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+        
+        .modal-description {
+            background: var(--bg-light);
+            padding: 20px;
+            border-radius: 12px;
+            line-height: 1.7;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+        
+        .modal-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        
+        .modal-tag {
+            background: rgba(13, 115, 119, 0.1);
+            color: var(--primary);
+            padding: 6px 14px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        
+        .modal-actions {
+            display: flex;
+            gap: 12px;
+            margin-top: 25px;
+        }
+        
+        .modal-btn {
+            flex: 1;
+            padding: 14px 20px;
+            border-radius: 12px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-decoration: none;
+            text-align: center;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: none;
+        }
+        
+        .modal-btn-primary {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+        }
+        
+        .modal-btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(13, 115, 119, 0.3);
+        }
+        
+        .modal-btn-secondary {
+            background: var(--bg-light);
+            color: var(--text-dark);
+        }
+        
+        .modal-btn-secondary:hover {
+            background: #e9ecef;
+        }
+        
+        /* Profile Button */
+        .profile-btn {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.3s;
+        }
+        
+        .profile-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(13, 115, 119, 0.3);
+        }
+        
+        .profile-btn i {
+            font-size: 0.8rem;
+        }
+        
+        /* Custom Scrollbar for Modal */
+        .modal-content::-webkit-scrollbar {
+            width: 6px;
+        }
+        
+        .modal-content::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        
+        .modal-content::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 3px;
+        }
+        
+        @media (max-width: 576px) {
+            .modal-info-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .modal-actions {
+                flex-direction: column;
+            }
+            
+            .modal-header {
+                padding: 25px 20px;
+            }
+            
+            .modal-body {
+                padding: 20px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -341,6 +629,7 @@
                         </div>
                     </div>
                     <div class="doctor-footer">
+                        <button class="profile-btn" onclick="openModal('jantung')"><i class="fas fa-user"></i> Lihat Profile</button>
                         <a href="poli-jantung.html" class="doctor-action">Lihat Poli <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
@@ -374,12 +663,16 @@
                         </div>
                     </div>
                     <div class="doctor-footer">
-                        <a href="#" class="doctor-action">Lihat Poli <i class="fas fa-arrow-right"></i></a>
+                        <button class="profile-btn" onclick="openModal('radiologi')"><i class="fas fa-user"></i> Lihat Profile</button>
+									<button class="profile-btn" onclick="openModal('radiologi')"><i class="fas fa-user"></i> Lihat Profile</button>
+									<a href="#" class="doctor-action">Lihat Poli <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
 
                 <!-- Spesialis Anestesi & Reanimasi -->
                 <div class="doctor-card" data-poli="anestesi">
+					<button class="profile-btn" onclick="openModal('anestesi')"><i class="fas fa-user"></i> Lihat Profile</button>
+					<a href="#" class="doctor-action">Lihat Poli>
                     <div class="doctor-header">
                         <div class="doctor-avatar" style="background: linear-gradient(135deg, #a29bfe 0%, #6c5ce7 100%);">
                             <img src="img/dokter/dr. I G N Bagus Arimanjaya, Sp.An.png" alt="dr. I G N Bagus Arimanjaya, Sp.An">
@@ -407,7 +700,9 @@
                         </div>
                     </div>
                     <div class="doctor-footer">
-                        <a href="#" class="doctor-action">Lihat Poli <i class="fas fa-arrow-right"></i></a>
+                        <button class="profile-btn" onclick="openModal('radiologi')"><i class="fas fa-user"></i> Lihat Profile</button>
+									<button class="profile-btn" onclick="openModal('radiologi')"><i class="fas fa-user"></i> Lihat Profile</button>
+									<a href="#" class="doctor-action">Lihat Poli <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
 
@@ -611,6 +906,8 @@
 
                 <!-- Spesialis Anestesi & Terapi Intensif -->
                 <div class="doctor-card" data-poli="anestesi">
+					<button class="profile-btn" onclick="openModal('anestesi')"><i class="fas fa-user"></i> Lihat Profile</button>
+					<a href="#" class="doctor-action">Lihat Poli>
                     <div class="doctor-header">
                         <div class="doctor-avatar" style="background: linear-gradient(135deg, #a29bfe 0%, #6c5ce7 100%);">
                             <img src="img/dokter/dr. I Wayan Eka Arnawa, Sp.An-TI.png" alt="dr. I Wayan Eka Arnawa, Sp.An-TI">
@@ -638,7 +935,9 @@
                         </div>
                     </div>
                     <div class="doctor-footer">
-                        <a href="#" class="doctor-action">Lihat Poli <i class="fas fa-arrow-right"></i></a>
+                        <button class="profile-btn" onclick="openModal('radiologi')"><i class="fas fa-user"></i> Lihat Profile</button>
+									<button class="profile-btn" onclick="openModal('radiologi')"><i class="fas fa-user"></i> Lihat Profile</button>
+									<a href="#" class="doctor-action">Lihat Poli <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
 
@@ -704,7 +1003,9 @@
                         </div>
                     </div>
                     <div class="doctor-footer">
-                        <a href="#" class="doctor-action">Lihat Poli <i class="fas fa-arrow-right"></i></a>
+                        <button class="profile-btn" onclick="openModal('radiologi')"><i class="fas fa-user"></i> Lihat Profile</button>
+									<button class="profile-btn" onclick="openModal('radiologi')"><i class="fas fa-user"></i> Lihat Profile</button>
+									<a href="#" class="doctor-action">Lihat Poli <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
 
@@ -803,12 +1104,16 @@
                         </div>
                     </div>
                     <div class="doctor-footer">
-                        <a href="#" class="doctor-action">Lihat Poli <i class="fas fa-arrow-right"></i></a>
+                        <button class="profile-btn" onclick="openModal('radiologi')"><i class="fas fa-user"></i> Lihat Profile</button>
+									<button class="profile-btn" onclick="openModal('radiologi')"><i class="fas fa-user"></i> Lihat Profile</button>
+									<a href="#" class="doctor-action">Lihat Poli <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
 
                 <!-- Spesialis Anestesi & Reanimasi -->
                 <div class="doctor-card" data-poli="anestesi">
+					<button class="profile-btn" onclick="openModal('anestesi')"><i class="fas fa-user"></i> Lihat Profile</button>
+					<a href="#" class="doctor-action">Lihat Poli>
                     <div class="doctor-header">
                         <div class="doctor-avatar" style="background: linear-gradient(135deg, #a29bfe 0%, #6c5ce7 100%);">
                             <img src="img/dokter/dr. Manik Dirgayunitri, M.Biomed., Sp.An.png" alt="dr. Manik Dirgayunitri, M.Biomed., Sp.An">
@@ -836,7 +1141,9 @@
                         </div>
                     </div>
                     <div class="doctor-footer">
-                        <a href="#" class="doctor-action">Lihat Poli <i class="fas fa-arrow-right"></i></a>
+                        <button class="profile-btn" onclick="openModal('radiologi')"><i class="fas fa-user"></i> Lihat Profile</button>
+									<button class="profile-btn" onclick="openModal('radiologi')"><i class="fas fa-user"></i> Lihat Profile</button>
+									<a href="#" class="doctor-action">Lihat Poli <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
 
@@ -1001,7 +1308,9 @@
                         </div>
                     </div>
                     <div class="doctor-footer">
-                        <a href="#" class="doctor-action">Lihat Poli <i class="fas fa-arrow-right"></i></a>
+                        <button class="profile-btn" onclick="openModal('radiologi')"><i class="fas fa-user"></i> Lihat Profile</button>
+									<button class="profile-btn" onclick="openModal('radiologi')"><i class="fas fa-user"></i> Lihat Profile</button>
+									<a href="#" class="doctor-action">Lihat Poli <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
 
@@ -1100,6 +1409,79 @@
             </div>
         </div>
     </footer>
+
+    <!-- Doctor Profile Modal -->
+    <div class="modal-overlay" id="doctorModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="modal-close" onclick="closeModal()"><i class="fas fa-times"></i></button>
+                <div class="modal-avatar" id="modalAvatar">
+                    <img src="" alt="" id="modalImage">
+                    <i class="fas fa-user-md" id="modalIcon"></i>
+                </div>
+                <h2 class="modal-name" id="modalName">Nama Dokter</h2>
+                <p class="modal-specialty" id="modalSpecialty">Spesialis</p>
+            </div>
+            <div class="modal-body">
+                <div class="modal-section">
+                    <div class="modal-section-title"><i class="fas fa-info-circle"></i> Informasi Dokter</div>
+                    <div class="modal-info-grid">
+                        <div class="modal-info-item">
+                            <div class="label">Nama Lengkap</div>
+                            <div class="value" id="modalFullName">-</div>
+                        </div>
+                        <div class="modal-info-item">
+                            <div class="label">Spesialisasi</div>
+                            <div class="value" id="modalSpesialisasi">-</div>
+                        </div>
+                        <div class="modal-info-item">
+                            <div class="label">Poliklinik</div>
+                            <div class="value" id="modalPoli">-</div>
+                        </div>
+                        <div class="modal-info-item">
+                            <div class="label">Jadwal Praktik</div>
+                            <div class="value" id="modalJadwal">-</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="modal-section">
+                    <div class="modal-section-title"><i class="fas fa-graduation-cap"></i> Pendidikan & Pengalaman</div>
+                    <div class="modal-info-grid">
+                        <div class="modal-info-item">
+                            <div class="label">Pendidikan</div>
+                            <div class="value" id="modalPendidikan">-</div>
+                        </div>
+                        <div class="modal-info-item">
+                            <div class="label">Pengalaman</div>
+                            <div class="value" id="modalPengalaman">-</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="modal-section">
+                    <div class="modal-section-title"><i class="fas fa-stethoscope"></i> Keahlian</div>
+                    <div class="modal-tags" id="modalTags">
+                        <span class="modal-tag">-</span>
+                    </div>
+                </div>
+                
+                <div class="modal-section">
+                    <div class="modal-section-title"><i class="fas fa-file-medical"></i> Tentang</div>
+                    <div class="modal-description" id="modalDescription">-</div>
+                </div>
+                
+                <div class="modal-actions">
+                    <a href="#" class="modal-btn modal-btn-secondary" id="modalPoliLink">
+                        <i class="fas fa-hospital"></i> Lihat Poli
+                    </a>
+                    <a href="kontak.html" class="modal-btn modal-btn-primary">
+                        <i class="fas fa-calendar-check"></i> Buat Janji
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script>
         window.addEventListener('scroll', () => {
