@@ -1,0 +1,237 @@
+name: 🤖 Auto PR Reviewer
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+  
+  # Manual trigger
+  workflow_dispatch:
+
+jobs:
+  pr-reviewer:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request' || github.event_name == 'workflow_dispatch'
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install beautifulsoup4 lxml
+
+      - name: Run PR Review Agent
+        id: review
+        run: |
+          python << 'EOF'
+          import os
+          import re
+          from pathlib import Path
+          from datetime import datetime
+          
+          print("🤖 MEMULAI PR REVIEWER AGENT")
+          print("=" * 60)
+          
+          # Get PR info from environment
+          pr_number = os.getenv('GITHUB_PR_NUMBER', 'N/A')
+          pr_title = os.getenv('GITHUB_PR_TITLE', 'N/A')
+          pr_body = os.getenv('GITHUB_PR_BODY', 'N/A')
+          
+          print(f"📋 PR #{pr_number}: {pr_title}")
+          print(f"   Body: {pr_body[:200] if pr_body else 'No description'}...")
+          print()
+          
+          # Ambil file yang berubah dari git
+          changed_files = os.popen('git diff --name-only HEAD~1 HEAD 2>/dev/null || git diff --name-only 2>/dev/null || ls *.html').read().strip().split('\n')
+          changed_files = [f for f in changed_files if f.strip() and f.endswith('.html')]
+          
+          if not changed_files:
+              # Fallback: cek semua HTML files
+              changed_files = [f.name for f in Path('.').glob('*.html')]
+          
+          print(f"📁 Files changed: {len(changed_files)}")
+          for f in changed_files[:10]:
+              print(f"   - {f}")
+          
+          issues = []
+          warnings = []
+          
+          for filename in changed_files:
+              if not Path(filename).exists():
+                  continue
+                  
+              content = Path(filename).read_text(encoding='utf-8')
+              
+              # CHECK 1: Link Standards (WAJIB dari AGENTS.md)
+              if 'href="#"' in content and 'class="logo"' in content:
+                  issues.append({
+                      'file': filename,
+                      'type': '❌ ERROR',
+                      'category': 'Logo Link',
+                      'message': 'Link logo harus `href="index.html"`, bukan `href="#"`'
+                  })
+              
+              if 'href="#dokter"' in content:
+                  issues.append({
+                      'file': filename,
+                      'type': '❌ ERROR',
+                      'category': 'Dokter Link',
+                      'message': 'Link ke halaman dokter harus `href="dokter.html"`, bukan `#dokter`'
+                  })
+              
+              if 'href="#kontak"' in content:
+                  issues.append({
+                      'file': filename,
+                      'type': '❌ ERROR',
+                      'category': 'Kontak Link',
+                      'message': 'Link ke halaman kontak harus `href="kontak.html"`, bukan `#kontak`'
+                  })
+              
+              # CHECK 2: Image References
+              if 'img/dokter/' in content:
+                  img_matches = re.findall(r'img/dokter/([^"]+)', content)
+                  for img in img_matches:
+                      if not Path(f'img/dokter/{img}').exists():
+                          issues.append({
+                              'file': filename,
+                              'type': '❌ ERROR',
+                              'category': 'Missing Image',
+                              'message': f'Foto dokter tidak ditemukan: img/dokter/{img}'
+                          })
+              
+              # CHECK 3: Internal Links
+              internal_links = re.findall(r'href="([^"#]+\.html)"', content)
+              for link in internal_links:
+                  if not Path(link).exists():
+                      issues.append({
+                          'file': filename,
+                          'type': '❌ ERROR',
+                          'category': 'Broken Link',
+                          'message': f'File tidak ditemukan: {link}'
+                      })
+              
+              # CHECK 4: Best Practices Warnings
+              if '<br>' in content:
+                  warnings.append({
+                      'file': filename,
+                      'type': '⚠️ WARNING',
+                      'category': 'HTML Best Practice',
+                      'message': 'Gunakan `<br>` dengan hemat, pertimbangkan `<p>` atau CSS spacing'
+                  })
+              
+              if 'style="' in content and content.count('style="') > 10:
+                  warnings.append({
+                      'file': filename,
+                      'type': '⚠️ WARNING',
+                      'category': 'Code Quality',
+                      'message': 'Too many inline styles. Consider using CSS classes.'
+                  })
+          
+          # Generate Report
+          print("\n" + "=" * 60)
+          print("📊 PR REVIEW REPORT")
+          print("=" * 60)
+          
+          if issues:
+              print(f"\n❌ ISSUES ({len(issues)}):")
+              for issue in issues:
+                  print(f"   [{issue['category']}] {issue['file']}")
+                  print(f"      {issue['message']}")
+          
+          if warnings:
+              print(f"\n⚠️ WARNINGS ({len(warnings)}):")
+              for warn in warnings[:5]:  # Max 5 warnings
+                  print(f"   [{warn['category']}] {warn['file']}")
+                  print(f"      {warn['message']}")
+          
+          print("\n" + "=" * 60)
+          
+          if not issues:
+              print("✅✅✅ PR SIAP DIREVIEW - TIDAK ADA ERROR!")
+              if warnings:
+                  print(f"   ({len(warnings)} warnings tapi tidak blocking)")
+          else:
+              print(f"⚠️⚠️⚠️ DITEMUKAN {len(issues)} ERROR - MOHON PERBAIKI!")
+          
+          print("=" * 60)
+          
+          # Generate markdown report for PR comment
+          with open('pr_review_report.md', 'w') as f:
+              f.write(f"## 🤖 PR Reviewer Report\n\n")
+              f.write(f"**Timestamp:** {datetime.now().strftime('%Y-%m-%d %H:%M:%S')} UTC\n")
+              f.write(f"**Files Changed:** {len(changed_files)}\n\n")
+              
+              if issues:
+                  f.write(f"### ❌ Issues Found: {len(issues)}\n\n")
+                  f.write("| File | Category | Issue |\n")
+                  f.write("|------|----------|-------|\n")
+                  for issue in issues:
+                      f.write(f"| `{issue['file']}` | {issue['category']} | {issue['message']} |\n")
+                  f.write("\n")
+              
+              if warnings:
+                  f.write(f"### ⚠️ Warnings: {len(warnings)}\n\n")
+                  f.write("| File | Category | Warning |\n")
+                  f.write("|------|----------|---------|\n")
+                  for warn in warnings[:10]:
+                      f.write(f"| `{warn['file']}` | {warn['category']} | {warn['message']} |\n")
+                  f.write("\n")
+              
+              if not issues:
+                  f.write("✅ **Status:** PR siap untuk merge!\n")
+              else:
+                  f.write(f"❌ **Status:** {len(issues)} issues harus diperbaiki sebelum merge.\n")
+          
+          # Set output for next step
+          with open(os.getenv('GITHUB_OUTPUT', '/dev/stdout'), 'a') as f:
+              f.write(f"issues_count={len(issues)}\n")
+              f.write(f"warnings_count={len(warnings)}\n")
+              f.write(f"status={'pass' if len(issues) == 0 else 'fail'}\n")
+          
+          # Exit with error if there are issues
+          if issues:
+              exit(1)
+          
+          EOF
+
+      - name: Post PR Review Comment
+        if: github.event_name == 'pull_request'
+        env:
+          GITHUB_PR_NUMBER: ${{ github.event.pull_request.number }}
+          GITHUB_PR_TITLE: ${{ github.event.pull_request.title }}
+          GITHUB_PR_BODY: ${{ github.event.pull_request.body }}
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const report = fs.readFileSync('pr_review_report.md', 'utf8');
+            
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: report
+            });
+            
+            // Add labels based on status
+            if (report.includes('❌ **Status:**')) {
+              github.rest.issues.addLabels({
+                issue_number: context.issue.number,
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                labels: ['needs-fix']
+              });
+            }
+
+      - name: Upload Review Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: pr-review-report
+          path: pr_review_report.md
+          retention-days: 30

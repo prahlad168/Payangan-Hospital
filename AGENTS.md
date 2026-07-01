@@ -1,6 +1,73 @@
 # Payangan Hospital - Website Repository
 
-## Informasi Rumah Sakit
+---
+
+## 🤖 Auto-Running Agents
+
+Repository ini dilengkapi dengan **5 agent otomatis** yang berjalan via GitHub Actions:
+
+### 1. 🔍 Auto Link Checker
+| Property | Value |
+|-----------|-------|
+| **Trigger** | Setiap 6 jam / On push / Manual |
+| **File** | `.github/workflows/01-link-checker.yml` |
+| **Fungsi** | Cek broken links dan link standards (logo, dokter, kontak) |
+
+### 2. 🤖 Auto PR Reviewer
+| Property | Value |
+|-----------|-------|
+| **Trigger** | Saat PR baru/updated |
+| **File** | `.github/workflows/02-pr-reviewer.yml` |
+| **Fungsi** | Review PR, cek link standards, validasi gambar |
+
+### 3. ✅ Auto QA Checker
+| Property | Value |
+|-----------|-------|
+| **Trigger** | On push ke main/develop / On PR |
+| **File** | `.github/workflows/03-qa-checker.yml` |
+| **Fungsi** | Validasi HTML, accessibility, SEO, performance |
+
+### 4. 🚀 Auto Deploy
+| Property | Value |
+|-----------|-------|
+| **Trigger** | Push ke branch main |
+| **File** | `.github/workflows/04-deploy.yml` |
+| **Fungsi** | Pre-deploy validation → Deploy ke GitHub Pages |
+
+### 5. 📋 Content Validator
+| Property | Value |
+|-----------|-------|
+| **Trigger** | Harian jam 7 AM WIB / On push HTML / Manual |
+| **File** | `.github/workflows/05-content-validator.yml` |
+| **Fungsi** | Validasi dokter, poli, gambar, link standards |
+
+---
+
+## Automation Flow
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│                     GITHUB ACTIONS                           │
+├─────────────────────────────────────────────────────────────┤
+│                                                             │
+│  📝 Push/Pull Request                                       │
+│       │                                                      │
+│       ├──┬──► 🔍 Link Checker ────► Report links error       │
+│       │                                                      │
+│       ├──┬──► ✅ QA Checker ──────► Report HTML/SEO issues   │
+│       │                                                      │
+│       ├──┬──► 📋 Content Validator ──► Report dokter/poli     │
+│       │                                                      │
+│       │                                                      │
+│       ▼                                                      │
+│  Push ke main ──► 🚀 Auto Deploy ────► GitHub Pages Live!    │
+│                                                             │
+└─────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## ℹ️ Informasi Rumah Sakit
 - **Nama**: Payangan Hospital
 - **Slogan**: "Pavitram Idam Uttamam" (Tempat terbaik untuk kesehatan)
 - **Lokasi**: Jl. Raya Payangan, Gianyar, Bali
