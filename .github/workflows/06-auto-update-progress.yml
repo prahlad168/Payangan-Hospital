@@ -1,0 +1,193 @@
+name: 📊 Auto Update Progress Page
+
+on:
+  push:
+    branches: [main]
+    paths-ignore:
+      - 'progress/**'  # Jangan trigger sendiri
+      - '.github/workflows/06-auto-update-progress.yml'
+  
+  # Manual trigger
+  workflow_dispatch:
+
+jobs:
+  update-progress:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Run Progress Update Agent
+        id: update-progress
+        run: |
+          python << 'EOF'
+          import os
+          import re
+          from pathlib import Path
+          from datetime import datetime
+
+          print("📊 MEMULAI AUTO PROGRESS UPDATE AGENT")
+          print("=" * 60)
+
+          # Get commit history
+          commits = os.popen('git log --oneline -10').read().strip().split('\n')
+          
+          # Get statistics
+          html_files = list(Path('.').glob('*.html'))
+          total_html = len(html_files)
+          
+          dokter_count = 0
+          poli_count = 0
+          
+          # Count dokter and poli from AGENTS.md
+          agents_content = Path('AGENTS.md').read_text(encoding='utf-8') if Path('AGENTS.md').exists() else ""
+          
+          # Count dokter (lines with dr.)
+          dokter_matches = re.findall(r'dr\.\s', agents_content)
+          dokter_count = len(drektor_matches) if dokter_matches else 0
+          
+          # Count poli files
+          poli_files = list(Path('.').glob('poli-*.html'))
+          poli_count = len(poli_files)
+          
+          # Count images
+          img_files = len(list(Path('img').rglob('*'))) if Path('img').exists() else 0
+          
+          # Count agents/workflows
+          workflow_files = list(Path('.github/workflows').glob('*.yml')) if Path('.github/workflows').exists() else []
+          agent_count = len([w for w in workflow_files if not w.name.startswith('dependabot')])
+          
+          # Get last update time
+          last_commit = commits[0] if commits else "No commits"
+          last_update = datetime.now().strftime('%B %d, %Y')
+          
+          print(f"📈 Statistics:")
+          print(f"   - Total HTML: {total_html}")
+          print(f"   - Poli Pages: {poli_count}")
+          print(f"   - Images: {img_files}")
+          print(f"   - Agents: {agent_count}")
+          print(f"   - Last commit: {last_commit}")
+          
+          # Read current progress page
+          progress_file = Path('progress/index.html')
+          if progress_file.exists():
+              content = progress_file.read_text(encoding='utf-8')
+              
+              # Update last updated date
+              content = re.sub(
+                  r'Last Updated:.*?\d{4}',
+                  f'Last Updated: {last_update}',
+                  content
+              )
+              
+              # Update statistics in overview section
+              # Update HTML count
+              content = re.sub(
+                  r'(<div class="number">)(\d+)(</div>\s*<div class="label">Halaman HTML)',
+                  f'\\g<1>{total_html}\\g<3>',
+                  content
+              )
+              
+              # Update Poli count
+              content = re.sub(
+                  r'(<div class="number">)(\d+)(</div>\s*<div class="label">Poliklinik)',
+                  f'\\g<1>{poli_count}\\g<3>',
+                  content
+              )
+              
+              # Update Images count
+              content = re.sub(
+                  r'(<div class="number">)(\d+)(</div>\s*<div class="label">Gambar)',
+                  f'\\g<1>{img_files}\\g<3>',
+                  content
+              )
+              
+              # Update commit list in header
+              commit_html = ""
+              for i, commit in enumerate(commits[:5]):
+                  if commit.strip():
+                      parts = commit.split(' ', 1)
+                      if len(parts) == 2:
+                          sha, msg = parts
+                          icon = "📝"
+                          if "fix" in msg.lower() or "bug" in msg.lower():
+                              icon = "🐛"
+                          elif "add" in msg.lower():
+                              icon = "➕"
+                          elif "update" in msg.lower() or "improve" in msg.lower():
+                              icon = "📊"
+                          elif "agent" in msg.lower():
+                              icon = "🤖"
+                          elif "skill" in msg.lower():
+                              icon = "🛠️"
+                          elif "design" in msg.lower() or "ui" in msg.lower() or "css" in msg.lower():
+                              icon = "🎨"
+                          elif "doc" in msg.lower():
+                              icon = "📄"
+                          
+                          commit_html += f'''
+                <div class="commit-item">
+                    <i class="fas {{
+                        "fa-bug" if "fix" in msg.lower() else
+                        "fa-plus" if "add" in msg.lower() else
+                        "fa-chart-line" if "update" in msg.lower() else
+                        "fa-robot" if "agent" in msg.lower() else
+                        "fa-tools" if "skill" in msg.lower() else
+                        "fa-paint-brush" if any(x in msg.lower() for x in ["design", "ui", "css", "logo"]) else
+                        "fa-file-alt"
+                    }}"></i>
+                    <span><strong>{sha}</strong> - {msg}</span>
+                </div>'''
+              
+              # Replace commit list
+              pattern = r'<div class="commit-list">.*?</div>\s*</div>\s*</div>\s*</header>'
+              replacement = f'''<div class="commit-list">
+                {commit_html}
+            </div>
+        </div>
+    </header>'''
+              
+              content = re.sub(pattern, replacement, content, flags=re.DOTALL)
+              
+              # Save updated content
+              progress_file.write_text(content, encoding='utf-8')
+              
+              print("\n✅ Progress page updated successfully!")
+              print(f"   - Updated: {progress_file}")
+              print(f"   - Last update: {last_update}")
+          else:
+              print("⚠️ Progress file not found!")
+          
+          print("=" * 60)
+          
+          EOF
+
+      - name: Check for changes
+        id: git_diff
+        run: |
+          git diff --stat progress/index.html
+          if git diff --quiet progress/index.html; then
+            echo "no_changes=true" >> $GITHUB_OUTPUT
+            echo "No changes to progress page"
+          else
+            echo "no_changes=false" >> $GITHUB_OUTPUT
+            echo "Changes detected in progress page"
+          fi
+
+      - name: Commit and Push Changes
+        if: github.event_name != 'workflow_dispatch' && steps.git_diff.outputs.no_changes == 'false'
+        run: |
+          git config --local user.email "actions@github.com"
+          git config --local user.name "GitHub Actions Bot"
+          
+          git add progress/index.html
+          git commit -m "📊 Auto-update progress page - $(date '+%Y-%m-%d %H:%M')"
+          git push

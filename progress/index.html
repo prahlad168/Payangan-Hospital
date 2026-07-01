@@ -89,6 +89,29 @@
             font-size: 0.9rem;
         }
 
+        .commit-list {
+            margin-top: 20px;
+            text-align: left;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .commit-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 15px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 8px;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+        }
+
+        .commit-item i {
+            color: var(--secondary);
+        }
+
         /* Navigation */
         .nav-tabs {
             background: var(--white);
@@ -836,7 +859,26 @@
         <div class="header-content">
             <h1><i class="fas fa-chart-line"></i> Progress Report</h1>
             <p class="subtitle">Payangan Hospital - Website Development</p>
-            <span class="badge"><i class="fas fa-clock"></i> Last Updated: July 2025</span>
+            <span class="badge"><i class="fas fa-clock"></i> Last Updated: July 1, 2025</span>
+            
+            <div class="commit-list">
+                <div class="commit-item">
+                    <i class="fas fa-paint-brush"></i>
+                    <span><strong>efc7cee</strong> - Fix partner logo visibility</span>
+                </div>
+                <div class="commit-item">
+                    <i class="fas fa-file-code"></i>
+                    <span><strong>799378f</strong> - Add Document Skills (PDF, DOCX, PPTX, XLSX)</span>
+                </div>
+                <div class="commit-item">
+                    <i class="fas fa-chart-bar"></i>
+                    <span><strong>bb95cc1</strong> - Add Progress Report Page</span>
+                </div>
+                <div class="commit-item">
+                    <i class="fas fa-robot"></i>
+                    <span><strong>8026159</strong> - Add 5 Auto-Running Agents</span>
+                </div>
+            </div>
         </div>
     </header>
 
