@@ -81,6 +81,36 @@ Halaman ini berisi:
 
 ---
 
+## 🛠️ Available Skills
+
+Repository ini menggunakan skill-skill berikut:
+
+### Default Skills (Pre-installed)
+| Skill | Deskripsi |
+|-------|-----------|
+| `webbuilder.md` | Modern design patterns, component examples, responsive layouts |
+| `beautiful-ui.md` | Advanced UI effects (glassmorphism, neumorphism, animations) |
+| `tailwind-ref.md` | Complete Tailwind CSS class reference |
+
+### Document Skills (from anthropics/skills)
+| Skill | Deskripsi |
+|-------|-----------|
+| `pdf` | Create, edit, and manipulate PDF documents |
+| `docx` | Create and edit Word documents (.docx) |
+| `pptx` | Create PowerPoint presentations |
+| `xlsx` | Create Excel spreadsheets with formulas |
+
+### Cara Menggunakan Skill
+```bash
+# Skill dapat di-invoke saat conversation
+invoke_skill(name="pdf")   # Untuk generate PDF reports
+invoke_skill(name="docx")  # Untuk generate Word documents
+invoke_skill(name="pptx")  # Untuk generate presentations
+invoke_skill(name="xlsx")  # Untuk generate Excel reports
+```
+
+---
+
 ## ℹ️ Informasi Rumah Sakit
 - **Nama**: Payangan Hospital
 - **Slogan**: "Pavitram Idam Uttamam" (Tempat terbaik untuk kesehatan)
