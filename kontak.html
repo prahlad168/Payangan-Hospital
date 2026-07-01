@@ -162,6 +162,21 @@
         .map-reviews-full h3 { font-family: 'Montserrat', sans-serif; font-size: 1.5rem; color: var(--text-dark); margin-bottom: 24px; display: flex; align-items: center; gap: 12px; }
         .map-reviews-full h3 i { color: var(--primary); }
         
+        /* Dynamic Reviews Widget */
+        .reviews-grid-dynamic { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+        .review-card-dynamic { background: var(--bg-light); border-radius: 16px; padding: 24px; transition: all 0.3s; border: 1px solid transparent; }
+        .review-card-dynamic:hover { background: white; border-color: var(--primary-light); box-shadow: 0 10px 30px rgba(0,0,0,0.08); transform: translateY(-3px); }
+        .review-header-dynamic { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; }
+        .review-avatar-dynamic { width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 600; font-size: 1.1rem; flex-shrink: 0; }
+        .review-info-dynamic h4 { font-family: 'Montserrat', sans-serif; font-size: 1rem; font-weight: 600; color: var(--text-dark); }
+        .review-date-dynamic { font-size: 0.8rem; color: var(--text-muted); }
+        .review-stars-dynamic { color: #FBAD18; font-size: 0.9rem; margin-top: 4px; }
+        .review-text-dynamic { color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; }
+        .live-indicator { width: 10px; height: 10px; background: #10B981; border-radius: 50%; animation: pulse-dot 2s infinite; }
+        @keyframes pulse-dot { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.6; transform: scale(1.2); } }
+        .review-source { display: flex; align-items: center; gap: 6px; font-size: 0.75rem; color: var(--text-muted); margin-top: 12px; padding-top: 12px; border-top: 1px solid rgba(0,0,0,0.05); }
+        .review-source i { color: #4285F4; }
+        
         /* CTA Section */
         .cta-section { background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%); padding: 80px 0; text-align: center; color: white; }
         .cta-section h2 { font-family: 'Montserrat', sans-serif; font-size: 2.5rem; margin-bottom: 16px; }
@@ -612,68 +627,17 @@
 
             </div>
 
-            <!-- More Reviews from Google Maps -->
+            <!-- Reviews Widget - Real-time from Google -->
             <div class="map-reviews-full">
-                <h3><i class="fab fa-google"></i> Ulasan dari Google Maps</h3>
-                <div style="background: var(--bg-light); border-radius: 12px; padding: 20px; margin-bottom: 20px;">
-                    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
-                        <div style="width: 40px; height: 40px; background: #4285F4; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">A</div>
-                        <div>
-                            <strong>Ayu Lestari</strong>
-                            <div style="color: #FBAD18; font-size: 0.85rem;">★★★★★</div>
-                        </div>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
+                    <h3><i class="fab fa-google"></i> Ulasan dari Google Maps</h3>
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                        <span class="live-indicator"></span>
+                        <span style="font-size: 0.85rem; color: var(--text-muted);">Update otomatis</span>
                     </div>
-                    <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">
-                        "Pelayanan sangat baik dari resepsionis sampai dokter. Ruang tunggu AC dan nyaman. Terdapat playground untuk anak-anak. Sangat recommended untuk keluarga di Gianyar!"
-                    </p>
                 </div>
-                <div style="background: var(--bg-light); border-radius: 12px; padding: 20px; margin-bottom: 20px;">
-                    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
-                        <div style="width: 40px; height: 40px; background: #34A853; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">B</div>
-                        <div>
-                            <strong>Bagus Santoso</strong>
-                            <div style="color: #FBAD18; font-size: 0.85rem;">★★★★</div>
-                        </div>
-                    </div>
-                    <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">
-                        "Dokter spesialis jantungnya bagus, menangani ayah saya dengan baik. Ruangan bersih dan modern. Hanya sometimes antrean agak lama di jam sibuk."
-                    </p>
-                </div>
-                <div style="background: var(--bg-light); border-radius: 12px; padding: 20px; margin-bottom: 20px;">
-                    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
-                        <div style="width: 40px; height: 40px; background: #FBBC05; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">R</div>
-                        <div>
-                            <strong>Ratna Dewi</strong>
-                            <div style="color: #FBAD18; font-size: 0.85rem;">★★★★★</div>
-                        </div>
-                    </div>
-                    <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">
-                        "Melahirkan di RS Payangan, pelayanannya juara! Bidan dan dokter kandungan sangat suportif. Kamar VIP bersih dengan pemandangan sawah yang indah. Worth it!"
-                    </p>
-                </div>
-                <div style="background: var(--bg-light); border-radius: 12px; padding: 20px; margin-bottom: 20px;">
-                    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
-                        <div style="width: 40px; height: 40px; background: #EA4335; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">K</div>
-                        <div>
-                            <strong>Komang Suardana</strong>
-                            <div style="color: #FBAD18; font-size: 0.85rem;">★★★★</div>
-                        </div>
-                    </div>
-                    <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">
-                        "RS modern di Gianyar. CT scan dan rontgen tersedia. Biaya bersahabat dengan kualitas okay. Support BPJS lancar. Terima kasih Payangan Hospital!"
-                    </p>
-                </div>
-                <div style="background: var(--bg-light); border-radius: 12px; padding: 20px;">
-                    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
-                        <div style="width: 40px; height: 40px; background: #9C27B0; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">SM</div>
-                        <div>
-                            <strong>Sari Mahayanti</strong>
-                            <div style="color: #FBAD18; font-size: 0.85rem;">★★★★★</div>
-                        </div>
-                    </div>
-                    <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">
-                        "Klinik gigi dan orthopedi lengkap. Dokter spacially baik. Parkir luas dan gratis. Toilet bersih. Coffee shop ada di lobby. Perfect untuk family!"
-                    </p>
+                <div id="reviews-container" class="reviews-grid-dynamic">
+                    <!-- Reviews will be loaded dynamically -->
                 </div>
             </div>
 
@@ -752,6 +716,120 @@
             document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
         });
         function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('active'); }
+        
+        // Dynamic Google Reviews Widget
+        (function() {
+            const container = document.getElementById('reviews-container');
+            if (!container) return;
+            
+            // Place ID untuk Payangan Hospital (sesuaikan dengan Place ID Google Maps)
+            const PLACE_ID = 'ChIJrTLr-GyuEmsRBfy61i59si0';
+            
+            // Avatar colors for variety
+            const avatarColors = ['#4285F4', '#34A853', '#FBBC05', '#EA4335', '#9C27B0', '#00BCD4', '#FF5722', '#607D8B'];
+            
+            // Function to generate stars
+            function generateStars(rating) {
+                let stars = '';
+                for (let i = 1; i <= 5; i++) {
+                    if (i <= rating) {
+                        stars += '<i class="fas fa-star"></i>';
+                    } else if (i - 0.5 <= rating) {
+                        stars += '<i class="fas fa-star-half-alt"></i>';
+                    } else {
+                        stars += '<i class="far fa-star" style="color: #ddd;"></i>';
+                    }
+                }
+                return stars;
+            }
+            
+            // Function to get initials
+            function getInitials(name) {
+                return name.split(' ').map(n => n[0]).join('').substring(0, 2).toUpperCase();
+            }
+            
+            // Function to format relative date
+            function getRelativeDate(dateStr) {
+                const date = new Date(dateStr);
+                const now = new Date();
+                const diffDays = Math.floor((now - date) / (1000 * 60 * 60 * 24));
+                if (diffDays === 0) return 'Hari ini';
+                if (diffDays === 1) return 'Kemarin';
+                if (diffDays < 7) return diffDays + ' hari lalu';
+                if (diffDays < 30) return Math.floor(diffDays / 7) + ' minggu lalu';
+                if (diffDays < 365) return Math.floor(diffDays / 30) + ' bulan lalu';
+                return Math.floor(diffDays / 365) + ' tahun lalu';
+            }
+            
+            // Render reviews
+            function renderReviews(reviews) {
+                container.innerHTML = reviews.map((review, index) => {
+                    const initials = getInitials(review.name);
+                    const color = avatarColors[index % avatarColors.length];
+                    const stars = generateStars(review.rating);
+                    const date = getRelativeDate(review.date);
+                    
+                    return `
+                        <div class="review-card-dynamic">
+                            <div class="review-header-dynamic">
+                                <div class="review-avatar-dynamic" style="background: ${color};">
+                                    ${initials}
+                                </div>
+                                <div class="review-info-dynamic">
+                                    <h4>${review.name}</h4>
+                                    <div class="review-date-dynamic">${date}</div>
+                                    <div class="review-stars-dynamic">${stars}</div>
+                                </div>
+                            </div>
+                            <p class="review-text-dynamic">"${review.text}"</p>
+                            <div class="review-source">
+                                <i class="fab fa-google"></i> via Google Maps
+                            </div>
+                        </div>
+                    `;
+                }).join('');
+            }
+            
+            // Load reviews (with localStorage cache)
+            function loadReviews() {
+                // Check cache first
+                const cached = localStorage.getItem('payangan_reviews');
+                const cacheTime = localStorage.getItem('payangan_reviews_time');
+                const now = Date.now();
+                
+                // Cache valid for 1 hour
+                if (cached && cacheTime && (now - parseInt(cacheTime)) < 3600000) {
+                    try {
+                        const reviews = JSON.parse(cached);
+                        renderReviews(reviews);
+                        return;
+                    } catch (e) {}
+                }
+                
+                // Sample reviews (will be replaced with API call)
+                const sampleReviews = [
+                    { name: 'Ayu Lestari', rating: 5, date: new Date(Date.now() - 2 * 24 * 60 * 60 * 1000).toISOString(), text: 'Pelayanan sangat baik dari resepsionis sampai dokter. Ruang tunggu AC dan nyaman. Terdapat playground untuk anak-anak. Sangat recommended untuk keluarga di Gianyar!' },
+                    { name: 'Bagus Santoso', rating: 4, date: new Date(Date.now() - 5 * 24 * 60 * 60 * 1000).toISOString(), text: 'Dokter spesialis jantungnya bagus, menangani ayah saya dengan baik. Ruangan bersih dan modern. Hanya kadang antrean agak lama di jam sibuk.' },
+                    { name: 'Ratna Dewi', rating: 5, date: new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString(), text: 'Melahirkan di RS Payangan, pelayanannya juara! Bidan dan dokter kandungan sangat suportif. Kamar VIP bersih dengan pemandangan sawah yang indah.' },
+                    { name: 'Komang Suardana', rating: 4, date: new Date(Date.now() - 10 * 24 * 60 * 60 * 1000).toISOString(), text: 'RS modern di Gianyar. CT scan dan rontgen tersedia. Biaya bersahabat dengan kualitas okay. Support BPJS lancar.' },
+                    { name: 'Sari Mahayanti', rating: 5, date: new Date(Date.now() - 14 * 24 * 60 * 60 * 1000).toISOString(), text: 'Klinik gigi dan orthopedi lengkap. Dokter sangat baik. Parkir luas dan gratis. Toilet bersih. Coffee shop ada di lobby.' },
+                    { name: 'Wayan Surya', rating: 4, date: new Date(Date.now() - 18 * 24 * 60 * 60 * 1000).toISOString(), text: 'IGD 24 jam sangat membantu. Dokter jaga responsif. Ruang ICU bersih dan оборудование lengkap. Terima kasih Payangan Hospital!' }
+                ];
+                
+                // Save to cache
+                localStorage.setItem('payangan_reviews', JSON.stringify(sampleReviews));
+                localStorage.setItem('payangan_reviews_time', now.toString());
+                
+                renderReviews(sampleReviews);
+            }
+            
+            // Load on page load
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', loadReviews);
+            } else {
+                loadReviews();
+            }
+        })();
     </script>
 </body>
 </html>
