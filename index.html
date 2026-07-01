@@ -186,10 +186,22 @@
         .marquee-track { display: flex; gap: 30px; animation: marquee 40s linear infinite; width: max-content; }
         .marquee-track:hover { animation-play-state: paused; }
         @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-        .partner-item { background: rgba(255,255,255,0.95); padding: 25px 40px; border-radius: 16px; box-shadow: 0 10px 40px rgba(0,0,0,0.2); transition: all 0.3s; flex-shrink: 0; min-width: 180px; display: flex; align-items: center; justify-content: center; }
-        .partner-item:hover { transform: scale(1.05); box-shadow: 0 20px 50px rgba(0,0,0,0.25); }
-        .partner-item img { height: 55px; object-fit: contain; filter: grayscale(30%); transition: all 0.3s; }
-        .partner-item:hover img { filter: grayscale(0); }
+        .partner-item { 
+            background: linear-gradient(145deg, #ffffff, #f0f0f0); 
+            padding: 25px 40px; 
+            border-radius: 16px; 
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2), inset 0 1px 0 rgba(255,255,255,0.8);
+            border: 1px solid rgba(0,0,0,0.1);
+            transition: all 0.3s; 
+            flex-shrink: 0; 
+            min-width: 180px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center;
+        }
+        .partner-item:hover { transform: scale(1.05); box-shadow: 0 20px 50px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.8); border-color: var(--primary-light); }
+        .partner-item img { height: 55px; object-fit: contain; filter: grayscale(30%) brightness(0.95); transition: all 0.3s; }
+        .partner-item:hover img { filter: grayscale(0) brightness(1); }
     </style>
 </head>
 <body>
