@@ -84,15 +84,18 @@
         .contact-header { text-align: center; margin-bottom: 50px; padding-bottom: 30px; border-bottom: 2px solid var(--bg-light); }
         .contact-header h3 { font-family: 'Montserrat', sans-serif; font-size: 1.5rem; color: var(--text-dark); margin-bottom: 8px; }
         .contact-header p { color: var(--text-muted); font-size: 1rem; }
-        .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; }
-        .contact-item { display: flex; gap: 20px; }
-        .contact-item .icon-box { width: 60px; height: 60px; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); border-radius: 16px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 10px 30px rgba(13, 115, 119, 0.3); }
-        .contact-item .icon-box i { font-size: 24px; color: white; }
-        .contact-item .details { flex: 1; }
-        .contact-item h4 { font-family: 'Montserrat', sans-serif; font-size: 1.1rem; font-weight: 600; color: var(--text-dark); margin-bottom: 8px; }
+        .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+        .contact-item { background: white; border-radius: 20px; padding: 30px; text-align: center; box-shadow: 0 10px 40px rgba(0,0,0,0.05); transition: all 0.3s; border: 1px solid rgba(0,0,0,0.05); }
+        .contact-item:hover { transform: translateY(-5px); box-shadow: 0 20px 60px rgba(0,0,0,0.1); }
+        .contact-item .icon-box { width: 70px; height: 70px; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; box-shadow: 0 10px 30px rgba(13, 115, 119, 0.3); }
+        .contact-item .icon-box i { font-size: 28px; color: white; }
+        .contact-item .details { text-align: center; }
+        .contact-item h4 { font-family: 'Montserrat', sans-serif; font-size: 1.1rem; font-weight: 600; color: var(--text-dark); margin-bottom: 10px; }
         .contact-item p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; margin-bottom: 4px; }
+        .contact-item p i { margin-right: 8px; color: var(--primary); width: 20px; }
         .contact-item a { color: var(--primary); text-decoration: none; font-weight: 500; transition: color 0.3s; }
         .contact-item a:hover { color: var(--primary-dark); text-decoration: underline; }
+        .contact-item .contact-buttons { display: flex; gap: 10px; justify-content: center; margin-top: 15px; flex-wrap: wrap; }
         .contact-buttons { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 15px; }
         .contact-btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; text-decoration: none; transition: all 0.3s; }
         .contact-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,0.15); }
@@ -308,7 +311,7 @@
                         </div>
                         <div class="details">
                             <h4>Alamat</h4>
-                            <p>Jl. Raya Payangan, Desa Payangan,<br>Kec. Payangan, Kab. Gianyar, Bali 80572</p>
+                            <p>Jl. Raya Payangan, Desa Payangan, Kec. Payangan, Kab. Gianyar, Bali 80572</p>
                             <div class="contact-buttons">
                                 <a href="https://maps.google.com/?q=Payangan+Hospital+Gianyar+Bali" target="_blank" class="contact-btn map">
                                     <i class="fas fa-directions"></i> Petunjuk Arah
@@ -324,8 +327,8 @@
                         </div>
                         <div class="details">
                             <h4>Telepon & WhatsApp</h4>
-                            <p>Telepon: <a href="tel:+6236198087">0361 98087</a> (Ext. 88)</p>
-                            <p>WhatsApp: <a href="https://wa.me/6281234567890">+62 812 3456 7890</a></p>
+                            <p><i class="fas fa-phone"></i> <a href="tel:+6236198087">0361 98087</a> (Ext. 88)</p>
+                            <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/6281234567890">+62 812 3456 7890</a></p>
                             <div class="contact-buttons">
                                 <a href="tel:+6236198087" class="contact-btn phone"><i class="fas fa-phone"></i> Telepon</a>
                                 <a href="https://wa.me/6281234567890" target="_blank" class="contact-btn whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</a>
@@ -340,8 +343,8 @@
                         </div>
                         <div class="details">
                             <h4>Email</h4>
-                            <p>Umum: <a href="mailto:info@rsupayangan.co.id">info@rsupayangan.co.id</a></p>
-                            <p>Reservasi: <a href="mailto:reservasi@rsupayangan.co.id">reservasi@rsupayangan.co.id</a></p>
+                            <p><i class="fas fa-inbox"></i> <a href="mailto:info@rsupayangan.co.id">info@rsupayangan.co.id</a></p>
+                            <p><i class="fas fa-calendar-check"></i> <a href="mailto:reservasi@rsupayangan.co.id">reservasi@rsupayangan.co.id</a></p>
                             <div class="contact-buttons">
                                 <a href="mailto:info@rsupayangan.co.id" class="contact-btn email-btn"><i class="fas fa-envelope"></i> Kirim Email</a>
                             </div>
