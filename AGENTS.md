@@ -2,39 +2,56 @@
 
 ---
 
-## 🤖 Auto-Running Agents
+## 🤖 SuperAgent Memory
+
+**Agent Name:** SuperAgent
+
+**Current Date:** July 1, 2026 (WITA/UTC+8)
+
+**Lokasi Project:** Payangan Hospital, Jl. Raya Payangan, Gianyar, Bali, Indonesia
+
+**Timezone:** Asia/Makassar (WITA - UTC+8)
+
+**Catatan:**
+- Tanggal dan waktu berdasarkan timezone Bali (WITA)
+- Semua timestamp dalam progress report menggunakan waktu lokal Bali
+- Estimasi schedule menggunakan quarter tahun 2026
+
+---
+
+## рҹӨ– Auto-Running Agents
 
 Repository ini dilengkapi dengan **5 agent otomatis** yang berjalan via GitHub Actions:
 
-### 1. 🔍 Auto Link Checker
+### 1. рҹ”Қ Auto Link Checker
 | Property | Value |
 |-----------|-------|
 | **Trigger** | Setiap 6 jam / On push / Manual |
 | **File** | `.github/workflows/01-link-checker.yml` |
 | **Fungsi** | Cek broken links dan link standards (logo, dokter, kontak) |
 
-### 2. 🤖 Auto PR Reviewer
+### 2. рҹӨ– Auto PR Reviewer
 | Property | Value |
 |-----------|-------|
 | **Trigger** | Saat PR baru/updated |
 | **File** | `.github/workflows/02-pr-reviewer.yml` |
 | **Fungsi** | Review PR, cek link standards, validasi gambar |
 
-### 3. ✅ Auto QA Checker
+### 3. вң… Auto QA Checker
 | Property | Value |
 |-----------|-------|
 | **Trigger** | On push ke main/develop / On PR |
 | **File** | `.github/workflows/03-qa-checker.yml` |
 | **Fungsi** | Validasi HTML, accessibility, SEO, performance |
 
-### 4. 🚀 Auto Deploy
+### 4. рҹҡҖ Auto Deploy
 | Property | Value |
 |-----------|-------|
 | **Trigger** | Push ke branch main |
 | **File** | `.github/workflows/04-deploy.yml` |
-| **Fungsi** | Pre-deploy validation → Deploy ke GitHub Pages |
+| **Fungsi** | Pre-deploy validation вҶ’ Deploy ke GitHub Pages |
 
-### 5. 📋 Content Validator
+### 5. рҹ“Ӣ Content Validator
 | Property | Value |
 |-----------|-------|
 | **Trigger** | Harian jam 7 AM WIB / On push HTML / Manual |
@@ -46,28 +63,28 @@ Repository ini dilengkapi dengan **5 agent otomatis** yang berjalan via GitHub A
 ## Automation Flow
 
 ```
-┌─────────────────────────────────────────────────────────────┐
-│                     GITHUB ACTIONS                           │
-├─────────────────────────────────────────────────────────────┤
-│                                                             │
-│  📝 Push/Pull Request                                       │
-│       │                                                      │
-│       ├──┬──► 🔍 Link Checker ────► Report links error       │
-│       │                                                      │
-│       ├──┬──► ✅ QA Checker ──────► Report HTML/SEO issues   │
-│       │                                                      │
-│       ├──┬──► 📋 Content Validator ──► Report dokter/poli     │
-│       │                                                      │
-│       │                                                      │
-│       ▼                                                      │
-│  Push ke main ──► 🚀 Auto Deploy ────► GitHub Pages Live!    │
-│                                                             │
-└─────────────────────────────────────────────────────────────┘
+в”Ңв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”җ
+в”Ӯ                     GITHUB ACTIONS                           в”Ӯ
+в”ңв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Ө
+в”Ӯ                                                             в”Ӯ
+в”Ӯ  рҹ“қ Push/Pull Request                                       в”Ӯ
+в”Ӯ       в”Ӯ                                                      в”Ӯ
+в”Ӯ       в”ңв”Җв”Җв”¬в”Җв”Җв–ә рҹ”Қ Link Checker в”Җв”Җв”Җв”Җв–ә Report links error       в”Ӯ
+в”Ӯ       в”Ӯ                                                      в”Ӯ
+в”Ӯ       в”ңв”Җв”Җв”¬в”Җв”Җв–ә вң… QA Checker в”Җв”Җв”Җв”Җв”Җв”Җв–ә Report HTML/SEO issues   в”Ӯ
+в”Ӯ       в”Ӯ                                                      в”Ӯ
+в”Ӯ       в”ңв”Җв”Җв”¬в”Җв”Җв–ә рҹ“Ӣ Content Validator в”Җв”Җв–ә Report dokter/poli     в”Ӯ
+в”Ӯ       в”Ӯ                                                      в”Ӯ
+в”Ӯ       в”Ӯ                                                      в”Ӯ
+в”Ӯ       в–ј                                                      в”Ӯ
+в”Ӯ  Push ke main в”Җв”Җв–ә рҹҡҖ Auto Deploy в”Җв”Җв”Җв”Җв–ә GitHub Pages Live!    в”Ӯ
+в”Ӯ                                                             в”Ӯ
+в””в”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”ҳ
 ```
 
 ---
 
-## 📊 Progress Report
+## рҹ“Ҡ Progress Report
 
 Halaman laporan progress development tersedia di: **`/progress/index.html`**
 
@@ -81,7 +98,7 @@ Halaman ini berisi:
 
 ---
 
-## 🛠️ Available Skills
+## рҹӣ пёҸ Available Skills
 
 Repository ini menggunakan skill-skill berikut:
 
@@ -111,7 +128,7 @@ invoke_skill(name="xlsx")  # Untuk generate Excel reports
 
 ---
 
-## ℹ️ Informasi Rumah Sakit
+## в„№пёҸ Informasi Rumah Sakit
 - **Nama**: Payangan Hospital
 - **Slogan**: "Pavitram Idam Uttamam" (Tempat terbaik untuk kesehatan)
 - **Lokasi**: Jl. Raya Payangan, Gianyar, Bali
@@ -151,13 +168,13 @@ Website static HTML/CSS/JS dengan halaman-halaman berikut:
 ### Folder Assets
 ```
 img/
-├── logo.png                 # Logo rumah sakit
-├── director.jpg            # Foto direktur
-├── bg_medical.jpg          # Background image
-├── dokter/                 # Foto dokter (22 file, nama sesuai dokter)
-├── slider/                  # Slider images (slider-1.png - slider-4.png)
-├── partners/               # Logo mitra (BPJS, Pemerintah, dll)
-└── wbk/                    # Sertifikat WBK
+в”ңв”Җв”Җ logo.png                 # Logo rumah sakit
+в”ңв”Җв”Җ director.jpg            # Foto direktur
+в”ңв”Җв”Җ bg_medical.jpg          # Background image
+в”ңв”Җв”Җ dokter/                 # Foto dokter (22 file, nama sesuai dokter)
+в”ңв”Җв”Җ slider/                  # Slider images (slider-1.png - slider-4.png)
+в”ңв”Җв”Җ partners/               # Logo mitra (BPJS, Pemerintah, dll)
+в””в”Җв”Җ wbk/                    # Sertifikat WBK
 ```
 
 ### Partner/Mitra
@@ -210,7 +227,7 @@ img/
 ### Logo Link
 **Selalu gunakan `href="index.html"` untuk link logo (ke branda/beranda)**
 
-| ❌ SALAH | ✅ BENAR |
+| вқҢ SALAH | вң… BENAR |
 |----------|----------|
 | `href="#"` | `href="index.html"` |
 | `href="about.html"` | `href="index.html"` |
@@ -218,7 +235,7 @@ img/
 ### Link Halaman Dokter
 **Selalu gunakan `href="dokter.html"` untuk navigasi ke halaman daftar dokter**
 
-| ❌ SALAH | ✅ BENAR |
+| вқҢ SALAH | вң… BENAR |
 |----------|----------|
 | `href="#dokter"` | `href="dokter.html"` |
 | `href="index.html#dokter"` | `href="dokter.html"` |
@@ -226,7 +243,7 @@ img/
 ### Link Halaman Kontak
 **Selalu gunakan `href="kontak.html"` untuk navigasi ke halaman kontak**
 
-| ❌ SALAH | ✅ BENAR |
+| вқҢ SALAH | вң… BENAR |
 |----------|----------|
 | `href="#kontak"` | `href="kontak.html"` |
 | `href="index.html#kontak"` | `href="kontak.html"` |
@@ -248,12 +265,12 @@ Jika ada hasil, berarti ada link yang salah.
 ---
 
 ## Checklist Sebelum Commit HTML
-1. ✅ Semua link logo mengarah ke `index.html`
-2. ✅ Semua link "Dokter" mengarah ke `dokter.html`
-3. ✅ Semua link "Kontak" mengarah ke `kontak.html`
-4. ✅ Semua foto dokter ada di folder `img/dokter/`
-5. ✅ Nama file foto sesuai dengan referensi di HTML
-6. ✅ Tidak ada link rusak (`href="#"` pada logo/nav)
+1. вң… Semua link logo mengarah ke `index.html`
+2. вң… Semua link "Dokter" mengarah ke `dokter.html`
+3. вң… Semua link "Kontak" mengarah ke `kontak.html`
+4. вң… Semua foto dokter ada di folder `img/dokter/`
+5. вң… Nama file foto sesuai dengan referensi di HTML
+6. вң… Tidak ada link rusak (`href="#"` pada logo/nav)
 
 ---
 
