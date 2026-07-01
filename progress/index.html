@@ -1,0 +1,1708 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progress Report - Payangan Hospital</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #0d7377;
+            --primary-dark: #095456;
+            --primary-light: #14919b;
+            --secondary: #f4c430;
+            --accent: #e85d04;
+            --bg-light: #f8f9fa;
+            --text-dark: #212529;
+            --text-muted: #6c757d;
+            --white: #ffffff;
+            --success: #28a745;
+            --warning: #ffc107;
+            --danger: #dc3545;
+            --info: #17a2b8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 50%, var(--primary-light) 100%);
+            color: white;
+            padding: 80px 20px 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></svg>');
+            background-size: 100px 100px;
+            opacity: 0.5;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .header .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .header .badge {
+            display: inline-block;
+            background: var(--secondary);
+            color: var(--text-dark);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            margin-top: 20px;
+            font-size: 0.9rem;
+        }
+
+        /* Navigation */
+        .nav-tabs {
+            background: var(--white);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-tabs ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            flex-wrap: wrap;
+        }
+
+        .nav-tabs li {
+            padding: 20px 30px;
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--text-muted);
+            border-bottom: 4px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .nav-tabs li:hover {
+            color: var(--primary);
+            background: rgba(13, 115, 119, 0.05);
+        }
+
+        .nav-tabs li.active {
+            color: var(--primary);
+            border-bottom-color: var(--primary);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Section */
+        .section {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        /* Overall Progress Card */
+        .progress-overview {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            border-radius: 24px;
+            padding: 50px;
+            color: white;
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .progress-overview::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 60%);
+        }
+
+        .progress-circle {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 30px;
+            position: relative;
+        }
+
+        .progress-circle svg {
+            width: 100%;
+            height: 100%;
+            transform: rotate(-90deg);
+        }
+
+        .progress-circle circle {
+            fill: none;
+            stroke-width: 12;
+        }
+
+        .progress-circle .bg {
+            stroke: rgba(255,255,255,0.2);
+        }
+
+        .progress-circle .progress {
+            stroke: var(--secondary);
+            stroke-linecap: round;
+            stroke-dasharray: 565.48;
+            stroke-dashoffset: 226.19;
+            transition: stroke-dashoffset 1s ease;
+        }
+
+        .progress-circle .percentage {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 3rem;
+            font-weight: 800;
+        }
+
+        .progress-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .stat-item {
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 16px;
+        }
+
+        .stat-item .number {
+            font-size: 2rem;
+            font-weight: 800;
+        }
+
+        .stat-item .label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 40px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(to bottom, var(--primary), var(--primary-light));
+            border-radius: 2px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 40px;
+            background: var(--white);
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+        }
+
+        .timeline-item:hover {
+            transform: translateX(10px);
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -33px;
+            top: 35px;
+            width: 20px;
+            height: 20px;
+            background: var(--primary);
+            border: 4px solid var(--white);
+            border-radius: 50%;
+            box-shadow: 0 0 0 4px var(--primary);
+        }
+
+        .timeline-item.completed::before {
+            background: var(--success);
+            box-shadow: 0 0 0 4px var(--success);
+        }
+
+        .timeline-item.in-progress::before {
+            background: var(--warning);
+            box-shadow: 0 0 0 4px var(--warning);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+
+        .timeline-item.pending::before {
+            background: var(--text-muted);
+            box-shadow: 0 0 0 4px var(--text-muted);
+        }
+
+        .timeline-date {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .timeline-item.completed .timeline-date {
+            background: var(--success);
+        }
+
+        .timeline-item.in-progress .timeline-date {
+            background: var(--warning);
+            color: var(--text-dark);
+        }
+
+        .timeline-item.pending .timeline-date {
+            background: var(--text-muted);
+        }
+
+        .timeline-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+        }
+
+        .timeline-desc {
+            color: var(--text-muted);
+            margin-bottom: 15px;
+        }
+
+        .timeline-tags {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            padding: 6px 14px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .tag-frontend { background: #e3f2fd; color: #1565c0; }
+        .tag-backend { background: #f3e5f5; color: #7b1fa2; }
+        .tag-design { background: #fff3e0; color: #ef6c00; }
+        .tag-content { background: #e8f5e9; color: #2e7d32; }
+        .tag-automation { background: #fce4ec; color: #c2185b; }
+
+        /* Roadmap */
+        .roadmap-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .roadmap-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .roadmap-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .roadmap-card .phase {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background: var(--primary);
+            color: white;
+            padding: 8px 20px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            border-radius: 0 20px 0 20px;
+        }
+
+        .roadmap-card.completed .phase {
+            background: var(--success);
+        }
+
+        .roadmap-card.in-progress .phase {
+            background: var(--warning);
+            color: var(--text-dark);
+        }
+
+        .roadmap-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .roadmap-card.completed .roadmap-icon {
+            background: linear-gradient(135deg, var(--success) 0%, #34ce57 100%);
+        }
+
+        .roadmap-card.in-progress .roadmap-icon {
+            background: linear-gradient(135deg, var(--warning) 0%, #ffca28 100%);
+        }
+
+        .roadmap-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--text-dark);
+        }
+
+        .roadmap-dates {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .roadmap-items {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+
+        .roadmap-items li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .roadmap-items li:last-child {
+            border-bottom: none;
+        }
+
+        .roadmap-items .check {
+            color: var(--success);
+            font-weight: bold;
+        }
+
+        .roadmap-items .pending {
+            color: var(--text-muted);
+        }
+
+        .roadmap-items .in-progress {
+            color: var(--warning);
+        }
+
+        .roadmap-progress {
+            height: 8px;
+            background: #eee;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .roadmap-progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--primary-light) 100%);
+            border-radius: 4px;
+            transition: width 1s ease;
+        }
+
+        .roadmap-card.completed .roadmap-progress-bar {
+            background: linear-gradient(90deg, var(--success) 0%, #34ce57 100%);
+        }
+
+        .roadmap-card.in-progress .roadmap-progress-bar {
+            background: linear-gradient(90deg, var(--warning) 0%, #ffca28 100%);
+        }
+
+        /* Feature Cards */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .feature-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+        }
+
+        .feature-card.completed {
+            border-left: 5px solid var(--success);
+        }
+
+        .feature-card.in-progress {
+            border-left: 5px solid var(--warning);
+        }
+
+        .feature-card.pending {
+            border-left: 5px solid var(--text-muted);
+        }
+
+        .feature-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .feature-card.completed .feature-icon {
+            background: linear-gradient(135deg, var(--success) 0%, #34ce57 100%);
+        }
+
+        .feature-card.in-progress .feature-icon {
+            background: linear-gradient(135deg, var(--warning) 0%, #ffca28 100%);
+        }
+
+        .feature-status {
+            padding: 6px 14px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .feature-status.completed {
+            background: #e8f5e9;
+            color: var(--success);
+        }
+
+        .feature-status.in-progress {
+            background: #fff3e0;
+            color: var(--warning);
+        }
+
+        .feature-status.pending {
+            background: #eee;
+            color: var(--text-muted);
+        }
+
+        .feature-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--text-dark);
+        }
+
+        .feature-desc {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+        }
+
+        .feature-progress {
+            margin-top: 15px;
+        }
+
+        .feature-progress-bar {
+            height: 6px;
+            background: #eee;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .feature-progress-fill {
+            height: 100%;
+            background: var(--primary);
+            border-radius: 3px;
+        }
+
+        .feature-card.completed .feature-progress-fill {
+            background: var(--success);
+        }
+
+        .feature-card.in-progress .feature-progress-fill {
+            background: var(--warning);
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .stat-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-icon {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 20px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        /* Backend Section */
+        .backend-section {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+            border-radius: 24px;
+            padding: 50px;
+            color: white;
+            margin-top: 40px;
+        }
+
+        .backend-section h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .backend-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .backend-item {
+            background: rgba(255,255,255,0.1);
+            border-radius: 16px;
+            padding: 25px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .backend-item:hover {
+            background: rgba(255,255,255,0.2);
+            transform: scale(1.02);
+        }
+
+        .backend-item i {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .backend-item h4 {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+
+        .backend-item p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Comparison Table */
+        .comparison-table {
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            margin-top: 40px;
+        }
+
+        .comparison-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .comparison-table th {
+            background: var(--primary);
+            color: white;
+            padding: 20px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .comparison-table td {
+            padding: 18px 20px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .comparison-table tr:hover {
+            background: #f8f9fa;
+        }
+
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .status-badge.completed {
+            background: #e8f5e9;
+            color: var(--success);
+        }
+
+        .status-badge.in-progress {
+            background: #fff3e0;
+            color: #f57c00;
+        }
+
+        .status-badge.pending {
+            background: #eee;
+            color: var(--text-muted);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--text-dark);
+            color: white;
+            text-align: center;
+            padding: 30px;
+            margin-top: 60px;
+        }
+
+        .footer p {
+            opacity: 0.8;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .nav-tabs li {
+                padding: 15px 15px;
+                font-size: 0.9rem;
+            }
+            
+            .progress-overview {
+                padding: 30px 20px;
+            }
+            
+            .timeline {
+                padding-left: 30px;
+            }
+            
+            .timeline::before {
+                left: 10px;
+            }
+            
+            .timeline-item::before {
+                left: -23px;
+                width: 16px;
+                height: 16px;
+            }
+        }
+
+        /* Animations */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Progress Bar Animation */
+        .progress-animate {
+            animation: progressFill 2s ease forwards;
+        }
+
+        @keyframes progressFill {
+            from { width: 0; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <h1><i class="fas fa-chart-line"></i> Progress Report</h1>
+            <p class="subtitle">Payangan Hospital - Website Development</p>
+            <span class="badge"><i class="fas fa-clock"></i> Last Updated: July 2025</span>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="nav-tabs">
+        <ul>
+            <li class="active" data-tab="overview"><i class="fas fa-home"></i> Overview</li>
+            <li data-tab="timeline"><i class="fas fa-stream"></i> Timeline</li>
+            <li data-tab="roadmap"><i class="fas fa-map"></i> Roadmap</li>
+            <li data-tab="features"><i class="fas fa-star"></i> Features</li>
+            <li data-tab="backend"><i class="fas fa-server"></i> Backend Plan</li>
+            <li data-tab="comparison"><i class="fas fa-balance-scale"></i> Comparison</li>
+        </ul>
+    </nav>
+
+    <main class="container">
+        <!-- Overview Section -->
+        <section id="overview" class="section active">
+            <h2 class="section-title"><i class="fas fa-tachometer-alt"></i> Project Overview</h2>
+            
+            <div class="progress-overview">
+                <div class="progress-circle">
+                    <svg viewBox="0 0 200 200">
+                        <circle class="bg" cx="100" cy="100" r="90"></circle>
+                        <circle class="progress" cx="100" cy="100" r="90" style="stroke-dashoffset: 169.64;"></circle>
+                    </svg>
+                    <span class="percentage">70%</span>
+                </div>
+                <h2 style="font-family: 'Playfair Display', serif; font-size: 2rem; margin-bottom: 10px;">Overall Progress</h2>
+                <p style="opacity: 0.9;">Website Interaktif dengan Frontend & Backend</p>
+                
+                <div class="progress-stats">
+                    <div class="stat-item">
+                        <div class="number">21</div>
+                        <div class="label">Halaman HTML</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="number">22</div>
+                        <div class="label">Dokter Spesialis</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="number">10</div>
+                        <div class="label">Poliklinik</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="number">5</div>
+                        <div class="label">Auto Agent</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fas fa-desktop"></i></div>
+                    <div class="stat-number">70%</div>
+                    <div class="stat-label">Frontend Complete</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fas fa-database"></i></div>
+                    <div class="stat-number">0%</div>
+                    <div class="stat-label">Backend Complete</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fas fa-mobile-alt"></i></div>
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Responsive</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fas fa-robot"></i></div>
+                    <div class="stat-number">5</div>
+                    <div class="stat-label">Auto Agents</div>
+                </div>
+            </div>
+
+            <div class="comparison-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Komponen</th>
+                            <th>Status</th>
+                            <th>Progress</th>
+                            <th>Keterangan</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><i class="fas fa-paint-brush"></i> Design System</td>
+                            <td><span class="status-badge completed"><i class="fas fa-check-circle"></i> Completed</span></td>
+                            <td>100%</td>
+                            <td>Color palette, typography, components</td>
+                        </tr>
+                        <tr>
+                            <td><i class="fas fa-file-code"></i> Frontend Pages</td>
+                            <td><span class="status-badge completed"><i class="fas fa-check-circle"></i> Completed</span></td>
+                            <td>100%</td>
+                            <td>21 halaman HTML responsif</td>
+                        </tr>
+                        <tr>
+                            <td><i class="fas fa-user-md"></i> Data Dokter</td>
+                            <td><span class="status-badge completed"><i class="fas fa-check-circle"></i> Completed</span></td>
+                            <td>100%</td>
+                            <td>22 dokter spesialis</td>
+                        </tr>
+                        <tr>
+                            <td><i class="fas fa-image"></i> Asset Management</td>
+                            <td><span class="status-badge in-progress"><i class="fas fa-spinner fa-spin"></i> In Progress</span></td>
+                            <td>85%</td>
+                            <td>Image optimization, lazy loading</td>
+                        </tr>
+                        <tr>
+                            <td><i class="fas fa-cogs"></i> Backend API</td>
+                            <td><span class="status-badge pending"><i class="fas fa-clock"></i> Pending</span></td>
+                            <td>0%</td>
+                            <td>Belum dimulai - planned Q3 2025</td>
+                        </tr>
+                        <tr>
+                            <td><i class="fas fa-database"></i> Database</td>
+                            <td><span class="status-badge pending"><i class="fas fa-clock"></i> Pending</span></td>
+                            <td>0%</td>
+                            <td>Belum dimulai - planned Q3 2025</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Timeline Section -->
+        <section id="timeline" class="section">
+            <h2 class="section-title"><i class="fas fa-stream"></i> Timeline Pengerjaan</h2>
+            
+            <div class="timeline">
+                <!-- Phase 1 -->
+                <div class="timeline-item completed">
+                    <span class="timeline-date"><i class="fas fa-calendar"></i> Fase 1 - Setup & Planning</span>
+                    <h3 class="timeline-title">Perencanaan & Setup Project</h3>
+                    <p class="timeline-desc">Setup repository, pembuatan AGENTS.md, pendefinisian struktur project dan standar coding.</p>
+                    <div class="timeline-tags">
+                        <span class="tag tag-design">Design System</span>
+                        <span class="tag tag-content">Planning</span>
+                    </div>
+                    <p style="margin-top: 15px; color: var(--success); font-weight: 600;">
+                        <i class="fas fa-check-circle"></i> Selesai: Juni 2025
+                    </p>
+                </div>
+
+                <!-- Phase 2 -->
+                <div class="timeline-item completed">
+                    <span class="timeline-date"><i class="fas fa-calendar"></i> Fase 2 - Core Pages</span>
+                    <h3 class="timeline-title">Pembuatan Halaman Inti</h3>
+                    <p class="timeline-desc">Pembuatan halaman utama: Homepage, About, Dokter, Kontak, dan halaman layanan utama.</p>
+                    <div class="timeline-tags">
+                        <span class="tag tag-frontend">Frontend</span>
+                        <span class="tag tag-content">Content</span>
+                    </div>
+                    <p style="margin-top: 15px; color: var(--success); font-weight: 600;">
+                        <i class="fas fa-check-circle"></i> Selesai: Juni 2025
+                    </p>
+                </div>
+
+                <!-- Phase 3 -->
+                <div class="timeline-item completed">
+                    <span class="timeline-date"><i class="fas fa-calendar"></i> Fase 3 - Poliklinik</span>
+                    <h3 class="timeline-title">Halaman Poliklinik</h3>
+                    <p class="timeline-desc">Pembuatan 10 halaman poliklinik dengan informasi lengkap dan link navigasi yang benar.</p>
+                    <div class="timeline-tags">
+                        <span class="tag tag-frontend">Frontend</span>
+                        <span class="tag tag-content">Content</span>
+                    </div>
+                    <p style="margin-top: 15px; color: var(--success); font-weight: 600;">
+                        <i class="fas fa-check-circle"></i> Selesai: Juni 2025
+                    </p>
+                </div>
+
+                <!-- Phase 4 -->
+                <div class="timeline-item completed">
+                    <span class="timeline-date"><i class="fas fa-calendar"></i> Fase 4 - Auto Agents</span>
+                    <h3 class="timeline-title">Setup Auto-Running Agents</h3>
+                    <p class="timeline-desc">Pembuatan 5 GitHub Actions workflow untuk automasi: Link Checker, PR Reviewer, QA Checker, Deploy, dan Content Validator.</p>
+                    <div class="timeline-tags">
+                        <span class="tag tag-automation">Automation</span>
+                    </div>
+                    <p style="margin-top: 15px; color: var(--success); font-weight: 600;">
+                        <i class="fas fa-check-circle"></i> Selesai: Juli 2025
+                    </p>
+                </div>
+
+                <!-- Phase 5 - Current -->
+                <div class="timeline-item in-progress">
+                    <span class="timeline-date"><i class="fas fa-calendar"></i> Fase 5 - Current</span>
+                    <h3 class="timeline-title">Progress Report & Optimization</h3>
+                    <p class="timeline-desc">Pembuatan halaman progress report, optimalisasi assets, dan peningkatan SEO.</p>
+                    <div class="timeline-tags">
+                        <span class="tag tag-frontend">Frontend</span>
+                        <span class="tag tag-automation">Reporting</span>
+                    </div>
+                    <p style="margin-top: 15px; color: #f57c00; font-weight: 600;">
+                        <i class="fas fa-spinner fa-spin"></i> Sedang Berlangsung: Juli 2025
+                    </p>
+                </div>
+
+                <!-- Phase 6 - Backend -->
+                <div class="timeline-item pending">
+                    <span class="timeline-date"><i class="fas fa-calendar"></i> Fase 6 - Backend</span>
+                    <h3 class="timeline-title">Backend Development</h3>
+                    <p class="timeline-desc">Pengembangan API, database, sistem antrean, dan panel admin untuk manajemen konten.</p>
+                    <div class="timeline-tags">
+                        <span class="tag tag-backend">Backend</span>
+                        <span class="tag tag-design">Database</span>
+                    </div>
+                    <p style="margin-top: 15px; color: var(--text-muted); font-weight: 600;">
+                        <i class="fas fa-clock"></i> Planned: Q3 2025
+                    </p>
+                </div>
+
+                <!-- Phase 7 - Integration -->
+                <div class="timeline-item pending">
+                    <span class="timeline-date"><i class="fas fa-calendar"></i> Fase 7 - Integration</span>
+                    <h3 class="timeline-title">Frontend-Backend Integration</h3>
+                    <p class="timeline-desc">Integrasi frontend dengan backend API, implementasi real-time features, dan testing.</p>
+                    <div class="timeline-tags">
+                        <span class="tag tag-frontend">Frontend</span>
+                        <span class="tag tag-backend">Backend</span>
+                    </div>
+                    <p style="margin-top: 15px; color: var(--text-muted); font-weight: 600;">
+                        <i class="fas fa-clock"></i> Planned: Q4 2025
+                    </p>
+                </div>
+
+                <!-- Phase 8 - Launch -->
+                <div class="timeline-item pending">
+                    <span class="timeline-date"><i class="fas fa-calendar"></i> Fase 8 - Launch</span>
+                    <h3 class="timeline-title">Launch & Maintenance</h3>
+                    <p class="timeline-desc">Deployment production, monitoring, dan ongoing maintenance.</p>
+                    <div class="timeline-tags">
+                        <span class="tag tag-automation">DevOps</span>
+                    </div>
+                    <p style="margin-top: 15px; color: var(--text-muted); font-weight: 600;">
+                        <i class="fas fa-clock"></i> Planned: Q4 2025
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Roadmap Section -->
+        <section id="roadmap" class="section">
+            <h2 class="section-title"><i class="fas fa-map"></i> Project Roadmap</h2>
+            
+            <div class="roadmap-grid">
+                <!-- Phase 1 -->
+                <div class="roadmap-card completed">
+                    <span class="phase">Phase 1</span>
+                    <div class="roadmap-icon"><i class="fas fa-rocket"></i></div>
+                    <h3 class="roadmap-title">Foundation & Setup</h3>
+                    <p class="roadmap-dates"><i class="fas fa-calendar-alt"></i> Mei - Juni 2025</p>
+                    <ul class="roadmap-items">
+                        <li><span class="check">✓</span> Repository Setup</li>
+                        <li><span class="check">✓</span> Design System</li>
+                        <li><span class="check">✓</span> Color Palette</li>
+                        <li><span class="check">✓</span> Typography</li>
+                        <li><span class="check">✓</span> Component Library</li>
+                    </ul>
+                    <div class="roadmap-progress">
+                        <div class="roadmap-progress-bar" style="width: 100%;"></div>
+                    </div>
+                    <p style="margin-top: 10px; text-align: right; font-weight: 600; color: var(--success);">100% Complete</p>
+                </div>
+
+                <!-- Phase 2 -->
+                <div class="roadmap-card completed">
+                    <span class="phase">Phase 2</span>
+                    <div class="roadmap-icon"><i class="fas fa-laptop-code"></i></div>
+                    <h3 class="roadmap-title">Frontend Development</h3>
+                    <p class="roadmap-dates"><i class="fas fa-calendar-alt"></i> Juni - Juli 2025</p>
+                    <ul class="roadmap-items">
+                        <li><span class="check">✓</span> Homepage & Hero</li>
+                        <li><span class="check">✓</span> About Page</li>
+                        <li><span class="check">✓</span> Dokter Listing</li>
+                        <li><span class="check">✓</span> 10 Poliklinik Pages</li>
+                        <li><span class="check">✓</span> Services Pages</li>
+                    </ul>
+                    <div class="roadmap-progress">
+                        <div class="roadmap-progress-bar" style="width: 100%;"></div>
+                    </div>
+                    <p style="margin-top: 10px; text-align: right; font-weight: 600; color: var(--success);">100% Complete</p>
+                </div>
+
+                <!-- Phase 3 -->
+                <div class="roadmap-card completed">
+                    <span class="phase">Phase 3</span>
+                    <div class="roadmap-icon"><i class="fas fa-robot"></i></div>
+                    <h3 class="roadmap-title">Automation & QA</h3>
+                    <p class="roadmap-dates"><i class="fas fa-calendar-alt"></i> Juli 2025</p>
+                    <ul class="roadmap-items">
+                        <li><span class="check">✓</span> Link Checker Agent</li>
+                        <li><span class="check">✓</span> PR Reviewer Agent</li>
+                        <li><span class="check">✓</span> QA Checker Agent</li>
+                        <li><span class="check">✓</span> Auto Deploy Agent</li>
+                        <li><span class="check">✓</span> Content Validator</li>
+                    </ul>
+                    <div class="roadmap-progress">
+                        <div class="roadmap-progress-bar" style="width: 100%;"></div>
+                    </div>
+                    <p style="margin-top: 10px; text-align: right; font-weight: 600; color: var(--success);">100% Complete</p>
+                </div>
+
+                <!-- Phase 4 - Current -->
+                <div class="roadmap-card in-progress">
+                    <span class="phase">Phase 4</span>
+                    <div class="roadmap-icon"><i class="fas fa-chart-line"></i></div>
+                    <h3 class="roadmap-title">Optimization & Reports</h3>
+                    <p class="roadmap-dates"><i class="fas fa-calendar-alt"></i> Juli 2025</p>
+                    <ul class="roadmap-items">
+                        <li><span class="check">✓</span> Progress Report Page</li>
+                        <li><span class="in-progress">◐</span> Asset Optimization</li>
+                        <li><span class="pending">○</span> SEO Enhancement</li>
+                        <li><span class="pending">○</span> Performance Tuning</li>
+                        <li><span class="pending">○</span> Documentation</li>
+                    </ul>
+                    <div class="roadmap-progress">
+                        <div class="roadmap-progress-bar" style="width: 40%;"></div>
+                    </div>
+                    <p style="margin-top: 10px; text-align: right; font-weight: 600; color: #f57c00;">40% In Progress</p>
+                </div>
+
+                <!-- Phase 5 -->
+                <div class="roadmap-card">
+                    <span class="phase">Phase 5</span>
+                    <div class="roadmap-icon"><i class="fas fa-server"></i></div>
+                    <h3 class="roadmap-title">Backend Development</h3>
+                    <p class="roadmap-dates"><i class="fas fa-calendar-alt"></i> Q3 2025</p>
+                    <ul class="roadmap-items">
+                        <li><span class="pending">○</span> API Development</li>
+                        <li><span class="pending">○</span> Database Design</li>
+                        <li><span class="pending">○</span> Authentication</li>
+                        <li><span class="pending">○</span> Admin Panel</li>
+                        <li><span class="pending">○</span> CRUD Operations</li>
+                    </ul>
+                    <div class="roadmap-progress">
+                        <div class="roadmap-progress-bar" style="width: 0%;"></div>
+                    </div>
+                    <p style="margin-top: 10px; text-align: right; font-weight: 600; color: var(--text-muted);">0% Pending</p>
+                </div>
+
+                <!-- Phase 6 -->
+                <div class="roadmap-card">
+                    <span class="phase">Phase 6</span>
+                    <div class="roadmap-icon"><i class="fas fa-plug"></i></div>
+                    <h3 class="roadmap-title">Integration & Launch</h3>
+                    <p class="roadmap-dates"><i class="fas fa-calendar-alt"></i> Q4 2025</p>
+                    <ul class="roadmap-items">
+                        <li><span class="pending">○</span> Frontend-Backend API</li>
+                        <li><span class="pending">○</span> Real-time Features</li>
+                        <li><span class="pending">○</span> Testing & QA</li>
+                        <li><span class="pending">○</span> Production Deploy</li>
+                        <li><span class="pending">○</span> Monitoring Setup</li>
+                    </ul>
+                    <div class="roadmap-progress">
+                        <div class="roadmap-progress-bar" style="width: 0%;"></div>
+                    </div>
+                    <p style="margin-top: 10px; text-align: right; font-weight: 600; color: var(--text-muted);">0% Pending</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="section">
+            <h2 class="section-title"><i class="fas fa-star"></i> Feature Progress</h2>
+            
+            <div class="features-grid">
+                <!-- Completed Features -->
+                <div class="feature-card completed">
+                    <div class="feature-header">
+                        <div class="feature-icon"><i class="fas fa-home"></i></div>
+                        <span class="feature-status completed">Completed</span>
+                    </div>
+                    <h3 class="feature-title">Homepage Hero Slider</h3>
+                    <p class="feature-desc">Slider interaktif dengan 4 slide, auto-rotate setiap 6 detik, navigasi dots dan arrows.</p>
+                    <div class="feature-progress">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                            <span style="font-size: 0.85rem; color: var(--text-muted);">Progress</span>
+                            <span style="font-size: 0.85rem; font-weight: 600; color: var(--success);">100%</span>
+                        </div>
+                        <div class="feature-progress-bar" style="width: 100%;"></div>
+                    </div>
+                </div>
+
+                <div class="feature-card completed">
+                    <div class="feature-header">
+                        <div class="feature-icon"><i class="fas fa-user-md"></i></div>
+                        <span class="feature-status completed">Completed</span>
+                    </div>
+                    <h3 class="feature-title">Dokter Directory</h3>
+                    <p class="feature-desc">22 dokter spesialis dengan filter poli, foto, dan informasi lengkap.</p>
+                    <div class="feature-progress">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                            <span style="font-size: 0.85rem; color: var(--text-muted);">Progress</span>
+                            <span style="font-size: 0.85rem; font-weight: 600; color: var(--success);">100%</span>
+                        </div>
+                        <div class="feature-progress-bar" style="width: 100%;"></div>
+                    </div>
+                </div>
+
+                <div class="feature-card completed">
+                    <div class="feature-header">
+                        <div class="feature-icon"><i class="fas fa-hospital"></i></div>
+                        <span class="feature-status completed">Completed</span>
+                    </div>
+                    <h3 class="feature-title">Poliklinik Pages</h3>
+                    <p class="feature-desc">10 halaman poliklinik dengan informasi dokter dan jadwal praktik.</p>
+                    <div class="feature-progress">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                            <span style="font-size: 0.85rem; color: var(--text-muted);">Progress</span>
+                            <span style="font-size: 0.85rem; font-weight: 600; color: var(--success);">100%</span>
+                        </div>
+                        <div class="feature-progress-bar" style="width: 100%;"></div>
+                    </div>
+                </div>
+
+                <div class="feature-card completed">
+                    <div class="feature-header">
+                        <div class="feature-icon"><i class="fas fa-clipboard-list"></i></div>
+                        <span class="feature-status completed">Completed</span>
+                    </div>
+                    <h3 class="feature-title">Antrean Display</h3>
+                    <p class="feature-desc">Display antrean real-time dengan ketersediaan tempat tidur dan IGD counter.</p>
+                    <div class="feature-progress">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                            <span style="font-size: 0.85rem; color: var(--text-muted);">Progress</span>
+                            <span style="font-size: 0.85rem; font-weight: 600; color: var(--success);">100%</span>
+                        </div>
+                        <div class="feature-progress-bar" style="width: 100%;"></div>
+                    </div>
+                </div>
+
+                <div class="feature-card completed">
+                    <div class="feature-header">
+                        <div class="feature-icon"><i class="fas fa-bars"></i></div>
+                        <span class="feature-status completed">Completed</span>
+                    </div>
+                    <h3 class="feature-title">Mega Menu Navigation</h3>
+                    <p class="feature-desc">Dropdown menu dengan grid 2 kolom, icon, dan animasi smooth.</p>
+                    <div class="feature-progress">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                            <span style="font-size: 0.85rem; color: var(--text-muted);">Progress</span>
+                            <span style="font-size: 0.85rem; font-weight: 600; color: var(--success);">100%</span>
+                        </div>
+                        <div class="feature-progress-bar" style="width: 100%;"></div>
+                    </div>
+                </div>
+
+                <div class="feature-card completed">
+                    <div class="feature-header">
+                        <div class="feature-icon"><i class="fas fa-mobile-alt"></i></div>
+                        <span class="feature-status completed">Completed</span>
+                    </div>
+                    <h3 class="feature-title">Responsive Design</h3>
+                    <p class="feature-desc">Mobile-first responsive design dengan navbar transparan dan mobile menu.</p>
+                    <div class="feature-progress">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                            <span style="font-size: 0.85rem; color: var(--text-muted);">Progress</span>
+                            <span style="font-size: 0.85rem; font-weight: 600; color: var(--success);">100%</span>
+                        </div>
+                        <div class="feature-progress-bar" style="width: 100%;"></div>
+                    </div>
+                </div>
+
+                <!-- In Progress Features -->
+                <div class="feature-card in-progress">
+                    <div class="feature-header">
+                        <div class="feature-icon"><i class="fas fa-chart-bar"></i></div>
+                        <span class="feature-status in-progress">In Progress</span>
+                    </div>
+                    <h3 class="feature-title">Progress Report Dashboard</h3>
+                    <p class="feature-desc">Dashboard interaktif untuk tracking progress project dan milestone.</p>
+                    <div class="feature-progress">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                            <span style="font-size: 0.85rem; color: var(--text-muted);">Progress</span>
+                            <span style="font-size: 0.85rem; font-weight: 600; color: #f57c00;">80%</span>
+                        </div>
+                        <div class="feature-progress-bar" style="width: 80%;"></div>
+                    </div>
+                </div>
+
+                <div class="feature-card in-progress">
+                    <div class="feature-header">
+                        <div class="feature-icon"><i class="fas fa-image"></i></div>
+                        <span class="feature-status in-progress">In Progress</span>
+                    </div>
+                    <h3 class="feature-title">Image Optimization</h3>
+                    <p class="feature-desc">Lazy loading, image compression, dan modern formats (WebP).</p>
+                    <div class="feature-progress">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                            <span style="font-size: 0.85rem; color: var(--text-muted);">Progress</span>
+                            <span style="font-size: 0.85rem; font-weight: 600; color: #f57c00;">30%</span>
+                        </div>
+                        <div class="feature-progress-bar" style="width: 30%;"></div>
+                    </div>
+                </div>
+
+                <!-- Pending Features (Backend) -->
+                <div class="feature-card pending">
+                    <div class="feature-header">
+                        <div class="feature-icon"><i class="fas fa-database"></i></div>
+                        <span class="feature-status pending">Pending</span>
+                    </div>
+                    <h3 class="feature-title">Database System</h3>
+                    <p class="feature-desc">MySQL/PostgreSQL database untuk menyimpan data dokter, pasien, dan antrean.</p>
+                    <div class="feature-progress">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                            <span style="font-size: 0.85rem; color: var(--text-muted);">Progress</span>
+                            <span style="font-size: 0.85rem; font-weight: 600; color: var(--text-muted);">0%</span>
+                        </div>
+                        <div class="feature-progress-bar" style="width: 0%;"></div>
+                    </div>
+                </div>
+
+                <div class="feature-card pending">
+                    <div class="feature-header">
+                        <div class="feature-icon"><i class="fas fa-plug"></i></div>
+                        <span class="feature-status pending">Pending</span>
+                    </div>
+                    <h3 class="feature-title">REST API</h3>
+                    <p class="feature-desc">RESTful API endpoints untuk komunikasi frontend-backend.</p>
+                    <div class="feature-progress">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                            <span style="font-size: 0.85rem; color: var(--text-muted);">Progress</span>
+                            <span style="font-size: 0.85rem; font-weight: 600; color: var(--text-muted);">0%</span>
+                        </div>
+                        <div class="feature-progress-bar" style="width: 0%;"></div>
+                    </div>
+                </div>
+
+                <div class="feature-card pending">
+                    <div class="feature-header">
+                        <div class="feature-icon"><i class="fas fa-users-cog"></i></div>
+                        <span class="feature-status pending">Pending</span>
+                    </div>
+                    <h3 class="feature-title">Admin Panel</h3>
+                    <p class="feature-desc">Dashboard admin untuk manajemen konten, dokter, dan jadwal praktik.</p>
+                    <div class="feature-progress">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                            <span style="font-size: 0.85rem; color: var(--text-muted);">Progress</span>
+                            <span style="font-size: 0.85rem; font-weight: 600; color: var(--text-muted);">0%</span>
+                        </div>
+                        <div class="feature-progress-bar" style="width: 0%;"></div>
+                    </div>
+                </div>
+
+                <div class="feature-card pending">
+                    <div class="feature-header">
+                        <div class="feature-icon"><i class="fas fa-bell"></i></div>
+                        <span class="feature-status pending">Pending</span>
+                    </div>
+                    <h3 class="feature-title">Real-time Notifications</h3>
+                    <p class="feature-desc">WebSocket untuk notifikasi antrean dan update real-time.</p>
+                    <div class="feature-progress">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                            <span style="font-size: 0.85rem; color: var(--text-muted);">Progress</span>
+                            <span style="font-size: 0.85rem; font-weight: 600; color: var(--text-muted);">0%</span>
+                        </div>
+                        <div class="feature-progress-bar" style="width: 0%;"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Backend Plan Section -->
+        <section id="backend" class="section">
+            <h2 class="section-title"><i class="fas fa-server"></i> Backend Development Plan</h2>
+            
+            <div class="backend-section">
+                <h3>Target: Website Interaktif dengan Frontend & Backend</h3>
+                
+                <div class="backend-grid">
+                    <div class="backend-item">
+                        <i class="fas fa-database"></i>
+                        <h4>Database Design</h4>
+                        <p>MySQL/PostgreSQL untuk data pasien, dokter, jadwal, dan antrean</p>
+                    </div>
+                    <div class="backend-item">
+                        <i class="fas fa-code"></i>
+                        <h4>RESTful API</h4>
+                        <p>Node.js/Express atau Python/FastAPI endpoints</p>
+                    </div>
+                    <div class="backend-item">
+                        <i class="fas fa-lock"></i>
+                        <h4>Authentication</h4>
+                        <p>JWT-based auth untuk admin dan staff</p>
+                    </div>
+                    <div class="backend-item">
+                        <i class="fas fa-cogs"></i>
+                        <h4>CRUD Operations</h4>
+                        <p>Manajemen dokter, jadwal, poliklinik, berita</p>
+                    </div>
+                    <div class="backend-item">
+                        <i class="fas fa-chart-line"></i>
+                        <h4>Reporting System</h4>
+                        <p>Laporan antrean, statistik kunjungan, analytics</p>
+                    </div>
+                    <div class="backend-item">
+                        <i class="fas fa-bell"></i>
+                        <h4>Real-time Updates</h4>
+                        <p>WebSocket untuk update antrean live</p>
+                    </div>
+                    <div class="backend-item">
+                        <i class="fas fa-file-pdf"></i>
+                        <h4>PDF Generation</h4>
+                        <p>Generate Surat Keterangan Sakit, Resep, dll</p>
+                    </div>
+                    <div class="backend-item">
+                        <i class="fas fa-envelope"></i>
+                        <h4>Email Integration</h4>
+                        <p>Notifikasi via email dan WhatsApp</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="stats-grid" style="margin-top: 40px;">
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fas fa-calendar-check"></i></div>
+                    <div class="stat-number">Q3 2025</div>
+                    <div class="stat-label">Backend Development</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fas fa-plug"></i></div>
+                    <div class="stat-number">Q4 2025</div>
+                    <div class="stat-label">Integration Phase</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fas fa-rocket"></i></div>
+                    <div class="stat-number">Q4 2025</div>
+                    <div class="stat-label">Full Launch</div>
+                </div>
+            </div>
+
+            <div class="comparison-table" style="margin-top: 40px;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Fitur Backend</th>
+                            <th>Technologi</th>
+                            <th>Priority</th>
+                            <th>Estimasi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Database Schema & Models</td>
+                            <td>MySQL / PostgreSQL</td>
+                            <td><span class="status-badge completed">High</span></td>
+                            <td>2 weeks</td>
+                        </tr>
+                        <tr>
+                            <td>Authentication System</td>
+                            <td>JWT / OAuth2</td>
+                            <td><span class="status-badge completed">High</span></td>
+                            <td>1 week</td>
+                        </tr>
+                        <tr>
+                            <td>REST API - Dokter</td>
+                            <td>Node.js / FastAPI</td>
+                            <td><span class="status-badge completed">High</span></td>
+                            <td>1 week</td>
+                        </tr>
+                        <tr>
+                            <td>REST API - Antrean</td>
+                            <td>Node.js / FastAPI</td>
+                            <td><span class="status-badge completed">High</span></td>
+                            <td>1 week</td>
+                        </tr>
+                        <tr>
+                            <td>Admin Dashboard</td>
+                            <td>React / Vue.js</td>
+                            <td><span class="status-badge in-progress">Medium</span></td>
+                            <td>3 weeks</td>
+                        </tr>
+                        <tr>
+                            <td>Real-time Updates</td>
+                            <td>Socket.io / WebSocket</td>
+                            <td><span class="status-badge pending">Medium</span></td>
+                            <td>2 weeks</td>
+                        </tr>
+                        <tr>
+                            <td>PDF & Reports</td>
+                            <td>Puppeteer / ReportLab</td>
+                            <td><span class="status-badge pending">Low</span></td>
+                            <td>1 week</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Comparison Section -->
+        <section id="comparison" class="section">
+            <h2 class="section-title"><i class="fas fa-balance-scale"></i> Before & After Comparison</h2>
+            
+            <div class="comparison-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Aspek</th>
+                            <th>Static Website (Sekarang)</th>
+                            <th>Full Stack Website (Target)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Content Management</strong></td>
+                            <td>Manual edit HTML files</td>
+                            <td>Admin panel + WYSIWYG editor</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Data Dokter</strong></td>
+                            <td>Hardcoded di HTML</td>
+                            <td>Database + CRUD API</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Sistem Antrean</strong></td>
+                            <td>Simulasi dengan JavaScript</td>
+                            <td>Real database + auto-increment</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Jadwal Praktik</strong></td>
+                            <td>Static schedule di HTML</td>
+                            <td>Dynamic schedule dari database</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Notifikasi</strong></td>
+                            <td>Tidak ada</td>
+                            <td>Email, WhatsApp, Push notifications</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Analytics</strong></td>
+                            <td>Tidak ada</td>
+                            <td>Dashboard dengan chart & graphs</td>
+                        </tr>
+                        <tr>
+                            <td><strong>User Authentication</strong></td>
+                            <td>Tidak ada</td>
+                            <td>Staff & Admin login</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Real-time Updates</strong></td>
+                            <td>Auto-refresh JS (simulasi)</td>
+                            <td>WebSocket live updates</td>
+                        </tr>
+                        <tr>
+                            <td><strong>PDF Reports</strong></td>
+                            <td>Tidak ada</td>
+                            <td>Generate Surat, Resep, Laporan</td>
+                        </tr>
+                        <tr>
+                            <td><strong>SEO</strong></td>
+                            <td>Basic meta tags</td>
+                            <td>Advanced SEO + sitemap API</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="progress-overview" style="margin-top: 40px;">
+                <h2 style="font-family: 'Playfair Display', serif; font-size: 2rem; margin-bottom: 20px;">Journey Transformation</h2>
+                
+                <div style="display: flex; align-items: center; justify-content: center; gap: 30px; flex-wrap: wrap;">
+                    <div style="text-align: center;">
+                        <div style="font-size: 3rem; margin-bottom: 10px;">📄</div>
+                        <div style="font-weight: 600;">Static HTML</div>
+                        <div style="opacity: 0.8; font-size: 0.9rem;">Tanpa Backend</div>
+                    </div>
+                    
+                    <div style="font-size: 2rem; color: var(--secondary);">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                    
+                    <div style="text-align: center;">
+                        <div style="font-size: 3rem; margin-bottom: 10px;">🚀</div>
+                        <div style="font-weight: 600;">Progress Sekarang</div>
+                        <div style="opacity: 0.8; font-size: 0.9rem;">70% Frontend Done</div>
+                    </div>
+                    
+                    <div style="font-size: 2rem; color: var(--secondary);">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                    
+                    <div style="text-align: center;">
+                        <div style="font-size: 3rem; margin-bottom: 10px;">🎯</div>
+                        <div style="font-weight: 600;">Target</div>
+                        <div style="opacity: 0.8; font-size: 0.9rem;">Full Stack Website</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p><i class="fas fa-hospital"></i> Payangan Hospital - Progress Report</p>
+        <p style="margin-top: 10px; font-size: 0.9rem;">
+            <i class="fas fa-code"></i> Built with OpenHands Agents | 
+            <i class="fas fa-calendar"></i> Last Updated: July 2025
+        </p>
+    </footer>
+
+    <script>
+        // Tab Navigation
+        document.querySelectorAll('.nav-tabs li').forEach(tab => {
+            tab.addEventListener('click', function() {
+                // Remove active class from all tabs
+                document.querySelectorAll('.nav-tabs li').forEach(t => t.classList.remove('active'));
+                // Remove active class from all sections
+                document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+                
+                // Add active class to clicked tab
+                this.classList.add('active');
+                // Show corresponding section
+                document.getElementById(this.dataset.tab).classList.add('active');
+            });
+        });
+
+        // Animate progress circle on scroll
+        const progressCircle = document.querySelector('.progress-circle .progress');
+        const percentage = document.querySelector('.progress-circle .percentage');
+        
+        const animateProgress = () => {
+            const targetProgress = 70;
+            const circumference = 2 * Math.PI * 90;
+            const offset = circumference - (targetProgress / 100) * circumference;
+            
+            progressCircle.style.strokeDashoffset = offset;
+        };
+
+        // Intersection Observer for animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    if (entry.target.querySelector('.progress-circle')) {
+                        animateProgress();
+                    }
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.animate-on-scroll, .progress-overview').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Animate progress bars on scroll
+        const animateBars = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const bar = entry.target.querySelector('.roadmap-progress-bar, .feature-progress-bar');
+                    if (bar) {
+                        bar.classList.add('progress-animate');
+                    }
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.roadmap-card, .feature-card').forEach(el => {
+            animateBars.observe(el);
+        });
+
+        // Initial animation
+        setTimeout(animateProgress, 500);
+    </script>
+</body>
+</html>
