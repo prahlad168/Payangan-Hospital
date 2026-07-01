@@ -3,418 +3,499 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tentang Payangan Hospital - Lebih dari sekadar rumah sakit, kami adalah rumah kedua bagi Anda. Melayani dengan sepenuh hati selama 15+ tahun.">
     <title>Tentang Kami - Payangan Hospital</title>
+    
+    <link rel="icon" type="image/png" href="logo.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
         :root {
-            --primary: #1a5f5a;
-            --primary-light: #4d9d97;
-            --primary-dark: #0f3d3a;
-            --secondary: #c9a86c;
-            --accent: #f59e0b;
-            --bg-white: #ffffff;
-            --bg-light: #f8fafc;
-            --bg-cream: #f8f6f3;
-            --text-dark: #2c3e3c;
-            --text-muted: #8a9a9a;
-            --border: #e2e8f0;
+            --primary: #0d7377;
+            --primary-dark: #095456;
+            --primary-light: #14919b;
+            --secondary: #e8a87c;
+            --accent: #c38d6d;
+            --cream: #faf7f4;
+            --warm-white: #fffcf9;
+            --text-dark: #2d3436;
+            --text-muted: #636e72;
         }
+        
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
-        body { font-family: 'Montserrat', sans-serif; font-weight: 300; background: var(--bg-white); color: var(--text-dark); line-height: 1.7; overflow-x: hidden; }
-        h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; font-weight: 500; line-height: 1.2; }
-        .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
-        .navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 20px 0; background: white; box-shadow: 0 1px 20px rgba(0,0,0,0.05); }
-        .nav-container { display: flex; justify-content: space-between; align-items: center; max-width: 1280px; margin: 0 auto; padding: 0 24px; }
-        .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
-        .logo img { width: 45px; height: auto; }
-        h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; font-size: 1.4rem; font-weight: 500; color: var(--primary); }
-        .nav-links { display: flex; gap: 8px; list-style: none; }
-        .nav-links > li { position: relative; }
-        .nav-links a { text-decoration: none; color: var(--text-muted); font-size: 0.95rem; font-weight: 400; padding: 10px 16px; border-radius: 50px; display: block; transition: all 0.3s; }
-        .nav-links > li > a:hover, .nav-links > li > a.active { background: var(--bg-light); color: var(--primary); }
-        .nav-links a i { font-size: 10px; margin-left: 4px; }
-        .mega-menu { position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(20px); background: white; border-radius: 20px; box-shadow: 0 25px 80px rgba(0,0,0,0.12); padding: 20px; opacity: 0; visibility: hidden; transition: all 0.4s ease; min-width: 500px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; z-index: 100; }
-        .nav-links > li:hover .mega-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(10px); }
-        .mega-item { display: flex; align-items: flex-start; gap: 14px; padding: 16px; border-radius: 14px; text-decoration: none; transition: all 0.3s; }
-        .mega-item:hover { background: var(--bg-light); }
-        .mega-item .icon { width: 44px; height: 44px; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-        .mega-item .icon i { color: white; font-size: 16px; }
-        .mega-item .text h4 { font-family: 'Montserrat', sans-serif; font-size: 0.95rem; font-weight: 500; color: var(--text-dark); margin-bottom: 2px; transition: color 0.3s; }
-        .mega-item:hover .text h4 { color: var(--primary); }
-        .mega-item .text p { font-size: 0.8rem; color: var(--text-muted); line-height: 1.4; }
-        .page-header { padding: 160px 0 100px; background: linear-gradient(135deg, var(--bg-cream) 0%, var(--bg-white) 100%); text-align: center; position: relative; overflow: hidden; }
-        .page-header::before { content: ''; position: absolute; top: -50%; right: -10%; width: 60%; height: 150%; background: radial-gradient(circle, rgba(26, 95, 90, 0.05) 0%, transparent 70%); }
-        .page-header .section-label { font-size: 0.8rem; font-weight: 500; color: var(--primary); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 16px; }
-        .page-header h1 { font-size: 3.5rem; color: var(--text-dark); margin-bottom: 20px; }
-        .page-header p { font-size: 1.1rem; color: var(--text-muted); max-width: 600px; margin: 0 auto; }
-        .content-section { padding: 100px 0; }
-        .content-section:nth-child(even) { background: var(--bg-light); }
-        .section-container { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; max-width: 1280px; margin: 0 auto; padding: 0 24px; }
-        .section-container.reverse { direction: rtl; }
-        .section-container.reverse > * { direction: ltr; }
-        .section-icon { width: 100%; aspect-ratio: 1; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); border-radius: 30px; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; }
-        .section-icon::before { content: ''; position: absolute; inset: 0; background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.08'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); }
-        .section-icon i { font-size: 80px; color: white; opacity: 0.3; position: relative; z-index: 1; }
-        .section-content h2 { font-size: 2.5rem; margin-bottom: 20px; color: var(--text-dark); }
-        .section-content h2 span { color: var(--primary); }
-        .section-content p { font-size: 1.05rem; color: var(--text-muted); line-height: 1.8; margin-bottom: 20px; }
-        .feature-list { display: flex; flex-direction: column; gap: 16px; }
-        .feature-item { display: flex; align-items: flex-start; gap: 16px; padding: 16px; background: var(--bg-light); border-radius: 12px; transition: all 0.3s; }
-        .feature-item:hover { background: white; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
-        .feature-item i { width: 36px; height: 36px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 14px; flex-shrink: 0; }
-        .feature-item .text h4 { font-family: 'Montserrat', sans-serif; font-size: 1rem; font-weight: 500; color: var(--text-dark); margin-bottom: 4px; }
-        .feature-item .text p { font-size: 0.9rem; color: var(--text-muted); margin: 0; line-height: 1.5; }
-        .vm-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; margin-top: 40px; }
-        .vm-card { background: rgba(255,255,255,0.97); backdrop-filter: blur(20px); padding: 45px; border-radius: 24px; box-shadow: 0 20px 60px rgba(0,0,0,0.15); transition: all 0.4s ease; position: relative; overflow: hidden; }
-        .vm-card:hover { transform: translateY(-8px); box-shadow: 0 30px 80px rgba(0,0,0,0.2); }
-        .vm-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 5px; }
-        .vm-card.visi::before { background: linear-gradient(90deg, var(--primary), var(--primary-light)); }
-        .vm-card.misi::before { background: linear-gradient(90deg, var(--accent), #fbbf24); }
-        .vm-card.visi { border-top: none; }
-        .vm-card.misi { border-top: none; }
-        .vm-card h3 { font-size: 1.6rem; margin-bottom: 25px; padding-bottom: 15px; border-bottom: 2px solid rgba(0,0,0,0.05); display: flex; align-items: center; gap: 15px; }
-        .vm-card.visi h3 { color: var(--primary); }
-        .vm-card.misi h3 { color: var(--accent); }
-        .vm-card h3 i { width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; border-radius: 14px; font-size: 1.3rem; }
-        .vm-card.visi h3 i { background: rgba(26, 95, 90, 0.1); }
-        .vm-card.misi h3 i { background: rgba(245, 158, 11, 0.1); }
-        .vm-card ul { list-style: none; }
-        .vm-card li { position: relative; padding: 14px 0 14px 38px; margin-bottom: 0; font-size: 1rem; color: var(--text-dark); line-height: 1.8; border-bottom: 1px solid rgba(0,0,0,0.04); }
-        .vm-card li:last-child { border-bottom: none; }
-        .vm-card li::before { content: ''; position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 10px; height: 10px; border-radius: 50%; }
-        .vm-card.visi li::before { background: linear-gradient(135deg, var(--primary), var(--primary-light)); }
-        .vm-card.misi li::before { background: linear-gradient(135deg, var(--accent), #fbbf24); }
-        .standar-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; }
-        .standar-card { background: white; padding: 30px; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.05); transition: all 0.4s; }
-        .standar-card:hover { transform: translateY(-5px); box-shadow: 0 20px 60px rgba(0,0,0,0.1); }
-        .standar-card .number { width: 50px; height: 50px; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); border-radius: 14px; display: flex; align-items: center; justify-content: center; font-family: 'Montserrat', sans-serif; font-size: 1.5rem; font-weight: 600; color: white; margin-bottom: 20px; }
-        .standar-card h4 { font-family: 'Montserrat', sans-serif; font-size: 1.1rem; font-weight: 500; color: var(--text-dark); margin-bottom: 10px; }
-        .standar-card p { font-size: 0.95rem; color: var(--text-muted); line-height: 1.6; }
-        .mutu-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
-        .mutu-card { background: white; padding: 40px 30px; border-radius: 24px; text-align: center; box-shadow: 0 10px 40px rgba(0,0,0,0.05); transition: all 0.4s; }
-        .mutu-card:hover { transform: translateY(-10px); box-shadow: 0 30px 80px rgba(0,0,0,0.1); }
-        .mutu-card .icon { width: 80px; height: 80px; background: var(--bg-light); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 24px; transition: all 0.4s; }
-        .mutu-card:hover .icon { background: var(--primary); }
-        .mutu-card .icon i { font-size: 32px; color: var(--primary); transition: color 0.4s; }
-        .mutu-card:hover .icon i { color: white; }
-        .mutu-card h4 { font-family: 'Montserrat', sans-serif; font-size: 1.2rem; font-weight: 500; color: var(--text-dark); margin-bottom: 12px; }
-        .mutu-card p { font-size: 0.95rem; color: var(--text-muted); line-height: 1.6; }
-        footer { background: var(--primary-dark); padding: 80px 0 30px; }
-        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 60px; margin-bottom: 60px; max-width: 1280px; margin-left: auto; margin-right: auto; padding: 0 24px; }
-        .footer-brand .logo { margin-bottom: 20px; }
-        .footer-brand .logo-text { color: white; }
-        .footer-brand p { color: rgba(255,255,255,0.6); font-size: 0.95rem; line-height: 1.7; }
-        .footer-links h4 { font-family: 'Montserrat', sans-serif; font-size: 0.85rem; font-weight: 500; color: var(--secondary); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 24px; }
-        .footer-links ul { list-style: none; }
-        .footer-links li { margin-bottom: 12px; }
-        .footer-links a { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.95rem; transition: color 0.3s; }
-        .footer-links a:hover { color: white; }
-        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 30px; display: flex; justify-content: space-between; align-items: center; color: rgba(255,255,255,0.5); font-size: 0.9rem; max-width: 1280px; margin: 0 auto; padding-left: 24px; padding-right: 24px; }
-        .footer-social { display: flex; gap: 12px; }
-        .footer-social a { width: 40px; height: 40px; background: rgba(255,255,255,0.1); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.6); transition: all 0.3s; }
-        .footer-social a:hover { background: var(--primary); color: white; }
-        .animate-on-scroll { opacity: 0; transform: translateY(40px); transition: all 0.8s ease; }
-        .animate-on-scroll.visible { opacity: 1; transform: translateY(0); }
-        .mobile-menu { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: var(--primary); z-index: 998; padding: 100px 40px; transform: translateX(100%); transition: transform 0.4s ease; }
-        .mobile-menu.active { transform: translateX(0); }
-        .mobile-menu ul { list-style: none; }
-        .mobile-menu li { margin-bottom: 24px; }
-        .mobile-menu a { color: white; text-decoration: none; font-size: 1.5rem; font-weight: 400; }
-        .mobile-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 10px; }
-        .mobile-toggle span { width: 24px; height: 2px; background: var(--text-dark); transition: all 0.3s; }
-        @media (max-width: 1024px) { .mega-menu { grid-template-columns: 1fr; min-width: 400px; } .mutu-grid { grid-template-columns: repeat(2, 1fr); } }
-        @media (max-width: 768px) { .nav-links { display: none; } .mobile-toggle { display: flex; } .mobile-menu { display: block; } .page-header h1 { font-size: 2.5rem; } .section-container { grid-template-columns: 1fr; } .section-container.reverse { direction: ltr; } .section-icon { aspect-ratio: 16/9; } .vm-grid, .standar-grid { grid-template-columns: 1fr; } .mutu-grid { grid-template-columns: 1fr; } .footer-grid { grid-template-columns: 1fr; text-align: center; } .footer-bottom { flex-direction: column; gap: 20px; } }
+        
+        body {
+            font-family: 'Nunito', sans-serif;
+            background: var(--warm-white);
+            color: var(--text-dark);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 500;
+            line-height: 1.3;
+        }
+        
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+        
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 2px 30px rgba(0, 0, 0, 0.08);
+            padding: 12px 0;
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            text-decoration: none;
+        }
+        
+        .logo img {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        
+        .logo-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+        
+        .logo-tagline {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 8px;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            font-weight: 500;
+            padding: 10px 18px;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-links a:hover, .nav-links a.active {
+            background: var(--primary);
+            color: white !important;
+        }
+        
+        .nav-cta {
+            background: var(--secondary) !important;
+            color: white !important;
+        }
+        
+        .page-header {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+            color: white;
+            padding: 150px 0 80px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .page-header::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        
+        .page-header h1 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            position: relative;
+        }
+        
+        .page-header h1 span {
+            color: var(--secondary);
+            font-style: italic;
+        }
+        
+        .page-header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .breadcrumb {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        .breadcrumb a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        
+        .about-story {
+            padding: 100px 0;
+        }
+        
+        .story-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+        
+        .story-image {
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1);
+        }
+        
+        .story-image img {
+            width: 100%;
+            display: block;
+        }
+        
+        .story-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 25px;
+            color: var(--text-dark);
+        }
+        
+        .story-content h2 span {
+            color: var(--primary);
+            font-style: italic;
+        }
+        
+        .story-content p {
+            font-size: 1.05rem;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            line-height: 1.9;
+        }
+        
+        .story-values {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .story-value {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+        
+        .story-value i {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+        
+        .story-value h4 {
+            font-family: 'Nunito', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 3px;
+        }
+        
+        .story-value p {
+            font-size: 0.9rem;
+            margin-bottom: 0;
+        }
+        
+        .mission-vision {
+            padding: 100px 0;
+            background: var(--cream);
+        }
+        
+        .mv-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+        }
+        
+        .mv-card {
+            background: white;
+            border-radius: 30px;
+            padding: 50px;
+            text-align: center;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.05);
+        }
+        
+        .mv-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            font-size: 2rem;
+            color: white;
+        }
+        
+        .mv-card h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--text-dark);
+        }
+        
+        .mv-card p {
+            font-size: 1.05rem;
+            color: var(--text-muted);
+            line-height: 1.9;
+        }
+        
+        .cta-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+            text-align: center;
+            color: white;
+        }
+        
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .cta-section p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+        
+        .btn {
+            padding: 16px 35px;
+            border-radius: 50px;
+            font-family: 'Nunito', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-white {
+            background: white;
+            color: var(--primary);
+        }
+        
+        .btn-white:hover {
+            background: var(--secondary);
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        .footer {
+            background: #061f20;
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 50px;
+            margin-bottom: 50px;
+        }
+        
+        .footer-brand p {
+            font-size: 0.95rem;
+            opacity: 0.8;
+            line-height: 1.8;
+        }
+        
+        .footer-links h4 {
+            font-family: 'Nunito', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary);
+            padding-left: 5px;
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 30px;
+            text-align: center;
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            border: none;
+            box-shadow: 0 5px 20px rgba(13, 115, 119, 0.3);
+            z-index: 999;
+        }
+        
+        .back-to-top:hover {
+            background: var(--primary-dark);
+            transform: translateY(-5px);
+        }
+        
+        @media (max-width: 1024px) {
+            .story-grid, .mv-grid { grid-template-columns: 1fr; gap: 40px; }
+            .footer-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .page-header h1 { font-size: 2rem; }
+            .footer-grid { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
 <body>
     <nav class="navbar">
-        <div class="nav-container">
-            <a href="index.html" class="logo"><img src="logo.png" alt="Payangan Hospital"><span class="logo-text">Payangan Hospital</span></a>
+        <div class="container nav-container">
+            <a href="index-new.html" class="logo">
+                <img src="logo.png" alt="Payangan Hospital">
+                <div>
+                    <div class="logo-title">Payangan Hospital</div>
+                    <div class="logo-tagline">Kami Menjaga Kesehatan Anda</div>
+                </div>
+            </a>
             <ul class="nav-links">
-                <li><a href="index.html#slider">Beranda</a></li>
-                <li><a href="#">Tentang <i class="fas fa-chevron-down"></i></a>
-                    <div class="mega-menu">
-                        <a href="#sambutan" class="mega-item"><div class="icon"><i class="fas fa-user-tie"></i></div><div class="text"><h4>Sambutan</h4><p>Sambutan dari Direktur</p></div></a>
-                        <a href="#sejarah" class="mega-item"><div class="icon"><i class="fas fa-landmark"></i></div><div class="text"><h4>Sejarah</h4><p>Perjalanan Payangan Hospital</p></div></a>
-                        <a href="#visimisi" class="mega-item"><div class="icon"><i class="fas fa-bullseye"></i></div><div class="text"><h4>Visi & Misi</h4><p>Arah dan tujuan kami</p></div></a>
-                        <a href="#standar" class="mega-item"><div class="icon"><i class="fas fa-clipboard-check"></i></div><div class="text"><h4>Standar Pelayanan</h4><p>Standar kualitas kami</p></div></a>
-                        <a href="#maklumat" class="mega-item"><div class="icon"><i class="fas fa-file-contract"></i></div><div class="text"><h4>Maklumat</h4><p>Janji pelayanan</p></div></a>
-                        <a href="#mutu" class="mega-item"><div class="icon"><i class="fas fa-award"></i></div><div class="text"><h4>Mutu</h4><p>Komitmen kualitas</p></div></a>
-                        <a href="#budaya" class="mega-item"><div class="icon"><i class="fas fa-hands-helping"></i></div><div class="text"><h4>Budaya Kerja</h4><p>Nilai-nilai kerja kami</p></div></a>
-                    </div>
-                </li>
-                <li><a href="rawat-jalan.html">Layanan <i class="fas fa-chevron-down"></i></a>
-                    <div class="mega-menu">
-                        <a href="rawat-jalan.html" class="mega-item"><div class="icon"><i class="fas fa-stethoscope"></i></div><div class="text"><h4>Rawat Jalan</h4><p>Konsultasi dokter spesialis</p></div></a>
-                        <a href="rawat-inap.html" class="mega-item"><div class="icon"><i class="fas fa-procedures"></i></div><div class="text"><h4>Rawat Inap</h4><p>Pelayanan inap nyaman</p></div></a>
-                        <a href="igd.html" class="mega-item"><div class="icon"><i class="fas fa-ambulance"></i></div><div class="text"><h4>IGD / UGD</h4><p>Gawat darurat 24 jam</p></div></a>
-                    </div>
-                </li>
-                <li><a href="dokter.html">Dokter</a></li>
-                <li><a href="ph-update.html">PH Update</a></li>
-                    <li><a href="kontak.html">Kontak</a></li>
-                <li><a href="#login" class="nav-cta"><i class="fas fa-sign-in-alt"></i> Login</a></li>
+                <li><a href="index-new.html">Beranda</a></li>
+                <li><a href="about.html" class="active">Tentang</a></li>
+                <li><a href="index-new.html#layanan">Layanan</a></li>
+                <li><a href="index-new.html#dokter">Dokter</a></li>
+                <li><a href="index-new.html#kontak" class="nav-cta"><i class="fas fa-phone"></i> Hubungi Kami</a></li>
             </ul>
-            <div class="mobile-toggle" onclick="toggleMenu()"><span></span><span></span><span></span></div>
         </div>
     </nav>
-    <div class="mobile-menu" id="mobileMenu">
-        <ul>
-            <li><a href="index.html" onclick="toggleMenu()">Beranda</a></li>
-            <li><a href="index.html#layanan" onclick="toggleMenu()">Layanan</a></li>
-            <li><a href="#sejarah" onclick="toggleMenu()">Sejarah</a></li>
-            <li><a href="#visimisi" onclick="toggleMenu()">Visi Misi</a></li>
-            <li><a href="#standar" onclick="toggleMenu()">Standar</a></li>
-            <li><a href="#maklumat" onclick="toggleMenu()">Maklumat</a></li>
-            <li><a href="#mutu" onclick="toggleMenu()">Mutu</a></li>
-            <li><a href="#budaya" onclick="toggleMenu()">Budaya Kerja</a></li>
-            <li><a href="dokter.html" onclick="toggleMenu()">Dokter</a></li>
-            <li><a href="ph-update.html" onclick="toggleMenu()">PH Update</a></li>
-            <li><a href="kontak.html" onclick="toggleMenu()">Kontak</a></li>
-        </ul>
-    </div>
 
     <section class="page-header">
         <div class="container">
-            <div class="section-label">Tentang Kami</div>
-            <h1>Mewujudkan Kesehatan Terbaik untuk Masyarakat</h1>
-            <p>Kenali lebih dalam tentang Payangan Hospital, komitmen kami dalam memberikan pelayanan kesehatan berkualitas</p>
-        </div>
-    </section>
-
-    <section class="content-section" id="sejarah">
-        <div class="section-container">
-            <div class="section-icon"><i class="fas fa-landmark"></i></div>
-            <div class="section-content">
-                <h2>Sejarah <span>Payangan Hospital</span></h2>
-                <p><strong>Payangan Hospital</strong> adalah rumah sakit tipe C pertama di Kecamatan Payangan, Kabupaten Gianyar, Bali. Pembangunan rumah sakit ini dimulai pada tahun 2019 oleh Pemerintah Kabupaten Gianyar untuk memenuhi kebutuhan masyarakat akan pelayanan kesehatan yang cepat dan akses yang lebih dekat.</p>
-                <p>Soft launching Payangan Hospital dilakukan pada <strong>14 Februari 2020</strong> oleh Bupati Gianyar, Made Mahayastra. Beliau menekankan pentingnya fasilitas kesehatan yang memadai di Payangan, mengingat wilayah ini dekat dengan area rawan bencana.</p>
-                <p>Sejak awal pendiriannya, Payangan Hospital telah merencanakan pengembangan konsep <strong>"Resort Hospital"</strong> untuk memanfaatkan potensi wilayahnya. Konsep ini bertujuan untuk menggabungkan layanan kesehatan dengan fasilitas resort, sehingga dapat memberikan pengalaman yang berbeda bagi pasien dan pengunjung.</p>
-                <div class="feature-list">
-                    <div class="feature-item"><i class="fas fa-calendar"></i><div class="text"><h4>Soft Launching 2020</h4><p>Diresmikan oleh Bupati Gianyar, Made Mahayastra</p></div></div>
-                    <div class="feature-item"><i class="fas fa-users"></i><div class="text"><h4>225 Karyawan</h4><p>Termasuk 30 tenaga medis profesional</p></div></div>
-                    <div class="feature-item"><i class="fas fa-hospital"></i><div class="text"><h4>Tipe C</h4><p>Rumah sakit pertama di Kecamatan Payangan</p></div></div>
-                </div>
+            <div class="breadcrumb">
+                <a href="index-new.html">Beranda</a>
+                <i class="fas fa-chevron-right"></i>
+                <span>Tentang Kami</span>
             </div>
+            <h1>Kisah <span>Kami</span></h1>
+            <p>Mengenal lebih dekat Payangan Hospital — tempat di mana kesehatan dan kasih sayang bertemu</p>
         </div>
     </section>
 
-    <section class="content-section" id="sambutan" style="background: var(--bg-light);">
+    <section class="about-story">
         <div class="container">
-            <div style="text-align: center; margin-bottom: 50px;">
-                <div class="section-label">Sambutan</div>
-                <h2 style="font-size: 2.5rem; color: var(--text-dark);">SAMBUTAN DIREKTUR</h2>
-            </div>
-            <div style="display: grid; grid-template-columns: 280px 1fr; gap: 60px; align-items: center; background: white; padding: 50px; border-radius: 30px; box-shadow: 0 20px 60px rgba(0,0,0,0.08);">
-                <div style="text-align: center;">
-                    <img src="director.jpg" alt="dr. I Gusti Ngurah Gede Putra, S.Ked., M.Si" style="width: 100%; max-width: 250px; border-radius: 20px; box-shadow: 0 15px 40px rgba(0,0,0,0.15); margin-bottom: 25px;">
-                    <h3 style="font-size: 1.2rem; color: var(--text-dark); margin-bottom: 5px; line-height: 1.4;">dr. I Gusti Ngurah Gede Putra, S.Ked., M.Si</h3>
-                    <p style="font-size: 0.95rem; color: var(--primary); font-weight: 500;">Direktur Payangan Hospital</p>
-                    <a href="#profile-direktur" class="profile-btn" style="display: inline-flex; align-items: center; gap: 8px; margin-top: 20px; padding: 12px 28px; background: var(--primary); color: white; text-decoration: none; border-radius: 50px; font-weight: 500; font-size: 0.9rem; transition: all 0.3s;">
-                        <i class="fas fa-user"></i> Lihat Profile
-                    </a>
+            <div class="story-grid">
+                <div class="story-image">
+                    <img src="direktur.png" alt="Gedung Payangan Hospital">
                 </div>
-                <div style="padding-left: 20px;">
-                    <div style="font-size: 2.5rem; color: var(--primary); font-family: Georgia, serif; line-height: 1; margin-bottom: 20px; opacity: 0.3;">"</div>
-                    <p style="font-size: 1.15rem; color: var(--text-dark); line-height: 1.9; font-style: italic; margin-bottom: 25px;">
-                        Selamat datang di Payangan Hospital. Kami berkomitmen untuk memberikan pelayanan kesehatan terbaik dengan berlandaskan nilai-nilai Tri Hita Karana. Setiap langkah kami didasarkan pada keharmonisan hubungan dengan Tuhan, sesama manusia, dan lingkungan.
-                    </p>
-                    <p style="font-size: 1.15rem; color: var(--text-dark); line-height: 1.9; font-style: italic; margin-bottom: 25px;">
-                        Dengan didukung oleh tenaga medis profesional dan fasilitas modern, kami siap memberikan pengalaman pelayanan kesehatan yang nyaman dan berkualitas bagi masyarakat Payangan dan sekitarnya.
-                    </p>
-                    <p style="font-size: 1rem; color: var(--text-muted);">
-                        <strong style="color: var(--text-dark);">Hormat kami,</strong><br>
-                        <span style="color: var(--primary); font-weight: 600;">dr. I Gusti Ngurah Gede Putra, S.Ked., M.Si</span><br>
-                        <span style="font-size: 0.9rem;">Direktur Payangan Hospital</span>
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="content-section" id="visimisi" style="position: relative; overflow: hidden; padding: 100px 0;">
-        <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(135deg, rgba(26, 95, 90, 0.93) 0%, rgba(15, 61, 58, 0.95) 100%), url('bg_medical.jpg') center/cover no-repeat; opacity: 1; z-index: 0;"></div>
-        <div class="container" style="position: relative; z-index: 1;">
-            <div class="vm-header" style="text-align: center; margin-bottom: 50px;">
-                <div class="section-label" style="color: rgba(255,255,255,0.7); font-size: 0.85rem; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 15px;">Visi & Misi</div>
-                <h2 style="font-size: 2.8rem; color: white; margin-bottom: 10px; font-weight: 600;">PAYANGAN HOSPITAL</h2>
-                <p style="font-size: 1.1rem; color: rgba(255,255,255,0.8); font-style: italic;">Pavitram Idam Uttamam</p>
-            </div>
-            <div class="vm-grid">
-                <div class="vm-card visi animate-on-scroll">
-                    <h3><i class="fas fa-eye"></i> VISI</h3>
-                    <p>Menjadi pusat pelayanan kesehatan yang dicintai berlandaskan Tri Hita Karana</p>
-                </div>
-                <div class="vm-card misi animate-on-scroll">
-                    <h3><i class="fas fa-bullseye"></i> MISI</h3>
-                    <ul>
-                        <li>Pelayanan terpadu dengan meningkatkan akses pelayanan, keterjangkauan, dan kualitas pelayanan;</li>
-                        <li>Budaya pelayanan yang ramah, sopan, dan menyenangkan;</li>
-                        <li>Pelayanan berkesinambungan dengan pengembangan dan pemanfaatan teknologi tepat guna; dan</li>
-                        <li>Menjadi wahana yang mampu menginspirasi lingkungan sekitar melalui <em>green ekosistem</em> rumah sakit.</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="content-section" id="semboyan" style="background: var(--bg-cream);">
-        <div class="container">
-            <div style="text-align: center; margin-bottom: 50px;">
-                <div class="section-label">Makna Semboyan</div>
-                <h2 style="font-size: 2.5rem; color: var(--text-dark);">PAVITRAM IDAM UTTAMAM</h2>
-                <p style="font-size: 1rem; color: var(--text-muted); max-width: 700px; margin: 15px auto 0;">(Dikutip dari Bhagavad Gita Bab IX.2)</p>
-            </div>
-            <div style="max-width: 900px; margin: 0 auto; background: white; padding: 50px; border-radius: 30px; box-shadow: 0 20px 60px rgba(0,0,0,0.08);">
-                <div style="text-align: center; margin-bottom: 40px;">
-                    <p style="font-size: 1.8rem; color: var(--primary); font-style: italic; line-height: 1.6; padding: 30px; background: var(--bg-light); border-radius: 20px; border-left: 5px solid var(--primary);">
-                        "Dengan tuntunan pengetahuan yang murni dalam memberikan pelayanan setulus hati."
-                    </p>
-                </div>
-                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 40px;">
-                    <div style="text-align: center; padding: 30px; background: var(--bg-light); border-radius: 20px;">
-                        <div style="width: 70px; height: 70px; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px;">
-                            <i class="fas fa-water" style="font-size: 28px; color: white;"></i>
-                        </div>
-                        <h3 style="font-size: 1.5rem; color: var(--primary); margin-bottom: 10px;">Pavitram</h3>
-                        <p style="font-size: 0.95rem; color: var(--text-muted); line-height: 1.7;">Tirta Amerta Dewa Wisnu, penguasa bumi utara</p>
-                    </div>
-                    <div style="text-align: center; padding: 30px; background: var(--bg-light); border-radius: 20px;">
-                        <div style="width: 70px; height: 70px; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px;">
-                            <i class="fas fa-map-marker-alt" style="font-size: 28px; color: white;"></i>
-                        </div>
-                        <h3 style="font-size: 1.5rem; color: var(--primary); margin-bottom: 10px;">Idam</h3>
-                        <p style="font-size: 0.95rem; color: var(--text-muted); line-height: 1.7;">Ini, yang dimaksudkan untuk Gianyar</p>
-                    </div>
-                    <div style="text-align: center; padding: 30px; background: var(--bg-light); border-radius: 20px;">
-                        <div style="width: 70px; height: 70px; background: linear-gradient(135deg, var(--accent) 0%, #fbbf24 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px;">
-                            <i class="fas fa-heart" style="font-size: 28px; color: white;"></i>
-                        </div>
-                        <h3 style="font-size: 1.5rem; color: var(--accent); margin-bottom: 10px;">Uttamam</h3>
-                        <p style="font-size: 0.95rem; color: var(--text-muted); line-height: 1.7;">Harapan tertinggi kesehatan dan kesejahteraan</p>
-                    </div>
-                </div>
-                <div style="text-align: center; margin-top: 40px; padding-top: 30px; border-top: 2px solid var(--border);">
-                    <p style="font-size: 1.15rem; color: var(--text-dark); line-height: 1.8;">
-                        <strong>Payangan Hospital</strong> siap memberikan pelayanan maksimal kepada seluruh lapisan masyarakat, dengan didukung peralatan terbaru dan staf yang profesional dan terlatih.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="content-section" id="standar">
-        <div class="container">
-            <div style="text-align: center; margin-bottom: 60px;">
-                <div class="section-label">Standar Pelayanan</div>
-                <h2 style="font-size: 2.5rem; color: var(--text-dark);">STANDAR PELAYANAN</h2>
-                <p style="font-size: 0.9rem; color: var(--text-muted); max-width: 600px; margin: 16px auto 0;">SK Direktur Payangan Hospital No. 17437/I/SK-RSP/2025 Tanggal 2 Januari 2025</p>
-            </div>
-            <div class="standar-grid" style="grid-template-columns: repeat(3, 1fr);">
-                <div class="standar-card animate-on-scroll">
-                    <div class="number" style="background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);"><i class="fas fa-user-plus" style="font-size: 18px;"></i></div>
-                    <h4>Pasien Rawat Jalan</h4>
-                    <p><strong>Persyaratan:</strong> KTP/KK, Kartu Jaminan Kesehatan (JKN), Surat Rujukan, Surat Kontrol</p>
-                    <p style="margin-top: 8px;"><strong>Waktu:</strong> 15-20 menit</p>
-                    <p style="margin-top: 8px;"><strong>Pendaftaran:</strong> Senin-Sabtu, Jam 07.30 - 12.00 WITA</p>
-                </div>
-                <div class="standar-card animate-on-scroll">
-                    <div class="number" style="background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);"><i class="fas fa-ambulance" style="font-size: 18px;"></i></div>
-                    <h4>Pasien UGD</h4>
-                    <p><strong>Persyaratan:</strong> KTP/KK, Kartu Jaminan Kesehatan (JKN), Surat Rujukan (jika ada)</p>
-                    <p style="margin-top: 8px;"><strong>Layanan:</strong> Dibuka 24 jam</p>
-                    <p style="margin-top: 8px;"><strong>Proses:</strong> Pendaftaran, Verifikasi SEP, Penanganan medis</p>
-                </div>
-                <div class="standar-card animate-on-scroll">
-                    <div class="number" style="background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);"><i class="fas fa-hospital" style="font-size: 18px;"></i></div>
-                    <h4>Pasien Rawat Inap</h4>
-                    <p><strong>Persyaratan:</strong> KTP/KK, Kartu Jaminan Kesehatan, Surat Permintaan Rawat Inap</p>
-                    <p style="margin-top: 8px;"><strong>Proses:</strong> Admisi, Penjelasan hak&kewajiban, Tanda tangan General Consent</p>
-                    <p style="margin-top: 8px;"><strong>Layanan:</strong> 24 jam</p>
-                </div>
-                <div class="standar-card animate-on-scroll">
-                    <div class="number" style="background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);"><i class="fas fa-file-invoice" style="font-size: 18px;"></i></div>
-                    <h4>Kasir Pembayaran</h4>
-                    <p><strong>Metode:</strong> Tunai & Non-Tunai (QRIS/M-Banking)</p>
-                    <p style="margin-top: 8px;"><strong>Waktu:</strong> Rata-rata 15 menit</p>
-                    <p style="margin-top: 8px;"><strong>Tarif:</strong> Sesuai Perda Gianyar No. 7 Tahun 2023</p>
-                </div>
-                <div class="standar-card animate-on-scroll">
-                    <div class="number" style="background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);"><i class="fas fa-microscope" style="font-size: 18px;"></i></div>
-                    <h4>Laboratorium & Radiologi</h4>
-                    <p><strong>Layanan:</strong> Pemeriksaan laboratorium lengkap, Radiologi (Rontgen, USG, dll)</p>
-                    <p style="margin-top: 8px;"><strong>Hasil:</strong> Akurat dan cepat</p>
-                    <p style="margin-top: 8px;"><strong>Peralatan:</strong> Modern dan terstandar</p>
-                </div>
-                <div class="standar-card animate-on-scroll">
-                    <div class="number" style="background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);"><i class="fas fa-phone-alt" style="font-size: 18px;"></i></div>
-                    <h4>Pengaduan</h4>
-                    <p><strong>Telepon:</strong> 0361 98087</p>
-                    <p style="margin-top: 8px;"><strong>Online:</strong> https://bit.ly/keluhanph</p>
-                    <p style="margin-top: 8px;"><strong>Respons:</strong> Ditangani secara cepat dan profesional</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Maklumat Pelayanan Section -->
-    <section class="content-section" id="maklumat" style="background: linear-gradient(180deg, white 0%, var(--bg-light) 100%);">
-        <div class="container">
-            <div style="text-align: center; margin-bottom: 40px;">
-                <div class="section-label">Maklumat Pelayanan</div>
-                <h2 style="font-size: 2rem; color: var(--primary); font-weight: 600;">RUMAH SAKIT UMUM DAERAH PAYANGAN</h2>
-            </div>
-            <div style="max-width: 900px; margin: 0 auto;">
-                <div style="background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%); border-radius: 24px; box-shadow: 0 20px 60px rgba(0,0,0,0.15); padding: 60px 50px; text-align: center; position: relative; overflow: hidden;">
-                    <div style="position: absolute; top: 0; left: 0; right: 0; height: 6px; background: linear-gradient(90deg, var(--secondary), #fff, var(--secondary));"></div>
-                    <div style="position: absolute; inset: 0; background: url('data:image/svg+xml,%3Csvg width=60 height=60 viewBox=0 0 60 60 xmlns=http://www.w3.org/2000/svg%3E%3Cg fill=none fill-rule=evenodd%3E%3Cg fill=%23ffffff fill-opacity=0.05%3E%3Cpath d=M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z/%3E%3C/g%3E%3C/g%3E%3C/svg%3E'); opacity: 0.5;"></div>
+                <div class="story-content">
+                    <h2>Lebih dari Sekadar <span>Rumah Sakit</span></h2>
+                    <p>Payangan Hospital lahir dari mimpi sederhana: membawa pelayanan kesehatan berkualitas ke masyarakat Gianyar dan sekitarnya. Bukan sekadar menyembuhkan, tapi juga menyentuh hati.</p>
+                    <p>Selama lebih dari 15 tahun, kami telah melayani ribuan keluarga. Dari bayi yang baru lahir hingga lansia yang butuh perhatian khusus. Setiap langkah perjalanan kesehatan Anda, kami bersama.</p>
+                    <p>Bagi kami, Anda bukan sekadar pasien. Anda adalah keluarga. Dan keluarga berhak mendapatkan yang terbaik.</p>
                     
-                    <div style="position: relative; z-index: 1;">
-                        <div style="display: inline-block; background: rgba(255,255,255,0.15); padding: 12px 30px; border-radius: 50px; margin-bottom: 40px; border: 1px solid rgba(255,255,255,0.2);">
-                            <span style="color: white; font-size: 0.85rem; font-weight: 500; letter-spacing: 2px; text-transform: uppercase;">Komitmen Kami</span>
+                    <div class="story-values">
+                        <div class="story-value">
+                            <i class="fas fa-heart"></i>
+                            <div>
+                                <h4>Penuh Kasih</h4>
+                                <p>Setiap perawatan dengan ketulusan</p>
+                            </div>
                         </div>
-                        
-                        <h3 style="color: white; font-size: 1.8rem; font-weight: 600; margin-bottom: 40px; line-height: 1.4;">
-                            DENGAN INI, KAMI MENYATAKAN SANGGUP
-                        </h3>
-                        
-                        <p style="color: rgba(255,255,255,0.95); font-size: 1.15rem; line-height: 2; margin-bottom: 30px;">
-                            MENYELENGGARAKAN PELAYANAN SESUAI STANDAR PELAYANAN YANG TELAH DITETAPKAN,<br>
-                            DAN AKAN TERUS MENERUS MELAKUKAN PERBAIKAN.
-                        </p>
-                        
-                        <div style="width: 80px; height: 3px; background: var(--secondary); margin: 40px auto;"></div>
-                        
-                        <p style="color: rgba(255,255,255,0.95); font-size: 1.15rem; line-height: 2; margin-bottom: 30px;">
-                            APABILA TIDAK MENEPATI JANJI INI,<br>
-                            KAMI SIAP MENERIMA SANKSI DAN/ATAU MEMBERIKAN<br>
-                            KOMPENSASI SESUAI KETENTUAN YANG BERLAKU.
-                        </p>
-                        
-                        <div style="margin-top: 50px; padding-top: 40px; border-top: 1px solid rgba(255,255,255,0.2);">
-                            <div style="display: flex; justify-content: center; gap: 50px; flex-wrap: wrap;">
-                                <div style="text-align: center;">
-                                    <div style="width: 70px; height: 70px; background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; border: 1px solid rgba(255,255,255,0.2);">
-                                        <i class="fas fa-clipboard-check" style="color: var(--secondary); font-size: 1.8rem;"></i>
-                                    </div>
-                                    <span style="font-size: 0.9rem; color: rgba(255,255,255,0.9); font-weight: 500;">Standar Terpenuhi</span>
-                                </div>
-                                <div style="text-align: center;">
-                                    <div style="width: 70px; height: 70px; background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; border: 1px solid rgba(255,255,255,0.2);">
-                                        <i class="fas fa-sync-alt" style="color: var(--secondary); font-size: 1.8rem;"></i>
-                                    </div>
-                                    <span style="font-size: 0.9rem; color: rgba(255,255,255,0.9); font-weight: 500;">Perbaikan Berkelanjutan</span>
-                                </div>
-                                <div style="text-align: center;">
-                                    <div style="width: 70px; height: 70px; background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; border: 1px solid rgba(255,255,255,0.2);">
-                                        <i class="fas fa-handshake" style="color: var(--secondary); font-size: 1.8rem;"></i>
-                                    </div>
-                                    <span style="font-size: 0.9rem; color: rgba(255,255,255,0.9); font-weight: 500;">Bertanggung Jawab</span>
-                                </div>
+                        <div class="story-value">
+                            <i class="fas fa-user-md"></i>
+                            <div>
+                                <h4>Profesional</h4>
+                                <p>Tenaga medis terlatih</p>
+                            </div>
+                        </div>
+                        <div class="story-value">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <h4>Siap 24/7</h4>
+                                <p>Darurat kapan saja</p>
+                            </div>
+                        </div>
+                        <div class="story-value">
+                            <i class="fas fa-handshake"></i>
+                            <div>
+                                <h4>Terpercaya</h4>
+                                <p>Ribuan keluarga percaya</p>
                             </div>
                         </div>
                     </div>
@@ -423,153 +504,86 @@
         </div>
     </section>
 
-
-    <!-- Budaya Kerja Section -->
-    <section class="content-section" id="budaya">
+    <section class="mission-vision">
         <div class="container">
-            <div style="text-align: center; margin-bottom: 60px;">
-                <div class="section-label">Budaya Kerja</div>
-                <h2 style="font-size: 2.5rem; color: var(--text-dark);">BUDAYA KERJA RSU PAYANGAN</h2>
-                <p style="font-size: 1.2rem; color: var(--primary); font-style: italic; margin-top: 16px; font-weight: 500;">"Bekerja dengan Syukur, Melayani Setulus Hati"</p>
-            </div>
-            <div class="standar-grid" style="grid-template-columns: repeat(3, 1fr);">
-                <div class="standar-card animate-on-scroll">
-                    <div class="number" style="background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);">S</div>
-                    <h4>Satya</h4>
-                    <p>Jujur, setia pada tugas dan prinsip pelayanan.</p>
+            <div class="mv-grid">
+                <div class="mv-card">
+                    <div class="mv-icon"><i class="fas fa-bullseye"></i></div>
+                    <h3>Misi Kami</h3>
+                    <p>Memberikan pelayanan kesehatan yang komprehensif, bermutu, dan terjangkau bagi seluruh masyarakat Gianyar dan Bali. Menyembuhkan dengan ilmu, merawat dengan hati.</p>
                 </div>
-                <div class="standar-card animate-on-scroll">
-                    <div class="number" style="background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);">U</div>
-                    <h4>Utama</h4>
-                    <p>Memberi pelayanan terbaik.</p>
-                </div>
-                <div class="standar-card animate-on-scroll">
-                    <div class="number" style="background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);">K</div>
-                    <h4>Krama</h4>
-                    <p>Saling menghormati dalam interaksi antara pasien dan staf, serta antar staf dan rekan kerjanya.</p>
-                </div>
-                <div class="standar-card animate-on-scroll">
-                    <div class="number" style="background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);">S</div>
-                    <h4>Sewaka</h4>
-                    <p>Melayani dengan tulus ikhlas.</p>
-                </div>
-                <div class="standar-card animate-on-scroll">
-                    <div class="number" style="background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);">M</div>
-                    <h4>Mandala</h4>
-                    <p>Menjaga lingkungan yang harmonis dan bersih.</p>
-                </div>
-                <div class="standar-card animate-on-scroll">
-                    <div class="number" style="background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);">A</div>
-                    <h4>Aman</h4>
-                    <p>Mengutamakan keselamatan pasien dan rekan kerja.</p>
+                <div class="mv-card">
+                    <div class="mv-icon"><i class="fas fa-eye"></i></div>
+                    <h3>Visi Kami</h3>
+                    <p>Menjadi rumah sakit pilihan utama masyarakat yang terpercaya, dikenal karena keunggulan pelayanan dan kasih sayang terhadap pasien.</p>
                 </div>
             </div>
         </div>
     </section>
 
-
-    <!-- Zona Integritas Highlight -->
-    <section class="zona-integritas" style="background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%); padding: 80px 0; position: relative; overflow: hidden;">
-        <div style="position: absolute; inset: 0; background: url("data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.03"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");"></div>
-        <div class="container" style="position: relative; z-index: 2;">
-            <div style="text-align: center; max-width: 800px; margin: 0 auto;">
-                <div style="display: inline-flex; align-items: center; gap: 16px; background: rgba(255,255,255,0.15); padding: 12px 28px; border-radius: 50px; margin-bottom: 32px; border: 1px solid rgba(255,255,255,0.2);">
-                    <i class="fas fa-shield-alt" style="font-size: 24px; color: var(--secondary);"></i>
-                    <span style="font-size: 0.85rem; font-weight: 500; color: white; letter-spacing: 0.1em; text-transform: uppercase;">Zona Integritas</span>
-                </div>
-                <h2 style="font-size: 2.8rem; color: white; margin-bottom: 24px; font-weight: 400;">Menuju Wilayah Bebas dari Korupsi</h2>
-                <p style="font-size: 1.15rem; color: rgba(255,255,255,0.85); line-height: 1.8; margin-bottom: 40px;">Payangan Hospital berkomitmen untuk membangun <strong style="color: var(--secondary);">Zona Integritas</strong> menuju wilayah bebas dari korupsi (*Wilayah Bebas Korupsi* / WBK) dengan menjalankan<span style="color: var(--secondary);"> 6 area perubahan</span> secara konsisten dan berkelanjutan.</p>
-                <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; margin-top: 40px;">
-                    <div style="background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); padding: 20px 32px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.2); text-align: center; min-width: 180px;">
-                        <i class="fas fa-file-contract" style="font-size: 28px; color: var(--secondary); margin-bottom: 12px;"></i>
-                        <div style="font-size: 0.9rem; color: white; font-weight: 500;">Manajemen Perubahan</div>
-                    </div>
-                    <div style="background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); padding: 20px 32px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.2); text-align: center; min-width: 180px;">
-                        <i class="fas fa-hand-holding-heart" style="font-size: 28px; color: var(--secondary); margin-bottom: 12px;"></i>
-                        <div style="font-size: 0.9rem; color: white; font-weight: 500;">Penataan Tatalaksana</div>
-                    </div>
-                    <div style="background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); padding: 20px 32px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.2); text-align: center; min-width: 180px;">
-                        <i class="fas fa-users-cog" style="font-size: 28px; color: var(--secondary); margin-bottom: 12px;"></i>
-                        <div style="font-size: 0.9rem; color: white; font-weight: 500;">Penataan Sistem Manajemen SDM</div>
-                    </div>
-                    <div style="background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); padding: 20px 32px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.2); text-align: center; min-width: 180px;">
-                        <i class="fas fa-eye" style="font-size: 28px; color: var(--secondary); margin-bottom: 12px;"></i>
-                        <div style="font-size: 0.9rem; color: white; font-weight: 500;">Penguatan Akuntabilitas</div>
-                    </div>
-                    <div style="background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); padding: 20px 32px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.2); text-align: center; min-width: 180px;">
-                        <i class="fas fa-gavel" style="font-size: 28px; color: var(--secondary); margin-bottom: 12px;"></i>
-                        <div style="font-size: 0.9rem; color: white; font-weight: 500;">Penguatan Pengawasan</div>
-                    </div>
-                    <div style="background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); padding: 20px 32px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.2); text-align: center; min-width: 180px;">
-                        <i class="fas fa-star" style="font-size: 28px; color: var(--secondary); margin-bottom: 12px;"></i>
-                        <div style="font-size: 0.9rem; color: white; font-weight: 500;">Peningkatan Kualitas Pelayanan Publik</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Penghargaan Direktur -->
-    <section style="background: linear-gradient(180deg, #f8f9fa 0%, white 100%); padding: 80px 0;">
+    <section class="cta-section">
         <div class="container">
-            <div style="text-align: center; margin-bottom: 50px;">
-                <div style="display: inline-flex; align-items: center; gap: 10px; background: rgba(13, 115, 119, 0.1); color: var(--primary); padding: 10px 24px; border-radius: 50px; font-size: 0.8rem; font-weight: 500; margin-bottom: 16px;">
-                    <i class="fas fa-award" style="color: var(--secondary);"></i> PENGHARGAAN
-                </div>
-                <h2 style="font-family: 'Montserrat', sans-serif; font-size: 2.5rem; color: var(--text-dark); margin-bottom: 16px;">Penghargaan untuk Direktur</h2>
-                <p style="font-size: 1rem; color: var(--text-muted); max-width: 600px; margin: 0 auto;">Penghargaan sebagai bentuk apresiasi atas dedikasi dan kepemimpinan</p>
-            </div>
-            <div style="max-width: 600px; margin: 0 auto;">
-                <div style="background: white; border-radius: 24px; box-shadow: 0 20px 60px rgba(0,0,0,0.08); overflow: hidden;">
-                    <div style="background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%); padding: 30px; text-align: center;">
-                        <img src="img/wbk/WBK.jpg" alt="Penghargaan WBK" style="max-width: 100%; height: auto; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
-                    </div>
-                    <div style="padding: 30px; text-align: center;">
-                        <h3 style="font-size: 1.3rem; color: var(--text-dark); margin-bottom: 8px;">Wilayah Bebas dari Korupsi (WBK)</h3>
-                        <p style="font-size: 0.95rem; color: var(--text-muted);">Penganugerahan predikat WBK kepada Pemerintah Kabupaten Gianyar</p>
-                    </div>
-                </div>
-            </div>
+            <h2>Siap Bercerita dengan Kami?</h2>
+            <p>Apakah Anda memiliki pertanyaan tentang layanan kami? Tim kami siap mendengarkan dengan sepenuh hati.</p>
+            <a href="index-new.html#kontak" class="btn btn-white">
+                <i class="fas fa-comments"></i> Hubungi Kami
+            </a>
         </div>
     </section>
 
-    <section class="content-section" id="mutu">
+    <footer class="footer">
         <div class="container">
-            <div style="text-align: center; margin-bottom: 60px;">
-                <div class="section-label">Mutu</div>
-                <h2 style="font-size: 2.5rem; color: var(--text-dark);">Komitmen Mutu Kami</h2>
-                <p style="font-size: 1.1rem; color: var(--text-muted); max-width: 600px; margin: 16px auto 0;">Standar kualitas yang kami terapkan untuk menjaga kepercayaan pasien</p>
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index-new.html" class="logo" style="margin-bottom: 20px; display: inline-flex;">
+                        <img src="logo.png" alt="Payangan Hospital">
+                        <div>
+                            <div class="logo-title">Payangan Hospital</div>
+                            <div class="logo-tagline">Kami Menjaga Kesehatan Anda</div>
+                        </div>
+                    </a>
+                    <p>Penyedia layanan kesehatan berkualitas dengan penuh kasih untuk masyarakat Gianyar dan sekitarnya.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Layanan</h4>
+                    <ul>
+                        <li><a href="index-new.html#layanan"><i class="fas fa-chevron-right"></i> Pelayanan Umum</a></li>
+                        <li><a href="index-new.html#layanan"><i class="fas fa-chevron-right"></i> Spesialis Anak</a></li>
+                        <li><a href="index-new.html#layanan"><i class="fas fa-chevron-right"></i> IGD 24 Jam</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Informasi</h4>
+                    <ul>
+                        <li><a href="about.html"><i class="fas fa-chevron-right"></i> Tentang Kami</a></li>
+                        <li><a href="index-new.html#dokter"><i class="fas fa-chevron-right"></i> Tim Dokter</a></li>
+                        <li><a href="index-new.html#kontak"><i class="fas fa-chevron-right"></i> Kontak</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Kontak Darurat</h4>
+                    <ul>
+                        <li><a href="tel:+62361478901"><i class="fas fa-phone"></i> (0361) 478-901</a></li>
+                        <li><a href="https://wa.me/62361478901"><i class="fab fa-whatsapp"></i> WhatsApp</a></li>
+                    </ul>
+                </div>
             </div>
-            <div class="mutu-grid">
-                <div class="mutu-card animate-on-scroll"><div class="icon"><i class="fas fa-heartbeat"></i></div><h4>AKREDITASI</h4><p>Berusaha memenuhi standar akreditasi rumah sakit dari Kemenkes RI untuk menjamin kualitas pelayanan</p></div>
-                <div class="mutu-card animate-on-scroll"><div class="icon"><i class="fas fa-shield-alt"></i></div><h4>KESELAMATAN</h4><p>Menerapkan protokol keselamatan pasien (patient safety) di seluruh unit pelayanan</p></div>
-                <div class="mutu-card animate-on-scroll"><div class="icon"><i class="fas fa-chart-line"></i></div><h4>PENGENDALIAN MUTU</h4><p>Melakukan evaluasi dan perbaikan mutu secara berkala untuk meningkatkan kualitas layanan</p></div>
-                <div class="mutu-card animate-on-scroll"><div class="icon"><i class="fas fa-user-md"></i></div><h4>PELATIHAN SDM</h4><p>Mengadakan pelatihan dan pengembangan kompetensi tenaga medis secara berkelanjutan</p></div>
-                <div class="mutu-card animate-on-scroll"><div class="icon"><i class="fas fa-tools"></i></div><h4>PERALATAN</h4><p>Melakukan kalibrasi dan pemeliharaan berkala terhadap seluruh peralatan medis</p></div>
-                <div class="mutu-card animate-on-scroll"><div class="icon"><i class="fas fa-comments"></i></div><h4>KEPUASAN PASIEN</h4><p>Mengukur dan meningkatkan kepuasan pasien melalui survei dan umpan balik berkala</p></div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Payangan Hospital. Hak Cipta Dilindungi.</p>
             </div>
-        </div>
-    </section>
-
-    <footer>
-        <div class="footer-grid">
-            <div class="footer-brand"><a href="index.html" class="logo"><img src="logo.png" alt="Payangan Hospital"><span class="logo-text">Payangan Hospital</span></a><p>Rumah Sakit Payangan Hospital menyediakan layanan kesehatan berkualitas dengan tenaga medis profesional dan fasilitas modern.</p></div>
-            <div class="footer-links"><h4>Layanan</h4><ul><li><a href="index.html#layanan">IGD 24 Jam</a></li><li><a href="index.html#layanan">Rawat Inap</a></li><li><a href="index.html#layanan">Konsultasi</a></li><li><a href="index.html#layanan">Laboratorium</a></li></ul></div>
-            <div class="footer-links"><h4>Tentang</h4><ul><li><a href="#sejarah">Sejarah</a></li><li><a href="#visimisi">Visi Misi</a></li><li><a href="#standar">Standar</a></li><li><a href="#maklumat">Maklumat</a></li>
-                        <li><a href="#budaya">Budaya Kerja</a></li></ul></div>
-            <div class="footer-links"><h4>Kontak</h4><ul><li><a href="tel:+623619088087">+62 361 9088087</a></li><li><a href="kontak.html">Jl. Raya Payangan</a></li><li><a href="kontak.html">Gianyar, Bali</a></li></ul></div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2024 Payangan Hospital. All rights reserved.</p>
-            <div class="footer-social"><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fab fa-twitter"></i></a><a href="#"><i class="fab fa-youtube"></i></a></div>
         </div>
     </footer>
 
+    <button class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
     <script>
-        function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('active'); }
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => { anchor.addEventListener('click', function(e) { const href = this.getAttribute('href'); if (href !== '#') { e.preventDefault(); const target = document.querySelector(href); if (target) { setTimeout(() => { target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 100); } } }); });
-        const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); } }); }, { threshold: 0.1 });
-        document.querySelectorAll('.animate-on-scroll').forEach(el => { observer.observe(el); });
+        window.addEventListener('scroll', function() {
+            const btn = document.querySelector('.back-to-top');
+            btn.style.opacity = window.scrollY > 300 ? '1' : '0';
+            btn.style.visibility = window.scrollY > 300 ? 'visible' : 'hidden';
+        });
     </script>
 </body>
 </html>
