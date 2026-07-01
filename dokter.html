@@ -31,7 +31,7 @@
         .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--white); }
         .navbar.scrolled .logo { color: var(--text-dark); }
         .logo img { height: 45px; }
-        .logo-text { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 600; }
+        h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; font-size: 1.4rem; font-weight: 600; }
         .logo-text-sub { font-size: 0.7rem; opacity: 0.8; font-weight: 400; }
         .nav-links { display: flex; gap: 8px; list-style: none; }
         .nav-links > li { position: relative; }
@@ -67,7 +67,7 @@
         .page-header { background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%); padding: 160px 0 100px; text-align: center; color: white; position: relative; overflow: hidden; }
         .page-header::before { content: ''; position: absolute; inset: 0; background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); }
         .page-header > * { position: relative; z-index: 1; }
-        .page-header h1 { font-family: 'Playfair Display', serif; font-size: 3rem; margin-bottom: 16px; }
+        .page-header h1 { font-family: 'Montserrat', sans-serif; font-size: 3rem; margin-bottom: 16px; }
         .page-header p { font-size: 1.2rem; opacity: 0.9; max-width: 600px; margin: 0 auto; }
         .breadcrumb { display: flex; justify-content: center; gap: 12px; margin-top: 24px; font-size: 0.9rem; opacity: 0.8; }
         .breadcrumb a { color: white; text-decoration: none; }
@@ -78,7 +78,7 @@
         .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; max-width: 1000px; margin: 0 auto; }
         .stat-card { background: var(--white); border-radius: 20px; padding: 30px; text-align: center; box-shadow: 0 10px 40px rgba(0,0,0,0.08); }
         .stat-card i { font-size: 32px; color: var(--primary); margin-bottom: 12px; }
-        .stat-card .number { font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 700; color: var(--text-dark); }
+        .stat-card .number { font-family: 'Montserrat', sans-serif; font-size: 2.5rem; font-weight: 700; color: var(--text-dark); }
         .stat-card .label { font-size: 0.9rem; color: var(--text-muted); }
         @media (max-width: 768px) {
             .stats-grid { grid-template-columns: repeat(2, 1fr); }
@@ -87,7 +87,7 @@
         /* Content Section */
         .content-section { padding: 80px 0; }
         .section-label { display: inline-block; background: rgba(13, 115, 119, 0.1); color: var(--primary); padding: 8px 20px; border-radius: 50px; font-size: 0.85rem; font-weight: 500; margin-bottom: 16px; }
-        .section-title { font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--text-dark); margin-bottom: 16px; text-align: center; }
+        .section-title { font-family: 'Montserrat', sans-serif; font-size: 2.5rem; color: var(--text-dark); margin-bottom: 16px; text-align: center; }
         .section-desc { text-align: center; color: var(--text-muted); font-size: 1.1rem; max-width: 600px; margin: 0 auto 50px; }
         
         /* Filter Buttons */
@@ -103,7 +103,7 @@
         .doctor-avatar { width: 80px; height: 80px; border-radius: 50%; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
         .doctor-avatar i { font-size: 32px; color: white; }
         .doctor-avatar img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
-        .doctor-info h3 { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--text-dark); margin-bottom: 4px; }
+        .doctor-info h3 { font-family: 'Montserrat', sans-serif; font-size: 1.2rem; color: var(--text-dark); margin-bottom: 4px; }
         .doctor-info .specialty { color: var(--primary); font-size: 0.9rem; font-weight: 500; margin-bottom: 8px; }
         .doctor-info .spesialisasi { color: var(--text-muted); font-size: 0.85rem; }
         .doctor-body { padding: 24px; }
@@ -123,12 +123,12 @@
         .poli-header { display: flex; align-items: center; gap: 16px; margin-bottom: 40px; }
         .poli-icon { width: 60px; height: 60px; border-radius: 16px; display: flex; align-items: center; justify-content: center; }
         .poli-icon i { color: white; font-size: 24px; }
-        .poli-header h2 { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--text-dark); }
+        .poli-header h2 { font-family: 'Montserrat', sans-serif; font-size: 1.8rem; color: var(--text-dark); }
         .poli-header .badge { background: var(--primary); color: white; font-size: 0.75rem; padding: 4px 12px; border-radius: 50px; }
         
         /* CTA Section */
         .cta-section { background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%); padding: 80px 0; text-align: center; color: white; }
-        .cta-section h2 { font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 16px; }
+        .cta-section h2 { font-family: 'Montserrat', sans-serif; font-size: 2.5rem; margin-bottom: 16px; }
         .cta-section p { font-size: 1.1rem; opacity: 0.9; margin-bottom: 32px; max-width: 500px; margin-left: auto; margin-right: auto; }
         .cta-btn { display: inline-flex; align-items: center; gap: 10px; background: white; color: var(--primary); padding: 16px 36px; border-radius: 50px; font-weight: 600; text-decoration: none; transition: all 0.3s; font-size: 1rem; }
         .cta-btn:hover { transform: scale(1.05); box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
@@ -138,7 +138,7 @@
         .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
         .footer-brand .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; color: white; margin-bottom: 20px; }
         .footer-brand .logo img { height: 45px; }
-        .footer-brand .logo-text { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 600; }
+        .footer-brand h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; font-size: 1.4rem; font-weight: 600; }
         .footer-brand p { font-size: 0.9rem; opacity: 0.7; line-height: 1.7; }
         .footer-links h4 { font-family: 'Montserrat', sans-serif; font-size: 1rem; font-weight: 600; margin-bottom: 20px; }
         .footer-links ul { list-style: none; }
@@ -270,7 +270,7 @@
         }
         
         .modal-name {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Montserrat', sans-serif;
             font-size: 1.6rem;
             color: white;
             margin-bottom: 8px;
