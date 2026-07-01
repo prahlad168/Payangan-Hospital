@@ -406,107 +406,6 @@
         }
         
         /* Profile Button */
-        .profile-btn {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-            color: white;
-            border: none;
-            padding: 10px 18px;
-            border-radius: 50px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            transition: all 0.3s;
-        }
-        
-        .profile-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(13, 115, 119, 0.3);
-        }
-        
-        .profile-btn i {
-            font-size: 0.8rem;
-        }
-        
-        /* Custom Scrollbar for Modal */
-        .modal-content::-webkit-scrollbar {
-            width: 6px;
-        }
-        
-        .modal-content::-webkit-scrollbar-track {
-            background: #f1f1f1;
-        }
-        
-        .modal-content::-webkit-scrollbar-thumb {
-            background: var(--primary);
-            border-radius: 3px;
-        }
-        
-        @media (max-width: 576px) {
-            .modal-info-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .modal-actions {
-                flex-direction: column;
-            }
-            
-            .modal-header {
-                padding: 25px 20px;
-            }
-            
-            .modal-body {
-                padding: 20px;
-            }
-        }
-    </style>
-</head>
-<body>
-    <!-- Navbar -->
-    <nav class="navbar" id="navbar">
-        <div class="container">
-            <a href="index.html" class="logo">
-                <img src="logo.png" alt="Payangan Hospital">
-                <div>
-                    <div class="logo-text">Payangan Hospital</div>
-                    <div class="logo-text-sub">Pavitram Idam Uttamam</div>
-                </div>
-            </a>
-            <ul class="nav-links">
-                <li><a href="index.html#slider">Beranda</a></li>
-                <li>
-                    <a href="about.html">Tentang <i class="fas fa-chevron-down"></i></a>
-                    <div class="mega-menu">
-                        <a href="about.html#sejarah" class="mega-item"><div class="icon"><i class="fas fa-landmark"></i></div><div class="text"><h4>Sejarah</h4><p>Perjalanan Payangan Hospital</p></div></a>
-                        <a href="about.html#visimisi" class="mega-item"><div class="icon"><i class="fas fa-bullseye"></i></div><div class="text"><h4>Visi & Misi</h4><p>Arah dan tujuan kami</p></div></a>
-                        <a href="about.html#standar" class="mega-item"><div class="icon"><i class="fas fa-clipboard-check"></i></div><div class="text"><h4>Standar Pelayanan</h4><p>Standar kualitas kami</p></div></a>
-                        <a href="about.html#maklumat" class="mega-item"><div class="icon"><i class="fas fa-file-contract"></i></div><div class="text"><h4>Maklumat</h4><p>Janji pelayanan</p></div></a>
-                        <a href="about.html#mutu" class="mega-item"><div class="icon"><i class="fas fa-award"></i></div><div class="text"><h4>Mutu</h4><p>Komitmen kualitas</p></div></a>
-                        <a href="about.html#budaya" class="mega-item"><div class="icon"><i class="fas fa-hands-helping"></i></div><div class="text"><h4>Budaya Kerja</h4><p>Nilai-nilai kerja kami</p></div></a>
-                    </div>
-                </li>
-                <li>
-                    <a href="rawat-jalan.html" class="active">Layanan <i class="fas fa-chevron-down"></i></a>
-                    <div class="mega-menu">
-                        <a href="rawat-jalan.html" class="mega-item"><div class="icon"><i class="fas fa-stethoscope"></i></div><div class="text"><h4>Rawat Jalan</h4><p>Konsultasi dokter spesialis</p></div></a>
-                        <a href="rawat-inap.html" class="mega-item"><div class="icon"><i class="fas fa-procedures"></i></div><div class="text"><h4>Rawat Inap</h4><p>Pelayanan inap nyaman</p></div></a>
-                        <a href="igd.html" class="mega-item"><div class="icon"><i class="fas fa-ambulance"></i></div><div class="text"><h4>IGD / UGD</h4><p>Gawat darurat 24 jam</p></div></a>
-                        <a href="dokter.html" class="mega-item"><div class="icon"><i class="fas fa-user-md"></i></div><div class="text"><h4>Daftar Dokter</h4><p>Profil dokter</p></div></a>
-                    </div>
-                </li>
-                <li><a href="dokter.html">Dokter</a></li>
-                <li><a href="ph-update.html">PH Update</a></li>
-                <li><a href="kontak.html">Kontak</a></li>
-                <li><a href="#login" class="nav-cta"><i class="fas fa-sign-in-alt"></i> Login</a></li>
-            </ul>
-            <div class="mobile-toggle" onclick="toggleMenu()">
-                <span></span><span></span><span></span>
-            </div>
-        </div>
-    </nav>
-
     <!-- Mobile Menu -->
     <div class="mobile-menu" id="mobileMenu">
         <ul>
@@ -629,7 +528,6 @@
                         </div>
                     </div>
                     <div class="doctor-footer">
-                        <button class="profile-btn" onclick="openModal('jantung')"><i class="fas fa-user"></i> Lihat Profile</button>
                         <a href="poli-jantung.html" class="doctor-action">Lihat Poli <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
@@ -663,8 +561,6 @@
                         </div>
                     </div>
                     <div class="doctor-footer">
-                        <button class="profile-btn" onclick="openModal('radiologi')"><i class="fas fa-user"></i> Lihat Profile</button>
-									<button class="profile-btn" onclick="openModal('radiologi')"><i class="fas fa-user"></i> Lihat Profile</button>
 									<a href="#" class="doctor-action">Lihat Poli <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
@@ -698,7 +594,6 @@
                         </div>
                     </div>
                     <div class="doctor-footer">
-                        <button class="profile-btn" onclick="openModal('anestesi')"><i class="fas fa-user"></i> Lihat Profile</button>
                         <a href="#" class="doctor-action">Lihat Poli <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
@@ -732,7 +627,6 @@
                         </div>
                     </div>
                     <div class="doctor-footer">
-                        <button class="profile-btn" onclick="openModal('radiologi')"><i class="fas fa-user"></i> Lihat Profile</button>
 
                         <a href="poli-kandungan.html" class="doctor-action">Lihat Poli <i class="fas fa-arrow-right"></i></a>
                     </div>
@@ -767,7 +661,6 @@
                         </div>
                     </div>
                     <div class="doctor-footer">
-                        <button class="profile-btn" onclick="openModal('radiologi')"><i class="fas fa-user"></i> Lihat Profile</button>
 
                         <a href="poli-orthopedic.html" class="doctor-action">Lihat Poli <i class="fas fa-arrow-right"></i></a>
                     </div>
@@ -802,7 +695,6 @@
                         </div>
                     </div>
                     <div class="doctor-footer">
-                        <button class="profile-btn" onclick="openModal('radiologi')"><i class="fas fa-user"></i> Lihat Profile</button>
 
                         <a href="poli-dalam.html" class="doctor-action">Lihat Poli <i class="fas fa-arrow-right"></i></a>
                     </div>
@@ -837,7 +729,6 @@
                         </div>
                     </div>
                     <div class="doctor-footer">
-                        <button class="profile-btn" onclick="openModal('radiologi')"><i class="fas fa-user"></i> Lihat Profile</button>
 
                         <a href="poli-orthopedic.html" class="doctor-action">Lihat Poli <i class="fas fa-arrow-right"></i></a>
                     </div>
@@ -872,7 +763,6 @@
                         </div>
                     </div>
                     <div class="doctor-footer">
-                        <button class="profile-btn" onclick="openModal('radiologi')"><i class="fas fa-user"></i> Lihat Profile</button>
 
                         <a href="poli-kandungan.html" class="doctor-action">Lihat Poli <i class="fas fa-arrow-right"></i></a>
                     </div>
@@ -907,7 +797,6 @@
                         </div>
                     </div>
                     <div class="doctor-footer">
-                        <button class="profile-btn" onclick="openModal('radiologi')"><i class="fas fa-user"></i> Lihat Profile</button>
 
                         <a href="poli-bedah.html" class="doctor-action">Lihat Poli <i class="fas fa-arrow-right"></i></a>
                     </div>
@@ -942,7 +831,6 @@
                         </div>
                     </div>
                     <div class="doctor-footer">
-                        <button class="profile-btn" onclick="openModal('anestesi')"><i class="fas fa-user"></i> Lihat Profile</button>
                         <a href="#" class="doctor-action">Lihat Poli <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
@@ -976,7 +864,6 @@
                         </div>
                     </div>
                     <div class="doctor-footer">
-                        <button class="profile-btn" onclick="openModal('radiologi')"><i class="fas fa-user"></i> Lihat Profile</button>
 
                         <a href="poli-bedah.html" class="doctor-action">Lihat Poli <i class="fas fa-arrow-right"></i></a>
                     </div>
@@ -1011,8 +898,6 @@
                         </div>
                     </div>
                     <div class="doctor-footer">
-                        <button class="profile-btn" onclick="openModal('radiologi')"><i class="fas fa-user"></i> Lihat Profile</button>
-									<button class="profile-btn" onclick="openModal('radiologi')"><i class="fas fa-user"></i> Lihat Profile</button>
 									<a href="#" class="doctor-action">Lihat Poli <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
@@ -1046,7 +931,6 @@
                         </div>
                     </div>
                     <div class="doctor-footer">
-                        <button class="profile-btn" onclick="openModal('radiologi')"><i class="fas fa-user"></i> Lihat Profile</button>
 
                         <a href="poli-saraf.html" class="doctor-action">Lihat Poli <i class="fas fa-arrow-right"></i></a>
                     </div>
@@ -1081,7 +965,6 @@
                         </div>
                     </div>
                     <div class="doctor-footer">
-                        <button class="profile-btn" onclick="openModal('radiologi')"><i class="fas fa-user"></i> Lihat Profile</button>
 
                         <a href="poli-anak.html" class="doctor-action">Lihat Poli <i class="fas fa-arrow-right"></i></a>
                     </div>
@@ -1116,8 +999,6 @@
                         </div>
                     </div>
                     <div class="doctor-footer">
-                        <button class="profile-btn" onclick="openModal('radiologi')"><i class="fas fa-user"></i> Lihat Profile</button>
-									<button class="profile-btn" onclick="openModal('radiologi')"><i class="fas fa-user"></i> Lihat Profile</button>
 									<a href="#" class="doctor-action">Lihat Poli <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
@@ -1151,7 +1032,6 @@
                         </div>
                     </div>
                     <div class="doctor-footer">
-                        <button class="profile-btn" onclick="openModal('anestesi')"><i class="fas fa-user"></i> Lihat Profile</button>
                         <a href="#" class="doctor-action">Lihat Poli <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
@@ -1185,7 +1065,6 @@
                         </div>
                     </div>
                     <div class="doctor-footer">
-                        <button class="profile-btn" onclick="openModal('radiologi')"><i class="fas fa-user"></i> Lihat Profile</button>
 
                         <a href="poli-saraf.html" class="doctor-action">Lihat Poli <i class="fas fa-arrow-right"></i></a>
                     </div>
@@ -1220,7 +1099,6 @@
                         </div>
                     </div>
                     <div class="doctor-footer">
-                        <button class="profile-btn" onclick="openModal('radiologi')"><i class="fas fa-user"></i> Lihat Profile</button>
 
                         <a href="poli-anak.html" class="doctor-action">Lihat Poli <i class="fas fa-arrow-right"></i></a>
                     </div>
@@ -1255,7 +1133,6 @@
                         </div>
                     </div>
                     <div class="doctor-footer">
-                        <button class="profile-btn" onclick="openModal('radiologi')"><i class="fas fa-user"></i> Lihat Profile</button>
 
                         <a href="poli-kandungan.html" class="doctor-action">Lihat Poli <i class="fas fa-arrow-right"></i></a>
                     </div>
@@ -1290,7 +1167,6 @@
                         </div>
                     </div>
                     <div class="doctor-footer">
-                        <button class="profile-btn" onclick="openModal('radiologi')"><i class="fas fa-user"></i> Lihat Profile</button>
 
                         <a href="poli-dalam.html" class="doctor-action">Lihat Poli <i class="fas fa-arrow-right"></i></a>
                     </div>
@@ -1325,8 +1201,6 @@
                         </div>
                     </div>
                     <div class="doctor-footer">
-                        <button class="profile-btn" onclick="openModal('radiologi')"><i class="fas fa-user"></i> Lihat Profile</button>
-									<button class="profile-btn" onclick="openModal('radiologi')"><i class="fas fa-user"></i> Lihat Profile</button>
 									<a href="#" class="doctor-action">Lihat Poli <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
@@ -1360,7 +1234,6 @@
                         </div>
                     </div>
                     <div class="doctor-footer">
-                        <button class="profile-btn" onclick="openModal('radiologi')"><i class="fas fa-user"></i> Lihat Profile</button>
 
                         <a href="poli-dalam.html" class="doctor-action">Lihat Poli <i class="fas fa-arrow-right"></i></a>
                     </div>
