@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Firebase Connection Test - Payangan Hospital</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; }
+        .status-dot { animation: pulse 1s infinite; }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+        .checking { animation: spin 1s linear infinite; }
+        @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-blue-50 to-teal-50 min-h-screen flex items-center justify-center p-6">
+    <div class="bg-white rounded-2xl shadow-2xl p-8 max-w-md w-full text-center">
+        <h1 class="text-2xl font-bold text-gray-800 mb-6">
+            <i class="fas fa-satellite-dish text-blue-600 mr-2"></i>
+            Firebase Connection Test
+        </h1>
+        
+        <!-- Status Indicator -->
+        <div id="status-container" class="mb-6">
+            <div id="loading" class="text-center">
+                <i class="fas fa-circle-notch fa-spin text-5xl text-blue-500 mb-4 checking"></i>
+                <p class="text-gray-600">Checking connection...</p>
+            </div>
+        </div>
+        
+        <!-- Test Results -->
+        <div id="results" class="hidden">
+            <!-- Connection Status -->
+            <div id="connection-status" class="mb-6 p-4 rounded-xl">
+                <!-- Filled by JS -->
+            </div>
+            
+            <!-- Database Info -->
+            <div class="bg-gray-50 rounded-xl p-4 text-left">
+                <h3 class="font-bold text-gray-700 mb-2">
+                    <i class="fas fa-database mr-2"></i>Database Info
+                </h3>
+                <div class="space-y-2 text-sm">
+                    <div class="flex justify-between">
+                        <span class="text-gray-500">Project ID:</span>
+                        <span class="font-mono text-gray-800" id="project-id">-</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="text-gray-500">Database URL:</span>
+                        <span class="font-mono text-gray-800 text-xs" id="db-url">-</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="text-gray-500">Comments Count:</span>
+                        <span class="font-bold text-blue-600" id="comments-count">-</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Test Button -->
+            <div class="mt-6">
+                <button onclick="sendTestComment()" id="test-btn"
+                        class="bg-blue-600 text-white px-6 py-3 rounded-xl font-bold hover:bg-blue-700 transition">
+                    <i class="fas fa-paper-plane mr-2"></i>Send Test Comment
+                </button>
+                <p class="text-xs text-gray-400 mt-2">Akan mengirim komentar test ke Firebase</p>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <div class="mt-6 pt-4 border-t">
+            <p class="text-xs text-gray-400">
+                Payangan Hospital - Firebase Realtime Database
+            </p>
+        </div>
+    </div>
+    
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+    
+    <script>
+        // Firebase Configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyD3WSc9MU0AlyWIjj_5sgP0IB1wgGp1tM4",
+            authDomain: "map-5e6b7.firebaseapp.com",
+            databaseURL: "https://map-5e6b7-default-rtdb.asia-southeast1.firebasedatabase.app",
+            projectId: "map-5e6b7",
+            storageBucket: "map-5e6b7.firebasestorage.app",
+            messagingSenderId: "522417200090",
+            appId: "1:522417200090:web:4ec1c792593960ffacbee3",
+            measurementId: "G-B91Z5NG2FL"
+        };
+        
+        // Initialize
+        let app, database;
+        let connectionSuccess = false;
+        
+        // Test Connection
+        async function testConnection() {
+            try {
+                // Initialize Firebase
+                app = firebase.initializeApp(firebaseConfig);
+                database = firebase.database();
+                
+                // Get project info
+                document.getElementById('project-id').textContent = firebaseConfig.projectId;
+                document.getElementById('db-url').textContent = 'map-5e6b7...';
+                
+                // Test read from database
+                const snapshot = await database.ref('test').once('value');
+                
+                // Connection successful!
+                connectionSuccess = true;
+                showSuccess();
+                
+                // Count existing comments
+                const commentsSnapshot = await database.ref('komentar').once('value');
+                const count = commentsSnapshot.exists() ? Object.keys(commentsSnapshot.val()).length : 0;
+                document.getElementById('comments-count').textContent = count + ' comments';
+                
+            } catch (error) {
+                connectionSuccess = false;
+                showError(error);
+            }
+        }
+        
+        function showSuccess() {
+            document.getElementById('loading').style.display = 'none';
+            document.getElementById('results').classList.remove('hidden');
+            
+            document.getElementById('connection-status').className = 'mb-6 p-4 rounded-xl bg-green-50 border-2 border-green-200';
+            document.getElementById('connection-status').innerHTML = `
+                <div class="flex items-center justify-center gap-3">
+                    <div class="w-4 h-4 bg-green-500 rounded-full status-dot"></div>
+                    <span class="text-green-700 font-bold text-lg">Koneksi Berhasil!</span>
+                </div>
+                <p class="text-green-600 text-sm mt-2">Firebase Realtime Database terhubung</p>
+            `;
+        }
+        
+        function showError(error) {
+            document.getElementById('loading').style.display = 'none';
+            document.getElementById('results').classList.remove('hidden');
+            
+            document.getElementById('connection-status').className = 'mb-6 p-4 rounded-xl bg-red-50 border-2 border-red-200';
+            
+            let errorMsg = 'Connection failed';
+            if (error.code === 'PERMISSION_DENIED') {
+                errorMsg = 'Permission Denied - Pastikan Rules sudah di-set ke public';
+            } else if (error.code === 'NETWORK_ERROR') {
+                errorMsg = 'Network Error - Cek koneksi internet';
+            } else if (error.message) {
+                errorMsg = error.message;
+            }
+            
+            document.getElementById('connection-status').innerHTML = `
+                <div class="flex items-center justify-center gap-3">
+                    <div class="w-4 h-4 bg-red-500 rounded-full"></div>
+                    <span class="text-red-700 font-bold text-lg">Koneksi Gagal!</span>
+                </div>
+                <p class="text-red-600 text-sm mt-2">${errorMsg}</p>
+                <p class="text-red-400 text-xs mt-2">Code: ${error.code || 'unknown'}</p>
+            `;
+            
+            document.getElementById('comments-count').textContent = 'Error';
+        }
+        
+        // Send test comment
+        window.sendTestComment = async function() {
+            if (!connectionSuccess) {
+                alert('Koneksi belum berhasil!');
+                return;
+            }
+            
+            const btn = document.getElementById('test-btn');
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Mengirim...';
+            
+            try {
+                const ref = database.ref('komentar').push();
+                await ref.set({
+                    nama: 'OpenHands Test Bot',
+                    komentar: 'Test comment dari OpenHands - ' + new Date().toLocaleString('id-ID'),
+                    timestamp: firebase.database.ServerValue.TIMESTAMP,
+                    type: 'test'
+                });
+                
+                btn.innerHTML = '<i class="fas fa-check mr-2"></i> Terkirim!';
+                btn.className = 'bg-green-600 text-white px-6 py-3 rounded-xl font-bold';
+                
+                // Update count
+                const snapshot = await database.ref('komentar').once('value');
+                const count = snapshot.exists() ? Object.keys(snapshot.val()).length : 0;
+                document.getElementById('comments-count').textContent = count + ' comments';
+                
+                setTimeout(() => {
+                    btn.disabled = false;
+                    btn.innerHTML = '<i class="fas fa-paper-plane mr-2"></i>Send Test Comment';
+                    btn.className = 'bg-blue-600 text-white px-6 py-3 rounded-xl font-bold hover:bg-blue-700 transition';
+                }, 2000);
+                
+            } catch (error) {
+                btn.disabled = false;
+                btn.innerHTML = '<i class="fas fa-exclamation-triangle mr-2"></i>Error - Coba Lagi';
+                alert('Error: ' + error.message);
+            }
+        }
+        
+        // Run test on load
+        testConnection();
+    </script>
+</body>
+</html>
