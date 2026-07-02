@@ -32,6 +32,11 @@ if (isset($_SESSION['maha_lakshmi_auth']) && $_SESSION['maha_lakshmi_auth'] === 
         exit;
     }
 }
+
+// Check if just logged out
+if (isset($_GET['logout'])) {
+    $error = "Anda sudah logout. Silakan login kembali.";
+}
 ?>
 <!DOCTYPE html>
 <html lang="id">
