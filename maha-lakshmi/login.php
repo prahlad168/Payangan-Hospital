@@ -2,7 +2,7 @@
 session_start();
 
 // Simple password protection
-$PASSWORD = "mahalakshmi2024"; // Change this password
+$PASSWORD = "Lilasravana168$"; // Change this password
 $USERNAME = "admin";
 
 $error = "";
