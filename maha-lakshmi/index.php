@@ -225,6 +225,20 @@ if (file_exists($companiesFile)) {
         }
         .kasir-btn:hover { transform: translateY(-2px); box-shadow: 0 5px 20px rgba(107, 33, 168, 0.4); }
         
+        .ceo-btn {
+            background: linear-gradient(135deg, #059669 0%, #10B981 100%);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.3s;
+            margin-left: 10px;
+        }
+        .ceo-btn:hover { transform: translateY(-2px); box-shadow: 0 5px 20px rgba(5, 150, 105, 0.4); }
+        
         /* Modal */
         .modal {
             display: none;
@@ -334,6 +348,56 @@ if (file_exists($companiesFile)) {
         </div>
     </div>
     
+    <!-- CEO Report Modal -->
+    <div id="ceoModal" class="modal">
+        <div class="modal-content" style="max-width: 700px;">
+            <button class="btn-close" onclick="closeCeoReport()">&times;</button>
+            <h2>👑 CEO Report - Laporan Executive</h2>
+            <div id="ceoReportContent" style="color: #E5E5E5;">
+                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; margin: 20px 0;">
+                    <div style="background: rgba(255,215,0,0.1); padding: 20px; border-radius: 12px; text-align: center;">
+                        <div style="font-size: 32px; color: #FFD700;">💰</div>
+                        <div style="font-size: 24px; font-weight: bold; color: #FFD700;" id="ceoRevenue">Rp 0</div>
+                        <div style="font-size: 12px; color: #888;">Total Revenue</div>
+                    </div>
+                    <div style="background: rgba(16,185,129,0.1); padding: 20px; border-radius: 12px; text-align: center;">
+                        <div style="font-size: 32px;">✅</div>
+                        <div style="font-size: 24px; font-weight: bold; color: #10B981;" id="ceoActive">3</div>
+                        <div style="font-size: 12px; color: #888;">Perusahaan Aktif</div>
+                    </div>
+                    <div style="background: rgba(245,158,11,0.1); padding: 20px; border-radius: 12px; text-align: center;">
+                        <div style="font-size: 32px;">⚡</div>
+                        <div style="font-size: 24px; font-weight: bold; color: #F59E0B;" id="ceoReady">3</div>
+                        <div style="font-size: 12px; color: #888;">Ready</div>
+                    </div>
+                    <div style="background: rgba(107,33,168,0.2); padding: 20px; border-radius: 12px; text-align: center;">
+                        <div style="font-size: 32px;">⏳</div>
+                        <div style="font-size: 24px; font-weight: bold; color: #A855F7;" id="ceoPending">4</div>
+                        <div style="font-size: 12px; color: #888;">Pending</div>
+                    </div>
+                </div>
+                
+                <h3 style="color: #FFD700; margin: 20px 0 10px;">📋 Detail Per Perusahaan</h3>
+                <div id="ceoCompanyList" style="max-height: 300px; overflow-y: auto;">
+                    <!-- Filled by JavaScript -->
+                </div>
+                
+                <div style="margin-top: 20px; padding: 15px; background: rgba(255,255,255,0.05); border-radius: 10px;">
+                    <h4 style="color: #FFD700; margin-bottom: 10px;">📊 Progress Keseluruhan</h4>
+                    <div style="display: flex; align-items: center; gap: 15px;">
+                        <div style="flex: 1; height: 12px; background: rgba(255,255,255,0.1); border-radius: 6px; overflow: hidden;">
+                            <div id="ceoProgressBar" style="height: 100%; background: linear-gradient(90deg, #B8860B, #FFD700); width: 0%; transition: width 1s;"></div>
+                        </div>
+                        <span id="ceoProgressText" style="color: #FFD700; font-weight: bold;">0%</span>
+                    </div>
+                    <div style="margin-top: 10px; font-size: 12px; color: #888;">
+                        Target: Rp 1.000.000.000/bulan dari 10 Perusahaan
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
     <header class="header">
         <div class="header-content">
             <div class="logo">
@@ -385,6 +449,7 @@ if (file_exists($companiesFile)) {
                 <h2 class="section-title">Daftar Perusahaan</h2>
                 <div>
                     <button class="kasir-btn" onclick="openKasirModal()">💰 Kasir</button>
+                    <button class="ceo-btn" onclick="openCeoReport()">👑 CEO Report</button>
                     <button class="btn-refresh" onclick="refreshData()" style="margin-left: 10px;">🔄 Refresh</button>
                     <div class="refresh-info">Auto-update setiap transaksi</div>
                 </div>
@@ -499,6 +564,66 @@ if (file_exists($companiesFile)) {
         function closeKasirModal() {
             document.getElementById('kasirModal').classList.remove('active');
             document.getElementById('kasirForm').reset();
+        }
+        
+        // Open CEO Report Modal
+        function openCeoReport() {
+            document.getElementById('ceoModal').classList.add('active');
+            loadCeoReport();
+        }
+        
+        // Close CEO Report Modal
+        function closeCeoReport() {
+            document.getElementById('ceoModal').classList.remove('active');
+        }
+        
+        // Load CEO Report Data
+        async function loadCeoReport() {
+            try {
+                const response = await fetch('api/kasir.php?action=companies');
+                const result = await response.json();
+                
+                if (result.success) {
+                    const companies = result.data;
+                    const summary = result.summary;
+                    const totalTarget = companies.length * 100000000;
+                    const totalRevenue = summary.totalRevenue;
+                    const progressPercent = totalRevenue > 0 ? Math.min(100, (totalRevenue / totalTarget) * 100) : 0;
+                    
+                    // Update summary cards
+                    document.getElementById('ceoRevenue').textContent = formatCurrency(totalRevenue);
+                    document.getElementById('ceoActive').textContent = summary.active;
+                    document.getElementById('ceoReady').textContent = summary.ready;
+                    document.getElementById('ceoPending').textContent = summary.pending;
+                    
+                    // Update progress bar
+                    document.getElementById('ceoProgressBar').style.width = progressPercent + '%';
+                    document.getElementById('ceoProgressText').textContent = progressPercent.toFixed(1) + '%';
+                    
+                    // Generate company list
+                    let companyListHTML = '';
+                    companies.forEach(c => {
+                        const statusColor = c.status === 'active' ? '#10B981' : (c.status === 'ready' ? '#F59E0B' : '#A855F7');
+                        const statusEmoji = c.status === 'active' ? '✅' : (c.status === 'ready' ? '⚡' : '⏳');
+                        
+                        companyListHTML += `
+                            <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px; background: rgba(255,255,255,0.03); border-radius: 8px; margin-bottom: 8px;">
+                                <div>
+                                    <div style="font-weight: 600;">${statusEmoji} ${c.name}</div>
+                                    <div style="font-size: 12px; color: #888;">${c.type}</div>
+                                </div>
+                                <div style="text-align: right;">
+                                    <div style="color: #FFD700; font-weight: 600;">${formatCurrency(c.revenue)}</div>
+                                    <div style="font-size: 11px; color: ${statusColor};">${c.status.toUpperCase()} | ${c.progress}%</div>
+                                </div>
+                            </div>
+                        `;
+                    });
+                    document.getElementById('ceoCompanyList').innerHTML = companyListHTML;
+                }
+            } catch (err) {
+                console.error('Failed to load CEO report:', err);
+            }
         }
         
         // Submit Kasir Form
