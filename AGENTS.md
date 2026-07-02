@@ -1,12 +1,12 @@
 # Payangan Hospital - Agent Workspace
 
-## 📋 Overview
+## рҹ“Ӣ Overview
 
 Repository ini berisi website RS Payangan Hospital dan konfigurasi automasi untuk deployment otomatis.
 
 ---
 
-## 🏥 Project Info
+## рҹҸҘ Project Info
 
 | Field | Value |
 |-------|-------|
@@ -18,24 +18,24 @@ Repository ini berisi website RS Payangan Hospital dan konfigurasi automasi untu
 
 ---
 
-## 📁 Project Structure
+## рҹ“Ғ Project Structure
 
 ```
-├── index.html              # Homepage
-├── about.html              # About page
-├── dokter.html             # Doctor list
-├── igd.html                # IGD/Emergency
-├── kontak.html             # Contact page
-├── progress/
-│   └── index.html         # Progress dashboard
-├── img/                    # Images folder
-├── webhook.php             # Auto-deploy webhook script
-└── ... (other hospital pages)
+в”ңв”Җв”Җ index.html              # Homepage
+в”ңв”Җв”Җ about.html              # About page
+в”ңв”Җв”Җ dokter.html             # Doctor list
+в”ңв”Җв”Җ igd.html                # IGD/Emergency
+в”ңв”Җв”Җ kontak.html             # Contact page
+в”ңв”Җв”Җ progress/
+в”Ӯ   в””в”Җв”Җ index.html         # Progress dashboard
+в”ңв”Җв”Җ img/                    # Images folder
+в”ңв”Җв”Җ webhook.php             # Auto-deploy webhook script
+в””в”Җв”Җ ... (other hospital pages)
 ```
 
 ---
 
-## 🤖 Available Skills
+## рҹӨ– Available Skills
 
 ### 1. Webhook Auto-Deploy
 **File:** `.agents/skills/webhook-auto-deploy.md`
@@ -43,9 +43,9 @@ Repository ini berisi website RS Payangan Hospital dan konfigurasi automasi untu
 Setup webhook untuk auto-deploy dari GitHub ke hosting Idwebhost.
 
 **Yang sudah configured:**
-- ✅ Webhook URL: `https://payanganhospital.gianyarkab.go.id/webhook.php`
-- ✅ GitHub webhook active
-- ✅ Auto-deploy working
+- вң… Webhook URL: `https://payanganhospital.gianyarkab.go.id/webhook.php`
+- вң… GitHub webhook active
+- вң… Auto-deploy working
 
 ### 2. OpenHands Daily Report
 **File:** `.agents/skills/openhands-daily-report.md`
@@ -53,35 +53,35 @@ Setup webhook untuk auto-deploy dari GitHub ke hosting Idwebhost.
 Automation untuk laporan progress harian otomatis jam 6 pagi WIB.
 
 **Yang sudah configured:**
-- ✅ Automation ID: `2e4d4f38-1c7c-4437-b25b-7d52f35d0ab7`
-- ✅ Schedule: `0 6 * * *` (Asia/Jakarta)
-- ✅ Output: `progress/daily-report-YYYY-MM-DD.md`
+- вң… Automation ID: `2e4d4f38-1c7c-4437-b25b-7d52f35d0ab7`
+- вң… Schedule: `0 6 * * *` (Asia/Jakarta)
+- вң… Output: `progress/daily-report-YYYY-MM-DD.md`
 
 ---
 
-## 🚀 Deployment Flow
+## рҹҡҖ Deployment Flow
 
 ```
-┌─────────────────┐
-│  GitHub Push    │
-└────────┬────────┘
-         │
-         ▼
-┌─────────────────┐
-│  GitHub         │
-│  Webhook        │
-└────────┬────────┘
-         │
-         ▼
-┌─────────────────┐     ┌──────────────────┐
-│  Idwebhost      │────▶│  Website Updated │
-│  webhook.php    │     │  ✅ Success      │
-└─────────────────┘     └──────────────────┘
+в”Ңв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”җ
+в”Ӯ  GitHub Push    в”Ӯ
+в””в”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”¬в”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”ҳ
+         в”Ӯ
+         в–ј
+в”Ңв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”җ
+в”Ӯ  GitHub         в”Ӯ
+в”Ӯ  Webhook        в”Ӯ
+в””в”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”¬в”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”ҳ
+         в”Ӯ
+         в–ј
+в”Ңв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”җ     в”Ңв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”җ
+в”Ӯ  Idwebhost      в”Ӯв”Җв”Җв”Җв”Җв–¶в”Ӯ  Website Updated в”Ӯ
+в”Ӯ  webhook.php    в”Ӯ     в”Ӯ  вң… Success      в”Ӯ
+в””в”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”ҳ     в””в”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”ҳ
 ```
 
 ---
 
-## 📅 Automation Schedule
+## рҹ“… Automation Schedule
 
 | Task | Schedule | Output |
 |------|----------|--------|
@@ -90,7 +90,7 @@ Automation untuk laporan progress harian otomatis jam 6 pagi WIB.
 
 ---
 
-## 🔧 Quick Commands
+## рҹ”§ Quick Commands
 
 ### Test Webhook:
 ```
@@ -111,7 +111,7 @@ curl "https://app.all-hands.dev/api/automation/v1/2e4d4f38-1c7c-4437-b25b-7d52f3
 
 ---
 
-## 🔍 Visual Analysis Skill
+## рҹ”Қ Visual Analysis Skill
 
 **File:** `.agents/skills/visual-analysis/`
 
@@ -131,7 +131,24 @@ Skill untuk analisis gambar, screenshot, dan verifikasi tampilan website.
 
 ---
 
-## 📝 For Future Development
+## 🔧 Image Fixing Skill
+
+**File:** `.agents/skills/image-fixing/`
+
+Skill untuk memperbaiki masalah gambar di website (blur, stretch, kecil, tidak muncul).
+
+**Trigger phrases:**
+- "perbaiki gambar", "fix image", "gambar blurry"
+- "gambar pecah", "gambar kecil", "image quality"
+
+**Common Fixes:**
+- Replace gambar kecil dengan versi lebih besar
+- Adjust CSS background-size (cover/contain)
+- Fix image path/case sensitivity
+- Optimize image size
+
+
+## рҹ“қ For Future Development
 
 ### Adding New Pages:
 1. Create HTML file di repository
@@ -148,7 +165,7 @@ Skill untuk analisis gambar, screenshot, dan verifikasi tampilan website.
 
 ---
 
-## 🔒 Security Notes
+## рҹ”’ Security Notes
 
 - Webhook secret: Tidak dipakai (kosong) untuk simplicity
 - Untuk production: Tambahkan secret verification
@@ -156,22 +173,22 @@ Skill untuk analisis gambar, screenshot, dan verifikasi tampilan website.
 
 ---
 
-## 📞 Contact
+## рҹ“һ Contact
 
 - **GitHub Owner:** prahlad168
 - **Domain Admin:** Team Idwebhost
 
 ---
 
-## ✅ Status
+## вң… Status
 
 | Component | Status |
 |-----------|--------|
-| GitHub Repository | ✅ Active |
-| Hosting Connected | ✅ Connected |
-| Webhook | ✅ Working |
-| Daily Automation | ✅ Active |
-| Auto-Deploy | ✅ Ready |
+| GitHub Repository | вң… Active |
+| Hosting Connected | вң… Connected |
+| Webhook | вң… Working |
+| Daily Automation | вң… Active |
+| Auto-Deploy | вң… Ready |
 
 ---
 
