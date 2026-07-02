@@ -4,1432 +4,717 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Progress Report - Payangan Hospital</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary: #0d7377;
-            --primary-dark: #095456;
-            --primary-light: #14919b;
-            --secondary: #f4c430;
-            --accent: #e85d04;
-            --bg-light: #f8fafc;
-            --bg-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            --text-dark: #1a1a2e;
-            --text-muted: #64748b;
-            --white: #ffffff;
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
             --success: #10b981;
             --warning: #f59e0b;
             --danger: #ef4444;
+            --gray-50: #f9fafb;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-300: #d1d5db;
+            --gray-600: #4b5563;
+            --gray-700: #374151;
+            --gray-800: #1f2937;
+            --gray-900: #111827;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
         body {
-            font-family: 'Inter', sans-serif;
-            background: var(--bg-light);
-            color: var(--text-dark);
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 2rem;
             line-height: 1.6;
-            overflow-x: hidden;
         }
-
-        .bg-animation {
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            z-index: -1;
-            overflow: hidden;
-        }
-
-        .bg-animation::before {
-            content: '';
-            position: absolute;
-            width: 200%; height: 200%;
-            top: -50%; left: -50%;
-            background: 
-                radial-gradient(circle at 20% 80%, rgba(13, 115, 119, 0.08) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(118, 75, 162, 0.08) 0%, transparent 50%),
-                radial-gradient(circle at 40% 40%, rgba(244, 196, 48, 0.05) 0%, transparent 40%);
-            animation: bgMove 20s ease-in-out infinite;
-        }
-
-        @keyframes bgMove {
-            0%, 100% { transform: translate(0, 0) rotate(0deg); }
-            33% { transform: translate(2%, 2%) rotate(1deg); }
-            66% { transform: translate(-1%, 1%) rotate(-1deg); }
-        }
-
-        .header {
-            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 50%, #764ba2 100%);
-            color: white;
-            padding: 100px 20px 80px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .header::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-        }
-
-        .header-content {
-            position: relative;
-            z-index: 1;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .header-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: rgba(255,255,255,0.15);
-            backdrop-filter: blur(10px);
-            padding: 8px 20px;
-            border-radius: 50px;
-            font-size: 0.9rem;
-            margin-bottom: 20px;
-            border: 1px solid rgba(255,255,255,0.2);
-        }
-
-        .header h1 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 3.5rem;
-            font-weight: 700;
-            margin-bottom: 15px;
-            letter-spacing: -1px;
-            background: linear-gradient(135deg, #ffffff 0%, #e0e7ff 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .header .subtitle {
-            font-size: 1.3rem;
-            opacity: 0.9;
-            font-weight: 300;
-            margin-bottom: 30px;
-        }
-
-        .stats-floating {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-            margin-top: 40px;
-        }
-
-        .stat-float {
-            background: rgba(255,255,255,0.1);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255,255,255,0.2);
-            padding: 20px 30px;
-            border-radius: 20px;
-            text-align: center;
-            min-width: 140px;
-            transition: all 0.3s ease;
-        }
-
-        .stat-float:hover {
-            transform: translateY(-5px);
-            background: rgba(255,255,255,0.2);
-        }
-
-        .stat-float .number {
-            font-size: 2.5rem;
-            font-weight: 800;
-            font-family: 'Space Grotesk', sans-serif;
-        }
-
-        .stat-float .label {
-            font-size: 0.85rem;
-            opacity: 0.8;
-            margin-top: 5px;
-        }
-
-        .progress-hero {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 60px;
-            margin-top: 60px;
-            flex-wrap: wrap;
-        }
-
-        .progress-circle-wrap {
-            position: relative;
-            width: 220px;
-            height: 220px;
-        }
-
-        .progress-circle-wrap svg {
-            width: 100%;
-            height: 100%;
-            transform: rotate(-90deg);
-        }
-
-        .progress-circle-wrap circle {
-            fill: none;
-            stroke-width: 12;
-            stroke-linecap: round;
-        }
-
-        .progress-circle-wrap .bg { stroke: rgba(255,255,255,0.1); }
-
-        .progress-circle-wrap .progress {
-            stroke: url(#progressGradient);
-            stroke-dasharray: 565.48;
-            stroke-dashoffset: 169.64;
-            filter: drop-shadow(0 0 10px rgba(244, 196, 48, 0.5));
-            animation: progressPulse 3s ease-in-out infinite;
-        }
-
-        @keyframes progressPulse {
-            0%, 100% { filter: drop-shadow(0 0 10px rgba(244, 196, 48, 0.3)); }
-            50% { filter: drop-shadow(0 0 20px rgba(244, 196, 48, 0.6)); }
-        }
-
-        .progress-circle-wrap .percentage {
-            position: absolute;
-            top: 50%; left: 50%;
-            transform: translate(-50%, -50%);
-            text-align: center;
-        }
-
-        .progress-circle-wrap .percentage .num {
-            font-size: 3.5rem;
-            font-weight: 800;
-            font-family: 'Space Grotesk', sans-serif;
-        }
-
-        .progress-circle-wrap .percentage .text {
-            font-size: 0.9rem;
-            opacity: 0.8;
-        }
-
-        .recent-activity {
-            background: rgba(255,255,255,0.05);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 24px;
-            padding: 30px;
-            max-width: 500px;
-            width: 100%;
-        }
-
-        .recent-activity h3 {
-            font-size: 1rem;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .activity-list {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            max-height: 300px;
-            overflow-y: auto;
-        }
-
-        .activity-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 12px 16px;
-            background: rgba(255,255,255,0.05);
-            border-radius: 12px;
-            transition: all 0.3s ease;
-        }
-
-        .activity-item:hover {
-            background: rgba(255,255,255,0.1);
-            transform: translateX(5px);
-        }
-
-        .activity-item .icon {
-            width: 40px;
-            height: 40px;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1rem;
-            flex-shrink: 0;
-        }
-
-        .activity-item .icon.robot { background: linear-gradient(135deg, #667eea, #764ba2); }
-        .activity-item .icon.design { background: linear-gradient(135deg, #f59e0b, #ef4444); }
-        .activity-item .icon.doc { background: linear-gradient(135deg, #10b981, #059669); }
-        .activity-item .icon.progress { background: linear-gradient(135deg, #0d7377, #14919b); }
-        .activity-item .icon.ui { background: linear-gradient(135deg, #ec4899, #8b5cf6); }
-
-        .activity-item .content { flex: 1; min-width: 0; }
-
-        .activity-item .message {
-            font-size: 0.9rem;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-
-        .activity-item .time {
-            font-size: 0.75rem;
-            opacity: 0.6;
-            margin-top: 2px;
-        }
-
-        .nav-tabs {
-            background: rgba(255,255,255,0.95);
-            backdrop-filter: blur(20px);
-            box-shadow: 0 4px 30px rgba(0,0,0,0.05);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            border-bottom: 1px solid rgba(0,0,0,0.05);
-        }
-
-        .nav-tabs ul {
-            display: flex;
-            justify-content: center;
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            flex-wrap: wrap;
-        }
-
-        .nav-tabs li {
-            padding: 20px 30px;
-            cursor: pointer;
-            font-weight: 500;
-            color: var(--text-muted);
-            border-bottom: 3px solid transparent;
-            transition: all 0.3s ease;
-        }
-
-        .nav-tabs li:hover { color: var(--primary); }
-        .nav-tabs li.active { color: var(--primary); border-bottom-color: var(--primary); }
-        .nav-tabs li i { margin-right: 8px; }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 50px 20px;
         }
 
-        .section { display: none; animation: fadeInUp 0.6s ease; }
-        .section.active { display: block; }
-
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .section-title {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--text-dark);
-            margin-bottom: 40px;
+        .header {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
             text-align: center;
         }
 
-        .section-title span {
-            background: var(--bg-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+        .header h1 {
+            color: var(--gray-800);
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
         }
 
-        .timeline-modern {
-            position: relative;
-            max-width: 800px;
-            margin: 0 auto;
+        .header p {
+            color: var(--gray-600);
         }
 
-        .timeline-modern::before {
-            content: '';
-            position: absolute;
-            left: 30px;
-            top: 0; bottom: 0;
-            width: 3px;
-            background: linear-gradient(to bottom, var(--primary), #764ba2);
-            border-radius: 3px;
-        }
-
-        .timeline-card {
-            position: relative;
-            margin-bottom: 30px;
-            margin-left: 70px;
-            background: var(--white);
-            padding: 30px;
-            border-radius: 20px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.06);
-            transition: all 0.4s ease;
-            border: 1px solid rgba(0,0,0,0.05);
-        }
-
-        .timeline-card:hover {
-            transform: translateX(10px);
-            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
-        }
-
-        .timeline-card::before {
-            content: '';
-            position: absolute;
-            left: -47px;
-            top: 35px;
-            width: 24px;
-            height: 24px;
-            background: var(--white);
-            border: 4px solid var(--primary);
-            border-radius: 50%;
-            box-shadow: 0 0 0 6px rgba(13, 115, 119, 0.2);
-        }
-
-        .timeline-card.completed::before {
-            background: var(--success);
-            border-color: var(--success);
-            box-shadow: 0 0 0 6px rgba(16, 185, 129, 0.2);
-        }
-
-        .timeline-card.in-progress::before {
-            background: var(--warning);
-            border-color: var(--warning);
-            box-shadow: 0 0 0 6px rgba(245, 158, 11, 0.2);
-            animation: pulseGlow 2s infinite;
-        }
-
-        @keyframes pulseGlow {
-            0%, 100% { box-shadow: 0 0 0 6px rgba(245, 158, 11, 0.2); }
-            50% { box-shadow: 0 0 0 12px rgba(245, 158, 11, 0.1); }
-        }
-
-        .timeline-date {
+        .hospital-badge {
             display: inline-flex;
             align-items: center;
-            gap: 6px;
-            font-size: 0.85rem;
-            color: var(--white);
+            gap: 0.5rem;
             background: var(--primary);
-            padding: 6px 14px;
-            border-radius: 50px;
-            font-weight: 600;
-            margin-bottom: 15px;
-        }
-
-        .timeline-card.completed .timeline-date { background: var(--success); }
-        .timeline-card.in-progress .timeline-date { background: var(--warning); color: var(--text-dark); }
-        .timeline-card.pending .timeline-date { background: var(--text-muted); }
-
-        .timeline-title {
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: var(--text-dark);
-            margin-bottom: 10px;
-        }
-
-        .timeline-desc {
-            color: var(--text-muted);
-            margin-bottom: 15px;
-            line-height: 1.7;
-        }
-
-        .timeline-tags { display: flex; gap: 10px; flex-wrap: wrap; }
-
-        .tag {
-            padding: 6px 14px;
-            border-radius: 50px;
-            font-size: 0.8rem;
-            font-weight: 600;
-        }
-
-        .tag-frontend { background: #e0e7ff; color: #4f46e5; }
-        .tag-backend { background: #fce7f3; color: #db2777; }
-        .tag-design { background: #fef3c7; color: #d97706; }
-        .tag-content { background: #d1fae5; color: #059669; }
-        .tag-automation { background: #fce4ec; color: #be185d; }
-
-        .roadmap-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
-        }
-
-        .roadmap-card {
-            background: var(--white);
-            border-radius: 24px;
-            padding: 35px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.05);
-            position: relative;
-            overflow: hidden;
-            transition: all 0.4s ease;
-            border: 1px solid rgba(0,0,0,0.05);
-        }
-
-        .roadmap-card::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0;
-            height: 5px;
-            background: var(--bg-gradient);
-        }
-
-        .roadmap-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 30px 60px rgba(0,0,0,0.1);
-        }
-
-        .roadmap-card.completed::before {
-            background: linear-gradient(90deg, var(--success), #34ce57);
-        }
-
-        .roadmap-card.in-progress::before {
-            background: linear-gradient(90deg, var(--warning), #fbbf24);
-        }
-
-        .roadmap-phase {
-            position: absolute;
-            top: 25px;
-            right: 25px;
-            background: var(--bg-light);
-            padding: 6px 14px;
-            border-radius: 50px;
-            font-size: 0.8rem;
-            font-weight: 700;
-            color: var(--text-muted);
-        }
-
-        .roadmap-card.completed .roadmap-phase { background: #d1fae5; color: #059669; }
-        .roadmap-card.in-progress .roadmap-phase { background: #fef3c7; color: #d97706; }
-
-        .roadmap-icon {
-            width: 70px;
-            height: 70px;
-            background: var(--bg-gradient);
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
             color: white;
-            margin-bottom: 25px;
-        }
-
-        .roadmap-title {
-            font-size: 1.4rem;
-            font-weight: 700;
-            margin-bottom: 8px;
-            color: var(--text-dark);
-        }
-
-        .roadmap-dates {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            margin-bottom: 20px;
-        }
-
-        .roadmap-items {
-            list-style: none;
-            margin-bottom: 25px;
-        }
-
-        .roadmap-items li {
-            padding: 10px 0;
-            border-bottom: 1px solid #f1f5f9;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-size: 0.95rem;
-        }
-
-        .roadmap-items li:last-child { border-bottom: none; }
-        .roadmap-items .check { color: var(--success); font-size: 1.1rem; }
-        .roadmap-items .pending { color: #cbd5e1; }
-        .roadmap-items .in-progress { color: var(--warning); }
-
-        .roadmap-progress {
-            height: 8px;
-            background: #f1f5f9;
-            border-radius: 4px;
-            overflow: hidden;
-        }
-
-        .roadmap-progress-bar {
-            height: 100%;
-            background: var(--bg-gradient);
-            border-radius: 4px;
-            transition: width 1s ease;
-        }
-
-        .roadmap-card.completed .roadmap-progress-bar {
-            background: linear-gradient(90deg, var(--success), #34ce57);
-        }
-
-        .roadmap-card.in-progress .roadmap-progress-bar {
-            background: linear-gradient(90deg, var(--warning), #fbbf24);
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-        }
-
-        .feature-card {
-            background: var(--white);
-            border-radius: 20px;
-            padding: 30px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.05);
-            transition: all 0.4s ease;
-            border: 1px solid rgba(0,0,0,0.05);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .feature-card::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0;
-            width: 5px;
-            height: 100%;
-            background: var(--bg-gradient);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .feature-card:hover::before { opacity: 1; }
-        .feature-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 25px 50px rgba(0,0,0,0.1);
-        }
-
-        .feature-card.completed::before {
-            background: linear-gradient(180deg, var(--success), #34ce57);
-        }
-
-        .feature-card.in-progress::before {
-            background: linear-gradient(180deg, var(--warning), #fbbf24);
-        }
-
-        .feature-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 20px;
-        }
-
-        .feature-icon {
-            width: 55px;
-            height: 55px;
-            background: var(--bg-gradient);
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            color: white;
-        }
-
-        .feature-card.completed .feature-icon {
-            background: linear-gradient(135deg, var(--success), #34ce57);
-        }
-
-        .feature-card.in-progress .feature-icon {
-            background: linear-gradient(135deg, var(--warning), #fbbf24);
-        }
-
-        .feature-status {
-            padding: 6px 14px;
+            padding: 0.5rem 1rem;
             border-radius: 50px;
-            font-size: 0.8rem;
-            font-weight: 600;
-        }
-
-        .feature-status.completed { background: #d1fae5; color: #059669; }
-        .feature-status.in-progress { background: #fef3c7; color: #d97706; }
-        .feature-status.pending { background: #f1f5f9; color: #64748b; }
-
-        .feature-title {
-            font-size: 1.2rem;
-            font-weight: 700;
-            margin-bottom: 12px;
-            color: var(--text-dark);
-        }
-
-        .feature-desc {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            margin-bottom: 20px;
-            line-height: 1.7;
-        }
-
-        .feature-progress {
-            height: 6px;
-            background: #f1f5f9;
-            border-radius: 3px;
-            overflow: hidden;
-        }
-
-        .feature-progress-fill {
-            height: 100%;
-            background: var(--bg-gradient);
-            border-radius: 3px;
-        }
-
-        .feature-card.completed .feature-progress-fill {
-            background: linear-gradient(90deg, var(--success), #34ce57);
-        }
-
-        .feature-card.in-progress .feature-progress-fill {
-            background: linear-gradient(90deg, var(--warning), #fbbf24);
+            font-size: 0.875rem;
+            margin-top: 1rem;
         }
 
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 25px;
-            margin-bottom: 50px;
+            gap: 1rem;
+            margin-bottom: 2rem;
         }
 
         .stat-card {
-            background: var(--white);
-            border-radius: 20px;
-            padding: 30px;
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
             text-align: center;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.05);
-            transition: all 0.4s ease;
-            border: 1px solid rgba(0,0,0,0.05);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
         }
 
         .stat-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+            transform: translateY(-4px);
         }
 
         .stat-icon {
-            width: 70px;
-            height: 70px;
-            margin: 0 auto 20px;
-            background: var(--bg-gradient);
-            border-radius: 50%;
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2rem;
-            color: white;
+            margin: 0 auto 1rem;
+            font-size: 1.5rem;
         }
 
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: 800;
-            font-family: 'Space Grotesk', sans-serif;
-            background: var(--bg-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+        .stat-icon.blue { background: #dbeafe; }
+        .stat-icon.green { background: #d1fae5; }
+        .stat-icon.yellow { background: #fef3c7; }
+        .stat-icon.red { background: #fee2e2; }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--gray-800);
         }
 
         .stat-label {
-            color: var(--text-muted);
-            font-weight: 500;
-            margin-top: 5px;
+            color: var(--gray-600);
+            font-size: 0.875rem;
         }
 
-        .backend-section {
-            background: linear-gradient(135deg, var(--primary-dark) 0%, #764ba2 100%);
-            border-radius: 30px;
-            padding: 60px;
-            color: white;
+        .section {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--gray-100);
+        }
+
+        .section-header h2 {
+            color: var(--gray-800);
+            font-size: 1.25rem;
+        }
+
+        .section-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+        }
+
+        .timeline {
             position: relative;
-            overflow: hidden;
+            padding-left: 2rem;
         }
 
-        .backend-section::before {
+        .timeline::before {
             content: '';
             position: absolute;
-            top: -50%;
-            right: -50%;
-            width: 100%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 60%);
+            left: 7px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--gray-200);
         }
 
-        .backend-section h3 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 2rem;
-            margin-bottom: 40px;
-            text-align: center;
+        .timeline-item {
             position: relative;
+            padding-bottom: 1.5rem;
         }
 
-        .backend-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 25px;
-            position: relative;
+        .timeline-item:last-child {
+            padding-bottom: 0;
         }
 
-        .backend-item {
-            background: rgba(255,255,255,0.1);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 20px;
-            padding: 30px;
-            text-align: center;
-            transition: all 0.3s ease;
+        .timeline-dot {
+            position: absolute;
+            left: -2rem;
+            top: 4px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: var(--primary);
+            border: 3px solid white;
+            box-shadow: 0 0 0 2px var(--primary);
         }
 
-        .backend-item:hover {
-            background: rgba(255,255,255,0.2);
-            transform: scale(1.02);
+        .timeline-dot.completed {
+            background: var(--success);
+            box-shadow: 0 0 0 2px var(--success);
         }
 
-        .backend-item i {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-            background: linear-gradient(135deg, #ffffff, #e0e7ff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+        .timeline-dot.in-progress {
+            background: var(--warning);
+            box-shadow: 0 0 0 2px var(--warning);
+            animation: pulse 2s infinite;
         }
 
-        .backend-item h4 { font-size: 1.1rem; margin-bottom: 10px; }
-        .backend-item p { font-size: 0.9rem; opacity: 0.8; }
-
-        .comparison-table {
-            background: var(--white);
-            border-radius: 24px;
-            overflow: hidden;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.06);
+        .timeline-dot.pending {
+            background: var(--gray-300);
+            box-shadow: 0 0 0 2px var(--gray-300);
         }
 
-        .comparison-table table { width: 100%; border-collapse: collapse; }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
 
-        .comparison-table th {
-            background: var(--bg-gradient);
-            color: white;
-            padding: 20px;
-            text-align: left;
+        .timeline-content {
+            background: var(--gray-50);
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 3px solid var(--primary);
+        }
+
+        .timeline-content.completed {
+            border-left-color: var(--success);
+        }
+
+        .timeline-content.in-progress {
+            border-left-color: var(--warning);
+        }
+
+        .timeline-date {
+            font-size: 0.75rem;
+            color: var(--gray-500);
+            margin-bottom: 0.25rem;
+        }
+
+        .timeline-title {
             font-weight: 600;
+            color: var(--gray-800);
+            margin-bottom: 0.5rem;
         }
 
-        .comparison-table td {
-            padding: 18px 20px;
-            border-bottom: 1px solid #f1f5f9;
+        .timeline-desc {
+            color: var(--gray-600);
+            font-size: 0.875rem;
         }
 
-        .comparison-table tr:last-child td { border-bottom: none; }
-        .comparison-table tr:hover { background: #f8fafc; }
+        .task-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
 
-        .status-badge {
-            display: inline-flex;
+        .task-item {
+            display: flex;
+            gap: 1rem;
+            padding: 1rem;
+            background: var(--gray-50);
+            border-radius: 8px;
+            align-items: flex-start;
+        }
+
+        .task-checkbox {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            border: 2px solid var(--gray-300);
+            display: flex;
             align-items: center;
-            gap: 8px;
-            padding: 8px 16px;
-            border-radius: 50px;
-            font-size: 0.85rem;
-            font-weight: 600;
+            justify-content: center;
+            flex-shrink: 0;
+            cursor: pointer;
+            transition: all 0.2s;
         }
 
-        .status-badge.completed { background: #d1fae5; color: #059669; }
-        .status-badge.in-progress { background: #fef3c7; color: #d97706; }
-        .status-badge.pending { background: #f1f5f9; color: #64748b; }
+        .task-checkbox.checked {
+            background: var(--success);
+            border-color: var(--success);
+            color: white;
+        }
+
+        .task-info {
+            flex: 1;
+        }
+
+        .task-title {
+            font-weight: 600;
+            color: var(--gray-800);
+            margin-bottom: 0.25rem;
+        }
+
+        .task-meta {
+            display: flex;
+            gap: 1rem;
+            font-size: 0.75rem;
+            color: var(--gray-500);
+            flex-wrap: wrap;
+        }
+
+        .task-tag {
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .tag-done { background: #d1fae5; color: #065f46; }
+        .tag-progress { background: #fef3c7; color: #92400e; }
+        .tag-todo { background: #e5e7eb; color: #374151; }
+
+        .progress-container {
+            margin-top: 1rem;
+        }
+
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+        }
+
+        .progress-bar {
+            height: 8px;
+            background: var(--gray-200);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary), #8b5cf6);
+            border-radius: 4px;
+            transition: width 0.5s ease;
+        }
+
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .summary-card {
+            background: var(--gray-50);
+            border-radius: 12px;
+            padding: 1.5rem;
+            border: 1px solid var(--gray-200);
+        }
+
+        .summary-card h4 {
+            color: var(--gray-700);
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .summary-card ul {
+            list-style: none;
+        }
+
+        .summary-card li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--gray-100);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--gray-700);
+            font-size: 0.9rem;
+        }
+
+        .summary-card li:last-child {
+            border-bottom: none;
+        }
+
+        .summary-card li::before {
+            content: '•';
+            color: var(--primary);
+            font-weight: bold;
+        }
 
         .footer {
-            background: var(--text-dark);
-            color: white;
             text-align: center;
-            padding: 40px;
-            margin-top: 80px;
+            color: white;
+            padding: 1rem;
+            font-size: 0.875rem;
+            opacity: 0.9;
         }
 
-        .footer-logo {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 10px;
+        .last-updated {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--gray-100);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            color: var(--gray-600);
+            margin-top: 1rem;
         }
 
-        .footer p { opacity: 0.6; font-size: 0.9rem; }
+        .daily-reports {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .daily-report-card {
+            background: var(--gray-50);
+            border-radius: 12px;
+            padding: 1.5rem;
+            border-left: 4px solid var(--primary);
+            transition: all 0.2s;
+        }
+
+        .daily-report-card:hover {
+            background: var(--gray-100);
+            transform: translateX(4px);
+        }
+
+        .report-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.75rem;
+        }
+
+        .report-date {
+            font-weight: 600;
+            color: var(--gray-800);
+        }
+
+        .report-time {
+            font-size: 0.75rem;
+            color: var(--gray-500);
+        }
+
+        .report-content {
+            color: var(--gray-600);
+            font-size: 0.9rem;
+        }
+
+        .report-section {
+            margin-top: 0.75rem;
+        }
+
+        .report-section-title {
+            font-weight: 600;
+            color: var(--gray-700);
+            font-size: 0.8rem;
+            margin-bottom: 0.25rem;
+        }
 
         @media (max-width: 768px) {
-            .header h1 { font-size: 2.2rem; }
-            .nav-tabs li { padding: 15px; font-size: 0.85rem; }
-            .nav-tabs li span { display: none; }
-            .progress-hero { flex-direction: column; gap: 40px; }
-            .timeline-modern::before { left: 15px; }
-            .timeline-card { margin-left: 50px; }
-            .timeline-card::before { left: -42px; width: 18px; height: 18px; }
-            .backend-section { padding: 40px 25px; }
+            body {
+                padding: 1rem;
+            }
+            
+            .header, .section {
+                padding: 1.5rem;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
-
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #f1f5f9; }
-        ::-webkit-scrollbar-thumb {
-            background: linear-gradient(135deg, var(--primary), #764ba2);
-            border-radius: 4px;
-        }
-
-        .svg-defs { position: absolute; width: 0; height: 0; }
     </style>
 </head>
 <body>
-    <svg class="svg-defs">
-        <defs>
-            <linearGradient id="progressGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" style="stop-color:#f4c430"/>
-                <stop offset="100%" style="stop-color:#e85d04"/>
-            </linearGradient>
-        </defs>
-    </svg>
-
-    <div class="bg-animation"></div>
-
-    <header class="header">
-        <div class="header-content">
-            <div class="header-badge">
-                <i class="fas fa-sync-alt"></i>
-                Last Updated: July 01, 2026
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>📊 Progress Report</h1>
+            <p>Payangan Hospital - Sistem Informasi Manajemen Rumah Sakit</p>
+            <div class="hospital-badge">
+                🏥 RS Payangan
             </div>
-            
-            <h1>Project Progress</h1>
-            <p class="subtitle">Payangan Hospital - Website Development</p>
-            
-            <div class="stats-floating">
-                <div class="stat-float">
-                    <div class="number">19</div>
-                    <div class="label">Pages</div>
+            <div class="last-updated">
+                <span>🕐</span>
+                <span id="lastUpdated">Memuat...</span>
+            </div>
+        </header>
+
+        <!-- Stats -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon blue">📋</div>
+                <div class="stat-value">24</div>
+                <div class="stat-label">Total Task</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon green">✅</div>
+                <div class="stat-value">18</div>
+                <div class="stat-label">Selesai</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon yellow">🔄</div>
+                <div class="stat-value">4</div>
+                <div class="stat-label">Dalam Proses</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon red">⏳</div>
+                <div class="stat-value">2</div>
+                <div class="stat-label">Menunggu</div>
+            </div>
+        </div>
+
+        <!-- Overall Progress -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-icon" style="background: #dbeafe;">📈</div>
+                <h2>Progres Keseluruhan</h2>
+            </div>
+            <div class="progress-container">
+                <div class="progress-header">
+                    <span style="font-weight: 600; color: var(--gray-700);">Penyelesaian Proyek</span>
+                    <span style="color: var(--primary); font-weight: 600;">75%</span>
                 </div>
-                <div class="stat-float">
-                    <div class="number">10</div>
-                    <div class="label">Poli</div>
-                </div>
-                <div class="stat-float">
-                    <div class="number">6</div>
-                    <div class="label">Agents</div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 75%;"></div>
                 </div>
             </div>
-            
-            <div class="progress-hero">
-                <div class="progress-circle-wrap">
-                    <svg viewBox="0 0 200 200">
-                        <circle class="bg" cx="100" cy="100" r="90"></circle>
-                        <circle class="progress" cx="100" cy="100" r="90"></circle>
-                    </svg>
-                    <div class="percentage">
-                        <div class="num">70%</div>
-                        <div class="text">Complete</div>
+        </div>
+
+        <!-- Timeline -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-icon" style="background: #d1fae5;">📅</div>
+                <h2>Timeline Proyek</h2>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot completed"></div>
+                    <div class="timeline-content completed">
+                        <div class="timeline-date">01 Jun - 15 Jun 2026</div>
+                        <div class="timeline-title">Fase 1: Perencanaan & Analisis</div>
+                        <div class="timeline-desc">Studi kelayakan, analisis kebutuhan, dan desain sistem selesai</div>
                     </div>
                 </div>
-                
-                <div class="recent-activity">
-                    <h3><i class="fas fa-history"></i> Recent Activity</h3>
-                    <div class="activity-list">
-                        <div class="activity-item">
-                            <div class="icon robot">🤖</div>
-                            <div class="content">
-                                <div class="message">Add 5 Auto-Running Agents via GitHub Actions</div>
-                                <div class="time">Today</div>
-                            </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot completed"></div>
+                    <div class="timeline-content completed">
+                        <div class="timeline-date">16 Jun - 30 Jun 2026</div>
+                        <div class="timeline-title">Fase 2: Development Frontend</div>
+                        <div class="timeline-desc">UI/UX design dan implementasi frontend rumah sakit</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot in-progress"></div>
+                    <div class="timeline-content in-progress">
+                        <div class="timeline-date">01 Jul - 15 Jul 2026</div>
+                        <div class="timeline-title">Fase 3: Development Backend</div>
+                        <div class="timeline-desc">API integration, database, dan logic system - SEDANG BERJALAN</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot pending"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">16 Jul - 31 Jul 2026</div>
+                        <div class="timeline-title">Fase 4: Testing & QA</div>
+                        <div class="timeline-desc">Unit testing, integration testing, dan user acceptance testing</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot pending"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">01 Ags - 15 Ags 2026</div>
+                        <div class="timeline-title">Fase 5: Deployment</div>
+                        <div class="timeline-desc">Go-live dan training pengguna</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Current Tasks -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-icon" style="background: #fef3c7;">🎯</div>
+                <h2>Task Saat Ini</h2>
+            </div>
+            <div class="task-list">
+                <div class="task-item">
+                    <div class="task-checkbox checked">✓</div>
+                    <div class="task-info">
+                        <div class="task-title">Dashboard Admin Utama</div>
+                        <div class="task-meta">
+                            <span class="task-tag tag-done">Selesai</span>
+                            <span>👤 Developer Team</span>
+                            <span>📅 28 Jun 2026</span>
                         </div>
-                        <div class="activity-item">
-                            <div class="icon progress">📊</div>
-                            <div class="content">
-                                <div class="message">Add Progress Report Page</div>
-                                <div class="time">Today</div>
-                            </div>
+                    </div>
+                </div>
+                <div class="task-item">
+                    <div class="task-checkbox checked">✓</div>
+                    <div class="task-info">
+                        <div class="task-title">Modul Pendaftaran Pasien</div>
+                        <div class="task-meta">
+                            <span class="task-tag tag-done">Selesai</span>
+                            <span>👤 Developer Team</span>
+                            <span>📅 29 Jun 2026</span>
                         </div>
-                        <div class="activity-item">
-                            <div class="icon doc">🛠️</div>
-                            <div class="content">
-                                <div class="message">Add Document Skills (PDF, DOCX, PPTX, XLSX)</div>
-                                <div class="time">Yesterday</div>
-                            </div>
+                    </div>
+                </div>
+                <div class="task-item">
+                    <div class="task-checkbox"></div>
+                    <div class="task-info">
+                        <div class="task-title">Sistem Rekam Medis Elektronik (ERM)</div>
+                        <div class="task-meta">
+                            <span class="task-tag tag-progress">70%</span>
+                            <span>👤 Developer Team</span>
+                            <span>📅 Target: 05 Jul 2026</span>
                         </div>
-                        <div class="activity-item">
-                            <div class="icon design">🎨</div>
-                            <div class="content">
-                                <div class="message">Fix partner logo visibility</div>
-                                <div class="time">Yesterday</div>
-                            </div>
+                    </div>
+                </div>
+                <div class="task-item">
+                    <div class="task-checkbox"></div>
+                    <div class="task-info">
+                        <div class="task-title">Integrasi API Pembayaran</div>
+                        <div class="task-meta">
+                            <span class="task-tag tag-progress">40%</span>
+                            <span>👤 Developer Team</span>
+                            <span>📅 Target: 08 Jul 2026</span>
                         </div>
-                        <div class="activity-item">
-                            <div class="icon ui">📋</div>
-                            <div class="content">
-                                <div class="message">Enhance auto update progress with dates</div>
-                                <div class="time">2 days ago</div>
-                            </div>
+                    </div>
+                </div>
+                <div class="task-item">
+                    <div class="task-checkbox"></div>
+                    <div class="task-info">
+                        <div class="task-title">Laporan Keuangan Harian</div>
+                        <div class="task-meta">
+                            <span class="task-tag tag-todo">Belum Mulai</span>
+                            <span>👤 Developer Team</span>
+                            <span>📅 Target: 10 Jul 2026</span>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </header>
 
-    <nav class="nav-tabs">
-        <ul>
-            <li class="active" data-tab="overview"><i class="fas fa-chart-pie"></i> <span>Overview</span></li>
-            <li data-tab="timeline"><i class="fas fa-stream"></i> <span>Timeline</span></li>
-            <li data-tab="roadmap"><i class="fas fa-map"></i> <span>Roadmap</span></li>
-            <li data-tab="features"><i class="fas fa-star"></i> <span>Features</span></li>
-            <li data-tab="backend"><i class="fas fa-server"></i> <span>Backend</span></li>
-        </ul>
-    </nav>
-
-    <main class="container">
-        <section id="overview" class="section active">
-            <h2 class="section-title">Project <span>Overview</span></h2>
-            
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <div class="stat-icon"><i class="fas fa-desktop"></i></div>
-                    <div class="stat-number">70%</div>
-                    <div class="stat-label">Frontend Complete</div>
+        <!-- Summary -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-icon" style="background: #ede9fe;">📋</div>
+                <h2>Ringkasan Mingguan</h2>
+            </div>
+            <div class="summary-grid">
+                <div class="summary-card">
+                    <h4>✅ Yang Sudah Selesai</h4>
+                    <ul>
+                        <li>Setup database PostgreSQL</li>
+                        <li>Frontend dashboard admin</li>
+                        <li>Modul pendaftaran pasien</li>
+                        <li>Sistem autentikasi user</li>
+                        <li>Template responsive hospital</li>
+                    </ul>
                 </div>
-                <div class="stat-card">
-                    <div class="stat-icon"><i class="fas fa-database"></i></div>
-                    <div class="stat-number">0%</div>
-                    <div class="stat-label">Backend Pending</div>
+                <div class="summary-card">
+                    <h4>🔄 Sedang Dikerjakan</h4>
+                    <ul>
+                        <li>Integrasi API laboratorium</li>
+                        <li>Sistem jadwal dokter</li>
+                        <li>Modul apotek & farmasi</li>
+                        <li>Dashboard analytics</li>
+                    </ul>
                 </div>
-                <div class="stat-card">
-                    <div class="stat-icon"><i class="fas fa-robot"></i></div>
-                    <div class="stat-number">6</div>
-                    <div class="stat-label">Auto Agents</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-icon"><i class="fas fa-check-circle"></i></div>
-                    <div class="stat-number">19</div>
-                    <div class="stat-label">HTML Pages</div>
+                <div class="summary-card">
+                    <h4>📌 Rencana Mendatang</h4>
+                    <ul>
+                        <li>Testing & quality assurance</li>
+                        <li>User training material</li>
+                        <li>Dokumentasi teknis</li>
+                        <li>Deployment ke server</li>
+                        <li>Go-live preparation</li>
+                    </ul>
                 </div>
             </div>
+        </div>
 
-            <div class="comparison-table">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Component</th>
-                            <th>Status</th>
-                            <th>Progress</th>
-                            <th>Notes</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><i class="fas fa-paint-brush"></i> Design System</td>
-                            <td><span class="status-badge completed"><i class="fas fa-check"></i> Completed</span></td>
-                            <td>100%</td>
-                            <td>Color palette, typography, components</td>
-                        </tr>
-                        <tr>
-                            <td><i class="fas fa-file-code"></i> Frontend Pages</td>
-                            <td><span class="status-badge completed"><i class="fas fa-check"></i> Completed</span></td>
-                            <td>100%</td>
-                            <td>19 responsive HTML pages</td>
-                        </tr>
-                        <tr>
-                            <td><i class="fas fa-user-md"></i> Doctor Data</td>
-                            <td><span class="status-badge completed"><i class="fas fa-check"></i> Completed</span></td>
-                            <td>100%</td>
-                            <td>22 specialist doctors</td>
-                        </tr>
-                        <tr>
-                            <td><i class="fas fa-robot"></i> Auto Agents</td>
-                            <td><span class="status-badge completed"><i class="fas fa-check"></i> Completed</span></td>
-                            <td>100%</td>
-                            <td>6 automated workflows</td>
-                        </tr>
-                        <tr>
-                            <td><i class="fas fa-image"></i> Asset Optimization</td>
-                            <td><span class="status-badge in-progress"><i class="fas fa-spinner fa-spin"></i> In Progress</span></td>
-                            <td>85%</td>
-                            <td>Image optimization, lazy loading</td>
-                        </tr>
-                        <tr>
-                            <td><i class="fas fa-cogs"></i> Backend API</td>
-                            <td><span class="status-badge pending"><i class="fas fa-clock"></i> Pending</span></td>
-                            <td>0%</td>
-                            <td>Planned for Q3 2026</td>
-                        </tr>
-                    </tbody>
-                </table>
+        <!-- Daily Reports -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-icon" style="background: #fce7f3;">📝</div>
+                <h2>Laporan Harian</h2>
             </div>
-        </section>
-
-        <section id="timeline" class="section">
-            <h2 class="section-title">Development <span>Timeline</span></h2>
-            
-            <div class="timeline-modern">
-                <div class="timeline-card completed">
-                    <span class="timeline-date"><i class="fas fa-calendar"></i> Mei - Juni 2026</span>
-                    <h3 class="timeline-title">Phase 1: Foundation & Setup</h3>
-                    <p class="timeline-desc">Setup repository, design system, color palette, typography, and component library.</p>
-                    <div class="timeline-tags">
-                        <span class="tag tag-design">Design System</span>
-                        <span class="tag tag-content">Planning</span>
+            <div class="daily-reports" id="dailyReports">
+                <!-- Reports will be loaded here by automation -->
+                <div class="daily-report-card">
+                    <div class="report-header">
+                        <span class="report-date">📅 Laporan Otomatis</span>
+                        <span class="report-time">🕐 Auto-update 6 AM WIB</span>
                     </div>
-                </div>
-
-                <div class="timeline-card completed">
-                    <span class="timeline-date"><i class="fas fa-calendar"></i> Juni 2026</span>
-                    <h3 class="timeline-title">Phase 2: Frontend Development</h3>
-                    <p class="timeline-desc">Created 19 HTML pages including homepage, doctor directory, poli pages, and services.</p>
-                    <div class="timeline-tags">
-                        <span class="tag tag-frontend">Frontend</span>
-                        <span class="tag tag-content">Content</span>
+                    <div class="report-content">
+                        Laporan harian akan ditambahkan secara otomatis setiap hari jam 6 pagi WIB oleh agent.
                     </div>
-                </div>
-
-                <div class="timeline-card completed">
-                    <span class="timeline-date"><i class="fas fa-calendar"></i> Juli 2026</span>
-                    <h3 class="timeline-title">Phase 3: Automation & QA</h3>
-                    <p class="timeline-desc">Implemented 6 GitHub Actions workflows for auto-checking, deployment, and progress tracking.</p>
-                    <div class="timeline-tags">
-                        <span class="tag tag-automation">Automation</span>
-                    </div>
-                </div>
-
-                <div class="timeline-card in-progress">
-                    <span class="timeline-date"><i class="fas fa-calendar"></i> Juli 2026</span>
-                    <h3 class="timeline-title">Phase 4: Optimization & Polish</h3>
-                    <p class="timeline-desc">Asset optimization, performance tuning, UI/UX improvements, and documentation.</p>
-                    <div class="timeline-tags">
-                        <span class="tag tag-frontend">Frontend</span>
-                        <span class="tag tag-design">Design</span>
-                    </div>
-                </div>
-
-                <div class="timeline-card pending">
-                    <span class="timeline-date"><i class="fas fa-calendar"></i> Q3 2026</span>
-                    <h3 class="timeline-title">Phase 5: Backend Development</h3>
-                    <p class="timeline-desc">API development, database design, authentication system, and admin panel.</p>
-                    <div class="timeline-tags">
-                        <span class="tag tag-backend">Backend</span>
-                        <span class="tag tag-design">Database</span>
-                    </div>
-                </div>
-
-                <div class="timeline-card pending">
-                    <span class="timeline-date"><i class="fas fa-calendar"></i> Q4 2026</span>
-                    <h3 class="timeline-title">Phase 6: Integration & Launch</h3>
-                    <p class="timeline-desc">Frontend-backend integration, real-time features, testing, and production deployment.</p>
-                    <div class="timeline-tags">
-                        <span class="tag tag-frontend">Frontend</span>
-                        <span class="tag tag-backend">Backend</span>
+                    <div class="report-section">
+                        <div class="report-section-title">📊 Progress Summary:</div>
+                        <p>Menunggu laporan pertama...</p>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
 
-        <section id="roadmap" class="section">
-            <h2 class="section-title">Project <span>Roadmap</span></h2>
-            
-            <div class="roadmap-grid">
-                <div class="roadmap-card completed">
-                    <span class="roadmap-phase">Phase 1</span>
-                    <div class="roadmap-icon"><i class="fas fa-rocket"></i></div>
-                    <h3 class="roadmap-title">Foundation</h3>
-                    <p class="roadmap-dates"><i class="fas fa-calendar-alt"></i> Mei - Juni 2026</p>
-                    <ul class="roadmap-items">
-                        <li><span class="check">✓</span> Repository Setup</li>
-                        <li><span class="check">✓</span> Design System</li>
-                        <li><span class="check">✓</span> Color Palette</li>
-                        <li><span class="check">✓</span> Typography</li>
-                        <li><span class="check">✓</span> Components</li>
-                    </ul>
-                    <div class="roadmap-progress"><div class="roadmap-progress-bar" style="width: 100%;"></div></div>
-                </div>
-
-                <div class="roadmap-card completed">
-                    <span class="roadmap-phase">Phase 2</span>
-                    <div class="roadmap-icon"><i class="fas fa-laptop-code"></i></div>
-                    <h3 class="roadmap-title">Frontend</h3>
-                    <p class="roadmap-dates"><i class="fas fa-calendar-alt"></i> Juni - Juli 2026</p>
-                    <ul class="roadmap-items">
-                        <li><span class="check">✓</span> Homepage & Hero</li>
-                        <li><span class="check">✓</span> Doctor Directory</li>
-                        <li><span class="check">✓</span> 10 Poli Pages</li>
-                        <li><span class="check">✓</span> Services</li>
-                        <li><span class="check">✓</span> Responsive Design</li>
-                    </ul>
-                    <div class="roadmap-progress"><div class="roadmap-progress-bar" style="width: 100%;"></div></div>
-                </div>
-
-                <div class="roadmap-card completed">
-                    <span class="roadmap-phase">Phase 3</span>
-                    <div class="roadmap-icon"><i class="fas fa-robot"></i></div>
-                    <h3 class="roadmap-title">Automation</h3>
-                    <p class="roadmap-dates"><i class="fas fa-calendar-alt"></i> Juli 2026</p>
-                    <ul class="roadmap-items">
-                        <li><span class="check">✓</span> Link Checker</li>
-                        <li><span class="check">✓</span> PR Reviewer</li>
-                        <li><span class="check">✓</span> QA Checker</li>
-                        <li><span class="check">✓</span> Auto Deploy</li>
-                        <li><span class="check">✓</span> Progress Tracker</li>
-                    </ul>
-                    <div class="roadmap-progress"><div class="roadmap-progress-bar" style="width: 100%;"></div></div>
-                </div>
-
-                <div class="roadmap-card in-progress">
-                    <span class="roadmap-phase">Phase 4</span>
-                    <div class="roadmap-icon"><i class="fas fa-magic"></i></div>
-                    <h3 class="roadmap-title">Optimization</h3>
-                    <p class="roadmap-dates"><i class="fas fa-calendar-alt"></i> Juli 2026</p>
-                    <ul class="roadmap-items">
-                        <li><span class="check">✓</span> Progress Report</li>
-                        <li><span class="in-progress">◐</span> Asset Optimization</li>
-                        <li><span class="pending">○</span> UI Polish</li>
-                        <li><span class="pending">○</span> Performance</li>
-                        <li><span class="pending">○</span> Documentation</li>
-                    </ul>
-                    <div class="roadmap-progress"><div class="roadmap-progress-bar" style="width: 40%;"></div></div>
-                </div>
-
-                <div class="roadmap-card">
-                    <span class="roadmap-phase">Phase 5</span>
-                    <div class="roadmap-icon"><i class="fas fa-server"></i></div>
-                    <h3 class="roadmap-title">Backend</h3>
-                    <p class="roadmap-dates"><i class="fas fa-calendar-alt"></i> Q3 2026</p>
-                    <ul class="roadmap-items">
-                        <li><span class="pending">○</span> API Development</li>
-                        <li><span class="pending">○</span> Database Design</li>
-                        <li><span class="pending">○</span> Authentication</li>
-                        <li><span class="pending">○</span> Admin Panel</li>
-                        <li><span class="pending">○</span> CRUD Operations</li>
-                    </ul>
-                    <div class="roadmap-progress"><div class="roadmap-progress-bar" style="width: 0%;"></div></div>
-                </div>
-
-                <div class="roadmap-card">
-                    <span class="roadmap-phase">Phase 6</span>
-                    <div class="roadmap-icon"><i class="fas fa-rocket"></i></div>
-                    <h3 class="roadmap-title">Launch</h3>
-                    <p class="roadmap-dates"><i class="fas fa-calendar-alt"></i> Q4 2026</p>
-                    <ul class="roadmap-items">
-                        <li><span class="pending">○</span> API Integration</li>
-                        <li><span class="pending">○</span> Real-time Features</li>
-                        <li><span class="pending">○</span> Testing</li>
-                        <li><span class="pending">○</span> Production Deploy</li>
-                        <li><span class="pending">○</span> Monitoring</li>
-                    </ul>
-                    <div class="roadmap-progress"><div class="roadmap-progress-bar" style="width: 0%;"></div></div>
-                </div>
-            </div>
-        </section>
-
-        <section id="features" class="section">
-            <h2 class="section-title">Project <span>Features</span></h2>
-            
-            <div class="features-grid">
-                <div class="feature-card completed">
-                    <div class="feature-header">
-                        <div class="feature-icon"><i class="fas fa-home"></i></div>
-                        <span class="feature-status completed">Completed</span>
-                    </div>
-                    <h3 class="feature-title">Hero Slider</h3>
-                    <p class="feature-desc">Interactive slider with 4 slides, auto-rotate every 6 seconds, dots and arrow navigation.</p>
-                </div>
-
-                <div class="feature-card completed">
-                    <div class="feature-header">
-                        <div class="feature-icon"><i class="fas fa-user-md"></i></div>
-                        <span class="feature-status completed">Completed</span>
-                    </div>
-                    <h3 class="feature-title">Doctor Directory</h3>
-                    <p class="feature-desc">22 specialist doctors with poli filter, photos, and complete information.</p>
-                </div>
-
-                <div class="feature-card completed">
-                    <div class="feature-header">
-                        <div class="feature-icon"><i class="fas fa-hospital"></i></div>
-                        <span class="feature-status completed">Completed</span>
-                    </div>
-                    <h3 class="feature-title">Poli Pages</h3>
-                    <p class="feature-desc">10 poliklinik pages with doctor information and practice schedules.</p>
-                </div>
-
-                <div class="feature-card completed">
-                    <div class="feature-header">
-                        <div class="feature-icon"><i class="fas fa-clipboard-list"></i></div>
-                        <span class="feature-status completed">Completed</span>
-                    </div>
-                    <h3 class="feature-title">Queue Display</h3>
-                    <p class="feature-desc">Real-time queue display with bed availability and IGD counter.</p>
-                </div>
-
-                <div class="feature-card completed">
-                    <div class="feature-header">
-                        <div class="feature-icon"><i class="fas fa-bars"></i></div>
-                        <span class="feature-status completed">Completed</span>
-                    </div>
-                    <h3 class="feature-title">Mega Menu</h3>
-                    <p class="feature-desc">Dropdown menu with 2-column grid, icons, and smooth animations.</p>
-                </div>
-
-                <div class="feature-card completed">
-                    <div class="feature-header">
-                        <div class="feature-icon"><i class="fas fa-mobile-alt"></i></div>
-                        <span class="feature-status completed">Completed</span>
-                    </div>
-                    <h3 class="feature-title">Responsive Design</h3>
-                    <p class="feature-desc">Mobile-first responsive design with transparent navbar and mobile menu.</p>
-                </div>
-
-                <div class="feature-card in-progress">
-                    <div class="feature-header">
-                        <div class="feature-icon"><i class="fas fa-chart-bar"></i></div>
-                        <span class="feature-status in-progress">In Progress</span>
-                    </div>
-                    <h3 class="feature-title">Progress Dashboard</h3>
-                    <p class="feature-desc">Interactive dashboard for tracking project progress and milestones.</p>
-                    <div class="feature-progress"><div class="feature-progress-fill" style="width: 80%;"></div></div>
-                </div>
-
-                <div class="feature-card in-progress">
-                    <div class="feature-header">
-                        <div class="feature-icon"><i class="fas fa-image"></i></div>
-                        <span class="feature-status in-progress">In Progress</span>
-                    </div>
-                    <h3 class="feature-title">Image Optimization</h3>
-                    <p class="feature-desc">Lazy loading, image compression, and modern formats (WebP).</p>
-                    <div class="feature-progress"><div class="feature-progress-fill" style="width: 30%;"></div></div>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-header">
-                        <div class="feature-icon"><i class="fas fa-database"></i></div>
-                        <span class="feature-status pending">Pending</span>
-                    </div>
-                    <h3 class="feature-title">Database System</h3>
-                    <p class="feature-desc">MySQL/PostgreSQL database for patients, doctors, schedules, and queues.</p>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-header">
-                        <div class="feature-icon"><i class="fas fa-plug"></i></div>
-                        <span class="feature-status pending">Pending</span>
-                    </div>
-                    <h3 class="feature-title">REST API</h3>
-                    <p class="feature-desc">RESTful API endpoints for frontend-backend communication.</p>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-header">
-                        <div class="feature-icon"><i class="fas fa-users-cog"></i></div>
-                        <span class="feature-status pending">Pending</span>
-                    </div>
-                    <h3 class="feature-title">Admin Panel</h3>
-                    <p class="feature-desc">Dashboard admin for managing content, doctors, and practice schedules.</p>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-header">
-                        <div class="feature-icon"><i class="fas fa-bell"></i></div>
-                        <span class="feature-status pending">Pending</span>
-                    </div>
-                    <h3 class="feature-title">Real-time Notifications</h3>
-                    <p class="feature-desc">WebSocket for queue notifications and live updates.</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="backend" class="section">
-            <h2 class="section-title">Backend <span>Plan</span></h2>
-            
-            <div class="backend-section">
-                <h3>Target: Interactive Website with Frontend & Backend</h3>
-                
-                <div class="backend-grid">
-                    <div class="backend-item">
-                        <i class="fas fa-database"></i>
-                        <h4>Database Design</h4>
-                        <p>MySQL/PostgreSQL for patients, doctors, schedules, and queues</p>
-                    </div>
-                    <div class="backend-item">
-                        <i class="fas fa-code"></i>
-                        <h4>RESTful API</h4>
-                        <p>Node.js/Express or Python/FastAPI endpoints</p>
-                    </div>
-                    <div class="backend-item">
-                        <i class="fas fa-lock"></i>
-                        <h4>Authentication</h4>
-                        <p>JWT-based auth for admin and staff</p>
-                    </div>
-                    <div class="backend-item">
-                        <i class="fas fa-cogs"></i>
-                        <h4>CRUD Operations</h4>
-                        <p>Manage doctors, schedules, poli, news</p>
-                    </div>
-                    <div class="backend-item">
-                        <i class="fas fa-chart-line"></i>
-                        <h4>Reporting System</h4>
-                        <p>Queue reports, visit statistics, analytics</p>
-                    </div>
-                    <div class="backend-item">
-                        <i class="fas fa-bolt"></i>
-                        <h4>Real-time Updates</h4>
-                        <p>WebSocket for live queue updates</p>
-                    </div>
-                    <div class="backend-item">
-                        <i class="fas fa-file-pdf"></i>
-                        <h4>PDF Generation</h4>
-                        <p>Medical certificates, prescriptions, reports</p>
-                    </div>
-                    <div class="backend-item">
-                        <i class="fas fa-envelope"></i>
-                        <h4>Notifications</h4>
-                        <p>Email and WhatsApp integration</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="footer">
-        <div class="footer-logo">🏥 Payangan Hospital</div>
-        <p>Progress Report - July 2026</p>
-    </footer>
+        <!-- Footer -->
+        <footer class="footer">
+            <p>🏥 Payangan Hospital Management System</p>
+            <p>Generated by OpenHands Agent • Auto-update setiap jam 6:00 pagi WIB</p>
+        </footer>
+    </div>
 
     <script>
-        document.querySelectorAll('.nav-tabs li').forEach(tab => {
-            tab.addEventListener('click', function() {
-                document.querySelectorAll('.nav-tabs li').forEach(t => t.classList.remove('active'));
-                document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-                this.classList.add('active');
-                document.getElementById(this.dataset.tab).classList.add('active');
-            });
-        });
-
-        const progressCircle = document.querySelector('.progress-circle-wrap .progress');
-        setTimeout(() => {
-            progressCircle.style.strokeDashoffset = '169.64';
-        }, 300);
-
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
+        // Set last updated time
+        const now = new Date();
+        const options = { 
+            weekday: 'long', 
+            year: 'numeric', 
+            month: 'long', 
+            day: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit',
+            timeZoneName: 'short',
+            timeZone: 'Asia/Jakarta'
         };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.timeline-card, .roadmap-card, .feature-card, .stat-card').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(30px)';
-            el.style.transition = 'all 0.6s ease';
-            observer.observe(el);
-        });
+        document.getElementById('lastUpdated').textContent = now.toLocaleDateString('id-ID', options);
     </script>
 </body>
 </html>
