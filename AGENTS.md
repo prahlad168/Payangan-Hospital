@@ -131,6 +131,32 @@ Skill untuk analisis gambar, screenshot, dan verifikasi tampilan website.
 
 ---
 
+## 🚀 Hosting Deploy Skill
+
+**File:** `.agents/skills/hosting-deploy/`
+
+Skill untuk deploy dari GitHub ke hosting Idwebhost.
+
+**Trigger phrases:**
+- "deploy", "push ke hosting", "update website"
+- "sync hosting", "webhook tidak jalan"
+- "manual deploy", "direct deploy"
+
+**Deploy Methods:**
+| Method | URL |
+|--------|-----|
+| GitHub Webhook | Auto on push |
+| Manual Deploy | `deploy.php?key=DEPLOY_KEY` |
+| SSH | cPanel Terminal |
+| cPanel | File Manager |
+
+**Quick Deploy:**
+```
+https://payanganhospital.gianyarkab.go.id/deploy.php?key=PAYANGAN_DEPLOY_2026
+```
+
+---
+
 ## 🔧 Image Fixing Skill
 
 **File:** `.agents/skills/image-fixing/`
