@@ -111,6 +111,26 @@ curl "https://app.all-hands.dev/api/automation/v1/2e4d4f38-1c7c-4437-b25b-7d52f3
 
 ---
 
+## 🔍 Visual Analysis Skill
+
+**File:** `.agents/skills/visual-analysis/`
+
+Skill untuk analisis gambar, screenshot, dan verifikasi tampilan website.
+
+**Trigger phrases:**
+- "lihat gambar", "analisis screenshot", "cek tampilan"
+- "lihat halaman web", "deskripsikan gambar"
+- "apa yang terlihat", "check image"
+
+**Capabilities:**
+- Web page navigation & screenshot capture
+- Visual element verification
+- UI/UX analysis
+- Layout structure description
+- Color scheme detection
+
+---
+
 ## 📝 For Future Development
 
 ### Adding New Pages:
