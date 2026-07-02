@@ -3,1709 +3,543 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Payangan Hospital - Tempat kami menjaga kesehatan Anda dengan penuh kasih. Rumah Sakit di Gianyar, Bali dengan layanan kesehatan berkualitas dan tenaga medis profesional.">
-    <meta name="keywords" content="rumah sakit gianyar, rumah sakit bali, payangan hospital, kesehatan gianyar, dokter gianyar">
-    <title>Payangan Hospital - Kami Menjaga Kesehatan Anda</title>
-    
+    <meta name="description" content="Payangan Hospital - Rumah Sakit terpercaya di Gianyar, Bali. Layanan kesehatan berkualitas dengan tenaga medis profesional dan fasilitas modern.">
+    <title>Payangan Hospital - Pavitram Idam Uttamam</title>
     <link rel="icon" type="image/png" href="logo.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
     <style>
         :root {
-            --primary: #0d7377;
-            --primary-dark: #095456;
-            --primary-light: #14919b;
-            --secondary: #e8a87c;
-            --accent: #c38d6d;
-            --cream: #faf7f4;
-            --warm-white: #fffcf9;
-            --text-dark: #2d3436;
-            --text-muted: #636e72;
-            --healing-green: #00b894;
-            --trust-blue: #74b9ff;
-            --hope-gold: #ffeaa7;
-            --love-pink: #fab1a0;
-            --peace-purple: #a29bfe;
+            --primary: #1a5f5a;
+            --primary-light: #2d8a84;
+            --primary-dark: #0f3d3a;
+            --secondary: #c9a86c;
+            --accent: #f59e0b;
+            --bg-white: #ffffff;
+            --bg-light: #f8fafc;
+            --bg-cream: #f8f6f3;
+            --text-dark: #2c3e3c;
+            --text-muted: #8a9a9a;
         }
-        
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
+        body { font-family: 'Montserrat', sans-serif; font-weight: 300; background: var(--bg-white); color: var(--text-dark); line-height: 1.7; overflow-x: hidden; }
+        h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; font-weight: 500; line-height: 1.2; }
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
         
-        body {
-            font-family: 'Nunito', sans-serif;
-            background: var(--warm-white);
-            color: var(--text-dark);
-            line-height: 1.8;
-            overflow-x: hidden;
-        }
-        
-        h1, h2, h3, h4, h5 {
-            font-family: 'Playfair Display', serif;
-            font-weight: 500;
-            line-height: 1.3;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-        
-        /* ===== NAVBAR ===== */
-        .navbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            padding: 20px 0;
-            transition: all 0.4s ease;
-        }
-        
-        .navbar.scrolled {
-            background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(20px);
-            box-shadow: 0 2px 30px rgba(0, 0, 0, 0.08);
-            padding: 12px 0;
-        }
-        
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            text-decoration: none;
-        }
-        
-        .logo img {
-            width: 55px;
-            height: 55px;
-            border-radius: 50%;
-            object-fit: cover;
-            box-shadow: 0 4px 15px rgba(13, 115, 119, 0.2);
-        }
-        
-        .logo-text {
-            color: white;
-            transition: color 0.4s;
-        }
-        
-        .navbar.scrolled .logo-text { color: var(--text-dark); }
-        
-        .logo-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.3rem;
-            font-weight: 600;
-            letter-spacing: 0.02em;
-        }
-        
-        .logo-tagline {
-            font-size: 0.7rem;
-            color: rgba(255, 255, 255, 0.8);
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            transition: color 0.4s;
-        }
-        
-        .navbar.scrolled .logo-tagline { color: var(--text-muted); }
-        
-        .nav-links {
-            display: flex;
-            gap: 8px;
-            list-style: none;
-        }
-        
-        .nav-links a {
-            text-decoration: none;
-            color: rgba(255, 255, 255, 0.9);
-            font-size: 0.9rem;
-            font-weight: 500;
-            padding: 10px 18px;
-            border-radius: 30px;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-        
+        /* Navigation */
+        .navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 20px 0; transition: all 0.4s ease; }
+        .navbar.scrolled { background: rgba(255,255,255,0.98); backdrop-filter: blur(20px); box-shadow: 0 1px 20px rgba(0,0,0,0.05); padding: 14px 0; }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; }
+        .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .logo img { width: 50px; height: auto; transition: transform 0.3s ease; }
+        .logo img:hover { transform: scale(1.05); }
+        h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; font-size: 1.4rem; font-weight: 500; color: white; transition: color 0.4s; }
+        .logo-text-sub { font-size: 0.6rem; color: rgba(255,255,255,0.7); font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase; }
+        .logo-text { color: white; }
+        .navbar.scrolled .logo-text { color: #333333; }
+        .navbar.scrolled .logo-text-sub { color: #666666; }
+        .nav-links { display: flex; gap: 8px; list-style: none; }
+        .nav-links > li { position: relative; }
+        .nav-links a { text-decoration: none; color: rgba(255,255,255,0.9); font-size: 0.85rem; font-weight: 400; padding: 10px 16px; border-radius: 50px; display: block; transition: all 0.3s ease; }
         .navbar.scrolled .nav-links a { color: var(--text-muted); }
-        .nav-links a:hover { background: rgba(255, 255, 255, 0.15); color: white !important; }
-        .navbar.scrolled .nav-links a:hover { background: var(--primary); color: white !important; }
+        .nav-links a i { font-size: 10px; margin-left: 4px; }
+        .nav-links a:hover { color: var(--secondary); }
+        .navbar.scrolled .nav-links a:hover { color: var(--primary); }
+        .mega-menu { position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(20px); background: white; border-radius: 20px; box-shadow: 0 25px 80px rgba(0,0,0,0.12); padding: 20px; opacity: 0; visibility: hidden; transition: all 0.4s ease; min-width: 500px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; z-index: 100; }
+        .nav-links > li:hover .mega-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(10px); }
+        .mega-item { display: flex; align-items: flex-start; gap: 14px; padding: 16px; border-radius: 14px; text-decoration: none; transition: all 0.3s; }
+        .mega-item:hover { background: var(--bg-light); }
+        .mega-item .icon { width: 44px; height: 44px; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .mega-item .icon i { color: white; font-size: 16px; }
+        .mega-item .text h4 { font-family: 'Montserrat', sans-serif; font-size: 0.95rem; font-weight: 500; color: var(--text-dark); margin-bottom: 2px; }
+        .mega-item:hover .text h4 { color: var(--primary); }
+        .mega-item .text p { font-size: 0.8rem; color: var(--text-muted); }
+        .nav-cta { background: var(--secondary) !important; color: var(--text-dark) !important; }
+        .nav-cta:hover { background: var(--accent) !important; color: white !important; }
+        
+        /* Hero Slider */
+        .hero-slider { position: relative; min-height: 100vh; overflow: hidden; background: var(--primary-dark); }
+        .slides-container { position: relative; width: 100%; height: 100vh; }
+        .slide { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; align-items: center; opacity: 0; transition: opacity 1s ease; }
+        .slide.active { opacity: 1; }
+        .slide-bg { position: absolute; inset: 0; background-size: cover; background-position: center; background-repeat: no-repeat; }
+        .slide-1 .slide-bg { background-image: url('img/slider/slider-1.png'); background-color: rgba(13, 115, 119, 0.85); background-blend-mode: overlay; }
+        .slide-2 .slide-bg { background-image: url('img/slider/slider-2.png'); background-color: rgba(30, 58, 95, 0.85); background-blend-mode: overlay; }
+        .slide-3 .slide-bg { background-image: url('img/slider/slider-3.png'); background-color: rgba(30, 27, 75, 0.85); background-blend-mode: overlay; }
+        .slide-4 .slide-bg { background-image: url('img/slider/slider-4.png'); background-color: rgba(19, 78, 74, 0.85); background-blend-mode: overlay; }
+        .slide-pattern { position: absolute; inset: 0; background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); }
+        .slide-inner { position: relative; z-index: 2; display: flex; align-items: center; width: 100%; max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+        .slide-content { color: white; max-width: 800px; }
+        .slide-badge { display: inline-flex; align-items: center; gap: 10px; background: rgba(255,255,255,0.15); backdrop-filter: blur(10px); padding: 10px 20px; border-radius: 50px; font-size: 0.8rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 24px; border: 1px solid rgba(255,255,255,0.2); }
+        .slide-badge i { color: var(--secondary); }
+        .slide-content h2 { font-size: 3.5rem; margin-bottom: 20px; font-weight: 400; line-height: 1.15; }
+        .slide-content p { font-size: 1.1rem; color: rgba(255,255,255,0.85); margin-bottom: 32px; max-width: 480px; line-height: 1.8; }
+        .slide-stats { display: flex; gap: 40px; }
+        .slide-stat { text-align: left; }
+        .slide-stat .number { font-family: 'Montserrat', sans-serif; font-size: 2.5rem; font-weight: 600; color: var(--secondary); line-height: 1; }
+        .slide-stat .label { font-size: 0.85rem; color: rgba(255,255,255,0.7); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 4px; }
+        .slide-visual { display: none; } /* Hidden - using background images instead */
+        @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.03); } }
+        
+        /* Slider Navigation */
+        .slider-nav { position: absolute; bottom: 60px; left: 50%; transform: translateX(-50%); display: flex; align-items: center; gap: 20px; z-index: 10; }
+        .slider-btn { width: 50px; height: 50px; background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; cursor: pointer; transition: all 0.3s ease; }
+        .slider-btn:hover { background: white; color: var(--primary); transform: scale(1.1); }
+        .slider-dots { display: flex; gap: 12px; }
+        .slider-dot { width: 40px; height: 4px; background: rgba(255,255,255,0.3); border-radius: 2px; cursor: pointer; transition: all 0.3s ease; }
+        .slider-dot.active { background: var(--secondary); width: 60px; }
+        .slider-dot:hover { background: rgba(255,255,255,0.5); }
+        
+        /* Slide Counter */
+        .slide-counter { position: absolute; bottom: 60px; right: 60px; display: flex; align-items: baseline; gap: 8px; color: white; z-index: 10; }
+        .slide-counter .current { font-family: 'Montserrat', sans-serif; font-size: 3rem; font-weight: 600; color: var(--secondary); }
+        .slide-counter .total { font-size: 1rem; color: rgba(255,255,255,0.5); }
+        
+        /* Scroll Indicator */
+        .scroll-indicator { position: absolute; bottom: 140px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 8px; color: rgba(255,255,255,0.5); font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; z-index: 10; }
+        .scroll-indicator .mouse { width: 24px; height: 38px; border: 2px solid rgba(255,255,255,0.3); border-radius: 12px; position: relative; }
+        .scroll-indicator .wheel { width: 4px; height: 8px; background: rgba(255,255,255,0.5); border-radius: 2px; position: absolute; top: 6px; left: 50%; transform: translateX(-50%); animation: scroll 2s ease-in-out infinite; }
+        @keyframes scroll { 0%, 100% { transform: translateX(-50%) translateY(0); opacity: 1; } 50% { transform: translateX(-50%) translateY(12px); opacity: 0.3; } }
+        
+        /* Stats Bar */
+        .stats-bar { background: var(--primary); padding: 50px 0; }
+        .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; }
+        .stat-item { text-align: center; }
+        .stat-number { font-family: 'Montserrat', sans-serif; font-size: 2.8rem; font-weight: 600; color: white; }
+        .stat-label { font-size: 0.9rem; color: rgba(255,255,255,0.8); margin-top: 4px; }
+        
+        /* Services */
+        .services { padding: 100px 0; background: var(--bg-white); }
+        .section-header { text-align: center; max-width: 600px; margin: 0 auto 60px; }
+        .section-label { font-size: 0.75rem; font-weight: 500; color: var(--primary); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 12px; }
+        .section-title { font-size: 2.5rem; color: var(--text-dark); margin-bottom: 16px; }
+        .section-subtitle { font-size: 1rem; color: var(--text-muted); }
+        .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+        .service-card { background: var(--bg-light); padding: 36px 28px; border-radius: 20px; text-align: center; transition: all 0.4s ease; border: 1px solid transparent; }
+        .service-card:hover { transform: translateY(-8px); box-shadow: 0 20px 50px rgba(0,0,0,0.08); border-color: var(--primary); }
+        .service-icon { width: 70px; height: 70px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; transition: all 0.4s ease; box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
+        .service-card:hover .service-icon { background: var(--primary); }
+        .service-icon i { font-size: 26px; color: var(--primary); transition: color 0.4s; }
+        .service-card:hover .service-icon i { color: white; }
+        .service-card h3 { font-size: 1.2rem; color: var(--text-dark); margin-bottom: 10px; }
+        .service-card p { font-size: 0.9rem; color: var(--text-muted); }
+        
+        /* Footer */
+        footer { background: var(--primary-dark); padding: 60px 0 30px; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 50px; margin-bottom: 40px; }
+        .footer-brand .logo { margin-bottom: 16px; }
+        .footer-brand .logo-text { color: white; }
+        .footer-brand p { color: rgba(255,255,255,0.6); font-size: 0.9rem; line-height: 1.7; }
+        .footer-links h4 { font-size: 0.8rem; font-weight: 500; color: var(--secondary); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 16px; }
+        .footer-links ul { list-style: none; }
+        .footer-links li { margin-bottom: 10px; }
+        .footer-links a { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.9rem; transition: color 0.3s; }
+        .footer-links a:hover { color: white; }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; color: rgba(255,255,255,0.5); font-size: 0.85rem; }
+        .footer-social { display: flex; gap: 10px; }
+        .footer-social a { width: 36px; height: 36px; background: rgba(255,255,255,0.1); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.6); transition: all 0.3s; }
+        .footer-social a:hover { background: var(--primary); color: white; }
+        
+        /* Mobile */
+        .mobile-menu { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: var(--primary); z-index: 998; padding: 100px 40px; transform: translateX(100%); transition: transform 0.4s ease; }
+        .mobile-menu.active { transform: translateX(0); }
+        .mobile-menu ul { list-style: none; }
+        .mobile-menu li { margin-bottom: 20px; }
+        .mobile-menu a { color: white; text-decoration: none; font-size: 1.4rem; font-weight: 400; }
+        .mobile-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 10px; }
+        .mobile-toggle span { width: 24px; height: 2px; background: white; transition: all 0.3s; }
+        .navbar.scrolled .mobile-toggle span { background: var(--text-dark); }
         
-        .nav-cta {
-            background: var(--secondary) !important;
-            color: white !important;
-            font-weight: 600 !important;
-        }
-        
-        .nav-cta:hover {
-            background: var(--accent) !important;
-            transform: translateY(-2px);
-        }
-        
-        .mobile-toggle {
-            display: none;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-        
-        .navbar.scrolled .mobile-toggle { color: var(--text-dark); }
-        
-        /* ===== HERO ===== */
-        .hero {
-            min-height: 100vh;
-            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 50%, #1a8a8e 100%);
-            display: flex;
-            align-items: center;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .hero::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Ccircle cx='50' cy='50' r='40'/%3E%3C/g%3E%3C/svg%3E");
-        }
-        
-        .hero-content {
-            display: grid;
-            grid-template-columns: 1.2fr 1fr;
-            gap: 60px;
-            align-items: center;
-            position: relative;
-            z-index: 2;
-        }
-        
-        .hero-text {
-            color: white;
-        }
-        
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(10px);
-            padding: 10px 20px;
-            border-radius: 50px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            margin-bottom: 25px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-        
-        .hero-badge i { color: var(--hope-gold); }
-        
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-            line-height: 1.2;
-        }
-        
-        .hero h1 span {
-            color: var(--hope-gold);
-            font-style: italic;
-        }
-        
-        .hero-description {
-            font-size: 1.15rem;
-            color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 35px;
-            max-width: 500px;
-            line-height: 1.9;
-        }
-        
-        .hero-buttons {
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-        
-        .btn {
-            padding: 16px 32px;
-            border-radius: 50px;
-            font-family: 'Nunito', sans-serif;
-            font-size: 0.95rem;
-            font-weight: 600;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            border: none;
-        }
-        
-        .btn-primary {
-            background: white;
-            color: var(--primary);
-        }
-        
-        .btn-primary:hover {
-            background: var(--hope-gold);
-            color: var(--text-dark);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-        }
-        
-        .btn-secondary {
-            background: transparent;
-            color: white;
-            border: 2px solid rgba(255, 255, 255, 0.4);
-        }
-        
-        .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.15);
-            border-color: white;
-            transform: translateY(-3px);
-        }
-        
-        .hero-visual {
-            position: relative;
-        }
-        
-        .hero-image-container {
-            position: relative;
-            border-radius: 30px;
-            overflow: hidden;
-            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.3);
-        }
-        
-        .hero-image {
-            width: 100%;
-            height: 450px;
-            object-fit: cover;
-            display: block;
-        }
-        
-        .hero-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            padding: 30px;
-            background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
-            color: white;
-        }
-        
-        .hero-overlay h3 {
-            font-size: 1.3rem;
-            margin-bottom: 5px;
-        }
-        
-        .hero-overlay p {
-            font-size: 0.9rem;
-            opacity: 0.9;
-        }
-        
-        .hero-card {
-            position: absolute;
-            background: white;
-            border-radius: 20px;
-            padding: 20px;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-        
-        .hero-card-1 {
-            top: -20px;
-            right: -30px;
-        }
-        
-        .hero-card-icon {
-            width: 50px;
-            height: 50px;
-            border-radius: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.3rem;
-        }
-        
-        .hero-card-icon.green { background: linear-gradient(135deg, var(--healing-green), #00cec9); color: white; }
-        .hero-card-icon.blue { background: linear-gradient(135deg, var(--trust-blue), #0984e3); color: white; }
-        
-        .hero-card-text h4 { font-family: 'Nunito', sans-serif; font-size: 1rem; color: var(--text-dark); }
-        .hero-card-text p { font-size: 0.8rem; color: var(--text-muted); }
-        
-        /* ===== INTRO ===== */
-        .intro {
-            padding: 100px 0;
-            background: linear-gradient(180deg, var(--warm-white) 0%, var(--cream) 100%);
-        }
-        
-        .intro-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            align-items: center;
-        }
-        
-        .intro-image {
-            position: relative;
-        }
-        
-        .intro-image-main {
-            width: 100%;
-            border-radius: 30px;
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1);
-        }
-        
-        .intro-badge {
-            position: absolute;
-            bottom: -30px;
-            right: -30px;
-            background: var(--primary);
-            color: white;
-            padding: 25px 35px;
-            border-radius: 20px;
-            text-align: center;
-            box-shadow: 0 15px 40px rgba(13, 115, 119, 0.3);
-        }
-        
-        .intro-badge .number {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            font-weight: 700;
-            display: block;
-        }
-        
-        .intro-badge .label {
-            font-size: 0.8rem;
-            opacity: 0.9;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-        }
-        
-        .intro-content h2 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            color: var(--text-dark);
-        }
-        
-        .intro-content h2 span {
-            color: var(--primary);
-            font-style: italic;
-        }
-        
-        .intro-content .lead {
-            font-size: 1.15rem;
-            color: var(--text-muted);
-            margin-bottom: 30px;
-            line-height: 1.9;
-        }
-        
-        .intro-values {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-        }
-        
-        .intro-value {
-            display: flex;
-            align-items: flex-start;
-            gap: 15px;
-        }
-        
-        .intro-value-icon {
-            width: 45px;
-            height: 45px;
-            border-radius: 12px;
-            background: linear-gradient(135deg, var(--primary-light), var(--primary));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1rem;
-            flex-shrink: 0;
-        }
-        
-        .intro-value h4 {
-            font-family: 'Nunito', sans-serif;
-            font-size: 1rem;
-            font-weight: 600;
-            color: var(--text-dark);
-            margin-bottom: 3px;
-        }
-        
-        .intro-value p {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-        }
-        
-        /* ===== SERVICES ===== */
-        .services {
-            padding: 100px 0;
-            background: white;
-        }
-        
-        .section-header {
-            text-align: center;
-            max-width: 650px;
-            margin: 0 auto 60px;
-        }
-        
-        .section-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: rgba(13, 115, 119, 0.1);
-            color: var(--primary);
-            padding: 8px 20px;
-            border-radius: 50px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            margin-bottom: 15px;
-        }
-        
-        .section-header h2 {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-            color: var(--text-dark);
-        }
-        
-        .section-header h2 span {
-            color: var(--primary);
-            font-style: italic;
-        }
-        
-        .section-header p {
-            color: var(--text-muted);
-            font-size: 1.05rem;
-        }
-        
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-        }
-        
-        .service-card {
-            background: var(--cream);
-            border-radius: 25px;
-            padding: 35px;
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary), var(--primary-light));
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.4s ease;
-        }
-        
-        .service-card:hover::before { transform: scaleX(1); }
-        
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
-        }
-        
-        .service-icon {
-            width: 70px;
-            height: 70px;
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.8rem;
-            margin-bottom: 25px;
-            transition: all 0.3s ease;
-        }
-        
-        .service-card:nth-child(1) .service-icon { background: linear-gradient(135deg, #e8f8f5, #d4efdf); color: var(--healing-green); }
-        .service-card:nth-child(2) .service-icon { background: linear-gradient(135deg, #ebf5fb, #d6eaf8); color: var(--trust-blue); }
-        .service-card:nth-child(3) .service-icon { background: linear-gradient(135deg, #fef9e7, #fdebd0); color: #d68910; }
-        .service-card:nth-child(4) .service-icon { background: linear-gradient(135deg, #fdedec, #fadbd8); color: #e74c3c; }
-        .service-card:nth-child(5) .service-icon { background: linear-gradient(135deg, #f5eef8, #e8daef); color: var(--peace-purple); }
-        .service-card:nth-child(6) .service-icon { background: linear-gradient(135deg, #fef5e7, #fdebd0); color: var(--accent); }
-        
-        .service-card h3 {
-            font-family: 'Nunito', sans-serif;
-            font-size: 1.2rem;
-            font-weight: 700;
-            margin-bottom: 12px;
-            color: var(--text-dark);
-        }
-        
-        .service-card p {
-            font-size: 0.95rem;
-            color: var(--text-muted);
-            line-height: 1.7;
-        }
-        
-        /* ===== QUOTE ===== */
-        .quote-section {
-            padding: 100px 0;
-            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
-            text-align: center;
-            color: white;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .quote-section::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-        }
-        
-        .quote-icon {
-            font-size: 4rem;
-            opacity: 0.3;
-            margin-bottom: 30px;
-        }
-        
-        .quote-text {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.2rem;
-            font-style: italic;
-            max-width: 800px;
-            margin: 0 auto 30px;
-            line-height: 1.6;
-        }
-        
-        .quote-author {
-            font-size: 1rem;
-            opacity: 0.8;
-        }
-        
-        .quote-author strong {
-            display: block;
-            font-size: 1.2rem;
-            margin-top: 5px;
-        }
-        
-        /* ===== DOCTORS ===== */
-        .doctors {
-            padding: 100px 0;
-            background: var(--cream);
-        }
-        
-        .doctors-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 30px;
-        }
-        
-        .doctor-card {
-            background: white;
-            border-radius: 25px;
-            overflow: hidden;
-            transition: all 0.4s ease;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-        }
-        
-        .doctor-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
-        }
-        
-        .doctor-image {
-            width: 100%;
-            height: 280px;
-            object-fit: cover;
-            background: linear-gradient(135deg, var(--primary-light), var(--primary));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 4rem;
-        }
-        
-        .doctor-info {
-            padding: 25px;
-            text-align: center;
-        }
-        
-        .doctor-info h3 {
-            font-family: 'Nunito', sans-serif;
-            font-size: 1.15rem;
-            font-weight: 700;
-            color: var(--text-dark);
-            margin-bottom: 5px;
-        }
-        
-        .doctor-info .specialty {
-            color: var(--primary);
-            font-size: 0.9rem;
-            font-weight: 600;
-            margin-bottom: 8px;
-        }
-        
-        .doctor-info .experience {
-            color: var(--text-muted);
-            font-size: 0.85rem;
-        }
-        
-        .doctor-social {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-top: 15px;
-        }
-        
-        .doctor-social a {
-            width: 35px;
-            height: 35px;
-            border-radius: 50%;
-            background: var(--cream);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-muted);
-            transition: all 0.3s ease;
-        }
-        
-        .doctor-social a:hover {
-            background: var(--primary);
-            color: white;
-        }
-        
-        /* ===== TESTIMONIALS ===== */
-        .testimonials {
-            padding: 100px 0;
-            background: white;
-        }
-        
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-        }
-        
-        .testimonial-card {
-            background: var(--cream);
-            border-radius: 25px;
-            padding: 35px;
-            position: relative;
-        }
-        
-        .testimonial-quote {
-            position: absolute;
-            top: 20px;
-            right: 25px;
-            font-size: 5rem;
-            color: var(--primary);
-            opacity: 0.1;
-            font-family: 'Playfair Display', serif;
-            line-height: 1;
-        }
-        
-        .testimonial-stars {
-            color: #f1c40f;
-            margin-bottom: 15px;
-            font-size: 0.9rem;
-        }
-        
-        .testimonial-text {
-            font-size: 1rem;
-            color: var(--text-muted);
-            line-height: 1.8;
-            margin-bottom: 25px;
-            font-style: italic;
-        }
-        
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-        
-        .testimonial-avatar {
-            width: 55px;
-            height: 55px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--primary-light), var(--primary));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: 700;
-            font-size: 1.2rem;
-        }
-        
-        .testimonial-author h4 {
-            font-family: 'Nunito', sans-serif;
-            font-size: 1rem;
-            font-weight: 700;
-            color: var(--text-dark);
-        }
-        
-        .testimonial-author p {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-        }
-        
-        /* ===== CTA ===== */
-        .cta {
-            padding: 100px 0;
-            background: linear-gradient(135deg, var(--cream) 0%, #f5ebe0 100%);
-        }
-        
-        .cta-content {
-            display: grid;
-            grid-template-columns: 1.5fr 1fr;
-            gap: 60px;
-            align-items: center;
-        }
-        
-        .cta-text h2 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            color: var(--text-dark);
-        }
-        
-        .cta-text h2 span {
-            color: var(--primary);
-            font-style: italic;
-        }
-        
-        .cta-text p {
-            font-size: 1.1rem;
-            color: var(--text-muted);
-            margin-bottom: 30px;
-            line-height: 1.8;
-        }
-        
-        .cta-features {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            margin-bottom: 30px;
-        }
-        
-        .cta-feature {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-        
-        .cta-feature i {
-            width: 35px;
-            height: 35px;
-            border-radius: 50%;
-            background: var(--healing-green);
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.8rem;
-        }
-        
-        .cta-form {
-            background: white;
-            border-radius: 30px;
-            padding: 40px;
-            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.1);
-        }
-        
-        .cta-form h3 {
-            font-family: 'Nunito', sans-serif;
-            font-size: 1.3rem;
-            font-weight: 700;
-            margin-bottom: 25px;
-            text-align: center;
-            color: var(--text-dark);
-        }
-        
-        .form-group {
-            margin-bottom: 20px;
-        }
-        
-        .form-group label {
-            display: block;
-            font-size: 0.9rem;
-            font-weight: 600;
-            color: var(--text-dark);
-            margin-bottom: 8px;
-        }
-        
-        .form-group input,
-        .form-group textarea,
-        .form-group select {
-            width: 100%;
-            padding: 14px 18px;
-            border: 2px solid #e8e8e8;
-            border-radius: 15px;
-            font-family: 'Nunito', sans-serif;
-            font-size: 0.95rem;
-            transition: all 0.3s ease;
-        }
-        
-        .form-group input:focus,
-        .form-group textarea:focus,
-        .form-group select:focus {
-            outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 4px rgba(13, 115, 119, 0.1);
-        }
-        
-        .form-group textarea {
-            resize: vertical;
-            min-height: 100px;
-        }
-        
-        .btn-submit {
-            width: 100%;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-            color: white;
-            padding: 16px;
-            border: none;
-            border-radius: 15px;
-            font-family: 'Nunito', sans-serif;
-            font-size: 1rem;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        
-        .btn-submit:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(13, 115, 119, 0.3);
-        }
-        
-        /* ===== CONTACT ===== */
-        .contact {
-            padding: 100px 0;
-            background: var(--primary-dark);
-            color: white;
-        }
-        
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 40px;
-        }
-        
-        .contact-card {
-            text-align: center;
-        }
-        
-        .contact-icon {
-            width: 70px;
-            height: 70px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            margin: 0 auto 20px;
-        }
-        
-        .contact-card h4 {
-            font-family: 'Nunito', sans-serif;
-            font-size: 1.1rem;
-            font-weight: 700;
-            margin-bottom: 10px;
-        }
-        
-        .contact-card p {
-            font-size: 0.95rem;
-            opacity: 0.9;
-            line-height: 1.6;
-        }
-        
-        .contact-card a {
-            color: white;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-        
-        .contact-card a:hover {
-            color: var(--hope-gold);
-        }
-        
-        /* ===== FOOTER ===== */
-        .footer {
-            background: #061f20;
-            color: white;
-            padding: 60px 0 30px;
-        }
-        
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 50px;
-            margin-bottom: 50px;
-        }
-        
-        .footer-brand .logo {
-            margin-bottom: 20px;
-        }
-        
-        .footer-brand .logo-tagline { color: rgba(255, 255, 255, 0.7); }
-        
-        .footer-brand p {
-            font-size: 0.95rem;
-            opacity: 0.8;
-            line-height: 1.8;
-        }
-        
-        .footer-social {
-            display: flex;
-            gap: 12px;
-            margin-top: 25px;
-        }
-        
-        .footer-social a {
-            width: 42px;
-            height: 42px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            transition: all 0.3s ease;
-        }
-        
-        .footer-social a:hover {
-            background: var(--primary);
-            transform: translateY(-3px);
-        }
-        
-        .footer-links h4 {
-            font-family: 'Nunito', sans-serif;
-            font-size: 1.1rem;
-            font-weight: 700;
-            margin-bottom: 25px;
-        }
-        
-        .footer-links ul {
-            list-style: none;
-        }
-        
-        .footer-links li {
-            margin-bottom: 12px;
-        }
-        
-        .footer-links a {
-            color: rgba(255, 255, 255, 0.8);
-            text-decoration: none;
-            font-size: 0.95rem;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        
-        .footer-links a:hover {
-            color: var(--hope-gold);
-            padding-left: 5px;
-        }
-        
-        .footer-bottom {
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding-top: 30px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 0.9rem;
-            opacity: 0.7;
-        }
-        
-        .footer-bottom a {
-            color: white;
-            text-decoration: none;
-        }
-        
-        .footer-bottom a:hover {
-            color: var(--hope-gold);
-        }
-        
-        /* ===== BACK TO TOP ===== */
-        .back-to-top {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: var(--primary);
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            cursor: pointer;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 20px rgba(13, 115, 119, 0.3);
-            border: none;
-            z-index: 999;
-        }
-        
-        .back-to-top.visible {
-            opacity: 1;
-            visibility: visible;
-        }
-        
-        .back-to-top:hover {
-            background: var(--primary-dark);
-            transform: translateY(-5px);
-        }
-        
-        /* ===== ANIMATIONS ===== */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        .animate {
-            opacity: 0;
-        }
-        
-        .animate.visible {
-            animation: fadeInUp 0.8s ease forwards;
-        }
-        
-        /* ===== RESPONSIVE ===== */
         @media (max-width: 1024px) {
-            .hero-content { grid-template-columns: 1fr; text-align: center; }
-            .hero-text { order: 2; }
-            .hero-visual { order: 1; margin-bottom: 40px; }
-            .hero-description { margin: 0 auto 35px; }
-            .hero-buttons { justify-content: center; }
-            
-            .intro-grid { grid-template-columns: 1fr; gap: 50px; }
+            .slide-inner { grid-template-columns: 1fr; text-align: center; }
+            .slide-content { order: 2; }
+            .slide-content p { margin-left: auto; margin-right: auto; }
+            .slide-stats { justify-content: center; }
+            .slide-visual { order: 1; margin-bottom: 40px; }
+            .slide-circle { width: 250px; height: 250px; }
+            .slide-circle i { font-size: 70px; }
+            .slide-counter { display: none; }
             .services-grid { grid-template-columns: repeat(2, 1fr); }
-            .doctors-grid { grid-template-columns: repeat(2, 1fr); }
-            .testimonials-grid { grid-template-columns: 1fr; }
-            .cta-content { grid-template-columns: 1fr; }
-            .footer-grid { grid-template-columns: repeat(2, 1fr); }
-            .contact-grid { grid-template-columns: repeat(2, 1fr); }
         }
-        
         @media (max-width: 768px) {
             .nav-links { display: none; }
-            .mobile-toggle { display: block; }
-            
-            .hero h1 { font-size: 2.5rem; }
-            .section-header h2 { font-size: 2rem; }
-            .quote-text { font-size: 1.5rem; }
-            
+            .mobile-toggle { display: flex; }
+            .mobile-menu { display: block; }
+            .slide-content h2 { font-size: 2.5rem; }
+            .slide-stats { gap: 24px; }
+            .slide-stat .number { font-size: 2rem; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
             .services-grid { grid-template-columns: 1fr; }
-            .doctors-grid { grid-template-columns: 1fr; }
-            .footer-grid { grid-template-columns: 1fr; }
-            .contact-grid { grid-template-columns: 1fr; }
-            .footer-bottom { flex-direction: column; gap: 15px; text-align: center; }
+            .footer-grid { grid-template-columns: 1fr; text-align: center; }
+            .footer-bottom { flex-direction: column; gap: 16px; }
+            .slider-nav { bottom: 40px; }
+            .scroll-indicator { display: none; }
         }
+        
+        /* Partner Marquee Animation */
+        .marquee-wrapper { overflow: hidden; position: relative; padding: 20px 0; }
+        .marquee-wrapper::before, .marquee-wrapper::after { content: ''; position: absolute; top: 0; bottom: 0; width: 100px; z-index: 2; }
+        .marquee-wrapper::before { left: 0; background: linear-gradient(to right, var(--primary), transparent); }
+        .marquee-wrapper::after { right: 0; background: linear-gradient(to left, var(--primary), transparent); }
+        .marquee-track { display: flex; gap: 30px; animation: marquee 40s linear infinite; width: max-content; }
+        .marquee-track:hover { animation-play-state: paused; }
+        @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+        .partner-item { 
+            background: white; 
+            padding: 25px 40px; 
+            border-radius: 16px; 
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+            border: 1px solid rgba(0,0,0,0.05);
+            transition: all 0.3s; 
+            flex-shrink: 0; 
+            min-width: 180px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center;
+        }
+        .partner-item:hover { transform: scale(1.05); box-shadow: 0 20px 50px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.8); border-color: var(--primary-light); }
+        .partner-item img { height: 55px; object-fit: contain; filter: none; transition: all 0.3s; }
+        .partner-item:hover img { filter: brightness(1.1); }
     </style>
 </head>
 <body>
-    <!-- Navbar -->
     <nav class="navbar" id="navbar">
         <div class="container nav-container">
-            <a href="#" class="logo">
+            <a href="index.html" class="logo">
                 <img src="logo.png" alt="Payangan Hospital">
-                <div class="logo-text">
-                    <div class="logo-title">Payangan Hospital</div>
-                    <div class="logo-tagline">Kami Menjaga Kesehatan Anda</div>
+                <div>
+                    <div class="logo-text">Payangan Hospital</div>
+                    <div class="logo-text-sub">Pavitram Idam Uttamam</div>
                 </div>
             </a>
-            
             <ul class="nav-links">
-                <li><a href="#beranda">Beranda</a></li>
-                <li><a href="#layanan">Layanan</a></li>
-                <li><a href="#dokter">Dokter</a></li>
-                <li><a href="#testimoni">Testimoni</a></li>
-                <li><a href="#kontak">Kontak</a></li>
-                <li><a href="#kontak" class="nav-cta"><i class="fas fa-phone"></i> Hubungi Kami</a></li>
+                <li><a href="#slider">Beranda</a></li>
+                <li>
+                    <a href="about.html">Tentang <i class="fas fa-chevron-down"></i></a>
+                    <div class="mega-menu">
+                        <a href="about.html#sejarah" class="mega-item"><div class="icon"><i class="fas fa-landmark"></i></div><div class="text"><h4>Sejarah</h4><p>Perjalanan Payangan Hospital</p></div></a>
+                        <a href="about.html#visimisi" class="mega-item"><div class="icon"><i class="fas fa-bullseye"></i></div><div class="text"><h4>Visi & Misi</h4><p>Arah dan tujuan kami</p></div></a>
+                        <a href="about.html#standar" class="mega-item"><div class="icon"><i class="fas fa-clipboard-check"></i></div><div class="text"><h4>Standar Pelayanan</h4><p>Standar kualitas kami</p></div></a>
+                        <a href="about.html#maklumat" class="mega-item"><div class="icon"><i class="fas fa-file-contract"></i></div><div class="text"><h4>Maklumat</h4><p>Janji pelayanan</p></div></a>
+                        <a href="about.html#mutu" class="mega-item"><div class="icon"><i class="fas fa-award"></i></div><div class="text"><h4>Mutu</h4><p>Komitmen kualitas</p></div></a>
+                        <a href="about.html#budaya" class="mega-item"><div class="icon"><i class="fas fa-hands-helping"></i></div><div class="text"><h4>Budaya Kerja</h4><p>Nilai-nilai kerja kami</p></div></a>
+                    </div>
+                </li>
+                <li>
+                    <a href="#layanan">Layanan <i class="fas fa-chevron-down"></i></a>
+                    <div class="mega-menu">
+                        <a href="rawat-jalan.html" class="mega-item"><div class="icon"><i class="fas fa-stethoscope"></i></div><div class="text"><h4>Rawat Jalan</h4><p>Konsultasi dokter spesialis</p></div></a>
+                        <a href="rawat-inap.html" class="mega-item"><div class="icon"><i class="fas fa-procedures"></i></div><div class="text"><h4>Rawat Inap</h4><p>Pelayanan inap nyaman</p></div></a>
+                        <a href="igd.html" class="mega-item"><div class="icon"><i class="fas fa-ambulance"></i></div><div class="text"><h4>IGD / UGD</h4><p>Gawat darurat 24 jam</p></div></a>
+                    </div>
+                </li>
+                <li><a href="dokter.html">Dokter</a></li>
+                <li><a href="ph-update.html">PH Update</a></li>
+                <li><a href="kontak.html">Kontak</a></li>
+                <li><a href="#login" class="nav-cta"><i class="fas fa-sign-in-alt"></i> Login</a></li>
             </ul>
-            
-            <button class="mobile-toggle" id="mobileToggle">
-                <i class="fas fa-bars"></i>
-            </button>
+            <div class="mobile-toggle" onclick="toggleMenu()"><span></span><span></span><span></span></div>
         </div>
     </nav>
 
-    <!-- Hero -->
-    <section class="hero" id="beranda">
+    <div class="mobile-menu" id="mobileMenu">
+        <ul>
+            <li><a href="#slider" onclick="toggleMenu()">Beranda</a></li>
+            <li><a href="about.html" onclick="toggleMenu()">Tentang</a></li>
+            <li><a href="about.html#sejarah" onclick="toggleMenu()">- Sejarah</a></li>
+            <li><a href="about.html#visimisi" onclick="toggleMenu()">- Visi Misi</a></li>
+            <li><a href="about.html#standar" onclick="toggleMenu()">- Standar</a></li>
+            <li><a href="about.html#maklumat" onclick="toggleMenu()">- Maklumat</a></li>
+            <li><a href="about.html#mutu" onclick="toggleMenu()">- Mutu</a></li>
+            <li><a href="about.html#budaya" onclick="toggleMenu()">- Budaya Kerja</a></li>
+            <li><a href="#layanan" onclick="toggleMenu()">Layanan</a></li>
+            <li><a href="rawat-jalan.html" onclick="toggleMenu()">- Rawat Jalan</a></li>
+            <li><a href="rawat-inap.html" onclick="toggleMenu()">- Rawat Inap</a></li>
+            <li><a href="igd.html" onclick="toggleMenu()">- IGD / UGD</a></li>
+            <li><a href="dokter.html" onclick="toggleMenu()">Dokter</a></li>
+            <li><a href="ph-update.html" onclick="toggleMenu()">PH Update</a></li>
+            <li><a href="kontak.html" onclick="toggleMenu()">Kontak</a></li>
+            <li><a href="#login" onclick="toggleMenu()">Login</a></li>
+        </ul>
+    </div>
+
+    <!-- Hero Slider -->
+    <section class="hero-slider" id="slider">
+        <div class="slides-container">
+            <div class="slide slide-1 active">
+                <div class="slide-bg"></div>
+                <div class="slide-pattern"></div>
+                <div class="slide-inner">
+                    <div class="slide-content">
+                        <div class="slide-badge"><i class="fas fa-ambulance"></i> IGD 24 Jam</div>
+                        <h2>Pelayanan Darurat Siap Siaga</h2>
+                        <p>Tim medis profesional siaga 24 jam untuk menangani keadaan darurat dengan peralatan lengkap dan canggih.</p>
+                        <div class="slide-stats">
+                            <div class="slide-stat"><div class="number">24/7</div><div class="label">Siaga</div></div>
+                            <div class="slide-stat"><div class="number">5+</div><div class="label">Dokter</div></div>
+                            <div class="slide-stat"><div class="number">100%</div><div class="label">Siap</div></div>
+                        </div>
+                    </div>
+                    <div class="slide-visual"><div class="slide-circle"><i class="fas fa-heartbeat"></i></div></div>
+                </div>
+            </div>
+
+            <div class="slide slide-2">
+                <div class="slide-bg"></div>
+                <div class="slide-pattern"></div>
+                <div class="slide-inner">
+                    <div class="slide-content">
+                        <div class="slide-badge"><i class="fas fa-user-md"></i> Spesialis</div>
+                        <h2>Dokter Spesialis Berpengalaman</h2>
+                        <p>Dokter spesialis berpengalaman dari berbagai bidang siap memberikan konsultasi dan perawatan terbaik.</p>
+                        <div class="slide-stats">
+                            <div class="slide-stat"><div class="number">25+</div><div class="label">Spesialis</div></div>
+                            <div class="slide-stat"><div class="number">10+</div><div class="label">Tahun</div></div>
+                            <div class="slide-stat"><div class="number">98%</div><div class="label">Puas</div></div>
+                        </div>
+                    </div>
+                    <div class="slide-visual"><div class="slide-circle"><i class="fas fa-stethoscope"></i></div></div>
+                </div>
+            </div>
+
+            <div class="slide slide-3">
+                <div class="slide-bg"></div>
+                <div class="slide-pattern"></div>
+                <div class="slide-inner">
+                    <div class="slide-content">
+                        <div class="slide-badge"><i class="fas fa-microscope"></i> Modern</div>
+                        <h2>Fasilitas Medis Canggih</h2>
+                        <p>Peralatan medis terkini untuk diagnosis akurat dan perawatan yang efektif.</p>
+                        <div class="slide-stats">
+                            <div class="slide-stat"><div class="number">50+</div><div class="label">Alat</div></div>
+                            <div class="slide-stat"><div class="number">100%</div><div class="label">Modern</div></div>
+                            <div class="slide-stat"><div class="number">Akurat</div><div class="label">Hasil</div></div>
+                        </div>
+                    </div>
+                    <div class="slide-visual"><div class="slide-circle"><i class="fas fa-microscope"></i></div></div>
+                </div>
+            </div>
+
+            <div class="slide slide-4">
+                <div class="slide-bg"></div>
+                <div class="slide-pattern"></div>
+                <div class="slide-inner">
+                    <div class="slide-content">
+                        <div class="slide-badge"><i class="fas fa-procedures"></i> Kenyamanan</div>
+                        <h2>Kamar Perawatan Nyaman</h2>
+                        <p>Kamar perawatan bersih dan nyaman dengan fasilitas lengkap untuk pemulihan optimal.</p>
+                        <div class="slide-stats">
+                            <div class="slide-stat"><div class="number">50+</div><div class="label">Kamar</div></div>
+                            <div class="slide-stat"><div class="number">VIP</div><div class="label">Kelas</div></div>
+                            <div class="slide-stat"><div class="number">AC</div><div class="label">Semua</div></div>
+                        </div>
+                    </div>
+                    <div class="slide-visual"><div class="slide-circle"><i class="fas fa-hospital-alt"></i></div></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slider-nav">
+            <button class="slider-btn" onclick="prevSlide()"><i class="fas fa-chevron-left"></i></button>
+            <div class="slider-dots">
+                <div class="slider-dot active" onclick="goToSlide(0)"></div>
+                <div class="slider-dot" onclick="goToSlide(1)"></div>
+                <div class="slider-dot" onclick="goToSlide(2)"></div>
+                <div class="slider-dot" onclick="goToSlide(3)"></div>
+            </div>
+            <button class="slider-btn" onclick="nextSlide()"><i class="fas fa-chevron-right"></i></button>
+        </div>
+
+        <div class="slide-counter">
+            <span class="current">01</span>
+            <span class="total">/ 04</span>
+        </div>
+
+        <div class="scroll-indicator">
+            <div class="mouse"><div class="wheel"></div></div>
+            <span>Scroll</span>
+        </div>
+    </section>
+
+    <!-- Stats Bar -->
+    <section class="stats-bar">
         <div class="container">
-            <div class="hero-content">
-                <div class="hero-text">
-                    <div class="hero-badge">
-                        <i class="fas fa-heart"></i>
-                        Melayani dengan Sepenuh Hati
-                    </div>
-                    <h1>Kesehatan Anda adalah <span>Prioritas Kami</span></h1>
-                    <p class="hero-description">
-                        Di Payangan Hospital, kami percaya bahwa setiap pasien berhak mendapatkan perawatan yang penuh kasih dan profesional. Bersama tenaga medis berpengalaman, kami siap mendengarkan, memahami, dan menyembuhkan.
-                    </p>
-                    <div class="hero-buttons">
-                        <a href="#kontak" class="btn btn-primary">
-                            <i class="fas fa-calendar-check"></i>
-                            Buat Janji Temu
-                        </a>
-                        <a href="tel:+62361478901" class="btn btn-secondary">
-                            <i class="fas fa-phone"></i>
-                            (0361) 478-901
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="hero-visual">
-                    <div class="hero-image-container">
-                        <img src="img/slider/slider-1.png" alt="Payangan Hospital" class="hero-image" onerror="this.style.display='none'">
-                        <div class="hero-overlay">
-                            <h3>Melayani dengan Tulus</h3>
-                            <p>24 jam, 7 hari seminggu</p>
-                        </div>
-                    </div>
-                    <div class="hero-card hero-card-1">
-                        <div class="hero-card-icon green">
-                            <i class="fas fa-user-md"></i>
-                        </div>
-                        <div class="hero-card-text">
-                            <h4>20+ Dokter</h4>
-                            <p>Profesional & Berpengalaman</p>
-                        </div>
-                    </div>
-                </div>
+            <div class="stats-grid">
+                <div class="stat-item"><div class="stat-number">5000+</div><div class="stat-label">Pasien Terlayani</div></div>
+                <div class="stat-item"><div class="stat-number">25+</div><div class="stat-label">Dokter Spesialis</div></div>
+                <div class="stat-item"><div class="stat-number">15+</div><div class="stat-label">Tahun Pengalaman</div></div>
+                <div class="stat-item"><div class="stat-number">24/7</div><div class="stat-label">Layanan Darurat</div></div>
             </div>
         </div>
     </section>
 
-    <!-- Intro -->
-    <section class="intro" id="tentang">
-        <div class="container">
-            <div class="intro-grid">
-                <div class="intro-image">
-                    <img src="direktur.png" alt="Gedung Payangan Hospital" class="intro-image-main">
-                    <div class="intro-badge">
-                        <span class="number">15+</span>
-                        <span class="label">Tahun Melayani</span>
-                    </div>
-                </div>
-                
-                <div class="intro-content">
-                    <h2>Lebih dari Sekadar <span>Rumah Sakit</span></h2>
-                    <p class="lead">
-                        Payangan Hospital bukan sekadar tempat的治疗中心. Kami adalah rumah kedua bagi Anda — tempat di mana harapan pulih, di mana senyum kembali, dan di mana kepercayaan dibangun.
-                    </p>
-                    
-                    <div class="intro-values">
-                        <div class="intro-value">
-                            <div class="intro-value-icon">
-                                <i class="fas fa-heart"></i>
-                            </div>
-                            <div>
-                                <h4>Penuh Kasih</h4>
-                                <p>Setiap perawatan diberikan dengan ketulusan hati</p>
-                            </div>
-                        </div>
-                        <div class="intro-value">
-                            <div class="intro-value-icon">
-                                <i class="fas fa-user-md"></i>
-                            </div>
-                            <div>
-                                <h4>Profesional</h4>
-                                <p>Tenaga medis terlatih dan berpengalaman</p>
-                            </div>
-                        </div>
-                        <div class="intro-value">
-                            <div class="intro-value-icon">
-                                <i class="fas fa-clock"></i>
-                            </div>
-                            <div>
-                                <h4>Siap 24/7</h4>
-                                <p>Darurat kapan saja, kami siap membantu</p>
-                            </div>
-                        </div>
-                        <div class="intro-value">
-                            <div class="intro-value-icon">
-                                <i class="fas fa-handshake"></i>
-                            </div>
-                            <div>
-                                <h4>Terpercaya</h4>
-                                <p>Ribuan keluarga mempercayakan kesehatan mereka</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Quote -->
-    <section class="quote-section">
-        <div class="container">
-            <i class="fas fa-quote-left quote-icon"></i>
-            <p class="quote-text">
-                "Kesehatan adalah harta paling berharga. Ketika Anda sehat, Anda dapat mengejar semua mimpi. Ketika Anda sakit, kami di sini untuk membantu Anda pulih."
-            </p>
-            <div class="quote-author">
-                <strong>— Tim Payangan Hospital</strong>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services -->
+    <!-- Services Section -->
     <section class="services" id="layanan">
         <div class="container">
             <div class="section-header">
-                <div class="section-badge">
-                    <i class="fas fa-stethoscope"></i>
-                    Layanan Kami
-                </div>
-                <h2>Layanan <span>Terbaik</span> untuk Anda</h2>
-                <p>Kami menyediakan berbagai layanan kesehatan yang komprehensif untuk memenuhi kebutuhan Anda dan keluarga</p>
+                <div class="section-label">Layanan Kami</div>
+                <h2 class="section-title">Pelayanan Kesehatan Terpercaya</h2>
+                <p class="section-subtitle">Standar internasional untuk kebutuhan kesehatan Anda</p>
             </div>
-            
             <div class="services-grid">
-                <div class="service-card animate">
-                    <div class="service-icon">
-                        <i class="fas fa-heartbeat"></i>
-                    </div>
-                    <h3>Pelayanan Umum</h3>
-                    <p>Konsultasi dokter umum untuk diagnosis dan penanganan berbagai keluhan kesehatan sehari-hari dengan penuh perhatian.</p>
-                </div>
-                
-                <div class="service-card animate">
-                    <div class="service-icon">
-                        <i class="fas fa-user-md"></i>
-                    </div>
-                    <h3>Spesialis Penyakit Dalam</h3>
-                    <p>Penanganan komprehensif untuk penyakit dalam dengan dokter spesialis berpengalaman dan peralatan modern.</p>
-                </div>
-                
-                <div class="service-card animate">
-                    <div class="service-icon">
-                        <i class="fas fa-child"></i>
-                    </div>
-                    <h3>Kesehatan Anak</h3>
-                    <p>Perawatan khusus untuk buah hati Anda dengan pendekatan yang lembut dan penuh kasih sayang.</p>
-                </div>
-                
-                <div class="service-card animate">
-                    <div class="service-icon">
-                        <i class="fas fa-bone"></i>
-                    </div>
-                    <h3>Bedah</h3>
-                    <p>Tindakan bedah modern dengan teknologi terkini dan tim bedah yang berpengalaman.</p>
-                </div>
-                
-                <div class="service-card animate">
-                    <div class="service-icon">
-                        <i class="fas fa-brain"></i>
-                    </div>
-                    <h3>Saraf</h3>
-                    <p>Pemeriksaan dan penanganan gangguan saraf dengan keahlian khusus dan peralatan diagnostik canggih.</p>
-                </div>
-                
-                <div class="service-card animate">
-                    <div class="service-icon">
-                        <i class="fas fa-ambulance"></i>
-                    </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-ambulance"></i></div>
                     <h3>IGD 24 Jam</h3>
-                    <p>Unit gawat darurat siaga 24 jam dengan tim medis siap menangani kondisi darurat kapan saja.</p>
+                    <p>Layanan gawat darurat tersedia 24 jam dengan tim medis profesional</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-stethoscope"></i></div>
+                    <h3>Konsultasi Spesialis</h3>
+                    <p>Dokter spesialis berpengalaman siap membantu</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-procedures"></i></div>
+                    <h3>Rawat Inap</h3>
+                    <p>Kamar perawatan nyaman dengan fasilitas lengkap</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-microscope"></i></div>
+                    <h3>Laboratorium</h3>
+                    <p>Pemeriksaan lengkap dengan hasil akurat</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-x-ray"></i></div>
+                    <h3>Radiologi</h3>
+                    <p>Fasilitas radiologi modern</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-syringe"></i></div>
+                    <h3>Vaksinasi</h3>
+                    <p>Layanan vaksinasi untuk anak & dewasa</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Doctors -->
-    <section class="doctors" id="dokter">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-badge">
-                    <i class="fas fa-users"></i>
-                    Tim Kami
-                </div>
-                <h2>Dokter <span>Profesional</span> Kami</h2>
-                <p>Dokter-dokter terbaik yang siap memberikan perawatan kesehatan dengan penuh dedikasi</p>
+    <!-- CTA - Display Antrean -->
+    <section class="content-section" style="background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%); padding: 80px 0;">
+        <div class="container" style="text-align: center;">
+            <div style="display: inline-block; background: rgba(255,255,255,0.15); color: white; padding: 8px 24px; border-radius: 50px; font-size: 0.8rem; font-weight: 500; margin-bottom: 20px;">
+                <i class="fas fa-tv"></i> DISPLAY INFORMASI
             </div>
-            
-            <div class="doctors-grid">
-                <div class="doctor-card animate">
-                    <img src="img/dokter/dr.%20Tjokorda%20Prima%20Dewi%20Pemayun,%20Sp.PD.png" alt="dr. Tjokorda Prima Dewi Pemayun" class="doctor-image" style="object-fit:cover;">
-                    <div class="doctor-info">
-                        <h3>dr. Tjokorda Prima Dewi P.</h3>
-                        <p class="specialty">Spesialis Penyakit Dalam</p>
-                        <p class="experience">15 tahun pengalaman</p>
-                    </div>
-                </div>
-                
-                <div class="doctor-card animate">
-                    <img src="img/dokter/dr.%20Manik%20Dirgayunitri,%20M.Biomed.,%20Sp.An.png" alt="dr. Manik Dirgayunitri" class="doctor-image" style="object-fit:cover;">
-                    <div class="doctor-info">
-                        <h3>dr. Manik Dirgayunitri</h3>
-                        <p class="specialty">Spesialis Anak</p>
-                        <p class="experience">12 tahun pengalaman</p>
-                    </div>
-                </div>
-                
-                <div class="doctor-card animate">
-                    <img src="img/dokter/dr.%20I%20Wayan%20Suwarna,%20S.Ked.,%20Sp.B.png" alt="dr. I Wayan Suwarna" class="doctor-image" style="object-fit:cover;">
-                    <div class="doctor-info">
-                        <h3>dr. I Wayan Suwarna</h3>
-                        <p class="specialty">Spesialis Bedah</p>
-                        <p class="experience">18 tahun pengalaman</p>
-                    </div>
-                </div>
-                
-                <div class="doctor-card animate">
-                    <img src="img/dokter/dr.%20Kade%20Agus%20Sudha%20Naryana,%20Sp.N.png" alt="dr. Kade Agus Sudha Naryana" class="doctor-image" style="object-fit:cover;">
-                    <div class="doctor-info">
-                        <h3>dr. Kade Agus Sudha N.</h3>
-                        <p class="specialty">Spesialis Saraf</p>
-                        <p class="experience">10 tahun pengalaman</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials -->
-    <section class="testimonials" id="testimoni">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-badge">
-                    <i class="fas fa-comment-heart"></i>
-                    Cerita Mereka
-                </div>
-                <h2>Kata <span>Mereka</span> yang Telah Kami Layani</h2>
-                <p>Kisah nyata dari keluarga yang telah merasakan pelayanan Payangan Hospital</p>
-            </div>
-            
-            <div class="testimonials-grid">
-                <div class="testimonial-card animate">
-                    <span class="testimonial-quote">"</span>
-                    <div class="testimonial-stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p class="testimonial-text">
-                        "Ketika anak saya demam tinggi di malam hari, dokter dan perawat di Payangan Hospital langsung menangani dengan penuh perhatian. Terima kasih untuk kepeduliannya."
-                    </p>
-                    <div class="testimonial-author">
-                        <div class="testimonial-avatar">NK</div>
-                        <div>
-                            <h4>Nyoman Ketut</h4>
-                            <p>Warga Gianyar</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="testimonial-card animate">
-                    <span class="testimonial-quote">"</span>
-                    <div class="testimonial-stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p class="testimonial-text">
-                        "Dokter SpPD di sini sangat sabar menjelaskan kondisi saya. Tidak ada yang terburu-buru. Saya merasa benar-benar diperhatikan."
-                    </p>
-                    <div class="testimonial-author">
-                        <div class="testimonial-avatar">WS</div>
-                        <div>
-                            <h4>Wayan Sari</h4>
-                            <p>Warga Ubud</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="testimonial-card animate">
-                    <span class="testimonial-quote">"</span>
-                    <div class="testimonial-stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p class="testimonial-text">
-                        "Fasilitas RS Payangan sangat bersih dan nyaman. Seperti di rumah sendiri, tidak ada nuansa rumah sakit yang menakutkan."
-                    </p>
-                    <div class="testimonial-author">
-                        <div class="testimonial-avatar">MP</div>
-                        <div>
-                            <h4>Made Pasek</h4>
-                            <p>Warga Tampaksiring</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA -->
-    <section class="cta" id="kontak">
-        <div class="container">
-            <div class="cta-content">
-                <div class="cta-text">
-                    <h2>Siap <span>Bercerita</span> dengan Kami?</h2>
-                    <p>
-                        Apakah Anda memiliki pertanyaan tentang layanan kami? Ingin membuat janji temu? Atau sekadar ingin tahu lebih lanjut tentang kesehatan Anda? Tim kami siap mendengarkan.
-                    </p>
-                    
-                    <div class="cta-features">
-                        <div class="cta-feature">
-                            <i class="fas fa-check"></i>
-                            <span>Respon cepat dalam 1x24 jam</span>
-                        </div>
-                        <div class="cta-feature">
-                            <i class="fas fa-check"></i>
-                            <span>Konsultasi awal gratis</span>
-                        </div>
-                        <div class="cta-feature">
-                            <i class="fas fa-check"></i>
-                            <span>Janji temu fleksibel sesuai waktu Anda</span>
-                        </div>
-                    </div>
-                    
-                    <a href="https://wa.me/62361478901" class="btn btn-primary" style="background: #25D366;">
-                        <i class="fab fa-whatsapp"></i>
-                        Chat WhatsApp
-                    </a>
-                </div>
-                
-                <div class="cta-form">
-                    <h3>Hubungi Kami</h3>
-                    <form id="contactForm">
-                        <div class="form-group">
-                            <label>Nama Lengkap</label>
-                            <input type="text" name="name" placeholder="Masukkan nama Anda" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Nomor Telepon</label>
-                            <input type="tel" name="phone" placeholder="08xxxxxxxxxx" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Pesan / Pertanyaan</label>
-                            <textarea name="message" placeholder="Ceritakan kebutuhan kesehatan Anda..." required></textarea>
-                        </div>
-                        <button type="submit" class="btn-submit">
-                            <i class="fas fa-paper-plane"></i> Kirim Pesan
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Info -->
-    <section class="contact">
-        <div class="container">
-            <div class="contact-grid">
-                <div class="contact-card">
-                    <div class="contact-icon">
-                        <i class="fas fa-map-marker-alt"></i>
-                    </div>
-                    <h4>Alamat</h4>
-                    <p>Jl. Raya Payangan No. 1<br>Gianyar, Bali 80572</p>
-                </div>
-                
-                <div class="contact-card">
-                    <div class="contact-icon">
-                        <i class="fas fa-phone-alt"></i>
-                    </div>
-                    <h4>Telepon</h4>
-                    <p><a href="tel:+62361478901">(0361) 478-901</a><br><a href="tel:+62361478902">(0361) 478-902</a></p>
-                </div>
-                
-                <div class="contact-card">
-                    <div class="contact-icon">
-                        <i class="fas fa-envelope"></i>
-                    </div>
-                    <h4>Email</h4>
-                    <p><a href="mailto:info@payanganhospital.com">info@payanganhospital.com</a></p>
-                </div>
-                
-                <div class="contact-card">
-                    <div class="contact-icon">
-                        <i class="fas fa-clock"></i>
-                    </div>
-                    <h4>Jam Besuk</h4>
-                    <p>Setiap hari: 10.00 - 12.00<br>16.00 - 19.00 WITA</p>
-                </div>
-            </div>
+            <h2 style="font-family: 'Montserrat', sans-serif; font-size: 2.5rem; color: white; margin-bottom: 16px;">
+                Pantau Antrean Secara Real-Time
+            </h2>
+            <p style="color: rgba(255,255,255,0.9); font-size: 1.1rem; max-width: 600px; margin: 0 auto 30px;">
+                Lihat ketersediaan antrean poliklinik dan kamar tidur secara langsung melalui display digital kami.
+            </p>
+            <a href="antrean.html" style="display: inline-flex; align-items: center; gap: 12px; background: white; color: var(--primary); padding: 16px 40px; border-radius: 50px; font-weight: 600; font-size: 1rem; text-decoration: none; transition: all 0.3s; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
+                <i class="fas fa-desktop" style="font-size: 1.2rem;"></i>
+                Lihat Display Antrean
+            </a>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
+    
+<!-- Partner Section -->
+    <section class="partner-section" style="background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); padding: 60px 0;">
+        <div style="text-align: center; margin-bottom: 40px;">
+            <div class="section-label" style="background: rgba(255,255,255,0.2); color: white;">Mitra & Partner</div>
+            <h2 style="font-size: 2.5rem; color: white;">Logo Partner Kami</h2>
+        </div>
+        <div class="marquee-wrapper">
+            <div class="marquee-track">
+                <div class="partner-item"><img src="img/partners/BPJS Kesehatan.png" alt="BPJS Kesehatan"></div>
+                <div class="partner-item"><img src="img/partners/Kabupaten Gianyar.png" alt="Kabupaten Gianyar"></div>
+                <div class="partner-item"><img src="img/partners/Kominfo.png" alt="Kominfo"></div>
+                <div class="partner-item"><img src="img/partners/Jasa Raharja.png" alt="Jasa Raharja"></div>
+                <div class="partner-item"><img src="img/partners/JR Putera.png" alt="JR Putera"></div>
+                <div class="partner-item"><img src="img/partners/WIKA.png" alt="WIKA"></div>
+                <div class="partner-item"><img src="img/partners/MHC.png" alt="MHC"></div>
+                <div class="partner-item"><img src="img/partners/APG.png" alt="APG"></div>
+                <div class="partner-item"><img src="img/partners/OMSA MEDIC.png" alt="OMSA MEDIC"></div>
+                <div class="partner-item"><img src="img/partners/Alila Ubud.png" alt="Alila Ubud"></div>
+                <!-- Duplicate for seamless loop -->
+                <div class="partner-item"><img src="img/partners/BPJS Kesehatan.png" alt="BPJS Kesehatan"></div>
+                <div class="partner-item"><img src="img/partners/Kabupaten Gianyar.png" alt="Kabupaten Gianyar"></div>
+                <div class="partner-item"><img src="img/partners/Kominfo.png" alt="Kominfo"></div>
+                <div class="partner-item"><img src="img/partners/Jasa Raharja.png" alt="Jasa Raharja"></div>
+                <div class="partner-item"><img src="img/partners/JR Putera.png" alt="JR Putera"></div>
+                <div class="partner-item"><img src="img/partners/WIKA.png" alt="WIKA"></div>
+                <div class="partner-item"><img src="img/partners/MHC.png" alt="MHC"></div>
+                <div class="partner-item"><img src="img/partners/APG.png" alt="APG"></div>
+                <div class="partner-item"><img src="img/partners/OMSA MEDIC.png" alt="OMSA MEDIC"></div>
+                <div class="partner-item"><img src="img/partners/Alila Ubud.png" alt="Alila Ubud"></div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand">
-                    <a href="#" class="logo">
+                    <a href="index.html" class="logo">
                         <img src="logo.png" alt="Payangan Hospital">
-                        <div class="logo-text">
-                            <div class="logo-title">Payangan Hospital</div>
-                            <div class="logo-tagline">Kami Menjaga Kesehatan Anda</div>
-                        </div>
+                        <div><div class="logo-text">Payangan Hospital</div><div class="logo-text-sub">Pavitram Idam Uttamam</div></div>
                     </a>
-                    <p>
-                        Menyediakan pelayanan kesehatan berkualitas dengan penuh kasih untuk masyarakat Gianyar dan sekitarnya. Karena kesehatan Anda adalah prioritas kami.
-                    </p>
-                    <div class="footer-social">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                        <a href="#"><i class="fab fa-whatsapp"></i></a>
-                    </div>
+                    <p>Rumah Sakit Payangan Hospital - Layanan kesehatan berkualitas dengan tenaga medis profesional.</p>
                 </div>
-                
                 <div class="footer-links">
                     <h4>Layanan</h4>
                     <ul>
-                        <li><a href="#layanan"><i class="fas fa-chevron-right"></i> Pelayanan Umum</a></li>
-                        <li><a href="#layanan"><i class="fas fa-chevron-right"></i> Spesialis Anak</a></li>
-                        <li><a href="#layanan"><i class="fas fa-chevron-right"></i> Penyakit Dalam</a></li>
-                        <li><a href="#layanan"><i class="fas fa-chevron-right"></i> Bedah</a></li>
-                        <li><a href="#layanan"><i class="fas fa-chevron-right"></i> IGD 24 Jam</a></li>
+                        <li><a href="#layanan">IGD 24 Jam</a></li>
+                        <li><a href="#layanan">Rawat Inap</a></li>
+                        <li><a href="#layanan">Konsultasi</a></li>
                     </ul>
                 </div>
-                
                 <div class="footer-links">
-                    <h4>Informasi</h4>
+                    <h4>Tentang</h4>
                     <ul>
-                        <li><a href="#tentang"><i class="fas fa-chevron-right"></i> Tentang Kami</a></li>
-                        <li><a href="#dokter"><i class="fas fa-chevron-right"></i> Tim Dokter</a></li>
-                        <li><a href="#testimoni"><i class="fas fa-chevron-right"></i> Testimoni</a></li>
-                        <li><a href="#kontak"><i class="fas fa-chevron-right"></i> Hubungi Kami</a></li>
+                        <li><a href="about.html#sejarah">Sejarah</a></li>
+                        <li><a href="about.html#visimisi">Visi Misi</a></li>
+                        <li><a href="about.html#standar">Standar</a></li>
                     </ul>
                 </div>
-                
                 <div class="footer-links">
-                    <h4>Kontak Darurat</h4>
+                    <h4>Kontak</h4>
                     <ul>
-                        <li><a href="tel:+62361478901"><i class="fas fa-phone"></i> (0361) 478-901</a></li>
-                        <li><a href="tel:+62361999999"><i class="fas fa-ambulance"></i> Ambulans</a></li>
-                        <li><a href="https://wa.me/62361478901"><i class="fab fa-whatsapp"></i> WhatsApp</a></li>
+                        <li><a href="tel:+623619088087">+62 361 9088087</a></li>
+                        <li><a href="#">Jl. Raya Payangan</a></li>
+                        <li><a href="#">Gianyar, Bali</a></li>
                     </ul>
                 </div>
             </div>
-            
             <div class="footer-bottom">
-                <p>&copy; 2024 Payangan Hospital. Hak Cipta Dilindungi.</p>
-                <p>Dibuat dengan <i class="fas fa-heart" style="color: #e74c3c;"></i> di Gianyar, Bali</p>
+                <p>&copy; 2024 Payangan Hospital - Gianyar, Bali</p>
+                <div class="footer-social">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
             </div>
         </div>
     </footer>
 
-    <!-- Back to Top -->
-    <button class="back-to-top" id="backToTop">
-        <i class="fas fa-chevron-up"></i>
-    </button>
-
-    <!-- Scripts -->
     <script>
-        // Navbar scroll effect
-        window.addEventListener('scroll', function() {
-            const navbar = document.getElementById('navbar');
-            const backToTop = document.getElementById('backToTop');
-            
-            if (window.scrollY > 100) {
-                navbar.classList.add('scrolled');
-                backToTop.classList.add('visible');
-            } else {
-                navbar.classList.remove('scrolled');
-                backToTop.classList.remove('visible');
-            }
+        window.addEventListener('scroll', () => {
+            document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
         });
 
-        // Back to top
-        document.getElementById('backToTop').addEventListener('click', function() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
+        function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('active'); }
 
-        // Smooth scroll for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            });
-        });
+        let currentSlide = 0;
+        const totalSlides = 4;
 
-        // Animate on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
+        function updateSlider() {
+            document.querySelectorAll('.slide').forEach((s, i) => s.classList.toggle('active', i === currentSlide));
+            document.querySelectorAll('.slider-dot').forEach((d, i) => d.classList.toggle('active', i === currentSlide));
+            document.querySelector('.slide-counter .current').textContent = String(currentSlide + 1).padStart(2, '0');
+        }
 
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
+        function nextSlide() { currentSlide = (currentSlide + 1) % totalSlides; updateSlider(); }
+        function prevSlide() { currentSlide = (currentSlide - 1 + totalSlides) % totalSlides; updateSlider(); }
+        function goToSlide(i) { currentSlide = i; updateSlider(); }
 
-        document.querySelectorAll('.animate').forEach(el => {
-            observer.observe(el);
-        });
-
-        // Form submission
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const formData = new FormData(this);
-            const name = formData.get('name');
-            const phone = formData.get('phone');
-            const message = formData.get('message');
-            
-            // Redirect to WhatsApp with pre-filled message
-            const whatsappMessage = `Halo, saya ${name}. ${message}`;
-            const whatsappUrl = `https://wa.me/62361478901?text=${encodeURIComponent(whatsappMessage)}`;
-            window.open(whatsappUrl, '_blank');
-            
-            // Reset form
-            this.reset();
-            
-            // Show success feedback
-            alert('Terima kasih! Pesan Anda akan dikirim melalui WhatsApp.');
-        });
-
-        // Mobile menu toggle
-        document.getElementById('mobileToggle').addEventListener('click', function() {
-            const navLinks = document.querySelector('.nav-links');
-            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
-        });
+        setInterval(nextSlide, 6000);
     </script>
 </body>
 </html>
