@@ -3,38 +3,182 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Website Optimization Report - Payangan Hospital</title>
+    <title>Live Antrean & Kamar - Payangan Hospital</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
-        body { font-family: 'Segoe UI', sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; padding: 20px; }
-        .glass { background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); border-radius: 20px; box-shadow: 0 8px 32px rgba(0,0,0,0.1); padding: 24px; margin-bottom: 20px; }
+        body { font-family: 'Segoe UI', sans-serif; background: linear-gradient(135deg, #0d7377 0%, #14919b 100%); min-height: 100vh; padding: 20px; }
+        .glass { background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); border-radius: 20px; box-shadow: 0 8px 32px rgba(0,0,0,0.15); padding: 24px; margin-bottom: 20px; }
+        .live-dot { animation: pulse 2s infinite; }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+        .counter { transition: all 0.3s ease; }
+        .counter:hover { transform: scale(1.05); }
     </style>
 </head>
 <body>
-    <div class="max-w-5xl mx-auto">
-        <div class="glass text-center">
-            <h1 class="text-3xl font-bold text-gray-800 mb-2">📋 Website Optimization Report</h1>
-            <p class="text-gray-600">Payangan Hospital - 13 Agents Optimization</p>
-            <p class="text-sm text-gray-500 mt-2">Generated: 2026-07-02 01:49:16 WITA</p>
-            <p class="text-xs text-gray-400 mt-1">Target: payanganhospital.gianyarkab.go.id/progress/</p>
+    <div class="max-w-6xl mx-auto">
+        <!-- Header -->
+        <div class="glass text-center mb-6">
+            <div class="flex items-center justify-center gap-3 mb-2">
+                <span class="bg-red-500 text-white px-3 py-1 rounded-full text-sm font-bold flex items-center gap-2">
+                    <span class="w-2 h-2 bg-white rounded-full live-dot"></span> LIVE
+                </span>
+            </div>
+            <h1 class="text-3xl font-bold text-gray-800 mb-2">📊 Live Monitoring</h1>
+            <p class="text-gray-600">Payangan Hospital - Gianyar, Bali</p>
+            <p class="text-sm text-gray-500 mt-2" id="timestamp">Last Update: Loading...</p>
         </div>
         
-        <div class="glass">
-            <h2 class="text-xl font-bold mb-4">📊 Summary</h2>
-            <div class="grid grid-cols-4 gap-4">
-                <div class="bg-blue-100 rounded-xl p-4 text-center"><div class="text-3xl font-bold text-blue-600">13</div><div class="text-sm text-gray-600">Total Agents</div></div>
-                <div class="bg-green-100 rounded-xl p-4 text-center"><div class="text-3xl font-bold text-green-600">10</div><div class="text-sm text-gray-600">Passed</div></div>
-                <div class="bg-red-100 rounded-xl p-4 text-center"><div class="text-3xl font-bold text-red-600">3</div><div class="text-sm text-gray-600">Failed</div></div>
-                <div class="bg-yellow-100 rounded-xl p-4 text-center"><div class="text-3xl font-bold text-yellow-600">21</div><div class="text-sm text-gray-600">Warnings</div></div>
+        <!-- Quick Stats -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+            <div class="glass text-center counter">
+                <div class="text-4xl font-bold text-blue-600" id="total-antrean">--</div>
+                <div class="text-sm text-gray-600">Total Antrean</div>
+            </div>
+            <div class="glass text-center counter">
+                <div class="text-4xl font-bold text-green-600" id="igd-count">--</div>
+                <div class="text-sm text-gray-600">IGD</div>
+            </div>
+            <div class="glass text-center counter">
+                <div class="text-4xl font-bold text-purple-600" id="kamar-tersedia">--</div>
+                <div class="text-sm text-gray-600">Kamar Tersedia</div>
+            </div>
+            <div class="glass text-center counter">
+                <div class="text-4xl font-bold text-orange-600" id="total-kamar">--</div>
+                <div class="text-sm text-gray-600">Total Kamar</div>
             </div>
         </div>
         
-        <div class="glass">
-            <h2 class="text-xl font-bold mb-4">🔍 Agent Results</h2>
-            <table class="w-full">
-                <thead><tr class="bg-gray-100"><th class="p-3 text-left">#</th><th class="p-3 text-left">Agent</th><th class="p-3 text-left">Status</th><th class="p-3 text-left">Issues</th></tr></thead>
-                <tbody>
-<tr class="border-b"><td class="p-3">1</td><td class="p-3 font-medium">Link Checker</td><td class="p-3"><span class="bg-green-100 text-green-600 px-2 py-1 rounded text-sm">✅ Pass</span></td><td class="p-3 text-gray-500">0</td></tr><tr class="border-b"><td class="p-3">2</td><td class="p-3 font-medium">QA Checker</td><td class="p-3"><span class="bg-green-100 text-green-600 px-2 py-1 rounded text-sm">✅ Pass</span></td><td class="p-3 text-gray-500">0</td></tr><tr class="border-b"><td class="p-3">3</td><td class="p-3 font-medium">Content Validator</td><td class="p-3"><span class="bg-green-100 text-green-600 px-2 py-1 rounded text-sm">✅ Pass</span></td><td class="p-3 text-gray-500">0</td></tr><tr class="border-b"><td class="p-3">4</td><td class="p-3 font-medium">SEO Optimizer</td><td class="p-3"><span class="bg-red-100 text-red-600 px-2 py-1 rounded text-sm">❌ Fail</span></td><td class="p-3 text-gray-500">18</td></tr><tr class="border-b"><td class="p-3">5</td><td class="p-3 font-medium">Performance</td><td class="p-3"><span class="bg-red-100 text-red-600 px-2 py-1 rounded text-sm">❌ Fail</span></td><td class="p-3 text-gray-500">2</td></tr><tr class="border-b"><td class="p-3">6</td><td class="p-3 font-medium">Accessibility</td><td class="p-3"><span class="bg-green-100 text-green-600 px-2 py-1 rounded text-sm">✅ Pass</span></td><td class="p-3 text-gray-500">0</td></tr><tr class="border-b"><td class="p-3">7</td><td class="p-3 font-medium">UI/UX</td><td class="p-3"><span class="bg-green-100 text-green-600 px-2 py-1 rounded text-sm">✅ Pass</span></td><td class="p-3 text-gray-500">0</td></tr><tr class="border-b"><td class="p-3">8</td><td class="p-3 font-medium">Images</td><td class="p-3"><span class="bg-green-100 text-green-600 px-2 py-1 rounded text-sm">✅ Pass</span></td><td class="p-3 text-gray-500">0</td></tr><tr class="border-b"><td class="p-3">9</td><td class="p-3 font-medium">Code Quality</td><td class="p-3"><span class="bg-green-100 text-green-600 px-2 py-1 rounded text-sm">✅ Pass</span></td><td class="p-3 text-gray-500">0</td></tr><tr class="border-b"><td class="p-3">10</td><td class="p-3 font-medium">Mobile</td><td class="p-3"><span class="bg-green-100 text-green-600 px-2 py-1 rounded text-sm">✅ Pass</span></td><td class="p-3 text-gray-500">0</td></tr><tr class="border-b"><td class="p-3">11</td><td class="p-3 font-medium">Security</td><td class="p-3"><span class="bg-green-100 text-green-600 px-2 py-1 rounded text-sm">✅ Pass</span></td><td class="p-3 text-gray-500">0</td></tr><tr class="border-b"><td class="p-3">12</td><td class="p-3 font-medium">Freshness</td><td class="p-3"><span class="bg-red-100 text-red-600 px-2 py-1 rounded text-sm">❌ Fail</span></td><td class="p-3 text-gray-500">1</td></tr><tr class="border-b"><td class="p-3">13</td><td class="p-3 font-medium">Deployment</td><td class="p-3"><span class="bg-green-100 text-green-600 px-2 py-1 rounded text-sm">✅ Pass</span></td><td class="p-3 text-gray-500">0</td></tr></tbody></table></div><div class="glass"><h2 class="text-xl font-bold mb-4">📝 Issues Found</h2><ul class="list-disc pl-5"><li class="mb-2"><strong>SEO Optimizer:</strong><ul class="list-disc pl-5 text-sm text-gray-600"><li>description (dokter.html)</li><li>description (rawat-inap.html)</li><li>description (about.html)</li><li>description (poli-orthopedic.html)</li><li>description (ph-update.html)</li></ul></li><li class="mb-2"><strong>Performance:</strong><ul class="list-disc pl-5 text-sm text-gray-600"><li>Inline styles: 161 (about.html)</li><li>Inline styles: 51 (antrean.html)</li></ul></li><li class="mb-2"><strong>Freshness:</strong><ul class="list-disc pl-5 text-sm text-gray-600"><li>No 2026 content</li></ul></li></ul></div><div class="glass text-center"><p class="text-red-600 font-bold text-xl">⚠️ 3 AGENTS FAILED</p><p class="text-gray-500 mt-2">Please fix issues and run /play again</p></div><div class="text-center text-gray-500 text-sm mt-6">
-        <p>Generated by 🚀 Play Command - 13 Agents | 2026-07-02 01:49:16 WITA</p>
-    </div></div></body></html>
+        <!-- Antrean per Poli -->
+        <div class="glass mb-6">
+            <h2 class="text-xl font-bold mb-4 flex items-center gap-2">
+                <i class="fas fa-users text-blue-600"></i> Antrean per Poliklinik
+            </h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4" id="antrean-poli">
+                <!-- Populated by JavaScript -->
+            </div>
+        </div>
+        
+        <!-- Status Kamar -->
+        <div class="glass mb-6">
+            <h2 class="text-xl font-bold mb-4 flex items-center gap-2">
+                <i class="fas fa-bed text-purple-600"></i> Status Kamar Rawat Inap
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4" id="kamar-status">
+                <div class="bg-blue-50 rounded-xl p-4 text-center">
+                    <div class="text-2xl font-bold text-blue-600">20</div>
+                    <div class="text-sm text-gray-600">Kelas I</div>
+                    <div class="flex justify-center gap-2 mt-2">
+                        <span class="text-xs bg-green-100 text-green-600 px-2 py-1 rounded">Tersedia: 12</span>
+                    </div>
+                </div>
+                <div class="bg-blue-50 rounded-xl p-4 text-center">
+                    <div class="text-2xl font-bold text-blue-600">25</div>
+                    <div class="text-sm text-gray-600">Kelas II</div>
+                    <div class="flex justify-center gap-2 mt-2">
+                        <span class="text-xs bg-green-100 text-green-600 px-2 py-1 rounded">Tersedia: 8</span>
+                    </div>
+                </div>
+                <div class="bg-blue-50 rounded-xl p-4 text-center">
+                    <div class="text-2xl font-bold text-blue-600">55</div>
+                    <div class="text-sm text-gray-600">Kelas III</div>
+                    <div class="flex justify-center gap-2 mt-2">
+                        <span class="text-xs bg-yellow-100 text-yellow-600 px-2 py-1 rounded">Tersedia: 15</span>
+                    </div>
+                </div>
+                <div class="bg-purple-50 rounded-xl p-4 text-center">
+                    <div class="text-2xl font-bold text-purple-600">10</div>
+                    <div class="text-sm text-gray-600">VIP</div>
+                    <div class="flex justify-center gap-2 mt-2">
+                        <span class="text-xs bg-green-100 text-green-600 px-2 py-1 rounded">Tersedia: 5</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- IGD Status -->
+        <div class="glass mb-6">
+            <h2 class="text-xl font-bold mb-4 flex items-center gap-2">
+                <i class="fas fa-ambulance text-red-600"></i>IGD (Instalasi Gawat Darurat)
+            </h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="bg-red-50 rounded-xl p-4 text-center">
+                    <div class="text-3xl font-bold text-red-600">3</div>
+                    <div class="text-sm text-gray-600">Pasien Aktif</div>
+                </div>
+                <div class="bg-green-50 rounded-xl p-4 text-center">
+                    <div class="text-3xl font-bold text-green-600">2</div>
+                    <div class="text-sm text-gray-600">Tersedia</div>
+                </div>
+                <div class="bg-orange-50 rounded-xl p-4 text-center">
+                    <div class="text-3xl font-bold text-orange-600">1</div>
+                    <div class="text-sm text-gray-600">Rujukan</div>
+                </div>
+                <div class="bg-blue-50 rounded-xl p-4 text-center">
+                    <div class="text-3xl font-bold text-blue-600">5</div>
+                    <div class="text-sm text-gray-600">Total TT</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <div class="glass text-center text-sm text-gray-500">
+            <p>Rumah Sakit Umum Payangan Hospital</p>
+            <p class="mt-1">Jl. Raya Payangan, Gianyar, Bali</p>
+            <p class="mt-2 text-xs">Auto-refresh setiap 30 detik | Data simulasi</p>
+        </div>
+    </div>
+    
+    <script>
+        // Simulated data - replace with actual API calls
+        const poliData = [
+            { nama: 'Poli Umum', antrean: 12, ikon: 'fa-stethoscope' },
+            { nama: 'Poli Anak', antrean: 8, ikon: 'fa-child' },
+            { nama: 'Poli Kandungan', antrean: 6, ikon: 'fa-female' },
+            { nama: 'Poli Saraf', antrean: 5, ikon: 'fa-brain' },
+            { nama: 'Poli Dalam', antrean: 9, ikon: 'fa-heart' },
+            { nama: 'Poli Bedah', antrean: 4, ikon: 'fa-cut' },
+            { nama: 'Poli THT', antrean: 7, ikon: 'fa-ear-listen' },
+            { nama: 'Poli Gigi', antrean: 3, ikon: 'fa-tooth' }
+        ];
+        
+        function updateTimestamp() {
+            const now = new Date();
+            const options = { day: '2-digit', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit' };
+            document.getElementById('timestamp').textContent = 'Last Update: ' + now.toLocaleString('id-ID', options) + ' WITA';
+        }
+        
+        function renderAntreanPoli() {
+            const container = document.getElementById('antrean-poli');
+            container.innerHTML = poliData.map(poli => `
+                <div class="bg-blue-50 rounded-xl p-4 text-center">
+                    <i class="fas ${poli.ikon} text-blue-600 text-2xl mb-2"></i>
+                    <div class="text-3xl font-bold text-blue-600">${poli.antrean}</div>
+                    <div class="text-xs text-gray-600">${poli.nama}</div>
+                </div>
+            `).join('');
+            
+            // Update totals
+            const totalAntrean = poliData.reduce((sum, p) => sum + p.antrean, 0);
+            document.getElementById('total-antrean').textContent = totalAntrean;
+            document.getElementById('igd-count').textContent = '5';
+            document.getElementById('kamar-tersedia').textContent = '40';
+            document.getElementById('total-kamar').textContent = '110';
+        }
+        
+        // Initial render
+        updateTimestamp();
+        renderAntreanPoli();
+        
+        // Auto refresh every 30 seconds
+        setInterval(() => {
+            // Randomize data for demo
+            poliData.forEach(poli => {
+                poli.antrean = Math.floor(Math.random() * 15) + 1;
+            });
+            renderAntreanPoli();
+            updateTimestamp();
+        }, 30000);
+    </script>
+</body>
+</html>
