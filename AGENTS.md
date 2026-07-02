@@ -98,6 +98,78 @@ Halaman ini berisi:
 
 ---
 
+
+---
+
+## рҹ“Ӣ /play Command - Run All Agents
+
+Jalankan semua agent dengan **SATU COMMAND**!
+
+### Cara Pakai
+
+```bash
+# Local (di terminal)
+cd /workspace/project/Payangan-Hospital
+python3 scripts/play.py
+```
+
+### Output Contoh
+
+```
+============================================================
+  📋 PAYANGAN HOSPITAL - /play COMMAND
+============================================================
+
+  🔍 Agent 1: Link Checker      ✅ Pass
+  ✅ Agent 2: QA Checker        ✅ Pass
+  📋 Agent 3: Content Validator ✅ Pass
+
+Total:
+  Errors: 0
+  Warnings: 18
+
+🎉🎉🎉 ALL AGENTS PASSED!
+```
+
+### File terkait
+| File | Description |
+|------|-------------|
+| `scripts/play.py` | Script utama untuk menjalankan semua agent |
+| `.github/workflows/00-all-agents.yml` | GitHub Actions version |
+| `OPENHANDS-AUTOMATION.md` | Panduan OpenHands Cloud |
+| `PLAY-COMMAND.md` | Dokumentasi lengkap |
+
+---
+
+## рҹҡҖ OpenHands Cloud Automation
+
+### Daily Full Site Check (Cron)
+
+```bash
+curl -X POST "https://app.all-hands.dev/api/automation/v1/preset/prompt" \
+  -H "Authorization: Bearer ${OPENHANDS_API_KEY}" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "name": "Daily Full Site Check - Payangan Hospital",
+    "prompt": "Run all quality checks on Payangan Hospital website...",
+    "trigger": {
+      "type": "cron",
+      "schedule": "0 0 * * *",
+      "timezone": "Asia/Makassar"
+    },
+    "repos": [{"url": "https://github.com/prahlad168/Payangan-Hospital"}]
+  }'
+```
+
+### Cron Schedule Reference
+| Schedule | Description |
+|----------|-------------|
+| `0 0 * * *` | Daily at midnight |
+| `0 7 * * *` | Daily at 7 AM (WIB) |
+| `0 */6 * * *` | Every 6 hours |
+| `0 9 * * 1-5` | Weekdays at 9 AM |
+
+
 ## рҹӣ пёҸ Available Skills
 
 Repository ini menggunakan skill-skill berikut:
