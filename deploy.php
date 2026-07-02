@@ -16,6 +16,7 @@ if ($provided_key !== $secret_key) {
 
 // Define files to update from GitHub
 $files = [
+    'index.html' => 'https://raw.githubusercontent.com/prahlad168/Payangan-Hospital/main/index.html',
     'img/slider/slider-1.png' => 'https://raw.githubusercontent.com/prahlad168/Payangan-Hospital/main/img/slider/slider-1.png',
     'img/slider/slider-2.png' => 'https://raw.githubusercontent.com/prahlad168/Payangan-Hospital/main/img/slider/slider-2.png',
     'img/slider/slider-3.png' => 'https://raw.githubusercontent.com/prahlad168/Payangan-Hospital/main/img/slider/slider-3.png',
