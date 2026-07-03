@@ -9,6 +9,76 @@ description: This skill should be used when user says "internet cepat", "speed i
 
 Panduan lengkap untuk mempercepat koneksi internet secara **legal** menggunakan metode optimization yang valid dan aman.
 
+## ⚙️ This System Optimization
+
+### Linux System Commands
+
+```bash
+# Check current DNS
+cat /etc/resolv.conf
+
+# Check network interfaces
+ip addr
+
+# Test DNS speed
+dig cloudflare.com
+dig google.com
+
+# Speed test
+curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python3
+```
+
+### Quick Speed Test
+```bash
+# Method 1: Fast.com
+curl -s https://api.fast.com/netflix/speedtest?https=true | python3 -m json.tool
+
+# Method 2: Download test file
+curl -o /dev/null -s -w "Speed: %{speed_download} bytes/sec\n" https://speed.hetzner.de/1MB.bin
+
+# Method 3: iPerf3 (if available)
+iperf3 -c speedtest.serverius.nl
+```
+
+### DNS Benchmark
+```bash
+# Benchmark DNS servers
+time nslookup google.com
+
+# Test different DNS
+DNS_SERVER="1.1.1.1" dig @${DNS_SERVER} cloudflare.com +short
+DNS_SERVER="8.8.8.8" dig @${DNS_SERVER} cloudflare.com +short
+DNS_SERVER="9.9.9.9" dig @${DNS_SERVER} cloudflare.com +short
+```
+
+### Network Optimization Commands
+
+```bash
+# Flush DNS cache (Linux)
+systemd-resolve --flush-caches
+
+# Check MTU
+ip link show | grep mtu
+
+# Optimize TCP window
+sysctl -w net.core.rmem_max=2500000
+sysctl -w net.core.wmem_max=2500000
+
+# Enable BBR congestion control
+sysctl -w net.core.default_qdisc=fq
+sysctl -w net.ipv4.tcp_congestion_control=bbr
+```
+
+### Browser Setup for Speed
+
+```
+Chrome/Firefox optimization:
+1. Install "Fast.com" extension
+2. Enable DNS over HTTPS (DoH)
+3. Clear cache daily
+4. Disable unused extensions
+```
+
 ## ⚡ Quick Wins (Yang Langsung Bisa Dilakukan)
 
 ### 1. Ganti DNS untuk Speed Lebih Cepat
@@ -307,6 +377,29 @@ ipconfig /flushdns
 | Router | Reboot, 5GHz band |
 | System | Flush DNS, reset network |
 | Mobile | Data saver, Lite apps |
+
+---
+
+## 📚 Research & Learning
+
+### Literasi Network (1 per menit)
+
+** Sumber Belajar:**
+1. Cloudflare Blog: https://blog.cloudflare.com
+2. Google DNS Docs: https://developers.google.com/speed/public-dns
+3. Speedtest Blog: https://www.speedtest.net/insights
+4. How-To Geek: https://www.howtogeek.com
+5. techradar: https://www.techradar.com
+
+**Topik untuk dipelajari:**
+- DNS optimization fundamentals
+- TCP/IP performance tuning
+- Browser rendering optimization
+- Network latency reduction
+- CDN benefits
+- HTTP/2, HTTP/3, QUIC protocols
+- Packet loss & retransmission
+- Bandwidth management
 
 ---
 
