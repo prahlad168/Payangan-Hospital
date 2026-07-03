@@ -178,6 +178,32 @@ Skill untuk mempercepat koneksi internet secara **legal**.
 
 ---
 
+## 📡 Onno W. Purbo Skill
+
+**File:** `.agents/skills/onno-w-purbo/`
+
+Skill untuk belajar metode **Onno W. Purbo** - Bapak Internet Indonesia.
+
+**Trigger phrases:**
+- "onno w purbo", "onno purbo"
+- "wajan internet", "wokbolic"
+- "wifi dari wajan", "antena kaleng"
+- "internet murah", "community network"
+
+**Metode Legendaris:**
+| Metode | Hasil |
+|--------|-------|
+| Wokbolic (Wajan) | 50m → 4km |
+| Tin Can WiFi | 50m → 1km |
+| Community Network | Desa tanpa internet |
+
+**Prinsip:**
+- Kreatif dengan bahan murah
+- Legal & open knowledge
+- Bangun komunitas
+
+---
+
 ## 🔧 Image Fixing Skill
 
 **File:** `.agents/skills/image-fixing/`
