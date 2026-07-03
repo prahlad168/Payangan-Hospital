@@ -157,6 +157,27 @@ https://payanganhospital.gianyarkab.go.id/deploy.php?key=PAYANGAN_DEPLOY_2026
 
 ---
 
+## 🌐 Network Speed Skill
+
+**File:** `.agents/skills/network-speed/`
+
+Skill untuk mempercepat koneksi internet secara **legal**.
+
+**Trigger phrases:**
+- "internet cepat", "speed internet"
+- "DNS cepat", "wifi lambat"
+- "optimasi internet", "download cepat"
+
+**Quick Tips:**
+| Tips | Cara |
+|------|------|
+| DNS | 1.1.1.1 / 8.8.8.8 |
+| Browser | Clear cache, disable extensions |
+| Router | Reboot, 5GHz band |
+| System | Flush DNS, reset network |
+
+---
+
 ## 🔧 Image Fixing Skill
 
 **File:** `.agents/skills/image-fixing/`
