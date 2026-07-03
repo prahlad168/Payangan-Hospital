@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Live Antrean & Kamar - Payangan Hospital</title>
+    <title>Progress Dashboard - Payangan Hospital</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
@@ -13,124 +13,57 @@
         @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
         .counter { transition: all 0.3s ease; }
         .counter:hover { transform: scale(1.05); }
+        .tab-active { background: #0d7377; color: white; }
+        .tab-btn { transition: all 0.3s; }
     </style>
 </head>
 <body>
-    <div class="max-w-6xl mx-auto">
+    <div class="max-w-7xl mx-auto">
         <!-- Header -->
         <div class="glass text-center mb-6">
             <div class="flex items-center justify-center gap-3 mb-2">
-                <span class="bg-red-500 text-white px-3 py-1 rounded-full text-sm font-bold flex items-center gap-2">
-                    <span class="w-2 h-2 bg-white rounded-full live-dot"></span> LIVE
+                <span class="bg-teal-600 text-white px-4 py-2 rounded-full text-sm font-bold flex items-center gap-2">
+                    <i class="fas fa-chart-line"></i> PROGRESS DASHBOARD
                 </span>
             </div>
-            <h1 class="text-3xl font-bold text-gray-800 mb-2">📊 Live Monitoring</h1>
-            <p class="text-gray-600">Payangan Hospital - Gianyar, Bali</p>
+            <h1 class="text-3xl font-bold text-gray-800 mb-2">📊 Payangan Hospital Sales & Operations</h1>
+            <p class="text-gray-600">SaaS Sales Agent Report - Target: Rp 30.000.000/bulan</p>
             <p class="text-sm text-gray-500 mt-2" id="timestamp">Last Update: Loading...</p>
         </div>
         
-        <!-- Quick Stats -->
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
-            <div class="glass text-center counter">
-                <div class="text-4xl font-bold text-blue-600" id="total-antrean">--</div>
-                <div class="text-sm text-gray-600">Total Antrean</div>
-            </div>
-            <div class="glass text-center counter">
-                <div class="text-4xl font-bold text-green-600" id="igd-count">--</div>
-                <div class="text-sm text-gray-600">IGD</div>
-            </div>
-            <div class="glass text-center counter">
-                <div class="text-4xl font-bold text-purple-600" id="kamar-tersedia">--</div>
-                <div class="text-sm text-gray-600">Kamar Tersedia</div>
-            </div>
-            <div class="glass text-center counter">
-                <div class="text-4xl font-bold text-orange-600" id="total-kamar">--</div>
-                <div class="text-sm text-gray-600">Total Kamar</div>
+        <!-- Tab Navigation -->
+        <div class="glass mb-6">
+            <div class="flex gap-2 flex-wrap">
+                <button onclick="showTab('antrean')" class="tab-btn tab-active px-4 py-2 rounded-lg font-semibold" id="tab-antrean">
+                    <i class="fas fa-procedures mr-1"></i> Live Antrean
+                </button>
+                <button onclick="showTab('sales')" class="tab-btn px-4 py-2 rounded-lg font-semibold bg-gray-100 text-gray-700" id="tab-sales">
+                    <i class="fas fa-dollar-sign mr-1"></i> Sales Pipeline
+                </button>
+                <button onclick="showTab('leads')" class="tab-btn px-4 py-2 rounded-lg font-semibold bg-gray-100 text-gray-700" id="tab-leads">
+                    <i class="fas fa-users mr-1"></i> Lead List
+                </button>
+                <button onclick="showTab('reports')" class="tab-btn px-4 py-2 rounded-lg font-semibold bg-gray-100 text-gray-700" id="tab-reports">
+                    <i class="fas fa-file-alt mr-1"></i> Reports
+                </button>
             </div>
         </div>
         
-        <!-- Antrean per Poli -->
-        <div class="glass mb-6">
-            <h2 class="text-xl font-bold mb-4 flex items-center gap-2">
-                <i class="fas fa-users text-blue-600"></i> Antrean per Poliklinik
-            </h2>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4" id="antrean-poli">
-                <!-- Populated by JavaScript -->
-            </div>
-        </div>
-        
-        <!-- Status Kamar -->
-        <div class="glass mb-6">
-            <h2 class="text-xl font-bold mb-4 flex items-center gap-2">
-                <i class="fas fa-bed text-purple-600"></i> Status Kamar Rawat Inap
-            </h2>
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-4" id="kamar-status">
-                <div class="bg-blue-50 rounded-xl p-4 text-center">
-                    <div class="text-2xl font-bold text-blue-600">20</div>
-                    <div class="text-sm text-gray-600">Kelas I</div>
-                    <div class="flex justify-center gap-2 mt-2">
-                        <span class="text-xs bg-green-100 text-green-600 px-2 py-1 rounded">Tersedia: 12</span>
-                    </div>
-                </div>
-                <div class="bg-blue-50 rounded-xl p-4 text-center">
-                    <div class="text-2xl font-bold text-blue-600">25</div>
-                    <div class="text-sm text-gray-600">Kelas II</div>
-                    <div class="flex justify-center gap-2 mt-2">
-                        <span class="text-xs bg-green-100 text-green-600 px-2 py-1 rounded">Tersedia: 8</span>
-                    </div>
-                </div>
-                <div class="bg-blue-50 rounded-xl p-4 text-center">
-                    <div class="text-2xl font-bold text-blue-600">55</div>
-                    <div class="text-sm text-gray-600">Kelas III</div>
-                    <div class="flex justify-center gap-2 mt-2">
-                        <span class="text-xs bg-yellow-100 text-yellow-600 px-2 py-1 rounded">Tersedia: 15</span>
-                    </div>
-                </div>
-                <div class="bg-purple-50 rounded-xl p-4 text-center">
-                    <div class="text-2xl font-bold text-purple-600">10</div>
-                    <div class="text-sm text-gray-600">VIP</div>
-                    <div class="flex justify-center gap-2 mt-2">
-                        <span class="text-xs bg-green-100 text-green-600 px-2 py-1 rounded">Tersedia: 5</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- IGD Status -->
-        <div class="glass mb-6">
-            <h2 class="text-xl font-bold mb-4 flex items-center gap-2">
-                <i class="fas fa-ambulance text-red-600"></i>IGD (Instalasi Gawat Darurat)
-            </h2>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                <div class="bg-red-50 rounded-xl p-4 text-center">
-                    <div class="text-3xl font-bold text-red-600">3</div>
-                    <div class="text-sm text-gray-600">Pasien Aktif</div>
-                </div>
-                <div class="bg-green-50 rounded-xl p-4 text-center">
-                    <div class="text-3xl font-bold text-green-600">2</div>
-                    <div class="text-sm text-gray-600">Tersedia</div>
-                </div>
-                <div class="bg-orange-50 rounded-xl p-4 text-center">
-                    <div class="text-3xl font-bold text-orange-600">1</div>
-                    <div class="text-sm text-gray-600">Rujukan</div>
-                </div>
-                <div class="bg-blue-50 rounded-xl p-4 text-center">
-                    <div class="text-3xl font-bold text-blue-600">5</div>
-                    <div class="text-sm text-gray-600">Total TT</div>
-                </div>
-            </div>
-        </div>
+        <!-- Content Container -->
+        <div id="content-container"></div>
         
         <!-- Footer -->
         <div class="glass text-center text-sm text-gray-500">
-            <p>Rumah Sakit Umum Payangan Hospital</p>
-            <p class="mt-1">Jl. Raya Payangan, Gianyar, Bali</p>
-            <p class="mt-2 text-xs">Auto-refresh setiap 30 detik | Data simulasi</p>
+            <p>Rumah Sakit Umum Payangan Hospital - SaaS Sales Agent</p>
+            <p class="mt-1">Jl. Raya Payangan, Gianyar, Bali | Telp: 0361 98087</p>
+            <p class="mt-2 text-xs">
+                <a href="sales-leads.md" class="text-teal-600 hover:underline"><i class="fas fa-file-alt mr-1"></i>Download Sales Report</a> | 
+                <a href="proposal-template.md" class="text-teal-600 hover:underline"><i class="fas fa-file-invoice mr-1"></i>Proposal Template</a>
+            </p>
         </div>
     </div>
     
     <script>
-        // Simulated data - replace with actual API calls
         const poliData = [
             { nama: 'Poli Umum', antrean: 12, ikon: 'fa-stethoscope' },
             { nama: 'Poli Anak', antrean: 8, ikon: 'fa-child' },
@@ -142,43 +75,430 @@
             { nama: 'Poli Gigi', antrean: 3, ikon: 'fa-tooth' }
         ];
         
+        const salesPipeline = [
+            { stage: 'Leads', count: 100, color: 'blue', amount: 0 },
+            { stage: 'Outreach', count: 50, color: 'yellow', amount: 0 },
+            { stage: 'Interested', count: 30, color: 'orange', amount: 150000000 },
+            { stage: 'Qualified', count: 15, color: 'teal', amount: 75000000 },
+            { stage: 'Proposal', count: 8, color: 'green', amount: 40000000 },
+            { stage: 'Negotiation', count: 4, color: 'purple', amount: 30000000 },
+            { stage: 'Closed Won', count: 2, color: 'emerald', amount: 15000000 }
+        ];
+        
+        const topLeads = [
+            { name: 'RSUP Sanglah', location: 'Denpasar', type: 'RS Pemerintah', score: 95, status: 'Hot Lead', product: 'SIMRS Professional' },
+            { name: 'RS Bali Mandara', location: 'Denpasar', type: 'RS Pemerintah', score: 92, status: 'Hot Lead', product: 'SIMRS Enterprise' },
+            { name: 'Klinik Kecantikan Bali', location: 'Seminyak', type: 'Klinik', score: 85, status: 'Warm Lead', product: 'Website + Antrean' },
+            { name: 'RS Manuaba', location: 'Denpasar', type: 'RS Swasta', score: 82, status: 'Warm Lead', product: 'SIMRS Basic' },
+            { name: 'RS Uma Refresh', location: 'Gianyar', type: 'RS Swasta', score: 78, status: 'Warm Lead', product: 'Display Antrean' }
+        ];
+        
+        const products = [
+            { name: 'SIMRS Basic', price: 5000000, sold: 0, target: 3 },
+            { name: 'SIMRS Professional', price: 10000000, sold: 0, target: 2 },
+            { name: 'SIMRS Enterprise', price: 15000000, sold: 0, target: 1 },
+            { name: 'Display Antrean', price: 3000000, sold: 0, target: 5 },
+            { name: 'Website Custom', price: 5000000, sold: 0, target: 3 }
+        ];
+        
+        function formatCurrency(num) {
+            return 'Rp ' + num.toLocaleString('id-ID');
+        }
+        
         function updateTimestamp() {
             const now = new Date();
             const options = { day: '2-digit', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit' };
             document.getElementById('timestamp').textContent = 'Last Update: ' + now.toLocaleString('id-ID', options) + ' WITA';
         }
         
-        function renderAntreanPoli() {
-            const container = document.getElementById('antrean-poli');
-            container.innerHTML = poliData.map(poli => `
-                <div class="bg-blue-50 rounded-xl p-4 text-center">
-                    <i class="fas ${poli.ikon} text-blue-600 text-2xl mb-2"></i>
-                    <div class="text-3xl font-bold text-blue-600">${poli.antrean}</div>
-                    <div class="text-xs text-gray-600">${poli.nama}</div>
-                </div>
-            `).join('');
+        function showTab(tab) {
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('tab-active');
+                btn.classList.add('bg-gray-100', 'text-gray-700');
+            });
+            document.getElementById('tab-' + tab).classList.add('tab-active');
+            document.getElementById('tab-' + tab).classList.remove('bg-gray-100', 'text-gray-700');
             
-            // Update totals
-            const totalAntrean = poliData.reduce((sum, p) => sum + p.antrean, 0);
-            document.getElementById('total-antrean').textContent = totalAntrean;
-            document.getElementById('igd-count').textContent = '5';
-            document.getElementById('kamar-tersedia').textContent = '40';
-            document.getElementById('total-kamar').textContent = '110';
+            const container = document.getElementById('content-container');
+            
+            if (tab === 'antrean') {
+                renderAntreanTab();
+            } else if (tab === 'sales') {
+                renderSalesTab();
+            } else if (tab === 'leads') {
+                renderLeadsTab();
+            } else if (tab === 'reports') {
+                renderReportsTab();
+            }
+        }
+        
+        function renderAntreanTab() {
+            const container = document.getElementById('content-container');
+            container.innerHTML = `
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+                    <div class="glass text-center counter">
+                        <div class="text-4xl font-bold text-blue-600" id="total-antrean">54</div>
+                        <div class="text-sm text-gray-600">Total Antrean</div>
+                    </div>
+                    <div class="glass text-center counter">
+                        <div class="text-4xl font-bold text-green-600" id="igd-count">5</div>
+                        <div class="text-sm text-gray-600">IGD</div>
+                    </div>
+                    <div class="glass text-center counter">
+                        <div class="text-4xl font-bold text-purple-600" id="kamar-tersedia">40</div>
+                        <div class="text-sm text-gray-600">Kamar Tersedia</div>
+                    </div>
+                    <div class="glass text-center counter">
+                        <div class="text-4xl font-bold text-orange-600" id="total-kamar">110</div>
+                        <div class="text-sm text-gray-600">Total Kamar</div>
+                    </div>
+                </div>
+                
+                <div class="glass mb-6">
+                    <h2 class="text-xl font-bold mb-4 flex items-center gap-2">
+                        <i class="fas fa-users text-blue-600"></i> Antrean per Poliklinik
+                    </h2>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                        ${poliData.map(poli => `
+                            <div class="bg-blue-50 rounded-xl p-4 text-center">
+                                <i class="fas ${poli.ikon} text-blue-600 text-2xl mb-2"></i>
+                                <div class="text-3xl font-bold text-blue-600">${poli.antrean}</div>
+                                <div class="text-xs text-gray-600">${poli.nama}</div>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="glass">
+                        <h2 class="text-xl font-bold mb-4 flex items-center gap-2">
+                            <i class="fas fa-bed text-purple-600"></i> Status Kamar
+                        </h2>
+                        <div class="space-y-3">
+                            <div class="flex justify-between items-center"><span>Kelas I</span><span class="font-bold text-green-600">12/20 Tersedia</span></div>
+                            <div class="w-full bg-gray-200 rounded-full h-2"><div class="bg-green-500 h-2 rounded-full" style="width: 60%"></div></div>
+                            <div class="flex justify-between items-center"><span>Kelas II</span><span class="font-bold text-green-600">8/25 Tersedia</span></div>
+                            <div class="w-full bg-gray-200 rounded-full h-2"><div class="bg-green-500 h-2 rounded-full" style="width: 32%"></div></div>
+                            <div class="flex justify-between items-center"><span>Kelas III</span><span class="font-bold text-yellow-600">15/55 Tersedia</span></div>
+                            <div class="w-full bg-gray-200 rounded-full h-2"><div class="bg-yellow-500 h-2 rounded-full" style="width: 27%"></div></div>
+                        </div>
+                    </div>
+                    
+                    <div class="glass">
+                        <h2 class="text-xl font-bold mb-4 flex items-center gap-2">
+                            <i class="fas fa-ambulance text-red-600"></i> IGD Status
+                        </h2>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="bg-red-50 rounded-xl p-4 text-center">
+                                <div class="text-3xl font-bold text-red-600">3</div>
+                                <div class="text-sm text-gray-600">Pasien Aktif</div>
+                            </div>
+                            <div class="bg-green-50 rounded-xl p-4 text-center">
+                                <div class="text-3xl font-bold text-green-600">2</div>
+                                <div class="text-sm text-gray-600">Tersedia</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+        
+        function renderSalesTab() {
+            const container = document.getElementById('content-container');
+            container.innerHTML = `
+                <!-- Revenue Target -->
+                <div class="glass mb-6">
+                    <h2 class="text-xl font-bold mb-4"><i class="fas fa-bullseye text-teal-600 mr-2"></i>Target Revenue Bulanan</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                        <div class="bg-teal-50 rounded-xl p-6 text-center">
+                            <div class="text-4xl font-bold text-teal-600 mb-2">Rp 0</div>
+                            <div class="text-sm text-gray-600">Achieved</div>
+                            <div class="text-xs text-teal-500 mt-1">0%</div>
+                        </div>
+                        <div class="bg-blue-50 rounded-xl p-6 text-center">
+                            <div class="text-4xl font-bold text-blue-600 mb-2">Rp 30jt</div>
+                            <div class="text-sm text-gray-600">Target</div>
+                        </div>
+                        <div class="bg-purple-50 rounded-xl p-6 text-center">
+                            <div class="text-4xl font-bold text-purple-600 mb-2">50</div>
+                            <div class="text-sm text-gray-600">Target Leads</div>
+                        </div>
+                        <div class="bg-orange-50 rounded-xl p-6 text-center">
+                            <div class="text-4xl font-bold text-orange-600 mb-2">3</div>
+                            <div class="text-sm text-gray-600">Target Deals</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Sales Pipeline Funnel -->
+                <div class="glass mb-6">
+                    <h2 class="text-xl font-bold mb-4"><i class="fas fa-filter text-blue-600 mr-2"></i>Sales Pipeline Funnel</h2>
+                    <div class="space-y-3">
+                        ${salesPipeline.map((stage, i) => `
+                            <div class="relative">
+                                <div class="flex justify-between items-center mb-1">
+                                    <span class="font-medium">${stage.stage}</span>
+                                    <span class="text-sm">${stage.count} leads ${stage.amount > 0 ? '• ' + formatCurrency(stage.amount) : ''}</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-6">
+                                    <div class="bg-${stage.color}-500 h-6 rounded-full flex items-center justify-end pr-2 text-white text-xs font-bold" style="width: ${(stage.count / 100) * 100}%">
+                                        ${stage.count}
+                                    </div>
+                                </div>
+                                <div class="text-xs text-gray-500 mt-1">Conversion: ${i > 0 ? Math.round((stage.count / salesPipeline[i-1].count) * 100) : 100}%</div>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+                
+                <!-- Product Performance -->
+                <div class="glass">
+                    <h2 class="text-xl font-bold mb-4"><i class="fas fa-box text-purple-600 mr-2"></i>Product Performance</h2>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left">
+                            <thead>
+                                <tr class="border-b">
+                                    <th class="py-3">Produk</th>
+                                    <th class="py-3">Harga</th>
+                                    <th class="py-3">Terjual</th>
+                                    <th class="py-3">Target</th>
+                                    <th class="py-3">Revenue</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                ${products.map(p => `
+                                    <tr class="border-b hover:bg-gray-50">
+                                        <td class="py-3 font-medium">${p.name}</td>
+                                        <td class="py-3">${formatCurrency(p.price)}</td>
+                                        <td class="py-3"><span class="bg-gray-200 px-2 py-1 rounded">${p.sold}</span></td>
+                                        <td class="py-3"><span class="bg-teal-100 text-teal-700 px-2 py-1 rounded">${p.target}</span></td>
+                                        <td class="py-3 font-bold text-teal-600">${formatCurrency(p.price * p.sold)}</td>
+                                    </tr>
+                                `).join('')}
+                            </tbody>
+                            <tfoot>
+                                <tr class="bg-teal-50 font-bold">
+                                    <td class="py-3">TOTAL</td>
+                                    <td class="py-3">-</td>
+                                    <td class="py-3">0</td>
+                                    <td class="py-3">14</td>
+                                    <td class="py-3 text-teal-600">Rp 0</td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+            `;
+        }
+        
+        function renderLeadsTab() {
+            const container = document.getElementById('content-container');
+            container.innerHTML = `
+                <!-- Lead Stats -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+                    <div class="glass text-center">
+                        <div class="text-3xl font-bold text-red-500">2</div>
+                        <div class="text-sm text-gray-600">Hot Leads</div>
+                    </div>
+                    <div class="glass text-center">
+                        <div class="text-3xl font-bold text-orange-500">3</div>
+                        <div class="text-sm text-gray-600">Warm Leads</div>
+                    </div>
+                    <div class="glass text-center">
+                        <div class="text-3xl font-bold text-gray-500">10</div>
+                        <div class="text-sm text-gray-600">Cold Leads</div>
+                    </div>
+                    <div class="glass text-center">
+                        <div class="text-3xl font-bold text-teal-500">85%</div>
+                        <div class="text-sm text-gray-600">Avg Score</div>
+                    </div>
+                </div>
+                
+                <!-- Top Leads Table -->
+                <div class="glass mb-6">
+                    <h2 class="text-xl font-bold mb-4"><i class="fas fa-star text-yellow-500 mr-2"></i>Top Leads</h2>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left text-sm">
+                            <thead>
+                                <tr class="border-b bg-gray-50">
+                                    <th class="py-3 px-2">Nama</th>
+                                    <th class="py-3 px-2">Lokasi</th>
+                                    <th class="py-3 px-2">Tipe</th>
+                                    <th class="py-3 px-2">Score</th>
+                                    <th class="py-3 px-2">Status</th>
+                                    <th class="py-3 px-2">Produk</th>
+                                    <th class="py-3 px-2">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                ${topLeads.map(lead => `
+                                    <tr class="border-b hover:bg-gray-50">
+                                        <td class="py-3 px-2 font-medium">${lead.name}</td>
+                                        <td class="py-3 px-2">${lead.location}</td>
+                                        <td class="py-3 px-2">${lead.type}</td>
+                                        <td class="py-3 px-2">
+                                            <div class="flex items-center gap-2">
+                                                <div class="w-16 bg-gray-200 rounded-full h-2">
+                                                    <div class="bg-teal-500 h-2 rounded-full" style="width: ${lead.score}%"></div>
+                                                </div>
+                                                <span class="font-bold">${lead.score}</span>
+                                            </div>
+                                        </td>
+                                        <td class="py-3 px-2">
+                                            <span class="px-2 py-1 rounded text-xs font-bold ${lead.status === 'Hot Lead' ? 'bg-red-100 text-red-600' : 'bg-orange-100 text-orange-600'}">
+                                                ${lead.status}
+                                            </span>
+                                        </td>
+                                        <td class="py-3 px-2">${lead.product}</td>
+                                        <td class="py-3 px-2">
+                                            <button class="bg-teal-500 text-white px-3 py-1 rounded text-xs hover:bg-teal-600">
+                                                <i class="fas fa-envelope mr-1"></i>Email
+                                            </button>
+                                        </td>
+                                    </tr>
+                                `).join('')}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <!-- Email Templates -->
+                <div class="glass">
+                    <h2 class="text-xl font-bold mb-4"><i class="fas fa-envelope-open-text text-blue-500 mr-2"></i>Email Templates Available</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="bg-blue-50 rounded-xl p-4">
+                            <h3 class="font-bold mb-2">Email 1: Cold Outreach</h3>
+                            <p class="text-sm text-gray-600 mb-3">Initial contact dengan value proposition</p>
+                            <a href="sales-leads.md#email-1" class="text-teal-600 text-sm hover:underline"><i class="fas fa-external-link-alt mr-1"></i>Lihat Template</a>
+                        </div>
+                        <div class="bg-orange-50 rounded-xl p-4">
+                            <h3 class="font-bold mb-2">Email 2: Follow-up</h3>
+                            <p class="text-sm text-gray-600 mb-3">Follow-up setelah 3 hari</p>
+                            <a href="sales-leads.md#email-4" class="text-teal-600 text-sm hover:underline"><i class="fas fa-external-link-alt mr-1"></i>Lihat Template</a>
+                        </div>
+                        <div class="bg-purple-50 rounded-xl p-4">
+                            <h3 class="font-bold mb-2">Email 3: Final Push</h3>
+                            <p class="text-sm text-gray-600 mb-3">Final outreach dengan offer terbatas</p>
+                            <a href="sales-leads.md#email-5" class="text-teal-600 text-sm hover:underline"><i class="fas fa-external-link-alt mr-1"></i>Lihat Template</a>
+                        </div>
+                        <div class="bg-teal-50 rounded-xl p-4">
+                            <h3 class="font-bold mb-2">Proposal Template</h3>
+                            <p class="text-sm text-gray-600 mb-3">Template penawaran komersial</p>
+                            <a href="proposal-template.md" class="text-teal-600 text-sm hover:underline"><i class="fas fa-external-link-alt mr-1"></i>Buka Template</a>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+        
+        function renderReportsTab() {
+            const container = document.getElementById('content-container');
+            container.innerHTML = `
+                <!-- Weekly Summary -->
+                <div class="glass mb-6">
+                    <h2 class="text-xl font-bold mb-4"><i class="fas fa-calendar-week text-blue-500 mr-2"></i>Weekly Summary - Week 27/2026</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div class="bg-yellow-50 rounded-xl p-4">
+                            <h3 class="font-bold text-yellow-700 mb-3"><i class="fas fa-clock mr-2"></i>Outreach Metrics</h3>
+                            <div class="space-y-2">
+                                <div class="flex justify-between"><span>Emails Sent</span><span class="font-bold">0</span></div>
+                                <div class="flex justify-between"><span>Response Rate</span><span class="font-bold">-</span></div>
+                                <div class="flex justify-between"><span>Open Rate</span><span class="font-bold">-</span></div>
+                            </div>
+                        </div>
+                        <div class="bg-blue-50 rounded-xl p-4">
+                            <h3 class="font-bold text-blue-700 mb-3"><i class="fas fa-funnel mr-2"></i>Pipeline Metrics</h3>
+                            <div class="space-y-2">
+                                <div class="flex justify-between"><span>Total Leads</span><span class="font-bold">15</span></div>
+                                <div class="flex justify-between"><span>Qualified</span><span class="font-bold">5</span></div>
+                                <div class="flex justify-between"><span>Proposals</span><span class="font-bold">2</span></div>
+                            </div>
+                        </div>
+                        <div class="bg-teal-50 rounded-xl p-4">
+                            <h3 class="font-bold text-teal-700 mb-3"><i class="fas fa-dollar-sign mr-2"></i>Revenue</h3>
+                            <div class="space-y-2">
+                                <div class="flex justify-between"><span>Target</span><span class="font-bold">Rp 30jt</span></div>
+                                <div class="flex justify-between"><span>Achieved</span><span class="font-bold">Rp 0</span></div>
+                                <div class="flex justify-between"><span>Variance</span><span class="font-bold text-red-500">-100%</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Next Week Plan -->
+                <div class="glass mb-6">
+                    <h2 class="text-xl font-bold mb-4"><i class="fas fa-rocket text-orange-500 mr-2"></i>Next Week Action Plan</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                        <div class="bg-white border border-gray-200 rounded-xl p-4">
+                            <div class="flex items-center gap-2 mb-3">
+                                <span class="bg-blue-500 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold">1</span>
+                                <span class="font-bold">Senin</span>
+                            </div>
+                            <ul class="text-sm space-y-2">
+                                <li>• Research 10 leads baru</li>
+                                <li>• Buat LinkedIn page</li>
+                            </ul>
+                        </div>
+                        <div class="bg-white border border-gray-200 rounded-xl p-4">
+                            <div class="flex items-center gap-2 mb-3">
+                                <span class="bg-teal-500 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold">2</span>
+                                <span class="font-bold">Selasa</span>
+                            </div>
+                            <ul class="text-sm space-y-2">
+                                <li>• Kirim 10 cold emails</li>
+                                <li>• Join healthcare groups</li>
+                            </ul>
+                        </div>
+                        <div class="bg-white border border-gray-200 rounded-xl p-4">
+                            <div class="flex items-center gap-2 mb-3">
+                                <span class="bg-orange-500 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold">3</span>
+                                <span class="font-bold">Rabu</span>
+                            </div>
+                            <ul class="text-sm space-y-2">
+                                <li>• Follow-up 15 leads</li>
+                                <li>• Schedule demos</li>
+                            </ul>
+                        </div>
+                        <div class="bg-white border border-gray-200 rounded-xl p-4">
+                            <div class="flex items-center gap-2 mb-3">
+                                <span class="bg-purple-500 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold">4</span>
+                                <span class="font-bold">Kamis-Jumat</span>
+                            </div>
+                            <ul class="text-sm space-y-2">
+                                <li>• Demo calls</li>
+                                <li>• Send proposals</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Resources -->
+                <div class="glass">
+                    <h2 class="text-xl font-bold mb-4"><i class="fas fa-folder-open text-gray-500 mr-2"></i>Resources & Documents</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <a href="sales-leads.md" class="bg-gray-50 hover:bg-gray-100 rounded-xl p-6 transition">
+                            <i class="fas fa-file-alt text-3xl text-blue-500 mb-3"></i>
+                            <h3 class="font-bold">Sales Leads Report</h3>
+                            <p class="text-sm text-gray-600">Complete lead analysis & email templates</p>
+                        </a>
+                        <a href="proposal-template.md" class="bg-gray-50 hover:bg-gray-100 rounded-xl p-6 transition">
+                            <i class="fas fa-file-invoice text-3xl text-teal-500 mb-3"></i>
+                            <h3 class="font-bold">Proposal Template</h3>
+                            <p class="text-sm text-gray-600">Commercial offer template</p>
+                        </a>
+                        <a href="https://payanganhospital.gianyarkab.go.id" target="_blank" class="bg-gray-50 hover:bg-gray-100 rounded-xl p-6 transition">
+                            <i class="fas fa-globe text-3xl text-orange-500 mb-3"></i>
+                            <h3 class="font-bold">Live Portfolio</h3>
+                            <p class="text-sm text-gray-600">View our live hospital website</p>
+                        </a>
+                    </div>
+                </div>
+            `;
         }
         
         // Initial render
         updateTimestamp();
-        renderAntreanPoli();
-        
-        // Auto refresh every 30 seconds
-        setInterval(() => {
-            // Randomize data for demo
-            poliData.forEach(poli => {
-                poli.antrean = Math.floor(Math.random() * 15) + 1;
-            });
-            renderAntreanPoli();
-            updateTimestamp();
-        }, 30000);
+        renderAntreanTab();
     </script>
 </body>
 </html>
