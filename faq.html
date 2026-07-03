@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - Payangan Hospital</title>
+    <link rel="icon" type="image/png" href="logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #0d7377;
+            --primary-dark: #095456;
+            --primary-light: #14919b;
+            --secondary: #f4c430;
+            --accent: #e85d04;
+            --bg-light: #f8f9fa;
+            --text-dark: #212529;
+            --text-muted: #6c757d;
+            --white: #ffffff;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Montserrat', sans-serif; font-weight: 300; color: var(--text-dark); line-height: 1.6; }
+        .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+        
+        /* Navbar */
+        .navbar { background: white; padding: 15px 0; box-shadow: 0 2px 20px rgba(0,0,0,0.08); position: sticky; top: 0; z-index: 100; }
+        .navbar .container { display: flex; justify-content: space-between; align-items: center; }
+        .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .nav-logo img { width: 45px; height: 45px; }
+        .nav-logo span { font-weight: 700; color: var(--primary); font-size: 1.2rem; }
+        .nav-links { display: flex; gap: 30px; list-style: none; }
+        .nav-links a { text-decoration: none; color: var(--text-dark); font-weight: 500; transition: color 0.3s; }
+        .nav-links a:hover { color: var(--primary); }
+        
+        /* Hero */
+        .hero { background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%); padding: 80px 0; text-align: center; color: white; }
+        .hero-icon { width: 100px; height: 100px; background: rgba(255,255,255,0.2); border-radius: 24px; display: flex; align-items: center; justify-content: center; margin: 0 auto 24px; }
+        .hero-icon i { font-size: 40px; }
+        .hero h1 { font-family: 'Montserrat', sans-serif; font-size: 2.5rem; margin-bottom: 12px; }
+        .hero p { font-size: 1.1rem; opacity: 0.9; max-width: 600px; margin: 0 auto; }
+        
+        /* Content */
+        .content { padding: 60px 0; }
+        .section-title { font-family: 'Montserrat', sans-serif; font-size: 2rem; color: var(--text-dark); margin-bottom: 30px; text-align: center; }
+        
+        /* FAQ Accordion */
+        .faq-container { max-width: 800px; margin: 0 auto; }
+        .faq-item { background: white; border-radius: 16px; margin-bottom: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.06); overflow: hidden; }
+        .faq-question { width: 100%; background: none; border: none; padding: 24px 30px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; text-align: left; transition: background 0.3s; }
+        .faq-question:hover { background: var(--bg-light); }
+        .faq-question h3 { font-size: 1.1rem; font-weight: 600; color: var(--text-dark); padding-right: 20px; }
+        .faq-question i { color: var(--primary); font-size: 1.2rem; transition: transform 0.3s; flex-shrink: 0; }
+        .faq-item.active .faq-question i { transform: rotate(180deg); }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+        .faq-answer-inner { padding: 0 30px 24px; color: var(--text-muted); font-size: 0.95rem; line-height: 1.8; }
+        .faq-item.active .faq-answer { max-height: 500px; }
+        
+        /* Category */
+        .faq-category { margin-bottom: 40px; }
+        .faq-category-title { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid var(--primary); }
+        .faq-category-title i { font-size: 1.5rem; color: var(--primary); }
+        .faq-category-title h2 { font-size: 1.3rem; font-weight: 600; color: var(--text-dark); }
+        
+        /* Quick Contact */
+        .quick-contact { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); border-radius: 20px; padding: 40px; text-align: center; color: white; margin-top: 60px; }
+        .quick-contact h2 { font-size: 1.5rem; margin-bottom: 16px; }
+        .quick-contact p { opacity: 0.9; margin-bottom: 24px; }
+        .contact-buttons { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+        .contact-btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 28px; border-radius: 50px; font-weight: 600; text-decoration: none; transition: transform 0.3s; }
+        .contact-btn:hover { transform: scale(1.05); }
+        .contact-btn.phone { background: white; color: var(--primary); }
+        .contact-btn.whatsapp { background: #25D366; color: white; }
+        .contact-btn.email { background: var(--secondary); color: var(--text-dark); }
+        
+        /* Footer */
+        footer { background: var(--text-dark); color: white; padding: 40px 0; text-align: center; margin-top: 60px; }
+        footer p { opacity: 0.8; font-size: 0.9rem; }
+        
+        /* Mobile */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hero h1 { font-size: 1.8rem; }
+            .faq-question h3 { font-size: 1rem; }
+            .contact-buttons { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="nav-logo">
+                <img src="logo.png" alt="Payangan Hospital">
+                <span>Payangan Hospital</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Beranda</a></li>
+                <li><a href="about.html">Tentang</a></li>
+                <li><a href="dokter.html">Dokter</a></li>
+                <li><a href="kontak.html">Kontak</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-icon"><i class="fas fa-question-circle"></i></div>
+            <h1>Pertanyaan yang Sering Diajukan</h1>
+            <p>Temukan jawaban untuk pertanyaan umum tentang layanan kami</p>
+        </div>
+    </section>
+
+    <!-- FAQ Content -->
+    <section class="content">
+        <div class="container">
+            
+            <!-- Pendaftaran -->
+            <div class="faq-category">
+                <div class="faq-category-title">
+                    <i class="fas fa-user-plus"></i>
+                    <h2>Pendaftaran & Pasien</h2>
+                </div>
+                
+                <div class="faq-container">
+                    <div class="faq-item active">
+                        <button class="faq-question">
+                            <h3>Bagaimana cara pendaftaran pasien baru?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-inner">
+                                <p><strong>Pendaftaran pasien baru di Payangan Hospital:</strong></p>
+                                <ol style="margin: 12px 0; padding-left: 20px;">
+                                    <li>Datang langsung ke loket pendaftaran di lobby utama</li>
+                                    <li>Bawa KTP/KK asli</li>
+                                    <li>Jika menggunakan BPJS, bawa kartu BPJS asli</li>
+                                    <li>Surat rujukan dari faskes pertama (jika diperlukan)</li>
+                                </ol>
+                                <p><strong>Jam operasional loket:</strong> Senin - Jumat: 07:00 - 14:00 WITA</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <h3>Dokumen apa saja yang diperlukan untuk pendaftaran?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-inner">
+                                <p><strong>Dokumen yang diperlukan:</strong></p>
+                                <ul style="margin: 12px 0; padding-left: 20px;">
+                                    <li>KTP asli (identitas pasien)</li>
+                                    <li>Kartu Keluarga (KK)</li>
+                                    <li>Kartu BPJS/asuransi (jika ada)</li>
+                                    <li>Surat rujukan dari faskes pertama (jika ada)</li>
+                                    <li>Riwayat medis sebelumnya (jika ada)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <h3>Apakah bisa booking appointment/janji temu?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-inner">
+                                <p>Ya, Anda bisa melakukan pendaftaran appointment melalui:</p>
+                                <ul style="margin: 12px 0; padding-left: 20px;">
+                                    <li><strong>Telepon:</strong> 0361 98087</li>
+                                    <li><strong>WhatsApp:</strong> Hubungi nomor yang sama</li>
+                                </ul>
+                                <p>Tim kami akan membantu menentukan jadwal terbaik untuk Anda.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Jadwal Dokter -->
+            <div class="faq-category">
+                <div class="faq-category-title">
+                    <i class="fas fa-user-md"></i>
+                    <h2>Jadwal Dokter</h2>
+                </div>
+                
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <h3>Bagaimana jadwal praktik dokter spesialis?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-inner">
+                                <p><strong>Jadwal dokter spesialis di Payangan Hospital:</strong></p>
+                                <ul style="margin: 12px 0; padding-left: 20px;">
+                                    <li><strong>Poli Umum:</strong> Senin-Kamis 08:00-14:00, Jumat 08:00-11:00</li>
+                                    <li><strong>Poli Anak:</strong> Senin-Jumat 08:00-14:00</li>
+                                    <li><strong>Poli Kandungan:</strong> Selasa & Jumat 08:00-14:00</li>
+                                    <li><strong>Poli Jantung:</strong> Senin & Kamis 08:00-14:00</li>
+                                    <li><strong>Poli Saraf:</strong> Senin & Kamis 08:00-14:00</li>
+                                </ul>
+                                <p>Untuk informasi lengkap, kunjungi <a href="dokter.html" style="color: var(--primary);">halaman dokter</a>.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <h3>Apakah dokter praktik hari Sabtu dan Minggu?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-inner">
+                                <p><strong>Rawat Jalan:</strong></p>
+                                <ul style="margin: 12px 0; padding-left: 20px;">
+                                    <li>Sabtu: 07:00 - 14:00 WITA (poli tertentu)</li>
+                                    <li>Minggu: Tutup (kecuali IGD)</li>
+                                </ul>
+                                <p><strong>IGD (Gawat Darurat):</strong> 24 jam, 7 hari seminggu</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- IGD -->
+            <div class="faq-category">
+                <div class="faq-category-title">
+                    <i class="fas fa-ambulance"></i>
+                    <h2>IGD & Layanan Darurat</h2>
+                </div>
+                
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <h3>Apakah IGD Payangan Hospital buka 24 jam?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-inner">
+                                <p><strong>Ya!</strong> IGD (Instalasi Gawat Darurat) Payangan Hospital beroperasi 24 jam setiap hari, termasuk hari libur dan tanggal merah.</p>
+                                <p style="margin-top: 12px;"><strong>Kontak IGD:</strong> 0361 98087</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <h3>Apakah tersedia layanan ambulans?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-inner">
+                                <p><strong>Ya!</strong> Payangan Hospital menyediakan layanan ambulans 24 jam untuk penjemputan pasien darurat.</p>
+                                <p style="margin-top: 12px;">Hubungi <strong>0361 98087</strong> dan sampaikan bahwa Anda membutuhkan layanan ambulans.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Biaya & Asuransi -->
+            <div class="faq-category">
+                <div class="faq-category-title">
+                    <i class="fas fa-credit-card"></i>
+                    <h2>Biaya & Asuransi</h2>
+                </div>
+                
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <h3>Metode pembayaran apa saja yang diterima?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-inner">
+                                <p><strong>Payangan Hospital menerima:</strong></p>
+                                <ul style="margin: 12px 0; padding-left: 20px;">
+                                    <li>Tunai (Cash)</li>
+                                    <li>Debit</li>
+                                    <li>Kartu Kredit</li>
+                                    <li>Transfer Bank</li>
+                                    <li>BPJS Kesehatan</li>
+                                    <li>Asuransi swasta partner</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <h3>Apakah Payangan Hospital menerima BPJS?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-inner">
+                                <p><strong>Ya!</strong> Payangan Hospital menerima BPJS Kesehatan.</p>
+                                <p style="margin-top: 12px;"><strong>Syarat:</strong></p>
+                                <ul style="margin: 12px 0; padding-left: 20px;">
+                                    <li>Kartu BPJS aktif</li>
+                                    <li>Surat rujukan dari faskes tingkat pertama</li>
+                                    <li>KTP asli</li>
+                                </ul>
+                                <p><em>Catatan: Untuk kasus emergency, tidak memerlukan surat rujukan.</em></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Fasilitas -->
+            <div class="faq-category">
+                <div class="faq-category-title">
+                    <i class="fas fa-hospital"></i>
+                    <h2>Fasilitas</h2>
+                </div>
+                
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <h3>Fasilitas apa saja yang tersedia?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-inner">
+                                <p><strong>Fasilitas Payangan Hospital:</strong></p>
+                                <ul style="margin: 12px 0; padding-left: 20px;">
+                                    <li>Parkir gratis untuk pasien</li>
+                                    <li>Parkir khusus difabel</li>
+                                    <li>Musholla</li>
+                                    <li>Toilet bersih</li>
+                                    <li>Coffee shop di lobby</li>
+                                    <li>Playground untuk anak-anak</li>
+                                    <li>Ruang tunggu ber-AC</li>
+                                    <li>WiFi gratis</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <h3>Apakah tersedia kantin/kafé?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-inner">
+                                <p><strong>Ya!</strong> Payangan Hospital memiliki coffee shop di lobby utama yang menyediakan:</p>
+                                <ul style="margin: 12px 0; padding-left: 20px;">
+                                    <li>Kopi dan minuman</li>
+                                    <li>Makanan ringan</li>
+                                    <li>Makanan berat</li>
+                                </ul>
+                                <p>Jam operasional: 07:00 - 21:00 WITA</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Quick Contact -->
+            <div class="quick-contact">
+                <h2>Still Have Questions?</h2>
+                <p>Hubungi tim kami untuk informasi lebih lanjut</p>
+                <div class="contact-buttons">
+                    <a href="tel:036198087" class="contact-btn phone">
+                        <i class="fas fa-phone"></i> 0361 98087
+                    </a>
+                    <a href="https://wa.me/6281234567890" class="contact-btn whatsapp" target="_blank">
+                        <i class="fab fa-whatsapp"></i> WhatsApp
+                    </a>
+                    <a href="kontak.html" class="contact-btn email">
+                        <i class="fas fa-envelope"></i> Email
+                    </a>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>Payangan Hospital - Pavitram Idam Uttamam</p>
+            <p>Jl. Raya Payangan, Gianyar, Bali | Telp: 0361 98087</p>
+        </div>
+    </footer>
+    
+    <script>
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const faqItem = button.parentElement;
+                const isActive = faqItem.classList.contains('active');
+                
+                // Close all
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+                
+                // Toggle current
+                if (!isActive) {
+                    faqItem.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

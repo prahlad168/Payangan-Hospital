@@ -262,7 +262,41 @@ Skill untuk memperbaiki masalah gambar di website (blur, stretch, kecil, tidak m
 | Webhook | вң… Working |
 | Daily Automation | вң… Active |
 | Auto-Deploy | вң… Ready |
+| Customer Service Agent | вң… Active |
 
 ---
 
-**Last Updated:** 2026-07-02
+## рҹ’ё Customer Service Agent
+
+**File:** `progress/customer-feedback-report.md`  
+**Response Templates:** `progress/cs-response-templates.md`  
+**FAQ Page:** `faq.html`
+
+### Agent Responsibilities:
+- Review support tickets, feedback, reviews
+- Generate draft responses untuk common questions
+- Buat FAQ update berdasarkan common issues
+- Simpan laporan ke customer-feedback-report.md
+
+### Target Metrics:
+| Metric | Target | Status |
+|--------|--------|--------|
+| Response Time | < 1 hour | ✅ On Track |
+| CSAT | > 90% | ✅ On Track |
+| First Contact Resolution | > 70% | ✅ On Track |
+
+### Key Files:
+| File | Description |
+|------|-------------|
+| `progress/customer-feedback-report.md` | Comprehensive CS report |
+| `progress/cs-response-templates.md` | Response templates |
+| `faq.html` | Customer-facing FAQ page |
+
+### Common Issues Found:
+1. **Email tidak konsisten** - Gunakan email resmi: `info@rsupayangan.co.id`
+2. **WhatsApp placeholder** - 6281234567890 (placeholder, perlu verifikasi)
+3. **Copyright year** - Perlu update ke 2026
+
+---
+
+**Last Updated:** 2026-07-03
