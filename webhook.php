@@ -1,20 +1,32 @@
 <?php
-// Webhook untuk auto-pull dan deploy dari GitHub
+/**
+ * Webhook Auto-Deploy for Payangan Hospital
+ * Triggered by GitHub push events
+ */
+
+// Security: Verify GitHub signature (optional)
+$secret = 'your_webhook_secret'; // Set this in GitHub webhook settings
+$signature = $_SERVER['HTTP_X_HUB_SIGNATURE_256'] ?? '';
+$payload = file_get_contents('php://input');
+
+if (!empty($secret) && !hash_equals('sha256=' . hash_hmac('sha256', $payload, $secret), $signature)) {
+    http_response_code(403);
+    die('Invalid signature');
+}
+
+// Log incoming request
+$logFile = __DIR__ . '/webhook.log';
+$timestamp = date('Y-m-d H:i:s');
+$ip = $_SERVER['REMOTE_ADDR'] ?? 'unknown';
+
+$logEntry = "[$timestamp] IP: $ip | Payload received\n";
+file_put_contents($logFile, $logEntry, FILE_APPEND);
 
 // Git pull
 $output = shell_exec('cd /home/payangan/public_html && git pull 2>&1');
 
-// Download deploy.php jika perlu
-$deploy_url = 'https://raw.githubusercontent.com/prahlad168/Payangan-Hospital/main/deploy.php';
-$deploy_content = @file_get_contents($deploy_url);
-if ($deploy_content !== false) {
-    file_put_contents('/home/payangan/public_html/deploy.php', $deploy_content);
-    $deploy_output = "deploy.php updated";
-} else {
-    $deploy_output = "deploy.php update failed";
-}
+// Log result
+$logResult = "[$timestamp] Git pull: $output\n";
+file_put_contents($logFile, $logResult, FILE_APPEND);
 
-// Log hasil
-file_put_contents('/home/payangan/public_html/webhook.log', date('Y-m-d H:i:s') . " - Pull: $output | Deploy: $deploy_output\n", FILE_APPEND);
-
-echo "OK: $output | $deploy_output";
+echo "OK: " . trim($output);
