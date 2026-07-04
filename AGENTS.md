@@ -116,6 +116,37 @@ https://payanganhospital.gianyarkab.go.id/progress/director-report-login.html
 - KPI achievement
 - Rencana minggu depan
 
+### 5. Chat Agent System
+**File:** `chat.html` + `rs-admin/api/chat.php`
+
+Sistem chat AI untuk website RS Payangan.
+
+**URL:** `https://payanganhospital.gianyarkab.go.id/chat.html`
+
+**Fitur:**
+- Quick action buttons (6 tombol cepat)
+- Knowledge base RS Payangan
+- Voice input support
+- Responsive design
+- API endpoint untuk integrasi agent
+
+**Quick Actions:**
+| Tombol | Pertanyaan |
+|--------|-----------|
+| рҡҫ Jam Buka | Jam berapa RS buka? |
+| рҡӣ Daftar Online | Cara pendaftaran online |
+| рҡӣ Tarif Dokter | Berapa tarif konsultasi? |
+| рҡӣ Dokter Praktik | Siapa dokter yang praktik? |
+| рҡұ Lokasi RS | Di mana RS Payangan? |
+| рҹӨ Kontak Darurat | Nomor telepon IGD? |
+
+**API Endpoints:**
+```
+POST /rs-admin/api/chat.php?action=chat
+GET /rs-admin/api/chat.php?action=stats
+GET /rs-admin/api/chat.php?action=history
+```
+
 ### 1. Webhook Auto-Deploy
 **File:** `.agents/skills/webhook-auto-deploy.md`
 
@@ -341,9 +372,10 @@ Skill untuk memperbaiki masalah gambar di website (blur, stretch, kecil, tidak m
 | Webhook | вң… Working | Auto-deploy on push |
 | Daily Automation | вң… Active | 6 AM WIB daily |
 | Auto-Deploy | вң… Ready | GitHub Actions + Webhook |
-| **RS Admin Backend** | **вң… NEW** | PHP/MySQL ready |
-| **Laporan Direksi** | **вң… NEW** | Password protected |
-| **13 QA Agents** | **вң… NEW** | Run with /play command |
+| **RS Admin Backend** | **вң… Ready** | PHP/MySQL ready |
+| **Laporan Direksi** | **вң… Ready** | Password protected |
+| **13 QA Agents** | **вң… Ready** | Run with /play command |
+| **Chat Agent** | **вң… NEW** | AI chatbot for website |
 
 ---
 
