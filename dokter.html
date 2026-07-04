@@ -485,20 +485,194 @@
             border-radius: 50%;
         }
         
-        .doctor-avatar {
-            width: 90px;
-            height: 90px;
+        /* ========== DOCTOR CARD - PORTRAIT STYLE ========== */
+        .doctor-card {
+            background: var(--white);
             border-radius: 20px;
-            background: var(--gradient-teal);
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .doctor-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(13, 115, 119, 0.15);
+        }
+        
+        .doctor-card-image {
+            width: 100%;
+            aspect-ratio: 554 / 830;
+            background: linear-gradient(135deg, #e8f4f4 0%, #d1e8e8 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .doctor-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            transition: transform 0.5s ease;
+        }
+        
+        .doctor-card:hover .doctor-card-image img {
+            transform: scale(1.05);
+        }
+        
+        .doctor-card-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 40px 20px 20px;
+            background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 100%);
+        }
+        
+        .doctor-card-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(255, 255, 255, 0.95);
+            color: var(--primary);
+            padding: 6px 14px;
+            border-radius: 100px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            backdrop-filter: blur(10px);
+        }
+        
+        .doctor-card-badge i {
+            font-size: 0.65rem;
+        }
+        
+        .doctor-card-content {
+            padding: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .doctor-card-content h3 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 6px;
+            line-height: 1.3;
+        }
+        
+        .doctor-card-content .spec {
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 0.85rem;
+            margin-bottom: 12px;
+        }
+        
+        .doctor-card-schedule {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 14px;
+            background: var(--gradient-warm);
+            border-radius: 12px;
+            margin-bottom: 12px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+        
+        .doctor-card-schedule i {
+            color: var(--accent);
+            font-size: 0.75rem;
+        }
+        
+        .doctor-card-poli {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(13, 115, 119, 0.08);
+            color: var(--primary);
+            padding: 6px 12px;
+            border-radius: 100px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            margin-bottom: 16px;
+            width: fit-content;
+        }
+        
+        .doctor-card-action {
+            margin-top: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 16px;
+            border-top: 1px solid rgba(0, 0, 0, 0.06);
+        }
+        
+        .doctor-card-action a {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--primary);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .doctor-card-action a:hover {
+            color: var(--primary-dark);
+            gap: 10px;
+        }
+        
+        .doctor-card-action a i {
+            font-size: 0.75rem;
+        }
+        
+        .doctor-status {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 0.75rem;
+            color: #10b981;
+            font-weight: 500;
+        }
+        
+        .doctor-status::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background: #10b981;
+            border-radius: 50%;
+            animation: pulse-dot 2s infinite;
+        }
+        
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        /* ========== GRID LAYOUT ========== */
+        .doctors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 24px;
+        }
+        
+        /* ========== DOCTOR AVATAR (fallback icon) ========== */
+        .doctor-avatar {
+            width: 100%;
+            height: 100%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 36px;
+            background: var(--gradient-teal);
             color: white;
-            flex-shrink: 0;
-            box-shadow: 0 10px 25px rgba(13, 115, 119, 0.3);
-            position: relative;
-            overflow: hidden;
+            font-size: 48px;
         }
         
         .doctor-avatar img {
@@ -821,6 +995,92 @@
             .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
         }
         
+        /* ========== RESPONSIVE - PORTRAIT CARD & MODAL ========== */
+        @media (max-width: 992px) {
+            .doctors-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+                gap: 16px;
+            }
+            
+            .modal {
+                grid-template-columns: 1fr;
+                max-height: 85vh;
+            }
+            
+            .modal-image-section {
+                height: 250px;
+            }
+            
+            .modal-content-section {
+                max-height: calc(85vh - 250px);
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .doctors-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+            }
+            
+            .doctor-card-content {
+                padding: 12px;
+            }
+            
+            .doctor-card-content h3 {
+                font-size: 0.85rem;
+            }
+            
+            .doctor-card-content .spec {
+                font-size: 0.75rem;
+            }
+            
+            .doctor-card-schedule {
+                padding: 8px 10px;
+                font-size: 0.7rem;
+            }
+            
+            .doctor-card-poli {
+                display: none;
+            }
+            
+            .doctor-card-action a span {
+                display: none;
+            }
+            
+            .doctor-status {
+                font-size: 0.65rem;
+            }
+            
+            .modal {
+                max-height: 90vh;
+                margin: 10px;
+            }
+            
+            .modal-image-section {
+                height: 200px;
+            }
+            
+            .modal-header {
+                padding: 16px 16px 12px;
+            }
+            
+            .modal-doctor h3 {
+                font-size: 1.1rem;
+            }
+            
+            .modal-body {
+                padding: 16px;
+            }
+            
+            .modal-section {
+                margin-bottom: 16px;
+            }
+            
+            .modal-footer {
+                padding: 12px 16px;
+            }
+        }
+        
         /* ========== ANIMATIONS ========== */
         .doctor-card {
             opacity: 0;
@@ -851,15 +1111,15 @@
         
         .hidden { display: none !important; }
         
-        /* ========== MODAL ========== */
+        /* ========== MODAL - PORTRAIT STYLE ========== */
         .modal-overlay {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(15, 23, 42, 0.7);
-            backdrop-filter: blur(8px);
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(12px);
             z-index: 2000;
             display: flex;
             align-items: center;
@@ -877,97 +1137,134 @@
         
         .modal {
             background: white;
-            border-radius: var(--radius-xl);
-            max-width: 600px;
+            border-radius: 24px;
+            max-width: 900px;
             width: 100%;
             max-height: 90vh;
-            overflow-y: auto;
+            overflow: hidden;
             transform: scale(0.9) translateY(20px);
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            display: grid;
+            grid-template-columns: 320px 1fr;
         }
         
         .modal-overlay.active .modal {
             transform: scale(1) translateY(0);
         }
         
-        .modal-header {
-            padding: 32px;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-            color: white;
+        .modal-image-section {
+            background: linear-gradient(135deg, #0d7377 0%, #14919b 100%);
             position: relative;
             overflow: hidden;
+            display: flex;
+            flex-direction: column;
         }
         
-        .modal-header::before {
-            content: '';
+        .modal-image-section img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+        }
+        
+        .modal-image-fallback {
+            width: 100%;
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 120px;
+            color: rgba(255, 255, 255, 0.3);
+        }
+        
+        .modal-image-overlay {
             position: absolute;
-            top: -50px;
-            right: -50px;
-            width: 150px;
-            height: 150px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 30px 20px;
+            background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, transparent 100%);
+        }
+        
+        .modal-spec-badge {
+            background: rgba(255, 255, 255, 0.95);
+            color: var(--primary);
+            padding: 8px 16px;
+            border-radius: 100px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            display: inline-block;
         }
         
         .modal-close {
             position: absolute;
-            top: 20px;
-            right: 20px;
+            top: 16px;
+            right: 16px;
             width: 40px;
             height: 40px;
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.95);
             border: none;
-            border-radius: 12px;
-            color: white;
-            font-size: 18px;
+            border-radius: 50%;
+            color: var(--text-dark);
+            font-size: 16px;
             cursor: pointer;
             transition: all 0.3s;
-        }
-        
-        .modal-close:hover {
-            background: rgba(255, 255, 255, 0.3);
-            transform: rotate(90deg);
-        }
-        
-        .modal-doctor {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-        
-        .modal-avatar {
-            width: 80px;
-            height: 80px;
-            border-radius: 20px;
-            background: rgba(255, 255, 255, 0.2);
+            z-index: 10;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 32px;
-            border: 3px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
         }
         
-        .modal-avatar img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 18px;
+        .modal-close:hover {
+            background: var(--white);
+            transform: rotate(90deg);
+        }
+        
+        .modal-content-section {
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        
+        .modal-header {
+            padding: 28px 28px 20px;
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+            flex-shrink: 0;
         }
         
         .modal-doctor h3 {
             font-family: 'Plus Jakarta Sans', sans-serif;
             font-size: 1.4rem;
             font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 6px;
+            line-height: 1.3;
+        }
+        
+        .modal-doctor .poli {
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 0.95rem;
             margin-bottom: 4px;
         }
         
-        .modal-doctor .spec {
-            color: var(--secondary);
-            font-weight: 600;
+        .modal-doctor .sip {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        .modal-doctor .sip i {
+            color: var(--primary);
         }
         
         .modal-body {
-            padding: 32px;
+            padding: 24px 28px;
+            overflow-y: auto;
+            flex: 1;
         }
         
         .modal-section {
@@ -1025,9 +1322,41 @@
             font-weight: 600;
         }
         
+        .modal-schedule {
+            background: var(--gradient-warm);
+            padding: 16px 20px;
+            border-radius: 12px;
+            color: var(--text-dark);
+            font-size: 0.95rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .modal-schedule i {
+            color: var(--accent);
+        }
+        
+        .modal-edu {
+            background: var(--bg-light);
+            padding: 16px 20px;
+            border-radius: 12px;
+            color: var(--text-dark);
+            font-size: 0.9rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .modal-edu i {
+            color: var(--primary);
+        }
+        
         .modal-desc {
             background: var(--bg-light);
-            padding: 16px;
+            padding: 16px 20px;
             border-radius: 12px;
             color: var(--text-muted);
             font-size: 0.95rem;
@@ -1035,11 +1364,12 @@
         }
         
         .modal-footer {
-            padding: 20px 32px;
+            padding: 20px 28px;
             background: var(--bg-light);
             display: flex;
             gap: 12px;
-            border-top: 1px solid rgba(0, 0, 0, 0.05);
+            border-top: 1px solid rgba(0, 0, 0, 0.06);
+            flex-shrink: 0;
         }
         
         .modal-btn {
@@ -1330,63 +1660,63 @@
         </div>
     </footer>
 
-    <!-- Modal -->
+    <!-- Modal - Portrait Style -->
     <div class="modal-overlay" id="modalOverlay">
         <div class="modal">
-            <div class="modal-header">
+            <div class="modal-image-section">
                 <button class="modal-close" onclick="closeModal()">
                     <i class="fas fa-times"></i>
                 </button>
-                <div class="modal-doctor">
-                    <div class="modal-avatar">
-                        <img id="modalAvatar" src="" alt="">
-                        <i class="fas fa-user-md"></i>
-                    </div>
-                    <div>
-                        <h3 id="modalName"></h3>
-                        <div class="spec" id="modalSpec"></div>
-                    </div>
+                <img id="modalAvatar" src="" alt="">
+                <div class="modal-image-fallback" id="modalAvatarFallback">
+                    <i class="fas fa-user-md"></i>
+                </div>
+                <div class="modal-image-overlay">
+                    <span class="modal-spec-badge" id="modalSpec"></span>
                 </div>
             </div>
-            <div class="modal-body">
-                <div class="modal-section">
-                    <div class="modal-section-title">
-                        <i class="fas fa-id-card"></i>
-                        Informasi Praktik
-                    </div>
-                    <div class="modal-info-grid">
-                        <div class="modal-info-item">
-                            <div class="label">No. SIP</div>
-                            <div class="value" id="modalSip"></div>
-                        </div>
-                        <div class="modal-info-item">
-                            <div class="label">Poliklinik</div>
-                            <div class="value" id="modalPoli"></div>
-                        </div>
-                        <div class="modal-info-item">
-                            <div class="label">Jadwal</div>
-                            <div class="value" id="modalSchedule"></div>
-                        </div>
-                        <div class="modal-info-item">
-                            <div class="label">Pendidikan</div>
-                            <div class="value" id="modalEdu"></div>
+            <div class="modal-content-section">
+                <div class="modal-header">
+                    <div class="modal-doctor">
+                        <div>
+                            <h3 id="modalName"></h3>
+                            <div class="poli" id="modalPoli"></div>
+                            <div class="sip">
+                                <i class="fas fa-id-card"></i>
+                                <span id="modalSip"></span>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="modal-section">
-                    <div class="modal-section-title">
-                        <i class="fas fa-user-md"></i>
-                        Tentang Dokter
+                <div class="modal-body">
+                    <div class="modal-section">
+                        <div class="modal-section-title">
+                            <i class="fas fa-clock"></i>
+                            Jadwal Praktik
+                        </div>
+                        <div class="modal-schedule" id="modalSchedule"></div>
                     </div>
-                    <div class="modal-desc" id="modalDesc"></div>
+                    <div class="modal-section">
+                        <div class="modal-section-title">
+                            <i class="fas fa-graduation-cap"></i>
+                            Pendidikan
+                        </div>
+                        <div class="modal-edu" id="modalEdu"></div>
+                    </div>
+                    <div class="modal-section">
+                        <div class="modal-section-title">
+                            <i class="fas fa-user-md"></i>
+                            Tentang Dokter
+                        </div>
+                        <div class="modal-desc" id="modalDesc"></div>
+                    </div>
                 </div>
-            </div>
-            <div class="modal-footer">
-                <a href="#" class="modal-btn modal-btn-primary" id="modalPoliLink">
-                    <i class="fas fa-hospital"></i>
-                    Kunjungi Poli
-                </a>
-                <a href="kontak.html" class="modal-btn modal-btn-secondary">
+                <div class="modal-footer">
+                    <a href="#" class="modal-btn modal-btn-primary" id="modalPoliLink">
+                        <i class="fas fa-hospital"></i>
+                        Kunjungi Poli
+                    </a>
+                    <a href="kontak.html" class="modal-btn modal-btn-secondary">
                     <i class="fas fa-phone"></i>
                     Hubungi
                 </a>
@@ -1519,55 +1849,41 @@
             }
         ];
 
-        // Render Doctors
+        // Render Doctors - Portrait Card Layout
         function renderDoctors(filter = 'all') {
             const grid = document.getElementById('doctorsGrid');
             const filtered = filter === 'all' ? doctors : doctors.filter(d => d.filter === filter);
             
             grid.innerHTML = filtered.map((doc, index) => `
                 <div class="doctor-card" data-filter="${doc.filter}" onclick="openModal('${doc.id}')" style="animation-delay: ${index * 0.05}s">
-                    <div class="doctor-card-header">
-                        <div class="doctor-avatar">
+                    <div class="doctor-card-image">
+                        <img src="${doc.image}" alt="${doc.name}" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="doctor-avatar" style="display:none;">
                             <i class="fas fa-user-md"></i>
                         </div>
-                        <div class="doctor-card-info">
-                            <h3>${doc.name}</h3>
-                            <div class="spec">${doc.spec}</div>
-                            <div class="poli">
-                                <i class="fas fa-hospital"></i>
-                                ${doc.poli}
-                            </div>
+                        <div class="doctor-card-overlay">
+                            <span class="doctor-card-badge">
+                                <i class="fas fa-circle"></i>
+                                ${doc.spec}
+                            </span>
                         </div>
                     </div>
-                    <div class="doctor-card-body">
-                        <div class="doctor-meta">
-                            <div class="doctor-meta-item">
-                                <i class="fas fa-id-badge"></i>
-                                <div>
-                                    <div class="label">SIP</div>
-                                    <div class="value">${doc.sip}</div>
-                                </div>
-                            </div>
-                            <div class="doctor-meta-item">
-                                <i class="fas fa-graduation-cap"></i>
-                                <div>
-                                    <div class="label">Pendidikan</div>
-                                    <div class="value">${doc.education.length > 20 ? doc.education.substring(0, 20) + '...' : doc.education}</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="doctor-schedule">
+                    <div class="doctor-card-content">
+                        <h3>${doc.name}</h3>
+                        <div class="spec">${doc.poli}</div>
+                        <div class="doctor-card-schedule">
                             <i class="fas fa-clock"></i>
-                            <span class="text">${doc.schedule}</span>
+                            ${doc.schedule}
                         </div>
-                    </div>
-                    <div class="doctor-card-footer">
-                        <a href="poli-${doc.filter}.html" class="doctor-action" onclick="event.stopPropagation()">
-                            Lihat Detail <i class="fas fa-arrow-right"></i>
-                        </a>
-                        <div class="doctor-badge">
-                            <i class="fas fa-circle"></i>
-                            Tersedia
+                        <div class="doctor-card-poli">
+                            <i class="fas fa-hospital"></i>
+                            ${doc.poli}
+                        </div>
+                        <div class="doctor-card-action">
+                            <a href="poli-${doc.filter}.html" onclick="event.stopPropagation()">
+                                Detail <i class="fas fa-arrow-right"></i>
+                            </a>
+                            <span class="doctor-status">Tersedia</span>
                         </div>
                     </div>
                 </div>
@@ -1583,13 +1899,24 @@
             });
         });
 
-        // Modal functions
+        // Modal functions - Updated for portrait layout
         function openModal(id) {
             const doctor = doctors.find(d => d.id === id);
             if (!doctor) return;
 
-            document.getElementById('modalAvatar').src = doctor.image;
-            document.getElementById('modalAvatar').style.display = 'block';
+            const avatarImg = document.getElementById('modalAvatar');
+            const fallback = document.getElementById('modalAvatarFallback');
+            
+            avatarImg.src = doctor.image;
+            avatarImg.onload = function() {
+                avatarImg.style.display = 'block';
+                fallback.style.display = 'none';
+            };
+            avatarImg.onerror = function() {
+                avatarImg.style.display = 'none';
+                fallback.style.display = 'flex';
+            };
+            
             document.getElementById('modalName').textContent = doctor.name;
             document.getElementById('modalSpec').textContent = doctor.spec;
             document.getElementById('modalSip').textContent = doctor.sip;
