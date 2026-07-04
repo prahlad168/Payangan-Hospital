@@ -3,8 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Payangan Hospital - Rumah Sakit terpercaya di Gianyar, Bali. Layanan kesehatan berkualitas dengan tenaga medis profesional dan fasilitas modern.">
-    <title>Payangan Hospital - Pavitram Idam Uttamam</title>
+    <meta name="description" content="RS Payangan Hospital - Rumah Sakit terpercaya di Gianyar, Bali. Layanan kesehatan berkualitas dengan 22+ dokter spesialis dan fasilitas modern. IGD 24 jam, rawat inap, rawat jalan.">
+    <meta name="keywords" content="rumah sakit gianyar, rs payangan, rumah sakit bali, dokter spesialis gianyar, igd 24 jam, rawat inap, rawat jalan, poli spesialis">
+    <meta name="author" content="RS Payangan Hospital">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="RS Payangan Hospital - Pavitram Idam Uttamam">
+    <meta property="og:description" content="Rumah Sakit terpercaya di Gianyar, Bali dengan layanan kesehatan berkualitas dan tenaga medis profesional.">
+    <meta property="og:type" content="website">
+    <title>RS Payangan Hospital - Pavitram Idam Uttamam</title>
     <link rel="icon" type="image/png" href="logo.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,16 +18,20 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary: #1a5f5a;
-            --primary-light: #2d8a84;
-            --primary-dark: #0f3d3a;
-            --secondary: #c9a86c;
-            --accent: #f59e0b;
+            --primary: #0d7377;
+            --primary-dark: #095456;
+            --primary-light: #14919b;
+            --secondary: #f4c430;
+            --accent: #e85d04;
             --bg-white: #ffffff;
             --bg-light: #f8fafc;
-            --bg-cream: #f8f6f3;
-            --text-dark: #2c3e3c;
-            --text-muted: #8a9a9a;
+            --bg-cream: #fefcf8;
+            --text-dark: #1a1a2e;
+            --text-muted: #64748b;
+            --gradient-teal: linear-gradient(135deg, #0d7377 0%, #14919b 100%);
+            --gradient-warm: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            --shadow-soft: 0 4px 20px rgba(13, 115, 119, 0.08);
+            --shadow-hover: 0 20px 40px rgba(13, 115, 119, 0.15);
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
@@ -66,10 +76,10 @@
         .slide { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; align-items: center; opacity: 0; transition: opacity 1s ease; }
         .slide.active { opacity: 1; }
         .slide-bg { position: absolute; inset: 0; background-size: cover; background-position: center; background-repeat: no-repeat; z-index: 1; }
-        .slide-1 .slide-bg { background-image: url('https://raw.githubusercontent.com/prahlad168/Payangan-Hospital/main/img/slider/slider-1.png?v=20260703'); background-color: #0d7377; }
-        .slide-2 .slide-bg { background-image: url('https://raw.githubusercontent.com/prahlad168/Payangan-Hospital/main/img/slider/slider-2.png?v=20260703'); background-color: #1e3a5f; }
-        .slide-3 .slide-bg { background-image: url('https://raw.githubusercontent.com/prahlad168/Payangan-Hospital/main/img/slider/slider-3.png?v=20260703'); background-color: #1e1b4b; }
-        .slide-4 .slide-bg { background-image: url('https://raw.githubusercontent.com/prahlad168/Payangan-Hospital/main/img/slider/slider-4.png?v=20260703'); background-color: #134e4a; }
+        .slide-1 .slide-bg { background-image: url('img/slider/slider-1.png'); background-color: #0d7377; }
+        .slide-2 .slide-bg { background-image: url('img/slider/slider-2.png'); background-color: #1e3a5f; }
+        .slide-3 .slide-bg { background-image: url('img/slider/slider-3.png'); background-color: #1e1b4b; }
+        .slide-4 .slide-bg { background-image: url('img/slider/slider-4.png'); background-color: #134e4a; }
         .slide-pattern { position: absolute; inset: 0; background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); z-index: 2; pointer-events: none; }
         .slide-inner { position: relative; z-index: 3; display: flex; align-items: center; width: 100%; max-width: 1280px; margin: 0 auto; padding: 0 24px; }
         .slide-content { color: white; max-width: 800px; }
