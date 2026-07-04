@@ -18,16 +18,43 @@ Repository ini berisi website RS Payangan Hospital dan konfigurasi automasi untu
 
 ---
 
-## рҹ“Ғ Project Structure
+## рҹ"Ғ Project Structure
 
 ```
+Payangan-Hospital/
 в”ңв”Җв”Җ index.html              # Homepage
 в”ңв”Җв”Җ about.html              # About page
 в”ңв”Җв”Җ dokter.html             # Doctor list
 в”ңв”Җв”Җ igd.html                # IGD/Emergency
 в”ңв”Җв”Җ kontak.html             # Contact page
+в”ңв”Җв”Җ antrean.html           # Live antrean display
 в”ңв”Җв”Җ progress/
 в”Ӯ   в””в”Җв”Җ index.html         # Progress dashboard
+в”Ӯ   в””в”Җв”Җ weekly-report-*.md    # Laporan mingguan
+в”Ӯ   в””в”Җв”Җ director-report-login.html  # Login laporan direksi
+в”ңв”Җв”Җ rs-admin/              # BACKEND ADMIN SYSTEM
+в”Ӯ   в”Ӯ
+в”Ӯ   в””в”Җв”Җ config/
+в”Ӯ   в”Ӯ   в””в”Җв”Җ database.php       # Konfigurasi DB
+в”Ӯ   в”Ӯ   в””в”Җв”Җ schema.sql         # Database schema
+в”Ӯ   в”Ӯ
+в”Ӯ   в””в”Җв”Җ includes/
+в”Ӯ   в”Ӯ   в””в”Җв”Җ auth.php           # Auth helpers
+в”Ӯ   в”Ӯ   в””в”Җв”Җ header.php        # Navbar/Sidebar
+в”Ӯ   в”Ӯ   в””в”Җв”Җ footer.php        # Footer
+в”Ӯ   в”Ӯ
+в”Ӯ   в””в”Җв”Җ login.php             # Login page
+в”Ӯ   в””в”Җв”Җ logout.php            # Logout
+в”Ӯ   в””в”Җв”Җ dashboard.php         # Dashboard utama
+в”Ӯ   в””в”Җв”Җ dokter.php           # Manajemen dokter
+в”Ӯ   в””в”Җв”Җ poli.php              # Manajemen poli
+в”Ӯ   в””в”Җв”Җ pasien.php            # Manajemen pasien
+в”Ӯ   в””в”Җв”Җ kamar.php            # Manajemen kamar
+в”Ӯ   в””в”Җв”Җ antrean.php           # Sistem antrean
+в”Ӯ   в””в”Җв”Җ igd.php              # IGD
+в”Ӯ   в””в”Җв”Җ users.php            # Manajemen user
+в”Ӯ   в””в”Җв”Җ README.md            # Dokumentasi
+в”Ӯ
 в”ңв”Җв”Җ img/                    # Images folder
 в”ңв”Җв”Җ webhook.php             # Auto-deploy webhook script
 в””в”Җв”Җ ... (other hospital pages)
@@ -36,6 +63,58 @@ Repository ini berisi website RS Payangan Hospital dan konfigurasi automasi untu
 ---
 
 ## рҹӨ– Available Skills
+
+### 3. RS Admin Backend System
+**Folder:** `rs-admin/`
+
+Sistem backend administration untuk RS Payangan Hospital dengan autentikasi multi-level.
+
+**Login Credentials:**
+| Role | Username | Password |
+|------|----------|----------|
+| **Direktur** | `direktur` | `welcomehome` |
+| **Admin** | `admin` | `admin123` |
+| **Karyawan** | `karyawan` | `staf2026` |
+
+**Fitur:**
+- Dashboard dengan statistik real-time
+- Manajemen dokter, poli, pasien, kamar
+- Sistem antrean terintegrasi
+- Role-based access control (RBAC)
+- MySQL database schema siap pakai
+
+**URL Akses (setelah deploy):**
+```
+https://payanganhospital.gianyarkab.go.id/rs-admin/
+```
+
+**Role Permissions:**
+| Feature | Diretor | Admin | Karyawan |
+|--------|:------:|:-----:|:--------:|
+| Dashboard | Full | Full | Limited |
+| Manajemen Dokter | ✅ | ✅ | ❌ |
+| Manajemen User | ✅ | ✅ | ❌ |
+| Sistem Antrean | ✅ | ✅ | ✅ |
+
+### 4. Laporan Direksi
+**File:** `progress/director-report-login.html`
+
+Laporan mingguan dengan proteksi password untuk direktur.
+
+**Password:** `welcomehome`
+
+**URL:**
+```
+https://payanganhospital.gianyarkab.go.id/progress/director-report-login.html
+```
+
+**Isi Laporan:**
+- Ringkasan eksekutif (92% progress)
+- Status infrastruktur website
+- Sistem automation (8 GitHub Actions + 6 OpenHands Agents)
+- Issues & action items
+- KPI achievement
+- Rencana minggu depan
 
 ### 1. Webhook Auto-Deploy
 **File:** `.agents/skills/webhook-auto-deploy.md`
@@ -255,14 +334,17 @@ Skill untuk memperbaiki masalah gambar di website (blur, stretch, kecil, tidak m
 
 ## вң… Status
 
-| Component | Status |
-|-----------|--------|
-| GitHub Repository | вң… Active |
-| Hosting Connected | вң… Connected |
-| Webhook | вң… Working |
-| Daily Automation | вң… Active |
-| Auto-Deploy | вң… Ready |
+| Component | Status | Notes |
+|-----------|--------|-------|
+| GitHub Repository | вң… Active | Latest commit: 2026-07-04 |
+| Hosting Connected | вң… Connected | Idwebhost cPanel |
+| Webhook | вң… Working | Auto-deploy on push |
+| Daily Automation | вң… Active | 6 AM WIB daily |
+| Auto-Deploy | вң… Ready | GitHub Actions + Webhook |
+| **RS Admin Backend** | **вң… NEW** | PHP/MySQL ready |
+| **Laporan Direksi** | **вң… NEW** | Password protected |
+| **13 QA Agents** | **вң… NEW** | Run with /play command |
 
 ---
 
-**Last Updated:** 2026-07-02
+**Last Updated:** 2026-07-04
