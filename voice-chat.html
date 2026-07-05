@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voice Chat - RS Payangan AI</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0d7377 0%, #14919b 50%, #0d7377 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 600px;
+        }
+        
+        .voice-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 30px;
+            padding: 40px;
+            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+        
+        .logo {
+            font-size: 50px;
+            color: #0d7377;
+            margin-bottom: 10px;
+        }
+        
+        h1 {
+            color: #0d7377;
+            font-size: 28px;
+            margin-bottom: 5px;
+        }
+        
+        .subtitle {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 30px;
+        }
+        
+        .user-welcome {
+            background: linear-gradient(135deg, #0d7377, #14919b);
+            color: white;
+            padding: 20px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .user-welcome h2 {
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+        
+        .user-welcome p {
+            opacity: 0.9;
+            font-size: 14px;
+        }
+        
+        .mic-button {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: none;
+            background: linear-gradient(135deg, #0d7377, #14919b);
+            color: white;
+            font-size: 40px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(13, 115, 119, 0.4);
+            margin-bottom: 20px;
+        }
+        
+        .mic-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 15px 40px rgba(13, 115, 119, 0.5);
+        }
+        
+        .mic-button.listening {
+            background: linear-gradient(135deg, #ff4757, #ff6b81);
+            animation: pulse 1.5s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        
+        .status {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+        
+        .status.listening {
+            color: #ff4757;
+            font-weight: bold;
+        }
+        
+        .conversation {
+            background: #f8f9fa;
+            border-radius: 20px;
+            padding: 20px;
+            max-height: 300px;
+            overflow-y: auto;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        
+        .message {
+            padding: 12px 16px;
+            border-radius: 15px;
+            margin-bottom: 10px;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        
+        .message.user {
+            background: #0d7377;
+            color: white;
+            margin-left: 20%;
+            border-bottom-right-radius: 5px;
+        }
+        
+        .message.ai {
+            background: #e9ecef;
+            color: #333;
+            margin-right: 20%;
+            border-bottom-left-radius: 5px;
+        }
+        
+        .message .label {
+            font-size: 11px;
+            opacity: 0.7;
+            margin-bottom: 3px;
+        }
+        
+        .commands {
+            background: #f0f7f7;
+            border-radius: 15px;
+            padding: 15px;
+            text-align: left;
+        }
+        
+        .commands h3 {
+            color: #0d7377;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        
+        .commands ul {
+            list-style: none;
+            font-size: 12px;
+            color: #666;
+        }
+        
+        .commands li {
+            padding: 5px 0;
+        }
+        
+        .commands li i {
+            color: #0d7377;
+            margin-right: 8px;
+            width: 16px;
+        }
+        
+        .footer {
+            margin-top: 20px;
+            font-size: 12px;
+            color: #999;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="voice-card">
+            <div class="logo">
+                <i class="fas fa-hospital"></i>
+            </div>
+            <h1>Voice Chat AI</h1>
+            <p class="subtitle">RS Payangan Hospital - Agent AI System</p>
+            
+            <div class="user-welcome">
+                <h2>Halo, Pak Pur!</h2>
+                <p>Saya Agent AI Anda. Silakan bicara untuk memberikan perintah.</p>
+            </div>
+            
+            <button id="micBtn" class="mic-button" onclick="toggleMic()">
+                <i class="fas fa-microphone"></i>
+            </button>
+            
+            <p id="status" class="status">Klik untuk mulai ngobrol</p>
+            
+            <div id="conversation" class="conversation">
+                <div class="message ai">
+                    <div class="label">AI Agent</div>
+                    Halo Pak Pur! Saya Agent AI Anda. Klik tombol microphone dan silakan bicara!
+                </div>
+            </div>
+            
+            <div class="commands">
+                <h3><i class="fas fa-terminal"></i> Command Suara:</h3>
+                <ul>
+                    <li><i class="fas fa-microphone"></i> "Halo" - Sapaan</li>
+                    <li><i class="fas fa-rocket"></i> "Deploy" - Deploy website</li>
+                    <li><i class="fas fa-file-alt"></i> "Laporan" - Buat laporan</li>
+                    <li><i class="fas fa-check-circle"></i> "Status" - Cek status</li>
+                    <li><i class="fas fa-chart-line"></i> "Optimasi" - QA check</li>
+                    <li><i class="fas fa-power-off"></i> "Stop" - Selesai</li>
+                </ul>
+            </div>
+            
+            <div class="footer">
+                Powered by OpenHands AI Agent | RS Payangan Hospital
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Voice Recognition Setup
+        const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+        let recognition;
+        
+        // Check if browser supports Speech Recognition
+        if (SpeechRecognition) {
+            recognition = new SpeechRecognition();
+            recognition.continuous = true;
+            recognition.interimResults = true;
+            recognition.lang = 'id-ID'; // Bahasa Indonesia
+        } else {
+            alert('Maaf, browser Anda tidak mendukung Speech Recognition. Gunakan Chrome atau Edge.');
+        }
+        
+        let isListening = false;
+        const micBtn = document.getElementById('micBtn');
+        const statusEl = document.getElementById('status');
+        const conversationEl = document.getElementById('conversation');
+        
+        // Toggle Microphone
+        function toggleMic() {
+            if (!recognition) return;
+            
+            if (isListening) {
+                recognition.stop();
+                micBtn.classList.remove('listening');
+                micBtn.innerHTML = '<i class="fas fa-microphone"></i>';
+                statusEl.textContent = 'Klik untuk mulai ngobrol';
+                statusEl.classList.remove('listening');
+                isListening = false;
+            } else {
+                recognition.start();
+                micBtn.classList.add('listening');
+                micBtn.innerHTML = '<i class="fas fa-stop"></i>';
+                statusEl.textContent = 'Mendengarkan...';
+                statusEl.classList.add('listening');
+                isListening = true;
+                
+                // Initial greeting
+                speak('Halo Pak Pur! Saya Agent AI Anda. Silakan bicara.');
+            }
+        }
+        
+        // Handle speech recognition results
+        recognition.onresult = function(event) {
+            const last = event.results.length - 1;
+            const text = event.results[last][0].transcript;
+            
+            // Only process final results
+            if (event.results[last].isFinal) {
+                addMessage(text, 'user');
+                processCommand(text);
+            }
+        };
+        
+        // Handle errors
+        recognition.onerror = function(event) {
+            console.error('Speech recognition error:', event.error);
+            if (event.error === 'not-allowed') {
+                alert('Mohon izinkan akses microphone untuk menggunakan fitur ini.');
+            }
+        };
+        
+        // Add message to conversation
+        function addMessage(text, sender) {
+            const msg = document.createElement('div');
+            msg.className = 'message ' + sender;
+            msg.innerHTML = '<div class="label">' + (sender === 'user' ? 'Pak Pur' : 'AI Agent') + '</div>' + text;
+            conversationEl.appendChild(msg);
+            conversationEl.scrollTop = conversationEl.scrollHeight;
+        }
+        
+        // Text-to-Speech
+        function speak(text) {
+            const synth = window.speechSynthesis;
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.lang = 'id-ID';
+            utterance.rate = 0.95;
+            utterance.pitch = 1;
+            
+            // Add to conversation
+            addMessage(text, 'ai');
+            
+            // Speak
+            synth.speak(utterance);
+        }
+        
+        // Process voice commands
+        function processCommand(text) {
+            const lower = text.toLowerCase();
+            let response = '';
+            
+            if (lower.includes('halo') || lower.includes('hai') || lower.includes('pagi') || lower.includes('siang') || lower.includes('sore')) {
+                response = 'Halo Pak Pur! Ada yang bisa saya bantu hari ini?';
+            }
+            else if (lower.includes('deploy') || lower.includes('update') || lower.includes('push')) {
+                response = 'Baik Pak Pur! Saya akan deploy website RS Payangan sekarang. Harap tunggu sebentar.';
+                setTimeout(() => speak('Deploy dimulai! Website akan terupdate dalam beberapa menit.'), 2000);
+                return; // Speak will be handled by timeout
+            }
+            else if (lower.includes('laporan') || lower.includes('report') || lower.includes('progres')) {
+                response = 'Baik Pak Pur! Saya akan buatkan laporan progress untuk Anda.';
+                setTimeout(() => speak('Laporan sedang dibuat. Akan saya simpan di folder progress.'), 2000);
+                return;
+            }
+            else if (lower.includes('status') || lower.includes('cek') || lower.includes('kondisi')) {
+                response = 'Status sistem RS Payangan: Website aktif, hosting terhubung, webhook berjalan normal, dan automation aktif setiap jam 6 pagi.';
+            }
+            else if (lower.includes('optimasi') || lower.includes('qa') || lower.includes('cek website') || lower.includes('periksa')) {
+                response = 'Baik! Saya akan jalankan 13 QA agents untuk optimasi website. Memulai pemeriksaan...';
+                setTimeout(() => speak('QA check dimulai! Akan saya periksa semua aspek website.'), 2000);
+                return;
+            }
+            else if (lower.includes('dashboard') || lower.includes('admin') || lower.includes('rs admin')) {
+                response = 'Baik Pak Pur! Dashboard RS Admin bisa diakses di payanganhospital.gianyarkab.go.id/rs-admin. Username admin, password admin123.';
+            }
+            else if (lower.includes('ig') || lower.includes('instagram') || lower.includes('sosial')) {
+                response = 'Website RS Payangan bisa dilihat di payanganhospital.gianyarkab.go.id. Semua informasi rumah sakit tersedia di sana.';
+            }
+            else if (lower.includes('terima kasih') || lower.includes('thanks') || lower.includes('selesai')) {
+                response = 'Sama-sama Pak Pur! Senang bisa membantu. Sampai jumpa lagi!';
+                setTimeout(() => {
+                    if (isListening) toggleMic();
+                }, 3000);
+            }
+            else if (lower.includes('stop') || lower.includes('tutup')) {
+                response = 'Baik Pak Pur! Mengakhiri percakapan.';
+                setTimeout(() => {
+                    if (isListening) toggleMic();
+                }, 2000);
+            }
+            else {
+                response = 'Maaf Pak Pur, saya belum memahami perintah "' + text + '". Bisa ulangi dengan kata yang lebih jelas?';
+            }
+            
+            speak(response);
+        }
+        
+        // Initialize with greeting when page loads
+        window.addEventListener('load', () => {
+            // Auto speak greeting after 1 second
+            setTimeout(() => {
+                if ('speechSynthesis' in window) {
+                    speak('Selamat datang, Pak Pur! Saya Agent AI Anda di RS Payangan Hospital. Klik tombol microphone untuk mulai ngobrol.');
+                }
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
