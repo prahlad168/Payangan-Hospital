@@ -721,7 +721,9 @@
         }
         
         .doctors-grid {
-            display: contents;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 30px;
         }
         
         .doctor-card {
@@ -2018,16 +2020,8 @@
             <p class="section-desc">Tim dokter profesional dan berpengalaman siap memberikan pelayanan kesehatan terbaik untuk Anda</p>
         </div>
         
-        <div class="doctors-slider-container">
-            <button class="doctors-slider-nav prev" onclick="slideDokter('prev')">
-                <i class="fas fa-chevron-left"></i>
-            </button>
-            <div class="doctors-slider" id="doctorsGrid">
-                <!-- Doctors will be populated by JavaScript -->
-            </div>
-            <button class="doctors-slider-nav next" onclick="slideDokter('next')">
-                <i class="fas fa-chevron-right"></i>
-            </button>
+        <div class="doctors-grid" id="doctorsGrid">
+            <!-- Doctors will be populated by JavaScript -->
         </div>
     </section>
 
