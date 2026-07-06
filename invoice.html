@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice - AI Solutions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @media print {
+            .no-print { display: none !important; }
+            body { background: white !important; color: black !important; }
+            .invoice-box { box-shadow: none !important; border: 1px solid #ddd; }
+        }
+    </style>
+</head>
+<body class="bg-gray-100 min-h-screen py-8">
+    <!-- Main Invoice Container -->
+    <div class="max-w-3xl mx-auto bg-white shadow-2xl rounded-xl overflow-hidden">
+        <!-- Header -->
+        <div class="bg-gradient-to-r from-teal-600 to-blue-600 p-8 text-white">
+            <div class="flex justify-between items-start">
+                <div>
+                    <h1 class="text-3xl font-bold mb-2">INVOICE</h1>
+                    <p class="text-teal-100">AI Business Solutions</p>
+                </div>
+                <div class="text-right">
+                    <p class="font-bold">i Made Purna Ananda</p>
+                    <p class="text-teal-100">Bali, Indonesia</p>
+                    <p class="text-teal-100">+62 819 3635 8087</p>
+                </div>
+            </div>
+            <div class="mt-6 pt-6 border-t border-teal-400 flex justify-between">
+                <div>
+                    <p class="text-teal-100 text-sm">Invoice Number</p>
+                    <p class="font-bold" id="invoice-number">INV-2026-0001</p>
+                </div>
+                <div>
+                    <p class="text-teal-100 text-sm">Tanggal</p>
+                    <p class="font-bold" id="invoice-date">6 Juli 2026</p>
+                </div>
+                <div>
+                    <p class="text-teal-100 text-sm">Jatuh Tempo</p>
+                    <p class="font-bold">13 Juli 2026</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bill To -->
+        <div class="p-8 border-b">
+            <p class="text-gray-500 text-sm mb-1">Bill To:</p>
+            <p class="font-bold text-lg" id="client-name">[Nama Klien]</p>
+            <p class="text-gray-600" id="client-address">[Alamat]</p>
+            <p class="text-gray-600" id="client-email">[Email]</p>
+        </div>
+
+        <!-- Items Table -->
+        <div class="p-8">
+            <table class="w-full">
+                <thead>
+                    <tr class="border-b-2 border-gray-200">
+                        <th class="text-left py-3 text-gray-600">Deskripsi</th>
+                        <th class="text-center py-3 text-gray-600">Qty</th>
+                        <th class="text-right py-3 text-gray-600">Harga</th>
+                        <th class="text-right py-3 text-gray-600">Total</th>
+                    </tr>
+                </thead>
+                <tbody class="invoice-items">
+                    <tr class="border-b border-gray-100">
+                        <td class="py-4">
+                            <p class="font-medium" id="item-1-name">AI Chatbot Setup</p>
+                            <p class="text-gray-500 text-sm">Custom AI chatbot untuk website/WhatsApp</p>
+                        </td>
+                        <td class="py-4 text-center">1</td>
+                        <td class="py-4 text-right" id="item-1-price">Rp 8.000.000</td>
+                        <td class="py-4 text-right font-bold" id="item-1-total">Rp 8.000.000</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Totals -->
+        <div class="px-8 pb-8">
+            <div class="flex justify-end">
+                <div class="w-64">
+                    <div class="flex justify-between py-2 border-b">
+                        <span class="text-gray-600">Subtotal</span>
+                        <span class="font-medium" id="subtotal">Rp 8.000.000</span>
+                    </div>
+                    <div class="flex justify-between py-2 border-b">
+                        <span class="text-gray-600">Pajak (11% PPN)</span>
+                        <span class="font-medium" id="tax">Rp 880.000</span>
+                    </div>
+                    <div class="flex justify-between py-3 bg-teal-50 rounded-lg px-4 mt-2">
+                        <span class="font-bold text-lg">TOTAL</span>
+                        <span class="font-bold text-lg text-teal-600" id="grand-total">Rp 8.880.000</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Payment Info -->
+        <div class="bg-gray-50 p-8">
+            <h3 class="font-bold text-lg mb-4">Informasi Pembayaran</h3>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div>
+                    <p class="text-gray-600 text-sm mb-1">Transfer Bank</p>
+                    <p class="font-bold">BCA</p>
+                    <p>1234 567 890</p>
+                    <p>a.n. I MADE PURNA ANANDA</p>
+                </div>
+                <div>
+                    <p class="text-gray-600 text-sm mb-1">QRIS</p>
+                    <div class="bg-white p-2 rounded inline-block">
+                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=BCA:1234567890:AI+SOLUTIONS" alt="QRIS" class="w-32 h-32">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Notes -->
+        <div class="p-8 border-t">
+            <h3 class="font-bold text-lg mb-2">Catatan</h3>
+            <p class="text-gray-600">Pembayaran harap dilakukan dalam 7 hari kerja. Konfirmasi pembayaran via WhatsApp +62 819 3635 8087</p>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="p-8 bg-gray-100 flex justify-center gap-4 no-print">
+            <button onclick="window.print()" class="bg-gray-700 hover:bg-gray-800 text-white px-6 py-3 rounded-lg font-semibold flex items-center gap-2">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
+                Print / Download PDF
+            </button>
+            <a href="https://wa.me/6281936358087?text=Halo,%20saya%20butuh%20invoice" class="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-lg font-semibold flex items-center gap-2">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                Hubungi via WhatsApp
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // Set today's date
+        const today = new Date();
+        document.getElementById('invoice-date').textContent = today.toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' });
+        
+        // Set invoice number with date
+        const invoiceNum = 'INV-' + today.getFullYear() + '-' + String(today.getMonth() + 1).padStart(2, '0') + String(today.getDate()).padStart(2, '0') + '-001';
+        document.getElementById('invoice-number').textContent = invoiceNum;
+    </script>
+</body>
+</html>
