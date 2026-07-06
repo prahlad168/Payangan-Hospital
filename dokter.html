@@ -663,10 +663,65 @@
             margin: 0 auto;
         }
         
+        /* ========== DOCTORS SLIDER ========== */
+        .doctors-slider-container {
+            position: relative;
+            padding: 0 40px;
+            overflow: hidden;
+        }
+        
+        .doctors-slider {
+            display: flex;
+            gap: 24px;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            padding: 10px 0;
+        }
+        
+        .doctors-slider::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .doctors-slider-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 48px;
+            height: 48px;
+            background: var(--white);
+            border: none;
+            border-radius: 50%;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+            transition: all 0.3s;
+        }
+        
+        .doctors-slider-nav:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-50%) scale(1.1);
+        }
+        
+        .doctors-slider-nav.prev { left: 0; }
+        .doctors-slider-nav.next { right: 0; }
+        
+        .doctors-slider-nav i {
+            font-size: 1.2rem;
+            color: var(--primary);
+        }
+        
+        .doctors-slider-nav:hover i {
+            color: white;
+        }
+        
         .doctors-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
-            gap: 30px;
+            display: contents;
         }
         
         .doctor-card {
@@ -679,6 +734,8 @@
             border: 1px solid rgba(0, 0, 0, 0.04);
         }
         
+            flex-shrink: 0;
+            width: 320px;
         .doctor-card:hover {
             transform: translateY(-8px);
             box-shadow: var(--shadow-hover);
@@ -1961,8 +2018,16 @@
             <p class="section-desc">Tim dokter profesional dan berpengalaman siap memberikan pelayanan kesehatan terbaik untuk Anda</p>
         </div>
         
-        <div class="doctors-grid" id="doctorsGrid">
-            <!-- Doctors will be populated by JavaScript -->
+        <div class="doctors-slider-container">
+            <button class="doctors-slider-nav prev" onclick="slideDokter('prev')">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <div class="doctors-slider" id="doctorsGrid">
+                <!-- Doctors will be populated by JavaScript -->
+            </div>
+            <button class="doctors-slider-nav next" onclick="slideDokter('next')">
+                <i class="fas fa-chevron-right"></i>
+            </button>
         </div>
     </section>
 
@@ -2252,6 +2317,17 @@
                     </div>
                 </div>
             `).join('');
+        }
+
+        // Slider functionality
+        function slideDokter(direction) {
+            const slider = document.getElementById('doctorsGrid');
+            const scrollAmount = 344;
+            if (direction === 'prev') {
+                slider.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+            } else {
+                slider.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+            }
         }
 
         // Filter functionality
