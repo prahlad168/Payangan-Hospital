@@ -1003,17 +1003,7 @@
         <div class="doctors-grid" id="doctorsGrid"></div>
     </section>
 
-    <!-- Schedule Section -->
-    <section class="schedule-section">
-        <div class="schedule-container">
-            <div class="section-header">
-                <div class="section-badge"><i class="fas fa-calendar-alt"></i> Jadwal Praktik</div>
-                <h2 class="section-title">Jadwal Mingguan</h2>
-                <p class="section-desc">Lihat jadwal praktik dokter spesialis kami</p>
-            </div>
-            <div class="schedule-grid" id="scheduleGrid"></div>
-        </div>
-    </section>
+
 
     <!-- CTA Section -->
     <section class="cta-section">
@@ -1191,7 +1181,6 @@
             renderHeroSlider();
             renderCategories();
             renderDoctors();
-            renderSchedule();
             startAutoSlide();
             setupNavbar();
             setupSearch();
@@ -1393,42 +1382,6 @@
         }
 
         // Schedule
-        function renderSchedule() {
-            const grid = document.getElementById('scheduleGrid');
-            const days = ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu'];
-            const daySchedules = days.map(day => {
-                const dayDocs = doctors.filter(d => d.schedule.includes(day));
-                const isOff = day === 'Minggu' || dayDocs.length === 0;
-                const isLimited = dayDocs.length <= 2;
-                const badge = isOff ? 'off' : (isLimited ? 'limited' : 'available');
-                const badgeText = isOff ? 'Libur' : (isLimited ? 'Terbatas' : 'Tersedia');
-                return { day, docs: dayDocs, badge, badgeText };
-            });
-
-            grid.innerHTML = daySchedules.map(d => `
-                <div class="schedule-day">
-                    <div class="schedule-day-header">
-                        <span class="schedule-day-name">${d.day}</span>
-                        <span class="schedule-day-badge ${d.badge}">${d.badgeText}</span>
-                    </div>
-                    ${d.docs.length > 0 ? d.docs.map(doc => `
-                        <div class="schedule-item">
-                            <span class="schedule-time">${doc.schedule.split(':')[1].trim()}</span>
-                            <div class="schedule-info">
-                                <h4>${doc.name.split(',')[0]}</h4>
-                                <p>${doc.spec}</p>
-                            </div>
-                        </div>
-                    `).join('') : '<p style="color:var(--text-muted);font-size:0.9rem">Tidak ada jadwal</p>'}
-                </div>
-            `).join('');
-        }
-
-        // Modal
-        function openModal(id) {
-            const doc = doctors.find(d => d.id === id);
-            if (!doc) return;
-            document.getElementById('modalImage').src = doc.image;
             document.getElementById('modalName').textContent = doc.name;
             document.getElementById('modalSpec').textContent = doc.spec;
             document.getElementById('modalEducation').textContent = doc.education;
