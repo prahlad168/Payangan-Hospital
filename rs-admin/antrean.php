@@ -177,6 +177,53 @@ $stats = [
             .stats-grid { grid-template-columns: repeat(2, 1fr); }
         }
     </style>
+
+    <style>
+        /* ========== LOGO SHIMMER & GLOW ANIMATION ========== */
+        @keyframes shimmer {
+            0% { background-position: -200% center; }
+            100% { background-position: 200% center; }
+        }
+        @keyframes glow {
+            0%, 100% { 
+                filter: drop-shadow(0 0 8px rgba(244, 196, 48, 0.6));
+            }
+            50% { 
+                filter: drop-shadow(0 0 20px rgba(244, 196, 48, 0.9)) drop-shadow(0 0 35px rgba(244, 196, 48, 0.5));
+            }
+        }
+        .logo-shimmer-wrap {
+            position: relative;
+            display: inline-block;
+        }
+        .logo-shimmer-wrap::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                90deg,
+                transparent 0%,
+                rgba(255, 255, 255, 0) 0%,
+                rgba(255, 255, 255, 0.4) 50%,
+                rgba(255, 255, 255, 0) 100%
+            );
+            background-size: 200% 100%;
+            animation: shimmer 3s ease-in-out infinite;
+            pointer-events: none;
+            z-index: 10;
+            border-radius: inherit;
+        }
+        .logo-shimmer-wrap img {
+            position: relative;
+            z-index: 1;
+            animation: glow 2s ease-in-out infinite;
+        }
+        /* ========== END LOGO ANIMATION ========== */
+    </style>
+
 </head>
 <body>
     <!-- Navbar -->
