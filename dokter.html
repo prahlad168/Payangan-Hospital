@@ -5,1134 +5,1482 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Dokter Spesialis RS Payangan Hospital Gianyar, Bali. 22+ dokter berpengalaman siap melayani rawat jalan dan konsultasi medis.">
     <meta name="keywords" content="dokter spesialis gianyar, dokter rs payangan, daftar dokter, konsultasi dokter, spesialis bali">
+    <meta name="author" content="RS Payangan Hospital">
     <meta name="robots" content="index, follow">
     <title>Daftar Dokter Spesialis - RS Payangan Hospital Gianyar</title>
+    
+    <!-- Favicon -->
     <link rel="icon" type="image/png" href="logo.png">
+    
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
+        /* ========================================
+           DESIGN SYSTEM - Same as Homepage
+        ======================================== */
         :root {
             --primary: #0891b2;
             --primary-dark: #0e7490;
             --primary-light: #22d3ee;
-            --secondary: #f59e0b;
+            --primary-50: #ecfeff;
+            --primary-100: #cffafe;
+            --primary-200: #a5f3fc;
+            --primary-600: #0891b2;
+            --primary-700: #0e7490;
+            --primary-800: #155e75;
+            --primary-900: #164e63;
+            
+            --secondary: #f4c430;
+            --secondary-dark: #d4a40a;
+            --secondary-light: #fde68a;
+            
             --accent: #ec4899;
+            --accent-light: #f9a8d4;
+            
             --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --info: #3b82f6;
+            
+            --bg-white: #ffffff;
             --bg-light: #f8fafc;
-            --bg-warm: #fafaf9;
-            --text-dark: #18181b;
-            --text-muted: #71717a;
-            --white: #ffffff;
-            --gradient-primary: linear-gradient(135deg, #0891b2 0%, #22d3ee 100%);
-            --shadow-soft: 0 4px 24px rgba(8, 145, 178, 0.08);
-            --shadow-hover: 0 20px 40px rgba(8, 145, 178, 0.15);
-            --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.06);
-            --radius-lg: 24px;
-            --radius-xl: 32px;
+            --bg-warm: #fefcf8;
+            --bg-dark: #0f172a;
+            
+            --text-dark: #0f172a;
+            --text-muted: #64748b;
+            --text-light: #94a3b8;
+            
+            --gradient-primary: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            --gradient-dark: linear-gradient(135deg, var(--bg-dark) 0%, var(--primary-900) 100%);
+            
+            --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.05);
+            --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.06);
+            --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --shadow-xl: 0 20px 50px rgba(0, 0, 0, 0.15);
+            --shadow-2xl: 0 25px 60px rgba(0, 0, 0, 0.2);
+            --shadow-primary: 0 10px 40px rgba(8, 145, 178, 0.3);
+            
+            --radius-xs: 4px;
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 24px;
+            --radius-2xl: 32px;
+            --radius-full: 9999px;
+            
+            --transition-fast: 0.15s ease;
+            --transition-base: 0.3s ease;
+            --transition-slow: 0.5s ease;
+            --transition-smooth: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            
+            --space-1: 4px;
+            --space-2: 8px;
+            --space-3: 12px;
+            --space-4: 16px;
+            --space-5: 20px;
+            --space-6: 24px;
+            --space-8: 32px;
+            --space-10: 40px;
+            --space-12: 48px;
+            --space-16: 64px;
+            --space-20: 80px;
+            
+            --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            --font-display: 'Playfair Display', Georgia, serif;
+            
+            --container-max: 1400px;
+            --container-padding: 24px;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+        }
 
         body {
-            font-family: 'DM Sans', sans-serif;
-            background: var(--bg-warm);
-            color: var(--text-dark);
+            font-family: var(--font-sans);
+            font-size: 16px;
             line-height: 1.6;
-            overflow-x: hidden;
+            color: var(--text-dark);
+            background: var(--bg-light);
         }
 
-        /* ========== NAVBAR ========== */
-        .navbar {
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        button {
+            font-family: inherit;
+            cursor: pointer;
+            border: none;
+            background: none;
+        }
+
+        .container {
+            max-width: var(--container-max);
+            margin: 0 auto;
+            padding: 0 var(--container-padding);
+        }
+
+        /* ========================================
+           HEADER / NAVBAR
+        ======================================== */
+        .header {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
             z-index: 1000;
-            padding: 20px 0;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .navbar.scrolled {
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(255, 255, 255, 0.98);
             backdrop-filter: blur(20px);
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.08);
-            padding: 12px 0;
+            box-shadow: var(--shadow-md);
         }
-        .navbar .container {
+
+        .header-inner {
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 40px;
+            justify-content: space-between;
+            padding: var(--space-4) 0;
         }
+
         .logo {
             display: flex;
             align-items: center;
-            gap: 14px;
-            text-decoration: none;
-            color: var(--white);
+            gap: var(--space-3);
         }
-        .navbar.scrolled .logo { color: var(--text-dark); }
-        .logo img { height: 48px; border-radius: 12px; }
-        .logo-text { display: flex; flex-direction: column; }
-        .logo-text-main { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.2rem; font-weight: 700; }
-        .logo-text-sub { font-size: 0.7rem; opacity: 0.8; font-weight: 500; letter-spacing: 1px; }
-        .nav-links { display: flex; gap: 6px; list-style: none; }
-        .nav-links a {
-            text-decoration: none;
-            color: rgba(255, 255, 255, 0.9);
+
+        .logo img {
+            width: 48px;
+            height: 48px;
+            border-radius: var(--radius-lg);
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-name {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        .logo-tagline {
+            font-size: 0.65rem;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+        }
+
+        .nav-link {
+            padding: var(--space-3) var(--space-5);
             font-size: 0.9rem;
             font-weight: 500;
-            padding: 10px 20px;
-            border-radius: 100px;
-            display: block;
-            transition: all 0.3s;
+            color: var(--text-muted);
+            border-radius: var(--radius-full);
+            transition: all var(--transition-base);
         }
-        .navbar.scrolled .nav-links a { color: var(--text-muted); }
-        .nav-links a:hover, .nav-links a.active { background: rgba(255, 255, 255, 0.2); }
-        .navbar.scrolled .nav-links a:hover, .navbar.scrolled .nav-links a.active { background: var(--primary); color: white; }
-        .nav-cta {
-            background: var(--gradient-primary) !important;
-            color: white !important;
-            padding: 12px 28px !important;
-            border-radius: 100px !important;
-            font-weight: 600 !important;
-        }
-        .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(8, 145, 178, 0.3); }
 
-        /* ========== HERO SLIDER ========== */
-        .hero-slider {
-            position: relative;
-            height: 100vh;
-            min-height: 700px;
-            overflow: hidden;
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--primary);
+            background: var(--primary-50);
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: var(--space-4);
+        }
+
+        .btn-emergency {
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+            padding: var(--space-3) var(--space-5);
+            background: var(--danger);
+            color: white;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border-radius: var(--radius-full);
+            transition: all var(--transition-base);
+        }
+
+        .btn-emergency:hover {
+            background: #dc2626;
+        }
+
+        .btn-appointment {
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+            padding: var(--space-4) var(--space-6);
+            background: var(--gradient-primary);
+            color: white;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border-radius: var(--radius-full);
+            box-shadow: var(--shadow-primary);
+            transition: all var(--transition-base);
+        }
+
+        .btn-appointment:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            padding: var(--space-3);
+        }
+
+        .menu-toggle span {
+            width: 24px;
+            height: 2px;
             background: var(--text-dark);
         }
-        .hero-slide {
-            position: absolute;
+
+        /* Mobile Menu */
+        .mobile-menu {
+            display: none;
+            position: fixed;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
-            opacity: 0;
-            transition: opacity 1s ease-in-out;
-        }
-        .hero-slide.active { opacity: 1; }
-        .hero-bg {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background-size: cover;
-            background-position: center;
-            filter: blur(2px);
-            transform: scale(1.1);
-        }
-        .hero-overlay {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(8, 145, 178, 0.85) 0%, rgba(34, 211, 238, 0.6) 50%, rgba(236, 72, 153, 0.3) 100%);
-        }
-        .hero-content {
-            position: relative;
-            z-index: 10;
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 40px;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .hero-inner {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-            width: 100%;
-        }
-        .hero-text { color: white; }
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(10px);
-            padding: 8px 20px;
-            border-radius: 100px;
-            font-size: 0.85rem;
-            margin-bottom: 24px;
-            animation: fadeInUp 0.8s ease;
-        }
-        .hero-badge i { color: var(--secondary); }
-        .hero-title {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 3.5rem;
-            font-weight: 800;
-            line-height: 1.1;
-            margin-bottom: 20px;
-            animation: fadeInUp 0.8s ease 0.2s both;
-        }
-        .hero-spec {
-            font-size: 1.5rem;
-            font-weight: 500;
-            margin-bottom: 16px;
-            opacity: 0.95;
-            animation: fadeInUp 0.8s ease 0.3s both;
-        }
-        .hero-desc {
-            font-size: 1.1rem;
-            opacity: 0.9;
-            margin-bottom: 32px;
-            max-width: 500px;
-            animation: fadeInUp 0.8s ease 0.4s both;
-        }
-        .hero-buttons {
-            display: flex;
-            gap: 16px;
-            animation: fadeInUp 0.8s ease 0.5s both;
-        }
-        .hero-btn {
-            padding: 16px 32px;
-            border-radius: 16px;
-            font-weight: 600;
-            font-size: 1rem;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            transition: all 0.3s;
-            cursor: pointer;
-            border: none;
-        }
-        .hero-btn-primary {
-            background: white;
-            color: var(--primary);
-        }
-        .hero-btn-primary:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2); }
-        .hero-btn-secondary {
-            background: rgba(255, 255, 255, 0.15);
-            color: white;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-        }
-        .hero-btn-secondary:hover { background: rgba(255, 255, 255, 0.25); transform: translateY(-3px); }
-        .hero-image {
-            position: relative;
-            display: flex;
-            justify-content: center;
-            animation: fadeInRight 1s ease 0.3s both;
-        }
-        .hero-image-wrapper {
-            position: relative;
-            width: 380px;
-            height: 500px;
-            border-radius: 32px;
-            overflow: hidden;
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
-            border: 4px solid rgba(255, 255, 255, 0.3);
-        }
-        .hero-image-wrapper img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center top;
-        }
-        .hero-image-badge {
-            position: absolute;
-            bottom: -20px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: white;
-            padding: 16px 32px;
-            border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            white-space: nowrap;
-        }
-        .hero-image-badge i { color: var(--success); font-size: 1.2rem; }
-        .hero-image-badge span { font-weight: 600; color: var(--text-dark); }
-        /* Slider Navigation */
-        .slider-nav {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 60px;
-            height: 60px;
-            background: rgba(255, 255, 255, 0.95);
-            border: none;
-            border-radius: 50%;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 20;
-            transition: all 0.3s;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-        }
-        .slider-nav:hover { background: var(--primary); color: white; transform: translateY(-50%) scale(1.1); }
-        .slider-nav.prev { left: 30px; }
-        .slider-nav.next { right: 30px; }
-        .slider-nav i { font-size: 1.2rem; color: var(--text-dark); }
-        .slider-nav:hover i { color: white; }
-        /* Pagination Dots */
-        .slider-dots {
-            position: absolute;
-            bottom: 100px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 12px;
-            z-index: 20;
-        }
-        .slider-dot {
-            width: 12px;
-            height: 12px;
-            background: rgba(255, 255, 255, 0.4);
-            border-radius: 50%;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        .slider-dot.active { background: white; transform: scale(1.3); }
-        .slider-dot:hover { background: rgba(255, 255, 255, 0.8); }
-        /* Progress Bar */
-        .slider-progress {
-            position: absolute;
+            right: 0;
             bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: rgba(255, 255, 255, 0.2);
-            z-index: 20;
+            background: var(--bg-white);
+            z-index: 999;
+            padding: var(--space-24) var(--space-6) var(--space-6);
+            transform: translateX(100%);
+            transition: transform var(--transition-smooth);
         }
-        .slider-progress-bar {
-            height: 100%;
-            background: white;
-            transition: width 0.1s linear;
-        }
-        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-        @keyframes fadeInRight { from { opacity: 0; transform: translateX(50px); } to { opacity: 1; transform: translateX(0); } }
 
-        /* ========== SEARCH SECTION ========== */
-        .search-section {
-            position: relative;
-            margin-top: -60px;
-            z-index: 50;
-            padding: 0 40px;
+        .mobile-menu.active {
+            transform: translateX(0);
         }
-        .search-box {
-            max-width: 1000px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 24px;
-            padding: 8px;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+
+        .mobile-menu-header {
             display: flex;
-            gap: 8px;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--space-8);
         }
-        .search-input-wrap {
-            flex: 1;
-            position: relative;
+
+        .mobile-menu-close {
+            width: 48px;
+            height: 48px;
             display: flex;
             align-items: center;
+            justify-content: center;
+            border-radius: var(--radius-full);
+            background: var(--bg-light);
+            font-size: 1.25rem;
         }
-        .search-input-wrap i {
-            position: absolute;
-            left: 20px;
-            color: var(--text-muted);
+
+        .mobile-nav {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-2);
+        }
+
+        .mobile-nav-link {
+            padding: var(--space-5) var(--space-6);
             font-size: 1.1rem;
-        }
-        .search-input {
-            width: 100%;
-            padding: 20px 20px 20px 50px;
-            border: none;
-            font-size: 1rem;
-            font-family: inherit;
-            border-radius: 16px;
-            background: var(--bg-light);
-            outline: none;
-        }
-        .search-input:focus { background: white; }
-        .search-select {
-            padding: 16px 20px;
-            border: none;
-            border-radius: 16px;
-            font-size: 0.95rem;
-            font-family: inherit;
-            background: var(--bg-light);
-            cursor: pointer;
-            outline: none;
-            min-width: 160px;
-        }
-        .search-btn {
-            padding: 16px 32px;
-            background: var(--gradient-primary);
-            color: white;
-            border: none;
-            border-radius: 16px;
             font-weight: 600;
-            font-size: 1rem;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            transition: all 0.3s;
+            color: var(--text-dark);
+            border-radius: var(--radius-lg);
         }
-        .search-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(8, 145, 178, 0.3); }
 
-        /* ========== CATEGORIES ========== */
-        .categories-section {
-            padding: 100px 40px;
-            max-width: 1400px;
-            margin: 0 auto;
+        .mobile-nav-link:hover {
+            background: var(--primary-50);
+            color: var(--primary);
         }
-        .section-header {
+
+        /* ========================================
+           PAGE HEADER
+        ======================================== */
+        .page-header {
+            padding: 140px 0 60px;
+            background: linear-gradient(135deg, var(--bg-warm) 0%, var(--bg-white) 100%);
             text-align: center;
-            margin-bottom: 60px;
+            position: relative;
+            overflow: hidden;
         }
-        .section-badge {
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 60%;
+            height: 150%;
+            background: radial-gradient(circle, rgba(8, 145, 178, 0.05) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .page-header-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-label {
             display: inline-flex;
             align-items: center;
-            gap: 8px;
-            background: rgba(8, 145, 178, 0.1);
-            color: var(--primary);
-            padding: 10px 24px;
-            border-radius: 100px;
-            font-size: 0.9rem;
+            gap: var(--space-2);
+            font-size: 0.85rem;
             font-weight: 600;
-            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--primary);
+            margin-bottom: var(--space-4);
         }
-        .section-title {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 2.8rem;
+
+        .section-label::before {
+            content: '';
+            width: 24px;
+            height: 2px;
+            background: var(--primary);
+        }
+
+        .page-title {
+            font-size: clamp(2rem, 5vw, 3rem);
             font-weight: 800;
             color: var(--text-dark);
-            margin-bottom: 16px;
+            margin-bottom: var(--space-4);
         }
-        .section-desc { color: var(--text-muted); font-size: 1.1rem; max-width: 600px; margin: 0 auto; }
-        .categories-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-            gap: 20px;
+
+        .page-title span {
+            color: var(--primary);
         }
-        .category-card {
-            background: white;
-            border-radius: 20px;
-            padding: 28px 20px;
+
+        .page-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .page-stats {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-10);
+            margin-top: var(--space-8);
+        }
+
+        .page-stat {
             text-align: center;
-            box-shadow: var(--shadow-card);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            cursor: pointer;
-            border: 2px solid transparent;
         }
-        .category-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-hover);
+
+        .page-stat-value {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            line-height: 1;
+        }
+
+        .page-stat-label {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-top: var(--space-2);
+        }
+
+        /* ========================================
+           SEARCH & FILTER SECTION
+        ======================================== */
+        .search-section {
+            padding: var(--space-8) 0;
+            background: var(--bg-white);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 72px;
+            z-index: 100;
+        }
+
+        .search-bar {
+            display: flex;
+            gap: var(--space-4);
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .search-input-wrapper {
+            flex: 1;
+            min-width: 280px;
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: var(--space-4) var(--space-5);
+            padding-left: 50px;
+            font-size: 1rem;
+            border: 2px solid var(--primary-100);
+            border-radius: var(--radius-xl);
+            transition: all var(--transition-base);
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(8, 145, 178, 0.1);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: var(--space-5);
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+        }
+
+        .filter-select {
+            padding: var(--space-4) var(--space-5);
+            padding-right: 40px;
+            font-size: 1rem;
+            border: 2px solid var(--primary-100);
+            border-radius: var(--radius-xl);
+            background: white;
+            color: var(--text-dark);
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 12px center;
+            background-size: 16px;
+        }
+
+        .filter-select:focus {
+            outline: none;
             border-color: var(--primary);
         }
-        .category-card.active { border-color: var(--primary); background: rgba(8, 145, 178, 0.05); }
+
+        /* ========================================
+           MAIN CONTENT
+        ======================================== */
+        .main-content {
+            padding: var(--space-16) 0;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: var(--space-8);
+        }
+
+        /* Sidebar */
+        .sidebar {
+            position: sticky;
+            top: 180px;
+            height: fit-content;
+        }
+
+        .sidebar-card {
+            background: var(--bg-white);
+            border-radius: var(--radius-xl);
+            padding: var(--space-6);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .sidebar-title {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: var(--space-5);
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+        }
+
+        .category-list {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-2);
+        }
+
+        .category-item {
+            display: flex;
+            align-items: center;
+            gap: var(--space-3);
+            padding: var(--space-3) var(--space-4);
+            border-radius: var(--radius-lg);
+            cursor: pointer;
+            transition: all var(--transition-base);
+        }
+
+        .category-item:hover {
+            background: var(--primary-50);
+        }
+
+        .category-item.active {
+            background: var(--primary);
+            color: white;
+        }
+
         .category-icon {
-            width: 64px;
-            height: 64px;
-            background: var(--gradient-primary);
-            border-radius: 20px;
+            width: 40px;
+            height: 40px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 16px;
-            font-size: 1.5rem;
+            border-radius: var(--radius-md);
+            background: var(--primary-100);
+            color: var(--primary);
+            font-size: 1rem;
+        }
+
+        .category-item.active .category-icon {
+            background: rgba(255, 255, 255, 0.2);
             color: white;
         }
-        .category-name { font-weight: 700; font-size: 0.95rem; margin-bottom: 4px; color: var(--text-dark); }
-        .category-count { font-size: 0.85rem; color: var(--text-muted); }
 
-        /* ========== DOCTORS GRID ========== */
-        .doctors-section {
-            padding: 60px 40px 100px;
-            max-width: 1400px;
-            margin: 0 auto;
+        .category-info {
+            flex: 1;
         }
+
+        .category-name {
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .category-count {
+            font-size: 0.8rem;
+            opacity: 0.7;
+        }
+
+        /* Doctor Grid */
         .doctors-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: var(--space-6);
         }
+
         .doctor-card {
-            background: white;
-            border-radius: 24px;
+            background: var(--bg-white);
+            border-radius: var(--radius-xl);
             overflow: hidden;
-            box-shadow: var(--shadow-card);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: var(--shadow-md);
+            transition: all var(--transition-base);
             cursor: pointer;
-            border: 2px solid transparent;
         }
+
         .doctor-card:hover {
             transform: translateY(-8px);
-            box-shadow: var(--shadow-hover);
-            border-color: rgba(8, 145, 178, 0.2);
+            box-shadow: var(--shadow-xl);
         }
+
         .doctor-card-image {
             position: relative;
             height: 280px;
             overflow: hidden;
         }
+
         .doctor-card-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            object-position: center top;
-            transition: transform 0.5s ease;
+            transition: transform var(--transition-slow);
         }
-        .doctor-card:hover .doctor-card-image img { transform: scale(1.05); }
+
+        .doctor-card:hover .doctor-card-image img {
+            transform: scale(1.1);
+        }
+
         .doctor-card-badge {
             position: absolute;
-            top: 16px;
-            left: 16px;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 8px 16px;
-            border-radius: 100px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            color: var(--primary);
+            top: var(--space-4);
+            left: var(--space-4);
             display: flex;
             align-items: center;
-            gap: 6px;
+            gap: var(--space-2);
+            background: var(--primary);
+            color: white;
+            padding: var(--space-2) var(--space-4);
+            border-radius: var(--radius-full);
+            font-size: 0.8rem;
+            font-weight: 600;
         }
+
+        .doctor-card-badge::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: var(--success);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
         .doctor-card-favorite {
             position: absolute;
-            top: 16px;
-            right: 16px;
-            width: 40px;
-            height: 40px;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-radius: 50%;
+            top: var(--space-4);
+            right: var(--space-4);
+            width: 36px;
+            height: 36px;
             display: flex;
             align-items: center;
             justify-content: center;
-            cursor: pointer;
-            transition: all 0.3s;
-            border: none;
+            background: white;
+            border-radius: var(--radius-full);
+            color: var(--text-muted);
+            transition: all var(--transition-base);
         }
-        .doctor-card-favorite:hover { background: var(--accent); color: white; }
-        .doctor-card-favorite i { color: var(--text-muted); font-size: 1rem; }
-        .doctor-card-favorite:hover i { color: white; }
-        .doctor-card-content { padding: 24px; }
+
+        .doctor-card-favorite:hover {
+            color: var(--accent);
+            transform: scale(1.1);
+        }
+
+        .doctor-card-content {
+            padding: var(--space-6);
+        }
+
         .doctor-card-name {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             font-weight: 700;
             color: var(--text-dark);
-            margin-bottom: 8px;
+            margin-bottom: var(--space-2);
+            line-height: 1.3;
         }
+
         .doctor-card-spec {
-            color: var(--primary);
-            font-weight: 600;
             font-size: 0.9rem;
-            margin-bottom: 16px;
+            color: var(--primary);
+            margin-bottom: var(--space-4);
         }
+
         .doctor-card-info {
             display: flex;
             flex-direction: column;
-            gap: 10px;
-            margin-bottom: 20px;
+            gap: var(--space-2);
+            margin-bottom: var(--space-5);
         }
+
         .doctor-card-info-item {
             display: flex;
             align-items: center;
-            gap: 10px;
-            font-size: 0.9rem;
+            gap: var(--space-2);
+            font-size: 0.85rem;
             color: var(--text-muted);
         }
+
         .doctor-card-info-item i {
-            width: 32px;
-            height: 32px;
-            background: var(--bg-light);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--primary);
-            font-size: 0.85rem;
+            width: 16px;
+            color: var(--success);
         }
+
         .doctor-card-actions {
             display: flex;
-            gap: 12px;
+            gap: var(--space-3);
         }
+
         .doctor-card-btn {
             flex: 1;
-            padding: 14px 20px;
-            border-radius: 14px;
-            font-weight: 600;
-            font-size: 0.9rem;
-            text-align: center;
-            text-decoration: none;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
-            transition: all 0.3s;
-            cursor: pointer;
-            border: none;
+            gap: var(--space-2);
+            padding: var(--space-4);
+            border-radius: var(--radius-lg);
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: all var(--transition-base);
         }
+
         .doctor-card-btn-primary {
-            background: var(--gradient-primary);
+            background: var(--primary);
             color: white;
         }
-        .doctor-card-btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(8, 145, 178, 0.3); }
+
+        .doctor-card-btn-primary:hover {
+            background: var(--primary-dark);
+        }
+
         .doctor-card-btn-secondary {
-            background: var(--bg-light);
-            color: var(--text-dark);
-        }
-        .doctor-card-btn-secondary:hover { background: var(--primary); color: white; }
-
-        /* ========== SCHEDULE SECTION ========== */
-        .schedule-section {
-            padding: 100px 40px;
-            background: var(--bg-light);
-        }
-        .schedule-container { max-width: 1000px; margin: 0 auto; }
-        .schedule-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            margin-top: 40px;
-        }
-        .schedule-day {
-            background: white;
-            border-radius: 20px;
-            padding: 24px;
-            box-shadow: var(--shadow-card);
-        }
-        .schedule-day-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 16px;
-            padding-bottom: 16px;
-            border-bottom: 2px solid var(--bg-light);
-        }
-        .schedule-day-name {
-            font-weight: 700;
-            font-size: 1.1rem;
-            color: var(--text-dark);
-        }
-        .schedule-day-badge {
-            padding: 6px 14px;
-            border-radius: 100px;
-            font-size: 0.75rem;
-            font-weight: 600;
-        }
-        .schedule-day-badge.available { background: rgba(16, 185, 129, 0.1); color: var(--success); }
-        .schedule-day-badge.off { background: rgba(113, 113, 122, 0.1); color: var(--text-muted); }
-        .schedule-day-badge.limited { background: rgba(245, 158, 11, 0.1); color: var(--secondary); }
-        .schedule-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-            padding: 12px 0;
-            border-bottom: 1px solid var(--bg-light);
-        }
-        .schedule-item:last-child { border-bottom: none; }
-        .schedule-time {
-            font-weight: 600;
-            font-size: 0.9rem;
+            background: var(--primary-50);
             color: var(--primary);
-            min-width: 90px;
         }
-        .schedule-info h4 { font-size: 0.95rem; font-weight: 600; margin-bottom: 2px; }
-        .schedule-info p { font-size: 0.85rem; color: var(--text-muted); }
 
-        /* ========== CTA SECTION ========== */
-        .cta-section {
-            padding: 100px 40px;
-            background: var(--gradient-primary);
-            position: relative;
-            overflow: hidden;
+        .doctor-card-btn-secondary:hover {
+            background: var(--primary-100);
         }
-        .cta-section::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -20%;
-            width: 600px;
-            height: 600px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-        }
-        .cta-content {
-            max-width: 800px;
-            margin: 0 auto;
+
+        /* No Results */
+        .no-results {
+            grid-column: 1 / -1;
             text-align: center;
-            position: relative;
-            z-index: 10;
-            color: white;
+            padding: var(--space-16);
         }
-        .cta-content h2 {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 2.8rem;
-            font-weight: 800;
-            margin-bottom: 20px;
-        }
-        .cta-content p {
-            font-size: 1.2rem;
-            opacity: 0.95;
-            margin-bottom: 40px;
-        }
-        .cta-buttons {
+
+        .no-results-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto var(--space-6);
             display: flex;
-            gap: 20px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        .cta-btn {
-            padding: 18px 36px;
-            border-radius: 16px;
-            font-weight: 600;
-            font-size: 1rem;
-            text-decoration: none;
-            display: inline-flex;
             align-items: center;
-            gap: 10px;
-            transition: all 0.3s;
-        }
-        .cta-btn-white {
-            background: white;
+            justify-content: center;
+            background: var(--primary-100);
+            border-radius: var(--radius-full);
             color: var(--primary);
+            font-size: 2rem;
         }
-        .cta-btn-white:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2); }
-        .cta-btn-outline {
-            background: transparent;
-            color: white;
-            border: 2px solid rgba(255, 255, 255, 0.5);
-        }
-        .cta-btn-outline:hover { background: rgba(255, 255, 255, 0.1); border-color: white; }
 
-        /* ========== FOOTER ========== */
-        footer {
-            background: var(--text-dark);
-            color: white;
-            padding: 80px 40px 30px;
+        .no-results h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: var(--space-2);
         }
-        .footer-grid {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 60px;
-            padding-bottom: 60px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        .footer-brand { display: flex; flex-direction: column; gap: 20px; }
-        .footer-brand .logo { color: white; }
-        .footer-brand p { color: rgba(255, 255, 255, 0.7); font-size: 0.95rem; line-height: 1.7; }
-        .footer-links h4 { font-size: 1rem; font-weight: 700; margin-bottom: 20px; }
-        .footer-links ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
-        .footer-links a { color: rgba(255, 255, 255, 0.7); text-decoration: none; font-size: 0.9rem; transition: color 0.3s; }
-        .footer-links a:hover { color: white; }
-        .footer-bottom {
-            max-width: 1400px;
-            margin: 30px auto 0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            color: rgba(255, 255, 255, 0.5);
-            font-size: 0.9rem;
-        }
-        .footer-social { display: flex; gap: 16px; }
-        .footer-social a {
-            width: 40px;
-            height: 40px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            text-decoration: none;
-            transition: all 0.3s;
-        }
-        .footer-social a:hover { background: var(--primary); transform: translateY(-3px); }
 
-        /* ========== MODAL ========== */
+        .no-results p {
+            color: var(--text-muted);
+        }
+
+        /* ========================================
+           DOCTOR MODAL
+        ======================================== */
         .modal-overlay {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            inset: 0;
             background: rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(8px);
+            backdrop-filter: blur(4px);
             z-index: 2000;
             display: none;
             align-items: center;
             justify-content: center;
-            padding: 20px;
+            padding: var(--space-6);
         }
-        .modal-overlay.active { display: flex; }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
         .modal {
-            background: white;
-            border-radius: 32px;
-            max-width: 900px;
+            background: var(--bg-white);
+            border-radius: var(--radius-2xl);
+            max-width: 700px;
             width: 100%;
             max-height: 90vh;
             overflow-y: auto;
-            animation: modalIn 0.4s ease;
+            animation: modalIn 0.3s ease;
         }
-        @keyframes modalIn { from { opacity: 0; transform: scale(0.9) translateY(20px); } to { opacity: 1; transform: scale(1) translateY(0); } }
+
+        @keyframes modalIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
         .modal-header {
             position: relative;
-            height: 300px;
-            overflow: hidden;
+            padding: var(--space-8);
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
         }
-        .modal-header img {
+
+        .modal-close {
+            position: absolute;
+            top: var(--space-4);
+            right: var(--space-4);
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: var(--radius-full);
+            color: white;
+            font-size: 1.25rem;
+            transition: all var(--transition-base);
+        }
+
+        .modal-close:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: rotate(90deg);
+        }
+
+        .modal-doctor-info {
+            display: flex;
+            gap: var(--space-6);
+            align-items: center;
+        }
+
+        .modal-doctor-image {
+            width: 100px;
+            height: 100px;
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            border: 3px solid white;
+        }
+
+        .modal-doctor-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            object-position: center top;
         }
-        .modal-header-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            padding: 40px 40px 30px;
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
-            color: white;
+
+        .modal-doctor-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: var(--space-2);
         }
-        .modal-header-overlay h2 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 2rem; font-weight: 800; margin-bottom: 8px; }
-        .modal-header-overlay p { font-size: 1.1rem; opacity: 0.9; }
-        .modal-close {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            width: 48px;
-            height: 48px;
-            background: rgba(255, 255, 255, 0.95);
-            border: none;
-            border-radius: 50%;
-            cursor: pointer;
+
+        .modal-doctor-spec {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .modal-body {
+            padding: var(--space-8);
+        }
+
+        .modal-section {
+            margin-bottom: var(--space-6);
+        }
+
+        .modal-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .modal-section-title {
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--primary);
+            margin-bottom: var(--space-3);
             display: flex;
             align-items: center;
-            justify-content: center;
-            transition: all 0.3s;
+            gap: var(--space-2);
         }
-        .modal-close:hover { background: white; transform: scale(1.1); }
-        .modal-body { padding: 40px; }
-        .modal-grid {
+
+        .modal-section-content {
+            font-size: 1rem;
+            color: var(--text-dark);
+            line-height: 1.7;
+        }
+
+        .modal-info-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--space-4);
         }
-        .modal-section { margin-bottom: 30px; }
-        .modal-section h3 {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 1.1rem;
-            font-weight: 700;
-            margin-bottom: 16px;
-            color: var(--text-dark);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .modal-section h3 i { color: var(--primary); }
-        .modal-section p { color: var(--text-muted); line-height: 1.7; }
-        .modal-schedule-item {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            padding: 14px 18px;
+
+        .modal-info-item {
             background: var(--bg-light);
-            border-radius: 14px;
-            margin-bottom: 10px;
+            padding: var(--space-4);
+            border-radius: var(--radius-lg);
         }
-        .modal-schedule-day {
-            font-weight: 700;
-            min-width: 80px;
+
+        .modal-info-label {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-bottom: var(--space-1);
+        }
+
+        .modal-info-value {
+            font-size: 0.95rem;
+            font-weight: 600;
             color: var(--text-dark);
         }
-        .modal-schedule-time { color: var(--primary); font-weight: 600; }
+
         .modal-actions {
             display: flex;
-            gap: 16px;
-            margin-top: 30px;
+            gap: var(--space-4);
+            padding: var(--space-6) var(--space-8);
+            background: var(--bg-light);
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
         }
+
         .modal-btn {
             flex: 1;
-            padding: 18px;
-            border-radius: 16px;
-            font-weight: 600;
-            font-size: 1rem;
-            text-align: center;
-            text-decoration: none;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
-            transition: all 0.3s;
-            border: none;
-            cursor: pointer;
-        }
-        .modal-btn-primary { background: var(--gradient-primary); color: white; }
-        .modal-btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(8, 145, 178, 0.3); }
-        .modal-btn-secondary { background: var(--bg-light); color: var(--text-dark); }
-        .modal-btn-secondary:hover { background: var(--primary); color: white; }
-
-        /* ========== RESPONSIVE ========== */
-        @media (max-width: 1024px) {
-            .hero-inner { grid-template-columns: 1fr; text-align: center; }
-            .hero-image { display: none; }
-            .hero-title { font-size: 2.5rem; }
-            .hero-desc { margin: 0 auto 32px; }
-            .hero-buttons { justify-content: center; }
-            .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
-            .modal-grid { grid-template-columns: 1fr; }
-        }
-        @media (max-width: 768px) {
-            .navbar .nav-links { display: none; }
-            .hero-title { font-size: 2rem; }
-            .hero-buttons { flex-direction: column; align-items: center; }
-            .search-box { flex-direction: column; }
-            .categories-grid { grid-template-columns: repeat(2, 1fr); }
-            .doctors-grid { grid-template-columns: 1fr; }
-            .section-title { font-size: 2rem; }
-            .footer-grid { grid-template-columns: 1fr; }
-            .footer-bottom { flex-direction: column; gap: 20px; text-align: center; }
-        }
-        @media (max-width: 480px) {
-            .hero-slider { min-height: 500px; }
-            .slider-nav { width: 44px; height: 44px; }
-            .slider-nav.prev { left: 10px; }
-            .slider-nav.next { right: 10px; }
-            .categories-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
-            .category-card { padding: 20px 16px; }
+            gap: var(--space-2);
+            padding: var(--space-4) var(--space-6);
+            border-radius: var(--radius-xl);
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all var(--transition-base);
         }
 
-        /* No results */
-        .no-results {
+        .modal-btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .modal-btn-primary:hover {
+            background: var(--primary-dark);
+        }
+
+        .modal-btn-secondary {
+            background: white;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .modal-btn-secondary:hover {
+            background: var(--primary-50);
+        }
+
+        /* ========================================
+           CTA SECTION
+        ======================================== */
+        .cta-section {
+            padding: var(--space-16) 0;
+            background: var(--gradient-primary);
             text-align: center;
-            padding: 60px 20px;
-            color: var(--text-muted);
+            color: white;
         }
-        .no-results i { font-size: 4rem; margin-bottom: 20px; opacity: 0.5; }
-        .no-results h3 { font-size: 1.5rem; margin-bottom: 10px; color: var(--text-dark); }
+
+        .cta-title {
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            font-weight: 700;
+            margin-bottom: var(--space-4);
+        }
+
+        .cta-subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: var(--space-8);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-4);
+            flex-wrap: wrap;
+        }
+
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-3);
+            padding: var(--space-5) var(--space-8);
+            border-radius: var(--radius-full);
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all var(--transition-base);
+        }
+
+        .cta-btn-primary {
+            background: white;
+            color: var(--primary);
+        }
+
+        .cta-btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .cta-btn-secondary {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 2px solid white;
+        }
+
+        .cta-btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        /* ========================================
+           FOOTER
+        ======================================== */
+        .footer {
+            background: var(--bg-dark);
+            color: white;
+            padding: var(--space-16) 0 var(--space-8);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr repeat(3, 1fr);
+            gap: var(--space-12);
+            margin-bottom: var(--space-12);
+        }
+
+        .footer-brand {
+            max-width: 350px;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: var(--space-3);
+            margin-bottom: var(--space-6);
+        }
+
+        .footer-logo img {
+            width: 48px;
+            height: 48px;
+            border-radius: var(--radius-lg);
+        }
+
+        .footer-logo-text {
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+
+        .footer-desc {
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.8;
+            margin-bottom: var(--space-6);
+        }
+
+        .footer-social {
+            display: flex;
+            gap: var(--space-3);
+        }
+
+        .footer-social a {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-full);
+            color: white;
+            transition: all var(--transition-base);
+        }
+
+        .footer-social a:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .footer-column h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: var(--space-6);
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-3);
+        }
+
+        .footer-links a {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+            transition: all var(--transition-base);
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary);
+            padding-left: var(--space-2);
+        }
+
+        .footer-bottom {
+            padding-top: var(--space-8);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-copyright {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* ========================================
+           RESPONSIVE
+        ======================================== */
+        @media (max-width: 992px) {
+            .nav, .header-actions {
+                display: none;
+            }
+            
+            .menu-toggle {
+                display: flex;
+            }
+            
+            .mobile-menu {
+                display: block;
+            }
+            
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .sidebar {
+                position: static;
+                display: none;
+            }
+            
+            .page-stats {
+                flex-wrap: wrap;
+                gap: var(--space-6);
+            }
+            
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .search-bar {
+                flex-direction: column;
+            }
+            
+            .search-input-wrapper {
+                width: 100%;
+            }
+            
+            .filter-select {
+                width: 100%;
+            }
+            
+            .doctors-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .modal-info-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .modal-actions {
+                flex-direction: column;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-bottom {
+                flex-direction: column;
+                gap: var(--space-4);
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .page-stats {
+                flex-direction: column;
+                gap: var(--space-4);
+            }
+        }
     </style>
 </head>
 <body>
-
-    <!-- Navbar -->
-    <nav class="navbar" id="navbar">
+    <!-- HEADER -->
+    <header class="header" id="header">
         <div class="container">
-            <a href="index.html" class="logo">
-                <img src="img/logo.png" alt="RS Payangan">
-                <div class="logo-text">
-                    <span class="logo-text-main">RS Payangan</span>
-                    <span class="logo-text-sub">Gianyar, Bali</span>
-                </div>
-            </a>
-            <ul class="nav-links">
-                <li><a href="index.html">Beranda</a></li>
-                <li><a href="about.html">Tentang</a></li>
-                <li><a href="dokter.html" class="active">Dokter</a></li>
-                <li><a href="igd.html">IGD</a></li>
-                <li><a href="antrean.html">Antrean</a></li>
-                <li><a href="kontak.html">Kontak</a></li>
-                <li><a href="antrean.html" class="nav-cta">Booking</a></li>
-            </ul>
-        </div>
-    </nav>
-
-    <!-- Hero Slider -->
-    <section class="hero-slider" id="heroSlider">
-        <div id="heroSlides"></div>
-        <button class="slider-nav prev" onclick="changeSlide(-1)"><i class="fas fa-chevron-left"></i></button>
-        <button class="slider-nav next" onclick="changeSlide(1)"><i class="fas fa-chevron-right"></i></button>
-        <div class="slider-dots" id="sliderDots"></div>
-        <div class="slider-progress">
-            <div class="slider-progress-bar" id="progressBar"></div>
-        </div>
-    </section>
-
-    <!-- Search Section -->
-    <section class="search-section">
-        <div class="search-box">
-            <div class="search-input-wrap">
-                <i class="fas fa-search"></i>
-                <input type="text" class="search-input" id="searchInput" placeholder="Cari dokter, spesialis, atau poli...">
-            </div>
-            <select class="search-select" id="filterSpesialis" onchange="filterDoctors()">
-                <option value="">Semua Spesialis</option>
-                <option value="jantung">Jantung</option>
-                <option value="radiologi">Radiologi</option>
-                <option value="anestesi">Anestesi</option>
-                <option value="kandungan">Kandungan</option>
-                <option value="ortho">Orthopedi</option>
-                <option value="dalam">Penyakit Dalam</option>
-                <option value="bedah">Bedah</option>
-                <option value="saraf">Saraf</option>
-                <option value="anak">Anak</option>
-                <option value="patologi">Patologi Klinik</option>
-            </select>
-            <button class="search-btn" onclick="filterDoctors()">
-                <i class="fas fa-search"></i> Cari
-            </button>
-        </div>
-    </section>
-
-    <!-- Categories -->
-    <section class="categories-section">
-        <div class="section-header">
-            <div class="section-badge"><i class="fas fa-th-large"></i> Kategori Spesialis</div>
-            <h2 class="section-title">Temukan Dokter Spesialis</h2>
-            <p class="section-desc">Pilih kategori untuk melihat dokter spesialis yang tersedia</p>
-        </div>
-        <div class="categories-grid" id="categoriesGrid"></div>
-    </section>
-
-    <!-- Doctors Grid -->
-    <section class="doctors-section">
-        <div class="section-header">
-            <div class="section-badge"><i class="fas fa-user-md"></i> Tim Dokter</div>
-            <h2 class="section-title">Dokter Spesialis Kami</h2>
-            <p class="section-desc">Tim dokter profesional dan berpengalaman siap memberikan pelayanan kesehatan terbaik</p>
-        </div>
-        <div class="doctors-grid" id="doctorsGrid"></div>
-    </section>
-
-
-
-    <!-- CTA Section -->
-    <section class="cta-section">
-        <div class="cta-content">
-            <h2>Konsultasi dengan Spesialis Kami Hari Ini</h2>
-            <p>Booking appointment atau hubungi kami untuk informasi lebih lanjut tentang layanan kesehatan</p>
-            <div class="cta-buttons">
-                <a href="antrean.html" class="cta-btn cta-btn-white">
-                    <i class="fas fa-calendar-check"></i> Booking Antrean
-                </a>
-                <a href="https://wa.me/6281936358087" target="_blank" class="cta-btn cta-btn-outline">
-                    <i class="fab fa-whatsapp"></i> WhatsApp
-                </a>
-                <a href="tel:036198087" class="cta-btn cta-btn-outline">
-                    <i class="fas fa-phone"></i> 0361 98087
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="footer-grid">
-            <div class="footer-brand">
+            <div class="header-inner">
                 <a href="index.html" class="logo">
-                    <img src="img/logo.png" alt="RS Payangan">
+                    <img src="logo.png" alt="RS Payangan Hospital" onerror="this.style.display='none'">
                     <div class="logo-text">
-                        <span class="logo-text-main">RS Payangan</span>
-                        <span class="logo-text-sub">Gianyar, Bali</span>
+                        <span class="logo-name">Payangan Hospital</span>
+                        <span class="logo-tagline">Pavitram Idam Uttamam</span>
                     </div>
                 </a>
-                <p>Rumah Sakit Pemerintah Daerah Payangan, Gianyar, Bali. Memberikan pelayanan kesehatan terbaik untuk masyarakat Gianyar dan sekitarnya.</p>
-            </div>
-            <div class="footer-links">
-                <h4>Layanan</h4>
-                <ul>
-                    <li><a href="rawat-jalan.html">Rawat Jalan</a></li>
-                    <li><a href="rawat-inap.html">Rawat Inap</a></li>
-                    <li><a href="igd.html">IGD 24 Jam</a></li>
-                    <li><a href="antrean.html">Antrean Online</a></li>
-                </ul>
-            </div>
-            <div class="footer-links">
-                <h4>Poliklinik</h4>
-                <ul>
-                    <li><a href="poli-umum.html">Poli Umum</a></li>
-                    <li><a href="poli-anak.html">Poli Anak</a></li>
-                    <li><a href="poli-bedah.html">Poli Bedah</a></li>
-                    <li><a href="poli-dalam.html">Poli Penyakit Dalam</a></li>
-                </ul>
-            </div>
-            <div class="footer-links">
-                <h4>Kontak</h4>
-                <ul>
-                    <li><a href="kontak.html">Hubungi Kami</a></li>
-                    <li><a href="dokter.html">Dokter</a></li>
-                    <li><a href="about.html">Tentang RS</a></li>
-                    <li><a href="igd.html">IGD Darurat</a></li>
-                </ul>
+
+                <nav class="nav">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="about.html" class="nav-link">About</a>
+                    <a href="dokter.html" class="nav-link active">Doctors</a>
+                    <a href="layanan.html" class="nav-link">Services</a>
+                    <a href="fasilitas.html" class="nav-link">Facilities</a>
+                    <a href="berita.html" class="nav-link">News</a>
+                    <a href="kontak.html" class="nav-link">Contact</a>
+                </nav>
+
+                <div class="header-actions">
+                    <a href="tel:+62361472008" class="btn-emergency">
+                        <i class="fas fa-phone-alt"></i>
+                        <span>IGD 24 Jam</span>
+                    </a>
+                    <a href="antrean.html" class="btn-appointment">
+                        <i class="fas fa-calendar-check"></i>
+                        <span>Buat Janji</span>
+                    </a>
+                </div>
+
+                <button class="menu-toggle" onclick="toggleMobileMenu()" aria-label="Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
             </div>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2024 RS Payangan Hospital. All rights reserved.</p>
-            <div class="footer-social">
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-youtube"></i></a>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-header">
+            <div class="logo">
+                <img src="logo.png" alt="RS Payangan Hospital" onerror="this.style.display='none'">
+                <div class="logo-text">
+                    <span class="logo-name">Payangan Hospital</span>
+                </div>
+            </div>
+            <button class="mobile-menu-close" onclick="toggleMobileMenu()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <nav class="mobile-nav">
+            <a href="index.html" class="mobile-nav-link">Home</a>
+            <a href="about.html" class="mobile-nav-link">About</a>
+            <a href="dokter.html" class="mobile-nav-link">Doctors</a>
+            <a href="layanan.html" class="mobile-nav-link">Services</a>
+            <a href="fasilitas.html" class="mobile-nav-link">Facilities</a>
+            <a href="berita.html" class="mobile-nav-link">News</a>
+            <a href="kontak.html" class="mobile-nav-link">Contact</a>
+        </nav>
+    </div>
+
+    <!-- PAGE HEADER -->
+    <section class="page-header">
+        <div class="container">
+            <div class="page-header-content">
+                <div class="section-label">
+                    <i class="fas fa-user-md"></i> Tim Medis Kami
+                </div>
+                <h1 class="page-title">Dokter <span>Spesialis</span> Berpengalaman</h1>
+                <p class="page-subtitle">
+                    Temui tim dokter spesialis kami yang berpengalaman dan berdedikasi dalam memberikan pelayanan kesehatan terbaik untuk masyarakat Gianyar dan sekitarnya.
+                </p>
+                <div class="page-stats">
+                    <div class="page-stat">
+                        <div class="page-stat-value">22+</div>
+                        <div class="page-stat-label">Dokter Spesialis</div>
+                    </div>
+                    <div class="page-stat">
+                        <div class="page-stat-value">10</div>
+                        <div class="page-stat-label">Spesialisasi</div>
+                    </div>
+                    <div class="page-stat">
+                        <div class="page-stat-value">24/7</div>
+                        <div class="page-stat-label">Pelayanan</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEARCH & FILTER -->
+    <section class="search-section">
+        <div class="container">
+            <div class="search-bar">
+                <div class="search-input-wrapper">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" class="search-input" id="searchInput" placeholder="Cari dokter, spesialis, atau poli...">
+                </div>
+                <select class="filter-select" id="filterSelect">
+                    <option value="">Semua Spesialisasi</option>
+                </select>
+            </div>
+        </div>
+    </section>
+
+    <!-- MAIN CONTENT -->
+    <section class="main-content">
+        <div class="container">
+            <div class="content-grid">
+                <!-- Sidebar -->
+                <aside class="sidebar">
+                    <div class="sidebar-card">
+                        <h3 class="sidebar-title">
+                            <i class="fas fa-filter"></i> Filter Spesialisasi
+                        </h3>
+                        <div class="category-list" id="categoryList">
+                            <!-- Populated by JavaScript -->
+                        </div>
+                    </div>
+                </aside>
+
+                <!-- Doctors Grid -->
+                <div class="doctors-grid" id="doctorsGrid">
+                    <!-- Populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section class="cta-section">
+        <div class="container">
+            <h2 class="cta-title">Siap Membuat Janji Temu?</h2>
+            <p class="cta-subtitle">
+                Konsultasikan kesehatan Anda dengan dokter spesialis kami. Pendaftaran online mudah dan cepat.
+            </p>
+            <div class="cta-buttons">
+                <a href="antrean.html" class="cta-btn cta-btn-primary">
+                    <i class="fas fa-calendar-check"></i> Daftar Online
+                </a>
+                <a href="tel:+62361472008" class="cta-btn cta-btn-secondary">
+                    <i class="fas fa-phone-alt"></i> Hubungi Kami
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <img src="logo.png" alt="RS Payangan Hospital" onerror="this.style.display='none'">
+                        <span class="footer-logo-text">Payangan Hospital</span>
+                    </div>
+                    <p class="footer-desc">
+                        RS Payangan Hospital berkomitmen memberikan pelayanan kesehatan berkualitas dengan berlandaskan nilai-nilai Tri Hita Karana untuk masyarakat Gianyar dan sekitarnya.
+                    </p>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>Menu</h4>
+                    <nav class="footer-links">
+                        <a href="index.html">Home</a>
+                        <a href="about.html">About</a>
+                        <a href="dokter.html">Dokter</a>
+                        <a href="layanan.html">Layanan</a>
+                        <a href="kontak.html">Kontak</a>
+                    </nav>
+                </div>
+                <div class="footer-column">
+                    <h4>Layanan</h4>
+                    <nav class="footer-links">
+                        <a href="igd.html">IGD 24 Jam</a>
+                        <a href="rawat-inap.html">Rawat Inap</a>
+                        <a href="rawat-jalan.html">Rawat Jalan</a>
+                        <a href="antrean.html">Pendaftaran Online</a>
+                    </nav>
+                </div>
+                <div class="footer-column">
+                    <h4>Jam Operasional</h4>
+                    <nav class="footer-links">
+                        <a href="#">IGD: 24 Jam</a>
+                        <a href="#">Poliklinik: 08:00 - 20:00</a>
+                        <a href="#">Laboratorium: 07:00 - 14:00</a>
+                        <a href="#">Apotek: 24 Jam</a>
+                    </nav>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="footer-copyright">
+                    &copy; 2025 RS Payangan Hospital. Hak Cipta Dilindungi.
+                </p>
+                <div class="footer-links-bottom">
+                    <a href="#">Kebijakan Privasi</a>
+                    <a href="#">Syarat & Ketentuan</a>
+                </div>
             </div>
         </div>
     </footer>
 
-    <!-- Modal -->
+    <!-- DOCTOR MODAL -->
     <div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
         <div class="modal" onclick="event.stopPropagation()">
             <div class="modal-header">
-                <img id="modalImage" src="" alt="">
-                <div class="modal-header-overlay">
-                    <h2 id="modalName"></h2>
-                    <p id="modalSpec"></p>
+                <button class="modal-close" onclick="closeModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+                <div class="modal-doctor-info">
+                    <div class="modal-doctor-image">
+                        <img src="img/director.jpg" alt="Doctor" id="modalImage">
+                    </div>
+                    <div>
+                        <h2 class="modal-doctor-name" id="modalName"></h2>
+                        <p class="modal-doctor-spec" id="modalSpec"></p>
+                    </div>
                 </div>
-                <button class="modal-close" onclick="closeModal()"><i class="fas fa-times"></i></button>
             </div>
             <div class="modal-body">
-                <div class="modal-grid">
-                    <div>
-                        <div class="modal-section">
-                            <h3><i class="fas fa-graduation-cap"></i> Pendidikan</h3>
-                            <p id="modalEducation"></p>
-                        </div>
-                        <div class="modal-section">
-                            <h3><i class="fas fa-briefcase-medical"></i> Pengalaman</h3>
-                            <p id="modalExperience"></p>
-                        </div>
-                        <div class="modal-section">
-                            <h3><i class="fas fa-id-card"></i> SIP</h3>
-                            <p id="modalSip"></p>
-                        </div>
+                <div class="modal-info-grid">
+                    <div class="modal-info-item">
+                        <div class="modal-info-label">SIP</div>
+                        <div class="modal-info-value" id="modalSip"></div>
                     </div>
-                    <div>
-                        <div class="modal-section">
-                            <h3><i class="fas fa-clock"></i> Jadwal Praktik</h3>
-                            <div class="modal-schedule-item">
-                                <i class="fas fa-calendar-day" style="color:var(--primary)"></i>
-                                <span id="modalSchedule" style="font-weight:600;color:var(--text-dark)"></span>
-                            </div>
-                        </div>
-                        <div class="modal-section">
-                            <h3><i class="fas fa-hospital"></i> Poliklinik</h3>
-                            <p id="modalPoli"></p>
-                        </div>
+                    <div class="modal-info-item">
+                        <div class="modal-info-label">Pendidikan</div>
+                        <div class="modal-info-value" id="modalEducation"></div>
+                    </div>
+                    <div class="modal-info-item">
+                        <div class="modal-info-label">Jadwal</div>
+                        <div class="modal-info-value" id="modalSchedule"></div>
+                    </div>
+                    <div class="modal-info-item">
+                        <div class="modal-info-label">Poliklinik</div>
+                        <div class="modal-info-value" id="modalPoli"></div>
                     </div>
                 </div>
-                <div class="modal-actions">
-                    <a href="antrean.html" class="modal-btn modal-btn-primary">
-                        <i class="fas fa-calendar-check"></i> Booking Appointment
-                    </a>
-                    <a href="kontak.html" class="modal-btn modal-btn-secondary">
-                        <i class="fas fa-phone"></i> Hubungi
-                    </a>
+                <div class="modal-section" style="margin-top: var(--space-6);">
+                    <div class="modal-section-title">
+                        <i class="fas fa-book-medical"></i> Pengalaman
+                    </div>
+                    <p class="modal-section-content" id="modalExperience"></p>
                 </div>
+            </div>
+            <div class="modal-actions">
+                <a href="antrean.html" class="modal-btn modal-btn-primary">
+                    <i class="fas fa-calendar-check"></i> Buat Janji
+                </a>
+                <a href="tel:+62361472008" class="modal-btn modal-btn-secondary">
+                    <i class="fas fa-phone-alt"></i> Hubungi
+                </a>
             </div>
         </div>
     </div>
 
     <script>
-        // Doctor Data - 22 Doctors
+        /* ========================================
+           DATA
+        ======================================== */
         const doctors = [
-            { id: "jantung", name: "dr. Anak Agung Ayu Ngurah Desy Widya Putri, Sp.JP", sip: "SIP-12345-2024-001", spec: "Spesialis Jantung & Pembuluh Darah", poli: "Poliklinik Jantung", schedule: "Senin & Kamis: 08:00 - 14:00", education: "Sp.JP - FK Universitas Udayana", experience: "Spesialis jantung dan pembuluh darah dengan keahlian dalam diagnosis dan penanganan penyakit kardiovaskular.", filter: "jantung", image: "img/dokter/dr. Anak Agung Ayu Ngurah Desy Widya Putri, Sp.JP.png", tag: "Jantung" },
+            { id: "jantung", name: "dr. Anak Agung Ayu Ngurah Desy Widya Putri, Sp.JP", sip: "SIP-12345-2024-001", spec: "Spesialis Jantung & Pembuluh Darah", poli: "Poliklinik Jantung", schedule: "Senin & Kamis: 08:00 - 14:00", education: "Sp.JP - FK Universitas Udayana", experience: "Spesialis jantung dan pembuluh darah dengan keahlian dalam diagnosis dan penanganan penyakit kardiovaskular.", filter: "jantung", image: "img/dokter/dr-anggung-desy-spjp.png", tag: "Jantung" },
             { id: "radiologi", name: "dr. Herry Juniada, Sp.Rad", sip: "SIP-12345-2020-002", spec: "Spesialis Radiologi", poli: "Poliklinik Radiologi", schedule: "Senin - Jumat: 09:00 - 15:00", education: "Sp.Rad - FK Universitas Udayana", experience: "Spesialis radiologi dengan keahlian dalam membaca hasil X-Ray, USG, CT Scan, dan MRI.", filter: "radiologi", image: "img/dokter/dr. Herry Juniada, Sp. Rad.png", tag: "Radiologi" },
             { id: "anestesi", name: "dr. I G N Bagus Arimanjaya, Sp.An", sip: "SIP-12345-2020-003", spec: "Spesialis Anestesiologi & Terapi Intensif", poli: "Poliklinik Anestesi", schedule: "Senin - Jumat: 08:00 - 16:00", education: "Sp.An - FK Universitas Udayana", experience: "Spesialis anestesi dengan keahlian dalam penanganan anestesi umum dan regional.", filter: "anestesi", image: "img/dokter/dr. I G N Bagus Arimanjaya, Sp.An.png", tag: "Anestesi" },
             { id: "kandungan", name: "dr. I Gede Agus Hendra Sujana, Sp.OG", sip: "SIP-12345-2020-004", spec: "Spesialis Obstetri & Ginekologi", poli: "Poliklinik Kandungan", schedule: "Selasa & Jumat: 08:00 - 14:00", education: "Sp.OG - FK Universitas Udayana", experience: "Spesialis obstetri dan ginekologi dengan fokus pada kehamilan berisiko tinggi.", filter: "kandungan", image: "img/dokter/dr. I Gede Agus Hendra Sujana, Sp.OG.png", tag: "Kandungan" },
@@ -1140,7 +1488,7 @@
             { id: "dalam", name: "dr. I Gusti Putu Hery Sikesa, Sp.PD", sip: "SIP-12345-2020-006", spec: "Spesialis Penyakit Dalam", poli: "Poliklinik Penyakit Dalam", schedule: "Senin - Rabu: 08:00 - 14:00", education: "Sp.PD - FK Universitas Udayana", experience: "Spesialis penyakit dalam dengan keahlian dalam diagnosis dan penanganan penyakit metabolik.", filter: "dalam", image: "img/dokter/dr. I Gusti Putu Hery Sikesa, Sp.PD.png", tag: "Penyakit Dalam" },
             { id: "ortho2", name: "dr. I Ketut Wahyu Tri Saputra, Sp.OT", sip: "SIP-12345-2020-007", spec: "Spesialis Orthopedi", poli: "Poliklinik Orthopedi", schedule: "Senin & Kamis: 08:00 - 14:00", education: "Sp.OT - FK Universitas Udayana", experience: "Spesialis orthopedi dengan keahlian dalam bedah arthroscopy dan trauma.", filter: "ortho", image: "img/dokter/dr. I Ketut Wahyu Tri Saputra, Sp.OT.png", tag: "Orthopedi" },
             { id: "kandungan2", name: "dr. I Made Brammartha Kusuma, Sp.OG", sip: "SIP-12345-2020-008", spec: "Spesialis Obstetri & Ginekologi", poli: "Poliklinik Kandungan", schedule: "Senin & Rabu: 08:00 - 14:00", education: "Sp.OG - FK Universitas Udayana", experience: "Spesialis obstetri dan ginekologi dalam penanganan persalinan dan kesehatan reproduksi.", filter: "kandungan", image: "img/dokter/dr. I Made Brammartha Kusuma, Sp.OG.png", tag: "Kandungan" },
-            { id: "bedah", name: "dr. I Putu Swastika Kepakisan, M.Biomed., Sp.B", sip: "SIP-12345-2020-009", spec: "Spesialis Bedah Umum", poli: "Poliklinik Bedah", schedule: "Kamis: 08:00 - 14:00", education: "Sp.B, M.Biomed - FK Universitas Udayana", experience: "Spesialis bedah umum dengan keahlian dalam bedah laparoskopi.", filter: "bedah", image: "img/dokter/dr. I Putu Swastika Kepakisan, M.Biomed., Sp.B.png", tag: "Bedah" },
+            { id: "bedah", name: "dr. I Putu Swastika Kepakisan, M.Biomed., Sp.B", sip: "SIP-12345-2020-009", spec: "Spesialis Bedah Umum", poli: "Poliklinik Bedah", schedule: "Kamis: 08:00 - 14:00", education: "Sp.B, M.Biomed - FK Universitas Udayana", experience: "Spesialis bedah umum dengan keahlian dalam bedah laparoskopi.", filter: "bedah", image: "img/dokter/dr. I Putu Swastika Kepakisan, M. Biomed., Sp.B.png", tag: "Bedah" },
             { id: "anestesi2", name: "dr. I Wayan Eka Arnawa, Sp.An-TI", sip: "SIP-12345-2020-010", spec: "Spesialis Anestesiologi & Terapi Intensif", poli: "Poliklinik Anestesi", schedule: "Senin - Jumat: 08:00 - 16:00", education: "Sp.An-TI - FK Universitas Udayana", experience: "Spesialis anestesi dengan keahlian dalam terapi intensif.", filter: "anestesi", image: "img/dokter/dr. I Wayan Eka Arnawa, Sp.An-TI.png", tag: "Anestesi" },
             { id: "bedah2", name: "dr. I Wayan Suwarna, S.Ked., Sp.B", sip: "SIP-12345-2020-011", spec: "Spesialis Bedah Umum", poli: "Poliklinik Bedah", schedule: "Selasa & Kamis: 08:00 - 14:00", education: "Sp.B - FK Universitas Udayana", experience: "Spesialis bedah umum dengan keahlian dalam bedah trauma.", filter: "bedah", image: "img/dokter/dr. I Wayan Suwarna, S.Ked., Sp.B.png", tag: "Bedah" },
             { id: "patologi", name: "dr. Ika Nurvidha Mahayanthi Mantra, Sp.MK", sip: "SIP-12345-2020-012", spec: "Spesialis Patologi Klinik", poli: "Poliklinik Laboratorium", schedule: "Senin - Jumat: 07:00 - 14:00", education: "Sp.MK - FK Universitas Udayana", experience: "Spesialis patologi klinik dengan keahlian dalam pemeriksaan laboratorium.", filter: "patologi", image: "img/dokter/dr. Ika Nurvidha Mahayanthi Mantra, Sp.MK.png", tag: "Patologi" },
@@ -1156,7 +1504,6 @@
             { id: "dalam3", name: "dr. Tjokorda Prima Dewi Pemayun, Sp.PD", sip: "SIP-12345-2020-022", spec: "Spesialis Penyakit Dalam", poli: "Poliklinik Penyakit Dalam", schedule: "Senin - Jumat: 08:00 - 14:00", education: "Sp.PD - FK Universitas Udayana", experience: "Spesialis penyakit dalam dengan keahlian dalam penyakit metabolik.", filter: "dalam", image: "img/dokter/dr. Tjokorda Prima Dewi Pemayun, Sp.PD.png", tag: "Penyakit Dalam" }
         ];
 
-        // Categories
         const categories = [
             { id: 'jantung', name: 'Jantung', icon: 'fa-heart', color: '#ef4444' },
             { id: 'radiologi', name: 'Radiologi', icon: 'fa-x-ray', color: '#8b5cf6' },
@@ -1170,136 +1517,59 @@
             { id: 'patologi', name: 'Patologi', icon: 'fa-flask', color: '#14b8a6' }
         ];
 
-        // Slider State
-        let currentSlide = 0;
-        let slideInterval;
-        let progressInterval;
-        let isPaused = false;
+        /* ========================================
+           MOBILE MENU
+        ======================================== */
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('active');
+            document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+        }
 
-        // Initialize
-        document.addEventListener('DOMContentLoaded', function() {
-            renderHeroSlider();
-            renderCategories();
-            renderDoctors();
-            startAutoSlide();
-            setupNavbar();
-            setupSearch();
-        });
-
-        // Hero Slider
-        function renderHeroSlider() {
-            const slidesContainer = document.getElementById('heroSlides');
-            const dotsContainer = document.getElementById('sliderDots');
+        /* ========================================
+           RENDER CATEGORIES
+        ======================================== */
+        function renderCategories() {
+            const list = document.getElementById('categoryList');
+            const filterSelect = document.getElementById('filterSelect');
             
-            slidesContainer.innerHTML = doctors.map((doc, i) => `
-                <div class="hero-slide ${i === 0 ? 'active' : ''}">
-                    <div class="hero-bg" style="background-image: url('${doc.image}')"></div>
-                    <div class="hero-overlay"></div>
-                    <div class="hero-content">
-                        <div class="hero-inner">
-                            <div class="hero-text">
-                                <div class="hero-badge">
-                                    <i class="fas fa-circle"></i> ${doc.spec}
-                                </div>
-                                <h1 class="hero-title">${doc.name}</h1>
-                                <p class="hero-spec">${doc.spec}</p>
-                                <p class="hero-desc">Dokter spesialis berpengalaman di RS Payangan Hospital dengan keahlian dalam ${doc.experience.substring(0, 80)}...</p>
-                                <div class="hero-buttons">
-                                    <a href="#" class="hero-btn hero-btn-primary" onclick="openModal('${doc.id}'); return false;">
-                                        <i class="fas fa-calendar-check"></i> Lihat Jadwal
-                                    </a>
-                                    <a href="antrean.html" class="hero-btn hero-btn-secondary">
-                                        <i class="fas fa-clock"></i> ${doc.schedule.split(':')[1].trim()}
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="hero-image">
-                                <div class="hero-image-wrapper">
-                                    <img src="${doc.image}" alt="${doc.name}" loading="${i < 3 ? 'eager' : 'lazy'}">
-                                </div>
-                                <div class="hero-image-badge">
-                                    <i class="fas fa-check-circle"></i>
-                                    <span>Tersedia Hari Ini</span>
-                                </div>
-                            </div>
-                        </div>
+            // Count doctors per category
+            const countMap = {};
+            doctors.forEach(doc => {
+                countMap[doc.filter] = (countMap[doc.filter] || 0) + 1;
+            });
+            
+            // Render sidebar list
+            list.innerHTML = `
+                <div class="category-item active" onclick="filterByCategory('')">
+                    <div class="category-icon" style="background: var(--primary-100); color: var(--primary);">
+                        <i class="fas fa-th-large"></i>
+                    </div>
+                    <div class="category-info">
+                        <div class="category-name">Semua</div>
+                        <div class="category-count">${doctors.length} dokter</div>
+                    </div>
+                </div>
+            ` + categories.map(cat => `
+                <div class="category-item" onclick="filterByCategory('${cat.id}')">
+                    <div class="category-icon" style="background: ${cat.color}20; color: ${cat.color};">
+                        <i class="fas ${cat.icon}"></i>
+                    </div>
+                    <div class="category-info">
+                        <div class="category-name">${cat.name}</div>
+                        <div class="category-count">${countMap[cat.id] || 0} dokter</div>
                     </div>
                 </div>
             `).join('');
-
-            dotsContainer.innerHTML = doctors.map((_, i) => `
-                <div class="slider-dot ${i === 0 ? 'active' : ''}" onclick="goToSlide(${i})"></div>
-            `).join('');
+            
+            // Render select dropdown
+            filterSelect.innerHTML = '<option value="">Semua Spesialisasi</option>' + 
+                categories.map(cat => `<option value="${cat.id}">${cat.name}</option>`).join('');
         }
 
-        function changeSlide(direction) {
-            const slides = document.querySelectorAll('.hero-slide');
-            const dots = document.querySelectorAll('.slider-dot');
-            slides[currentSlide].classList.remove('active');
-            dots[currentSlide].classList.remove('active');
-            currentSlide = (currentSlide + direction + doctors.length) % doctors.length;
-            slides[currentSlide].classList.add('active');
-            dots[currentSlide].classList.add('active');
-            resetProgress();
-        }
-
-        function goToSlide(index) {
-            const slides = document.querySelectorAll('.hero-slide');
-            const dots = document.querySelectorAll('.slider-dot');
-            slides[currentSlide].classList.remove('active');
-            dots[currentSlide].classList.remove('active');
-            currentSlide = index;
-            slides[currentSlide].classList.add('active');
-            dots[currentSlide].classList.add('active');
-            resetProgress();
-        }
-
-        function startAutoSlide() {
-            slideInterval = setInterval(() => {
-                if (!isPaused) changeSlide(1);
-            }, 5000);
-            startProgress();
-        }
-
-        function startProgress() {
-            let width = 0;
-            const progressBar = document.getElementById('progressBar');
-            progressInterval = setInterval(() => {
-                if (!isPaused) {
-                    width += 0.2;
-                    if (width > 100) width = 0;
-                    progressBar.style.width = width + '%';
-                }
-            }, 10);
-        }
-
-        function resetProgress() {
-            const progressBar = document.getElementById('progressBar');
-            progressBar.style.width = '0%';
-        }
-
-        // Pause on hover
-        document.getElementById('heroSlider').addEventListener('mouseenter', () => isPaused = true);
-        document.getElementById('heroSlider').addEventListener('mouseleave', () => isPaused = false);
-
-        // Categories
-        function renderCategories() {
-            const grid = document.getElementById('categoriesGrid');
-            grid.innerHTML = categories.map(cat => {
-                const count = doctors.filter(d => d.filter === cat.id).length;
-                return `
-                    <div class="category-card" onclick="filterByCategory('${cat.id}')">
-                        <div class="category-icon" style="background: linear-gradient(135deg, ${cat.color} 0%, ${cat.color}88 100%)">
-                            <i class="fas ${cat.icon}"></i>
-                        </div>
-                        <div class="category-name">${cat.name}</div>
-                        <div class="category-count">${count} dokter</div>
-                    </div>
-                `;
-            }).join('');
-        }
-
-        // Doctors Grid
+        /* ========================================
+           RENDER DOCTORS
+        ======================================== */
         function renderDoctors(filter = '', search = '') {
             const grid = document.getElementById('doctorsGrid');
             let filtered = doctors;
@@ -1318,10 +1588,12 @@
 
             if (filtered.length === 0) {
                 grid.innerHTML = `
-                    <div class="no-results" style="grid-column: 1/-1">
-                        <i class="fas fa-search"></i>
+                    <div class="no-results">
+                        <div class="no-results-icon">
+                            <i class="fas fa-search"></i>
+                        </div>
                         <h3>Tidak ada dokter ditemukan</h3>
-                        <p>Coba ubah kata kunci pencarian atau filter</p>
+                        <p>Coba ubah kata kunci pencarian atau filter spesialisasi</p>
                     </div>
                 `;
                 return;
@@ -1330,9 +1602,9 @@
             grid.innerHTML = filtered.map(doc => `
                 <div class="doctor-card" onclick="openModal('${doc.id}')">
                     <div class="doctor-card-image">
-                        <img src="${doc.image}" alt="${doc.name}" loading="lazy">
+                        <img src="${doc.image}" alt="${doc.name}" loading="lazy" onerror="this.src='img/director.jpg'">
                         <div class="doctor-card-badge">
-                            <i class="fas fa-circle"></i> ${doc.tag}
+                            Tersedia Hari Ini
                         </div>
                         <button class="doctor-card-favorite" onclick="event.stopPropagation(); toggleFavorite('${doc.id}')">
                             <i class="far fa-heart"></i>
@@ -1365,30 +1637,39 @@
         }
 
         function filterByCategory(catId) {
-            document.querySelectorAll('.category-card').forEach(c => c.classList.remove('active'));
+            // Update active state
+            document.querySelectorAll('.category-item').forEach(item => item.classList.remove('active'));
             event.currentTarget.classList.add('active');
-            document.getElementById('filterSpesialis').value = catId;
-            renderDoctors(catId);
+            
+            // Update filter select
+            document.getElementById('filterSelect').value = catId;
+            
+            // Render doctors
+            renderDoctors(catId, document.getElementById('searchInput').value);
         }
 
         function filterDoctors() {
             const search = document.getElementById('searchInput').value;
-            const spesialis = document.getElementById('filterSpesialis').value;
+            const spesialis = document.getElementById('filterSelect').value;
             renderDoctors(spesialis, search);
         }
 
-        function setupSearch() {
-            document.getElementById('searchInput').addEventListener('input', filterDoctors);
-        }
-
-        // Schedule
+        /* ========================================
+           MODAL
+        ======================================== */
+        function openModal(docId) {
+            const doc = doctors.find(d => d.id === docId);
+            if (!doc) return;
+            
+            document.getElementById('modalImage').src = doc.image;
             document.getElementById('modalName').textContent = doc.name;
             document.getElementById('modalSpec').textContent = doc.spec;
+            document.getElementById('modalSip').textContent = doc.sip;
             document.getElementById('modalEducation').textContent = doc.education;
             document.getElementById('modalExperience').textContent = doc.experience;
-            document.getElementById('modalSip').textContent = doc.sip;
             document.getElementById('modalSchedule').textContent = doc.schedule;
             document.getElementById('modalPoli').textContent = doc.poli;
+            
             document.getElementById('modalOverlay').classList.add('active');
             document.body.style.overflow = 'hidden';
         }
@@ -1401,7 +1682,9 @@
 
         document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
 
-        // Favorite
+        /* ========================================
+           FAVORITE
+        ======================================== */
         function toggleFavorite(id) {
             const btn = event.currentTarget.querySelector('i');
             btn.classList.toggle('far');
@@ -1409,25 +1692,16 @@
             btn.style.color = btn.classList.contains('fas') ? '#ec4899' : '';
         }
 
-        // Navbar
-        function setupNavbar() {
-            window.addEventListener('scroll', () => {
-                document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
-            });
-        }
-
-        // Touch/Swipe support
-        let touchStartX = 0;
-        document.getElementById('heroSlider').addEventListener('touchstart', e => touchStartX = e.changedTouches[0].screenX);
-        document.getElementById('heroSlider').addEventListener('touchend', e => {
-            const diff = touchStartX - e.changedTouches[0].screenX;
-            if (Math.abs(diff) > 50) changeSlide(diff > 0 ? 1 : -1);
-        });
-
-        // Keyboard navigation
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'ArrowLeft') changeSlide(-1);
-            if (e.key === 'ArrowRight') changeSlide(1);
+        /* ========================================
+           INITIALIZE
+        ======================================== */
+        document.addEventListener('DOMContentLoaded', () => {
+            renderCategories();
+            renderDoctors();
+            
+            // Search input
+            document.getElementById('searchInput').addEventListener('input', filterDoctors);
+            document.getElementById('filterSelect').addEventListener('change', filterDoctors);
         });
     </script>
 </body>
