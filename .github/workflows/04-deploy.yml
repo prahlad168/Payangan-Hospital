@@ -175,15 +175,15 @@ jobs:
             console.log(`🚀 Deployment complete!`);
             console.log(`📍 URL: https://${context.repo.owner}.github.io/${context.repo.repo}/`);
 
-      - name: Send Discord Notification
-        if: success() && secrets.DISCORD_WEBHOOK != ''
-        uses: fjogeleit/discord-action@master
-        with:
-          webhookURL: ${{ secrets.DISCORD_WEBHOOK }}
-          webhookTitle: "🚀 Website Deployed!"
-          webhookBody: |
-            **Repository:** ${{ github.repository }}
-            **Branch:** main
-            **Commit:** ${{ github.sha }}
-            **URL:** https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/
-          color: "00FF00"
+      # Discord notification - uncomment and set DISCORD_WEBHOOK secret if needed
+      # - name: Send Discord Notification
+      #   if: success()
+      #   uses: fjogeleit/discord-action@master
+      #   with:
+      #     webhookURL: ${{ secrets.DISCORD_WEBHOOK }}
+      #     webhookTitle: "🚀 Website Deployed!"
+      #     webhookBody: |
+      #       **Repository:** ${{ github.repository }}
+      #       **Branch:** main
+      #       **Commit:** ${{ github.sha }}
+      #     color: "00FF00"

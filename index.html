@@ -3,543 +3,2531 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Payangan Hospital - Rumah Sakit terpercaya di Gianyar, Bali. Layanan kesehatan berkualitas dengan tenaga medis profesional dan fasilitas modern.">
-    <title>Payangan Hospital - Pavitram Idam Uttamam</title>
+    <meta name="description" content="RS Payangan Hospital Gianyar, Bali - Pelayanan Kesehatan Modern dengan Sentuhan Humanis. 22+ Dokter Spesialis, IGD 24 Jam, Fasilitas Modern.">
+    <meta name="keywords" content="rumah sakit gianyar, rs payangan, dokter spesialis bali, igd 24 jam, rawat inap, rawat jalan, poli spesialis">
+    <meta name="author" content="RS Payangan Hospital">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="RS Payangan Hospital - Pelayanan Kesehatan Modern dengan Sentuhan Humanis">
+    <meta property="og:description" content="Rumah Sakit Pemerintah Daerah Gianyar, Bali dengan tenaga medis profesional dan fasilitas modern.">
+    <meta property="og:type" content="website">
+    <title>RS Payangan Hospital - Pavitram Idam Uttamam</title>
+    
+    <!-- Favicon -->
     <link rel="icon" type="image/png" href="logo.png">
+    
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
+        /* ========================================
+           DESIGN SYSTEM - CSS VARIABLES
+        ======================================== */
         :root {
-            --primary: #1a5f5a;
-            --primary-light: #2d8a84;
-            --primary-dark: #0f3d3a;
-            --secondary: #c9a86c;
-            --accent: #f59e0b;
+            /* Colors - Medical Teal Theme */
+            --primary: #0891b2;
+            --primary-dark: #0e7490;
+            --primary-light: #22d3ee;
+            --primary-50: #ecfeff;
+            --primary-100: #cffafe;
+            --primary-200: #a5f3fc;
+            --primary-600: #0891b2;
+            --primary-700: #0e7490;
+            --primary-800: #155e75;
+            --primary-900: #164e63;
+            
+            --secondary: #f4c430;
+            --secondary-dark: #d4a40a;
+            --secondary-light: #fde68a;
+            
+            --accent: #ec4899;
+            --accent-light: #f9a8d4;
+            
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --info: #3b82f6;
+            
+            /* Backgrounds */
             --bg-white: #ffffff;
             --bg-light: #f8fafc;
-            --bg-cream: #f8f6f3;
-            --text-dark: #2c3e3c;
-            --text-muted: #8a9a9a;
+            --bg-warm: #fefcf8;
+            --bg-dark: #0f172a;
+            --bg-darker: #020617;
+            
+            /* Text */
+            --text-dark: #0f172a;
+            --text-muted: #64748b;
+            --text-light: #94a3b8;
+            --text-white: #ffffff;
+            
+            /* Gradients */
+            --gradient-primary: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            --gradient-dark: linear-gradient(135deg, var(--bg-dark) 0%, var(--primary-900) 100%);
+            --gradient-warm: linear-gradient(135deg, var(--secondary) 0%, var(--secondary-light) 100%);
+            --gradient-accent: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            
+            /* Shadows */
+            --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.05);
+            --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.06);
+            --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --shadow-xl: 0 20px 50px rgba(0, 0, 0, 0.15);
+            --shadow-2xl: 0 25px 60px rgba(0, 0, 0, 0.2);
+            --shadow-primary: 0 10px 40px rgba(8, 145, 178, 0.3);
+            --shadow-glow: 0 0 40px rgba(8, 145, 178, 0.2);
+            
+            /* Border Radius */
+            --radius-xs: 4px;
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 24px;
+            --radius-2xl: 32px;
+            --radius-full: 9999px;
+            
+            /* Transitions */
+            --transition-fast: 0.15s ease;
+            --transition-base: 0.3s ease;
+            --transition-slow: 0.5s ease;
+            --transition-smooth: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            
+            /* Spacing */
+            --space-1: 4px;
+            --space-2: 8px;
+            --space-3: 12px;
+            --space-4: 16px;
+            --space-5: 20px;
+            --space-6: 24px;
+            --space-8: 32px;
+            --space-10: 40px;
+            --space-12: 48px;
+            --space-16: 64px;
+            --space-20: 80px;
+            --space-24: 96px;
+            
+            /* Typography */
+            --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            --font-display: 'Playfair Display', Georgia, serif;
+            
+            /* Container */
+            --container-max: 1400px;
+            --container-padding: 24px;
         }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-        body { font-family: 'Montserrat', sans-serif; font-weight: 300; background: var(--bg-white); color: var(--text-dark); line-height: 1.7; overflow-x: hidden; }
-        h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; font-weight: 500; line-height: 1.2; }
-        .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
-        
+
+        /* ========================================
+           BASE STYLES
+        ======================================== */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--bg-white);
+            overflow-x: hidden;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color var(--transition-fast);
+        }
+
+        button {
+            font-family: inherit;
+            cursor: pointer;
+            border: none;
+            background: none;
+        }
+
+        ul, ol {
+            list-style: none;
+        }
+
+        /* Container */
+        .container {
+            max-width: var(--container-max);
+            margin: 0 auto;
+            padding: 0 var(--container-padding);
+        }
+
+        /* Section Padding */
+        .section {
+            padding: var(--space-20) 0;
+        }
+
+        .section-lg {
+            padding: var(--space-24) 0;
+        }
+
+        .section-xl {
+            padding: var(--space-32) 0;
+        }
+
+        /* Section Titles */
+        .section-label {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-2);
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--primary);
+            margin-bottom: var(--space-4);
+        }
+
+        .section-label::before {
+            content: '';
+            width: 24px;
+            height: 2px;
+            background: var(--primary);
+        }
+
+        .section-title {
+            font-family: var(--font-sans);
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 700;
+            color: var(--text-dark);
+            line-height: 1.2;
+            margin-bottom: var(--space-4);
+        }
+
+        .section-title span {
+            color: var(--primary);
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            line-height: 1.7;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: var(--space-16);
+        }
+
+        .section-header .section-subtitle {
+            margin: 0 auto;
+        }
+
+        /* ========================================
+           1. ANNOUNCEMENT BAR
+        ======================================== */
+        .announcement-bar {
+            background: var(--gradient-primary);
+            color: white;
+            padding: var(--space-3) 0;
+            text-align: center;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .announcement-bar a {
+            color: var(--secondary);
+            font-weight: 600;
+            margin-left: var(--space-2);
+        }
+
+        .announcement-bar a:hover {
+            text-decoration: underline;
+        }
+
+        /* ========================================
+           2. HEADER / NAVBAR
+        ======================================== */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            transition: all var(--transition-smooth);
+        }
+
+        .header.transparent {
+            background: transparent;
+        }
+
+        .header.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: var(--space-5) 0;
+            transition: padding var(--transition-smooth);
+        }
+
+        .header.scrolled .header-inner {
+            padding: var(--space-4) 0;
+        }
+
+        /* Logo */
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: var(--space-3);
+        }
+
+        .logo img {
+            width: 48px;
+            height: 48px;
+            border-radius: var(--radius-lg);
+            transition: transform var(--transition-base);
+        }
+
+        .logo:hover img {
+            transform: scale(1.05);
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-name {
+            font-family: var(--font-sans);
+            font-size: 1.1rem;
+            font-weight: 700;
+            line-height: 1.2;
+            color: white;
+            transition: color var(--transition-smooth);
+        }
+
+        .header.scrolled .logo-name {
+            color: var(--text-dark);
+        }
+
+        .logo-tagline {
+            font-size: 0.65rem;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.8);
+            transition: color var(--transition-smooth);
+        }
+
+        .header.scrolled .logo-tagline {
+            color: var(--text-muted);
+        }
+
         /* Navigation */
-        .navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 20px 0; transition: all 0.4s ease; }
-        .navbar.scrolled { background: rgba(255,255,255,0.98); backdrop-filter: blur(20px); box-shadow: 0 1px 20px rgba(0,0,0,0.05); padding: 14px 0; }
-        .nav-container { display: flex; justify-content: space-between; align-items: center; }
-        .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
-        .logo img { width: 50px; height: auto; transition: transform 0.3s ease; }
-        .logo img:hover { transform: scale(1.05); }
-        h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; font-size: 1.4rem; font-weight: 500; color: white; transition: color 0.4s; }
-        .logo-text-sub { font-size: 0.6rem; color: rgba(255,255,255,0.7); font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase; }
-        .logo-text { color: white; }
-        .navbar.scrolled .logo-text { color: #333333; }
-        .navbar.scrolled .logo-text-sub { color: #666666; }
-        .nav-links { display: flex; gap: 8px; list-style: none; }
-        .nav-links > li { position: relative; }
-        .nav-links a { text-decoration: none; color: rgba(255,255,255,0.9); font-size: 0.85rem; font-weight: 400; padding: 10px 16px; border-radius: 50px; display: block; transition: all 0.3s ease; }
-        .navbar.scrolled .nav-links a { color: var(--text-muted); }
-        .nav-links a i { font-size: 10px; margin-left: 4px; }
-        .nav-links a:hover { color: var(--secondary); }
-        .navbar.scrolled .nav-links a:hover { color: var(--primary); }
-        .mega-menu { position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(20px); background: white; border-radius: 20px; box-shadow: 0 25px 80px rgba(0,0,0,0.12); padding: 20px; opacity: 0; visibility: hidden; transition: all 0.4s ease; min-width: 500px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; z-index: 100; }
-        .nav-links > li:hover .mega-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(10px); }
-        .mega-item { display: flex; align-items: flex-start; gap: 14px; padding: 16px; border-radius: 14px; text-decoration: none; transition: all 0.3s; }
-        .mega-item:hover { background: var(--bg-light); }
-        .mega-item .icon { width: 44px; height: 44px; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-        .mega-item .icon i { color: white; font-size: 16px; }
-        .mega-item .text h4 { font-family: 'Montserrat', sans-serif; font-size: 0.95rem; font-weight: 500; color: var(--text-dark); margin-bottom: 2px; }
-        .mega-item:hover .text h4 { color: var(--primary); }
-        .mega-item .text p { font-size: 0.8rem; color: var(--text-muted); }
-        .nav-cta { background: var(--secondary) !important; color: var(--text-dark) !important; }
-        .nav-cta:hover { background: var(--accent) !important; color: white !important; }
-        
-        /* Hero Slider */
-        .hero-slider { position: relative; min-height: 100vh; overflow: hidden; background: var(--primary-dark); }
-        .slides-container { position: relative; width: 100%; height: 100vh; }
-        .slide { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; align-items: center; opacity: 0; transition: opacity 1s ease; }
-        .slide.active { opacity: 1; }
-        .slide-bg { position: absolute; inset: 0; background-size: cover; background-position: center; background-repeat: no-repeat; }
-        .slide-1 .slide-bg { background-image: url('img/slider/slider-1.png'); background-color: rgba(13, 115, 119, 0.85); background-blend-mode: overlay; }
-        .slide-2 .slide-bg { background-image: url('img/slider/slider-2.png'); background-color: rgba(30, 58, 95, 0.85); background-blend-mode: overlay; }
-        .slide-3 .slide-bg { background-image: url('img/slider/slider-3.png'); background-color: rgba(30, 27, 75, 0.85); background-blend-mode: overlay; }
-        .slide-4 .slide-bg { background-image: url('img/slider/slider-4.png'); background-color: rgba(19, 78, 74, 0.85); background-blend-mode: overlay; }
-        .slide-pattern { position: absolute; inset: 0; background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); }
-        .slide-inner { position: relative; z-index: 2; display: flex; align-items: center; width: 100%; max-width: 1280px; margin: 0 auto; padding: 0 24px; }
-        .slide-content { color: white; max-width: 800px; }
-        .slide-badge { display: inline-flex; align-items: center; gap: 10px; background: rgba(255,255,255,0.15); backdrop-filter: blur(10px); padding: 10px 20px; border-radius: 50px; font-size: 0.8rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 24px; border: 1px solid rgba(255,255,255,0.2); }
-        .slide-badge i { color: var(--secondary); }
-        .slide-content h2 { font-size: 3.5rem; margin-bottom: 20px; font-weight: 400; line-height: 1.15; }
-        .slide-content p { font-size: 1.1rem; color: rgba(255,255,255,0.85); margin-bottom: 32px; max-width: 480px; line-height: 1.8; }
-        .slide-stats { display: flex; gap: 40px; }
-        .slide-stat { text-align: left; }
-        .slide-stat .number { font-family: 'Montserrat', sans-serif; font-size: 2.5rem; font-weight: 600; color: var(--secondary); line-height: 1; }
-        .slide-stat .label { font-size: 0.85rem; color: rgba(255,255,255,0.7); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 4px; }
-        .slide-visual { display: none; } /* Hidden - using background images instead */
-        @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.03); } }
-        
-        /* Slider Navigation */
-        .slider-nav { position: absolute; bottom: 60px; left: 50%; transform: translateX(-50%); display: flex; align-items: center; gap: 20px; z-index: 10; }
-        .slider-btn { width: 50px; height: 50px; background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; cursor: pointer; transition: all 0.3s ease; }
-        .slider-btn:hover { background: white; color: var(--primary); transform: scale(1.1); }
-        .slider-dots { display: flex; gap: 12px; }
-        .slider-dot { width: 40px; height: 4px; background: rgba(255,255,255,0.3); border-radius: 2px; cursor: pointer; transition: all 0.3s ease; }
-        .slider-dot.active { background: var(--secondary); width: 60px; }
-        .slider-dot:hover { background: rgba(255,255,255,0.5); }
-        
-        /* Slide Counter */
-        .slide-counter { position: absolute; bottom: 60px; right: 60px; display: flex; align-items: baseline; gap: 8px; color: white; z-index: 10; }
-        .slide-counter .current { font-family: 'Montserrat', sans-serif; font-size: 3rem; font-weight: 600; color: var(--secondary); }
-        .slide-counter .total { font-size: 1rem; color: rgba(255,255,255,0.5); }
-        
-        /* Scroll Indicator */
-        .scroll-indicator { position: absolute; bottom: 140px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 8px; color: rgba(255,255,255,0.5); font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; z-index: 10; }
-        .scroll-indicator .mouse { width: 24px; height: 38px; border: 2px solid rgba(255,255,255,0.3); border-radius: 12px; position: relative; }
-        .scroll-indicator .wheel { width: 4px; height: 8px; background: rgba(255,255,255,0.5); border-radius: 2px; position: absolute; top: 6px; left: 50%; transform: translateX(-50%); animation: scroll 2s ease-in-out infinite; }
-        @keyframes scroll { 0%, 100% { transform: translateX(-50%) translateY(0); opacity: 1; } 50% { transform: translateX(-50%) translateY(12px); opacity: 0.3; } }
-        
-        /* Stats Bar */
-        .stats-bar { background: var(--primary); padding: 50px 0; }
-        .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; }
-        .stat-item { text-align: center; }
-        .stat-number { font-family: 'Montserrat', sans-serif; font-size: 2.8rem; font-weight: 600; color: white; }
-        .stat-label { font-size: 0.9rem; color: rgba(255,255,255,0.8); margin-top: 4px; }
-        
-        /* Services */
-        .services { padding: 100px 0; background: var(--bg-white); }
-        .section-header { text-align: center; max-width: 600px; margin: 0 auto 60px; }
-        .section-label { font-size: 0.75rem; font-weight: 500; color: var(--primary); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 12px; }
-        .section-title { font-size: 2.5rem; color: var(--text-dark); margin-bottom: 16px; }
-        .section-subtitle { font-size: 1rem; color: var(--text-muted); }
-        .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-        .service-card { background: var(--bg-light); padding: 36px 28px; border-radius: 20px; text-align: center; transition: all 0.4s ease; border: 1px solid transparent; }
-        .service-card:hover { transform: translateY(-8px); box-shadow: 0 20px 50px rgba(0,0,0,0.08); border-color: var(--primary); }
-        .service-icon { width: 70px; height: 70px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; transition: all 0.4s ease; box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
-        .service-card:hover .service-icon { background: var(--primary); }
-        .service-icon i { font-size: 26px; color: var(--primary); transition: color 0.4s; }
-        .service-card:hover .service-icon i { color: white; }
-        .service-card h3 { font-size: 1.2rem; color: var(--text-dark); margin-bottom: 10px; }
-        .service-card p { font-size: 0.9rem; color: var(--text-muted); }
-        
-        /* Footer */
-        footer { background: var(--primary-dark); padding: 60px 0 30px; }
-        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 50px; margin-bottom: 40px; }
-        .footer-brand .logo { margin-bottom: 16px; }
-        .footer-brand .logo-text { color: white; }
-        .footer-brand p { color: rgba(255,255,255,0.6); font-size: 0.9rem; line-height: 1.7; }
-        .footer-links h4 { font-size: 0.8rem; font-weight: 500; color: var(--secondary); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 16px; }
-        .footer-links ul { list-style: none; }
-        .footer-links li { margin-bottom: 10px; }
-        .footer-links a { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.9rem; transition: color 0.3s; }
-        .footer-links a:hover { color: white; }
-        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; color: rgba(255,255,255,0.5); font-size: 0.85rem; }
-        .footer-social { display: flex; gap: 10px; }
-        .footer-social a { width: 36px; height: 36px; background: rgba(255,255,255,0.1); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.6); transition: all 0.3s; }
-        .footer-social a:hover { background: var(--primary); color: white; }
-        
-        /* Mobile */
-        .mobile-menu { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: var(--primary); z-index: 998; padding: 100px 40px; transform: translateX(100%); transition: transform 0.4s ease; }
-        .mobile-menu.active { transform: translateX(0); }
-        .mobile-menu ul { list-style: none; }
-        .mobile-menu li { margin-bottom: 20px; }
-        .mobile-menu a { color: white; text-decoration: none; font-size: 1.4rem; font-weight: 400; }
-        .mobile-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 10px; }
-        .mobile-toggle span { width: 24px; height: 2px; background: white; transition: all 0.3s; }
-        .navbar.scrolled .mobile-toggle span { background: var(--text-dark); }
-        
-        @media (max-width: 1024px) {
-            .slide-inner { grid-template-columns: 1fr; text-align: center; }
-            .slide-content { order: 2; }
-            .slide-content p { margin-left: auto; margin-right: auto; }
-            .slide-stats { justify-content: center; }
-            .slide-visual { order: 1; margin-bottom: 40px; }
-            .slide-circle { width: 250px; height: 250px; }
-            .slide-circle i { font-size: 70px; }
-            .slide-counter { display: none; }
-            .services-grid { grid-template-columns: repeat(2, 1fr); }
+        .nav {
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
         }
-        @media (max-width: 768px) {
-            .nav-links { display: none; }
-            .mobile-toggle { display: flex; }
-            .mobile-menu { display: block; }
-            .slide-content h2 { font-size: 2.5rem; }
-            .slide-stats { gap: 24px; }
-            .slide-stat .number { font-size: 2rem; }
-            .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
-            .services-grid { grid-template-columns: 1fr; }
-            .footer-grid { grid-template-columns: 1fr; text-align: center; }
-            .footer-bottom { flex-direction: column; gap: 16px; }
-            .slider-nav { bottom: 40px; }
-            .scroll-indicator { display: none; }
+
+        .nav-link {
+            position: relative;
+            padding: var(--space-3) var(--space-5);
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.9);
+            border-radius: var(--radius-full);
+            transition: all var(--transition-base);
         }
-        
-        /* Partner Marquee Animation */
-        .marquee-wrapper { overflow: hidden; position: relative; padding: 20px 0; }
-        .marquee-wrapper::before, .marquee-wrapper::after { content: ''; position: absolute; top: 0; bottom: 0; width: 100px; z-index: 2; }
-        .marquee-wrapper::before { left: 0; background: linear-gradient(to right, var(--primary), transparent); }
-        .marquee-wrapper::after { right: 0; background: linear-gradient(to left, var(--primary), transparent); }
-        .marquee-track { display: flex; gap: 30px; animation: marquee 40s linear infinite; width: max-content; }
-        .marquee-track:hover { animation-play-state: paused; }
-        @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-        .partner-item { 
-            background: white; 
-            padding: 25px 40px; 
-            border-radius: 16px; 
-            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
-            border: 1px solid rgba(0,0,0,0.05);
-            transition: all 0.3s; 
-            flex-shrink: 0; 
-            min-width: 180px; 
-            display: flex; 
-            align-items: center; 
+
+        .header.scrolled .nav-link {
+            color: var(--text-muted);
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--secondary);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .header.scrolled .nav-link:hover,
+        .header.scrolled .nav-link.active {
+            color: var(--primary);
+            background: var(--primary-50);
+        }
+
+        /* Header Actions */
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: var(--space-4);
+        }
+
+        /* Language Switcher */
+        .lang-switch {
+            display: flex;
+            align-items: center;
+            gap: var(--space-1);
+            padding: var(--space-2) var(--space-3);
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-full);
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: white;
+            cursor: pointer;
+            transition: all var(--transition-base);
+        }
+
+        .header.scrolled .lang-switch {
+            background: var(--bg-light);
+            color: var(--text-dark);
+        }
+
+        .lang-switch span {
+            transition: color var(--transition-base);
+        }
+
+        .lang-switch span.active {
+            color: var(--secondary);
+        }
+
+        .header.scrolled .lang-switch span.active {
+            color: var(--primary);
+        }
+
+        /* Emergency Button */
+        .btn-emergency {
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+            padding: var(--space-3) var(--space-5);
+            background: var(--danger);
+            color: white;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border-radius: var(--radius-full);
+            transition: all var(--transition-base);
+            animation: pulse-emergency 2s infinite;
+        }
+
+        @keyframes pulse-emergency {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.4); }
+            50% { box-shadow: 0 0 0 10px rgba(239, 68, 68, 0); }
+        }
+
+        .btn-emergency:hover {
+            background: #dc2626;
+            transform: scale(1.05);
+        }
+
+        .btn-emergency i {
+            animation: ring 0.5s infinite;
+        }
+
+        @keyframes ring {
+            0%, 100% { transform: rotate(0); }
+            25% { transform: rotate(15deg); }
+            75% { transform: rotate(-15deg); }
+        }
+
+        /* Appointment Button */
+        .btn-appointment {
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+            padding: var(--space-4) var(--space-6);
+            background: var(--gradient-primary);
+            color: white;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border-radius: var(--radius-full);
+            box-shadow: var(--shadow-primary);
+            transition: all var(--transition-base);
+        }
+
+        .btn-appointment:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            padding: var(--space-3);
+            cursor: pointer;
+        }
+
+        .menu-toggle span {
+            width: 24px;
+            height: 2px;
+            background: white;
+            transition: all var(--transition-base);
+        }
+
+        .header.scrolled .menu-toggle span {
+            background: var(--text-dark);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--bg-white);
+            z-index: 999;
+            padding: var(--space-24) var(--space-6) var(--space-6);
+            transform: translateX(100%);
+            transition: transform var(--transition-smooth);
+        }
+
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+
+        .mobile-menu-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--space-8);
+        }
+
+        .mobile-menu-close {
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
             justify-content: center;
+            border-radius: var(--radius-full);
+            background: var(--bg-light);
+            font-size: 1.25rem;
+            color: var(--text-dark);
         }
-        .partner-item:hover { transform: scale(1.05); box-shadow: 0 20px 50px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.8); border-color: var(--primary-light); }
-        .partner-item img { height: 55px; object-fit: contain; filter: none; transition: all 0.3s; }
-        .partner-item:hover img { filter: brightness(1.1); }
+
+        .mobile-nav {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-2);
+        }
+
+        .mobile-nav-link {
+            padding: var(--space-5) var(--space-6);
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            border-radius: var(--radius-lg);
+            transition: all var(--transition-base);
+        }
+
+        .mobile-nav-link:hover {
+            background: var(--primary-50);
+            color: var(--primary);
+        }
+
+        .mobile-menu-footer {
+            margin-top: auto;
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-4);
+        }
+
+        /* ========================================
+           3. HERO SECTION
+        ======================================== */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: var(--bg-darker);
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+        }
+
+        .hero-bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.4;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                135deg,
+                rgba(2, 6, 23, 0.9) 0%,
+                rgba(8, 145, 178, 0.6) 50%,
+                rgba(22, 78, 99, 0.8) 100%
+            );
+            z-index: 2;
+        }
+
+        .hero-pattern {
+            position: absolute;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            z-index: 3;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            max-width: 800px;
+            padding-top: 120px;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-3);
+            padding: var(--space-3) var(--space-5);
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: var(--radius-full);
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--secondary);
+            margin-bottom: var(--space-8);
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .hero-badge i {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .hero-title {
+            font-family: var(--font-sans);
+            font-size: clamp(2.5rem, 7vw, 4.5rem);
+            font-weight: 800;
+            line-height: 1.1;
+            color: white;
+            margin-bottom: var(--space-6);
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            animation: fadeInUp 0.8s ease 0.2s both;
+        }
+
+        .hero-title span {
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--secondary-light) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: var(--space-10);
+            max-width: 600px;
+            line-height: 1.8;
+            animation: fadeInUp 0.8s ease 0.4s both;
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-4);
+            animation: fadeInUp 0.8s ease 0.6s both;
+        }
+
+        .hero-btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-3);
+            padding: var(--space-5) var(--space-8);
+            background: var(--secondary);
+            color: var(--text-dark);
+            font-size: 1rem;
+            font-weight: 700;
+            border-radius: var(--radius-full);
+            box-shadow: 0 10px 30px rgba(244, 196, 48, 0.4);
+            transition: all var(--transition-base);
+        }
+
+        .hero-btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(244, 196, 48, 0.5);
+        }
+
+        .hero-btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-3);
+            padding: var(--space-5) var(--space-8);
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: var(--radius-full);
+            transition: all var(--transition-base);
+        }
+
+        .hero-btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* Hero Stats */
+        .hero-stats {
+            display: flex;
+            gap: var(--space-10);
+            margin-top: var(--space-16);
+            padding-top: var(--space-10);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            animation: fadeInUp 0.8s ease 0.8s both;
+        }
+
+        .hero-stat {
+            text-align: center;
+        }
+
+        .hero-stat-value {
+            font-family: var(--font-sans);
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: white;
+            line-height: 1;
+        }
+
+        .hero-stat-value span {
+            color: var(--secondary);
+        }
+
+        .hero-stat-label {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-top: var(--space-2);
+        }
+
+        /* ========================================
+           4. DIRECTOR WELCOME SECTION
+        ======================================== */
+        .director-section {
+            background: var(--bg-warm);
+        }
+
+        .director-grid {
+            display: grid;
+            grid-template-columns: 350px 1fr;
+            gap: var(--space-16);
+            align-items: center;
+        }
+
+        .director-image-wrapper {
+            position: relative;
+        }
+
+        .director-image {
+            width: 100%;
+            max-width: 350px;
+            border-radius: var(--radius-2xl);
+            box-shadow: var(--shadow-xl);
+            transition: transform var(--transition-base);
+        }
+
+        .director-image:hover {
+            transform: scale(1.02);
+        }
+
+        .director-badge {
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--gradient-primary);
+            color: white;
+            padding: var(--space-4) var(--space-6);
+            border-radius: var(--radius-full);
+            font-size: 0.9rem;
+            font-weight: 600;
+            white-space: nowrap;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .director-content {
+            padding-left: var(--space-8);
+        }
+
+        .director-quote-mark {
+            font-family: var(--font-display);
+            font-size: 6rem;
+            color: var(--primary-200);
+            line-height: 0.5;
+            margin-bottom: var(--space-4);
+        }
+
+        .director-message {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            color: var(--text-dark);
+            line-height: 1.9;
+            font-style: italic;
+            margin-bottom: var(--space-8);
+        }
+
+        .director-signature {
+            padding-top: var(--space-6);
+            border-top: 2px solid var(--primary-100);
+        }
+
+        .director-name {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: var(--space-1);
+        }
+
+        .director-title {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+
+        /* ========================================
+           5. DOCTOR SLIDER SECTION
+        ======================================== */
+        .doctors-section {
+            background: var(--bg-white);
+            overflow: hidden;
+        }
+
+        .doctors-slider-wrapper {
+            position: relative;
+            margin: 0 -24px;
+            padding: 0 24px;
+        }
+
+        .doctors-slider {
+            display: flex;
+            gap: var(--space-6);
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            padding: var(--space-4) 0;
+        }
+
+        .doctors-slider::-webkit-scrollbar {
+            display: none;
+        }
+
+        .doctor-card {
+            flex: 0 0 300px;
+            scroll-snap-align: start;
+            background: white;
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: all var(--transition-base);
+            cursor: pointer;
+        }
+
+        .doctor-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .doctor-card-image {
+            position: relative;
+            height: 280px;
+            overflow: hidden;
+        }
+
+        .doctor-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform var(--transition-slow);
+        }
+
+        .doctor-card:hover .doctor-card-image img {
+            transform: scale(1.1);
+        }
+
+        .doctor-card-badge {
+            position: absolute;
+            top: var(--space-4);
+            left: var(--space-4);
+            background: var(--primary);
+            color: white;
+            padding: var(--space-2) var(--space-4);
+            border-radius: var(--radius-full);
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .doctor-card-content {
+            padding: var(--space-6);
+        }
+
+        .doctor-card-name {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: var(--space-2);
+            line-height: 1.3;
+        }
+
+        .doctor-card-spec {
+            font-size: 0.9rem;
+            color: var(--primary);
+            margin-bottom: var(--space-4);
+        }
+
+        .doctor-card-schedule {
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: var(--space-4);
+        }
+
+        .doctor-card-schedule i {
+            color: var(--success);
+        }
+
+        .doctor-card-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--space-2);
+            width: 100%;
+            padding: var(--space-4);
+            background: var(--primary-50);
+            color: var(--primary);
+            font-size: 0.9rem;
+            font-weight: 600;
+            border-radius: var(--radius-lg);
+            transition: all var(--transition-base);
+        }
+
+        .doctor-card-btn:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Slider Navigation */
+        .slider-nav {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-4);
+            margin-top: var(--space-8);
+        }
+
+        .slider-btn {
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--bg-light);
+            border-radius: var(--radius-full);
+            font-size: 1rem;
+            color: var(--text-dark);
+            transition: all var(--transition-base);
+        }
+
+        .slider-btn:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .slider-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        /* ========================================
+           6. WHY CHOOSE US SECTION
+        ======================================== */
+        .why-section {
+            background: var(--gradient-dark);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .why-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 80%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(8, 145, 178, 0.1) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--space-6);
+        }
+
+        .why-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-xl);
+            padding: var(--space-8);
+            text-align: center;
+            transition: all var(--transition-base);
+        }
+
+        .why-card:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-5px);
+            border-color: var(--primary);
+        }
+
+        .why-card-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto var(--space-6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--gradient-primary);
+            border-radius: var(--radius-xl);
+            font-size: 2rem;
+            color: white;
+        }
+
+        .why-card-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: var(--space-3);
+        }
+
+        .why-card-text {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.7;
+        }
+
+        /* ========================================
+           7. MEDICAL SERVICES SECTION
+        ======================================== */
+        .services-section {
+            background: var(--bg-white);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-6);
+        }
+
+        .service-card {
+            background: var(--bg-light);
+            border-radius: var(--radius-xl);
+            padding: var(--space-8);
+            transition: all var(--transition-base);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-primary);
+            transform: scaleX(0);
+            transition: transform var(--transition-base);
+        }
+
+        .service-card:hover {
+            background: white;
+            box-shadow: var(--shadow-xl);
+            transform: translateY(-5px);
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-icon {
+            width: 64px;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--primary-100);
+            border-radius: var(--radius-lg);
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: var(--space-5);
+            transition: all var(--transition-base);
+        }
+
+        .service-card:hover .service-icon {
+            background: var(--gradient-primary);
+            color: white;
+        }
+
+        .service-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: var(--space-3);
+        }
+
+        .service-text {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            line-height: 1.7;
+            margin-bottom: var(--space-5);
+        }
+
+        .service-link {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-2);
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .service-link:hover {
+            gap: var(--space-3);
+        }
+
+        .service-link i {
+            transition: transform var(--transition-base);
+        }
+
+        .service-link:hover i {
+            transform: translateX(5px);
+        }
+
+        /* ========================================
+           8. FACILITIES PREVIEW SECTION
+        ======================================== */
+        .facilities-section {
+            background: var(--bg-light);
+        }
+
+        .facilities-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--space-6);
+        }
+
+        .facility-card {
+            position: relative;
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            aspect-ratio: 1;
+        }
+
+        .facility-card:first-child {
+            grid-column: span 2;
+            grid-row: span 2;
+        }
+
+        .facility-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform var(--transition-slow);
+        }
+
+        .facility-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .facility-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, transparent 50%);
+            display: flex;
+            align-items: flex-end;
+            padding: var(--space-6);
+        }
+
+        .facility-name {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: white;
+        }
+
+        /* ========================================
+           9. NEWS PREVIEW SECTION
+        ======================================== */
+        .news-section {
+            background: var(--bg-white);
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-8);
+        }
+
+        .news-card {
+            background: var(--bg-light);
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            transition: all var(--transition-base);
+        }
+
+        .news-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .news-card-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .news-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform var(--transition-slow);
+        }
+
+        .news-card:hover .news-card-image img {
+            transform: scale(1.1);
+        }
+
+        .news-card-content {
+            padding: var(--space-6);
+        }
+
+        .news-card-date {
+            font-size: 0.8rem;
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: var(--space-3);
+        }
+
+        .news-card-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: var(--space-3);
+            line-height: 1.4;
+        }
+
+        .news-card-excerpt {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+
+        /* ========================================
+           10. GALLERY PREVIEW SECTION
+        ======================================== */
+        .gallery-section {
+            background: var(--gradient-dark);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: var(--space-4);
+        }
+
+        .gallery-item {
+            aspect-ratio: 1;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .gallery-item:nth-child(1) { grid-column: span 2; grid-row: span 2; }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform var(--transition-slow);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity var(--transition-base);
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-overlay i {
+            font-size: 2rem;
+            color: white;
+        }
+
+        /* ========================================
+           11. EMERGENCY CTA SECTION
+        ======================================== */
+        .emergency-section {
+            background: var(--danger);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .emergency-section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .emergency-content {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: var(--space-12);
+        }
+
+        .emergency-text {
+            color: white;
+        }
+
+        .emergency-title {
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            font-weight: 800;
+            margin-bottom: var(--space-3);
+        }
+
+        .emergency-subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .emergency-contact {
+            display: flex;
+            align-items: center;
+            gap: var(--space-6);
+        }
+
+        .emergency-phone {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: white;
+            padding: var(--space-6) var(--space-10);
+            border-radius: var(--radius-xl);
+            color: var(--danger);
+        }
+
+        .emergency-phone-icon {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--danger);
+            border-radius: var(--radius-full);
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: var(--space-3);
+            animation: ring 0.5s infinite;
+        }
+
+        .emergency-phone-number {
+            font-size: 1.5rem;
+            font-weight: 800;
+        }
+
+        .emergency-phone-label {
+            font-size: 0.85rem;
+            opacity: 0.7;
+        }
+
+        .emergency-address {
+            background: rgba(0, 0, 0, 0.2);
+            padding: var(--space-6);
+            border-radius: var(--radius-xl);
+            color: white;
+            max-width: 400px;
+        }
+
+        .emergency-address h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: var(--space-3);
+        }
+
+        .emergency-address p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            line-height: 1.7;
+        }
+
+        /* ========================================
+           12. CONTACT SECTION
+        ======================================== */
+        .contact-section {
+            background: var(--bg-white);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-8);
+        }
+
+        .contact-card {
+            background: var(--bg-light);
+            border-radius: var(--radius-xl);
+            padding: var(--space-8);
+            text-align: center;
+            transition: all var(--transition-base);
+        }
+
+        .contact-card:hover {
+            background: white;
+            box-shadow: var(--shadow-xl);
+        }
+
+        .contact-icon {
+            width: 72px;
+            height: 72px;
+            margin: 0 auto var(--space-5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--primary-100);
+            border-radius: var(--radius-xl);
+            font-size: 1.75rem;
+            color: var(--primary);
+        }
+
+        .contact-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: var(--space-3);
+        }
+
+        .contact-text {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+
+        /* ========================================
+           13. FOOTER
+        ======================================== */
+        .footer {
+            background: var(--bg-dark);
+            color: white;
+            padding: var(--space-16) 0 var(--space-8);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr repeat(3, 1fr);
+            gap: var(--space-12);
+            margin-bottom: var(--space-12);
+        }
+
+        .footer-brand {
+            max-width: 350px;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: var(--space-3);
+            margin-bottom: var(--space-6);
+        }
+
+        .footer-logo img {
+            width: 48px;
+            height: 48px;
+            border-radius: var(--radius-lg);
+        }
+
+        .footer-logo-text {
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+
+        .footer-desc {
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.8;
+            margin-bottom: var(--space-6);
+        }
+
+        .footer-social {
+            display: flex;
+            gap: var(--space-3);
+        }
+
+        .footer-social a {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-full);
+            color: white;
+            transition: all var(--transition-base);
+        }
+
+        .footer-social a:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .footer-column h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: var(--space-6);
+            color: white;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-3);
+        }
+
+        .footer-links a {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+            transition: all var(--transition-base);
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary);
+            padding-left: var(--space-2);
+        }
+
+        .footer-bottom {
+            padding-top: var(--space-8);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-copyright {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .footer-links-bottom {
+            display: flex;
+            gap: var(--space-6);
+        }
+
+        .footer-links-bottom a {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .footer-links-bottom a:hover {
+            color: white;
+        }
+
+        /* ========================================
+           RESPONSIVE STYLES
+        ======================================== */
+        @media (max-width: 1200px) {
+            .why-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .facilities-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .facility-card:first-child {
+                grid-column: span 1;
+                grid-row: span 1;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .nav, .header-actions {
+                display: none;
+            }
+            
+            .menu-toggle {
+                display: flex;
+            }
+            
+            .mobile-menu {
+                display: block;
+            }
+            
+            .director-grid {
+                grid-template-columns: 1fr;
+                gap: var(--space-12);
+            }
+            
+            .director-image-wrapper {
+                max-width: 300px;
+                margin: 0 auto;
+            }
+            
+            .director-content {
+                padding-left: 0;
+                text-align: center;
+            }
+            
+            .director-signature {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .services-grid,
+            .news-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .emergency-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .emergency-contact {
+                flex-direction: column;
+            }
+            
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .section {
+                padding: var(--space-16) 0;
+            }
+            
+            .hero-stats {
+                flex-wrap: wrap;
+                gap: var(--space-6);
+            }
+            
+            .hero-stat {
+                flex: 1 1 120px;
+            }
+            
+            .why-grid,
+            .services-grid,
+            .news-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .gallery-item:nth-child(1) {
+                grid-column: span 1;
+                grid-row: span 1;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-bottom {
+                flex-direction: column;
+                gap: var(--space-4);
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-buttons {
+                flex-direction: column;
+            }
+            
+            .hero-btn-primary,
+            .hero-btn-secondary {
+                justify-content: center;
+            }
+        }
     </style>
 </head>
 <body>
-    <nav class="navbar" id="navbar">
-        <div class="container nav-container">
-            <a href="index.html" class="logo">
-                <img src="logo.png" alt="Payangan Hospital">
-                <div>
-                    <div class="logo-text">Payangan Hospital</div>
-                    <div class="logo-text-sub">Pavitram Idam Uttamam</div>
-                </div>
-            </a>
-            <ul class="nav-links">
-                <li><a href="#slider">Beranda</a></li>
-                <li>
-                    <a href="about.html">Tentang <i class="fas fa-chevron-down"></i></a>
-                    <div class="mega-menu">
-                        <a href="about.html#sejarah" class="mega-item"><div class="icon"><i class="fas fa-landmark"></i></div><div class="text"><h4>Sejarah</h4><p>Perjalanan Payangan Hospital</p></div></a>
-                        <a href="about.html#visimisi" class="mega-item"><div class="icon"><i class="fas fa-bullseye"></i></div><div class="text"><h4>Visi & Misi</h4><p>Arah dan tujuan kami</p></div></a>
-                        <a href="about.html#standar" class="mega-item"><div class="icon"><i class="fas fa-clipboard-check"></i></div><div class="text"><h4>Standar Pelayanan</h4><p>Standar kualitas kami</p></div></a>
-                        <a href="about.html#maklumat" class="mega-item"><div class="icon"><i class="fas fa-file-contract"></i></div><div class="text"><h4>Maklumat</h4><p>Janji pelayanan</p></div></a>
-                        <a href="about.html#mutu" class="mega-item"><div class="icon"><i class="fas fa-award"></i></div><div class="text"><h4>Mutu</h4><p>Komitmen kualitas</p></div></a>
-                        <a href="about.html#budaya" class="mega-item"><div class="icon"><i class="fas fa-hands-helping"></i></div><div class="text"><h4>Budaya Kerja</h4><p>Nilai-nilai kerja kami</p></div></a>
-                    </div>
-                </li>
-                <li>
-                    <a href="#layanan">Layanan <i class="fas fa-chevron-down"></i></a>
-                    <div class="mega-menu">
-                        <a href="rawat-jalan.html" class="mega-item"><div class="icon"><i class="fas fa-stethoscope"></i></div><div class="text"><h4>Rawat Jalan</h4><p>Konsultasi dokter spesialis</p></div></a>
-                        <a href="rawat-inap.html" class="mega-item"><div class="icon"><i class="fas fa-procedures"></i></div><div class="text"><h4>Rawat Inap</h4><p>Pelayanan inap nyaman</p></div></a>
-                        <a href="igd.html" class="mega-item"><div class="icon"><i class="fas fa-ambulance"></i></div><div class="text"><h4>IGD / UGD</h4><p>Gawat darurat 24 jam</p></div></a>
-                    </div>
-                </li>
-                <li><a href="dokter.html">Dokter</a></li>
-                <li><a href="ph-update.html">PH Update</a></li>
-                <li><a href="kontak.html">Kontak</a></li>
-                <li><a href="#login" class="nav-cta"><i class="fas fa-sign-in-alt"></i> Login</a></li>
-            </ul>
-            <div class="mobile-toggle" onclick="toggleMenu()"><span></span><span></span><span></span></div>
-        </div>
-    </nav>
-
-    <div class="mobile-menu" id="mobileMenu">
-        <ul>
-            <li><a href="#slider" onclick="toggleMenu()">Beranda</a></li>
-            <li><a href="about.html" onclick="toggleMenu()">Tentang</a></li>
-            <li><a href="about.html#sejarah" onclick="toggleMenu()">- Sejarah</a></li>
-            <li><a href="about.html#visimisi" onclick="toggleMenu()">- Visi Misi</a></li>
-            <li><a href="about.html#standar" onclick="toggleMenu()">- Standar</a></li>
-            <li><a href="about.html#maklumat" onclick="toggleMenu()">- Maklumat</a></li>
-            <li><a href="about.html#mutu" onclick="toggleMenu()">- Mutu</a></li>
-            <li><a href="about.html#budaya" onclick="toggleMenu()">- Budaya Kerja</a></li>
-            <li><a href="#layanan" onclick="toggleMenu()">Layanan</a></li>
-            <li><a href="rawat-jalan.html" onclick="toggleMenu()">- Rawat Jalan</a></li>
-            <li><a href="rawat-inap.html" onclick="toggleMenu()">- Rawat Inap</a></li>
-            <li><a href="igd.html" onclick="toggleMenu()">- IGD / UGD</a></li>
-            <li><a href="dokter.html" onclick="toggleMenu()">Dokter</a></li>
-            <li><a href="ph-update.html" onclick="toggleMenu()">PH Update</a></li>
-            <li><a href="kontak.html" onclick="toggleMenu()">Kontak</a></li>
-            <li><a href="#login" onclick="toggleMenu()">Login</a></li>
-        </ul>
+    <!-- 1. ANNOUNCEMENT BAR -->
+    <div class="announcement-bar" id="announcementBar">
+        <i class="fas fa-bullhorn"></i> 
+        Pendaftaran Online Sekarang Terbuka! 
+        <a href="antrean.html">Daftar Sekarang <i class="fas fa-arrow-right"></i></a>
     </div>
 
-    <!-- Hero Slider -->
-    <section class="hero-slider" id="slider">
-        <div class="slides-container">
-            <div class="slide slide-1 active">
-                <div class="slide-bg"></div>
-                <div class="slide-pattern"></div>
-                <div class="slide-inner">
-                    <div class="slide-content">
-                        <div class="slide-badge"><i class="fas fa-ambulance"></i> IGD 24 Jam</div>
-                        <h2>Pelayanan Darurat Siap Siaga</h2>
-                        <p>Tim medis profesional siaga 24 jam untuk menangani keadaan darurat dengan peralatan lengkap dan canggih.</p>
-                        <div class="slide-stats">
-                            <div class="slide-stat"><div class="number">24/7</div><div class="label">Siaga</div></div>
-                            <div class="slide-stat"><div class="number">5+</div><div class="label">Dokter</div></div>
-                            <div class="slide-stat"><div class="number">100%</div><div class="label">Siap</div></div>
-                        </div>
-                    </div>
-                    <div class="slide-visual"><div class="slide-circle"><i class="fas fa-heartbeat"></i></div></div>
-                </div>
-            </div>
-
-            <div class="slide slide-2">
-                <div class="slide-bg"></div>
-                <div class="slide-pattern"></div>
-                <div class="slide-inner">
-                    <div class="slide-content">
-                        <div class="slide-badge"><i class="fas fa-user-md"></i> Spesialis</div>
-                        <h2>Dokter Spesialis Berpengalaman</h2>
-                        <p>Dokter spesialis berpengalaman dari berbagai bidang siap memberikan konsultasi dan perawatan terbaik.</p>
-                        <div class="slide-stats">
-                            <div class="slide-stat"><div class="number">25+</div><div class="label">Spesialis</div></div>
-                            <div class="slide-stat"><div class="number">10+</div><div class="label">Tahun</div></div>
-                            <div class="slide-stat"><div class="number">98%</div><div class="label">Puas</div></div>
-                        </div>
-                    </div>
-                    <div class="slide-visual"><div class="slide-circle"><i class="fas fa-stethoscope"></i></div></div>
-                </div>
-            </div>
-
-            <div class="slide slide-3">
-                <div class="slide-bg"></div>
-                <div class="slide-pattern"></div>
-                <div class="slide-inner">
-                    <div class="slide-content">
-                        <div class="slide-badge"><i class="fas fa-microscope"></i> Modern</div>
-                        <h2>Fasilitas Medis Canggih</h2>
-                        <p>Peralatan medis terkini untuk diagnosis akurat dan perawatan yang efektif.</p>
-                        <div class="slide-stats">
-                            <div class="slide-stat"><div class="number">50+</div><div class="label">Alat</div></div>
-                            <div class="slide-stat"><div class="number">100%</div><div class="label">Modern</div></div>
-                            <div class="slide-stat"><div class="number">Akurat</div><div class="label">Hasil</div></div>
-                        </div>
-                    </div>
-                    <div class="slide-visual"><div class="slide-circle"><i class="fas fa-microscope"></i></div></div>
-                </div>
-            </div>
-
-            <div class="slide slide-4">
-                <div class="slide-bg"></div>
-                <div class="slide-pattern"></div>
-                <div class="slide-inner">
-                    <div class="slide-content">
-                        <div class="slide-badge"><i class="fas fa-procedures"></i> Kenyamanan</div>
-                        <h2>Kamar Perawatan Nyaman</h2>
-                        <p>Kamar perawatan bersih dan nyaman dengan fasilitas lengkap untuk pemulihan optimal.</p>
-                        <div class="slide-stats">
-                            <div class="slide-stat"><div class="number">50+</div><div class="label">Kamar</div></div>
-                            <div class="slide-stat"><div class="number">VIP</div><div class="label">Kelas</div></div>
-                            <div class="slide-stat"><div class="number">AC</div><div class="label">Semua</div></div>
-                        </div>
-                    </div>
-                    <div class="slide-visual"><div class="slide-circle"><i class="fas fa-hospital-alt"></i></div></div>
-                </div>
-            </div>
-        </div>
-
-        <div class="slider-nav">
-            <button class="slider-btn" onclick="prevSlide()"><i class="fas fa-chevron-left"></i></button>
-            <div class="slider-dots">
-                <div class="slider-dot active" onclick="goToSlide(0)"></div>
-                <div class="slider-dot" onclick="goToSlide(1)"></div>
-                <div class="slider-dot" onclick="goToSlide(2)"></div>
-                <div class="slider-dot" onclick="goToSlide(3)"></div>
-            </div>
-            <button class="slider-btn" onclick="nextSlide()"><i class="fas fa-chevron-right"></i></button>
-        </div>
-
-        <div class="slide-counter">
-            <span class="current">01</span>
-            <span class="total">/ 04</span>
-        </div>
-
-        <div class="scroll-indicator">
-            <div class="mouse"><div class="wheel"></div></div>
-            <span>Scroll</span>
-        </div>
-    </section>
-
-    <!-- Stats Bar -->
-    <section class="stats-bar">
+    <!-- 2. HEADER / NAVBAR -->
+    <header class="header transparent" id="header">
         <div class="container">
-            <div class="stats-grid">
-                <div class="stat-item"><div class="stat-number">5000+</div><div class="stat-label">Pasien Terlayani</div></div>
-                <div class="stat-item"><div class="stat-number">25+</div><div class="stat-label">Dokter Spesialis</div></div>
-                <div class="stat-item"><div class="stat-number">15+</div><div class="stat-label">Tahun Pengalaman</div></div>
-                <div class="stat-item"><div class="stat-number">24/7</div><div class="stat-label">Layanan Darurat</div></div>
+            <div class="header-inner">
+                <!-- Logo -->
+                <a href="index.html" class="logo">
+                    <img src="logo.png" alt="RS Payangan Hospital" onerror="this.style.display='none'">
+                    <div class="logo-text">
+                        <span class="logo-name">Payangan Hospital</span>
+                        <span class="logo-tagline">Pavitram Idam Uttamam</span>
+                    </div>
+                </a>
+
+                <!-- Navigation -->
+                <nav class="nav">
+                    <a href="index.html" class="nav-link active">Home</a>
+                    <a href="about.html" class="nav-link">About</a>
+                    <a href="dokter.html" class="nav-link">Doctors</a>
+                    <a href="layanan.html" class="nav-link">Services</a>
+                    <a href="fasilitas.html" class="nav-link">Facilities</a>
+                    <a href="berita.html" class="nav-link">News</a>
+                    <a href="galeri.html" class="nav-link">Gallery</a>
+                    <a href="kontak.html" class="nav-link">Contact</a>
+                </nav>
+
+                <!-- Header Actions -->
+                <div class="header-actions">
+                    <!-- Language Switcher -->
+                    <div class="lang-switch" onclick="toggleLanguage()" role="button" aria-label="Switch language">
+                        <span class="active" id="langId">ID</span>
+                        <span>/</span>
+                        <span id="langEn">EN</span>
+                    </div>
+
+                    <!-- Emergency Button -->
+                    <a href="tel:+62361472008" class="btn-emergency">
+                        <i class="fas fa-phone-alt"></i>
+                        <span>IGD 24 Jam</span>
+                    </a>
+
+                    <!-- Appointment Button -->
+                    <a href="antrean.html" class="btn-appointment">
+                        <i class="fas fa-calendar-check"></i>
+                        <span>Buat Janji</span>
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Toggle -->
+                <button class="menu-toggle" onclick="toggleMobileMenu()" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-header">
+            <div class="logo">
+                <img src="logo.png" alt="RS Payangan Hospital" onerror="this.style.display='none'">
+                <div class="logo-text">
+                    <span class="logo-name">Payangan Hospital</span>
+                </div>
+            </div>
+            <button class="mobile-menu-close" onclick="toggleMobileMenu()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <nav class="mobile-nav">
+            <a href="index.html" class="mobile-nav-link">Home</a>
+            <a href="about.html" class="mobile-nav-link">About</a>
+            <a href="dokter.html" class="mobile-nav-link">Doctors</a>
+            <a href="layanan.html" class="mobile-nav-link">Services</a>
+            <a href="fasilitas.html" class="mobile-nav-link">Facilities</a>
+            <a href="berita.html" class="mobile-nav-link">News</a>
+            <a href="galeri.html" class="mobile-nav-link">Gallery</a>
+            <a href="kontak.html" class="mobile-nav-link">Contact</a>
+        </nav>
+        <div class="mobile-menu-footer">
+            <a href="tel:+62361472008" class="btn-emergency" style="justify-content: center;">
+                <i class="fas fa-phone-alt"></i>
+                <span>IGD 24 Jam: (0361) 472008</span>
+            </a>
+            <a href="antrean.html" class="btn-appointment" style="justify-content: center;">
+                <i class="fas fa-calendar-check"></i>
+                <span>Buat Janji Temu</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- 3. HERO SECTION -->
+    <section class="hero" id="hero">
+        <div class="hero-bg">
+            <img src="img/bg_medical.jpg" alt="RS Payangan Hospital">
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="hero-pattern"></div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <i class="fas fa-circle"></i>
+                    <span id="heroBadge">22+ Dokter Spesialis Berpengalaman</span>
+                </div>
+                <h1 class="hero-title" id="heroTitle">
+                    Pelayanan Kesehatan Modern dengan <span>Sentuhan Humanis</span>
+                </h1>
+                <p class="hero-subtitle" id="heroSubtitle">
+                    RS Payangan Hospital memberikan pelayanan kesehatan berkualitas dengan tenaga medis profesional dan fasilitas modern untuk masyarakat Gianyar dan sekitarnya.
+                </p>
+                <div class="hero-buttons">
+                    <a href="antrean.html" class="hero-btn-primary">
+                        <i class="fas fa-calendar-check"></i>
+                        <span id="heroBtnPrimary">Buat Janji Temu</span>
+                    </a>
+                    <a href="dokter.html" class="hero-btn-secondary">
+                        <i class="fas fa-user-md"></i>
+                        <span id="heroBtnSecondary">Lihat Dokter</span>
+                    </a>
+                </div>
+                <div class="hero-stats">
+                    <div class="hero-stat">
+                        <div class="hero-stat-value">22<span>+</span></div>
+                        <div class="hero-stat-label">Dokter Spesialis</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="hero-stat-value">10<span>+</span></div>
+                        <div class="hero-stat-label">Poliklinik</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="hero-stat-value">24<span>/</span>7</div>
+                        <div class="hero-stat-label">IGD Aktif</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="hero-stat-value">100<span>+</span></div>
+                        <div class="hero-stat-label">Tempat Tidur</div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section class="services" id="layanan">
+    <!-- 4. DIRECTOR WELCOME SECTION -->
+    <section class="section-lg director-section" id="director">
+        <div class="container">
+            <div class="director-grid">
+                <div class="director-image-wrapper">
+                    <img src="img/director.jpg" alt="dr. I Gusti Ngurah Gede Putra" class="director-image">
+                    <div class="director-badge">
+                        <i class="fas fa-award"></i> Direktur
+                    </div>
+                </div>
+                <div class="director-content">
+                    <div class="section-label">
+                        <i class="fas fa-heart"></i> Sambutan Direktur
+                    </div>
+                    <div class="director-quote-mark">"</div>
+                    <p class="director-message" id="directorMessage">
+                        Selamat datang di Payangan Hospital. Kami berkomitmen untuk memberikan pelayanan kesehatan terbaik dengan berlandaskan nilai-nilai Tri Hita Karana. Setiap langkah kami didasarkan pada keharmonisan hubungan dengan Tuhan, sesama manusia, dan lingkungan. Dengan didukung oleh tenaga medis profesional dan fasilitas modern, kami siap memberikan pengalaman pelayanan kesehatan yang nyaman dan berkualitas bagi masyarakat Payangan dan sekitarnya.
+                    </p>
+                    <div class="director-signature">
+                        <div class="director-name">dr. I Gusti Ngurah Gede Putra, S.Ked., M.Si</div>
+                        <div class="director-title">Directeur RS Payangan Hospital</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. DOCTOR SLIDER SECTION -->
+    <section class="section-lg doctors-section" id="doctors">
         <div class="container">
             <div class="section-header">
-                <div class="section-label">Layanan Kami</div>
-                <h2 class="section-title">Pelayanan Kesehatan Terpercaya</h2>
-                <p class="section-subtitle">Standar internasional untuk kebutuhan kesehatan Anda</p>
+                <div class="section-label">
+                    <i class="fas fa-user-md"></i> Tim Dokter Kami
+                </div>
+                <h2 class="section-title">Dokter <span>Spesialis</span> Berpengalaman</h2>
+                <p class="section-subtitle">
+                    Temui tim dokter spesialis kami yang berpengalaman dan berdedikasi dalam memberikan pelayanan kesehatan terbaik.
+                </p>
+            </div>
+        </div>
+        <div class="doctors-slider-wrapper">
+            <div class="doctors-slider" id="doctorsSlider">
+                <!-- Doctor cards will be populated by JavaScript -->
+            </div>
+        </div>
+        <div class="container">
+            <div class="slider-nav">
+                <button class="slider-btn" onclick="slideDoctors(-1)" aria-label="Previous doctor">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="slider-btn" onclick="slideDoctors(1)" aria-label="Next doctor">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+            <div style="text-align: center; margin-top: var(--space-8);">
+                <a href="dokter.html" class="btn-appointment">
+                    <i class="fas fa-list"></i> Lihat Semua Dokter
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. WHY CHOOSE US SECTION -->
+    <section class="section-xl why-section" id="why">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label" style="color: var(--secondary-light);">
+                    <i class="fas fa-star"></i> Mengapa Memilih Kami
+                </div>
+                <h2 class="section-title" style="color: white;">
+                    Mengapa RS Payangan <span>Hospital?</span>
+                </h2>
+                <p class="section-subtitle" style="color: rgba(255,255,255,0.8);">
+                    Komitmen kami untuk memberikan pelayanan kesehatan terbaik dengan standar internasional.
+                </p>
+            </div>
+            <div class="why-grid">
+                <div class="why-card">
+                    <div class="why-card-icon">
+                        <i class="fas fa-user-md"></i>
+                    </div>
+                    <h3 class="why-card-title">Dokter Profesional</h3>
+                    <p class="why-card-text">22+ dokter spesialis berpengalaman dari berbagai bidang dengan reputasi excellence.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-card-icon">
+                        <i class="fas fa-microscope"></i>
+                    </div>
+                    <h3 class="why-card-title">Fasilitas Modern</h3>
+                    <p class="why-card-text">Peralatan medis terkini dan fasilitas rumah sakit yang nyaman untuk pasien.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-card-icon">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <h3 class="why-card-title">IGD 24 Jam</h3>
+                    <p class="why-card-text">Unit gawat darurat siaga 24 jam dengan tenaga medis terlatih dan berpengalaman.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-card-icon">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <h3 class="why-card-title">Pelayanan Ramah</h3>
+                    <p class="why-card-text">Staf kami berdedikasi memberikan pelayanan yang ramah, sopan, dan menyenangkan.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. MEDICAL SERVICES SECTION -->
+    <section class="section-lg services-section" id="services">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">
+                    <i class="fas fa-stethoscope"></i> Layanan Kami
+                </div>
+                <h2 class="section-title">Layanan <span>Medis</span> Terpadu</h2>
+                <p class="section-subtitle">
+                    Berbagai layanan medis komprehensif untuk memenuhi kebutuhan kesehatan Anda dan keluarga.
+                </p>
             </div>
             <div class="services-grid">
                 <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-ambulance"></i></div>
-                    <h3>IGD 24 Jam</h3>
-                    <p>Layanan gawat darurat tersedia 24 jam dengan tim medis profesional</p>
+                    <div class="service-icon">
+                        <i class="fas fa-ambulance"></i>
+                    </div>
+                    <h3 class="service-title">IGD 24 Jam</h3>
+                    <p class="service-text">Unit Gawat Darurat siap melayani 24 jam dengan tenaga medis terlatih dan peralatan lengkap.</p>
+                    <a href="igd.html" class="service-link">
+                        Selengkapnya <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-stethoscope"></i></div>
-                    <h3>Konsultasi Spesialis</h3>
-                    <p>Dokter spesialis berpengalaman siap membantu</p>
+                    <div class="service-icon">
+                        <i class="fas fa-procedures"></i>
+                    </div>
+                    <h3 class="service-title">Rawat Inap</h3>
+                    <p class="service-text">Kamar rawat inap nyaman dengan berbagai kelas untuk kebutuhan pasien.</p>
+                    <a href="rawat-inap.html" class="service-link">
+                        Selengkapnya <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-procedures"></i></div>
-                    <h3>Rawat Inap</h3>
-                    <p>Kamar perawatan nyaman dengan fasilitas lengkap</p>
+                    <div class="service-icon">
+                        <i class="fas fa-notes-medical"></i>
+                    </div>
+                    <h3 class="service-title">Rawat Jalan</h3>
+                    <p class="service-text">Konsultasi dokter spesialis dan kontrol kesehatan secara rawat jalan.</p>
+                    <a href="rawat-jalan.html" class="service-link">
+                        Selengkapnya <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-microscope"></i></div>
-                    <h3>Laboratorium</h3>
-                    <p>Pemeriksaan lengkap dengan hasil akurat</p>
+                    <div class="service-icon">
+                        <i class="fas fa-flask"></i>
+                    </div>
+                    <h3 class="service-title">Laboratorium</h3>
+                    <p class="service-text">Pemeriksaan laboratorium lengkap dengan hasil akurat dan cepat.</p>
+                    <a href="layanan.html" class="service-link">
+                        Selengkapnya <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-x-ray"></i></div>
-                    <h3>Radiologi</h3>
-                    <p>Fasilitas radiologi modern</p>
+                    <div class="service-icon">
+                        <i class="fas fa-x-ray"></i>
+                    </div>
+                    <h3 class="service-title">Radiologi</h3>
+                    <p class="service-text">Pemeriksaan radiologi modern termasuk X-Ray, USG, dan CT Scan.</p>
+                    <a href="layanan.html" class="service-link">
+                        Selengkapnya <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-syringe"></i></div>
-                    <h3>Vaksinasi</h3>
-                    <p>Layanan vaksinasi untuk anak & dewasa</p>
+                    <div class="service-icon">
+                        <i class="fas fa-pills"></i>
+                    </div>
+                    <h3 class="service-title">Farmasi</h3>
+                    <p class="service-text">Apotek lengkap dengan berbagai obat dan alat kesehatan berkualitas.</p>
+                    <a href="layanan.html" class="service-link">
+                        Selengkapnya <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA - Display Antrean -->
-    <section class="content-section" style="background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%); padding: 80px 0;">
-        <div class="container" style="text-align: center;">
-            <div style="display: inline-block; background: rgba(255,255,255,0.15); color: white; padding: 8px 24px; border-radius: 50px; font-size: 0.8rem; font-weight: 500; margin-bottom: 20px;">
-                <i class="fas fa-tv"></i> DISPLAY INFORMASI
+    <!-- 8. FACILITIES PREVIEW SECTION -->
+    <section class="section-lg facilities-section" id="facilities">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">
+                    <i class="fas fa-hospital"></i> Fasilitas
+                </div>
+                <h2 class="section-title">Fasilitas <span>Modern</span></h2>
+                <p class="section-subtitle">
+                    RS Payangan Hospital dilengkapi dengan fasilitas modern untuk kenyamanan pasien.
+                </p>
             </div>
-            <h2 style="font-family: 'Montserrat', sans-serif; font-size: 2.5rem; color: white; margin-bottom: 16px;">
-                Pantau Antrean Secara Real-Time
-            </h2>
-            <p style="color: rgba(255,255,255,0.9); font-size: 1.1rem; max-width: 600px; margin: 0 auto 30px;">
-                Lihat ketersediaan antrean poliklinik dan kamar tidur secara langsung melalui display digital kami.
-            </p>
-            <a href="antrean.html" style="display: inline-flex; align-items: center; gap: 12px; background: white; color: var(--primary); padding: 16px 40px; border-radius: 50px; font-weight: 600; font-size: 1rem; text-decoration: none; transition: all 0.3s; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
-                <i class="fas fa-desktop" style="font-size: 1.2rem;"></i>
-                Lihat Display Antrean
-            </a>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    
-<!-- Partner Section -->
-    <section class="partner-section" style="background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); padding: 60px 0;">
-        <div style="text-align: center; margin-bottom: 40px;">
-            <div class="section-label" style="background: rgba(255,255,255,0.2); color: white;">Mitra & Partner</div>
-            <h2 style="font-size: 2.5rem; color: white;">Logo Partner Kami</h2>
-        </div>
-        <div class="marquee-wrapper">
-            <div class="marquee-track">
-                <div class="partner-item"><img src="img/partners/BPJS Kesehatan.png" alt="BPJS Kesehatan"></div>
-                <div class="partner-item"><img src="img/partners/Kabupaten Gianyar.png" alt="Kabupaten Gianyar"></div>
-                <div class="partner-item"><img src="img/partners/Kominfo.png" alt="Kominfo"></div>
-                <div class="partner-item"><img src="img/partners/Jasa Raharja.png" alt="Jasa Raharja"></div>
-                <div class="partner-item"><img src="img/partners/JR Putera.png" alt="JR Putera"></div>
-                <div class="partner-item"><img src="img/partners/WIKA.png" alt="WIKA"></div>
-                <div class="partner-item"><img src="img/partners/MHC.png" alt="MHC"></div>
-                <div class="partner-item"><img src="img/partners/APG.png" alt="APG"></div>
-                <div class="partner-item"><img src="img/partners/OMSA MEDIC.png" alt="OMSA MEDIC"></div>
-                <div class="partner-item"><img src="img/partners/Alila Ubud.png" alt="Alila Ubud"></div>
-                <!-- Duplicate for seamless loop -->
-                <div class="partner-item"><img src="img/partners/BPJS Kesehatan.png" alt="BPJS Kesehatan"></div>
-                <div class="partner-item"><img src="img/partners/Kabupaten Gianyar.png" alt="Kabupaten Gianyar"></div>
-                <div class="partner-item"><img src="img/partners/Kominfo.png" alt="Kominfo"></div>
-                <div class="partner-item"><img src="img/partners/Jasa Raharja.png" alt="Jasa Raharja"></div>
-                <div class="partner-item"><img src="img/partners/JR Putera.png" alt="JR Putera"></div>
-                <div class="partner-item"><img src="img/partners/WIKA.png" alt="WIKA"></div>
-                <div class="partner-item"><img src="img/partners/MHC.png" alt="MHC"></div>
-                <div class="partner-item"><img src="img/partners/APG.png" alt="APG"></div>
-                <div class="partner-item"><img src="img/partners/OMSA MEDIC.png" alt="OMSA MEDIC"></div>
-                <div class="partner-item"><img src="img/partners/Alila Ubud.png" alt="Alila Ubud"></div>
+            <div class="facilities-grid">
+                <div class="facility-card">
+                    <img src="img/bg_medical.jpg" alt="Ruang Rawat Inap">
+                    <div class="facility-overlay">
+                        <span class="facility-name">Ruang Rawat Inap</span>
+                    </div>
+                </div>
+                <div class="facility-card">
+                    <img src="img/bg_medical.jpg" alt="IGD">
+                    <div class="facility-overlay">
+                        <span class="facility-name">IGD 24 Jam</span>
+                    </div>
+                </div>
+                <div class="facility-card">
+                    <img src="img/bg_medical.jpg" alt="Laboratorium">
+                    <div class="facility-overlay">
+                        <span class="facility-name">Laboratorium</span>
+                    </div>
+                </div>
+                <div class="facility-card">
+                    <img src="img/bg_medical.jpg" alt="Ruang Operasi">
+                    <div class="facility-overlay">
+                        <span class="facility-name">Ruang Operasi</span>
+                    </div>
+                </div>
+                <div class="facility-card">
+                    <img src="img/bg_medical.jpg" alt="Apotek">
+                    <div class="facility-overlay">
+                        <span class="facility-name">Apotek</span>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: var(--space-10);">
+                <a href="fasilitas.html" class="btn-appointment">
+                    <i class="fas fa-building"></i> Lihat Semua Fasilitas
+                </a>
             </div>
         </div>
     </section>
 
-    <footer>
+    <!-- 9. NEWS PREVIEW SECTION -->
+    <section class="section-lg news-section" id="news">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">
+                    <i class="fas fa-newspaper"></i> Berita & Artikel
+                </div>
+                <h2 class="section-title">Berita <span>Terbaru</span></h2>
+                <p class="section-subtitle">
+                    Tetap informed dengan berita dan artikel kesehatan terbaru dari RS Payangan Hospital.
+                </p>
+            </div>
+            <div class="news-grid">
+                <article class="news-card">
+                    <div class="news-card-image">
+                        <img src="img/bg_medical.jpg" alt="Berita 1">
+                    </div>
+                    <div class="news-card-content">
+                        <div class="news-card-date">
+                            <i class="far fa-calendar"></i> 15 Januari 2025
+                        </div>
+                        <h3 class="news-card-title">RS Payangan Terus Tingkatkan Kualitas Pelayanan Kesehatan</h3>
+                        <p class="news-card-excerpt">Dengan semangat Tri Hita Karana, RS Payangan terus berinovasi untuk memberikan pelayanan kesehatan terbaik...</p>
+                    </div>
+                </article>
+                <article class="news-card">
+                    <div class="news-card-image">
+                        <img src="img/bg_medical.jpg" alt="Berita 2">
+                    </div>
+                    <div class="news-card-content">
+                        <div class="news-card-date">
+                            <i class="far fa-calendar"></i> 10 Januari 2025
+                        </div>
+                        <h3 class="news-card-title">Dokter Spesialis Baru RS Payangan Hospital</h3>
+                        <p class="news-card-excerpt">Selamat datang dokter spesialis baru kami dalam bidang jantung dan pembuluh darah...</p>
+                    </div>
+                </article>
+                <article class="news-card">
+                    <div class="news-card-image">
+                        <img src="img/bg_medical.jpg" alt="Berita 3">
+                    </div>
+                    <div class="news-card-content">
+                        <div class="news-card-date">
+                            <i class="far fa-calendar"></i> 5 Januari 2025
+                        </div>
+                        <h3 class="news-card-title">Tips Menjaga Kesehatan di Musim Pancaroba</h3>
+                        <p class="news-card-excerpt">Perhatikan beberapa tips penting untuk menjaga kesehatan keluarga di musim pancaroba...</p>
+                    </div>
+                </article>
+            </div>
+            <div style="text-align: center; margin-top: var(--space-10);">
+                <a href="berita.html" class="btn-appointment">
+                    <i class="fas fa-readme"></i> Lihat Semua Berita
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 10. GALLERY PREVIEW SECTION -->
+    <section class="section-lg gallery-section" id="gallery">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label" style="color: var(--primary-200);">
+                    <i class="fas fa-images"></i> Galeri
+                </div>
+                <h2 class="section-title" style="color: white;">
+                    Galeri <span>RS Payangan</span>
+                </h2>
+                <p class="section-subtitle" style="color: rgba(255,255,255,0.8);">
+                    Lihat momen-momen dan fasilitas RS Payangan Hospital.
+                </p>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="img/bg_medical.jpg" alt="Gallery 1">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="img/bg_medical.jpg" alt="Gallery 2">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="img/bg_medical.jpg" alt="Gallery 3">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="img/bg_medical.jpg" alt="Gallery 4">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="img/bg_medical.jpg" alt="Gallery 5">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="img/bg_medical.jpg" alt="Gallery 6">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: var(--space-10);">
+                <a href="galeri.html" class="hero-btn-secondary" style="background: white; color: var(--text-dark);">
+                    <i class="fas fa-images"></i> Lihat Galeri Lengkap
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 11. EMERGENCY CTA SECTION -->
+    <section class="section-lg emergency-section" id="emergency">
+        <div class="container">
+            <div class="emergency-content">
+                <div class="emergency-text">
+                    <h2 class="emergency-title">Butuh Pertolongan Cepat?</h2>
+                    <p class="emergency-subtitle">Unit Gawat Darurat RS Payangan siap membantu Anda 24 jam, 7 hari seminggu.</p>
+                </div>
+                <div class="emergency-contact">
+                    <div class="emergency-phone">
+                        <div class="emergency-phone-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div class="emergency-phone-number">(0361) 472008</div>
+                        <div class="emergency-phone-label">IGD 24 Jam</div>
+                    </div>
+                    <div class="emergency-address">
+                        <h4><i class="fas fa-map-marker-alt"></i> Lokasi Kami</h4>
+                        <p>Jalan Raya Payangan, Gianyar, Bali 80572</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 12. CONTACT SECTION -->
+    <section class="section-lg contact-section" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">
+                    <i class="fas fa-envelope"></i> Hubungi Kami
+                </div>
+                <h2 class="section-title">Info <span>Kontak</span></h2>
+                <p class="section-subtitle">
+                    Jangan ragu untuk menghubungi kami jika ada pertanyaan atau butuh bantuan.
+                </p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <h3 class="contact-title">Telepon</h3>
+                    <p class="contact-text">
+                        (0361) 472008<br>
+                        Ext. 101 (Informasi)
+                    </p>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3 class="contact-title">Email</h3>
+                    <p class="contact-text">
+                        info@payanganhospital.com<br>
+                        rsudpayangan@gianyarkab.go.id
+                    </p>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3 class="contact-title">Alamat</h3>
+                    <p class="contact-text">
+                        Jalan Raya Payangan<br>
+                        Gianyar, Bali 80572
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 13. FOOTER -->
+    <footer class="footer">
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand">
-                    <a href="index.html" class="logo">
-                        <img src="logo.png" alt="Payangan Hospital">
-                        <div><div class="logo-text">Payangan Hospital</div><div class="logo-text-sub">Pavitram Idam Uttamam</div></div>
-                    </a>
-                    <p>Rumah Sakit Payangan Hospital - Layanan kesehatan berkualitas dengan tenaga medis profesional.</p>
+                    <div class="footer-logo">
+                        <img src="logo.png" alt="RS Payangan Hospital" onerror="this.style.display='none'">
+                        <span class="footer-logo-text">Payangan Hospital</span>
+                    </div>
+                    <p class="footer-desc">
+                        RS Payangan Hospital berkomitmen memberikan pelayanan kesehatan berkualitas dengan berlandaskan nilai-nilai Tri Hita Karana untuk masyarakat Gianyar dan sekitarnya.
+                    </p>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
                 </div>
-                <div class="footer-links">
+                <div class="footer-column">
+                    <h4>Menu</h4>
+                    <nav class="footer-links">
+                        <a href="index.html">Home</a>
+                        <a href="about.html">About</a>
+                        <a href="dokter.html">Dokter</a>
+                        <a href="layanan.html">Layanan</a>
+                        <a href="kontak.html">Kontak</a>
+                    </nav>
+                </div>
+                <div class="footer-column">
                     <h4>Layanan</h4>
-                    <ul>
-                        <li><a href="#layanan">IGD 24 Jam</a></li>
-                        <li><a href="#layanan">Rawat Inap</a></li>
-                        <li><a href="#layanan">Konsultasi</a></li>
-                    </ul>
+                    <nav class="footer-links">
+                        <a href="igd.html">IGD 24 Jam</a>
+                        <a href="rawat-inap.html">Rawat Inap</a>
+                        <a href="rawat-jalan.html">Rawat Jalan</a>
+                        <a href="antrean.html">Pendaftaran Online</a>
+                        <a href="antrean.html">Cek Antrean</a>
+                    </nav>
                 </div>
-                <div class="footer-links">
-                    <h4>Tentang</h4>
-                    <ul>
-                        <li><a href="about.html#sejarah">Sejarah</a></li>
-                        <li><a href="about.html#visimisi">Visi Misi</a></li>
-                        <li><a href="about.html#standar">Standar</a></li>
-                    </ul>
-                </div>
-                <div class="footer-links">
-                    <h4>Kontak</h4>
-                    <ul>
-                        <li><a href="tel:+623619088087">+62 361 9088087</a></li>
-                        <li><a href="#">Jl. Raya Payangan</a></li>
-                        <li><a href="#">Gianyar, Bali</a></li>
-                    </ul>
+                <div class="footer-column">
+                    <h4>Jam Operasional</h4>
+                    <nav class="footer-links">
+                        <a href="#">IGD: 24 Jam</a>
+                        <a href="#">Poliklinik: 08:00 - 20:00</a>
+                        <a href="#">Laboratorium: 07:00 - 14:00</a>
+                        <a href="#">Apotek: 24 Jam</a>
+                        <a href="#">Admin: 08:00 - 16:00</a>
+                    </nav>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 Payangan Hospital - Gianyar, Bali</p>
-                <div class="footer-social">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-youtube"></i></a>
+                <p class="footer-copyright">
+                    &copy; 2025 RS Payangan Hospital. Hak Cipta Dilindungi.
+                </p>
+                <div class="footer-links-bottom">
+                    <a href="#">Kebijakan Privasi</a>
+                    <a href="#">Syarat & Ketentuan</a>
+                    <a href="#">Peta Situs</a>
                 </div>
             </div>
         </div>
     </footer>
 
+    <!-- JAVASCRIPT -->
     <script>
+        /* ========================================
+           DOCTOR DATA
+        ======================================== */
+        const doctors = [
+            { id: "jantung", name: "dr. Anak Agung Ayu Ngurah Desy Widya Putri, Sp.JP", spec: "Spesialis Jantung & Pembuluh Darah", schedule: "Senin & Kamis: 08:00 - 14:00", image: "img/dokter/dr-anggung-desy-spjp.png", tag: "Jantung" },
+            { id: "radiologi", name: "dr. Herry Juniada, Sp.Rad", spec: "Spesialis Radiologi", schedule: "Senin - Jumat: 09:00 - 15:00", image: "img/dokter/dr. Herry Juniada, Sp. Rad.png", tag: "Radiologi" },
+            { id: "anestesi", name: "dr. I G N Bagus Arimanjaya, Sp.An", spec: "Spesialis Anestesiologi & Terapi Intensif", schedule: "Senin - Jumat: 08:00 - 16:00", image: "img/dokter/dr. I G N Bagus Arimanjaya, Sp.An.png", tag: "Anestesi" },
+            { id: "kandungan", name: "dr. I Gede Agus Hendra Sujana, Sp.OG", spec: "Spesialis Obstetri & Ginekologi", schedule: "Selasa & Jumat: 08:00 - 14:00", image: "img/dokter/dr. I Gede Agus Hendra Sujana, Sp.OG.png", tag: "Kandungan" },
+            { id: "ortho", name: "dr. I Gede Ketut Alit Satria Nugraha, SpOT", spec: "Spesialis Orthopedi", schedule: "Rabu: 08:00 - 14:00", image: "img/dokter/dr. I Gede Ketut Alit Satria Nugraha, SpOT.png", tag: "Orthopedi" },
+            { id: "dalam", name: "dr. I Gusti Putu Hery Sikesa, Sp.PD", spec: "Spesialis Penyakit Dalam", schedule: "Senin - Rabu: 08:00 - 14:00", image: "img/dokter/dr. I Gusti Putu Hery Sikesa, Sp.PD.png", tag: "Penyakit Dalam" },
+            { id: "bedah", name: "dr. I Putu Swastika Kepakisan, M.Biomed., Sp.B", spec: "Spesialis Bedah Umum", schedule: "Kamis: 08:00 - 14:00", image: "img/dokter/dr. I Putu Swastika Kepakisan, M. Biomed., Sp.B.png", tag: "Bedah" },
+            { id: "saraf", name: "dr. Kade Agus Sudha Naryana, Sp.N", spec: "Spesialis Neurologi", schedule: "Senin & Kamis: 08:00 - 14:00", image: "img/dokter/dr. Kade Agus Sudha Naryana, Sp.N.png", tag: "Saraf" },
+            { id: "anak", name: "dr. Made Ayu Widyaningsih, Sp.A", spec: "Spesialis Anak", schedule: "Senin - Jumat: 08:00 - 14:00", image: "img/dokter/dr. Made Ayu Widyaningsih, Sp.A.png", tag: "Anak" }
+        ];
+
+        /* ========================================
+           HEADER SCROLL EFFECT
+        ======================================== */
+        const header = document.getElementById('header');
+        const announcementBar = document.getElementById('announcementBar');
+
         window.addEventListener('scroll', () => {
-            document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
+            if (window.scrollY > 100) {
+                header.classList.remove('transparent');
+                header.classList.add('scrolled');
+                announcementBar.style.display = 'none';
+            } else {
+                header.classList.add('transparent');
+                header.classList.remove('scrolled');
+                announcementBar.style.display = 'block';
+            }
         });
 
-        function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('active'); }
-
-        let currentSlide = 0;
-        const totalSlides = 4;
-
-        function updateSlider() {
-            document.querySelectorAll('.slide').forEach((s, i) => s.classList.toggle('active', i === currentSlide));
-            document.querySelectorAll('.slider-dot').forEach((d, i) => d.classList.toggle('active', i === currentSlide));
-            document.querySelector('.slide-counter .current').textContent = String(currentSlide + 1).padStart(2, '0');
+        /* ========================================
+           MOBILE MENU
+        ======================================== */
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('active');
+            document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
         }
 
-        function nextSlide() { currentSlide = (currentSlide + 1) % totalSlides; updateSlider(); }
-        function prevSlide() { currentSlide = (currentSlide - 1 + totalSlides) % totalSlides; updateSlider(); }
-        function goToSlide(i) { currentSlide = i; updateSlider(); }
+        /* ========================================
+           DOCTOR SLIDER
+        ======================================== */
+        function renderDoctorCards() {
+            const slider = document.getElementById('doctorsSlider');
+            slider.innerHTML = doctors.map(doc => `
+                <div class="doctor-card" onclick="window.location.href='dokter.html'">
+                    <div class="doctor-card-image">
+                        <img src="${doc.image}" alt="${doc.name}" loading="lazy" onerror="this.src='img/director.jpg'">
+                        <div class="doctor-card-badge">
+                            <i class="fas fa-circle"></i> ${doc.tag}
+                        </div>
+                    </div>
+                    <div class="doctor-card-content">
+                        <h3 class="doctor-card-name">${doc.name}</h3>
+                        <p class="doctor-card-spec">${doc.spec}</p>
+                        <div class="doctor-card-schedule">
+                            <i class="fas fa-clock"></i>
+                            <span>${doc.schedule}</span>
+                        </div>
+                        <a href="antrean.html" class="doctor-card-btn" onclick="event.stopPropagation()">
+                            <i class="fas fa-calendar-check"></i> Booking
+                        </a>
+                    </div>
+                </div>
+            `).join('');
+        }
 
-        setInterval(nextSlide, 6000);
+        function slideDoctors(direction) {
+            const slider = document.getElementById('doctorsSlider');
+            const scrollAmount = 320;
+            slider.scrollBy({
+                left: direction * scrollAmount,
+                behavior: 'smooth'
+            });
+        }
+
+        /* ========================================
+           LANGUAGE SWITCHER
+        ======================================== */
+        let currentLang = 'id';
+
+        const translations = {
+            id: {
+                heroBadge: '22+ Dokter Spesialis Berpengalaman',
+                heroTitle: 'Pelayanan Kesehatan Modern dengan <span>Sentuhan Humanis</span>',
+                heroSubtitle: 'RS Payangan Hospital memberikan pelayanan kesehatan berkualitas dengan tenaga medis profesional dan fasilitas modern untuk masyarakat Gianyar dan sekitarnya.',
+                heroBtnPrimary: 'Buat Janji Temu',
+                heroBtnSecondary: 'Lihat Dokter',
+                directorMessage: 'Selamat datang di Payangan Hospital. Kami berkomitmen untuk memberikan pelayanan kesehatan terbaik dengan berlandaskan nilai-nilai Tri Hita Karana. Setiap langkah kami didasarkan pada keharmonisan hubungan dengan Tuhan, sesama manusia, dan lingkungan. Dengan didukung oleh tenaga medis profesional dan fasilitas modern, kami siap memberikan pengalaman pelayanan kesehatan yang nyaman dan berkualitas bagi masyarakat Payangan dan sekitarnya.'
+            },
+            en: {
+                heroBadge: '22+ Experienced Specialist Doctors',
+                heroTitle: 'Modern Healthcare with <span>Compassionate Care</span>',
+                heroSubtitle: 'Payangan Hospital provides quality healthcare services with professional medical staff and modern facilities for the community of Gianyar and surrounding areas.',
+                heroBtnPrimary: 'Make Appointment',
+                heroBtnSecondary: 'View Doctors',
+                directorMessage: 'Welcome to Payangan Hospital. We are committed to providing the best healthcare services based on Tri Hita Karana values. Every step we take is based on harmony in relationships with God, fellow humans, and the environment. With professional medical staff and modern facilities, we are ready to provide comfortable and quality healthcare experiences for the Payangan community and surrounding areas.'
+            }
+        };
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'id' ? 'en' : 'id';
+            
+            // Update language indicator
+            document.getElementById('langId').classList.toggle('active', currentLang === 'id');
+            document.getElementById('langEn').classList.toggle('active', currentLang === 'en');
+            
+            // Update content
+            const t = translations[currentLang];
+            document.getElementById('heroBadge').textContent = t.heroBadge;
+            document.getElementById('heroTitle').innerHTML = t.heroTitle;
+            document.getElementById('heroSubtitle').textContent = t.heroSubtitle;
+            document.getElementById('heroBtnPrimary').textContent = t.heroBtnPrimary;
+            document.getElementById('heroBtnSecondary').textContent = t.heroBtnSecondary;
+            document.getElementById('directorMessage').textContent = t.directorMessage;
+            
+            // Update HTML lang attribute
+            document.documentElement.lang = currentLang;
+        }
+
+        /* ========================================
+           INITIALIZE
+        ======================================== */
+        document.addEventListener('DOMContentLoaded', () => {
+            renderDoctorCards();
+            
+            // Auto-slide doctors
+            let autoSlideInterval;
+            const slider = document.getElementById('doctorsSlider');
+            
+            slider.addEventListener('mouseenter', () => {
+                clearInterval(autoSlideInterval);
+            });
+            
+            slider.addEventListener('mouseleave', () => {
+                autoSlideInterval = setInterval(() => {
+                    slideDoctors(1);
+                }, 5000);
+            });
+            
+            // Start auto-slide
+            autoSlideInterval = setInterval(() => {
+                slideDoctors(1);
+            }, 5000);
+        });
+
+        /* ========================================
+           SMOOTH SCROLL FOR ANCHOR LINKS
+        ======================================== */
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#') {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                }
+            });
+        });
     </script>
 </body>
 </html>

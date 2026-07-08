@@ -1,0 +1,492 @@
+name: рҹ“Ӣ Run All Agents
+
+on:
+  # Manual trigger only - use this when you want to run all agents at once
+  workflow_dispatch:
+    inputs:
+      skip_deploy:
+        description: 'Skip deployment after checks'
+        required: false
+        default: 'false'
+        type: boolean
+
+  # OR: Uncomment below to run automatically every 6 hours
+  # schedule:
+  #   - cron: '0 */6 * * *'
+
+jobs:
+  # ============================================
+  # AGENT 1: Link Checker
+  # ============================================
+  link-checker:
+    name: рҹ”Қ Link Checker
+    runs-on: ubuntu-latest
+    outputs:
+      status: ${{ steps.check-links.outputs.status }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install requests beautifulsoup4 lxml
+
+      - name: Run Link Checker Agent
+        id: check-links
+        run: |
+          python << 'EOF'
+          import os
+          import re
+          from pathlib import Path
+          
+          print("🔍 MEMULAI LINK CHECKER AGENT")
+          print("=" * 50)
+          
+          # Ambil semua file HTML
+          html_files = list(Path('.').glob('*.html'))
+          print(f"📁 Ditemukan {len(html_files)} file HTML")
+          
+          broken_links = []
+          wrong_logo_links = []
+          wrong_dokter_links = []
+          wrong_kontak_links = []
+          
+          for html_file in html_files:
+              content = html_file.read_text(encoding='utf-8')
+              filename = html_file.name
+              
+              # Cek link logo
+              if 'href="#"' in content and 'class="logo"' in content:
+                  wrong_logo_links.append(filename)
+              
+              # Cek link dokter
+              if 'href="#dokter"' in content or 'href="index.html#dokter"' in content:
+                  wrong_dokter_links.append(filename)
+              
+              # Cek link kontak
+              if 'href="#kontak"' in content or 'href="index.html#kontak"' in content:
+                  wrong_kontak_links.append(filename)
+              
+              # Cek internal links
+              internal_links = re.findall(r'href="([^"#]+)"', content)
+              for link in internal_links:
+                  if link.endswith('.html') and not link.startswith('http'):
+                      if not Path(link).exists():
+                          broken_links.append(f"{filename} -> {link}")
+          
+          # REPORT
+          print("\n" + "=" * 50)
+          print("📊 LINK CHECKER REPORT")
+          print("=" * 50)
+          
+          if wrong_logo_links:
+              print(f"\n❌ LOGO LINKS SALAH ({len(wrong_logo_links)} file):")
+              for f in wrong_logo_links:
+                  print(f"   - {f}")
+          
+          if wrong_dokter_links:
+              print(f"\n❌ DOKTER LINKS SALAH ({len(wrong_dokter_links)} file):")
+              for f in wrong_dokter_links:
+                  print(f"   - {f}")
+          
+          if wrong_kontak_links:
+              print(f"\n❌ KONTAK LINKS SALAH ({len(wrong_kontak_links)} file):")
+              for f in wrong_kontak_links:
+                  print(f"   - {f}")
+          
+          if broken_links:
+              print(f"\n❌ BROKEN INTERNAL LINKS ({len(broken_links)}):")
+              for link in broken_links[:20]:
+                  print(f"   - {link}")
+          
+          total_issues = len(wrong_logo_links) + len(wrong_dokter_links) + len(wrong_kontak_links) + len(broken_links)
+          
+          print("\n" + "=" * 50)
+          if total_issues == 0:
+              print("✅✅✅ SEMUA LINK BENAR!")
+          else:
+              print(f"⚠️⚠️⚠️ DITEMUKAN {total_issues} MASALAH!")
+          print("=" * 50)
+          
+          # Save report
+          with open('link_checker_report.md', 'w') as f:
+              f.write(f"# 🔍 Link Checker Report\n\n")
+              f.write(f"**Timestamp:** {os.popen('date').read().strip()}\n\n")
+              f.write(f"## Summary\n\n")
+              f.write(f"| Check | Result |\n")
+              f.write(f"|-------|--------|\n")
+              f.write(f"| Logo Links | {'✅ OK' if not wrong_logo_links else f'❌ {len(wrong_logo_links)} errors'} |\n")
+              f.write(f"| Dokter Links | {'✅ OK' if not wrong_dokter_links else f'❌ {len(wrong_dokter_links)} errors'} |\n")
+              f.write(f"| Kontak Links | {'✅ OK' if not wrong_kontak_links else f'❌ {len(wrong_kontak_links)} errors'} |\n")
+              f.write(f"| Broken Links | {'✅ OK' if not broken_links else f'❌ {len(broken_links)} errors'} |\n\n")
+              
+              if total_issues > 0:
+                  f.write(f"### ❌ Issues Found: {total_issues}\n\n")
+                  if wrong_logo_links:
+                      f.write(f"#### Logo Links ({len(wrong_logo_links)})\n")
+                      for fn in wrong_logo_links:
+                          f.write(f"- `{fn}`: Link logo harus `href=\"index.html\"`\n")
+                      f.write("\n")
+                  if wrong_dokter_links:
+                      f.write(f"#### Dokter Links ({len(wrong_dokter_links)})\n")
+                      for fn in wrong_dokter_links:
+                          f.write(f"- `{fn}`: Link dokter harus `href=\"dokter.html\"`\n")
+                      f.write("\n")
+                  if wrong_kontak_links:
+                      f.write(f"#### Kontak Links ({len(wrong_kontak_links)})\n")
+                      for fn in wrong_kontak_links:
+                          f.write(f"- `{fn}`: Link kontak harus `href=\"kontak.html\"`\n")
+          
+          with open(os.getenv('GITHUB_OUTPUT'), 'a') as f:
+              f.write(f"status={'pass' if total_issues == 0 else 'fail'}\n")
+          
+          if total_issues > 0:
+              exit(1)
+          EOF
+
+      - name: Upload Link Checker Report
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: link-checker-report
+          path: link_checker_report.md
+          retention-days: 7
+
+  # ============================================
+  # AGENT 2: QA Checker
+  # ============================================
+  qa-checker:
+    name: вң… QA Checker
+    runs-on: ubuntu-latest
+    outputs:
+      status: ${{ steps.qa.outputs.status }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install beautifulsoup4 lxml
+
+      - name: Run QA Checker Agent
+        id: qa
+        run: |
+          python << 'EOF'
+          import os
+          import re
+          from pathlib import Path
+          from datetime import datetime
+          
+          print("✅ MEMULAI QA CHECKER AGENT")
+          print("=" * 60)
+          
+          html_files = [f for f in Path('.').glob('*.html')]
+          print(f"📁 Files to check: {len(html_files)}")
+          
+          results = {
+              'html': [],
+              'a11y': [],
+              'seo': []
+          }
+          
+          for filename in html_files:
+              content = filename.read_text(encoding='utf-8')
+              
+              # HTML Validation
+              if not re.search(r'<!DOCTYPE\s+html>', content, re.I):
+                  results['html'].append({'file': filename.name, 'msg': 'Missing DOCTYPE'})
+              
+              if 'viewport' not in content.lower():
+                  results['html'].append({'file': filename.name, 'msg': 'Missing viewport meta'})
+              
+              if '<title>' not in content:
+                  results['html'].append({'file': filename.name, 'msg': 'Missing <title>'})
+              
+              # Accessibility
+              img_tags = re.findall(r'<img[^>]+>', content, re.I)
+              for img in img_tags:
+                  if 'alt=' not in img.lower():
+                      results['a11y'].append({'file': filename.name, 'msg': 'Image missing alt attribute'})
+              
+              # SEO
+              if 'meta name="description"' not in content.lower():
+                  results['seo'].append({'file': filename.name, 'msg': 'Missing meta description'})
+          
+          # Report
+          total_errors = len(results['html'])
+          total_warnings = len(results['a11y']) + len(results['seo'])
+          
+          print("\n" + "=" * 60)
+          print("📊 QA CHECKER REPORT")
+          print("=" * 60)
+          print(f"\n📈 Summary:")
+          print(f"   ❌ Errors: {total_errors}")
+          print(f"   ⚠️ Warnings: {total_warnings}")
+          
+          if total_errors > 0:
+              print("\n❌ HTML Issues:")
+              for item in results['html'][:5]:
+                  print(f"   - {item['file']}: {item['msg']}")
+          
+          print("\n" + "=" * 60)
+          if total_errors == 0:
+              print("✅✅✅ QA CHECK PASSED!")
+          else:
+              print(f"⚠️⚠️⚠️ QA FAILED - {total_errors} errors")
+          print("=" * 60)
+          
+          # Save report
+          with open('qa_report.md', 'w') as f:
+              f.write(f"# ✅ QA Checker Report\n\n")
+              f.write(f"**Timestamp:** {datetime.now().strftime('%Y-%m-%d %H:%M:%S')} UTC\n\n")
+              f.write(f"## Summary\n\n")
+              f.write(f"| Check | Count |\n")
+              f.write(f"|-------|-------|\n")
+              f.write(f"| ❌ HTML Errors | {total_errors} |\n")
+              f.write(f"| ⚠️ Warnings | {total_warnings} |\n\n")
+              
+              if results['html']:
+                  f.write(f"### 📝 HTML Issues ({len(results['html'])})\n\n")
+                  for item in results['html'][:10]:
+                      f.write(f"- `{item['file']}`: {item['msg']}\n")
+                  f.write("\n")
+              
+              if results['a11y']:
+                  f.write(f"### ♿ Accessibility ({len(results['a11y'])})\n\n")
+                  for item in results['a11y'][:10]:
+                      f.write(f"- `{item['file']}`: {item['msg']}\n")
+                  f.write("\n")
+          
+          with open(os.getenv('GITHUB_OUTPUT'), 'a') as f:
+              f.write(f"status={'pass' if total_errors == 0 else 'fail'}\n")
+          
+          if total_errors > 0:
+              exit(1)
+          EOF
+
+      - name: Upload QA Report
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: qa-report
+          path: qa_report.md
+          retention-days: 7
+
+  # ============================================
+  # AGENT 3: Content Validator
+  # ============================================
+  content-validator:
+    name: рҹ“Ӣ Content Validator
+    runs-on: ubuntu-latest
+    outputs:
+      status: ${{ steps.validate.outputs.status }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Run Content Validator Agent
+        id: validate
+        run: |
+          python << 'EOF'
+          import os
+          import re
+          from pathlib import Path
+          from datetime import datetime
+          
+          print("📋 MEMULAI CONTENT VALIDATOR AGENT")
+          print("=" * 60)
+          
+          DOKTER_RESMI = [
+              "dr. I Gusti Putu Hery Sikesa, Sp.PD",
+              "dr. Sang Ketut Widiana, Sp.PD",
+              "dr. Tjokorda Prima Dewi Pemayun, Sp.PD",
+              "dr. Made Ayu Widyaningsih, Sp.A",
+              "dr. Ni Made Ayu Agustini, M.Biomed., SpA",
+              "dr. I Gede Agus Hendra Sujana, Sp.OG",
+              "dr. I Made Brammartha Kusuma, Sp.OG",
+              "dr. Pande Made Suwanpramana, Sp.OG",
+              "dr. Kade Agus Sudha Naryana, Sp.N",
+              "dr. Ni Komang Dewi Mahayani, Sp.N",
+              "dr. I G N Bagus Arimanjaya, Sp.An",
+              "dr. Manik Dirgayunitri, M.Biomed., Sp.An",
+              "dr. I Wayan Eka Arnawa, Sp.An-TI",
+              "dr. I Wayan Suwarna, S.Ked., Sp.B",
+              "dr. I Putu Swastika Kepakisan, M.Biomed., Sp.B",
+              "dr. I Ketut Wahyu Tri Saputra, Sp.OT",
+              "dr. I Gede Ketut Alit Satria Nugraha, SpOT",
+              "dr. Anak Agung Ayu Ngurah Desy Widya Putri, Sp.JP",
+              "dr. Herry Juniada, Sp.Rad",
+              "dr. Ika Nurvidha Mahayanthi Mantra, Sp.MK",
+              "dr. Made Minarti Witarini Dewi, Sp.PK",
+              "dr. Theresia Maharani Sari Nastiti, Sp.PK"
+          ]
+          
+          results = {'dokter': [], 'images': [], 'structure': []}
+          
+          # Check dokter.html
+          dokter_html = Path('dokter.html')
+          if dokter_html.exists():
+              content = dokter_html.read_text(encoding='utf-8')
+              for dokter in DOKTER_RESMI:
+                  if dokter not in content:
+                      nama_pendek = dokter.split(',')[0]
+                      if nama_pendek not in content:
+                          results['dokter'].append(f'Dokter tidak ditemukan: {dokter}')
+          
+          # Check images
+          img_dir = Path('img/dokter')
+          if img_dir.exists():
+              existing_imgs = list(img_dir.glob('*'))
+              print(f"📷 Found {len(existing_imgs)} images in img/dokter/")
+          
+          # Check required pages
+          required_pages = ['index.html', 'about.html', 'dokter.html', 'kontak.html', 'antrean.html', 'igd.html']
+          for page in required_pages:
+              if not Path(page).exists():
+                  results['structure'].append(f'Missing: {page}')
+          
+          # Report
+          total_errors = len(results['dokter']) + len(results['structure'])
+          
+          print("\n" + "=" * 60)
+          print("📊 CONTENT VALIDATOR REPORT")
+          print("=" * 60)
+          print(f"\n📈 Summary:")
+          print(f"   👨‍⚕️ Dokter Issues: {len(results['dokter'])}")
+          print(f"   📁 Structure Issues: {len(results['structure'])}")
+          
+          if results['dokter']:
+              print("\n❌ Dokter Issues:")
+              for item in results['dokter'][:5]:
+                  print(f"   - {item}")
+          
+          print("\n" + "=" * 60)
+          if total_errors == 0:
+              print("✅✅✅ CONTENT VALIDATION PASSED!")
+          else:
+              print(f"⚠️⚠️⚠️ CONTENT VALIDATION FAILED - {total_errors} errors")
+          print("=" * 60)
+          
+          # Save report
+          with open('content_validation_report.md', 'w') as f:
+              f.write(f"# 📋 Content Validation Report\n\n")
+              f.write(f"**Timestamp:** {datetime.now().strftime('%Y-%m-%d %H:%M:%S')} UTC\n\n")
+              f.write(f"## Summary\n\n")
+              f.write(f"| Check | Result |\n")
+              f.write(f"|-------|--------|\n")
+              f.write(f"| Dokter List | {'✅ OK' if not results['dokter'] else f'❌ {len(results[\"dokter\"])} missing'} |\n")
+              f.write(f"| Required Pages | {'✅ OK' if not results['structure'] else f'❌ {len(results[\"structure\"])} missing'} |\n\n")
+              
+              if results['dokter']:
+                  f.write(f"### ❌ Dokter Issues\n\n")
+                  for item in results['dokter']:
+                      f.write(f"- {item}\n")
+                  f.write("\n")
+          
+          with open(os.getenv('GITHUB_OUTPUT'), 'a') as f:
+              f.write(f"status={'pass' if total_errors == 0 else 'fail'}\n")
+          
+          if total_errors > 0:
+              exit(1)
+          EOF
+
+      - name: Upload Content Validation Report
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: content-validation-report
+          path: content_validation_report.md
+          retention-days: 7
+
+  # ============================================
+  # SUMMARY: All Agents Report
+  # ============================================
+  all-agents-summary:
+    name: 📊 All Agents Summary
+    runs-on: ubuntu-latest
+    needs: [link-checker, qa-checker, content-validator]
+    if: always()
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Generate Summary Report
+        run: |
+          echo "## рҹ“Ӣ All Agents Report" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          
+          echo "### Agent Status" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "| Agent | Status |" >> $GITHUB_STEP_SUMMARY
+          echo "|-------|--------|" >> $GITHUB_STEP_SUMMARY
+          
+          # Link Checker
+          LC_STATUS="${{ needs.link-checker.result }}"
+          if [ "$LC_STATUS" == "success" ]; then
+            echo "| 🔍 Link Checker | ✅ Pass |" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "| 🔍 Link Checker | ❌ Fail |" >> $GITHUB_STEP_SUMMARY
+          fi
+          
+          # QA Checker
+          QA_STATUS="${{ needs.qa-checker.result }}"
+          if [ "$QA_STATUS" == "success" ]; then
+            echo "| ✅ QA Checker | ✅ Pass |" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "| ✅ QA Checker | ❌ Fail |" >> $GITHUB_STEP_SUMMARY
+          fi
+          
+          # Content Validator
+          CV_STATUS="${{ needs.content-validator.result }}"
+          if [ "$CV_STATUS" == "success" ]; then
+            echo "| 📋 Content Validator | ✅ Pass |" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "| 📋 Content Validator | ❌ Fail |" >> $GITHUB_STEP_SUMMARY
+          fi
+          
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Timestamp:** $(date -u '+%Y-%m-%d %H:%M:%S UTC')" >> $GITHUB_STEP_SUMMARY
+          
+          echo ""
+          echo "============================================"
+          echo "📊 ALL AGENTS SUMMARY"
+          echo "============================================"
+          echo ""
+          echo "🔍 Link Checker:   ${{ needs.link-checker.result }}"
+          echo "✅ QA Checker:     ${{ needs.qa-checker.result }}"
+          echo "📋 Content:       ${{ needs.content-validator.result }}"
+          echo ""
+
+      - name: Set Final Status
+        run: |
+          if [ "${{ needs.link-checker.result }}" == "success" ] && \
+             [ "${{ needs.qa-checker.result }}" == "success" ] && \
+             [ "${{ needs.content-validator.result }}" == "success" ]; then
+            echo "🎉🎉🎉 ALL AGENTS PASSED!"
+            echo "status=success" >> $GITHUB_OUTPUT
+          else
+            echo "⚠️⚠️⚠️ SOME AGENTS FAILED"
+            echo "status=failure" >> $GITHUB_OUTPUT
+            exit 1
+          fi

@@ -1,37 +1,225 @@
-# AGENTS.md
+# SELAMAT DATANG, PAK PUR!
 
-<!-- Repository-specific knowledge for OpenHands agent -->
+---
 
-## Learned Skills (2026-07-01)
+### Salam dari Agent AI Anda!
 
-### 1. conversation-continuity
-- Handles session interruptions and context restoration
-- Location: `.agents/skills/conversation-continuity/`
-- Keywords: "lanjutkan", "continue", "session lost"
+**CEO:** i Made Purna Ananda (Pak Pur)  
+**Target:** Rp 100.000.000/bulan
 
-### 2. web-developer ⭐ NEW
-- Comprehensive web development knowledge
-- Location: `.agents/skills/web-developer/`
-- Includes: Frontend, Backend, Security, Performance
-- Frameworks: React, Vue, Angular, Next.js, Svelte
-- Key Resources:
-  - `references/frameworks-comparison.md`
-  - `references/security-checklist.md`
-  - `references/performance-guide.md`
+---
 
-## Session State (2026-07-01)
+**Halo Pak Pur!** 
 
-### Completed Tasks
-1. Created `conversation-continuity` skill ✅
-2. Created `web-developer` skill ✅
-3. Researched web development best practices 2024-2026 ✅
-4. Compiled framework comparisons and security guides ✅
+Saya Agent AI Anda, siap membantu! Setiap kali Pak Pur buka repository ini, saya langsung menyapa dan siap kerja bareng!
 
-### Skills Created
-- `.agents/skills/conversation-continuity/` (4 files)
-- `.agents/skills/web-developer/` (4 files + 3 references)
+### Info Singkat untuk Pak Pur:
 
-### 13 Sub-Agents Created (with Knowledge Base)
+| Info | Nilai |
+|------|-------|
+| **Project** | RS Payangan Hospital Management System |
+| **Domain** | https://payanganhospital.gianyarkab.go.id/ |
+| **Hosting** | Idwebhost (cPanel) |
+| **Target** | Rp 100.000.000/bulan |
+
+### Yang Bisa Saya Kerjakan bareng Pak Pur:
+
+- **Manajemen Website** - Update dan optimasi website RS Payangan
+- **Dashboard Admin** - Akses rs-admin, laporan direksi
+- **Automation** - Auto-deploy, daily reports, 13 QA agents
+- **Deploy** - Push ke hosting, webhook management
+- **Analisis** - Cek tampilan, perbaiki gambar, SEO
+
+### Login Credentials:
+
+| Sistem | Username | Password |
+|--------|----------|----------|
+| rs-admin (Admin) | `admin` | `admin123` |
+| rs-admin (Direktur) | `direktur` | `welcomehome` |
+| rs-admin (Karyawan) | `karyawan` | `staf2026` |
+
+---
+
+> *"Ga ada yang ga mungkin kalau kerja bareng AI!"* - GAURANGA System
+
+---
+
+# Payangan Hospital - Agent Workspace
+
+## Overview
+
+Repository ini berisi website RS Payangan Hospital dan konfigurasi automasi untuk deployment otomatis.
+
+---
+
+## Project Info
+
+| Field | Value |
+|-------|-------|
+| **Project** | Payangan Hospital Management System |
+| **Repository** | `prahlad168/Payangan-Hospital` |
+| **Domain** | `https://payanganhospital.gianyarkab.go.id/` |
+| **Hosting** | Idwebhost (cPanel) |
+| **Username cPanel** | `payangan` |
+
+---
+
+## Project Structure
+
+```
+Payangan-Hospital/
+├── index.html              # Homepage
+├── about.html              # About page
+├── dokter.html             # Doctor list
+├── igd.html                # IGD/Emergency
+├── kontak.html             # Contact page
+├── antrean.html           # Live antrean display
+├── progress/
+│   ├── index.html         # Progress dashboard
+│   ├── weekly-report-*.md    # Laporan mingguan
+│   └── director-report-login.html  # Login laporan direksi
+├── rs-admin/              # BACKEND ADMIN SYSTEM
+│   ├── config/
+│   │   ├── database.php       # Konfigurasi DB
+│   │   └── schema.sql         # Database schema
+│   ├── includes/
+│   │   ├── auth.php           # Auth helpers
+│   │   ├── header.php        # Navbar/Sidebar
+│   │   └── footer.php        # Footer
+│   ├── login.php             # Login page
+│   ├── logout.php            # Logout
+│   ├── dashboard.php         # Dashboard utama
+│   ├── dokter.php           # Manajemen dokter
+│   ├── poli.php              # Manajemen poli
+│   ├── pasien.php            # Manajemen pasien
+│   ├── kamar.php            # Manajemen kamar
+│   ├── antrean.php           # Sistem antrean
+│   ├── igd.php              # IGD
+│   ├── users.php            # Manajemen user
+│   └── README.md            # Dokumentasi
+├── img/                    # Images folder
+├── webhook.php             # Auto-deploy webhook script
+└── ... (other hospital pages)
+```
+
+---
+
+## Available Skills
+
+### 1. Webhook Auto-Deploy
+**File:** `.agents/skills/webhook-auto-deploy.md`
+
+Setup webhook untuk auto-deploy dari GitHub ke hosting Idwebhost.
+
+**Yang sudah configured:**
+- ✅ Webhook URL: `https://payanganhospital.gianyarkab.go.id/webhook.php`
+- ✅ GitHub webhook active
+- ✅ Auto-deploy working
+
+### 2. OpenHands Daily Report
+**File:** `.agents/skills/openhands-daily-report.md`
+
+Automation untuk laporan progress harian otomatis jam 6 pagi WIB.
+
+**Yang sudah configured:**
+- ✅ Automation ID: `2e4d4f38-1c7c-4437-b25b-7d52f35d0ab7`
+- ✅ Schedule: `0 6 * * *` (Asia/Jakarta)
+- ✅ Output: `progress/daily-report-YYYY-MM-DD.md`
+
+### 3. RS Admin Backend System
+**Folder:** `rs-admin/`
+
+Sistem backend administration untuk RS Payangan Hospital dengan autentikasi multi-level.
+
+**Login Credentials:**
+| Role | Username | Password |
+|------|----------|----------|
+| **Directeur** | `direktur` | `welcomehome` |
+| **Admin** | `admin` | `admin123` |
+| **Karyawan** | `karyawan` | `staf2026` |
+
+**Fitur:**
+- Dashboard dengan statistik real-time
+- Manajemen dokter, poli, pasien, kamar
+- Sistem antrean terintegrasi
+- Role-based access control (RBAC)
+- MySQL database schema siap pakai
+
+**URL Akses (setelah deploy):**
+```
+https://payanganhospital.gianyarkab.go.id/rs-admin/
+```
+
+### 4. Laporan Direksi
+**File:** `progress/director-report-login.html`
+
+Laporan mingguan dengan proteksi password untuk direktur.
+
+**Password:** `welcomehome`
+
+### 5. Chat Agent System
+**File:** `chat.html` + `rs-admin/api/chat.php`
+
+Sistem chat AI untuk website RS Payangan.
+
+**URL:** `https://payanganhospital.gianyarkab.go.id/chat.html`
+
+---
+
+## Deployment Flow
+
+```
+GitHub Push
+     │
+     ▼
+GitHub Webhook Trigger
+     │
+     ▼
+Hosting Server (Idwebhost)
+     │
+     ▼
+Git Pull to Live
+     │
+     ▼
+Website Updated
+```
+
+---
+
+## Quick Commands
+
+### Test Webhook:
+```
+https://payanganhospital.gianyarkab.go.id/webhook.php
+```
+
+### Trigger Automation Manually:
+```bash
+curl -X POST "https://app.all-hands.dev/api/automation/v1/2e4d4f38-1c7c-4437-b25b-7d52f35d0ab7/dispatch" \
+  -H "Authorization: Bearer ${OPENHANDS_API_KEY}"
+```
+
+---
+
+## Status
+
+| Component | Status | Notes |
+|-----------|--------|-------|
+| GitHub Repository | ✅ Active | Latest commit |
+| Hosting Connected | ✅ Connected | Idwebhost cPanel |
+| Webhook | ✅ Working | Auto-deploy on push |
+| Daily Automation | ✅ Active | 6 AM WIB daily |
+| Auto-Deploy | ✅ Ready | GitHub Actions + Webhook |
+| RS Admin Backend | ✅ Ready | PHP/MySQL ready |
+| Laporan Direksi | ✅ Ready | Password protected |
+| 13 QA Agents | ✅ Ready | Run with /play command |
+| Chat Agent | ✅ NEW | AI chatbot for website |
+
+---
+
+## 13 Web Development Agents
+
+This section documents the specialized agents for web development tasks.
 
 **Core Stack:**
 1. **frontend-agent.md** - React, Vue, HTML/CSS, UI components
@@ -52,24 +240,6 @@
 12. **seo-agent.md** - Schema.org, meta tags, Indonesian SEO
 13. **analytics-agent.md** - GA4, GTM, event tracking, funnels
 
-### Knowledge Base Files (10 references)
-- `references/react-deep-knowledge.md`
-- `references/rest-api-deep-knowledge.md`
-- `references/docker-kubernetes-reference.md`
-- `references/database-sql-reference.md`
-- `references/mobile-pwa-reference.md`
-- `references/testing-reference.md`
-- `references/uxdesign-reference.md`
-- `references/cloudai-reference.md`
-- `references/seo-reference.md`
-- `references/analytics-reference.md`
+**Location:** `.agents/agents/` (agent specifications) and `.agents/agents/references/` (knowledge base)
 
-### User Context
-- User speaks Indonesian
-- User wants AI to learn web development skills
-- User wants continuous learning every 1 minute
-- User wants skills stored for future use
-
-### Known Issues
-- Skills not auto-loading (requires full server restart)
-- Web interface showing "Bad Gateway"
+**Last Updated:** 2026-07-05
