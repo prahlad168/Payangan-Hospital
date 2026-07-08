@@ -1,12 +1,58 @@
+# SELAMAT DATANG, PAK PUR!
+
+---
+
+### Salam dari Agent AI Anda!
+
+**CEO:** i Made Purna Ananda (Pak Pur)  
+**Target:** Rp 100.000.000/bulan
+
+---
+
+**Halo Pak Pur!** 
+
+Saya Agent AI Anda, siap membantu! Setiap kali Pak Pur buka repository ini, saya langsung menyapa dan siap kerja bareng!
+
+### Info Singkat untuk Pak Pur:
+
+| Info | Nilai |
+|------|-------|
+| **Project** | RS Payangan Hospital Management System |
+| **Domain** | https://payanganhospital.gianyarkab.go.id/ |
+| **Hosting** | Idwebhost (cPanel) |
+| **Target** | Rp 100.000.000/bulan |
+
+### Yang Bisa Saya Kerjakan bareng Pak Pur:
+
+- **Manajemen Website** - Update dan optimasi website RS Payangan
+- **Dashboard Admin** - Akses rs-admin, laporan direksi
+- **Automation** - Auto-deploy, daily reports, 13 QA agents
+- **Deploy** - Push ke hosting, webhook management
+- **Analisis** - Cek tampilan, perbaiki gambar, SEO
+
+### Login Credentials:
+
+| Sistem | Username | Password |
+|--------|----------|----------|
+| rs-admin (Admin) | `admin` | `admin123` |
+| rs-admin (Direktur) | `direktur` | `welcomehome` |
+| rs-admin (Karyawan) | `karyawan` | `staf2026` |
+
+---
+
+> *"Ga ada yang ga mungkin kalau kerja bareng AI!"* - GAURANGA System
+
+---
+
 # Payangan Hospital - Agent Workspace
 
-## рҹ“Ӣ Overview
+## Overview
 
 Repository ini berisi website RS Payangan Hospital dan konfigurasi automasi untuk deployment otomatis.
 
 ---
 
-## рҹҸҘ Project Info
+## Project Info
 
 | Field | Value |
 |-------|-------|
@@ -18,24 +64,47 @@ Repository ini berisi website RS Payangan Hospital dan konfigurasi automasi untu
 
 ---
 
-## рҹ“Ғ Project Structure
+## Project Structure
 
 ```
-в”ңв”Җв”Җ index.html              # Homepage
-в”ңв”Җв”Җ about.html              # About page
-в”ңв”Җв”Җ dokter.html             # Doctor list
-в”ңв”Җв”Җ igd.html                # IGD/Emergency
-в”ңв”Җв”Җ kontak.html             # Contact page
-в”ңв”Җв”Җ progress/
-в”Ӯ   в””в”Җв”Җ index.html         # Progress dashboard
-в”ңв”Җв”Җ img/                    # Images folder
-в”ңв”Җв”Җ webhook.php             # Auto-deploy webhook script
-в””в”Җв”Җ ... (other hospital pages)
+Payangan-Hospital/
+├── index.html              # Homepage
+├── about.html              # About page
+├── dokter.html             # Doctor list
+├── igd.html                # IGD/Emergency
+├── kontak.html             # Contact page
+├── antrean.html           # Live antrean display
+├── progress/
+│   ├── index.html         # Progress dashboard
+│   ├── weekly-report-*.md    # Laporan mingguan
+│   └── director-report-login.html  # Login laporan direksi
+├── rs-admin/              # BACKEND ADMIN SYSTEM
+│   ├── config/
+│   │   ├── database.php       # Konfigurasi DB
+│   │   └── schema.sql         # Database schema
+│   ├── includes/
+│   │   ├── auth.php           # Auth helpers
+│   │   ├── header.php        # Navbar/Sidebar
+│   │   └── footer.php        # Footer
+│   ├── login.php             # Login page
+│   ├── logout.php            # Logout
+│   ├── dashboard.php         # Dashboard utama
+│   ├── dokter.php           # Manajemen dokter
+│   ├── poli.php              # Manajemen poli
+│   ├── pasien.php            # Manajemen pasien
+│   ├── kamar.php            # Manajemen kamar
+│   ├── antrean.php           # Sistem antrean
+│   ├── igd.php              # IGD
+│   ├── users.php            # Manajemen user
+│   └── README.md            # Dokumentasi
+├── img/                    # Images folder
+├── webhook.php             # Auto-deploy webhook script
+└── ... (other hospital pages)
 ```
 
 ---
 
-## рҹӨ– Available Skills
+## Available Skills
 
 ### 1. Webhook Auto-Deploy
 **File:** `.agents/skills/webhook-auto-deploy.md`
@@ -43,9 +112,9 @@ Repository ini berisi website RS Payangan Hospital dan konfigurasi automasi untu
 Setup webhook untuk auto-deploy dari GitHub ke hosting Idwebhost.
 
 **Yang sudah configured:**
-- вң… Webhook URL: `https://payanganhospital.gianyarkab.go.id/webhook.php`
-- вң… GitHub webhook active
-- вң… Auto-deploy working
+- ✅ Webhook URL: `https://payanganhospital.gianyarkab.go.id/webhook.php`
+- ✅ GitHub webhook active
+- ✅ Auto-deploy working
 
 ### 2. OpenHands Daily Report
 **File:** `.agents/skills/openhands-daily-report.md`
@@ -53,44 +122,71 @@ Setup webhook untuk auto-deploy dari GitHub ke hosting Idwebhost.
 Automation untuk laporan progress harian otomatis jam 6 pagi WIB.
 
 **Yang sudah configured:**
-- вң… Automation ID: `2e4d4f38-1c7c-4437-b25b-7d52f35d0ab7`
-- вң… Schedule: `0 6 * * *` (Asia/Jakarta)
-- вң… Output: `progress/daily-report-YYYY-MM-DD.md`
+- ✅ Automation ID: `2e4d4f38-1c7c-4437-b25b-7d52f35d0ab7`
+- ✅ Schedule: `0 6 * * *` (Asia/Jakarta)
+- ✅ Output: `progress/daily-report-YYYY-MM-DD.md`
+
+### 3. RS Admin Backend System
+**Folder:** `rs-admin/`
+
+Sistem backend administration untuk RS Payangan Hospital dengan autentikasi multi-level.
+
+**Login Credentials:**
+| Role | Username | Password |
+|------|----------|----------|
+| **Directeur** | `direktur` | `welcomehome` |
+| **Admin** | `admin` | `admin123` |
+| **Karyawan** | `karyawan` | `staf2026` |
+
+**Fitur:**
+- Dashboard dengan statistik real-time
+- Manajemen dokter, poli, pasien, kamar
+- Sistem antrean terintegrasi
+- Role-based access control (RBAC)
+- MySQL database schema siap pakai
+
+**URL Akses (setelah deploy):**
+```
+https://payanganhospital.gianyarkab.go.id/rs-admin/
+```
+
+### 4. Laporan Direksi
+**File:** `progress/director-report-login.html`
+
+Laporan mingguan dengan proteksi password untuk direktur.
+
+**Password:** `welcomehome`
+
+### 5. Chat Agent System
+**File:** `chat.html` + `rs-admin/api/chat.php`
+
+Sistem chat AI untuk website RS Payangan.
+
+**URL:** `https://payanganhospital.gianyarkab.go.id/chat.html`
 
 ---
 
-## рҹҡҖ Deployment Flow
+## Deployment Flow
 
 ```
-в”Ңв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”җ
-в”Ӯ  GitHub Push    в”Ӯ
-в””в”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”¬в”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”ҳ
-         в”Ӯ
-         в–ј
-в”Ңв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”җ
-в”Ӯ  GitHub         в”Ӯ
-в”Ӯ  Webhook        в”Ӯ
-в””в”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”¬в”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”ҳ
-         в”Ӯ
-         в–ј
-в”Ңв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”җ     в”Ңв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”җ
-в”Ӯ  Idwebhost      в”Ӯв”Җв”Җв”Җв”Җв–¶в”Ӯ  Website Updated в”Ӯ
-в”Ӯ  webhook.php    в”Ӯ     в”Ӯ  вң… Success      в”Ӯ
-в””в”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”ҳ     в””в”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”Җв”ҳ
+GitHub Push
+     │
+     ▼
+GitHub Webhook Trigger
+     │
+     ▼
+Hosting Server (Idwebhost)
+     │
+     ▼
+Git Pull to Live
+     │
+     ▼
+Website Updated
 ```
 
 ---
 
-## рҹ“… Automation Schedule
-
-| Task | Schedule | Output |
-|------|----------|--------|
-| Daily Progress Report | Setiap jam 6:00 pagi WIB | `progress/daily-report-*.md` |
-| Progress Dashboard | Setiap push | `progress/index.html` |
-
----
-
-## рҹ”§ Quick Commands
+## Quick Commands
 
 ### Test Webhook:
 ```
@@ -103,180 +199,37 @@ curl -X POST "https://app.all-hands.dev/api/automation/v1/2e4d4f38-1c7c-4437-b25
   -H "Authorization: Bearer ${OPENHANDS_API_KEY}"
 ```
 
-### Check Automation Status:
-```bash
-curl "https://app.all-hands.dev/api/automation/v1/2e4d4f38-1c7c-4437-b25b-7d52f35d0ab7" \
-  -H "Authorization: Bearer ${OPENHANDS_API_KEY}"
-```
+---
+
+## Status
+
+| Component | Status | Notes |
+|-----------|--------|-------|
+| GitHub Repository | ✅ Active | Latest commit |
+| Hosting Connected | ✅ Connected | Idwebhost cPanel |
+| Webhook | ✅ Working | Auto-deploy on push |
+| Daily Automation | ✅ Active | 6 AM WIB daily |
+| Auto-Deploy | ✅ Ready | GitHub Actions + Webhook |
+| RS Admin Backend | ✅ Ready | PHP/MySQL ready |
+| Laporan Direksi | ✅ Ready | Password protected |
+| 13 QA Agents | ✅ Ready | Run with /play command |
+| Chat Agent | ✅ Active | AI chatbot for website |
+| Customer Service Agent | ✅ Active | FAQ & support |
 
 ---
 
-## рҹ”Қ Visual Analysis Skill
+## Customer Service Agent
 
-**File:** `.agents/skills/visual-analysis/`
-
-Skill untuk analisis gambar, screenshot, dan verifikasi tampilan website.
-
-**Trigger phrases:**
-- "lihat gambar", "analisis screenshot", "cek tampilan"
-- "lihat halaman web", "deskripsikan gambar"
-- "apa yang terlihat", "check image"
-
-**Capabilities:**
-- Web page navigation & screenshot capture
-- Visual element verification
-- UI/UX analysis
-- Layout structure description
-- Color scheme detection
-
----
-
-## 🚀 Hosting Deploy Skill
-
-**File:** `.agents/skills/hosting-deploy/`
-
-Skill untuk deploy dari GitHub ke hosting Idwebhost.
-
-**Trigger phrases:**
-- "deploy", "push ke hosting", "update website"
-- "sync hosting", "webhook tidak jalan"
-- "manual deploy", "direct deploy"
-
-**Deploy Methods:**
-| Method | URL |
-|--------|-----|
-| GitHub Webhook | Auto on push |
-| Manual Deploy | `deploy.php?key=DEPLOY_KEY` |
-| SSH | cPanel Terminal |
-| cPanel | File Manager |
-
-**Quick Deploy:**
-```
-https://payanganhospital.gianyarkab.go.id/deploy.php?key=PAYANGAN_DEPLOY_2026
-```
-
----
-
-## 🌐 Network Speed Skill
-
-**File:** `.agents/skills/network-speed/`
-
-Skill untuk mempercepat koneksi internet secara **legal**.
-
-**Trigger phrases:**
-- "internet cepat", "speed internet"
-- "DNS cepat", "wifi lambat"
-- "optimasi internet", "download cepat"
-
-**Quick Tips:**
-| Tips | Cara |
-|------|------|
-| DNS | 1.1.1.1 / 8.8.8.8 |
-| Browser | Clear cache, disable extensions |
-| Router | Reboot, 5GHz band |
-| System | Flush DNS, reset network |
-
----
-
-## 📡 Onno W. Purbo Skill
-
-**File:** `.agents/skills/onno-w-purbo/`
-
-Skill untuk belajar metode **Onno W. Purbo** - Bapak Internet Indonesia.
-
-**Trigger phrases:**
-- "onno w purbo", "onno purbo"
-- "wajan internet", "wokbolic"
-- "wifi dari wajan", "antena kaleng"
-- "internet murah", "community network"
-
-**Metode Legendaris:**
-| Metode | Hasil |
-|--------|-------|
-| Wokbolic (Wajan) | 50m → 4km |
-| Tin Can WiFi | 50m → 1km |
-| Community Network | Desa tanpa internet |
-
-**Prinsip:**
-- Kreatif dengan bahan murah
-- Legal & open knowledge
-- Bangun komunitas
-
----
-
-## 🔧 Image Fixing Skill
-
-**File:** `.agents/skills/image-fixing/`
-
-Skill untuk memperbaiki masalah gambar di website (blur, stretch, kecil, tidak muncul).
-
-**Trigger phrases:**
-- "perbaiki gambar", "fix image", "gambar blurry"
-- "gambar pecah", "gambar kecil", "image quality"
-
-**Common Fixes:**
-- Replace gambar kecil dengan versi lebih besar
-- Adjust CSS background-size (cover/contain)
-- Fix image path/case sensitivity
-- Optimize image size
-
-
-## рҹ“қ For Future Development
-
-### Adding New Pages:
-1. Create HTML file di repository
-2. Push ke GitHub
-3. Hosting auto-update via webhook
-
-### Modifying Automation:
-1. Edit prompt di OpenHands dashboard
-2. Atau update via API
-
-### Checking Logs:
-- Webhook log: `/home/payangan/public_html/webhook.log`
-- OpenHands runs: Via dashboard
-
----
-
-## рҹ”’ Security Notes
-
-- Webhook secret: Tidak dipakai (kosong) untuk simplicity
-- Untuk production: Tambahkan secret verification
-- GitHub token: Gunakan read-only access jika memungkinkan
-
----
-
-## рҹ“һ Contact
-
-- **GitHub Owner:** prahlad168
-- **Domain Admin:** Team Idwebhost
-
----
-
-## вң… Status
-
-| Component | Status |
-|-----------|--------|
-| GitHub Repository | вң… Active |
-| Hosting Connected | вң… Connected |
-| Webhook | вң… Working |
-| Daily Automation | вң… Active |
-| Auto-Deploy | вң… Ready |
-| Customer Service Agent | вң… Active |
-
----
-
-## рҹ’ё Customer Service Agent
-
-**File:** `progress/customer-feedback-report.md`  
-**Response Templates:** `progress/cs-response-templates.md`  
-**FAQ Page:** `faq.html`
+**Files:**
+- `progress/customer-feedback-report.md` - Comprehensive CS analysis
+- `progress/cs-response-templates.md` - Response templates for common questions
+- `faq.html` - Customer-facing FAQ page
 
 ### Agent Responsibilities:
 - Review support tickets, feedback, reviews
-- Generate draft responses untuk common questions
-- Buat FAQ update berdasarkan common issues
-- Simpan laporan ke customer-feedback-report.md
+- Generate draft responses for common questions
+- Create FAQ updates based on common issues
+- Save reports to customer-feedback-report.md
 
 ### Target Metrics:
 | Metric | Target | Status |
@@ -285,13 +238,6 @@ Skill untuk memperbaiki masalah gambar di website (blur, stretch, kecil, tidak m
 | CSAT | > 90% | ✅ On Track |
 | First Contact Resolution | > 70% | ✅ On Track |
 
-### Key Files:
-| File | Description |
-|------|-------------|
-| `progress/customer-feedback-report.md` | Comprehensive CS report |
-| `progress/cs-response-templates.md` | Response templates |
-| `faq.html` | Customer-facing FAQ page |
-
 ### Common Issues Found:
 1. **Email tidak konsisten** - Gunakan email resmi: `info@rsupayangan.co.id`
 2. **WhatsApp placeholder** - 6281234567890 (placeholder, perlu verifikasi)
@@ -299,4 +245,4 @@ Skill untuk memperbaiki masalah gambar di website (blur, stretch, kecil, tidak m
 
 ---
 
-**Last Updated:** 2026-07-03
+**Last Updated:** 2026-07-06

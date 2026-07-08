@@ -3,1742 +3,1706 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dokter - Payangan Hospital</title>
+    <meta name="description" content="Dokter Spesialis RS Payangan Hospital Gianyar, Bali. 22+ dokter berpengalaman siap melayani rawat jalan dan konsultasi medis.">
+    <meta name="keywords" content="dokter spesialis gianyar, dokter rs payangan, daftar dokter, konsultasi dokter, spesialis bali">
+    <meta name="author" content="RS Payangan Hospital">
+    <meta name="robots" content="index, follow">
+    <title>Daftar Dokter Spesialis - RS Payangan Hospital Gianyar</title>
+    
+    <!-- Favicon -->
     <link rel="icon" type="image/png" href="logo.png">
+    
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
+        /* ========================================
+           DESIGN SYSTEM - Same as Homepage
+        ======================================== */
         :root {
-            --primary: #0d7377;
-            --primary-dark: #095456;
-            --primary-light: #14919b;
+            --primary: #0891b2;
+            --primary-dark: #0e7490;
+            --primary-light: #22d3ee;
+            --primary-50: #ecfeff;
+            --primary-100: #cffafe;
+            --primary-200: #a5f3fc;
+            --primary-600: #0891b2;
+            --primary-700: #0e7490;
+            --primary-800: #155e75;
+            --primary-900: #164e63;
+            
             --secondary: #f4c430;
-            --accent: #e85d04;
-            --bg-light: #f8f9fa;
-            --text-dark: #212529;
-            --text-muted: #6c757d;
-            --white: #ffffff;
+            --secondary-dark: #d4a40a;
+            --secondary-light: #fde68a;
+            
+            --accent: #ec4899;
+            --accent-light: #f9a8d4;
+            
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --info: #3b82f6;
+            
+            --bg-white: #ffffff;
+            --bg-light: #f8fafc;
+            --bg-warm: #fefcf8;
+            --bg-dark: #0f172a;
+            
+            --text-dark: #0f172a;
+            --text-muted: #64748b;
+            --text-light: #94a3b8;
+            
+            --gradient-primary: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            --gradient-dark: linear-gradient(135deg, var(--bg-dark) 0%, var(--primary-900) 100%);
+            
+            --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.05);
+            --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.06);
+            --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --shadow-xl: 0 20px 50px rgba(0, 0, 0, 0.15);
+            --shadow-2xl: 0 25px 60px rgba(0, 0, 0, 0.2);
+            --shadow-primary: 0 10px 40px rgba(8, 145, 178, 0.3);
+            
+            --radius-xs: 4px;
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 24px;
+            --radius-2xl: 32px;
+            --radius-full: 9999px;
+            
+            --transition-fast: 0.15s ease;
+            --transition-base: 0.3s ease;
+            --transition-slow: 0.5s ease;
+            --transition-smooth: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            
+            --space-1: 4px;
+            --space-2: 8px;
+            --space-3: 12px;
+            --space-4: 16px;
+            --space-5: 20px;
+            --space-6: 24px;
+            --space-8: 32px;
+            --space-10: 40px;
+            --space-12: 48px;
+            --space-16: 64px;
+            --space-20: 80px;
+            
+            --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            --font-display: 'Playfair Display', Georgia, serif;
+            
+            --container-max: 1400px;
+            --container-padding: 24px;
         }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Montserrat', sans-serif; font-weight: 300; color: var(--text-dark); line-height: 1.6; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-        
-        /* Navbar */
-        .navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 20px 0; transition: all 0.3s; }
-        .navbar.scrolled { background: var(--white); box-shadow: 0 2px 20px rgba(0,0,0,0.1); padding: 15px 0; }
-        .navbar .container { display: flex; justify-content: space-between; align-items: center; }
-        .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--white); }
-        .navbar.scrolled .logo { color: var(--text-dark); }
-        .logo img { height: 45px; }
-        h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; font-size: 1.4rem; font-weight: 600; }
-        .logo-text-sub { font-size: 0.7rem; opacity: 0.8; font-weight: 400; }
-        .nav-links { display: flex; gap: 8px; list-style: none; }
-        .nav-links > li { position: relative; }
-        .nav-links a { text-decoration: none; color: rgba(255,255,255,0.9); font-size: 0.85rem; font-weight: 400; padding: 10px 16px; border-radius: 50px; display: block; transition: all 0.3s; }
-        .navbar.scrolled .nav-links a { color: var(--text-muted); }
-        .nav-links a i { font-size: 10px; margin-left: 4px; }
-        .nav-links a:hover, .nav-links a.active { color: var(--secondary); background: rgba(255,255,255,0.1); }
-        .navbar.scrolled .nav-links a:hover, .navbar.scrolled .nav-links a.active { color: var(--primary); background: var(--bg-light); }
-        .nav-links > li:hover .mega-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(10px); }
-        .mega-menu { position: absolute; top: 100%; left: 50%; transform: translateX(-50%); background: var(--white); border-radius: 16px; box-shadow: 0 20px 60px rgba(0,0,0,0.15); padding: 20px; min-width: 500px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; opacity: 0; visibility: hidden; transition: all 0.3s; }
-        .mega-menu a { display: flex; align-items: center; gap: 16px; padding: 12px 16px; border-radius: 10px; color: var(--text-dark) !important; transition: all 0.3s; }
-        .mega-menu a:hover { background: var(--bg-light); }
-        .mega-menu .icon { width: 45px; height: 45px; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 18px; }
-        .mega-menu h4 { font-size: 0.95rem; font-weight: 600; margin-bottom: 2px; }
-        .mega-menu p { font-size: 0.8rem; color: var(--text-muted); }
-        .mobile-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 10px; }
-        .mobile-toggle span { width: 25px; height: 2px; background: var(--white); transition: 0.3s; }
-        .navbar.scrolled .mobile-toggle span { background: var(--text-dark); }
-        
+
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--bg-light);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        button {
+            font-family: inherit;
+            cursor: pointer;
+            border: none;
+            background: none;
+        }
+
+        .container {
+            max-width: var(--container-max);
+            margin: 0 auto;
+            padding: 0 var(--container-padding);
+        }
+
+        /* ========================================
+           HEADER / NAVBAR
+        ======================================== */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: var(--space-4) 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: var(--space-3);
+        }
+
+        .logo img {
+            width: 48px;
+            height: 48px;
+            border-radius: var(--radius-lg);
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-name {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        .logo-tagline {
+            font-size: 0.65rem;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+        }
+
+        .nav-link {
+            padding: var(--space-3) var(--space-5);
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            border-radius: var(--radius-full);
+            transition: all var(--transition-base);
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--primary);
+            background: var(--primary-50);
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: var(--space-4);
+        }
+
+        .btn-emergency {
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+            padding: var(--space-3) var(--space-5);
+            background: var(--danger);
+            color: white;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border-radius: var(--radius-full);
+            transition: all var(--transition-base);
+        }
+
+        .btn-emergency:hover {
+            background: #dc2626;
+        }
+
+        .btn-appointment {
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+            padding: var(--space-4) var(--space-6);
+            background: var(--gradient-primary);
+            color: white;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border-radius: var(--radius-full);
+            box-shadow: var(--shadow-primary);
+            transition: all var(--transition-base);
+        }
+
+        .btn-appointment:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            padding: var(--space-3);
+        }
+
+        .menu-toggle span {
+            width: 24px;
+            height: 2px;
+            background: var(--text-dark);
+        }
+
         /* Mobile Menu */
-        .mobile-menu { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: var(--primary); z-index: 999; padding: 100px 40px; transform: translateX(100%); transition: transform 0.4s; }
-        .mobile-menu.active { transform: translateX(0); }
-        .mobile-menu ul { list-style: none; }
-        .mobile-menu a { color: white; font-size: 1.1rem; padding: 12px 0; display: block; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.1); }
-        @media (max-width: 992px) {
-            .nav-links { display: none; }
-            .mobile-toggle { display: flex; }
-            .mobile-menu { display: block; }
-            .mega-menu { display: none; }
-        }
-        
-        /* Page Header */
-        .page-header { background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%); padding: 160px 0 100px; text-align: center; color: white; position: relative; overflow: hidden; }
-        .page-header::before { content: ''; position: absolute; inset: 0; background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); }
-        .page-header > * { position: relative; z-index: 1; }
-        .page-header h1 { font-family: 'Montserrat', sans-serif; font-size: 3rem; margin-bottom: 16px; }
-        .page-header p { font-size: 1.2rem; opacity: 0.9; max-width: 600px; margin: 0 auto; }
-        .breadcrumb { display: flex; justify-content: center; gap: 12px; margin-top: 24px; font-size: 0.9rem; opacity: 0.8; }
-        .breadcrumb a { color: white; text-decoration: none; }
-        .breadcrumb span { color: var(--secondary); }
-        
-        /* Stats Section */
-        .stats-section { background: var(--white); padding: 40px 0; margin-top: -50px; position: relative; z-index: 10; }
-        .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; max-width: 1000px; margin: 0 auto; }
-        .stat-card { background: var(--white); border-radius: 20px; padding: 30px; text-align: center; box-shadow: 0 10px 40px rgba(0,0,0,0.08); }
-        .stat-card i { font-size: 32px; color: var(--primary); margin-bottom: 12px; }
-        .stat-card .number { font-family: 'Montserrat', sans-serif; font-size: 2.5rem; font-weight: 700; color: var(--text-dark); }
-        .stat-card .label { font-size: 0.9rem; color: var(--text-muted); }
-        @media (max-width: 768px) {
-            .stats-grid { grid-template-columns: repeat(2, 1fr); }
-        }
-        
-        /* Content Section */
-        .content-section { padding: 80px 0; }
-        .section-label { display: inline-block; background: rgba(13, 115, 119, 0.1); color: var(--primary); padding: 8px 20px; border-radius: 50px; font-size: 0.85rem; font-weight: 500; margin-bottom: 16px; }
-        .section-title { font-family: 'Montserrat', sans-serif; font-size: 2.5rem; color: var(--text-dark); margin-bottom: 16px; text-align: center; }
-        .section-desc { text-align: center; color: var(--text-muted); font-size: 1.1rem; max-width: 600px; margin: 0 auto 50px; }
-        
-        /* Filter Buttons */
-        .filter-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-bottom: 50px; }
-        .filter-btn { background: var(--white); border: 2px solid #eee; color: var(--text-muted); padding: 10px 24px; border-radius: 50px; font-size: 0.9rem; font-weight: 500; cursor: pointer; transition: all 0.3s; }
-        .filter-btn:hover, .filter-btn.active { background: var(--primary); border-color: var(--primary); color: white; }
-        
-        /* Doctor Grid */
-        .doctor-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 30px; }
-        .doctor-card { background: var(--white); border-radius: 20px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.06); transition: all 0.3s; }
-        .doctor-card:hover { transform: translateY(-8px); box-shadow: 0 20px 60px rgba(0,0,0,0.12); }
-        .doctor-header { display: flex; align-items: center; gap: 20px; padding: 24px; background: linear-gradient(135deg, rgba(13, 115, 119, 0.05) 0%, rgba(20, 145, 155, 0.05) 100%); }
-        .doctor-avatar { width: 80px; height: 80px; border-radius: 50%; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-        .doctor-avatar i { font-size: 32px; color: white; }
-        .doctor-avatar img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
-        .doctor-info h3 { font-family: 'Montserrat', sans-serif; font-size: 1.2rem; color: var(--text-dark); margin-bottom: 4px; }
-        .doctor-info .specialty { color: var(--primary); font-size: 0.9rem; font-weight: 500; margin-bottom: 8px; }
-        .doctor-info .spesialisasi { color: var(--text-muted); font-size: 0.85rem; }
-        .doctor-body { padding: 24px; }
-        .doctor-detail { display: flex; align-items: center; gap: 12px; padding: 10px 0; border-bottom: 1px solid #f0f0f0; }
-        .doctor-detail:last-child { border-bottom: none; }
-        .doctor-detail i { width: 36px; height: 36px; background: var(--bg-light); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: var(--primary); font-size: 14px; }
-        .doctor-detail .text { flex: 1; }
-        .doctor-detail .label { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; }
-        .doctor-detail .value { font-size: 0.95rem; color: var(--text-dark); font-weight: 500; }
-        .doctor-footer { padding: 16px 24px; background: var(--bg-light); display: flex; justify-content: space-between; align-items: center; }
-        .doctor-action { color: var(--primary); font-weight: 600; font-size: 0.9rem; text-decoration: none; display: flex; align-items: center; gap: 6px; }
-        .doctor-action:hover { color: var(--primary-dark); }
-        .doctor-action i { font-size: 12px; }
-        
-        /* Poli Section */
-        .poli-section { background: var(--bg-light); padding: 80px 0; }
-        .poli-header { display: flex; align-items: center; gap: 16px; margin-bottom: 40px; }
-        .poli-icon { width: 60px; height: 60px; border-radius: 16px; display: flex; align-items: center; justify-content: center; }
-        .poli-icon i { color: white; font-size: 24px; }
-        .poli-header h2 { font-family: 'Montserrat', sans-serif; font-size: 1.8rem; color: var(--text-dark); }
-        .poli-header .badge { background: var(--primary); color: white; font-size: 0.75rem; padding: 4px 12px; border-radius: 50px; }
-        
-        /* CTA Section */
-        .cta-section { background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%); padding: 80px 0; text-align: center; color: white; }
-        .cta-section h2 { font-family: 'Montserrat', sans-serif; font-size: 2.5rem; margin-bottom: 16px; }
-        .cta-section p { font-size: 1.1rem; opacity: 0.9; margin-bottom: 32px; max-width: 500px; margin-left: auto; margin-right: auto; }
-        .cta-btn { display: inline-flex; align-items: center; gap: 10px; background: white; color: var(--primary); padding: 16px 36px; border-radius: 50px; font-weight: 600; text-decoration: none; transition: all 0.3s; font-size: 1rem; }
-        .cta-btn:hover { transform: scale(1.05); box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
-        
-        /* Footer */
-        footer { background: var(--text-dark); color: white; padding: 60px 0 30px; }
-        .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
-        .footer-brand .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; color: white; margin-bottom: 20px; }
-        .footer-brand .logo img { height: 45px; }
-        .footer-brand h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; font-size: 1.4rem; font-weight: 600; }
-        .footer-brand p { font-size: 0.9rem; opacity: 0.7; line-height: 1.7; }
-        .footer-links h4 { font-family: 'Montserrat', sans-serif; font-size: 1rem; font-weight: 600; margin-bottom: 20px; }
-        .footer-links ul { list-style: none; }
-        .footer-links li { margin-bottom: 10px; }
-        .footer-links a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 0.9rem; transition: color 0.3s; }
-        .footer-links a:hover { color: white; }
-        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 30px; display: flex; justify-content: space-between; align-items: center; }
-        .footer-bottom p { font-size: 0.9rem; opacity: 0.7; }
-        .footer-social { display: flex; gap: 16px; }
-        .footer-social a { width: 40px; height: 40px; background: rgba(255,255,255,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; transition: all 0.3s; }
-        .footer-social a:hover { background: var(--primary); }
-        @media (max-width: 992px) {
-            .footer-grid { grid-template-columns: repeat(2, 1fr); }
-        }
-        @media (max-width: 576px) {
-            .footer-grid { grid-template-columns: 1fr; }
-            .footer-bottom { flex-direction: column; gap: 16px; }
-            .doctor-grid { grid-template-columns: 1fr; }
-        }
-        
-        /* Animations */
-        .doctor-card { animation: fadeInUp 0.5s ease forwards; opacity: 0; }
-        @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-        .doctor-card:nth-child(1) { animation-delay: 0.1s; }
-        .doctor-card:nth-child(2) { animation-delay: 0.2s; }
-        .doctor-card:nth-child(3) { animation-delay: 0.3s; }
-        .doctor-card:nth-child(4) { animation-delay: 0.4s; }
-        .doctor-card:nth-child(5) { animation-delay: 0.5s; }
-        .doctor-card:nth-child(6) { animation-delay: 0.6s; }
-        .doctor-card:nth-child(7) { animation-delay: 0.7s; }
-        .doctor-card:nth-child(8) { animation-delay: 0.8s; }
-        
-        /* Hidden class for filter */
-        .hidden { display: none !important; }
-        
-        /* Doctor Profile Modal */
-        .modal-overlay {
+        .mobile-menu {
+            display: none;
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(8px);
-            z-index: 2000;
+            background: var(--bg-white);
+            z-index: 999;
+            padding: var(--space-24) var(--space-6) var(--space-6);
+            transform: translateX(100%);
+            transition: transform var(--transition-smooth);
+        }
+
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+
+        .mobile-menu-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--space-8);
+        }
+
+        .mobile-menu-close {
+            width: 48px;
+            height: 48px;
             display: flex;
             align-items: center;
             justify-content: center;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-            padding: 20px;
+            border-radius: var(--radius-full);
+            background: var(--bg-light);
+            font-size: 1.25rem;
         }
-        
-        .modal-overlay.active {
-            opacity: 1;
-            visibility: visible;
+
+        .mobile-nav {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-2);
         }
-        
-        .modal-content {
-            background: var(--white);
-            border-radius: 24px;
+
+        .mobile-nav-link {
+            padding: var(--space-5) var(--space-6);
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            border-radius: var(--radius-lg);
+        }
+
+        .mobile-nav-link:hover {
+            background: var(--primary-50);
+            color: var(--primary);
+        }
+
+        /* ========================================
+           PAGE HEADER
+        ======================================== */
+        .page-header {
+            padding: 140px 0 60px;
+            background: linear-gradient(135deg, var(--bg-warm) 0%, var(--bg-white) 100%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 60%;
+            height: 150%;
+            background: radial-gradient(circle, rgba(8, 145, 178, 0.05) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .page-header-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-label {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-2);
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--primary);
+            margin-bottom: var(--space-4);
+        }
+
+        .section-label::before {
+            content: '';
+            width: 24px;
+            height: 2px;
+            background: var(--primary);
+        }
+
+        .page-title {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 800;
+            color: var(--text-dark);
+            margin-bottom: var(--space-4);
+        }
+
+        .page-title span {
+            color: var(--primary);
+        }
+
+        .page-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-muted);
             max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .page-stats {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-10);
+            margin-top: var(--space-8);
+        }
+
+        .page-stat {
+            text-align: center;
+        }
+
+        .page-stat-value {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            line-height: 1;
+        }
+
+        .page-stat-label {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-top: var(--space-2);
+        }
+
+        /* ========================================
+           SEARCH & FILTER SECTION
+        ======================================== */
+        .search-section {
+            padding: var(--space-8) 0;
+            background: var(--bg-white);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 72px;
+            z-index: 100;
+        }
+
+        .search-bar {
+            display: flex;
+            gap: var(--space-4);
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .search-input-wrapper {
+            flex: 1;
+            min-width: 280px;
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: var(--space-4) var(--space-5);
+            padding-left: 50px;
+            font-size: 1rem;
+            border: 2px solid var(--primary-100);
+            border-radius: var(--radius-xl);
+            transition: all var(--transition-base);
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(8, 145, 178, 0.1);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: var(--space-5);
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+        }
+
+        .filter-select {
+            padding: var(--space-4) var(--space-5);
+            padding-right: 40px;
+            font-size: 1rem;
+            border: 2px solid var(--primary-100);
+            border-radius: var(--radius-xl);
+            background: white;
+            color: var(--text-dark);
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 12px center;
+            background-size: 16px;
+        }
+
+        .filter-select:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        /* ========================================
+           MAIN CONTENT
+        ======================================== */
+        .main-content {
+            padding: var(--space-16) 0;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: var(--space-8);
+        }
+
+        /* Sidebar */
+        .sidebar {
+            position: sticky;
+            top: 180px;
+            height: fit-content;
+        }
+
+        .sidebar-card {
+            background: var(--bg-white);
+            border-radius: var(--radius-xl);
+            padding: var(--space-6);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .sidebar-title {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: var(--space-5);
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+        }
+
+        .category-list {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-2);
+        }
+
+        .category-item {
+            display: flex;
+            align-items: center;
+            gap: var(--space-3);
+            padding: var(--space-3) var(--space-4);
+            border-radius: var(--radius-lg);
+            cursor: pointer;
+            transition: all var(--transition-base);
+        }
+
+        .category-item:hover {
+            background: var(--primary-50);
+        }
+
+        .category-item.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        .category-icon {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: var(--radius-md);
+            background: var(--primary-100);
+            color: var(--primary);
+            font-size: 1rem;
+        }
+
+        .category-item.active .category-icon {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+
+        .category-info {
+            flex: 1;
+        }
+
+        .category-name {
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .category-count {
+            font-size: 0.8rem;
+            opacity: 0.7;
+        }
+
+        /* Doctor Grid */
+        .doctors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: var(--space-6);
+        }
+
+        .doctor-card {
+            background: var(--bg-white);
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: all var(--transition-base);
+            cursor: pointer;
+        }
+
+        .doctor-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .doctor-card-image {
+            position: relative;
+            height: 280px;
+            overflow: hidden;
+        }
+
+        .doctor-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform var(--transition-slow);
+        }
+
+        .doctor-card:hover .doctor-card-image img {
+            transform: scale(1.1);
+        }
+
+        .doctor-card-badge {
+            position: absolute;
+            top: var(--space-4);
+            left: var(--space-4);
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+            background: var(--primary);
+            color: white;
+            padding: var(--space-2) var(--space-4);
+            border-radius: var(--radius-full);
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .doctor-card-badge::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: var(--success);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .doctor-card-favorite {
+            position: absolute;
+            top: var(--space-4);
+            right: var(--space-4);
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            border-radius: var(--radius-full);
+            color: var(--text-muted);
+            transition: all var(--transition-base);
+        }
+
+        .doctor-card-favorite:hover {
+            color: var(--accent);
+            transform: scale(1.1);
+        }
+
+        .doctor-card-content {
+            padding: var(--space-6);
+        }
+
+        .doctor-card-name {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: var(--space-2);
+            line-height: 1.3;
+        }
+
+        .doctor-card-spec {
+            font-size: 0.9rem;
+            color: var(--primary);
+            margin-bottom: var(--space-4);
+        }
+
+        .doctor-card-info {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-2);
+            margin-bottom: var(--space-5);
+        }
+
+        .doctor-card-info-item {
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .doctor-card-info-item i {
+            width: 16px;
+            color: var(--success);
+        }
+
+        .doctor-card-actions {
+            display: flex;
+            gap: var(--space-3);
+        }
+
+        .doctor-card-btn {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--space-2);
+            padding: var(--space-4);
+            border-radius: var(--radius-lg);
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: all var(--transition-base);
+        }
+
+        .doctor-card-btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .doctor-card-btn-primary:hover {
+            background: var(--primary-dark);
+        }
+
+        .doctor-card-btn-secondary {
+            background: var(--primary-50);
+            color: var(--primary);
+        }
+
+        .doctor-card-btn-secondary:hover {
+            background: var(--primary-100);
+        }
+
+        /* No Results */
+        .no-results {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: var(--space-16);
+        }
+
+        .no-results-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto var(--space-6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--primary-100);
+            border-radius: var(--radius-full);
+            color: var(--primary);
+            font-size: 2rem;
+        }
+
+        .no-results h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: var(--space-2);
+        }
+
+        .no-results p {
+            color: var(--text-muted);
+        }
+
+        /* ========================================
+           DOCTOR MODAL
+        ======================================== */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(4px);
+            z-index: 2000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: var(--space-6);
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal {
+            background: var(--bg-white);
+            border-radius: var(--radius-2xl);
+            max-width: 700px;
             width: 100%;
             max-height: 90vh;
             overflow-y: auto;
-            transform: scale(0.9) translateY(20px);
-            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.3);
+            animation: modalIn 0.3s ease;
         }
-        
-        .modal-overlay.active .modal-content {
-            transform: scale(1) translateY(0);
+
+        @keyframes modalIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
         }
-        
+
         .modal-header {
-            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 50%, var(--primary-light) 100%);
-            padding: 30px;
-            text-align: center;
             position: relative;
+            padding: var(--space-8);
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
         }
-        
+
         .modal-close {
             position: absolute;
-            top: 15px;
-            right: 15px;
+            top: var(--space-4);
+            right: var(--space-4);
             width: 40px;
             height: 40px;
-            background: rgba(255, 255, 255, 0.2);
-            border: none;
-            border-radius: 50%;
-            color: white;
-            font-size: 1.2rem;
-            cursor: pointer;
-            transition: all 0.3s;
             display: flex;
             align-items: center;
             justify-content: center;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: var(--radius-full);
+            color: white;
+            font-size: 1.25rem;
+            transition: all var(--transition-base);
         }
-        
+
         .modal-close:hover {
             background: rgba(255, 255, 255, 0.3);
             transform: rotate(90deg);
         }
-        
-        .modal-avatar {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            margin: 0 auto 20px;
-            border: 4px solid white;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            overflow: hidden;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+
+        .modal-doctor-info {
             display: flex;
+            gap: var(--space-6);
             align-items: center;
-            justify-content: center;
         }
-        
-        .modal-avatar img {
+
+        .modal-doctor-image {
+            width: 100px;
+            height: 100px;
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            border: 3px solid white;
+        }
+
+        .modal-doctor-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
-        
-        .modal-avatar i {
-            font-size: 3rem;
-            color: white;
+
+        .modal-doctor-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: var(--space-2);
         }
-        
-        .modal-name {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.6rem;
-            color: white;
-            margin-bottom: 8px;
-        }
-        
-        .modal-specialty {
-            color: rgba(255, 255, 255, 0.9);
+
+        .modal-doctor-spec {
             font-size: 1rem;
-            font-weight: 500;
+            opacity: 0.9;
         }
-        
+
         .modal-body {
-            padding: 30px;
+            padding: var(--space-8);
         }
-        
+
         .modal-section {
-            margin-bottom: 25px;
+            margin-bottom: var(--space-6);
         }
-        
+
         .modal-section:last-child {
             margin-bottom: 0;
         }
-        
+
         .modal-section-title {
             font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--primary);
             font-weight: 600;
-            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--primary);
+            margin-bottom: var(--space-3);
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: var(--space-2);
         }
-        
-        .modal-section-title i {
-            width: 28px;
-            height: 28px;
-            background: rgba(13, 115, 119, 0.1);
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.8rem;
+
+        .modal-section-content {
+            font-size: 1rem;
+            color: var(--text-dark);
+            line-height: 1.7;
         }
-        
+
         .modal-info-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
+            gap: var(--space-4);
         }
-        
+
         .modal-info-item {
             background: var(--bg-light);
-            padding: 15px;
-            border-radius: 12px;
+            padding: var(--space-4);
+            border-radius: var(--radius-lg);
         }
-        
-        .modal-info-item .label {
-            font-size: 0.75rem;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 4px;
-        }
-        
-        .modal-info-item .value {
-            font-size: 0.95rem;
-            color: var(--text-dark);
-            font-weight: 600;
-        }
-        
-        .modal-description {
-            background: var(--bg-light);
-            padding: 20px;
-            border-radius: 12px;
-            line-height: 1.7;
-            color: var(--text-muted);
-            font-size: 0.95rem;
-        }
-        
-        .modal-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-        
-        .modal-tag {
-            background: rgba(13, 115, 119, 0.1);
-            color: var(--primary);
-            padding: 6px 14px;
-            border-radius: 50px;
+
+        .modal-info-label {
             font-size: 0.8rem;
-            font-weight: 500;
+            color: var(--text-muted);
+            margin-bottom: var(--space-1);
         }
-        
+
+        .modal-info-value {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
         .modal-actions {
             display: flex;
-            gap: 12px;
-            margin-top: 25px;
+            gap: var(--space-4);
+            padding: var(--space-6) var(--space-8);
+            background: var(--bg-light);
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
         }
-        
+
         .modal-btn {
             flex: 1;
-            padding: 14px 20px;
-            border-radius: 12px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            text-decoration: none;
-            text-align: center;
-            transition: all 0.3s;
-            cursor: pointer;
-            border: none;
-        }
-        
-        .modal-btn-primary {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-            color: white;
-        }
-        
-        .modal-btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(13, 115, 119, 0.3);
-        }
-        
-        .modal-btn-secondary {
-            background: var(--bg-light);
-            color: var(--text-dark);
-        }
-        
-        .modal-btn-secondary:hover {
-            background: #e9ecef;
-        }
-        
-    
-        /* Doctor Profile Modal */
-        .profile-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            z-index: 9999;
-            display: none;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-        .profile-overlay.active {
-            display: flex;
-            opacity: 1;
-        }
-        .profile-modal {
-            background: white;
-            border-radius: 24px;
-            max-width: 600px;
-            width: 95%;
-            max-height: 90vh;
-            overflow-y: auto;
-            margin: auto;
-            position: relative;
-            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.3);
-            transform: scale(0.9) translateY(20px);
-            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .profile-overlay.active .profile-modal {
-            transform: scale(1) translateY(0);
-        }
-        .profile-close {
-            position: absolute;
-            top: 16px;
-            right: 16px;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: var(--bg-light);
-            border: none;
-            cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 20px;
-            color: var(--text-muted);
-            transition: all 0.3s ease;
-            z-index: 10;
-        }
-        .profile-close:hover {
-            background: #e74c3c;
-            color: white;
-            transform: rotate(90deg);
-        }
-        .profile-header {
-            padding: 40px 40px 30px;
-            text-align: center;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            color: white;
-            border-radius: 24px 24px 0 0;
-        }
-        .profile-avatar {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            margin: 0 auto 20px;
-            overflow: hidden;
-            border: 4px solid rgba(255,255,255,0.3);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-        }
-        .profile-avatar img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        .profile-name {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.6rem;
-            font-weight: 700;
-            margin-bottom: 8px;
-            color: white;
-        }
-        .profile-specialty {
+            gap: var(--space-2);
+            padding: var(--space-4) var(--space-6);
+            border-radius: var(--radius-xl);
             font-size: 1rem;
-            opacity: 0.9;
-            margin-bottom: 4px;
-        }
-        .profile-poli {
-            font-size: 0.9rem;
-            opacity: 0.8;
-        }
-        .profile-body {
-            padding: 30px 40px 40px;
-        }
-        .profile-section {
-            margin-bottom: 24px;
-        }
-        .profile-section-title {
-            display: flex;
-            align-items: center;
-            gap: 10px;
             font-weight: 600;
-            color: var(--primary);
-            margin-bottom: 12px;
-            font-size: 0.95rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+            transition: all var(--transition-base);
         }
-        .profile-section-title i {
-            width: 32px;
-            height: 32px;
-            background: rgba(13, 115, 119, 0.1);
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.85rem;
-        }
-        .profile-info-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
-        }
-        .profile-info-item {
-            background: var(--bg-light);
-            padding: 16px;
-            border-radius: 12px;
-        }
-        .profile-info-label {
-            font-size: 0.75rem;
-            color: var(--text-muted);
-            margin-bottom: 4px;
-            text-transform: uppercase;
-            letter-spacing: 0.3px;
-        }
-        .profile-info-value {
-            font-weight: 600;
-            color: var(--text-dark);
-            font-size: 0.95rem;
-        }
-        .profile-description {
-            background: var(--bg-light);
-            padding: 20px;
-            border-radius: 12px;
-            line-height: 1.8;
-            color: var(--text-dark);
-        }
-        .profile-footer {
-            display: flex;
-            gap: 12px;
-            justify-content: center;
-            padding-top: 10px;
-        }
-        .profile-btn {
-            padding: 12px 24px;
-            border-radius: 12px;
-            font-weight: 600;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            transition: all 0.3s ease;
-        }
-        .profile-btn-primary {
+
+        .modal-btn-primary {
             background: var(--primary);
             color: white;
         }
-        .profile-btn-primary:hover {
+
+        .modal-btn-primary:hover {
             background: var(--primary-dark);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(13, 115, 119, 0.3);
-        }
-        .profile-btn-secondary {
-            background: var(--bg-light);
-            color: var(--text-dark);
-        }
-        .profile-btn-secondary:hover {
-            background: #e9ecef;
         }
 
-        /* Lihat Profile Button */
-        .doctor-action-profile {
-            color: var(--text-dark);
-            font-weight: 600;
-            font-size: 0.85rem;
-            text-decoration: none;
+        .modal-btn-secondary {
+            background: white;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .modal-btn-secondary:hover {
+            background: var(--primary-50);
+        }
+
+        /* ========================================
+           CTA SECTION
+        ======================================== */
+        .cta-section {
+            padding: var(--space-16) 0;
+            background: var(--gradient-primary);
+            text-align: center;
+            color: white;
+        }
+
+        .cta-title {
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            font-weight: 700;
+            margin-bottom: var(--space-4);
+        }
+
+        .cta-subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: var(--space-8);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-4);
+            flex-wrap: wrap;
+        }
+
+        .cta-btn {
             display: inline-flex;
             align-items: center;
-            gap: 6px;
-            padding: 10px 16px;
-            background: linear-gradient(135deg, #f4c430 0%, #f39c12 100%);
-            border-radius: 8px;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            border: none;
-        }
-        .doctor-action-profile:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(244, 196, 48, 0.4);
-            background: linear-gradient(135deg, #f39c12 0%, #d68910 100%);
-        }
-        .doctor-action-profile i {
-            font-size: 12px;
+            gap: var(--space-3);
+            padding: var(--space-5) var(--space-8);
+            border-radius: var(--radius-full);
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all var(--transition-base);
         }
 
-</style>
+        .cta-btn-primary {
+            background: white;
+            color: var(--primary);
+        }
+
+        .cta-btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .cta-btn-secondary {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 2px solid white;
+        }
+
+        .cta-btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        /* ========================================
+           FOOTER
+        ======================================== */
+        .footer {
+            background: var(--bg-dark);
+            color: white;
+            padding: var(--space-16) 0 var(--space-8);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr repeat(3, 1fr);
+            gap: var(--space-12);
+            margin-bottom: var(--space-12);
+        }
+
+        .footer-brand {
+            max-width: 350px;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: var(--space-3);
+            margin-bottom: var(--space-6);
+        }
+
+        .footer-logo img {
+            width: 48px;
+            height: 48px;
+            border-radius: var(--radius-lg);
+        }
+
+        .footer-logo-text {
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+
+        .footer-desc {
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.8;
+            margin-bottom: var(--space-6);
+        }
+
+        .footer-social {
+            display: flex;
+            gap: var(--space-3);
+        }
+
+        .footer-social a {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-full);
+            color: white;
+            transition: all var(--transition-base);
+        }
+
+        .footer-social a:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .footer-column h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: var(--space-6);
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-3);
+        }
+
+        .footer-links a {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+            transition: all var(--transition-base);
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary);
+            padding-left: var(--space-2);
+        }
+
+        .footer-bottom {
+            padding-top: var(--space-8);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-copyright {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* ========================================
+           RESPONSIVE
+        ======================================== */
+        @media (max-width: 992px) {
+            .nav, .header-actions {
+                display: none;
+            }
+            
+            .menu-toggle {
+                display: flex;
+            }
+            
+            .mobile-menu {
+                display: block;
+            }
+            
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .sidebar {
+                position: static;
+                display: none;
+            }
+            
+            .page-stats {
+                flex-wrap: wrap;
+                gap: var(--space-6);
+            }
+            
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .search-bar {
+                flex-direction: column;
+            }
+            
+            .search-input-wrapper {
+                width: 100%;
+            }
+            
+            .filter-select {
+                width: 100%;
+            }
+            
+            .doctors-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .modal-info-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .modal-actions {
+                flex-direction: column;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-bottom {
+                flex-direction: column;
+                gap: var(--space-4);
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .page-stats {
+                flex-direction: column;
+                gap: var(--space-4);
+            }
+        }
+    </style>
 </head>
 <body>
+    <!-- HEADER -->
+    <header class="header" id="header">
+        <div class="container">
+            <div class="header-inner">
+                <a href="index.html" class="logo">
+                    <img src="logo.png" alt="RS Payangan Hospital" onerror="this.style.display='none'">
+                    <div class="logo-text">
+                        <span class="logo-name">Payangan Hospital</span>
+                        <span class="logo-tagline">Pavitram Idam Uttamam</span>
+                    </div>
+                </a>
+
+                <nav class="nav">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="about.html" class="nav-link">About</a>
+                    <a href="dokter.html" class="nav-link active">Doctors</a>
+                    <a href="layanan.html" class="nav-link">Services</a>
+                    <a href="fasilitas.html" class="nav-link">Facilities</a>
+                    <a href="berita.html" class="nav-link">News</a>
+                    <a href="kontak.html" class="nav-link">Contact</a>
+                </nav>
+
+                <div class="header-actions">
+                    <a href="tel:+62361472008" class="btn-emergency">
+                        <i class="fas fa-phone-alt"></i>
+                        <span>IGD 24 Jam</span>
+                    </a>
+                    <a href="antrean.html" class="btn-appointment">
+                        <i class="fas fa-calendar-check"></i>
+                        <span>Buat Janji</span>
+                    </a>
+                </div>
+
+                <button class="menu-toggle" onclick="toggleMobileMenu()" aria-label="Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
     <!-- Mobile Menu -->
     <div class="mobile-menu" id="mobileMenu">
-        <ul>
-            <li><a href="index.html#slider" onclick="toggleMenu()">Beranda</a></li>
-            <li><a href="about.html" onclick="toggleMenu()">Tentang</a></li>
-            <li><a href="about.html#sejarah" onclick="toggleMenu()">- Sejarah</a></li>
-            <li><a href="about.html#visimisi" onclick="toggleMenu()">- Visi Misi</a></li>
-            <li><a href="about.html#standar" onclick="toggleMenu()">- Standar</a></li>
-            <li><a href="about.html#maklumat" onclick="toggleMenu()">- Maklumat</a></li>
-            <li><a href="about.html#mutu" onclick="toggleMenu()">- Mutu</a></li>
-            <li><a href="about.html#budaya" onclick="toggleMenu()">- Budaya Kerja</a></li>
-            <li><a href="rawat-jalan.html" onclick="toggleMenu()">Layanan</a></li>
-            <li><a href="rawat-jalan.html" onclick="toggleMenu()">- Rawat Jalan</a></li>
-            <li><a href="rawat-inap.html" onclick="toggleMenu()">- Rawat Inap</a></li>
-            <li><a href="igd.html" onclick="toggleMenu()">- IGD / UGD</a></li>
-            <li><a href="dokter.html" onclick="toggleMenu()">Dokter</a></li>
-            <li><a href="ph-update.html" onclick="toggleMenu()">PH Update</a></li>
-            <li><a href="kontak.html" onclick="toggleMenu()">Kontak</a></li>
-            <li><a href="#login" onclick="toggleMenu()">Login</a></li>
-        </ul>
+        <div class="mobile-menu-header">
+            <div class="logo">
+                <img src="logo.png" alt="RS Payangan Hospital" onerror="this.style.display='none'">
+                <div class="logo-text">
+                    <span class="logo-name">Payangan Hospital</span>
+                </div>
+            </div>
+            <button class="mobile-menu-close" onclick="toggleMobileMenu()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <nav class="mobile-nav">
+            <a href="index.html" class="mobile-nav-link">Home</a>
+            <a href="about.html" class="mobile-nav-link">About</a>
+            <a href="dokter.html" class="mobile-nav-link">Doctors</a>
+            <a href="layanan.html" class="mobile-nav-link">Services</a>
+            <a href="fasilitas.html" class="mobile-nav-link">Facilities</a>
+            <a href="berita.html" class="mobile-nav-link">News</a>
+            <a href="kontak.html" class="mobile-nav-link">Contact</a>
+        </nav>
     </div>
 
-    <!-- Page Header -->
+    <!-- PAGE HEADER -->
     <section class="page-header">
         <div class="container">
-            <h1>Profil Dokter</h1>
-            <p>Kenali dokter profesional dan berpengalaman di Payangan Hospital yang siap memberikan pelayanan kesehatan terbaik untuk Anda</p>
-            <div class="breadcrumb">
-                <a href="index.html">Beranda</a>
-                <span>/</span>
-                <span>Dokter</span>
+            <div class="page-header-content">
+                <div class="section-label">
+                    <i class="fas fa-user-md"></i> Tim Medis Kami
+                </div>
+                <h1 class="page-title">Dokter <span>Spesialis</span> Berpengalaman</h1>
+                <p class="page-subtitle">
+                    Temui tim dokter spesialis kami yang berpengalaman dan berdedikasi dalam memberikan pelayanan kesehatan terbaik untuk masyarakat Gianyar dan sekitarnya.
+                </p>
+                <div class="page-stats">
+                    <div class="page-stat">
+                        <div class="page-stat-value">22+</div>
+                        <div class="page-stat-label">Dokter Spesialis</div>
+                    </div>
+                    <div class="page-stat">
+                        <div class="page-stat-value">10</div>
+                        <div class="page-stat-label">Spesialisasi</div>
+                    </div>
+                    <div class="page-stat">
+                        <div class="page-stat-value">24/7</div>
+                        <div class="page-stat-label">Pelayanan</div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Stats Section -->
-    <section class="stats-section">
+    <!-- SEARCH & FILTER -->
+    <section class="search-section">
         <div class="container">
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <i class="fas fa-user-md"></i>
-                    <div class="number">25+</div>
-                    <div class="label">Dokter Spesialis</div>
+            <div class="search-bar">
+                <div class="search-input-wrapper">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" class="search-input" id="searchInput" placeholder="Cari dokter, spesialis, atau poli...">
                 </div>
-                <div class="stat-card">
-                    <i class="fas fa-stethoscope"></i>
-                    <div class="number">11</div>
-                    <div class="label">Poliklinik</div>
-                </div>
-                <div class="stat-card">
-                    <i class="fas fa-award"></i>
-                    <div class="number">15+</div>
-                    <div class="label">Tahun Pengalaman</div>
-                </div>
-                <div class="stat-card">
-                    <i class="fas fa-clock"></i>
-                    <div class="number">24/7</div>
-                    <div class="label">Siaga Darurat</div>
-                </div>
+                <select class="filter-select" id="filterSelect">
+                    <option value="">Semua Spesialisasi</option>
+                </select>
             </div>
         </div>
     </section>
 
-    <!-- Doctor List Section -->
-    <section class="content-section">
+    <!-- MAIN CONTENT -->
+    <section class="main-content">
         <div class="container">
-            <div style="text-align: center; margin-bottom: 40px;">
-                <div class="section-label">Tim Medis</div>
-                <h2 class="section-title">Dokter Spesialis Kami</h2>
-                <p class="section-desc">Dokter-dokter profesional dengan keahlian khusus siap memberikan pelayanan terbaik untuk kesehatan Anda</p>
-            </div>
-            
-            <!-- Filter Buttons -->
-            <div class="filter-container">
-                <button class="filter-btn active" onclick="filterDoctors('all')">Semua</button>
-                <button class="filter-btn" onclick="filterDoctors('umum')">Poli Umum</button>
-                <button class="filter-btn" onclick="filterDoctors('saraf')">Saraf</button>
-                <button class="filter-btn" onclick="filterDoctors('anak')">Anak</button>
-                <button class="filter-btn" onclick="filterDoctors('kandungan')">Kandungan</button>
-                <button class="filter-btn" onclick="filterDoctors('tht')">THT</button>
-                <button class="filter-btn" onclick="filterDoctors('gigi')">Gigi</button>
-                <button class="filter-btn" onclick="filterDoctors('dalam')">Penyakit Dalam</button>
-                <button class="filter-btn" onclick="filterDoctors('bedah')">Bedah</button>
-                <button class="filter-btn" onclick="filterDoctors('ortho')">Orthopedi</button>
-                <button class="filter-btn" onclick="filterDoctors('jantung')">Jantung</button>
-            </div>
-
-            <!-- Doctor Grid -->
-            <div class="doctor-grid" id="doctorGrid">
-                
-
-                                <!-- NEW DOCTORS -->
-
-                <!-- Spesialis Jantung & Pembuluh Darah -->
-                <div class="doctor-card" data-poli="jantung">
-                    <div class="doctor-header">
-                        <div class="doctor-avatar" style="background: linear-gradient(135deg, #ff7675 0%, #d63031 100%);">
-                            <img src="img/dokter/dr. Anak Agung Ayu Ngurah Desy Widya Putri, Sp.JP.png" alt="dr. Anak Agung Ayu Ngurah Desy Widya Putri, Sp.JP">
-                        </div>
-                        <div class="doctor-info">
-                            <h3>dr. Anak Agung Ayu Ngurah Desy Widya Putri, Sp.JP</h3>
-                            <div class="specialty">Spesialis Jantung & Pembuluh Darah</div>
-                            <div class="spesialisasi">Poliklinik Jantung</div>
+            <div class="content-grid">
+                <!-- Sidebar -->
+                <aside class="sidebar">
+                    <div class="sidebar-card">
+                        <h3 class="sidebar-title">
+                            <i class="fas fa-filter"></i> Filter Spesialisasi
+                        </h3>
+                        <div class="category-list" id="categoryList">
+                            <!-- Populated by JavaScript -->
                         </div>
                     </div>
-                    <div class="doctor-body">
-                        <div class="doctor-detail">
-                            <i class="fas fa-clock"></i>
-                            <div class="text">
-                                <div class="label">Jadwal Praktik</div>
-                                <div class="value">Senin & Kamis: 08:00 - 14:00</div>
-                            </div>
-                        </div>
-                        <div class="doctor-detail">
-                            <i class="fas fa-graduation-cap"></i>
-                            <div class="text">
-                                <div class="label">Pendidikan</div>
-                                <div class="value">Sp.JP - FK Universitas Udayana</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="doctor-footer">
-                        <button class="doctor-action-profile" onclick="openProfile('jantung')">
-                            <i class="fas fa-user"></i> Lihat Profile
-                        </button>
-                        <a href="poli-jantung.html" class="doctor-action">Lihat Poli <i class="fas fa-arrow-right"></i></a>
-                    </div>
+                </aside>
+
+                <!-- Doctors Grid -->
+                <div class="doctors-grid" id="doctorsGrid">
+                    <!-- Populated by JavaScript -->
                 </div>
-
-                <!-- Spesialis Radiologi -->
-                <div class="doctor-card" data-poli="radiologi">
-                    <div class="doctor-header">
-                        <div class="doctor-avatar" style="background: linear-gradient(135deg, #81ecec 0%, #00cec9 100%);">
-                            <img src="img/dokter/dr. Herry Juniada, Sp. Rad.png" alt="dr. Herry Juniada, Sp. Rad">
-                        </div>
-                        <div class="doctor-info">
-                            <h3>dr. Herry Juniada, Sp. Rad</h3>
-                            <div class="specialty">Spesialis Radiologi</div>
-                            <div class="spesialisasi">Poliklinik Radiologi</div>
-                        </div>
-                    </div>
-                    <div class="doctor-body">
-                        <div class="doctor-detail">
-                            <i class="fas fa-clock"></i>
-                            <div class="text">
-                                <div class="label">Jadwal Praktik</div>
-                                <div class="value">Senin - Jumat: 09:00 - 15:00</div>
-                            </div>
-                        </div>
-                        <div class="doctor-detail">
-                            <i class="fas fa-graduation-cap"></i>
-                            <div class="text">
-                                <div class="label">Pendidikan</div>
-                                <div class="value">Sp.Rad - FK Universitas Indonesia</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="doctor-footer">
-                        <button class="doctor-action-profile" onclick="openProfile('jantung')">
-                            <i class="fas fa-user"></i> Lihat Profile
-                        </button>
-                        <a href="poli-jantung.html" class="doctor-action">Lihat Poli <i class="fas fa-arrow-right"></i></a><!-- Spesialis Anestesi & Reanimasi -->
-                <div class="doctor-card" data-poli="anestesi">
-                    <div class="doctor-header">
-                        <div class="doctor-avatar" style="background: linear-gradient(135deg, #a29bfe 0%, #6c5ce7 100%);">
-                            <img src="img/dokter/dr. I G N Bagus Arimanjaya, Sp.An.png" alt="dr. I G N Bagus Arimanjaya, Sp.An">
-                        </div>
-                        <div class="doctor-info">
-                            <h3>dr. I G N Bagus Arimanjaya, Sp.An</h3>
-                            <div class="specialty">Spesialis Anestesi & Reanimasi</div>
-                            <div class="spesialisasi">Poliklinik Anestesi</div>
-                        </div>
-                    </div>
-                    <div class="doctor-body">
-                        <div class="doctor-detail">
-                            <i class="fas fa-clock"></i>
-                            <div class="text">
-                                <div class="label">Jadwal Praktik</div>
-                                <div class="value">Senin - Sabtu: 07:00 - 14:00</div>
-                            </div>
-                        </div>
-                        <div class="doctor-detail">
-                            <i class="fas fa-graduation-cap"></i>
-                            <div class="text">
-                                <div class="label">Pendidikan</div>
-                                <div class="value">Sp.An - FK Universitas Udayana</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="doctor-footer">
-                        <button class="doctor-action-profile" onclick="openProfile('anestesi')">
-                            <i class="fas fa-user"></i> Lihat Profile
-                        </button>
-                        <a href="rawat-jalan.html" class="doctor-action">Lihat Poli <i class="fas fa-arrow-right"></i></a>
-                <div class="doctor-card" data-poli="kandungan">
-                    <div class="doctor-header">
-                        <div class="doctor-avatar" style="background: linear-gradient(135deg, #fab1a0 0%, #e17055 100%);">
-                            <img src="img/dokter/dr. I Gede Agus Hendra Sujana, Sp.OG.png" alt="dr. I Gede Agus Hendra Sujana, Sp.OG">
-                        </div>
-                        <div class="doctor-info">
-                            <h3>dr. I Gede Agus Hendra Sujana, Sp.OG</h3>
-                            <div class="specialty">Spesialis Obstetri & Ginekologi</div>
-                            <div class="spesialisasi">Poliklinik Kandungan</div>
-                        </div>
-                    </div>
-                    <div class="doctor-body">
-                        <div class="doctor-detail">
-                            <i class="fas fa-clock"></i>
-                            <div class="text">
-                                <div class="label">Jadwal Praktik</div>
-                                <div class="value">Selasa & Kamis: 09:00 - 14:00</div>
-                            </div>
-                        </div>
-                        <div class="doctor-detail">
-                            <i class="fas fa-graduation-cap"></i>
-                            <div class="text">
-                                <div class="label">Pendidikan</div>
-                                <div class="value">Sp.OG - FK Universitas Udayana</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="doctor-footer">
-                        <button class="doctor-action-profile" onclick="openProfile('kandungan')">
-                            <i class="fas fa-user"></i> Lihat Profile
-                        </button>
-                        <a href="poli-kandungan.html" class="doctor-action">Lihat Poli <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-
-                <!-- Spesialis Orthopedi & Traumatologi -->
-                <div class="doctor-card" data-poli="ortho">
-                    <div class="doctor-header">
-                        <div class="doctor-avatar" style="background: linear-gradient(135deg, #00b894 0%, #00cec9 100%);">
-                            <img src="img/dokter/dr. I Gede Ketut Alit Satria Nugraha, SpOT.png" alt="dr. I Gede Ketut Alit Satria Nugraha, SpOT">
-                        </div>
-                        <div class="doctor-info">
-                            <h3>dr. I Gede Ketut Alit Satria Nugraha, SpOT</h3>
-                            <div class="specialty">Spesialis Orthopedi & Traumatologi</div>
-                            <div class="spesialisasi">Poliklinik Orthopedi</div>
-                        </div>
-                    </div>
-                    <div class="doctor-body">
-                        <div class="doctor-detail">
-                            <i class="fas fa-clock"></i>
-                            <div class="text">
-                                <div class="label">Jadwal Praktik</div>
-                                <div class="value">Senin & Rabu: 08:00 - 13:00</div>
-                            </div>
-                        </div>
-                        <div class="doctor-detail">
-                            <i class="fas fa-graduation-cap"></i>
-                            <div class="text">
-                                <div class="label">Pendidikan</div>
-                                <div class="value">SpOT - FK Universitas Udayana</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="doctor-footer">
-                        <button class="doctor-action-profile" onclick="openProfile('ortho')">
-                            <i class="fas fa-user"></i> Lihat Profile
-                        </button>
-                        <a href="poli-orthopedic.html" class="doctor-action">Lihat Poli <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-
-                <!-- Spesialis Penyakit Dalam -->
-                <div class="doctor-card" data-poli="dalam">
-                    <div class="doctor-header">
-                        <div class="doctor-avatar" style="background: linear-gradient(135deg, #fdcb6e 0%, #f39c12 100%);">
-                            <img src="img/dokter/dr. I Gusti Putu Hery Sikesa, Sp.PD.png" alt="dr. I Gusti Putu Hery Sikesa, Sp.PD">
-                        </div>
-                        <div class="doctor-info">
-                            <h3>dr. I Gusti Putu Hery Sikesa, Sp.PD</h3>
-                            <div class="specialty">Spesialis Penyakit Dalam</div>
-                            <div class="spesialisasi">Poliklinik Penyakit Dalam</div>
-                        </div>
-                    </div>
-                    <div class="doctor-body">
-                        <div class="doctor-detail">
-                            <i class="fas fa-clock"></i>
-                            <div class="text">
-                                <div class="label">Jadwal Praktik</div>
-                                <div class="value">Senin - Jumat: 08:00 - 12:00</div>
-                            </div>
-                        </div>
-                        <div class="doctor-detail">
-                            <i class="fas fa-graduation-cap"></i>
-                            <div class="text">
-                                <div class="label">Pendidikan</div>
-                                <div class="value">Sp.PD - FK Universitas Udayana</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="doctor-footer">
-                        <button class="doctor-action-profile" onclick="openProfile('dalam')">
-                            <i class="fas fa-user"></i> Lihat Profile
-                        </button>
-                        <a href="poli-dalam.html" class="doctor-action">Lihat Poli <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-
-                <!-- Spesialis Orthopedi & Traumatologi -->
-                <div class="doctor-card" data-poli="ortho">
-                    <div class="doctor-header">
-                        <div class="doctor-avatar" style="background: linear-gradient(135deg, #00b894 0%, #00cec9 100%);">
-                            <img src="img/dokter/dr. I Ketut Wahyu Tri Saputra, Sp.OT.png" alt="dr. I Ketut Wahyu Tri Saputra, Sp.OT">
-                        </div>
-                        <div class="doctor-info">
-                            <h3>dr. I Ketut Wahyu Tri Saputra, Sp.OT</h3>
-                            <div class="specialty">Spesialis Orthopedi & Traumatologi</div>
-                            <div class="spesialisasi">Poliklinik Orthopedi</div>
-                        </div>
-                    </div>
-                    <div class="doctor-body">
-                        <div class="doctor-detail">
-                            <i class="fas fa-clock"></i>
-                            <div class="text">
-                                <div class="label">Jadwal Praktik</div>
-                                <div class="value">Selasa & Kamis: 08:00 - 13:00</div>
-                            </div>
-                        </div>
-                        <div class="doctor-detail">
-                            <i class="fas fa-graduation-cap"></i>
-                            <div class="text">
-                                <div class="label">Pendidikan</div>
-                                <div class="value">Sp.OT - FK Universitas Brawijaya</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="doctor-footer">
-                        <button class="doctor-action-profile" onclick="openProfile('ortho')">
-                            <i class="fas fa-user"></i> Lihat Profile
-                        </button>
-                        <a href="poli-orthopedic.html" class="doctor-action">Lihat Poli <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-
-                <!-- Spesialis Obstetri & Ginekologi -->
-                <div class="doctor-card" data-poli="kandungan">
-                    <div class="doctor-header">
-                        <div class="doctor-avatar" style="background: linear-gradient(135deg, #fab1a0 0%, #e17055 100%);">
-                            <img src="img/dokter/dr. I Made Brammartha Kusuma, Sp.OG.png" alt="dr. I Made Brammartha Kusuma, Sp.OG">
-                        </div>
-                        <div class="doctor-info">
-                            <h3>dr. I Made Brammartha Kusuma, Sp.OG</h3>
-                            <div class="specialty">Spesialis Obstetri & Ginekologi</div>
-                            <div class="spesialisasi">Poliklinik Kandungan</div>
-                        </div>
-                    </div>
-                    <div class="doctor-body">
-                        <div class="doctor-detail">
-                            <i class="fas fa-clock"></i>
-                            <div class="text">
-                                <div class="label">Jadwal Praktik</div>
-                                <div class="value">Senin & Jumat: 09:00 - 14:00</div>
-                            </div>
-                        </div>
-                        <div class="doctor-detail">
-                            <i class="fas fa-graduation-cap"></i>
-                            <div class="text">
-                                <div class="label">Pendidikan</div>
-                                <div class="value">Sp.OG - FK Universitas Udayana</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="doctor-footer">
-                        <button class="doctor-action-profile" onclick="openProfile('kandungan')">
-                            <i class="fas fa-user"></i> Lihat Profile
-                        </button>
-                        <a href="poli-kandungan.html" class="doctor-action">Lihat Poli <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-
-                <!-- Spesialis Bedah -->
-                <div class="doctor-card" data-poli="bedah">
-                    <div class="doctor-header">
-                        <div class="doctor-avatar" style="background: linear-gradient(135deg, #d63031 0%, #c0392b 100%);">
-                            <img src="img/dokter/dr. I Putu Swastika Kepakisan, M. Biomed., Sp.B.png" alt="dr. I Putu Swastika Kepakisan, M.Biomed., Sp.B">
-                        </div>
-                        <div class="doctor-info">
-                            <h3>dr. I Putu Swastika Kepakisan, M.Biomed., Sp.B</h3>
-                            <div class="specialty">Spesialis Bedah</div>
-                            <div class="spesialisasi">Poliklinik Bedah</div>
-                        </div>
-                    </div>
-                    <div class="doctor-body">
-                        <div class="doctor-detail">
-                            <i class="fas fa-clock"></i>
-                            <div class="text">
-                                <div class="label">Jadwal Praktik</div>
-                                <div class="value">Rabu & Jumat: 08:00 - 13:00</div>
-                            </div>
-                        </div>
-                        <div class="doctor-detail">
-                            <i class="fas fa-graduation-cap"></i>
-                            <div class="text">
-                                <div class="label">Pendidikan</div>
-                                <div class="value">Sp.B - FK Universitas Hasanuddin</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="doctor-footer">
-                        <button class="doctor-action-profile" onclick="openProfile('bedah')">
-                            <i class="fas fa-user"></i> Lihat Profile
-                        </button>
-                        <a href="poli-bedah.html" class="doctor-action">Lihat Poli <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-
-                <!-- Spesialis Anestesi & Terapi Intensif -->
-                <div class="doctor-card" data-poli="anestesi">
-                    <div class="doctor-header">
-                        <div class="doctor-avatar" style="background: linear-gradient(135deg, #a29bfe 0%, #6c5ce7 100%);">
-                            <img src="img/dokter/dr. I Wayan Eka Arnawa, Sp.An-TI.png" alt="dr. I Wayan Eka Arnawa, Sp.An-TI">
-                        </div>
-                        <div class="doctor-info">
-                            <h3>dr. I Wayan Eka Arnawa, Sp.An-TI</h3>
-                            <div class="specialty">Spesialis Anestesi & Terapi Intensif</div>
-                            <div class="spesialisasi">Poliklinik Anestesi</div>
-                        </div>
-                    </div>
-                    <div class="doctor-body">
-                        <div class="doctor-detail">
-                            <i class="fas fa-clock"></i>
-                            <div class="text">
-                                <div class="label">Jadwal Praktik</div>
-                                <div class="value">Senin - Kamis: 07:00 - 14:00</div>
-                            </div>
-                        </div>
-                        <div class="doctor-detail">
-                            <i class="fas fa-graduation-cap"></i>
-                            <div class="text">
-                                <div class="label">Pendidikan</div>
-                                <div class="value">Sp.An-TI - FK Universitas Udayana</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="doctor-footer">
-                        <button class="doctor-action-profile" onclick="openProfile('kandungan')">
-                            <i class="fas fa-user"></i> Lihat Profile
-                        </button>
-                        <a href="poli-kandungan.html" class="doctor-action">Lihat Poli <i class="fas fa-arrow-right"></i></a><!-- Spesialis Bedah -->
-                <div class="doctor-card" data-poli="bedah">
-                    <div class="doctor-header">
-                        <div class="doctor-avatar" style="background: linear-gradient(135deg, #d63031 0%, #c0392b 100%);">
-                            <img src="img/dokter/dr. I Wayan Suwarna, S.Ked., Sp.B.png" alt="dr. I Wayan Suwarna, S.Ked., Sp.B">
-                        </div>
-                        <div class="doctor-info">
-                            <h3>dr. I Wayan Suwarna, S.Ked., Sp.B</h3>
-                            <div class="specialty">Spesialis Bedah</div>
-                            <div class="spesialisasi">Poliklinik Bedah</div>
-                        </div>
-                    </div>
-                    <div class="doctor-body">
-                        <div class="doctor-detail">
-                            <i class="fas fa-clock"></i>
-                            <div class="text">
-                                <div class="label">Jadwal Praktik</div>
-                                <div class="value">Senin - Kamis: 08:00 - 13:00</div>
-                            </div>
-                        </div>
-                        <div class="doctor-detail">
-                            <i class="fas fa-graduation-cap"></i>
-                            <div class="text">
-                                <div class="label">Pendidikan</div>
-                                <div class="value">Sp.B - FK Universitas Udayana</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="doctor-footer">
-                        <button class="doctor-action-profile" onclick="openProfile('bedah')">
-                            <i class="fas fa-user"></i> Lihat Profile
-                        </button>
-                        <a href="poli-bedah.html" class="doctor-action">Lihat Poli <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-
-                <!-- Spesialis Mikrobiologi Klinik -->
-                <div class="doctor-card" data-poli="laboratorium">
-                    <div class="doctor-header">
-                        <div class="doctor-avatar" style="background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);">
-                            <img src="img/dokter/dr. Ika Nurvidha Mahayanthi Mantra, Sp.MK.png" alt="dr. Ika Nurvidha Mahayanthi Mantra, Sp.MK">
-                        </div>
-                        <div class="doctor-info">
-                            <h3>dr. Ika Nurvidha Mahayanthi Mantra, Sp.MK</h3>
-                            <div class="specialty">Spesialis Mikrobiologi Klinik</div>
-                            <div class="spesialisasi">Laboratorium Klinik</div>
-                        </div>
-                    </div>
-                    <div class="doctor-body">
-                        <div class="doctor-detail">
-                            <i class="fas fa-clock"></i>
-                            <div class="text">
-                                <div class="label">Jadwal Praktik</div>
-                                <div class="value">Senin - Jumat: 07:00 - 14:00</div>
-                            </div>
-                        </div>
-                        <div class="doctor-detail">
-                            <i class="fas fa-graduation-cap"></i>
-                            <div class="text">
-                                <div class="label">Pendidikan</div>
-                                <div class="value">Sp.MK - FK Universitas Udayana</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="doctor-footer">
-                        <button class="doctor-action-profile" onclick="openProfile('bedah')">
-                            <i class="fas fa-user"></i> Lihat Profile
-                        </button>
-                        <a href="poli-bedah.html" class="doctor-action">Lihat Poli <i class="fas fa-arrow-right"></i></a><!-- Spesialis Neurologi -->
-                <div class="doctor-card" data-poli="saraf">
-                    <div class="doctor-header">
-                        <div class="doctor-avatar" style="background: linear-gradient(135deg, #a29bfe 0%, #6c5ce7 100%);">
-                            <img src="img/dokter/dr. Kade Agus Sudha Naryana, Sp.N.png" alt="dr. Kade Agus Sudha Naryana, Sp.N">
-                        </div>
-                        <div class="doctor-info">
-                            <h3>dr. Kade Agus Sudha Naryana, Sp.N</h3>
-                            <div class="specialty">Spesialis Neurologi</div>
-                            <div class="spesialisasi">Poliklinik Saraf</div>
-                        </div>
-                    </div>
-                    <div class="doctor-body">
-                        <div class="doctor-detail">
-                            <i class="fas fa-clock"></i>
-                            <div class="text">
-                                <div class="label">Jadwal Praktik</div>
-                                <div class="value">Selasa & Kamis: 09:00 - 14:00</div>
-                            </div>
-                        </div>
-                        <div class="doctor-detail">
-                            <i class="fas fa-graduation-cap"></i>
-                            <div class="text">
-                                <div class="label">Pendidikan</div>
-                                <div class="value">Sp.N - FK Universitas Udayana</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="doctor-footer">
-                        <button class="doctor-action-profile" onclick="openProfile('saraf')">
-                            <i class="fas fa-user"></i> Lihat Profile
-                        </button>
-                        <a href="poli-saraf.html" class="doctor-action">Lihat Poli <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-
-                <!-- Spesialis Anak -->
-                <div class="doctor-card" data-poli="anak">
-                    <div class="doctor-header">
-                        <div class="doctor-avatar" style="background: linear-gradient(135deg, #55efc4 0%, #00b894 100%);">
-                            <img src="img/dokter/dr. Made Ayu Widyaningsih, Sp.A.png" alt="dr. Made Ayu Widyaningsih, Sp.A">
-                        </div>
-                        <div class="doctor-info">
-                            <h3>dr. Made Ayu Widyaningsih, Sp.A</h3>
-                            <div class="specialty">Spesialis Anak</div>
-                            <div class="spesialisasi">Poliklinik Anak</div>
-                        </div>
-                    </div>
-                    <div class="doctor-body">
-                        <div class="doctor-detail">
-                            <i class="fas fa-clock"></i>
-                            <div class="text">
-                                <div class="label">Jadwal Praktik</div>
-                                <div class="value">Senin - Jumat: 08:00 - 13:00</div>
-                            </div>
-                        </div>
-                        <div class="doctor-detail">
-                            <i class="fas fa-graduation-cap"></i>
-                            <div class="text">
-                                <div class="label">Pendidikan</div>
-                                <div class="value">Sp.A - FK Universitas Udayana</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="doctor-footer">
-                        <button class="doctor-action-profile" onclick="openProfile('anak')">
-                            <i class="fas fa-user"></i> Lihat Profile
-                        </button>
-                        <a href="poli-anak.html" class="doctor-action">Lihat Poli <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-
-                <!-- Spesialis Patologi Klinik -->
-                <div class="doctor-card" data-poli="laboratorium">
-                    <div class="doctor-header">
-                        <div class="doctor-avatar" style="background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);">
-                            <img src="img/dokter/dr. Made Minarti Witarini Dewi, Sp.PK.png" alt="dr. Made Minarti Witarini Dewi, Sp.PK">
-                        </div>
-                        <div class="doctor-info">
-                            <h3>dr. Made Minarti Witarini Dewi, Sp.PK</h3>
-                            <div class="specialty">Spesialis Patologi Klinik</div>
-                            <div class="spesialisasi">Laboratorium Klinik</div>
-                        </div>
-                    </div>
-                    <div class="doctor-body">
-                        <div class="doctor-detail">
-                            <i class="fas fa-clock"></i>
-                            <div class="text">
-                                <div class="label">Jadwal Praktik</div>
-                                <div class="value">Senin - Jumat: 07:00 - 14:00</div>
-                            </div>
-                        </div>
-                        <div class="doctor-detail">
-                            <i class="fas fa-graduation-cap"></i>
-                            <div class="text">
-                                <div class="label">Pendidikan</div>
-                                <div class="value">Sp.PK - FK Universitas Udayana</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="doctor-footer">
-                        <button class="doctor-action-profile" onclick="openProfile('saraf')">
-                            <i class="fas fa-user"></i> Lihat Profile
-                        </button>
-                        <a href="poli-saraf.html" class="doctor-action">Lihat Poli <i class="fas fa-arrow-right"></i></a><!-- Spesialis Anestesi & Reanimasi -->
-                <div class="doctor-card" data-poli="anestesi">
-                    <div class="doctor-header">
-                        <div class="doctor-avatar" style="background: linear-gradient(135deg, #a29bfe 0%, #6c5ce7 100%);">
-                            <img src="img/dokter/dr. Manik Dirgayunitri, M.Biomed., Sp.An.png" alt="dr. Manik Dirgayunitri, M.Biomed., Sp.An">
-                        </div>
-                        <div class="doctor-info">
-                            <h3>dr. Manik Dirgayunitri, M.Biomed., Sp.An</h3>
-                            <div class="specialty">Spesialis Anestesi & Reanimasi</div>
-                            <div class="spesialisasi">Poliklinik Anestesi</div>
-                        </div>
-                    </div>
-                    <div class="doctor-body">
-                        <div class="doctor-detail">
-                            <i class="fas fa-clock"></i>
-                            <div class="text">
-                                <div class="label">Jadwal Praktik</div>
-                                <div class="value">Senin - Jumat: 07:00 - 14:00</div>
-                            </div>
-                        </div>
-                        <div class="doctor-detail">
-                            <i class="fas fa-graduation-cap"></i>
-                            <div class="text">
-                                <div class="label">Pendidikan</div>
-                                <div class="value">Sp.An - FK Universitas Udayana</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="doctor-footer">
-                        <button class="doctor-action-profile" onclick="openProfile('anestesi')">
-                            <i class="fas fa-user"></i> Lihat Profile
-                        </button>
-                        <a href="poli-saraf.html" class="doctor-action">Lihat Poli <i class="fas fa-arrow-right"></i></a>
-                <div class="doctor-card" data-poli="saraf">
-                    <div class="doctor-header">
-                        <div class="doctor-avatar" style="background: linear-gradient(135deg, #a29bfe 0%, #6c5ce7 100%);">
-                            <img src="img/dokter/dr. Ni Komang Dewi Mahayani, Sp.N.png" alt="dr. Ni Komang Dewi Mahayani, Sp.N">
-                        </div>
-                        <div class="doctor-info">
-                            <h3>dr. Ni Komang Dewi Mahayani, Sp.N</h3>
-                            <div class="specialty">Spesialis Neurologi</div>
-                            <div class="spesialisasi">Poliklinik Saraf</div>
-                        </div>
-                    </div>
-                    <div class="doctor-body">
-                        <div class="doctor-detail">
-                            <i class="fas fa-clock"></i>
-                            <div class="text">
-                                <div class="label">Jadwal Praktik</div>
-                                <div class="value">Senin & Rabu: 09:00 - 14:00</div>
-                            </div>
-                        </div>
-                        <div class="doctor-detail">
-                            <i class="fas fa-graduation-cap"></i>
-                            <div class="text">
-                                <div class="label">Pendidikan</div>
-                                <div class="value">Sp.N - FK Universitas Udayana</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="doctor-footer">
-                        <button class="doctor-action-profile" onclick="openProfile('saraf')">
-                            <i class="fas fa-user"></i> Lihat Profile
-                        </button>
-                        <a href="poli-saraf.html" class="doctor-action">Lihat Poli <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-
-                <!-- Spesialis Anak -->
-                <div class="doctor-card" data-poli="anak">
-                    <div class="doctor-header">
-                        <div class="doctor-avatar" style="background: linear-gradient(135deg, #55efc4 0%, #00b894 100%);">
-                            <img src="img/dokter/dr. Ni Made Ayu Agustini, M. Biomed., SpA.png" alt="dr. Ni Made Ayu Agustini, M.Biomed., SpA">
-                        </div>
-                        <div class="doctor-info">
-                            <h3>dr. Ni Made Ayu Agustini, M.Biomed., SpA</h3>
-                            <div class="specialty">Spesialis Anak</div>
-                            <div class="spesialisasi">Poliklinik Anak</div>
-                        </div>
-                    </div>
-                    <div class="doctor-body">
-                        <div class="doctor-detail">
-                            <i class="fas fa-clock"></i>
-                            <div class="text">
-                                <div class="label">Jadwal Praktik</div>
-                                <div class="value">Senin - Kamis: 08:00 - 13:00</div>
-                            </div>
-                        </div>
-                        <div class="doctor-detail">
-                            <i class="fas fa-graduation-cap"></i>
-                            <div class="text">
-                                <div class="label">Pendidikan</div>
-                                <div class="value">SpA - FK Universitas Udayana</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="doctor-footer">
-                        <button class="doctor-action-profile" onclick="openProfile('anak')">
-                            <i class="fas fa-user"></i> Lihat Profile
-                        </button>
-                        <a href="poli-anak.html" class="doctor-action">Lihat Poli <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-
-                <!-- Spesialis Obstetri & Ginekologi -->
-                <div class="doctor-card" data-poli="kandungan">
-                    <div class="doctor-header">
-                        <div class="doctor-avatar" style="background: linear-gradient(135deg, #fab1a0 0%, #e17055 100%);">
-                            <img src="img/dokter/dr. Pande Made Suwanpramana, Sp.OG.png" alt="dr. Pande Made Suwanpramana, Sp.OG">
-                        </div>
-                        <div class="doctor-info">
-                            <h3>dr. Pande Made Suwanpramana, Sp.OG</h3>
-                            <div class="specialty">Spesialis Obstetri & Ginekologi</div>
-                            <div class="spesialisasi">Poliklinik Kandungan</div>
-                        </div>
-                    </div>
-                    <div class="doctor-body">
-                        <div class="doctor-detail">
-                            <i class="fas fa-clock"></i>
-                            <div class="text">
-                                <div class="label">Jadwal Praktik</div>
-                                <div class="value">Senin - Jumat: 09:00 - 14:00</div>
-                            </div>
-                        </div>
-                        <div class="doctor-detail">
-                            <i class="fas fa-graduation-cap"></i>
-                            <div class="text">
-                                <div class="label">Pendidikan</div>
-                                <div class="value">Sp.OG - FK Universitas Udayana</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="doctor-footer">
-                        <button class="doctor-action-profile" onclick="openProfile('kandungan')">
-                            <i class="fas fa-user"></i> Lihat Profile
-                        </button>
-                        <a href="poli-kandungan.html" class="doctor-action">Lihat Poli <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-
-                <!-- Spesialis Penyakit Dalam -->
-                <div class="doctor-card" data-poli="dalam">
-                    <div class="doctor-header">
-                        <div class="doctor-avatar" style="background: linear-gradient(135deg, #fdcb6e 0%, #f39c12 100%);">
-                            <img src="img/dokter/dr. Sang Ketut Widiana, Sp.PD.png" alt="dr. Sang Ketut Widiana, Sp.PD">
-                        </div>
-                        <div class="doctor-info">
-                            <h3>dr. Sang Ketut Widiana, Sp.PD</h3>
-                            <div class="specialty">Spesialis Penyakit Dalam</div>
-                            <div class="spesialisasi">Poliklinik Penyakit Dalam</div>
-                        </div>
-                    </div>
-                    <div class="doctor-body">
-                        <div class="doctor-detail">
-                            <i class="fas fa-clock"></i>
-                            <div class="text">
-                                <div class="label">Jadwal Praktik</div>
-                                <div class="value">Senin - Jumat: 08:00 - 14:00</div>
-                            </div>
-                        </div>
-                        <div class="doctor-detail">
-                            <i class="fas fa-graduation-cap"></i>
-                            <div class="text">
-                                <div class="label">Pendidikan</div>
-                                <div class="value">Sp.PD - FK Universitas Udayana</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="doctor-footer">
-                        <button class="doctor-action-profile" onclick="openProfile('dalam')">
-                            <i class="fas fa-user"></i> Lihat Profile
-                        </button>
-                        <a href="poli-dalam.html" class="doctor-action">Lihat Poli <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-
-                <!-- Spesialis Patologi Klinik -->
-                <div class="doctor-card" data-poli="laboratorium">
-                    <div class="doctor-header">
-                        <div class="doctor-avatar" style="background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);">
-                            <img src="img/dokter/dr. Theresia Maharani Sari Nastiti, Sp.PK.png" alt="dr. Theresia Maharani Sari Nastiti, Sp.PK">
-                        </div>
-                        <div class="doctor-info">
-                            <h3>dr. Theresia Maharani Sari Nastiti, Sp.PK</h3>
-                            <div class="specialty">Spesialis Patologi Klinik</div>
-                            <div class="spesialisasi">Laboratorium Klinik</div>
-                        </div>
-                    </div>
-                    <div class="doctor-body">
-                        <div class="doctor-detail">
-                            <i class="fas fa-clock"></i>
-                            <div class="text">
-                                <div class="label">Jadwal Praktik</div>
-                                <div class="value">Senin - Jumat: 07:00 - 14:00</div>
-                            </div>
-                        </div>
-                        <div class="doctor-detail">
-                            <i class="fas fa-graduation-cap"></i>
-                            <div class="text">
-                                <div class="label">Pendidikan</div>
-                                <div class="value">Sp.PK - FK Universitas Udayana</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="doctor-footer">
-                        <button class="doctor-action-profile" onclick="openProfile('saraf')">
-                            <i class="fas fa-user"></i> Lihat Profile
-                        </button>
-                        <a href="poli-saraf.html" class="doctor-action">Lihat Poli <i class="fas fa-arrow-right"></i></a><!-- Spesialis Penyakit Dalam -->
-                <div class="doctor-card" data-poli="dalam">
-                    <div class="doctor-header">
-                        <div class="doctor-avatar" style="background: linear-gradient(135deg, #fdcb6e 0%, #f39c12 100%);">
-                            <img src="img/dokter/dr. Tjokorda Prima Dewi Pemayun, Sp.PD.png" alt="dr. Tjokorda Prima Dewi Pemayun, Sp.PD">
-                        </div>
-                        <div class="doctor-info">
-                            <h3>dr. Tjokorda Prima Dewi Pemayun, Sp.PD</h3>
-                            <div class="specialty">Spesialis Penyakit Dalam</div>
-                            <div class="spesialisasi">Poliklinik Penyakit Dalam</div>
-                        </div>
-                    </div>
-                    <div class="doctor-body">
-                        <div class="doctor-detail">
-                            <i class="fas fa-clock"></i>
-                            <div class="text">
-                                <div class="label">Jadwal Praktik</div>
-                                <div class="value">Senin - Jumat: 08:00 - 14:00</div>
-                            </div>
-                        </div>
-                        <div class="doctor-detail">
-                            <i class="fas fa-graduation-cap"></i>
-                            <div class="text">
-                                <div class="label">Pendidikan</div>
-                                <div class="value">Sp.PD - FK Universitas Udayana</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="doctor-footer">
-                        <button class="doctor-action-profile" onclick="openProfile('dalam')">
-                            <i class="fas fa-user"></i> Lihat Profile
-                        </button>
-                        <a href="poli-dalam.html" class="doctor-action">Lihat Poli <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-
             </div>
         </div>
     </section>
 
-    <!-- CTA Section -->
+    <!-- CTA SECTION -->
     <section class="cta-section">
         <div class="container">
-            <h2>Butuh Konsultasi Dokter?</h2>
-            <p>Hubungi kami untuk informasi jadwal dokter dan pendaftaran rawat jalan</p>
-            <a href="tel:036198087" class="cta-btn">
-                <i class="fas fa-phone-alt"></i> Hubungi Kami
-            </a>
+            <h2 class="cta-title">Siap Membuat Janji Temu?</h2>
+            <p class="cta-subtitle">
+                Konsultasikan kesehatan Anda dengan dokter spesialis kami. Pendaftaran online mudah dan cepat.
+            </p>
+            <div class="cta-buttons">
+                <a href="antrean.html" class="cta-btn cta-btn-primary">
+                    <i class="fas fa-calendar-check"></i> Daftar Online
+                </a>
+                <a href="tel:+62361472008" class="cta-btn cta-btn-secondary">
+                    <i class="fas fa-phone-alt"></i> Hubungi Kami
+                </a>
+            </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer>
+    <!-- FOOTER -->
+    <footer class="footer">
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand">
-                    <a href="index.html" class="logo">
-                        <img src="logo.png" alt="Payangan Hospital">
-                        <span class="logo-text">Payangan Hospital</span>
-                    </a>
-                    <p>Memberikan pelayanan kesehatan berkualitas berbasis Tri Hita Karana.</p>
+                    <div class="footer-logo">
+                        <img src="logo.png" alt="RS Payangan Hospital" onerror="this.style.display='none'">
+                        <span class="footer-logo-text">Payangan Hospital</span>
+                    </div>
+                    <p class="footer-desc">
+                        RS Payangan Hospital berkomitmen memberikan pelayanan kesehatan berkualitas dengan berlandaskan nilai-nilai Tri Hita Karana untuk masyarakat Gianyar dan sekitarnya.
+                    </p>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
                 </div>
-                <div class="footer-links">
+                <div class="footer-column">
+                    <h4>Menu</h4>
+                    <nav class="footer-links">
+                        <a href="index.html">Home</a>
+                        <a href="about.html">About</a>
+                        <a href="dokter.html">Dokter</a>
+                        <a href="layanan.html">Layanan</a>
+                        <a href="kontak.html">Kontak</a>
+                    </nav>
+                </div>
+                <div class="footer-column">
                     <h4>Layanan</h4>
-                    <ul>
-                        <li><a href="rawat-jalan.html">Rawat Jalan</a></li>
-                        <li><a href="rawat-inap.html">Rawat Inap</a></li>
-                        <li><a href="igd.html">IGD 24 Jam</a></li>
-                        <li><a href="dokter.html">Dokter</a></li>
-                    </ul>
+                    <nav class="footer-links">
+                        <a href="igd.html">IGD 24 Jam</a>
+                        <a href="rawat-inap.html">Rawat Inap</a>
+                        <a href="rawat-jalan.html">Rawat Jalan</a>
+                        <a href="antrean.html">Pendaftaran Online</a>
+                    </nav>
                 </div>
-                <div class="footer-links">
-                    <h4>Tentang</h4>
-                    <ul>
-                        <li><a href="about.html#sejarah">Sejarah</a></li>
-                        <li><a href="about.html#visimisi">Visi Misi</a></li>
-                        <li><a href="about.html#standar">Standar</a></li>
-                    </ul>
-                </div>
-                <div class="footer-links">
-                    <h4>Kontak</h4>
-                    <ul>
-                        <li><a href="tel:+6236198087">0361 98087</a></li>
-                        <li><a href="#">Jl. Raya Payangan</a></li>
-                        <li><a href="#">Gianyar, Bali</a></li>
-                    </ul>
+                <div class="footer-column">
+                    <h4>Jam Operasional</h4>
+                    <nav class="footer-links">
+                        <a href="#">IGD: 24 Jam</a>
+                        <a href="#">Poliklinik: 08:00 - 20:00</a>
+                        <a href="#">Laboratorium: 07:00 - 14:00</a>
+                        <a href="#">Apotek: 24 Jam</a>
+                    </nav>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Payangan Hospital - Gianyar, Bali</p>
-                <div class="footer-social">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-youtube"></i></a>
+                <p class="footer-copyright">
+                    &copy; 2025 RS Payangan Hospital. Hak Cipta Dilindungi.
+                </p>
+                <div class="footer-links-bottom">
+                    <a href="#">Kebijakan Privasi</a>
+                    <a href="#">Syarat & Ketentuan</a>
                 </div>
             </div>
         </div>
     </footer>
 
-    <!-- Doctor Profile Modal -->
-    <div class="modal-overlay" id="doctorModal">
-        <div class="modal-content">
+    <!-- DOCTOR MODAL -->
+    <div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+        <div class="modal" onclick="event.stopPropagation()">
             <div class="modal-header">
-                <button class="modal-close" onclick="closeModal()"><i class="fas fa-times"></i></button>
-                <div class="modal-avatar" id="modalAvatar">
-                    <img src="" alt="" id="modalImage">
-                    <i class="fas fa-user-md" id="modalIcon"></i>
+                <button class="modal-close" onclick="closeModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+                <div class="modal-doctor-info">
+                    <div class="modal-doctor-image">
+                        <img src="img/director.jpg" alt="Doctor" id="modalImage">
+                    </div>
+                    <div>
+                        <h2 class="modal-doctor-name" id="modalName"></h2>
+                        <p class="modal-doctor-spec" id="modalSpec"></p>
+                    </div>
                 </div>
-                <h2 class="modal-name" id="modalName">Nama Dokter</h2>
-                <p class="modal-specialty" id="modalSpecialty">Spesialis</p>
             </div>
             <div class="modal-body">
-                <div class="modal-section">
-                    <div class="modal-section-title"><i class="fas fa-info-circle"></i> Informasi Dokter</div>
-                    <div class="modal-info-grid">
-                        <div class="modal-info-item">
-                            <div class="label">Nama Lengkap</div>
-                            <div class="value" id="modalFullName">-</div>
-                        </div>
-                        <div class="modal-info-item">
-                            <div class="label">Spesialisasi</div>
-                            <div class="value" id="modalSpesialisasi">-</div>
-                        </div>
-                        <div class="modal-info-item">
-                            <div class="label">Poliklinik</div>
-                            <div class="value" id="modalPoli">-</div>
-                        </div>
-                        <div class="modal-info-item">
-                            <div class="label">Jadwal Praktik</div>
-                            <div class="value" id="modalJadwal">-</div>
-                        </div>
+                <div class="modal-info-grid">
+                    <div class="modal-info-item">
+                        <div class="modal-info-label">SIP</div>
+                        <div class="modal-info-value" id="modalSip"></div>
+                    </div>
+                    <div class="modal-info-item">
+                        <div class="modal-info-label">Pendidikan</div>
+                        <div class="modal-info-value" id="modalEducation"></div>
+                    </div>
+                    <div class="modal-info-item">
+                        <div class="modal-info-label">Jadwal</div>
+                        <div class="modal-info-value" id="modalSchedule"></div>
+                    </div>
+                    <div class="modal-info-item">
+                        <div class="modal-info-label">Poliklinik</div>
+                        <div class="modal-info-value" id="modalPoli"></div>
                     </div>
                 </div>
-                
-                <div class="modal-section">
-                    <div class="modal-section-title"><i class="fas fa-graduation-cap"></i> Pendidikan & Pengalaman</div>
-                    <div class="modal-info-grid">
-                        <div class="modal-info-item">
-                            <div class="label">Pendidikan</div>
-                            <div class="value" id="modalPendidikan">-</div>
-                        </div>
-                        <div class="modal-info-item">
-                            <div class="label">Pengalaman</div>
-                            <div class="value" id="modalPengalaman">-</div>
-                        </div>
+                <div class="modal-section" style="margin-top: var(--space-6);">
+                    <div class="modal-section-title">
+                        <i class="fas fa-book-medical"></i> Pengalaman
                     </div>
+                    <p class="modal-section-content" id="modalExperience"></p>
                 </div>
-                
-                <div class="modal-section">
-                    <div class="modal-section-title"><i class="fas fa-stethoscope"></i> Keahlian</div>
-                    <div class="modal-tags" id="modalTags">
-                        <span class="modal-tag">-</span>
-                    </div>
-                </div>
-                
-                <div class="modal-section">
-                    <div class="modal-section-title"><i class="fas fa-file-medical"></i> Tentang</div>
-                    <div class="modal-description" id="modalDescription">-</div>
-                </div>
-                
-                <div class="modal-actions">
-                    <a href="#" class="modal-btn modal-btn-secondary" id="modalPoliLink">
-                        <i class="fas fa-hospital"></i> Lihat Poli
-                    </a>
-                    <a href="kontak.html" class="modal-btn modal-btn-primary">
-                        <i class="fas fa-calendar-check"></i> Buat Janji
-                    </a>
-                </div>
+            </div>
+            <div class="modal-actions">
+                <a href="antrean.html" class="modal-btn modal-btn-primary">
+                    <i class="fas fa-calendar-check"></i> Buat Janji
+                </a>
+                <a href="tel:+62361472008" class="modal-btn modal-btn-secondary">
+                    <i class="fas fa-phone-alt"></i> Hubungi
+                </a>
             </div>
         </div>
     </div>
 
     <script>
-        window.addEventListener('scroll', () => {
-            document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
-        });
-        function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('active'); }
-        
-        function filterDoctors(poli) {
-            const cards = document.querySelectorAll('.doctor-card');
-            const buttons = document.querySelectorAll('.filter-btn');
-            
-            // Update active button
-            buttons.forEach(btn => {
-                btn.classList.remove('active');
-                if (btn.textContent.toLowerCase().includes(poli) || (poli === 'all' && btn.textContent === 'Semua')) {
-                    btn.classList.add('active');
-                }
-            });
-            
-            // Filter cards
-            cards.forEach(card => {
-                if (poli === 'all' || card.dataset.poli === poli) {
-                    card.classList.remove('hidden');
-                } else {
-                    card.classList.add('hidden');
-                }
-            });
+        /* ========================================
+           DATA
+        ======================================== */
+        const doctors = [
+            { id: "jantung", name: "dr. Anak Agung Ayu Ngurah Desy Widya Putri, Sp.JP", sip: "SIP-12345-2024-001", spec: "Spesialis Jantung & Pembuluh Darah", poli: "Poliklinik Jantung", schedule: "Senin & Kamis: 08:00 - 14:00", education: "Sp.JP - FK Universitas Udayana", experience: "Spesialis jantung dan pembuluh darah dengan keahlian dalam diagnosis dan penanganan penyakit kardiovaskular.", filter: "jantung", image: "img/dokter/dr-anggung-desy-spjp.png", tag: "Jantung" },
+            { id: "radiologi", name: "dr. Herry Juniada, Sp.Rad", sip: "SIP-12345-2020-002", spec: "Spesialis Radiologi", poli: "Poliklinik Radiologi", schedule: "Senin - Jumat: 09:00 - 15:00", education: "Sp.Rad - FK Universitas Udayana", experience: "Spesialis radiologi dengan keahlian dalam membaca hasil X-Ray, USG, CT Scan, dan MRI.", filter: "radiologi", image: "img/dokter/dr. Herry Juniada, Sp. Rad.png", tag: "Radiologi" },
+            { id: "anestesi", name: "dr. I G N Bagus Arimanjaya, Sp.An", sip: "SIP-12345-2020-003", spec: "Spesialis Anestesiologi & Terapi Intensif", poli: "Poliklinik Anestesi", schedule: "Senin - Jumat: 08:00 - 16:00", education: "Sp.An - FK Universitas Udayana", experience: "Spesialis anestesi dengan keahlian dalam penanganan anestesi umum dan regional.", filter: "anestesi", image: "img/dokter/dr. I G N Bagus Arimanjaya, Sp.An.png", tag: "Anestesi" },
+            { id: "kandungan", name: "dr. I Gede Agus Hendra Sujana, Sp.OG", sip: "SIP-12345-2020-004", spec: "Spesialis Obstetri & Ginekologi", poli: "Poliklinik Kandungan", schedule: "Selasa & Jumat: 08:00 - 14:00", education: "Sp.OG - FK Universitas Udayana", experience: "Spesialis obstetri dan ginekologi dengan fokus pada kehamilan berisiko tinggi.", filter: "kandungan", image: "img/dokter/dr. I Gede Agus Hendra Sujana, Sp.OG.png", tag: "Kandungan" },
+            { id: "ortho", name: "dr. I Gede Ketut Alit Satria Nugraha, SpOT", sip: "SIP-12345-2020-005", spec: "Spesialis Orthopedi", poli: "Poliklinik Orthopedi", schedule: "Rabu: 08:00 - 14:00", education: "SpOT - FK Universitas Udayana", experience: "Spesialis orthopedi dengan keahlian dalam penanganan patah tulang dan cedera sendi.", filter: "ortho", image: "img/dokter/dr. I Gede Ketut Alit Satria Nugraha, SpOT.png", tag: "Orthopedi" },
+            { id: "dalam", name: "dr. I Gusti Putu Hery Sikesa, Sp.PD", sip: "SIP-12345-2020-006", spec: "Spesialis Penyakit Dalam", poli: "Poliklinik Penyakit Dalam", schedule: "Senin - Rabu: 08:00 - 14:00", education: "Sp.PD - FK Universitas Udayana", experience: "Spesialis penyakit dalam dengan keahlian dalam diagnosis dan penanganan penyakit metabolik.", filter: "dalam", image: "img/dokter/dr. I Gusti Putu Hery Sikesa, Sp.PD.png", tag: "Penyakit Dalam" },
+            { id: "ortho2", name: "dr. I Ketut Wahyu Tri Saputra, Sp.OT", sip: "SIP-12345-2020-007", spec: "Spesialis Orthopedi", poli: "Poliklinik Orthopedi", schedule: "Senin & Kamis: 08:00 - 14:00", education: "Sp.OT - FK Universitas Udayana", experience: "Spesialis orthopedi dengan keahlian dalam bedah arthroscopy dan trauma.", filter: "ortho", image: "img/dokter/dr. I Ketut Wahyu Tri Saputra, Sp.OT.png", tag: "Orthopedi" },
+            { id: "kandungan2", name: "dr. I Made Brammartha Kusuma, Sp.OG", sip: "SIP-12345-2020-008", spec: "Spesialis Obstetri & Ginekologi", poli: "Poliklinik Kandungan", schedule: "Senin & Rabu: 08:00 - 14:00", education: "Sp.OG - FK Universitas Udayana", experience: "Spesialis obstetri dan ginekologi dalam penanganan persalinan dan kesehatan reproduksi.", filter: "kandungan", image: "img/dokter/dr. I Made Brammartha Kusuma, Sp.OG.png", tag: "Kandungan" },
+            { id: "bedah", name: "dr. I Putu Swastika Kepakisan, M.Biomed., Sp.B", sip: "SIP-12345-2020-009", spec: "Spesialis Bedah Umum", poli: "Poliklinik Bedah", schedule: "Kamis: 08:00 - 14:00", education: "Sp.B, M.Biomed - FK Universitas Udayana", experience: "Spesialis bedah umum dengan keahlian dalam bedah laparoskopi.", filter: "bedah", image: "img/dokter/dr. I Putu Swastika Kepakisan, M. Biomed., Sp.B.png", tag: "Bedah" },
+            { id: "anestesi2", name: "dr. I Wayan Eka Arnawa, Sp.An-TI", sip: "SIP-12345-2020-010", spec: "Spesialis Anestesiologi & Terapi Intensif", poli: "Poliklinik Anestesi", schedule: "Senin - Jumat: 08:00 - 16:00", education: "Sp.An-TI - FK Universitas Udayana", experience: "Spesialis anestesi dengan keahlian dalam terapi intensif.", filter: "anestesi", image: "img/dokter/dr. I Wayan Eka Arnawa, Sp.An-TI.png", tag: "Anestesi" },
+            { id: "bedah2", name: "dr. I Wayan Suwarna, S.Ked., Sp.B", sip: "SIP-12345-2020-011", spec: "Spesialis Bedah Umum", poli: "Poliklinik Bedah", schedule: "Selasa & Kamis: 08:00 - 14:00", education: "Sp.B - FK Universitas Udayana", experience: "Spesialis bedah umum dengan keahlian dalam bedah trauma.", filter: "bedah", image: "img/dokter/dr. I Wayan Suwarna, S.Ked., Sp.B.png", tag: "Bedah" },
+            { id: "patologi", name: "dr. Ika Nurvidha Mahayanthi Mantra, Sp.MK", sip: "SIP-12345-2020-012", spec: "Spesialis Patologi Klinik", poli: "Poliklinik Laboratorium", schedule: "Senin - Jumat: 07:00 - 14:00", education: "Sp.MK - FK Universitas Udayana", experience: "Spesialis patologi klinik dengan keahlian dalam pemeriksaan laboratorium.", filter: "patologi", image: "img/dokter/dr. Ika Nurvidha Mahayanthi Mantra, Sp.MK.png", tag: "Patologi" },
+            { id: "saraf", name: "dr. Kade Agus Sudha Naryana, Sp.N", sip: "SIP-12345-2020-013", spec: "Spesialis Neurologi", poli: "Poliklinik Saraf", schedule: "Senin & Kamis: 08:00 - 14:00", education: "Sp.N - FK Universitas Udayana", experience: "Spesialis neurologi dengan keahlian dalam penanganan stroke.", filter: "saraf", image: "img/dokter/dr. Kade Agus Sudha Naryana, Sp.N.png", tag: "Saraf" },
+            { id: "anak", name: "dr. Made Ayu Widyaningsih, Sp.A", sip: "SIP-12345-2020-014", spec: "Spesialis Anak", poli: "Poliklinik Anak", schedule: "Senin - Jumat: 08:00 - 14:00", education: "Sp.A - FK Universitas Udayana", experience: "Spesialis anak dengan keahlian dalam penanganan penyakit anak.", filter: "anak", image: "img/dokter/dr. Made Ayu Widyaningsih, Sp.A.png", tag: "Anak" },
+            { id: "patologi2", name: "dr. Made Minarti Witarini Dewi, Sp.PK", sip: "SIP-12345-2020-015", spec: "Spesialis Patologi Klinik", poli: "Poliklinik Laboratorium", schedule: "Senin - Jumat: 07:00 - 14:00", education: "Sp.PK - FK Universitas Udayana", experience: "Spesialis patologi klinik dengan keahlian dalam diagnosis laboratorium.", filter: "patologi", image: "img/dokter/dr. Made Minarti Witarini Dewi, Sp.PK.png", tag: "Patologi" },
+            { id: "anestesi3", name: "dr. Manik Dirgayunitri, M.Biomed., Sp.An", sip: "SIP-12345-2020-016", spec: "Spesialis Anestesiologi & Terapi Intensif", poli: "Poliklinik Anestesi", schedule: "Senin - Jumat: 08:00 - 16:00", education: "Sp.An, M.Biomed - FK Universitas Udayana", experience: "Spesialis anestesi dengan keahlian dalam anestesi umum.", filter: "anestesi", image: "img/dokter/dr. Manik Dirgayunitri, M.Biomed., Sp.An.png", tag: "Anestesi" },
+            { id: "saraf2", name: "dr. Ni Komang Dewi Mahayani, Sp.N", sip: "SIP-12345-2020-017", spec: "Spesialis Neurologi", poli: "Poliklinik Saraf", schedule: "Selasa & Jumat: 08:00 - 14:00", education: "Sp.N - FK Universitas Udayana", experience: "Spesialis neurologi dengan keahlian dalam penanganan epilepsi.", filter: "saraf", image: "img/dokter/dr. Ni Komang Dewi Mahayani, Sp.N.png", tag: "Saraf" },
+            { id: "anak2", name: "dr. Ni Made Ayu Agustini, M.Biomed., SpA", sip: "SIP-12345-2020-018", spec: "Spesialis Anak", poli: "Poliklinik Anak", schedule: "Senin & Rabu: 08:00 - 14:00", education: "Sp.A, M.Biomed - FK Universitas Udayana", experience: "Spesialis anak dengan keahlian dalam tumbuh kembang anak.", filter: "anak", image: "img/dokter/dr. Ni Made Ayu Agustini, M.Biomed., SpA.png", tag: "Anak" },
+            { id: "kandungan3", name: "dr. Pande Made Suwanpramana, Sp.OG", sip: "SIP-12345-2020-019", spec: "Spesialis Obstetri & Ginekologi", poli: "Poliklinik Kandungan", schedule: "Rabu & Jumat: 08:00 - 14:00", education: "Sp.OG - FK Universitas Udayana", experience: "Spesialis obstetri dan ginekologi dalam konsultasi pra nikah.", filter: "kandungan", image: "img/dokter/dr. Pande Made Suwanpramana, Sp.OG.png", tag: "Kandungan" },
+            { id: "dalam2", name: "dr. Sang Ketut Widiana, Sp.PD", sip: "SIP-12345-2020-020", spec: "Spesialis Penyakit Dalam", poli: "Poliklinik Penyakit Dalam", schedule: "Kamis & Sabtu: 08:00 - 14:00", education: "Sp.PD - FK Universitas Udayana", experience: "Spesialis penyakit dalam dengan keahlian dalam penyakit pencernaan.", filter: "dalam", image: "img/dokter/dr. Sang Ketut Widiana, Sp.PD.png", tag: "Penyakit Dalam" },
+            { id: "patologi3", name: "dr. Theresia Maharani Sari Nastiti, Sp.PK", sip: "SIP-12345-2020-021", spec: "Spesialis Patologi Klinik", poli: "Poliklinik Laboratorium", schedule: "Senin - Jumat: 07:00 - 14:00", education: "Sp.PK - FK Universitas Udayana", experience: "Spesialis patologi klinik dalam pemeriksaan darah.", filter: "patologi", image: "img/dokter/dr. Theresia Maharani Sari Nastiti, Sp.PK.png", tag: "Patologi" },
+            { id: "dalam3", name: "dr. Tjokorda Prima Dewi Pemayun, Sp.PD", sip: "SIP-12345-2020-022", spec: "Spesialis Penyakit Dalam", poli: "Poliklinik Penyakit Dalam", schedule: "Senin - Jumat: 08:00 - 14:00", education: "Sp.PD - FK Universitas Udayana", experience: "Spesialis penyakit dalam dengan keahlian dalam penyakit metabolik.", filter: "dalam", image: "img/dokter/dr. Tjokorda Prima Dewi Pemayun, Sp.PD.png", tag: "Penyakit Dalam" }
+        ];
+
+        const categories = [
+            { id: 'jantung', name: 'Jantung', icon: 'fa-heart', color: '#ef4444' },
+            { id: 'radiologi', name: 'Radiologi', icon: 'fa-x-ray', color: '#8b5cf6' },
+            { id: 'anestesi', name: 'Anestesi', icon: 'fa-syringe', color: '#06b6d4' },
+            { id: 'kandungan', name: 'Kandungan', icon: 'fa-baby', color: '#ec4899' },
+            { id: 'ortho', name: 'Orthopedi', icon: 'fa-bone', color: '#f59e0b' },
+            { id: 'dalam', name: 'Penyakit Dalam', icon: 'fa-stethoscope', color: '#10b981' },
+            { id: 'bedah', name: 'Bedah', icon: 'fa-user-md', color: '#6366f1' },
+            { id: 'saraf', name: 'Saraf', icon: 'fa-brain', color: '#8b5cf6' },
+            { id: 'anak', name: 'Anak', icon: 'fa-child', color: '#f97316' },
+            { id: 'patologi', name: 'Patologi', icon: 'fa-flask', color: '#14b8a6' }
+        ];
+
+        /* ========================================
+           MOBILE MENU
+        ======================================== */
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('active');
+            document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
         }
-    
-        // Doctor Profile Data
-        const doctorProfiles = {"jantung": {"name": "dr. Anak Agung Ayu Ngurah Desy Widya Putri, Sp.JP", "sip": "SIP-12345-2020-001", "education": "Sp.JP - FK Universitas Udayana", "experience": "Dokter spesialis jantung dan pembuluh darah dengan pengalaman lebih dari 5 tahun di bidang kardiologi intervensi dan ekokardiografi.", "schedule": "Senin & Kamis: 08:00 - 14:00", "poli": "Poliklinik Jantung", "image": "img/dokter/dr. Anak Agung Ayu Ngurah Desy Widya Putri, Sp.JP.png"}, "radiologi": {"name": "dr. Herry Juniada, Sp. Rad", "sip": "SIP-12345-2020-002", "education": "Sp.Rad - FK Universitas Udayana", "experience": "Spesialis radiologi dengan keahlian dalam membaca hasil X-Ray, USG, CT Scan, dan MRI untuk diagnosis yang akurat.", "schedule": "Senin - Jumat: 09:00 - 15:00", "poli": "Poliklinik Radiologi", "image": "img/dokter/dr. Herry Juniada, Sp. Rad.png"}, "anestesi": {"name": "dr. I G N Bagus Arimanjaya, Sp.An", "sip": "SIP-12345-2020-003", "education": "Sp.An - FK Universitas Udayana", "experience": "Spesialis anestesi dengan pengalaman dalam penanganan anestesi umum, regional, dan sedasi untuk berbagai prosedur bedah.", "schedule": "Sesuai jadwal operasi", "poli": "Poliklinik Anestesi", "image": "img/dokter/dr. I G N Bagus Arimanjaya, Sp.An.png"}, "kandungan": {"name": "dr. I Gede Agus Hendra Sujana, Sp.OG", "sip": "SIP-12345-2020-004", "education": "Sp.OG - FK Universitas Udayana", "experience": "Spesialis obstetri dan ginekologi dengan fokus pada kehamilan berisiko tinggi, persalinan, dan kesehatan reproduksi wanita.", "schedule": "Selasa & Jumat: 08:00 - 14:00", "poli": "Poliklinik Kandungan", "image": "img/dokter/dr. I Gede Agus Hendra Sujana, Sp.OG.png"}, "ortho": {"name": "dr. I Gede Ketut Alit Satria Nugraha, SpOT", "sip": "SIP-12345-2020-005", "education": "SpOT - FK Universitas Udayana", "experience": "Spesialis orthopedi dengan keahlian dalam penanganan patah tulang, cedera sendi, dan bedah arthroscopy.", "schedule": "Rabu: 08:00 - 14:00", "poli": "Poliklinik Orthopedi", "image": "img/dokter/dr. I Gede Ketut Alit Satria Nugraha, SpOT.png"}, "dalam": {"name": "dr. I Gusti Putu Hery Sikesa, Sp.PD", "sip": "SIP-12345-2020-006", "education": "Sp.PD - FK Universitas Udayana", "experience": "Spesialis penyakit dalam dengan keahlian dalam diagnosis dan penanganan penyakit metabolik, pencernaan, dan penyakit dalam umum.", "schedule": "Senin - Rabu: 08:00 - 14:00", "poli": "Poliklinik Penyakit Dalam", "image": "img/dokter/dr. I Gusti Putu Hery Sikesa, Sp.PD.png"}, "bedah": {"name": "dr. I Putu Swastika Kepakisan, M.Biomed., Sp.B", "sip": "SIP-12345-2020-007", "education": "Sp.B, M.Biomed - FK Universitas Udayana", "experience": "Spesialis bedah umum dengan keahlian dalam bedah laparoskopi, bedah trauma, dan onkologi bedah.", "schedule": "Kamis: 08:00 - 14:00", "poli": "Poliklinik Bedah", "image": "img/dokter/dr. I Putu Swastika Kepakisan, M.Biomed., Sp.B.png"}, "saraf": {"name": "dr. Kade Agus Sudha Naryana, Sp.N", "sip": "SIP-12345-2020-008", "education": "Sp.N - FK Universitas Udayana", "experience": "Spesialis neurologi dengan keahlian dalam diagnosis dan penanganan stroke, epilepsi, dan gangguan saraf tepi.", "schedule": "Senin & Kamis: 08:00 - 14:00", "poli": "Poliklinik Saraf", "image": "img/dokter/dr. Kade Agus Sudha Naryana, Sp.N.png"}, "anak": {"name": "dr. Made Ayu Widyaningsih, Sp.A", "sip": "SIP-12345-2020-009", "education": "Sp.A - FK Universitas Udayana", "experience": "Spesialis anak dengan keahlian dalam penanganan penyakit anak, tumbuh kembang, dan imunisasi.", "schedule": "Senin - Jumat: 08:00 - 14:00", "poli": "Poliklinik Anak", "image": "img/dokter/dr. Made Ayu Widyaningsih, Sp.A.png"}, "laboratorium": {"name": "dr. Ika Nurvidha Mahayanthi Mantra, Sp.MK", "sip": "SIP-12345-2020-010", "education": "Sp.MK - FK Universitas Udayana", "experience": "Spesialis mikrobiologi klinik dengan keahlian dalam analisis sampel klinis dan identifikasi patogen.", "schedule": "Senin - Jumat: 07:00 - 14:00", "poli": "Poliklinik Laboratorium", "image": "img/dokter/dr. Ika Nurvidha Mahayanthi Mantra, Sp.MK.png"}};
 
-        function openProfile(poli) {
-            const doctor = doctorProfiles[poli];
-            if (!doctor) return;
+        /* ========================================
+           RENDER CATEGORIES
+        ======================================== */
+        function renderCategories() {
+            const list = document.getElementById('categoryList');
+            const filterSelect = document.getElementById('filterSelect');
+            
+            // Count doctors per category
+            const countMap = {};
+            doctors.forEach(doc => {
+                countMap[doc.filter] = (countMap[doc.filter] || 0) + 1;
+            });
+            
+            // Render sidebar list
+            list.innerHTML = `
+                <div class="category-item active" onclick="filterByCategory('')">
+                    <div class="category-icon" style="background: var(--primary-100); color: var(--primary);">
+                        <i class="fas fa-th-large"></i>
+                    </div>
+                    <div class="category-info">
+                        <div class="category-name">Semua</div>
+                        <div class="category-count">${doctors.length} dokter</div>
+                    </div>
+                </div>
+            ` + categories.map(cat => `
+                <div class="category-item" onclick="filterByCategory('${cat.id}')">
+                    <div class="category-icon" style="background: ${cat.color}20; color: ${cat.color};">
+                        <i class="fas ${cat.icon}"></i>
+                    </div>
+                    <div class="category-info">
+                        <div class="category-name">${cat.name}</div>
+                        <div class="category-count">${countMap[cat.id] || 0} dokter</div>
+                    </div>
+                </div>
+            `).join('');
+            
+            // Render select dropdown
+            filterSelect.innerHTML = '<option value="">Semua Spesialisasi</option>' + 
+                categories.map(cat => `<option value="${cat.id}">${cat.name}</option>`).join('');
+        }
 
-            document.getElementById('profileAvatar').src = doctor.image;
-            document.getElementById('profileName').textContent = doctor.name;
-            document.getElementById('profileSpecialty').textContent = doctor.specialty || 'Spesialis';
-            document.getElementById('profilePoli').textContent = doctor.poli;
-            document.getElementById('profileSIP').textContent = doctor.sip;
-            document.getElementById('profileSchedule').textContent = doctor.schedule;
-            document.getElementById('profileEducation').textContent = doctor.education;
-            document.getElementById('profileExperience').textContent = doctor.experience;
-            document.getElementById('profilePoliLink').href = 'poli-' + poli + '.html';
+        /* ========================================
+           RENDER DOCTORS
+        ======================================== */
+        function renderDoctors(filter = '', search = '') {
+            const grid = document.getElementById('doctorsGrid');
+            let filtered = doctors;
+            
+            if (filter) {
+                filtered = filtered.filter(d => d.filter === filter);
+            }
+            if (search) {
+                const s = search.toLowerCase();
+                filtered = filtered.filter(d => 
+                    d.name.toLowerCase().includes(s) || 
+                    d.spec.toLowerCase().includes(s) || 
+                    d.poli.toLowerCase().includes(s)
+                );
+            }
 
-            const overlay = document.getElementById('profileOverlay');
-            overlay.classList.add('active');
+            if (filtered.length === 0) {
+                grid.innerHTML = `
+                    <div class="no-results">
+                        <div class="no-results-icon">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <h3>Tidak ada dokter ditemukan</h3>
+                        <p>Coba ubah kata kunci pencarian atau filter spesialisasi</p>
+                    </div>
+                `;
+                return;
+            }
+
+            grid.innerHTML = filtered.map(doc => `
+                <div class="doctor-card" onclick="openModal('${doc.id}')">
+                    <div class="doctor-card-image">
+                        <img src="${doc.image}" alt="${doc.name}" loading="lazy" onerror="this.src='img/director.jpg'">
+                        <div class="doctor-card-badge">
+                            Tersedia Hari Ini
+                        </div>
+                        <button class="doctor-card-favorite" onclick="event.stopPropagation(); toggleFavorite('${doc.id}')">
+                            <i class="far fa-heart"></i>
+                        </button>
+                    </div>
+                    <div class="doctor-card-content">
+                        <h3 class="doctor-card-name">${doc.name}</h3>
+                        <p class="doctor-card-spec">${doc.spec}</p>
+                        <div class="doctor-card-info">
+                            <div class="doctor-card-info-item">
+                                <i class="fas fa-clock"></i>
+                                <span>${doc.schedule}</span>
+                            </div>
+                            <div class="doctor-card-info-item">
+                                <i class="fas fa-hospital"></i>
+                                <span>${doc.poli}</span>
+                            </div>
+                        </div>
+                        <div class="doctor-card-actions">
+                            <a href="antrean.html" class="doctor-card-btn doctor-card-btn-primary" onclick="event.stopPropagation()">
+                                <i class="fas fa-calendar-check"></i> Booking
+                            </a>
+                            <button class="doctor-card-btn doctor-card-btn-secondary" onclick="event.stopPropagation(); openModal('${doc.id}')">
+                                <i class="fas fa-user"></i> Profil
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function filterByCategory(catId) {
+            // Update active state
+            document.querySelectorAll('.category-item').forEach(item => item.classList.remove('active'));
+            event.currentTarget.classList.add('active');
+            
+            // Update filter select
+            document.getElementById('filterSelect').value = catId;
+            
+            // Render doctors
+            renderDoctors(catId, document.getElementById('searchInput').value);
+        }
+
+        function filterDoctors() {
+            const search = document.getElementById('searchInput').value;
+            const spesialis = document.getElementById('filterSelect').value;
+            renderDoctors(spesialis, search);
+        }
+
+        /* ========================================
+           MODAL
+        ======================================== */
+        function openModal(docId) {
+            const doc = doctors.find(d => d.id === docId);
+            if (!doc) return;
+            
+            document.getElementById('modalImage').src = doc.image;
+            document.getElementById('modalName').textContent = doc.name;
+            document.getElementById('modalSpec').textContent = doc.spec;
+            document.getElementById('modalSip').textContent = doc.sip;
+            document.getElementById('modalEducation').textContent = doc.education;
+            document.getElementById('modalExperience').textContent = doc.experience;
+            document.getElementById('modalSchedule').textContent = doc.schedule;
+            document.getElementById('modalPoli').textContent = doc.poli;
+            
+            document.getElementById('modalOverlay').classList.add('active');
             document.body.style.overflow = 'hidden';
         }
 
-        function closeProfileModal() {
-            const overlay = document.getElementById('profileOverlay');
-            overlay.classList.remove('active');
+        function closeModal(e) {
+            if (e && e.target !== e.currentTarget) return;
+            document.getElementById('modalOverlay').classList.remove('active');
             document.body.style.overflow = '';
         }
 
-        function closeProfile(event) {
-            if (event.target.id === 'profileOverlay') {
-                closeProfileModal();
-            }
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+
+        /* ========================================
+           FAVORITE
+        ======================================== */
+        function toggleFavorite(id) {
+            const btn = event.currentTarget.querySelector('i');
+            btn.classList.toggle('far');
+            btn.classList.toggle('fas');
+            btn.style.color = btn.classList.contains('fas') ? '#ec4899' : '';
         }
 
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                closeProfileModal();
-            }
+        /* ========================================
+           INITIALIZE
+        ======================================== */
+        document.addEventListener('DOMContentLoaded', () => {
+            renderCategories();
+            renderDoctors();
+            
+            // Search input
+            document.getElementById('searchInput').addEventListener('input', filterDoctors);
+            document.getElementById('filterSelect').addEventListener('change', filterDoctors);
         });
-
-</script>
-
-    <!-- Doctor Profile Modal -->
-    <div class="profile-overlay" id="profileOverlay" onclick="closeProfile(event)">
-        <div class="profile-modal">
-            <button class="profile-close" onclick="closeProfileModal()">
-                <i class="fas fa-times"></i>
-            </button>
-            <div class="profile-header">
-                <div class="profile-avatar">
-                    <img id="profileAvatar" src="" alt="Doctor">
-                </div>
-                <h2 class="profile-name" id="profileName"></h2>
-                <div class="profile-specialty" id="profileSpecialty"></div>
-                <div class="profile-poli" id="profilePoli"></div>
-            </div>
-            <div class="profile-body">
-                <div class="profile-section">
-                    <div class="profile-section-title">
-                        <i class="fas fa-id-card"></i>
-                        Informasi Praktik
-                    </div>
-                    <div class="profile-info-grid">
-                        <div class="profile-info-item">
-                            <div class="profile-info-label">No. SIP</div>
-                            <div class="profile-info-value" id="profileSIP"></div>
-                        </div>
-                        <div class="profile-info-item">
-                            <div class="profile-info-label">Jadwal Praktik</div>
-                            <div class="profile-info-value" id="profileSchedule"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="profile-section">
-                    <div class="profile-section-title">
-                        <i class="fas fa-graduation-cap"></i>
-                        Pendidikan & Kualifikasi
-                    </div>
-                    <div class="profile-info-item">
-                        <div class="profile-info-value" id="profileEducation"></div>
-                    </div>
-                </div>
-                <div class="profile-section">
-                    <div class="profile-section-title">
-                        <i class="fas fa-user-md"></i>
-                        Pengalaman
-                    </div>
-                    <div class="profile-description" id="profileExperience"></div>
-                </div>
-                <div class="profile-footer">
-                    <a href="#" class="profile-btn profile-btn-primary" id="profilePoliLink">
-                        <i class="fas fa-hospital"></i> Kunjungi Poli
-                    </a>
-                    <a href="kontak.html" class="profile-btn profile-btn-secondary">
-                        <i class="fas fa-phone"></i> Hubungi Kami
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-
+    </script>
 </body>
 </html>
