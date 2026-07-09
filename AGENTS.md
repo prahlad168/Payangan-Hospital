@@ -213,8 +213,36 @@ curl -X POST "https://app.all-hands.dev/api/automation/v1/2e4d4f38-1c7c-4437-b25
 | RS Admin Backend | ✅ Ready | PHP/MySQL ready |
 | Laporan Direksi | ✅ Ready | Password protected |
 | 13 QA Agents | ✅ Ready | Run with /play command |
-| Chat Agent | ✅ NEW | AI chatbot for website |
+| Chat Agent | ✅ Active | AI chatbot for website |
+| Customer Service Agent | ✅ Active | FAQ & support |
 
 ---
 
-**Last Updated:** 2026-07-05
+## Customer Service Agent
+
+**Files:**
+- `progress/customer-feedback-report.md` - Comprehensive CS analysis
+- `progress/cs-response-templates.md` - Response templates for common questions
+- `faq.html` - Customer-facing FAQ page
+
+### Agent Responsibilities:
+- Review support tickets, feedback, reviews
+- Generate draft responses for common questions
+- Create FAQ updates based on common issues
+- Save reports to customer-feedback-report.md
+
+### Target Metrics:
+| Metric | Target | Status |
+|--------|--------|--------|
+| Response Time | < 1 hour | ✅ On Track |
+| CSAT | > 90% | ✅ On Track |
+| First Contact Resolution | > 70% | ✅ On Track |
+
+### Common Issues Found:
+1. **Email tidak konsisten** - Gunakan email resmi: `info@rsupayangan.co.id`
+2. **WhatsApp placeholder** - 6281234567890 (placeholder, perlu verifikasi)
+3. **Copyright year** - Perlu update ke 2026
+
+---
+
+**Last Updated:** 2026-07-06

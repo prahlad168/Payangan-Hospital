@@ -1,0 +1,125 @@
+{
+  "companies": [
+    {
+      "id": "01",
+      "name": "Payangan Hospital Digital",
+      "type": "Healthcare & Digital Services",
+      "status": "active",
+      "revenue": 0,
+      "target": 100000000,
+      "progress": 0,
+      "quarter": "Q2",
+      "lastUpdated": "2026-07-02T06:50:00Z",
+      "activeSince": "2026-07-02"
+    },
+    {
+      "id": "02",
+      "name": "Gianyar Tech Solutions",
+      "type": "IT Services & Software",
+      "status": "active",
+      "revenue": 0,
+      "target": 100000000,
+      "progress": 0,
+      "quarter": "Q2",
+      "lastUpdated": "2026-07-02T06:50:00Z",
+      "activeSince": "2026-07-02"
+    },
+    {
+      "id": "03",
+      "name": "Bali Digital Agency",
+      "type": "Digital Marketing",
+      "status": "active",
+      "revenue": 0,
+      "target": 100000000,
+      "progress": 0,
+      "quarter": "Q2",
+      "lastUpdated": "2026-07-02T06:50:00Z",
+      "activeSince": "2026-07-02"
+    },
+    {
+      "id": "04",
+      "name": "Gianyar E-Commerce Hub",
+      "type": "E-Commerce Platform",
+      "status": "ready",
+      "revenue": 0,
+      "target": 100000000,
+      "progress": 0,
+      "quarter": "Q2",
+      "lastUpdated": "2026-07-02T06:50:00Z",
+      "activeSince": null
+    },
+    {
+      "id": "05",
+      "name": "Bali Health Tech",
+      "type": "Health Technology",
+      "status": "ready",
+      "revenue": 0,
+      "target": 100000000,
+      "progress": 0,
+      "quarter": "Q3",
+      "lastUpdated": "2026-07-02T06:50:00Z",
+      "activeSince": null
+    },
+    {
+      "id": "06",
+      "name": "Gianyar EdTech",
+      "type": "Education Technology",
+      "status": "ready",
+      "revenue": 0,
+      "target": 100000000,
+      "progress": 0,
+      "quarter": "Q3",
+      "lastUpdated": "2026-07-02T06:50:00Z",
+      "activeSince": null
+    },
+    {
+      "id": "07",
+      "name": "Bali Logistics Hub",
+      "type": "Logistics & Delivery",
+      "status": "pending",
+      "revenue": 0,
+      "target": 100000000,
+      "progress": 0,
+      "quarter": "Q3",
+      "lastUpdated": "2026-07-02T06:50:00Z",
+      "activeSince": null
+    },
+    {
+      "id": "08",
+      "name": "Gianyar Food Tech",
+      "type": "Food Technology",
+      "status": "pending",
+      "revenue": 0,
+      "target": 100000000,
+      "progress": 0,
+      "quarter": "Q3",
+      "lastUpdated": "2026-07-02T06:50:00Z",
+      "activeSince": null
+    },
+    {
+      "id": "09",
+      "name": "Bali Travel Platform",
+      "type": "Travel & Tourism",
+      "status": "pending",
+      "revenue": 0,
+      "target": 100000000,
+      "progress": 0,
+      "quarter": "Q3",
+      "lastUpdated": "2026-07-02T06:50:00Z",
+      "activeSince": null
+    },
+    {
+      "id": "10",
+      "name": "Gianyar Property Tech",
+      "type": "Property Technology",
+      "status": "pending",
+      "revenue": 0,
+      "target": 100000000,
+      "progress": 0,
+      "quarter": "Q4",
+      "lastUpdated": "2026-07-02T06:50:00Z",
+      "activeSince": null
+    }
+  ],
+  "lastSync": "2026-07-02T06:50:00Z"
+}
