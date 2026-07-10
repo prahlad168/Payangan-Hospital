@@ -217,4 +217,29 @@ curl -X POST "https://app.all-hands.dev/api/automation/v1/2e4d4f38-1c7c-4437-b25
 
 ---
 
+## 13 Web Development Agents
+
+This section documents the specialized agents for web development tasks.
+
+**Core Stack:**
+1. **frontend-agent.md** - React, Vue, HTML/CSS, UI components
+2. **backend-agent.md** - REST API, JWT, Express.js, Prisma
+3. **security-agent.md** - OWASP, XSS, SQL injection, auth
+4. **performance-agent.md** - Core Web Vitals, LCP, optimization
+5. **fullstack-agent.md** - End-to-end apps (ALL knowledge)
+
+**Infrastructure:**
+6. **devops-agent.md** - Docker, Kubernetes, GitHub Actions, CI/CD
+7. **database-agent.md** - PostgreSQL, MongoDB, Redis, Prisma
+
+**Specialized:**
+8. **mobile-agent.md** - React Native, PWA, Service Workers
+9. **testing-agent.md** - Jest, Playwright, E2E, TDD
+10. **uxdesign-agent.md** - Design systems, CSS tokens, WCAG
+11. **cloudai-agent.md** - AWS Lambda, OpenAI, Claude, Supabase
+12. **seo-agent.md** - Schema.org, meta tags, Indonesian SEO
+13. **analytics-agent.md** - GA4, GTM, event tracking, funnels
+
+**Location:** `.agents/agents/` (agent specifications) and `.agents/agents/references/` (knowledge base)
+
 **Last Updated:** 2026-07-05
