@@ -164,6 +164,30 @@ Sistem chat AI untuk website RS Payangan.
 
 **URL:** `https://payanganhospital.gianyarkab.go.id/chat.html`
 
+### 6. Customer Service Agent
+**File:** `progress/customer-feedback-report.md`
+
+Sistem Customer Service Agent untuk RS Payangan Hospital.
+
+**Fitur:**
+- Analisis support tickets dan feedback
+- Response templates untuk common questions
+- FAQ updates berdasarkan common issues
+- Laporan kepuasan pelanggan (CSAT)
+- Improvement recommendations
+
+**Target Metrics:**
+| Metric | Target | Status |
+|--------|--------|--------|
+| Response Time | < 1 hour | ✅ |
+| CSAT | > 90% | ✅ |
+| First Contact Resolution | > 70% | ✅ |
+
+**Output Files:**
+- `progress/customer-feedback-report.md` - Laporan CS mingguan
+- `progress/customer-service-faq-updates.md` - FAQ updates
+- `progress/customer-service-response-templates.md` - Response templates
+
 ---
 
 ## Deployment Flow
@@ -213,8 +237,9 @@ curl -X POST "https://app.all-hands.dev/api/automation/v1/2e4d4f38-1c7c-4437-b25
 | RS Admin Backend | ✅ Ready | PHP/MySQL ready |
 | Laporan Direksi | ✅ Ready | Password protected |
 | 13 QA Agents | ✅ Ready | Run with /play command |
-| Chat Agent | ✅ NEW | AI chatbot for website |
+| Chat Agent | ✅ Active | AI chatbot for website |
+| Customer Service Agent | ✅ NEW | CS reports & templates |
 
 ---
 
-**Last Updated:** 2026-07-05
+**Last Updated:** 2026-07-10
