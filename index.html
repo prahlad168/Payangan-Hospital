@@ -18,10 +18,14 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Premium Design System -->
+    <link rel="stylesheet" href="css/design-system.css">
+    <link rel="stylesheet" href="css/premium-upgrade.css">
     
     <style>
         /* ========================================
@@ -1726,32 +1730,32 @@
     </div>
 
     <!-- 2. HEADER / NAVBAR -->
-    <header class="header transparent" id="header">
-        <div class="container">
-            <div class="header-inner">
+    <header class="header-premium header transparent" id="header">
+        <div class="container-premium container">
+            <div class="header-inner-premium header-inner">
                 <!-- Logo -->
-                <a href="index.html" class="logo">
+                <a href="index.html" class="logo-premium logo">
                     <img src="logo.png" alt="RS Payangan Hospital" onerror="this.style.display='none'">
-                    <div class="logo-text">
+                    <div class="logo-text-premium logo-text">
                         <span class="logo-name">Payangan Hospital</span>
                         <span class="logo-tagline">Pavitram Idam Uttamam</span>
                     </div>
                 </a>
 
                 <!-- Navigation -->
-                <nav class="nav">
-                    <a href="index.html" class="nav-link active">Home</a>
-                    <a href="about.html" class="nav-link">About</a>
-                    <a href="dokter.html" class="nav-link">Doctors</a>
-                    <a href="layanan.html" class="nav-link">Services</a>
-                    <a href="fasilitas.html" class="nav-link">Facilities</a>
-                    <a href="berita.html" class="nav-link">News</a>
-                    <a href="galeri.html" class="nav-link">Gallery</a>
-                    <a href="kontak.html" class="nav-link">Contact</a>
+                <nav class="nav-premium nav">
+                    <a href="index.html" class="nav-link-premium nav-link active">Home</a>
+                    <a href="about.html" class="nav-link-premium nav-link">About</a>
+                    <a href="dokter.html" class="nav-link-premium nav-link">Doctors</a>
+                    <a href="layanan.html" class="nav-link-premium nav-link">Services</a>
+                    <a href="fasilitas.html" class="nav-link-premium nav-link">Facilities</a>
+                    <a href="berita.html" class="nav-link-premium nav-link">News</a>
+                    <a href="galeri.html" class="nav-link-premium nav-link">Gallery</a>
+                    <a href="kontak.html" class="nav-link-premium nav-link">Contact</a>
                 </nav>
 
                 <!-- Header Actions -->
-                <div class="header-actions">
+                <div class="nav-actions-premium header-actions">
                     <!-- Language Switcher -->
                     <div class="lang-switch" onclick="toggleLanguage()" role="button" aria-label="Switch language">
                         <span class="active" id="langId">ID</span>
@@ -1760,20 +1764,20 @@
                     </div>
 
                     <!-- Emergency Button -->
-                    <a href="tel:+62361472008" class="btn-emergency">
+                    <a href="tel:+62361472008" class="btn-emergency-premium btn-emergency">
                         <i class="fas fa-phone-alt"></i>
                         <span>IGD 24 Jam</span>
                     </a>
 
                     <!-- Appointment Button -->
-                    <a href="antrean.html" class="btn-appointment">
+                    <a href="antrean.html" class="btn-primary-premium btn-appointment">
                         <i class="fas fa-calendar-check"></i>
                         <span>Buat Janji</span>
                     </a>
                 </div>
 
                 <!-- Mobile Menu Toggle -->
-                <button class="menu-toggle" onclick="toggleMobileMenu()" aria-label="Toggle menu">
+                <button class="mobile-menu-toggle menu-toggle" onclick="toggleMobileMenu()" aria-label="Toggle menu">
                     <span></span>
                     <span></span>
                     <span></span>
@@ -1818,50 +1822,50 @@
     </div>
 
     <!-- 3. HERO SECTION -->
-    <section class="hero" id="hero">
+    <section class="hero-premium hero" id="hero">
         <div class="hero-bg">
             <img src="img/bg_medical.jpg" alt="RS Payangan Hospital">
         </div>
         <div class="hero-overlay"></div>
         <div class="hero-pattern"></div>
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-badge">
+        <div class="container-premium container">
+            <div class="hero-content-premium hero-content">
+                <div class="hero-badge-premium hero-badge">
                     <i class="fas fa-circle"></i>
                     <span id="heroBadge">22+ Dokter Spesialis Berpengalaman</span>
                 </div>
-                <h1 class="hero-title" id="heroTitle">
+                <h1 class="hero-title-premium hero-title" id="heroTitle">
                     Pelayanan Kesehatan Modern dengan <span>Sentuhan Humanis</span>
                 </h1>
-                <p class="hero-subtitle" id="heroSubtitle">
+                <p class="hero-subtitle-premium hero-subtitle" id="heroSubtitle">
                     RS Payangan Hospital memberikan pelayanan kesehatan berkualitas dengan tenaga medis profesional dan fasilitas modern untuk masyarakat Gianyar dan sekitarnya.
                 </p>
-                <div class="hero-buttons">
-                    <a href="antrean.html" class="hero-btn-primary">
+                <div class="hero-actions-premium hero-buttons">
+                    <a href="antrean.html" class="btn-premium btn-primary-premium hero-btn-primary">
                         <i class="fas fa-calendar-check"></i>
                         <span id="heroBtnPrimary">Buat Janji Temu</span>
                     </a>
-                    <a href="dokter.html" class="hero-btn-secondary">
+                    <a href="dokter.html" class="btn-premium btn-outline-premium hero-btn-secondary">
                         <i class="fas fa-user-md"></i>
                         <span id="heroBtnSecondary">Lihat Dokter</span>
                     </a>
                 </div>
-                <div class="hero-stats">
+                <div class="hero-stats-premium hero-stats">
                     <div class="hero-stat">
-                        <div class="hero-stat-value">22<span>+</span></div>
-                        <div class="hero-stat-label">Dokter Spesialis</div>
+                        <div class="hero-stat-value-premium hero-stat-value">22<span>+</span></div>
+                        <div class="hero-stat-label-premium hero-stat-label">Dokter Spesialis</div>
                     </div>
                     <div class="hero-stat">
-                        <div class="hero-stat-value">10<span>+</span></div>
-                        <div class="hero-stat-label">Poliklinik</div>
+                        <div class="hero-stat-value-premium hero-stat-value">10<span>+</span></div>
+                        <div class="hero-stat-label-premium hero-stat-label">Poliklinik</div>
                     </div>
                     <div class="hero-stat">
-                        <div class="hero-stat-value">24<span>/</span>7</div>
-                        <div class="hero-stat-label">IGD Aktif</div>
+                        <div class="hero-stat-value-premium hero-stat-value">24<span>/</span>7</div>
+                        <div class="hero-stat-label-premium hero-stat-label">IGD Aktif</div>
                     </div>
                     <div class="hero-stat">
-                        <div class="hero-stat-value">100<span>+</span></div>
-                        <div class="hero-stat-label">Tempat Tidur</div>
+                        <div class="hero-stat-value-premium hero-stat-value">100<span>+</span></div>
+                        <div class="hero-stat-label-premium hero-stat-label">Tempat Tidur</div>
                     </div>
                 </div>
             </div>
@@ -2529,5 +2533,10 @@
             });
         });
     </script>
+    
+    <!-- Premium UI JavaScript -->
+    <script src="js/premium-ui.js"></script>
+    <!-- MahaCare AI Assistant -->
+    <script src="js/mahacare-ai.js"></script>
 </body>
 </html>
