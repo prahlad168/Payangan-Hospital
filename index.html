@@ -2782,39 +2782,74 @@
 
         const translations = {
             id: {
-                heroBadge: '22+ Dokter Spesialis Berpengalaman',
-                heroTitle: 'Pelayanan Kesehatan Modern dengan <span>Sentuhan Humanis</span>',
-                heroSubtitle: 'RS Payangan Hospital memberikan pelayanan kesehatan berkualitas dengan tenaga medis profesional dan fasilitas modern untuk masyarakat Gianyar dan sekitarnya.',
-                heroBtnSecondary: 'Lihat Dokter',
-                directorMessage: 'Selamat datang di Payangan Hospital. Kami berkomitmen untuk memberikan pelayanan kesehatan terbaik dengan berlandaskan nilai-nilai Tri Hita Karana. Setiap langkah kami didasarkan pada keharmonisan hubungan dengan Tuhan, sesama manusia, dan lingkungan. Dengan didukung oleh tenaga medis profesional dan fasilitas modern, kami siap memberikan pengalaman pelayanan kesehatan yang nyaman dan berkualitas bagi masyarakat Payangan dan sekitarnya.'
+                slides: [
+                    { badge: 'Pelayanan Unggulan', title: 'Pelayanan Kesehatan <span>Modern</span> dengan Sentuhan <span>Humanis</span>', subtitle: 'RS Payangan Hospital memberikan pelayanan kesehatan berkualitas dengan tenaga medis profesional dan fasilitas modern', btn: 'Layanan Kami', btnLink: 'layanan.html' },
+                    { badge: 'Tim Medis', title: '22+ <span>Dokter Spesialis</span> Berpengalaman', subtitle: 'Dokter spesialis berpengalaman dari berbagai bidang siap memberikan pelayanan terbaik untuk Anda', btn: 'Lihat Dokter', btnLink: 'dokter.html' },
+                    { badge: 'Emergency', title: 'IGD <span>24 Jam</span> Siaga Selalu', subtitle: 'Unit Gawat Darurat siap melayani pasien darurat dengan tenaga medis terlatih 24 jam', btn: 'Hubungi IGD', btnLink: 'igd.html' },
+                    { badge: 'Tri Hita Karana', title: 'Melayani dengan <span>Nilai-Nilai</span> Budaya Bali', subtitle: 'Komitmen memberikan pelayanan kesehatan terbaik dengan berlandaskan Tri Hita Karana', btn: 'Tentang Kami', btnLink: 'about.html' }
+                ],
+                stats: ['Dokter Spesialis', 'Poliklinik', 'IGD Aktif', 'Tempat Tidur'],
+                directorName: 'dr. I Gusti Ngurah Gede Putra, S.Ked., M.Si',
+                directorTitle: 'Directeur RS Payangan Hospital'
             },
             en: {
-                heroBadge: '22+ Experienced Specialist Doctors',
-                heroTitle: 'Modern Healthcare with <span>Compassionate Care</span>',
-                heroSubtitle: 'Payangan Hospital provides quality healthcare services with professional medical staff and modern facilities for the community of Gianyar and surrounding areas.',
-                heroBtnSecondary: 'View Doctors',
-                directorMessage: 'Welcome to Payangan Hospital. We are committed to providing the best healthcare services based on Tri Hita Karana values. Every step we take is based on harmony in relationships with God, fellow humans, and the environment. With professional medical staff and modern facilities, we are ready to provide comfortable and quality healthcare experiences for the Payangan community and surrounding areas.'
+                slides: [
+                    { badge: 'Premium Services', title: 'Modern Healthcare with <span>Compassionate</span> Touch', subtitle: 'Payangan Hospital provides quality healthcare services with professional medical staff and modern facilities', btn: 'Our Services', btnLink: 'layanan.html' },
+                    { badge: 'Medical Team', title: '22+ <span>Specialist Doctors</span> Experienced', subtitle: 'Experienced specialists from various fields ready to provide the best service for you', btn: 'View Doctors', btnLink: 'dokter.html' },
+                    { badge: 'Emergency', title: 'IGD <span>24 Hours</span> Always on Guard', subtitle: 'Emergency unit ready to serve emergency patients with trained medical staff 24 hours', btn: 'Contact IGD', btnLink: 'igd.html' },
+                    { badge: 'Tri Hita Karana', title: 'Serving with <span>Bali Cultural</span> Values', subtitle: 'Commitment to provide the best healthcare based on Tri Hita Karana principles', btn: 'About Us', btnLink: 'about.html' }
+                ],
+                stats: ['Specialist Doctors', 'Polyclinics', 'IGD Active', 'Bed Capacity'],
+                directorName: 'dr. I Gusti Ngurah Gede Putra, S.Ked., M.Si',
+                directorTitle: 'Director of Payangan Hospital'
             }
         };
 
         function toggleLanguage() {
             currentLang = currentLang === 'id' ? 'en' : 'id';
+            const t = translations[currentLang];
             
             // Update language indicator
             document.getElementById('langId').classList.toggle('active', currentLang === 'id');
             document.getElementById('langEn').classList.toggle('active', currentLang === 'en');
             
-            // Update content
-            const t = translations[currentLang];
-            document.getElementById('heroBadge').textContent = t.heroBadge;
-            document.getElementById('heroTitle').innerHTML = t.heroTitle;
-            document.getElementById('heroSubtitle').textContent = t.heroSubtitle;
-            document.getElementById('heroBtnSecondary').textContent = t.heroBtnSecondary;
-            document.getElementById('directorMessage').textContent = t.directorMessage;
+            // Update slides
+            const slides = document.querySelectorAll('.slide');
+            slides.forEach((slide, i) => {
+                if (t.slides[i]) {
+                    const content = slide.querySelector('.slide-content');
+                    content.querySelector('.slide-badge span').textContent = t.slides[i].badge;
+                    content.querySelector('.slide-title').innerHTML = t.slides[i].title;
+                    content.querySelector('.slide-subtitle').textContent = t.slides[i].subtitle;
+                    content.querySelector('.slide-btn').innerHTML = `<i class="fas fa-th-large"></i> ${t.slides[i].btn}`;
+                    content.querySelector('.slide-btn').href = t.slides[i].btnLink;
+                }
+            });
+            
+            // Update stats labels
+            const statLabels = document.querySelectorAll('.stat-label');
+            statLabels.forEach((label, i) => {
+                if (t.stats[i]) {
+                    label.textContent = t.stats[i];
+                }
+            });
             
             // Update HTML lang attribute
             document.documentElement.lang = currentLang;
+            
+            // Save preference
+            localStorage.setItem('rsPayanganLang', currentLang);
         }
+
+        // Load saved language preference
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('rsPayanganLang');
+            if (savedLang) {
+                currentLang = savedLang;
+                document.getElementById('langId').classList.toggle('active', currentLang === 'id');
+                document.getElementById('langEn').classList.toggle('active', currentLang === 'en');
+            }
+        });
 
         /* ========================================
            INITIALIZE
