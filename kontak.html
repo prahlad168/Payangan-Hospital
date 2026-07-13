@@ -426,7 +426,7 @@
                         <div class="details">
                             <h4>Jam Operasional</h4>
                             <p><i class="fas fa-ambulance"></i> IGD / Emergensi: <strong>24 Jam</strong></p>
-                            <p><i class="fas fa-stethoscope"></i> Poliklinik: 08:00 - 14:00 (Senin-Jumat)</p>
+                            <p><i class="fas fa-stethoscope"></i> Poliklinik: 08:30 - 14:00 (Senin-Jumat)</p>
                             <p><i class="fas fa-flask"></i> Laboratorium: 07:00 - 14:00</p>
                             <p><i class="fas fa-pills"></i> Apotek: 08:00 - 21:00</p>
                         </div>
@@ -861,7 +861,7 @@
                 // Sample reviews (will be replaced with API call)
                 const sampleReviews = [
                     { name: 'Ayu Lestari', rating: 5, date: new Date(Date.now() - 2 * 24 * 60 * 60 * 1000).toISOString(), text: 'Pelayanan sangat baik dari resepsionis sampai dokter. Ruang tunggu AC dan nyaman. Terdapat playground untuk anak-anak. Sangat recommended untuk keluarga di Gianyar!' },
-                    { name: 'Bagus Santoso', rating: 4, date: new Date(Date.now() - 5 * 24 * 60 * 60 * 1000).toISOString(), text: 'Dokter spesialis jantungnya bagus, menangani ayah saya dengan baik. Ruangan bersih dan modern. Hanya kadang antrean agak lama di jam sibuk.' },
+                    { name: 'Bagus Santoso', rating: 4, date: new Date(Date.now() - 5 * 24 * 60 * 60 * 1000).toISOString(), text: 'Dokter spesialis jantungnya bagus, menangani ayah saya dengan baik. Ruangan bersih dan modern. hanya kadang pendaftaran agak lama di jam sibuk.' },
                     { name: 'Ratna Dewi', rating: 5, date: new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString(), text: 'Melahirkan di RS Payangan, pelayanannya juara! Bidan dan dokter kandungan sangat suportif. Kamar VIP bersih dengan pemandangan sawah yang indah.' },
                     { name: 'Komang Suardana', rating: 4, date: new Date(Date.now() - 10 * 24 * 60 * 60 * 1000).toISOString(), text: 'RS modern di Gianyar. CT scan dan rontgen tersedia. Biaya bersahabat dengan kualitas okay. Support BPJS lancar.' },
                     { name: 'Sari Mahayanti', rating: 5, date: new Date(Date.now() - 14 * 24 * 60 * 60 * 1000).toISOString(), text: 'Klinik gigi dan orthopedi lengkap. Dokter sangat baik. Parkir luas dan gratis. Toilet bersih. Coffee shop ada di lobby.' },
@@ -940,7 +940,6 @@ let chatOpen=false;
 function toggleChat(){chatOpen=!chatOpen;document.getElementById('chat-win').classList.toggle('active',chatOpen)}
 function sendMsg(){const i=document.getElementById('chatInput'),m=i.value.trim();if(!m)return;addMsg(m,'user');i.value='';document.getElementById('chatTyping').classList.add('active');setTimeout(()=>{document.getElementById('chatTyping').classList.remove('active');addMsg(getResp(m),'bot')},1500)}
 function addMsg(t,n){const d=document.getElementById('chatMsgs'),e=document.createElement('div');e.className='ch-msg '+n;e.innerHTML=t+'<span class="ch-time">Baru saja</span>';d.appendChild(e);d.scrollTop=d.scrollHeight}
-function getResp(m){const msg=m.toLowerCase();if(msg.includes('dokter')||msg.includes('jadwal'))return'📅 <strong>Jadwal Dokter Hari Ini:</strong><br><br>🕐 Poli Umum: 08:00-14:00<br>🕐 Poli Anak: 09:00-15:00<br>🕐 Poli Jantung: 10:00-16:00<br>🕐 Poli Bedah: 08:00-14:00<br><br><a href="/dokter.html" style="color:#22d3ee">Lihat jadwal lengkap →</a>';if(msg.includes('daftar')||msg.includes('online')||msg.includes('antrian'))return'📝 <strong>Pendaftaran Online:</strong><br><br>1️⃣ Buka <a href="/antrean.html" style="color:#22d3ee">halaman antrean</a><br>2️⃣ Isi data diri<br>3️⃣ Pilih poli & dokter<br>4️⃣ Dapatkan nomor antrean<br><br>Telepon: <strong>0361 9088087</strong>';if(msg.includes('telepon')||msg.includes('kontak')||msg.includes('hubungi'))return'📞 <strong>Kontak RS Payangan:</strong><br><br>☎️ Telepon: <strong>0361 9088087</strong><br>📱 WhatsApp: <strong>+62 361 9088087</strong><br>📧 Email: <strong>info@rsupayangan.co.id</strong><br>📍 Alamat: Jl. Raya Payangan, Gianyar, Bali';if(msg.includes('igd')||msg.includes('darurat')||msg.includes('emergency'))return'🚨 <strong>IGD 24 Jam RS Payangan</strong><br><br>IGD siap melayani pasien darurat!<br><br>☎️ Telepon IGD: <strong>0361 9088087 ext. 1</strong><br>⏰ Layanan: <strong>24 jam / 7 hari</strong>';if(msg.includes('kamar')||msg.includes('rawat inap'))return'🛏️ <strong>Informasi Kamar Rawat Inap:</strong><br><br>Kelas VIP: ✅ Tersedia<br>Kelas 1: ✅ Tersedia<br>Kelas 2: ✅ Tersedia<br>Kelas 3: ✅ Tersedia<br><br>Hubungi <strong>0361 9088087</strong>';if(msg.includes('poli')||msg.includes('layanan'))return'🏥 <strong>Layanan RS Payangan:</strong><br><br>• Poli Umum<br>• Poli Anak<br>• Poli Jantung<br>• Poli Bedah<br>• Poli Gigi<br>• Poli Saraf<br>• Poli Orthopedic<br>• Poli Penyakit Dalam<br><br><a href="/poli-umum.html" style="color:#22d3ee">Lihat semua poli →</a>';return'Terima kasih! 🙏<br><br>Kunjungi <a href="/" style="color:#22d3ee">beranda</a> kami<br>Hubungi <strong>0361 9088087</strong><br><br>Ada yang bisa saya bantu lagi?'}
 </script>
 
     <script src="js/premium-ui.js"></script>

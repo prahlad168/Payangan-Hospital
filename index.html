@@ -1725,8 +1725,7 @@
     <!-- 1. ANNOUNCEMENT BAR -->
     <div class="announcement-bar" id="announcementBar">
         <i class="fas fa-bullhorn"></i> 
-        Pendaftaran Online Sekarang Terbuka! 
-        <a href="antrean.html">Daftar Sekarang <i class="fas fa-arrow-right"></i></a>
+        Selamat Datang di RS Payangan! 
     </div>
 
     <!-- 2. HEADER / NAVBAR -->
@@ -1769,11 +1768,6 @@
                         <span>IGD 24 Jam</span>
                     </a>
 
-                    <!-- Appointment Button -->
-                    <a href="antrean.html" class="btn-primary-premium btn-appointment">
-                        <i class="fas fa-calendar-check"></i>
-                        <span>Buat Janji</span>
-                    </a>
                 </div>
 
                 <!-- Mobile Menu Toggle -->
@@ -1814,10 +1808,6 @@
                 <i class="fas fa-phone-alt"></i>
                 <span>IGD 24 Jam: (0361) 9088087</span>
             </a>
-            <a href="antrean.html" class="btn-appointment" style="justify-content: center;">
-                <i class="fas fa-calendar-check"></i>
-                <span>Buat Janji Temu</span>
-            </a>
         </div>
     </div>
 
@@ -1841,10 +1831,6 @@
                     RS Payangan Hospital memberikan pelayanan kesehatan berkualitas dengan tenaga medis profesional dan fasilitas modern untuk masyarakat Gianyar dan sekitarnya.
                 </p>
                 <div class="hero-actions-premium hero-buttons">
-                    <a href="antrean.html" class="btn-premium btn-primary-premium hero-btn-primary">
-                        <i class="fas fa-calendar-check"></i>
-                        <span id="heroBtnPrimary">Buat Janji Temu</span>
-                    </a>
                     <a href="dokter.html" class="btn-premium btn-outline-premium hero-btn-secondary">
                         <i class="fas fa-user-md"></i>
                         <span id="heroBtnSecondary">Lihat Dokter</span>
@@ -2335,18 +2321,16 @@
                         <a href="igd.html">IGD 24 Jam</a>
                         <a href="rawat-inap.html">Rawat Inap</a>
                         <a href="rawat-jalan.html">Rawat Jalan</a>
-                        <a href="antrean.html">Pendaftaran Online</a>
-                        <a href="antrean.html">Cek Antrean</a>
                     </nav>
                 </div>
                 <div class="footer-column">
                     <h4>Jam Operasional</h4>
                     <nav class="footer-links">
                         <a href="#">IGD: 24 Jam</a>
-                        <a href="#">Poliklinik: 08:00 - 20:00</a>
+                        <a href="#">Poliklinik: 08:30 - 14:00</a>
                         <a href="#">Laboratorium: 07:00 - 14:00</a>
                         <a href="#">Apotek: 24 Jam</a>
-                        <a href="#">Admin: 08:00 - 16:00</a>
+                        <a href="#">Admin: 08:30 - 14:00</a>
                     </nav>
                 </div>
             </div>
@@ -2369,15 +2353,15 @@
            DOCTOR DATA
         ======================================== */
         const doctors = [
-            { id: "jantung", name: "dr. Anak Agung Ayu Ngurah Desy Widya Putri, Sp.JP", spec: "Spesialis Jantung & Pembuluh Darah", schedule: "Senin & Kamis: 08:00 - 14:00", image: "img/dokter/dr-angung-desy-spjp.png", tag: "Jantung" },
-            { id: "radiologi", name: "dr. Herry Juniada, Sp.Rad", spec: "Spesialis Radiologi", schedule: "Senin - Jumat: 09:00 - 15:00", image: "img/dokter/dr-herry-juniada-sprad.png", tag: "Radiologi" },
-            { id: "anestesi", name: "dr. Manik Dirgayunitri, M.Biomed., Sp.An", spec: "Spesialis Anestesiologi & Reanimasi", schedule: "Senin - Jumat: 08:00 - 16:00", image: "img/dokter/dr-manik-dirgayunitri-span.png", tag: "Anestesi" },
-            { id: "kandungan", name: "dr. I Made Brammartha Kusuma, M.Biomed., Sp.OG", spec: "Spesialis Kebidanan dan Kandungan", schedule: "Senin & Rabu: 08:00 - 14:00", image: "img/dokter/dr-i-made-brammartha-kusuma-spog.png", tag: "Kandungan" },
-            { id: "ortho", name: "dr. Gede Ketut Alit Satria Nugraha, Sp.OT", spec: "Spesialis Orthopaedi dan Traumatologi", schedule: "Rabu: 08:00 - 14:00", image: "img/dokter/dr-gede-ketut-alit-satria-nugraha-spot.png", tag: "Orthopedi" },
-            { id: "dalam", name: "dr. I Gusti Putu Hery Sikesa, Sp.PD", spec: "Spesialis Penyakit Dalam", schedule: "Senin - Rabu: 08:00 - 14:00", image: "img/dokter/dr-i-gusti-putu-hery-sikesa-sppd.png", tag: "Penyakit Dalam" },
-            { id: "bedah", name: "dr. I Putu Swastika Kepakisan, M.Biomed., Sp.B", spec: "Spesialis Bedah Umum", schedule: "Kamis: 08:00 - 14:00", image: "img/dokter/dr-i-putu-swastika-kepakisan-spb.png", tag: "Bedah" },
-            { id: "saraf", name: "dr. Kade Agus Sudha Naryana, Sp.N", spec: "Spesialis Neurologi", schedule: "Senin & Kamis: 08:00 - 14:00", image: "img/dokter/dr-kade-agus-sudha-naryana-spn.png", tag: "Saraf" },
-            { id: "anak", name: "dr. Ni Made Ayu Agustini, M.Biomed., Sp.A", spec: "Spesialis Anak", schedule: "Senin & Rabu: 08:00 - 14:00", image: "img/dokter/dr-ni-made-ayu-agustini-spa.png", tag: "Anak" }
+            { id: "jantung", name: "dr. Anak Agung Ayu Ngurah Desy Widya Putri, Sp.JP", spec: "Spesialis Jantung & Pembuluh Darah", schedule: "Senin & Kamis: 08:30 - 14:00", image: "img/dokter/dr-angung-desy-spjp.png", tag: "Jantung" },
+            { id: "radiologi", name: "dr. Herry Juniada, Sp.Rad", spec: "Spesialis Radiologi", schedule: "Senin - Jumat: 08:30 - 14:00", image: "img/dokter/dr-herry-juniada-sprad.png", tag: "Radiologi" },
+            { id: "anestesi", name: "dr. Manik Dirgayunitri, M.Biomed., Sp.An", spec: "Spesialis Anestesiologi & Reanimasi", schedule: "Senin - Jumat: 08:30 - 14:00", image: "img/dokter/dr-manik-dirgayunitri-span.png", tag: "Anestesi" },
+            { id: "kandungan", name: "dr. I Made Brammartha Kusuma, M.Biomed., Sp.OG", spec: "Spesialis Kebidanan dan Kandungan", schedule: "Senin & Rabu: 08:30 - 14:00", image: "img/dokter/dr-i-made-brammartha-kusuma-spog.png", tag: "Kandungan" },
+            { id: "ortho", name: "dr. Gede Ketut Alit Satria Nugraha, Sp.OT", spec: "Spesialis Orthopaedi dan Traumatologi", schedule: "Rabu: 08:30 - 14:00", image: "img/dokter/dr-gede-ketut-alit-satria-nugraha-spot.png", tag: "Orthopedi" },
+            { id: "dalam", name: "dr. I Gusti Putu Hery Sikesa, Sp.PD", spec: "Spesialis Penyakit Dalam", schedule: "Senin - Rabu: 08:30 - 14:00", image: "img/dokter/dr-i-gusti-putu-hery-sikesa-sppd.png", tag: "Penyakit Dalam" },
+            { id: "bedah", name: "dr. I Putu Swastika Kepakisan, M.Biomed., Sp.B", spec: "Spesialis Bedah Umum", schedule: "Kamis: 08:30 - 14:00", image: "img/dokter/dr-i-putu-swastika-kepakisan-spb.png", tag: "Bedah" },
+            { id: "saraf", name: "dr. Kade Agus Sudha Naryana, Sp.N", spec: "Spesialis Neurologi", schedule: "Senin & Kamis: 08:30 - 14:00", image: "img/dokter/dr-kade-agus-sudha-naryana-spn.png", tag: "Saraf" },
+            { id: "anak", name: "dr. Ni Made Ayu Agustini, M.Biomed., Sp.A", spec: "Spesialis Anak", schedule: "Senin & Rabu: 08:30 - 14:00", image: "img/dokter/dr-ni-made-ayu-agustini-spa.png", tag: "Anak" }
         ];
 
         /* ========================================
@@ -2427,9 +2411,6 @@
                             <i class="fas fa-clock"></i>
                             <span>${doc.schedule}</span>
                         </div>
-                        <a href="antrean.html" class="doctor-card-btn" onclick="event.stopPropagation()">
-                            <i class="fas fa-calendar-check"></i> Booking
-                        </a>
                     </div>
                 </div>
             `).join('');
@@ -2454,7 +2435,6 @@
                 heroBadge: '22+ Dokter Spesialis Berpengalaman',
                 heroTitle: 'Pelayanan Kesehatan Modern dengan <span>Sentuhan Humanis</span>',
                 heroSubtitle: 'RS Payangan Hospital memberikan pelayanan kesehatan berkualitas dengan tenaga medis profesional dan fasilitas modern untuk masyarakat Gianyar dan sekitarnya.',
-                heroBtnPrimary: 'Buat Janji Temu',
                 heroBtnSecondary: 'Lihat Dokter',
                 directorMessage: 'Selamat datang di Payangan Hospital. Kami berkomitmen untuk memberikan pelayanan kesehatan terbaik dengan berlandaskan nilai-nilai Tri Hita Karana. Setiap langkah kami didasarkan pada keharmonisan hubungan dengan Tuhan, sesama manusia, dan lingkungan. Dengan didukung oleh tenaga medis profesional dan fasilitas modern, kami siap memberikan pengalaman pelayanan kesehatan yang nyaman dan berkualitas bagi masyarakat Payangan dan sekitarnya.'
             },
@@ -2462,7 +2442,6 @@
                 heroBadge: '22+ Experienced Specialist Doctors',
                 heroTitle: 'Modern Healthcare with <span>Compassionate Care</span>',
                 heroSubtitle: 'Payangan Hospital provides quality healthcare services with professional medical staff and modern facilities for the community of Gianyar and surrounding areas.',
-                heroBtnPrimary: 'Make Appointment',
                 heroBtnSecondary: 'View Doctors',
                 directorMessage: 'Welcome to Payangan Hospital. We are committed to providing the best healthcare services based on Tri Hita Karana values. Every step we take is based on harmony in relationships with God, fellow humans, and the environment. With professional medical staff and modern facilities, we are ready to provide comfortable and quality healthcare experiences for the Payangan community and surrounding areas.'
             }
@@ -2480,7 +2459,6 @@
             document.getElementById('heroBadge').textContent = t.heroBadge;
             document.getElementById('heroTitle').innerHTML = t.heroTitle;
             document.getElementById('heroSubtitle').textContent = t.heroSubtitle;
-            document.getElementById('heroBtnPrimary').textContent = t.heroBtnPrimary;
             document.getElementById('heroBtnSecondary').textContent = t.heroBtnSecondary;
             document.getElementById('directorMessage').textContent = t.directorMessage;
             
