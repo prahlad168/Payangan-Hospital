@@ -651,8 +651,8 @@
                     <a href="antrean.html" class="cta-btn cta-btn-primary">
                         <i class="fas fa-calendar-check"></i> Jadwalkan Kunjungan
                     </a>
-                    <a href="tel:+6236198087" class="cta-btn cta-btn-secondary">
-                        <i class="fas fa-phone"></i> 0361 98087
+                    <a href="tel:+62 361 9088087" class="cta-btn cta-btn-secondary">
+                        <i class="fas fa-phone"></i> 0361 9088087
                     </a>
                 </div>
             </div>
@@ -698,7 +698,7 @@
             <div class="footer-col">
                 <h4>Kontak</h4>
                 <ul>
-                    <li><a href="tel:+6236198087"><i class="fas fa-phone"></i> 0361 98087</a></li>
+                    <li><a href="tel:+62 361 9088087"><i class="fas fa-phone"></i> 0361 9088087</a></li>
                     <li><a href="https://wa.me/623619088087"><i class="fab fa-whatsapp"></i> +62 361 9088087</a></li>
                     <li><a href="mailto:info@rsupayangan.co.id"><i class="fas fa-envelope"></i> info@rsupayangan.co.id</a></li>
                     <li><a href="kontak.html"><i class="fas fa-map-marker-alt"></i> Jl. Raya Payangan, Gianyar</a></li>
@@ -796,7 +796,7 @@ let chatOpen=false;
 function toggleChat(){chatOpen=!chatOpen;document.getElementById('chat-win').classList.toggle('active',chatOpen)}
 function sendMsg(){const i=document.getElementById('chatInput'),m=i.value.trim();if(!m)return;addMsg(m,'user');i.value='';document.getElementById('chatTyping').classList.add('active');setTimeout(()=>{document.getElementById('chatTyping').classList.remove('active');addMsg(getResp(m),'bot')},1500)}
 function addMsg(t,n){const d=document.getElementById('chatMsgs'),e=document.createElement('div');e.className='ch-msg '+n;e.innerHTML=t+'<span class="ch-time">Baru saja</span>';d.appendChild(e);d.scrollTop=d.scrollHeight}
-function getResp(m){const msg=m.toLowerCase();if(msg.includes('dokter')||msg.includes('jadwal'))return'📅 <strong>Jadwal Dokter:</strong><br><br><a href="/dokter.html" style="color:#22d3ee">Lihat jadwal lengkap →</a>';if(msg.includes('daftar')||msg.includes('antrian'))return'📝 <strong>Pendaftaran Online:</strong><br><br><a href="/antrean.html" style="color:#22d3ee">Daftar sekarang →</a>';if(msg.includes('fasilitas')||msg.includes('kamar'))return'🏥 <strong>Fasilitas RS Payangan:</strong><br><br>• IGD 24 Jam<br>• ICU & NICU<br>• Kamar VIP, Kelas I, II, III<br>• Laboratorium<br>• Radiologi<br><br><a href="/fasilitas.html" style="color:#22d3ee">Lihat fasilitas lengkap →</a>';return'Terima kasih! 🙏<br><br>Hubungi <strong>0361 98087</strong><br><br>Ada yang bisa saya bantu?'}
+function getResp(m){const msg=m.toLowerCase();if(msg.includes('dokter')||msg.includes('jadwal'))return'📅 <strong>Jadwal Dokter:</strong><br><br><a href="/dokter.html" style="color:#22d3ee">Lihat jadwal lengkap →</a>';if(msg.includes('daftar')||msg.includes('antrian'))return'📝 <strong>Pendaftaran Online:</strong><br><br><a href="/antrean.html" style="color:#22d3ee">Daftar sekarang →</a>';if(msg.includes('fasilitas')||msg.includes('kamar'))return'🏥 <strong>Fasilitas RS Payangan:</strong><br><br>• IGD 24 Jam<br>• ICU & NICU<br>• Kamar VIP, Kelas I, II, III<br>• Laboratorium<br>• Radiologi<br><br><a href="/fasilitas.html" style="color:#22d3ee">Lihat fasilitas lengkap →</a>';return'Terima kasih! 🙏<br><br>Hubungi <strong>0361 9088087</strong><br><br>Ada yang bisa saya bantu?'}
 </script>
 
     <script src="js/premium-ui.js"></script>

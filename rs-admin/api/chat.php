@@ -45,7 +45,7 @@ $KNOWLEDGE_BASE = [
 в—Ҹ IGD: 24 jam (Setiap hari)<br>
 в—Ҹ Apotek: 07:00 - 21:00 WITA<br>
 в—Ҹ Laboratorium: 07:00 - 19:00 WITA<br><br>
-Telepon: <strong>0361 98087</strong>'
+Telepon: <strong>0361 9088087</strong>'
     ],
     'pendaftaran' => [
         'keywords' => ['daftar', 'pendaftaran', 'registrasi', 'online', 'antrian'],
@@ -85,7 +85,7 @@ Lihat jadwal lengkap di halaman <strong>Dokter</strong>'
         'keywords' => ['lokasi', 'alamat', 'mana', 'dimana', 'arah', 'peta'],
         'response' => 'в—Ҹ <strong>Lokasi RS Payangan:</strong><br><br>
 в—Ҹ <strong>Alamat:</strong> Jl. Raya Payangan, Gianyar, Bali<br>
-в—Ҹ <strong>Telepon:</strong> 0361 98087<br>
+в—Ҹ <strong>Telepon:</strong> 0361 9088087<br>
 в—Ҹ <strong>WhatsApp:</strong> +62 361 9088087<br>
 в—Ҹ <strong>Email:</strong> info@rsupayangan.co.id<br><br>
 RS Payangan terletak di jalur utama Gianyar, mudah diakses dari Denpasar dan Ubud.'
@@ -93,7 +93,7 @@ RS Payangan terletak di jalur utama Gianyar, mudah diakses dari Denpasar dan Ubu
     'igd' => [
         'keywords' => ['igd', 'darurat', 'emergency', 'ambulans', 'darurat'],
         'response' => 'в—Ҹ <strong>Layanan IGD 24 Jam:</strong><br><br>
-в—Ҹ <strong>Telepon IGD:</strong> <strong>0361 98087</strong><br>
+в—Ҹ <strong>Telepon IGD:</strong> <strong>0361 9088087</strong><br>
 в—Ҹ <strong>WhatsApp Darurat:</strong> <strong>+62 361 9088087</strong><br><br>
 <strong>Prioritas IGD:</strong><br>
 1. Resusitasi (Sangat darurat)<br>
@@ -147,7 +147,7 @@ function findResponse($question) {
     // Default response
     return 'Terima kasih atas pertanyaan Anda. рҹЎ"<br><br>
 Untuk informasi lebih detail:<br>
-в—Ҹ Telepon: <strong>0361 98087</strong><br>
+в—Ҹ Telepon: <strong>0361 9088087</strong><br>
 в—Ҹ WhatsApp: <strong>+62 361 9088087</strong><br><br>
 Atau klik tombol cepat untuk jawaban instant! рҹЁӨ';
 }
@@ -289,7 +289,7 @@ switch ($action) {
             'version' => '1.0.0',
             'hospital' => 'RS Payangan Hospital',
             'contact' => [
-                'phone' => '0361 98087',
+                'phone' => '0361 9088087',
                 'whatsapp' => '+62 361 9088087',
                 'address' => 'Jl. Raya Payangan, Gianyar, Bali'
             ]

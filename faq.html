@@ -289,7 +289,7 @@
                     </div>
                     <div class="faq-answer">
                         <div class="faq-answer-content">
-                            Untuk konsultasi dokter spesialis, kami sangat menyarankan untuk membuat janji temu terlebih dahulu agar tidak perlu menunggu lama. Namun untuk layanan IGD dan darurat, Anda dapat langsung datang 24 jam. Untuk rawat inap, hubungi bagian admisi di 0361 98087 untuk mengecek ketersediaan kamar.
+                            Untuk konsultasi dokter spesialis, kami sangat menyarankan untuk membuat janji temu terlebih dahulu agar tidak perlu menunggu lama. Namun untuk layanan IGD dan darurat, Anda dapat langsung datang 24 jam. Untuk rawat inap, hubungi bagian admisi di 0361 9088087 untuk mengecek ketersediaan kamar.
                         </div>
                     </div>
                 </div>
@@ -318,7 +318,7 @@
                     </div>
                     <div class="faq-answer">
                         <div class="faq-answer-content">
-                            Jadwal praktik dokter dapat dilihat melalui: (1) Website RS Payangan di halaman Dokter, (2) Hubungi call center di 0361 98087, (3) WhatsApp di +62 361 9088087, atau (4) Langsung询问 di loket informasi RS. Jadwal dapat berubah sewaktu-waktu, sebaiknya konfirmasi sebelum kunjungan.
+                            Jadwal praktik dokter dapat dilihat melalui: (1) Website RS Payangan di halaman Dokter, (2) Hubungi call center di 0361 9088087, (3) WhatsApp di +62 361 9088087, atau (4) Langsung询问 di loket informasi RS. Jadwal dapat berubah sewaktu-waktu, sebaiknya konfirmasi sebelum kunjungan.
                         </div>
                     </div>
                 </div>
@@ -359,7 +359,7 @@
                     </div>
                     <div class="faq-answer">
                         <div class="faq-answer-content">
-                            Prosedur rawat inap: (1) Dokter akan memberikan surat pengantar rawat inap, (2) Keluarga pasien datang ke loket admisi untuk办理 administrasi, (3) Pilih tipe kamar sesuai ketersediaan, (4) Bayar uang muka sesuai kebijakan RS, (5) Pasien akan diantar ke kamar perawatan. Untuk informasi ketersediaan dan harga kamar, hubungi 0361 98087.
+                            Prosedur rawat inap: (1) Dokter akan memberikan surat pengantar rawat inap, (2) Keluarga pasien datang ke loket admisi untuk办理 administrasi, (3) Pilih tipe kamar sesuai ketersediaan, (4) Bayar uang muka sesuai kebijakan RS, (5) Pasien akan diantar ke kamar perawatan. Untuk informasi ketersediaan dan harga kamar, hubungi 0361 9088087.
                         </div>
                     </div>
                 </div>
@@ -388,7 +388,7 @@
                     </div>
                     <div class="faq-answer">
                         <div class="faq-answer-content">
-                            Untuk permintaan ambulans, hubungi: (1) Telepon IGD: 0361 98087 ext. 1, (2) WhatsApp: +62 361 9088087, atau (3) Langsung datang ke IGD 24 jam. Layanan ambulans tersedia untuk penjemputan pasien darurat dengan peralatan medis lengkap.
+                            Untuk permintaan ambulans, hubungi: (1) Telepon IGD: 0361 9088087 ext. 1, (2) WhatsApp: +62 361 9088087, atau (3) Langsung datang ke IGD 24 jam. Layanan ambulans tersedia untuk penjemputan pasien darurat dengan peralatan medis lengkap.
                         </div>
                     </div>
                 </div>
@@ -432,8 +432,8 @@
                 <h2>Tidak Menemukan Jawaban?</h2>
                 <p>Tim kami siap membantu Anda. Hubungi kami untuk pertanyaan lebih lanjut.</p>
                 <div class="contact-buttons">
-                    <a href="tel:+6236198087" class="contact-btn contact-btn-white">
-                        <i class="fas fa-phone"></i> 0361 98087
+                    <a href="tel:+62 361 9088087" class="contact-btn contact-btn-white">
+                        <i class="fas fa-phone"></i> 0361 9088087
                     </a>
                     <a href="https://wa.me/623619088087" class="contact-btn contact-btn-outline">
                         <i class="fab fa-whatsapp"></i> WhatsApp
@@ -482,7 +482,7 @@
             <div class="footer-col">
                 <h4>Kontak</h4>
                 <ul>
-                    <li><a href="tel:+6236198087"><i class="fas fa-phone"></i> 0361 98087</a></li>
+                    <li><a href="tel:+62 361 9088087"><i class="fas fa-phone"></i> 0361 9088087</a></li>
                     <li><a href="https://wa.me/623619088087"><i class="fab fa-whatsapp"></i> +62 361 9088087</a></li>
                     <li><a href="mailto:info@rsupayangan.co.id"><i class="fas fa-envelope"></i> info@rsupayangan.co.id</a></li>
                     <li><a href="kontak.html"><i class="fas fa-map-marker-alt"></i> Jl. Raya Payangan, Gianyar</a></li>
@@ -629,7 +629,7 @@ let chatOpen=false;
 function toggleChat(){chatOpen=!chatOpen;document.getElementById('chat-win').classList.toggle('active',chatOpen)}
 function sendMsg(){const i=document.getElementById('chatInput'),m=i.value.trim();if(!m)return;addMsg(m,'user');i.value='';document.getElementById('chatTyping').classList.add('active');setTimeout(()=>{document.getElementById('chatTyping').classList.remove('active');addMsg(getResp(m),'bot')},1500)}
 function addMsg(t,n){const d=document.getElementById('chatMsgs'),e=document.createElement('div');e.className='ch-msg '+n;e.innerHTML=t+'<span class="ch-time">Baru saja</span>';d.appendChild(e);d.scrollTop=d.scrollHeight}
-function getResp(m){const msg=m.toLowerCase();if(msg.includes('faq')||msg.includes('pertanyaan'))return'❓ <strong>FAQ RS Payangan:</strong><br><br>Klik untuk melihat pertanyaan umum:<br><br><a href="/faq.html" style="color:#22d3ee">📝 Halaman FAQ →</a>';return'Terima kasih! 🙏<br><br>Kunjungi <a href="/faq.html" style="color:#22d3ee">halaman FAQ</a><br>Hubungi <strong>0361 98087</strong>'}
+function getResp(m){const msg=m.toLowerCase();if(msg.includes('faq')||msg.includes('pertanyaan'))return'❓ <strong>FAQ RS Payangan:</strong><br><br>Klik untuk melihat pertanyaan umum:<br><br><a href="/faq.html" style="color:#22d3ee">📝 Halaman FAQ →</a>';return'Terima kasih! 🙏<br><br>Kunjungi <a href="/faq.html" style="color:#22d3ee">halaman FAQ</a><br>Hubungi <strong>0361 9088087</strong>'}
 </script>
 
     <script src="js/premium-ui.js"></script>
