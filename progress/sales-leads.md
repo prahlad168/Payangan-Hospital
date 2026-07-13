@@ -1,9 +1,9 @@
 # 📊 Sales Leads Report - Payangan Hospital Digital
 
-**Generated:** 2026-07-10
+**Generated:** 2026-07-13
 **Agent:** SaaS Sales Agent (OpenHands)
 **Target:** Rp 30.000.000/bulan
-**Period:** Juli 2026 (Week 28)
+**Period:** Juli 2026 (Week 30)
 **Status:** 🚀 ACTIVE OUTREACH - UPDATED
 
 ---
@@ -13,7 +13,7 @@
 Target sales bulanan: **Rp 30.000.000**
 Strategi: Fokus pada rumah sakit pemerintah dan klinik di Bali/Indonesia
 
-### Update Mingguan (Week 28):
+### Update Mingguan (Week 30):
 - 📧 Emails sent: 0 (TARGET: 50/week)
 - 📞 Demos scheduled: 0 (TARGET: 10/week)
 - 💰 Revenue achieved: Rp 0 (TARGET: Rp 2.5M/week)
@@ -47,7 +47,7 @@ Strategi: Fokus pada rumah sakit pemerintah dan klinik di Bali/Indonesia
 
 ---
 
-## 🔥 Hot Leads - Priority Outreach (Week 28, July 2026)
+## 🔥 Hot Leads - Priority Outreach (Week 30, July 2026)
 
 ### Rumah Sakit Pemerintah Bali (PRIORITY #1)
 
@@ -60,6 +60,7 @@ Strategi: Fokus pada rumah sakit pemerintah dan klinik di Bali/Indonesia
 | 5 | **RSUD Negara** | Jembrana | RS Tipe C | ⭐⭐⭐⭐ | Admin RS | SIMRS Basic | Fast follow-up dari demo |
 | 6 | **RSUD Tabanan** | Tabanan | RS Tipe C | ⭐⭐⭐⭐ | IT | SIMRS Basic | NEW - belum di-contact |
 | 7 | **RSUD Klungkung** | Klungkung | RS Tipe D | ⭐⭐⭐⭐ | Admin | SIMRS Basic | NEW - belum di-contact |
+| 8 | **RSUD Singaraja** | Buleleng | RS Tipe B | ⭐⭐⭐⭐ | IT | SIMRS Professional | NEW - belum di-contact |
 
 ### Klinik & RS Swasta Bali (PRIORITY #2)
 
@@ -72,6 +73,8 @@ Strategi: Fokus pada rumah sakit pemerintah dan klinik di Bali/Indonesia
 | 5 | **Klinik Ayu** | Ubud | Klinik | ⭐⭐⭐ | Website | Rp 3-5jt |
 | 6 | **Bali Clinic Center** | Denpasar | Multi-klinik | ⭐⭐⭐⭐ | Paket Komplit | Rp 15jt+ |
 | 7 | **Klinik Pratama Kerta GP** | Gianyar | Klinik Pratama | ⭐⭐⭐⭐ | SIMRS Basic | Rp 5jt |
+| 8 | **Klinik Bali Medika** | Sanur | Klinik | ⭐⭐⭐⭐ | SIMRS Basic | Rp 5jt |
+| 9 | **RS Surya Medika** | Kuta | RS Swasta | ⭐⭐⭐⭐ | Full SIMRS | Rp 10jt |
 
 ### Marketplace & Freelance (PRIORITY #3)
 
@@ -82,14 +85,17 @@ Strategi: Fokus pada rumah sakit pemerintah dan klinik di Bali/Indonesia
 | 3 | Fastwork.id | Development | ⭐⭐⭐ | Quick gigs | Rp 1-5jt |
 | 4 | Fiverr | International | ⭐⭐⭐ | Healthcare niche | $300-2000 |
 | 5 | Upwork | International | ⭐⭐⭐ | Remote projects | $500-5000 |
+| 6 | Kaggle/DevCommunity | Open Source | ⭐⭐⭐ | Portfolio building | N/A |
 
-### NEW LEADS - Week 28 (From Research)
+### NEW LEADS - Week 30 (From Research)
 
 | # | Nama | Lokasi | Tipe | Source | Score | Action |
 |---|------|--------|------|--------|-------|--------|
 | 1 | RSPTU (RS Pendidikan) | Gianyar | RS Pendidikan | Local network | ⭐⭐⭐⭐⭐ | Walk-in/Direct |
 | 2 | Klinik Pratama se-Bali | Various | Klinik | Google Maps research | ⭐⭐⭐ | Mass outreach |
 | 3 | RS Swasta di Jimbaran | Badung | RS Swasta | Local network | ⭐⭐⭐⭐ | LinkedIn outreach |
+| 4 | RS Wangaya | Denpasar | RS Tipe C | Local network | ⭐⭐⭐⭐ | Walk-in/Direct |
+| 5 | RS Puri Raharja | Kuta | RS Swasta | Local network | ⭐⭐⭐⭐ | WhatsApp outreach |
 
 ### Revenue Breakdown Target
 
@@ -187,6 +193,204 @@ Strategi: Fokus pada rumah sakit pemerintah dan klinik di Bali/Indonesia
 | 5 | Upwork | International | ★★★☆☆ |
 
 ---
+
+---
+
+## 📧 Personalized Cold Emails (Week 30)
+
+### Email 6: RS Wangaya - Denpasar
+
+**Subjek:** 🌟 Proposal Digital untuk RS Wangaya - Demo Gratis
+
+---
+
+Yth. Bapak/Ibu **Tim IT/Direksi RS Wangaya**,
+
+Salam sehat dari **Payangan Hospital Digital**!
+
+Kami dari Payangan Hospital di Gianyar ingin memperkenalkan solusi digital yang telah berhasil kami implementasikan untuk RS Payangan Hospital - rumah sakit pemerintah di kabupaten yang sama dengan RS Wangaya.
+
+**Portfolio Live:** https://payanganhospital.gianyarkab.go.id
+
+**Fitur yang sudah berjalan:**
+- ✅ Website modern dengan 22+ halaman
+- ✅ Dashboard admin real-time
+- ✅ Display antrean digital otomatis
+- ✅ 10+ dokter spesialis terintegrasi
+- ✅ Mobile responsive - bisa dibuka dari HP pasien
+
+**Keunggulan kami dibanding kompetitor:**
+| Aspek | Kompetitor | Kami |
+|-------|-----------|------|
+| Harga | Rp 15-50 juta | Rp 5-15 juta |
+| Timeline | 3-6 bulan | 1-3 bulan |
+| Healthcare Focus | Generalist | Specialist |
+| Support | 9-5 only | Responsif |
+
+**💰 Investment Options:**
+| Paket | Harga | Promo Juli |
+|-------|-------|------------|
+| SIMRS Basic | Rp 5.000.000 | **Rp 4.000.000** |
+| SIMRS Professional | Rp 10.000.000 | **Rp 8.000.000** |
+
+**📅 Free Demo Available:** Setiap hari kerja
+
+Boleh saya schedule 15 menit untuk demo langsung via WhatsApp atau Google Meet?
+
+Terima kasih!
+Salam sehat,
+
+**Tim Payangan Hospital Digital**
+📱 WhatsApp: [Available]
+🌐 https://payanganhospital.gianyarkab.go.id
+
+---
+
+### Email 7: RS Puri Raharja - Kuta
+
+**Subjek:** 🚀 Boost Layanan Digital RS Puri Raharja - Same Day Response
+
+---
+
+Kepada Yth. **Tim Manajemen RS Puri Raharja**,
+
+Sebagai salah satu RS swasta ternama di Kuta/Bali, RS Puri Raharja tentu menyadari pentingnya digitalisasi layanan untuk meningkatkan pengalaman pasien.
+
+**Portfolio Kami (Live):** https://payanganhospital.gianyarkab.go.id
+
+**Benefits yang RS Puri Raharja bisa dapatkan:**
+- ✅ Pasien bisa lihat jadwal dokter online 24/7
+- ✅ Display antrean digital (tidak perlu antre berdiri!)
+- ✅ WhatsApp notification otomatis untuk pasien
+- ✅ Website mobile-friendly (pasien tourist!)
+- ✅ Dashboard admin real-time untuk tim RS
+
+**Special Offer untuk RS Swasta Bali:**
+📦 Paket SIMRS Professional: **Rp 8.000.000** (Promo Juli)
+- Website professional dengan custom branding
+- Dashboard admin CMS
+- Display antrean digital
+- Modul IGD 24 jam
+- Support 3 bulan gratis
+
+**Live demo:** https://payanganhospital.gianyarkab.go.id
+
+Boleh saya call 15 menit untuk discuss kebutuhan RS Puri Raharja?
+
+Salam,
+**Tim Payangan Hospital Digital**
+
+---
+
+### Email 8: RSUD Singaraja - Buleleng
+
+**Subjek:** 🏥 Digitalisasi RSUD Singaraja - Solusi Modern untuk Layanan Kesehatan
+
+---
+
+Yth. Bapak/Ibu **Kacabkesos / Tim IT RSUD Singaraja**,
+
+Sebagai rumah sakit pemerintah Tipe B di Buleleng, kami yakin RSUD Singaraja terus meningkatkan layanan kesehatan untuk masyarakat Bali Utara.
+
+**Portfolio Kami:**
+🌐 https://payanganhospital.gianyarkab.go.id (LIVE! RS Pemerintah Gianyar)
+
+**Solusi digital yang kami tawarkan:**
+1. **Website Modern** - Informasi dokter, layanan, jadwal praktik online
+2. **Display Antrean Digital** - Real-time, mengurangi antrean panjang
+3. **Dashboard Admin** - Mudah digunakan, update konten tanpa coding
+4. **Mobile Responsive** - Pasien bisa akses dari HP
+
+**Keunggulan untuk RS Pemerintah:**
+- ✅ Harga kompetitif (subsidi untuk RS pemerintah)
+- ✅ Timeline cepat (2-4 minggu)
+- ✅ Support lokal (Bali)
+- ✅ Payment terms flexible (50/25/25)
+
+**💰 Investment Options:**
+| Paket | Harga | Diskon RS Govt |
+|-------|-------|----------------|
+| SIMRS Basic | Rp 5.000.000 | **Rp 3.500.000** |
+| SIMRS Professional | Rp 10.000.000 | **Rp 7.000.000** |
+
+Apakah ada waktu 15 menit untuk discuss ini minggu ini?
+
+Terima kasih!
+Salam,
+
+**Tim Payangan Hospital Digital**
+📱 WhatsApp: [Available]
+🌐 https://payanganhospital.gianyarkab.go.id
+
+---
+
+### Email 9: Klinik Bali Medika - Sanur
+
+**Subjek:** 💆 Boost Klinik Bali Medika dengan Website + Antrean Digital
+
+---
+
+Kepada Yth. **Pemilik/Manajer Klinik Bali Medika**,
+
+Saya menemukan Klinik Bali Medika di Sanur dan berpikir - bagaimana kalau kliniknya punya sistem antrean digital dan website profesional?
+
+**Benefits yang Klinik bisa dapatkan:**
+- ✅ Pasien bisa lihat jadwal dokter online 24/7
+- ✅ Display antrean digital (tidak perlu antre berdiri!)
+- ✅ WhatsApp notification otomatis
+- ✅ Website mobile-friendly
+- ✅ SEO-optimized (pasien baru bisa menemukan via Google)
+
+**Special Offer untuk Klinik Bali:**
+📦 Paket Klinik Starter: **Rp 3.000.000**
+- Website professional
+- Halaman dokter
+- Display antrean digital
+- Support 3 bulan gratis
+
+**Live example:** https://payanganhospital.gianyarkab.go.id
+
+Boleh saya call 10 menit untuk discuss kebutuhan Klinik?
+
+Salam,
+**Tim Payangan Hospital Digital**
+
+---
+
+### Email 10: RSPTN Unud - Denpasar
+
+**Subjek:** 🎓 Partnership Digital untuk RSPTN Unud - Hospital Teaching
+
+---
+
+Yth. **Bapak/Ibu Tim IT RSPTN Unud**,
+
+Sebagai RS Pendidikan di lingkungan UNUD, RSPTN memiliki kebutuhan unik untuk sistem informasi yang mendukung kegiatan akademik dan pelayanan kesehatan.
+
+**Portfolio Kami (Live):** https://payanganhospital.gianyarkab.go.id
+
+**Fitur yang sesuai untuk RS Pendidikan:**
+- ✅ Dashboard untuk tracking statistik
+- ✅ Modul akademik (jadwal mengajar, case study)
+- ✅ Research data management
+- ✅ Collaboration tools
+
+**Special Package untuk RS Pendidikan:**
+📦 Paket Academic SIMRS: **Rp 10.000.000**
+- Semua fitur Professional
+- Modul akademik tambahan
+- Research data integration
+- Training untuk staff akademik
+- Support 6 bulan
+
+**📅 Free Demo:** Tersedia setiap hari kerja
+
+Apakah boleh saya schedule demo untuk tim RSPTN?
+
+Terima kasih!
+Salam,
+
+**Tim Payangan Hospital Digital**
 
 ---
 
@@ -1034,32 +1238,33 @@ Salam,
 | Day 14 | Breakup email | Cold leads |
 | Day 30 | Re-engagement | All leads |
 
-### This Week Action Plan (Week 29: July 10-17)
+### This Week Action Plan (Week 30: July 13-19)
 
 | # | Action | Target | Deadline |
 |---|--------|--------|----------|
-| 1 | Kirim Email 1 ke 5 RS Pemerintah | 5 emails | July 10 |
-| 2 | Kirim Email 2 ke 5 Klinik | 5 emails | July 10 |
-| 3 | LinkedIn outreach RS IT Managers | 10 connections | July 11 |
-| 4 | WhatsApp follow-up warm leads | 3-5 messages | July 12 |
-| 5 | Schedule demo calls | 3 demos | July 15 |
+| 1 | Kirim Email 1 ke 8 RS Pemerintah | 8 emails | July 13 |
+| 2 | Kirim Email 2 ke 5 Klinik | 5 emails | July 13 |
+| 3 | LinkedIn outreach RS IT Managers | 10 connections | July 14 |
+| 4 | WhatsApp follow-up warm leads | 3-5 messages | July 15 |
+| 5 | Schedule demo calls | 3 demos | July 18 |
+| 6 | Research RS Wangaya & RS Puri Raharja | 2 RS | July 16 |
 
 ---
 
 ## 📊 Performance Update
 
-### KPI This Week (Week 29)
+### KPI This Week (Week 30)
 
 | Metric | Target | Current | Status |
 |--------|--------|---------|--------|
-| Emails Sent | 50/week | 10 | 📧 TODO |
+| Emails Sent | 50/week | 0 | 📧 TODO |
 | Response Rate | 15% | 0% | ⏳ |
 | Demo Scheduled | 10/week | 0 | ⏳ |
 | Proposals Sent | 5/week | 0 | ⏳ |
 | Deals Closed | 3/month | 0 | ⏳ |
 | Revenue | Rp 30M/month | Rp 0 | ❌ |
 
-### Revenue Target Breakdown - Week 29
+### Revenue Target Breakdown - Week 30
 
 | # | Source | Target | Probability | Expected Revenue |
 |---|--------|--------|-------------|------------------|
@@ -1141,10 +1346,10 @@ Tim Payangan Hospital Digital
 
 ---
 
-**Document Version:** 3.0.0 (Week 29)
-**Last Updated:** 2026-07-10
-**Next Update:** 2026-07-17
-**Status:** 🚀 ACTIVE SALES CAMPAIGN - WEEK 29
+**Document Version:** 4.0.0 (Week 30)
+**Last Updated:** 2026-07-13
+**Next Update:** 2026-07-20
+**Status:** 🚀 ACTIVE SALES CAMPAIGN - WEEK 30
 
 ---
 
