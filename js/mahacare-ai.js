@@ -31,7 +31,7 @@ Apa yang bisa saya bantu hari ini?`,
         quickReplies: [
             { text: 'Jadwal Dokter', value: 'jadwal dokter' },
             { text: 'Layanan RS', value: 'layanan rumah sakit' },
-            { text: 'Buat Janji', value: 'cara membuat janji' },
+            
             { text: 'BPJS', value: 'informasi bpjs' },
             { text: 'IGD 24 Jam', value: 'igd 24 jam' },
             { text: 'Kontak RS', value: 'kontak rumah sakit' }
