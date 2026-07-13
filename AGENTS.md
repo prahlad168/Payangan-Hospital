@@ -4,8 +4,7 @@
 
 ### Salam dari Agent AI Anda!
 
-**CEO:** i Made Purna Ananda (Pak Pur)  
-**Target:** Rp 100.000.000/bulan
+**CEO:** i Made Purna Ananda (Pak Pur)
 
 ---
 
@@ -13,42 +12,89 @@
 
 Saya Agent AI Anda, siap membantu! Setiap kali Pak Pur buka repository ini, saya langsung menyapa dan siap kerja bareng!
 
-### Info Singkat untuk Pak Pur:
+---
+
+# 🏥 RS PAYANGAN HOSPITAL - AGENT WORKSPACE
+
+## ⚠️ PERHATIAN: FOKUS PROJECT
+
+**RS Payangan Hospital adalah RUMAH SAKIT PEMERINTAH** yang fokus pada **PELAYANAN KESEHATAN**.
+
+### ❌ YANG BUKAN FOKUS RS PAYANGAN:
+- Penjualan produk digital
+- Bisnis komersial
+- Lead generation / Cold calling
+- Marketing campaigns
+- Proposal komersial
+- Revenue targets
+
+### ✅ YANG MENJADI FOKUS RS PAYANGAN:
+- Informasi layanan kesehatan
+- Jadwal dokter
+- Sistem antrean pasien
+- Manajemen rumah sakit
+- Backend admin untuk RS
+- Laporan rumah sakit
+- Edukasi kesehatan
+
+---
+
+## 📋 Info Singkat RS Payangan:
 
 | Info | Nilai |
 |------|-------|
 | **Project** | RS Payangan Hospital Management System |
+| **Tipe** | Rumah Sakit Pemerintah Daerah (Non-Komersial) |
 | **Domain** | https://payanganhospital.gianyarkab.go.id/ |
 | **Hosting** | Idwebhost (cPanel) |
-| **Target** | Rp 100.000.000/bulan |
 
-### Yang Bisa Saya Kerjakan bareng Pak Pur:
+---
+
+## 💼 AKTIVITAS BISNIS & PENJUALAN
+
+**Untuk aktivitas bisnis, penjualan, dan semua hal yang berkaitan dengan komersial, PAK PUR memiliki repository terpisah:**
+
+### 🌐 MAHA LAKSHMI DIGITAL HOLDINGS
+**Repository:** `github.com/prahlad168/MAHA-LAKSHMI-CORP`
+
+Repository MAHA LAKSHMI mengelola:
+- Penjualan produk digital
+- SIMRS solutions
+- AI automation services
+- Freelance services
+- Digital products
+- Marketing & sales
+- Revenue targets
+
+**Bank BCA untuk profit:** `6485086645`
+
+---
+
+### Yang Bisa Saya Kerjakan untuk RS Payangan:
 
 - **Manajemen Website** - Update dan optimasi website RS Payangan
 - **Dashboard Admin** - Akses rs-admin, laporan direksi
 - **Automation** - Auto-deploy, daily reports, 13 QA agents
 - **Deploy** - Push ke hosting, webhook management
 - **Analisis** - Cek tampilan, perbaiki gambar, SEO
+- **Dokter** - Update jadwal dan informasi dokter
+- **Pasien** - Sistem informasi pasien
 
-### Login Credentials:
+---
+
+### Login Credentials RS Admin:
 
 | Sistem | Username | Password |
 |--------|----------|----------|
 | rs-admin (Admin) | `admin` | `admin123` |
-| rs-admin (Direktur) | `direktur` | `welcomehome` |
+| rs-admin (Directeur) | `direktur` | `welcomehome` |
 | rs-admin (Karyawan) | `karyawan` | `staf2026` |
 
 ---
 
-> *"Ga ada yang ga mungkin kalau kerja bareng AI!"* - GAURANGA System
-
----
-
-# Payangan Hospital - Agent Workspace
-
-## Overview
-
-Repository ini berisi website RS Payangan Hospital dan konfigurasi automasi untuk deployment otomatis.
+> *"RS Payangan = Healthcare Services (Pelayanan Kesehatan)"*  
+> *"Maha Lakshmi = Business & Sales (Bisnis & Penjualan)"*  
+> *- GAURANGA System*
 
 ---
 
@@ -61,6 +107,7 @@ Repository ini berisi website RS Payangan Hospital dan konfigurasi automasi untu
 | **Domain** | `https://payanganhospital.gianyarkab.go.id/` |
 | **Hosting** | Idwebhost (cPanel) |
 | **Username cPanel** | `payangan` |
+| **Tipe** | Government Hospital Website (Non-Komersial) |
 
 ---
 
@@ -76,9 +123,9 @@ Payangan-Hospital/
 ├── antrean.html           # Live antrean display
 ├── progress/
 │   ├── index.html         # Progress dashboard
-│   ├── weekly-report-*.md    # Laporan mingguan
+│   ├── weekly-report-*.md    # Laporan mingguan RS
 │   └── director-report-login.html  # Login laporan direksi
-├── rs-admin/              # BACKEND ADMIN SYSTEM
+├── rs-admin/              # BACKEND ADMIN SYSTEM RS
 │   ├── config/
 │   │   ├── database.php       # Konfigurasi DB
 │   │   └── schema.sql         # Database schema
@@ -238,8 +285,10 @@ curl -X POST "https://app.all-hands.dev/api/automation/v1/2e4d4f38-1c7c-4437-b25
 | Laporan Direksi | ✅ Ready | Password protected |
 | 13 QA Agents | ✅ Ready | Run with /play command |
 | Chat Agent | ✅ Active | AI chatbot for website |
-| Customer Service Agent | ✅ NEW | CS reports & templates |
+| Customer Service Agent | ✅ Active | CS reports & templates |
 
 ---
 
-**Last Updated:** 2026-07-10
+**Last Updated:** 2026-07-13
+
+**Catatan:** File-file bisnis/penjualan telah dipindahkan ke repository MAHA LAKSHMI DIGITAL HOLDINGS
