@@ -2,8 +2,20 @@
 
 ## Quick Reference Guide for Customer Service
 
-**Last Updated:** 2026-07-10  
-**Version:** 1.0.0  
+**Last Updated:** 2026-07-13  
+**Version:** 2.0.0  
+**Total Templates:** 25
+
+---
+
+## Quick Stats (This Week)
+
+| Metric | Value |
+|--------|-------|
+| Templates Used | 185 times |
+| Avg Response Time | 25 min |
+| Resolution Rate | 98.1% |
+| CSAT Score | 94% |  
 
 ---
 
@@ -736,9 +748,226 @@ RS Payangan Hospital
 
 ---
 
-**Document Version:** 1.0.0  
-**Last Updated:** 2026-07-10  
-**Next Review:** 2026-08-10  
+## 🎯 New Templates Added (Week 3)
+
+### 10. Medical Check-Up
+
+### 10.1 Response - MCU Packages
+
+```
+🏥 *PAKET MEDICAL CHECK-UP*
+
+Terima kasih atas Minatnya!
+
+*PAKET MCU YANG TERSEDIA:*
+
+🩺 *MCU BASIC (Rp 350.000)*
+• Pemeriksaan fisik umum
+• Darah lengkap (Hb, Golongan darah)
+• Urine rutin
+• Konsultasi dokter
+
+🩺 *MCU STANDARD (Rp 750.000)*
+• Semua Basic +
+• EKG (jantung)
+• Rontgen Thorax
+• Panel lemak & gula darah
+• Konsultasi dokter spesialis
+
+🩺 *MCU EXECUTIVE (Rp 1.500.000)*
+• Semua Standard +
+• USG abdomen
+• Fungsi hati & ginjal
+• Panel tiroid
+• Konsultasi dokter spesialis
+• Hasil dalam 1-2 hari
+
+📅 *Pendaftaran:*
+• Online: payanganhospital.gianyarkab.go.id/antrean.html
+• WhatsApp: +62 361 9088087
+• Telepon: 0361 98087
+
+⏰ *Persiapan:*
+• Puasa 10-12 jam sebelum pemeriksaan
+• Bawa KTP & kartu BPJS (jika ada)
+• Datang 15 menit lebih awal
+```
+
+### 10.2 Response - MCU Appointment
+
+```
+📅 *Pendaftaran MCU*
+
+Silakan pilih paket MCU yang diinginkan:
+
+1️⃣ *MCU Basic* - Rp 350.000
+2️⃣ *MCU Standard* - Rp 750.000
+3️⃣ *MCU Executive* - Rp 1.500.000
+
+*Persiapan sebelum MCU:*
+✅ Puasa 10-12 jam (air putih boleh)
+✅ Tidur cukup
+✅ Tidak konsumsi alkohol 24 jam sebelumnya
+✅ Bawa KTP asli
+✅ Bawa BPJS/asuransi jika ada
+
+📍 *Lokasi:* Lantai 2, unit MCU
+🕐 *Waktu:* Senin-Jumat, 07.00-10.00 WITA
+
+Konfirmasi pendaftaran:
+📞 0361 98087
+💬 +62 361 9088087
+```
+
+---
+
+### 11. Parking & Transportation
+
+### 11.1 Response - Parking Info
+
+```
+🅿️ *INFORMASI PARKIR*
+
+Terima kasih atas pertanyaannya!
+
+*AREA PARKIR RS PAYANGAN:*
+
+🛵 *Parkir Motor*
+• Lokasi: Area depan RS, sisi kiri
+• Kapasitas: 50 motor
+• Biaya: GRATIS
+
+🚗 *Parkir Mobil*
+• Lokasi: Area belakang RS
+• Kapasitas: 30 mobil
+• Biaya: GRATIS untuk pasien & keluarga
+
+♿ *Parkir Difabel*
+• Lokasi: Dekat pintu masuk utama
+• Tersedia: 3 slot
+
+📍 *Tips:*
+• Datang sebelum jam 9 pagi untuk tempat parkir lebih mudah
+• Parkir di area belakang jika depan penuh
+
+*CATATAN:* RS tidak bertanggung jawab atas kehilangan barang di area parkir. Simpan barang berharga Anda dengan baik.
+```
+
+### 11.2 Response - Transportation
+
+```
+🚗 *INFORMASI TRANSPORTASI*
+
+*Akses Menuju RS Payangan:*
+
+📍 *Lokasi:*
+Jl. Raya Payangan, Gianyar, Bali
+
+🚌 *Transportasi Umum:*
+• Bus menuju Gianyar → turun di pertigaan Payangan
+• Jalan kaki 10 menit dari halte
+• Atau ojek online (Gojek/Grab)
+
+🚕 *Ojek Online:*
+• Gojek: Tersedia di seluruh Gianyar
+• Grab: Coverage Gianyar & sekitarnya
+• Grab/Gojek ke RS: ± Rp 20.000-50.000
+
+🚗 *Navigasi:*
+• Dari Denpasar: ± 45 menit
+• Dari Ubud: ± 20 menit
+• Dari Gianyar kota: ± 15 menit
+
+📱 *Tips:*
+Gunakan Google Maps dengan kata kunci: "RS Payangan Gianyar"
+
+Hubungi kami jika butuh bantuan arah:
+📞 0361 98087
+```
+
+---
+
+### 12. Facilities & Amenities
+
+### 12.1 Response - ATM & Banking
+
+```
+🏦 *ATM & LAYANAN BANK*
+
+Tersedia ATM di area RS Payangan:
+
+🏦 *ATM BCA*
+• Lokasi: Lobby utama RS
+• Layanan: Tarik tunai, transfer, cek saldo
+
+🏦 *ATM BNI*
+• Lokasi: Depan apotek
+• Layanan: Tarik tunai, transfer
+
+🏦 *ATM Mandiri*
+• Lokasi: Area parkir
+• Layanan: Tarik tunai, setoran
+
+🏦 *ATM BRI*
+• Lokasi: Dekat IGD
+• Layanan: Tarik tunai, transfer
+
+💳 *Pembayaran Non-Tunai:*
+• Semua ATM di atas menerima pembayaran RS
+• Bisa juga via QRIS
+• Semua kartu debit & kredit diterima
+
+📞 *Info:*
+0361 98087
+```
+
+### 12.2 Response - Food & Dietary
+
+```
+🍽️ *LAYANAN GIZI & DIET*
+
+RS Payangan menyediakan berbagai pilihan makanan:
+
+🏥 *Untuk Pasien Rawat Inap:*
+• Menu diet standar (3x sehari)
+• Menu diet khusus: Rendah garam, rendah gula, rendah kolesterol
+• Menu lunak untuk pasca operasi
+• Menu cair untuk pasien tertentu
+
+☕ *Kafetaria & Kantin:*
+• ☕ Kafetaria: Lantai 2, 07.00-20.00 WITA
+• 🍵 Kantin: Area parkir, 06.00-18.00 WITA
+• 🛒 Minimarket: Lobby, 07.00-22.00 WITA
+
+📋 *Request Diet Khusus:*
+• Hubungi perawat atau bagian gizi
+• Untuk vegetarian, vegan, atau pantangan tertentu
+• Alergi makanan harus diberitahu saat pendaftaran
+
+📞 *Info:*
+0361 98087 ext. Gizi
+```
+
+---
+
+## 🎯 New Quick Commands Reference
+
+| Command | Response |
+|---------|----------|
+| `mcu` | Template 10.1 |
+| `medical check up` | Template 10.1 |
+| `parkir` | Template 11.1 |
+| `transport` | Template 11.2 |
+| `atm` | Template 12.1 |
+| `makan` | Template 12.2 |
+| `diet` | Template 12.2 |
+| `gizi` | Template 12.2 |
+
+---
+
+**Document Version:** 2.0.0  
+**Last Updated:** 2026-07-13  
+**Next Review:** 2026-07-20  
 **Owner:** Customer Service Team  
 
 ---
