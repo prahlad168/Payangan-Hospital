@@ -93,6 +93,9 @@
                 <button onclick="showTab('reports')" class="tab-btn px-4 py-2 rounded-lg font-semibold bg-gray-100 text-gray-700" id="tab-reports">
                     <i class="fas fa-file-alt mr-1"></i> Reports
                 </button>
+                <button onclick="showTab('finance')" class="tab-btn px-4 py-2 rounded-lg font-semibold bg-gray-100 text-gray-700" id="tab-finance">
+                    <i class="fas fa-wallet mr-1"></i> Finance
+                </button>
             </div>
         </div>
         
@@ -176,6 +179,8 @@
                 renderLeadsTab();
             } else if (tab === 'reports') {
                 renderReportsTab();
+            } else if (tab === 'finance') {
+                renderFinanceTab();
             }
         }
         
@@ -543,6 +548,176 @@
             `;
         }
         
+        // Finance Tab
+        function renderFinanceTab() {
+            const container = document.getElementById('content-container');
+            container.innerHTML = `
+                <!-- Key Metrics -->
+                <div class="glass mb-6">
+                    <h2 class="text-xl font-bold mb-4"><i class="fas fa-chart-line text-teal-600 mr-2"></i>Financial Overview - Juli 2026</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                        <div class="bg-green-50 rounded-xl p-6 text-center border-l-4 border-green-500">
+                            <div class="text-4xl font-bold text-green-600 mb-2">Rp 850jt</div>
+                            <div class="text-sm text-gray-600">Total Revenue</div>
+                            <div class="text-xs text-green-500 mt-1">Target: Rp 1M | 85%</div>
+                        </div>
+                        <div class="bg-red-50 rounded-xl p-6 text-center border-l-4 border-red-500">
+                            <div class="text-4xl font-bold text-red-600 mb-2">Rp 438jt</div>
+                            <div class="text-sm text-gray-600">Total Expenses</div>
+                            <div class="text-xs text-green-500 mt-1">Budget: Rp 450jt | -2.7%</div>
+                        </div>
+                        <div class="bg-teal-50 rounded-xl p-6 text-center border-l-4 border-teal-500">
+                            <div class="text-4xl font-bold text-teal-600 mb-2">Rp 412jt</div>
+                            <div class="text-sm text-gray-600">Net Profit</div>
+                            <div class="text-xs text-teal-500 mt-1">Margin: 48.5%</div>
+                        </div>
+                        <div class="bg-amber-50 rounded-xl p-6 text-center border-l-4 border-amber-500">
+                            <div class="text-4xl font-bold text-amber-600 mb-2">Rp 260jt</div>
+                            <div class="text-sm text-gray-600">Receivables</div>
+                            <div class="text-xs text-amber-500 mt-1">Collection: 85%</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Revenue by Stream -->
+                <div class="glass mb-6">
+                    <h2 class="text-xl font-bold mb-4"><i class="fas fa-coins text-yellow-500 mr-2"></i>Revenue Breakdown</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div class="bg-blue-50 rounded-xl p-4">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="font-bold">BPJS Kesehatan</span>
+                                <span class="text-blue-600 font-bold">Rp 510jt</span>
+                            </div>
+                            <div class="text-sm text-gray-500">60% of total revenue</div>
+                            <div class="mt-2 bg-gray-200 rounded-full h-2">
+                                <div class="bg-blue-500 h-2 rounded-full" style="width: 60%"></div>
+                            </div>
+                        </div>
+                        <div class="bg-green-50 rounded-xl p-4">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="font-bold">Pasien Umum</span>
+                                <span class="text-green-600 font-bold">Rp 215jt</span>
+                            </div>
+                            <div class="text-sm text-gray-500">25% of total revenue</div>
+                            <div class="mt-2 bg-gray-200 rounded-full h-2">
+                                <div class="bg-green-500 h-2 rounded-full" style="width: 25%"></div>
+                            </div>
+                        </div>
+                        <div class="bg-purple-50 rounded-xl p-4">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="font-bold">Layanan Lainnya</span>
+                                <span class="text-purple-600 font-bold">Rp 125jt</span>
+                            </div>
+                            <div class="text-sm text-gray-500">Lab, Farmasi, Radiologi, IGD</div>
+                            <div class="mt-2 bg-gray-200 rounded-full h-2">
+                                <div class="bg-purple-500 h-2 rounded-full" style="width: 15%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Expense Analysis -->
+                <div class="glass mb-6">
+                    <h2 class="text-xl font-bold mb-4"><i class="fas fa-receipt text-red-500 mr-2"></i>Expense Analysis</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="space-y-3">
+                            <div class="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
+                                <span>Gaji & Kesejahteraan</span>
+                                <span class="font-bold text-teal-600">Rp 218.5jt</span>
+                            </div>
+                            <div class="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
+                                <span>Obat & Alkes</span>
+                                <span class="font-bold text-teal-600">Rp 82jt</span>
+                            </div>
+                            <div class="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
+                                <span>Listrik & Utilitas</span>
+                                <span class="font-bold text-teal-600">Rp 36.2jt</span>
+                            </div>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
+                                <span>Makanan & Gizi</span>
+                                <span class="font-bold text-teal-600">Rp 24.8jt</span>
+                            </div>
+                            <div class="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
+                                <span>Pemeliharaan</span>
+                                <span class="font-bold text-teal-600">Rp 18.5jt</span>
+                            </div>
+                            <div class="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
+                                <span>Lainnya</span>
+                                <span class="font-bold text-teal-600">Rp 58jt</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cash Position & Forecast -->
+                <div class="glass mb-6">
+                    <h2 class="text-xl font-bold mb-4"><i class="fas fa-piggy-bank text-green-500 mr-2"></i>Cash Position & August Forecast</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl p-6 text-white">
+                            <h3 class="font-bold mb-4">Current Cash Position</h3>
+                            <div class="space-y-2">
+                                <div class="flex justify-between"><span>Bank BCA Utama</span><span class="font-bold">Rp 485jt</span></div>
+                                <div class="flex justify-between"><span>Bank BCA Operasional</span><span class="font-bold">Rp 125jt</span></div>
+                                <div class="flex justify-between"><span>Deposito 1 Bulan</span><span class="font-bold">Rp 200jt</span></div>
+                                <div class="border-t border-white/30 pt-2 mt-2 flex justify-between font-bold">
+                                    <span>Total Liquid Assets</span>
+                                    <span>Rp 825jt</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-gradient-to-br from-teal-500 to-teal-600 rounded-xl p-6 text-white">
+                            <h3 class="font-bold mb-4">August 2026 Forecast</h3>
+                            <div class="space-y-2">
+                                <div class="flex justify-between"><span>Projected Revenue</span><span class="font-bold">Rp 922jt</span></div>
+                                <div class="flex justify-between"><span>Projected Expenses</span><span class="font-bold">Rp 448jt</span></div>
+                                <div class="flex justify-between"><span>Projected Profit</span><span class="font-bold">Rp 474jt</span></div>
+                                <div class="border-t border-white/30 pt-2 mt-2 flex justify-between font-bold">
+                                    <span>Target Margin</span>
+                                    <span>51.4% ✅</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Financial Reports Links -->
+                <div class="glass">
+                    <h2 class="text-xl font-bold mb-4"><i class="fas fa-folder-open text-gray-500 mr-2"></i>Financial Documents</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                        <a href="financial-report-juli-2026.md" class="bg-gray-50 hover:bg-gray-100 rounded-xl p-6 transition flex items-center gap-4">
+                            <div class="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center">
+                                <i class="fas fa-file-alt text-green-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold">Monthly Report</h3>
+                                <p class="text-sm text-gray-600">Full P&L, Cash Flow, AR/AP</p>
+                            </div>
+                        </a>
+                        <a href="financial-dashboard.html" target="_blank" class="bg-gray-50 hover:bg-gray-100 rounded-xl p-6 transition flex items-center gap-4">
+                            <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center">
+                                <i class="fas fa-chart-pie text-blue-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold">Dashboard</h3>
+                                <p class="text-sm text-gray-600">Interactive visualization</p>
+                            </div>
+                        </a>
+                        <a href="#" class="bg-gray-50 hover:bg-gray-100 rounded-xl p-6 transition flex items-center gap-4">
+                            <div class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center">
+                                <i class="fas fa-file-invoice text-purple-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold">AR Aging Report</h3>
+                                <p class="text-sm text-gray-600">Receivables breakdown</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            `;
+        }
+
         // Initial render
         updateTimestamp();
         renderAntreanTab();

@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💰 Financial Dashboard - RS Payangan Hospital</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+        
+        * {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%);
+        }
+        
+        .card-gradient {
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+        }
+        
+        .stat-card {
+            transition: all 0.3s ease;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .profit-indicator {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        
+        .progress-bar {
+            transition: width 1s ease-out;
+        }
+        
+        .chart-container {
+            position: relative;
+            height: 300px;
+        }
+    </style>
+</head>
+<body class="gradient-bg min-h-screen">
+    
+    <!-- Header -->
+    <header class="bg-white/10 backdrop-blur-md border-b border-white/20">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 bg-teal-500 rounded-xl flex items-center justify-center">
+                        <i class="fas fa-hospital text-white text-xl"></i>
+                    </div>
+                    <div>
+                        <h1 class="text-xl font-bold text-white">RS Payangan Hospital</h1>
+                        <p class="text-sm text-teal-300">Financial Dashboard</p>
+                    </div>
+                </div>
+                <div class="text-right">
+                    <p class="text-white font-medium">Juli 2026</p>
+                    <p class="text-sm text-teal-300">Last updated: 13 Jul 2026</p>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-6 py-8">
+        
+        <!-- Key Metrics -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+            
+            <!-- Total Revenue -->
+            <div class="stat-card card-gradient rounded-2xl p-6 border border-gray-100">
+                <div class="flex justify-between items-start mb-4">
+                    <div class="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center">
+                        <i class="fas fa-arrow-trend-up text-green-600 text-xl"></i>
+                    </div>
+                    <span class="text-xs font-medium text-green-600 bg-green-100 px-2 py-1 rounded-full">+8.5%</span>
+                </div>
+                <p class="text-sm text-gray-500 mb-1">Total Revenue</p>
+                <h3 class="text-3xl font-bold text-gray-900">Rp 850<span class="text-lg">jt</span></h3>
+                <p class="text-xs text-gray-400 mt-1">Target: Rp 1.000.000.000</p>
+                <div class="mt-3 bg-gray-200 rounded-full h-2">
+                    <div class="bg-green-500 h-2 rounded-full progress-bar" style="width: 85%"></div>
+                </div>
+            </div>
+            
+            <!-- Total Expenses -->
+            <div class="stat-card card-gradient rounded-2xl p-6 border border-gray-100">
+                <div class="flex justify-between items-start mb-4">
+                    <div class="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center">
+                        <i class="fas fa-arrow-trend-down text-red-600 text-xl"></i>
+                    </div>
+                    <span class="text-xs font-medium text-green-600 bg-green-100 px-2 py-1 rounded-full">-2.7%</span>
+                </div>
+                <p class="text-sm text-gray-500 mb-1">Total Expenses</p>
+                <h3 class="text-3xl font-bold text-gray-900">Rp 438<span class="text-lg">jt</span></h3>
+                <p class="text-xs text-gray-400 mt-1">Budget: Rp 450.000.000</p>
+                <div class="mt-3 bg-gray-200 rounded-full h-2">
+                    <div class="bg-teal-500 h-2 rounded-full progress-bar" style="width: 97%"></div>
+                </div>
+            </div>
+            
+            <!-- Net Profit -->
+            <div class="stat-card card-gradient rounded-2xl p-6 border border-gray-100 profit-indicator">
+                <div class="flex justify-between items-start mb-4">
+                    <div class="w-12 h-12 bg-teal-100 rounded-xl flex items-center justify-center">
+                        <i class="fas fa-coins text-teal-600 text-xl"></i>
+                    </div>
+                    <span class="text-xs font-medium text-teal-600 bg-teal-100 px-2 py-1 rounded-full">48.5%</span>
+                </div>
+                <p class="text-sm text-gray-500 mb-1">Net Profit</p>
+                <h3 class="text-3xl font-bold text-teal-600">Rp 412<span class="text-lg">jt</span></h3>
+                <p class="text-xs text-gray-400 mt-1">Profit Margin: 48.5%</p>
+                <div class="mt-3 bg-gray-200 rounded-full h-2">
+                    <div class="bg-teal-500 h-2 rounded-full progress-bar" style="width: 97%"></div>
+                </div>
+            </div>
+            
+            <!-- Outstanding Receivables -->
+            <div class="stat-card card-gradient rounded-2xl p-6 border border-gray-100">
+                <div class="flex justify-between items-start mb-4">
+                    <div class="w-12 h-12 bg-amber-100 rounded-xl flex items-center justify-center">
+                        <i class="fas fa-clock text-amber-600 text-xl"></i>
+                    </div>
+                    <span class="text-xs font-medium text-amber-600 bg-amber-100 px-2 py-1 rounded-full">85%</span>
+                </div>
+                <p class="text-sm text-gray-500 mb-1">Receivables</p>
+                <h3 class="text-3xl font-bold text-gray-900">Rp 260<span class="text-lg">jt</span></h3>
+                <p class="text-xs text-gray-400 mt-1">Collection Rate: 85%</p>
+                <div class="mt-3 bg-gray-200 rounded-full h-2">
+                    <div class="bg-amber-500 h-2 rounded-full progress-bar" style="width: 85%"></div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Charts Row -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+            
+            <!-- Revenue by Stream -->
+            <div class="card-gradient rounded-2xl p-6 border border-gray-100">
+                <h3 class="text-lg font-bold text-gray-900 mb-6">
+                    <i class="fas fa-chart-pie text-teal-500 mr-2"></i>
+                    Revenue by Stream
+                </h3>
+                <div class="space-y-4">
+                    <div>
+                        <div class="flex justify-between text-sm mb-2">
+                            <span class="font-medium">BPJS Kesehatan</span>
+                            <span class="text-gray-500">Rp 510 jt (60%)</span>
+                        </div>
+                        <div class="bg-gray-200 rounded-full h-3">
+                            <div class="bg-blue-500 h-3 rounded-full" style="width: 60%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between text-sm mb-2">
+                            <span class="font-medium">Pasien Umum</span>
+                            <span class="text-gray-500">Rp 215 jt (25%)</span>
+                        </div>
+                        <div class="bg-gray-200 rounded-full h-3">
+                            <div class="bg-green-500 h-3 rounded-full" style="width: 25%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between text-sm mb-2">
+                            <span class="font-medium">Laboratorium</span>
+                            <span class="text-gray-500">Rp 58 jt (7%)</span>
+                        </div>
+                        <div class="bg-gray-200 rounded-full h-3">
+                            <div class="bg-purple-500 h-3 rounded-full" style="width: 7%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between text-sm mb-2">
+                            <span class="font-medium">Farmasi</span>
+                            <span class="text-gray-500">Rp 42 jt (5%)</span>
+                        </div>
+                        <div class="bg-gray-200 rounded-full h-3">
+                            <div class="bg-amber-500 h-3 rounded-full" style="width: 5%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between text-sm mb-2">
+                            <span class="font-medium">Radiologi</span>
+                            <span class="text-gray-500">Rp 18 jt (2%)</span>
+                        </div>
+                        <div class="bg-gray-200 rounded-full h-3">
+                            <div class="bg-red-500 h-3 rounded-full" style="width: 2%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between text-sm mb-2">
+                            <span class="font-medium">IGD/Emergency</span>
+                            <span class="text-gray-500">Rp 7 jt (1%)</span>
+                        </div>
+                        <div class="bg-gray-200 rounded-full h-3">
+                            <div class="bg-pink-500 h-3 rounded-full" style="width: 1%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Expense Breakdown -->
+            <div class="card-gradient rounded-2xl p-6 border border-gray-100">
+                <h3 class="text-lg font-bold text-gray-900 mb-6">
+                    <i class="fas fa-chart-bar text-teal-500 mr-2"></i>
+                    Expense Breakdown
+                </h3>
+                <div class="space-y-4">
+                    <div>
+                        <div class="flex justify-between text-sm mb-2">
+                            <span class="font-medium">Gaji & Kesejahteraan</span>
+                            <span class="text-gray-500">Rp 218.5 jt (50%)</span>
+                        </div>
+                        <div class="bg-gray-200 rounded-full h-3">
+                            <div class="bg-teal-500 h-3 rounded-full" style="width: 50%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between text-sm mb-2">
+                            <span class="font-medium">Obat & Alkes</span>
+                            <span class="text-gray-500">Rp 82 jt (19%)</span>
+                        </div>
+                        <div class="bg-gray-200 rounded-full h-3">
+                            <div class="bg-blue-500 h-3 rounded-full" style="width: 19%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between text-sm mb-2">
+                            <span class="font-medium">Listrik & Utilitas</span>
+                            <span class="text-gray-500">Rp 36.2 jt (8%)</span>
+                        </div>
+                        <div class="bg-gray-200 rounded-full h-3">
+                            <div class="bg-yellow-500 h-3 rounded-full" style="width: 8%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between text-sm mb-2">
+                            <span class="font-medium">Makanan & Gizi</span>
+                            <span class="text-gray-500">Rp 24.8 jt (6%)</span>
+                        </div>
+                        <div class="bg-gray-200 rounded-full h-3">
+                            <div class="bg-green-500 h-3 rounded-full" style="width: 6%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between text-sm mb-2">
+                            <span class="font-medium">Pemeliharaan</span>
+                            <span class="text-gray-500">Rp 18.5 jt (4%)</span>
+                        </div>
+                        <div class="bg-gray-200 rounded-full h-3">
+                            <div class="bg-purple-500 h-3 rounded-full" style="width: 4%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between text-sm mb-2">
+                            <span class="font-medium">Lainnya</span>
+                            <span class="text-gray-500">Rp 58 jt (13%)</span>
+                        </div>
+                        <div class="bg-gray-200 rounded-full h-3">
+                            <div class="bg-gray-400 h-3 rounded-full" style="width: 13%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Bottom Row -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            
+            <!-- Budget vs Actual -->
+            <div class="card-gradient rounded-2xl p-6 border border-gray-100">
+                <h3 class="text-lg font-bold text-gray-900 mb-6">
+                    <i class="fas fa-balance-scale text-teal-500 mr-2"></i>
+                    Budget vs Actual
+                </h3>
+                <div class="space-y-4">
+                    <div class="flex items-center justify-between p-3 bg-green-50 rounded-xl">
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 bg-green-500 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-check text-white text-sm"></i>
+                            </div>
+                            <span class="font-medium">Revenue</span>
+                        </div>
+                        <div class="text-right">
+                            <span class="text-green-600 font-bold">-15%</span>
+                            <p class="text-xs text-gray-500">vs Target</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between p-3 bg-green-50 rounded-xl">
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 bg-green-500 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-check text-white text-sm"></i>
+                            </div>
+                            <span class="font-medium">Expenses</span>
+                        </div>
+                        <div class="text-right">
+                            <span class="text-green-600 font-bold">-2.7%</span>
+                            <p class="text-xs text-gray-500">Under Budget</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between p-3 bg-teal-50 rounded-xl">
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 bg-teal-500 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-coins text-white text-sm"></i>
+                            </div>
+                            <span class="font-medium">Net Profit</span>
+                        </div>
+                        <div class="text-right">
+                            <span class="text-teal-600 font-bold">48.5%</span>
+                            <p class="text-xs text-gray-500">Margin</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Cash Flow -->
+            <div class="card-gradient rounded-2xl p-6 border border-gray-100">
+                <h3 class="text-lg font-bold text-gray-900 mb-6">
+                    <i class="fas fa-money-bill-wave text-teal-500 mr-2"></i>
+                    Cash Position
+                </h3>
+                <div class="space-y-3">
+                    <div class="flex justify-between items-center p-3 bg-blue-50 rounded-xl">
+                        <span class="text-sm font-medium">Bank BCA Utama</span>
+                        <span class="font-bold text-blue-600">Rp 485 jt</span>
+                    </div>
+                    <div class="flex justify-between items-center p-3 bg-green-50 rounded-xl">
+                        <span class="text-sm font-medium">Bank BCA Operasional</span>
+                        <span class="font-bold text-green-600">Rp 125 jt</span>
+                    </div>
+                    <div class="flex justify-between items-center p-3 bg-purple-50 rounded-xl">
+                        <span class="text-sm font-medium">Deposito 1 Bulan</span>
+                        <span class="font-bold text-purple-600">Rp 200 jt</span>
+                    </div>
+                    <div class="flex justify-between items-center p-3 bg-teal-50 rounded-xl border-2 border-teal-200">
+                        <span class="text-sm font-bold">Total Liquid Assets</span>
+                        <span class="font-bold text-teal-600 text-lg">Rp 825 jt</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Next Month Forecast -->
+            <div class="card-gradient rounded-2xl p-6 border border-gray-100">
+                <h3 class="text-lg font-bold text-gray-900 mb-6">
+                    <i class="fas fa-chart-line text-teal-500 mr-2"></i>
+                    August 2026 Forecast
+                </h3>
+                <div class="space-y-4">
+                    <div class="text-center p-4 bg-gradient-to-br from-teal-500 to-teal-600 rounded-xl text-white">
+                        <p class="text-sm opacity-80">Projected Revenue</p>
+                        <p class="text-3xl font-bold">Rp 922 jt</p>
+                        <p class="text-sm mt-1">+8.5% vs July</p>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-gray-500">Expenses Forecast</span>
+                        <span class="font-bold text-gray-700">Rp 448 jt</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-gray-500">Net Profit Forecast</span>
+                        <span class="font-bold text-teal-600">Rp 474 jt</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-gray-500">Profit Margin</span>
+                        <span class="font-bold text-green-600">51.4% ✅</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Quick Actions -->
+        <div class="mt-8 card-gradient rounded-2xl p-6 border border-gray-100">
+            <h3 class="text-lg font-bold text-gray-900 mb-6">
+                <i class="fas fa-bolt text-amber-500 mr-2"></i>
+                Quick Actions
+            </h3>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <a href="financial-report-juli-2026.md" class="flex items-center gap-3 p-4 bg-gray-50 hover:bg-teal-50 rounded-xl transition-colors">
+                    <div class="w-10 h-10 bg-teal-100 rounded-lg flex items-center justify-center">
+                        <i class="fas fa-file-alt text-teal-600"></i>
+                    </div>
+                    <div>
+                        <p class="font-medium text-sm">Full Report</p>
+                        <p class="text-xs text-gray-500">Download PDF</p>
+                    </div>
+                </a>
+                <a href="#" class="flex items-center gap-3 p-4 bg-gray-50 hover:bg-blue-50 rounded-xl transition-colors">
+                    <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
+                        <i class="fas fa-invoice text-blue-600"></i>
+                    </div>
+                    <div>
+                        <p class="font-medium text-sm">Invoice</p>
+                        <p class="text-xs text-gray-500">BPJS Follow-up</p>
+                    </div>
+                </a>
+                <a href="#" class="flex items-center gap-3 p-4 bg-gray-50 hover:bg-green-50 rounded-xl transition-colors">
+                    <div class="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center">
+                        <i class="fas fa-receipt text-green-600"></i>
+                    </div>
+                    <div>
+                        <p class="font-medium text-sm">Expenses</p>
+                        <p class="text-xs text-gray-500">Track Spending</p>
+                    </div>
+                </a>
+                <a href="#" class="flex items-center gap-3 p-4 bg-gray-50 hover:bg-purple-50 rounded-xl transition-colors">
+                    <div class="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center">
+                        <i class="fas fa-calculator text-purple-600"></i>
+                    </div>
+                    <div>
+                        <p class="font-medium text-sm">Forecast</p>
+                        <p class="text-xs text-gray-500">Next Month</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <div class="mt-8 text-center text-gray-400 text-sm">
+            <p>Generated by Finance Agent (OpenHands AI) | RS Payangan Hospital</p>
+            <p class="mt-1">Data Source: Internal Financial System (Pending MySQL Integration)</p>
+        </div>
+    </main>
+    
+    <script>
+        // Animate progress bars on load
+        document.addEventListener('DOMContentLoaded', function() {
+            const progressBars = document.querySelectorAll('.progress-bar');
+            progressBars.forEach(bar => {
+                const width = bar.style.width;
+                bar.style.width = '0';
+                setTimeout(() => {
+                    bar.style.width = width;
+                }, 100);
+            });
+        });
+    </script>
+</body>
+</html>
