@@ -12,6 +12,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/design-system.css">
+    <link rel="stylesheet" href="css/premium-upgrade.css">
     <style>
         :root {
             --primary: #0d7377;
@@ -215,8 +217,8 @@
 
     <!-- Page Header -->
     <section class="page-header">
-        <div class="container">
-            <p class="section-label"><i class="fas fa-question-circle"></i> Pertanyaan Umum</p>
+        <div class="container-premium container">
+            <p class="section-label-premium section-label"><i class="fas fa-question-circle"></i> Pertanyaan Umum</p>
             <h1>Frequently Asked <span>Questions</span></h1>
             <p>Temukan jawaban untuk pertanyaan yang sering diajukan tentang layanan dan fasilitas RS Payangan Hospital.</p>
             <div class="breadcrumb">
@@ -229,7 +231,7 @@
 
     <!-- Search Section -->
     <section class="search-section">
-        <div class="container">
+        <div class="container-premium container">
             <div class="search-box">
                 <input type="text" placeholder="Cari pertanyaan..." id="searchInput" onkeyup="filterFAQs()">
                 <button><i class="fas fa-search"></i> Cari</button>
@@ -263,7 +265,7 @@
 
     <!-- FAQ Section -->
     <section class="faq-section">
-        <div class="container">
+        <div class="container-premium container">
             <!-- Pendaftaran -->
             <div class="faq-category fade-in" data-category="pendaftaran">
                 <h2 class="faq-category-title"><i class="fas fa-clipboard-list"></i> Pendaftaran</h2>
@@ -425,7 +427,7 @@
 
     <!-- Contact CTA -->
     <section class="contact-section">
-        <div class="container">
+        <div class="container-premium container">
             <div class="contact-content fade-in">
                 <h2>Tidak Menemukan Jawaban?</h2>
                 <p>Tim kami siap membantu Anda. Hubungi kami untuk pertanyaan lebih lanjut.</p>
@@ -630,5 +632,7 @@ function addMsg(t,n){const d=document.getElementById('chatMsgs'),e=document.crea
 function getResp(m){const msg=m.toLowerCase();if(msg.includes('faq')||msg.includes('pertanyaan'))return'❓ <strong>FAQ RS Payangan:</strong><br><br>Klik untuk melihat pertanyaan umum:<br><br><a href="/faq.html" style="color:#22d3ee">📝 Halaman FAQ →</a>';return'Terima kasih! 🙏<br><br>Kunjungi <a href="/faq.html" style="color:#22d3ee">halaman FAQ</a><br>Hubungi <strong>0361 98087</strong>'}
 </script>
 
+    <script src="js/premium-ui.js"></script>
+    <script src="js/mahacare-ai.js"></script>
 </body>
 </html>

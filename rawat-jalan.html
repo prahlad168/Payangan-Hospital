@@ -7,6 +7,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/design-system.css">
+    <link rel="stylesheet" href="css/premium-upgrade.css">
     <style>
         :root {
             --primary: #0d7377;
@@ -183,7 +185,7 @@
 <body>
     <!-- Navbar -->
     <nav class="navbar" id="navbar">
-        <div class="container">
+        <div class="container-premium container">
             href="index.html" class="logo-shimmer-wrap logo">
                         <span class="logo-shimmer-wrap"><img  src="img/logo.png" class="logo-shimmer" alt="Payangan Hospital"></span>
                 <div><div class="logo-text">Payangan Hospital</div><div class="logo-text-sub">Pavitram Idam Uttamam</div></div>
@@ -235,7 +237,7 @@
 
     <!-- Page Header -->
     <section class="page-header">
-        <div class="container">
+        <div class="container-premium container">
             <h1>Rawat Jalan</h1>
             <p>Pelayanan konsultasi dan pemeriksaan dokter spesialis untuk pasien yang tidak memerlukan rawat inap</p>
             <div class="breadcrumb">
@@ -250,8 +252,8 @@
 
     <!-- Content -->
     <section class="content-section">
-        <div class="container">
-            <div class="section-label">Layanan Unggulan</div>
+        <div class="container-premium container">
+            <div class="section-label-premium section-label">Layanan Unggulan</div>
             <h2>Pelayanan Rawat Jalan Payangan Hospital</h2>
             <p>Rawat jalan di Payangan Hospital menyediakan layanan konsultasi dan pemeriksaan oleh dokter spesialis dengan fasilitas modern dan tenaga medis profesional. Layanan kami dirancang untuk memberikan kenyamanan dan kemudahan bagi pasien.</p>
             
@@ -326,8 +328,8 @@
 
     <!-- Poli Available -->
     <section class="content-section" style="background: var(--bg-light);">
-        <div class="container">
-            <div class="section-label">Daftar Poliklinik</div>
+        <div class="container-premium container">
+            <div class="section-label-premium section-label">Daftar Poliklinik</div>
             <h2>Poliklinik yang Tersedia</h2>
             <div class="poli-grid">
                 <a href="poli-umum.html" class="poli-card">
@@ -425,7 +427,7 @@
 
     <!-- CTA -->
     <section class="cta-section">
-        <div class="container">
+        <div class="container-premium container">
             <h2>Butuh Konsultasi Dokter?</h2>
             <p>Hubungi kami untuk informasi jadwal dokter dan pendaftaran rawat jalan</p>
             <a href="tel:036198087" class="cta-btn">
@@ -436,7 +438,7 @@
 
     <!-- Footer -->
     <footer>
-        <div class="container">
+        <div class="container-premium container">
             <div class="footer-grid">
                 <div class="footer-brand">
                     href="index.html" class="logo-shimmer-wrap logo">
@@ -547,5 +549,7 @@ function addMsg(t,n){const d=document.getElementById('chatMsgs'),e=document.crea
 function getResp(m){const msg=m.toLowerCase();if(msg.includes('dokter')||msg.includes('jadwal'))return'📅 <strong>Jadwal Dokter Hari Ini:</strong><br><br>🕐 Poli Umum: 08:00-14:00<br>🕐 Poli Anak: 09:00-15:00<br>🕐 Poli Jantung: 10:00-16:00<br>🕐 Poli Bedah: 08:00-14:00<br><br><a href="/dokter.html" style="color:#22d3ee">Lihat jadwal lengkap →</a>';if(msg.includes('daftar')||msg.includes('online')||msg.includes('antrian'))return'📝 <strong>Pendaftaran Online:</strong><br><br>1️⃣ Buka <a href="/antrean.html" style="color:#22d3ee">halaman antrean</a><br>2️⃣ Isi data diri<br>3️⃣ Pilih poli & dokter<br>4️⃣ Dapatkan nomor antrean<br><br>Telepon: <strong>0361 98087</strong>';if(msg.includes('telepon')||msg.includes('kontak')||msg.includes('hubungi'))return'📞 <strong>Kontak RS Payangan:</strong><br><br>☎️ Telepon: <strong>0361 98087</strong><br>📱 WhatsApp: <strong>+62 361 9088087</strong><br>📧 Email: <strong>info@rsupayangan.co.id</strong><br>📍 Alamat: Jl. Raya Payangan, Gianyar, Bali';if(msg.includes('igd')||msg.includes('darurat')||msg.includes('emergency'))return'🚨 <strong>IGD 24 Jam RS Payangan</strong><br><br>IGD siap melayani pasien darurat!<br><br>☎️ Telepon IGD: <strong>0361 98087 ext. 1</strong><br>⏰ Layanan: <strong>24 jam / 7 hari</strong>';if(msg.includes('kamar')||msg.includes('rawat inap'))return'🛏️ <strong>Informasi Kamar Rawat Inap:</strong><br><br>Kelas VIP: ✅ Tersedia<br>Kelas 1: ✅ Tersedia<br>Kelas 2: ✅ Tersedia<br>Kelas 3: ✅ Tersedia<br><br>Hubungi <strong>0361 98087</strong>';if(msg.includes('poli')||msg.includes('layanan'))return'🏥 <strong>Layanan RS Payangan:</strong><br><br>• Poli Umum<br>• Poli Anak<br>• Poli Jantung<br>• Poli Bedah<br>• Poli Gigi<br>• Poli Saraf<br>• Poli Orthopedic<br>• Poli Penyakit Dalam<br><br><a href="/poli-umum.html" style="color:#22d3ee">Lihat semua poli →</a>';return'Terima kasih! 🙏<br><br>Kunjungi <a href="/" style="color:#22d3ee">beranda</a> kami<br>Hubungi <strong>0361 98087</strong><br><br>Ada yang bisa saya bantu lagi?'}
 </script>
 
+    <script src="js/premium-ui.js"></script>
+    <script src="js/mahacare-ai.js"></script>
 </body>
 </html>

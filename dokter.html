@@ -19,6 +19,8 @@
     
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/design-system.css">
+    <link rel="stylesheet" href="css/premium-upgrade.css">
     
     <style>
         /* ========================================
@@ -1211,7 +1213,7 @@
 <body>
     <!-- HEADER -->
     <header class="header" id="header">
-        <div class="container">
+        <div class="container-premium container">
             <div class="header-inner">
                 <a href="index.html" class="logo">
                     <img src="logo.png" alt="RS Payangan Hospital" onerror="this.style.display='none'">
@@ -1232,11 +1234,11 @@
                 </nav>
 
                 <div class="header-actions">
-                    <a href="tel:+62361472008" class="btn-emergency">
+                    <a href="tel:+62361472008" class="btn-premium btn-emergency-premium">
                         <i class="fas fa-phone-alt"></i>
                         <span>IGD 24 Jam</span>
                     </a>
-                    <a href="antrean.html" class="btn-appointment">
+                    <a href="antrean.html" class="btn-primary-premium btn-appointment">
                         <i class="fas fa-calendar-check"></i>
                         <span>Buat Janji</span>
                     </a>
@@ -1277,9 +1279,9 @@
 
     <!-- PAGE HEADER -->
     <section class="page-header">
-        <div class="container">
+        <div class="container-premium container">
             <div class="page-header-content">
-                <div class="section-label">
+                <div class="section-label-premium section-label">
                     <i class="fas fa-user-md"></i> Tim Medis Kami
                 </div>
                 <h1 class="page-title">Dokter <span>Spesialis</span> Berpengalaman</h1>
@@ -1306,7 +1308,7 @@
 
     <!-- SEARCH & FILTER -->
     <section class="search-section">
-        <div class="container">
+        <div class="container-premium container">
             <div class="search-bar">
                 <div class="search-input-wrapper">
                     <i class="fas fa-search search-icon"></i>
@@ -1321,7 +1323,7 @@
 
     <!-- MAIN CONTENT -->
     <section class="main-content">
-        <div class="container">
+        <div class="container-premium container">
             <div class="content-grid">
                 <!-- Sidebar -->
                 <aside class="sidebar">
@@ -1345,7 +1347,7 @@
 
     <!-- CTA SECTION -->
     <section class="cta-section">
-        <div class="container">
+        <div class="container-premium container">
             <h2 class="cta-title">Siap Membuat Janji Temu?</h2>
             <p class="cta-subtitle">
                 Konsultasikan kesehatan Anda dengan dokter spesialis kami. Pendaftaran online mudah dan cepat.
@@ -1363,7 +1365,7 @@
 
     <!-- FOOTER -->
     <footer class="footer">
-        <div class="container">
+        <div class="container-premium container">
             <div class="footer-grid">
                 <div class="footer-brand">
                     <div class="footer-logo">
@@ -1732,5 +1734,7 @@
             document.getElementById('filterSelect').addEventListener('change', filterDoctors);
         });
     </script>
+    <script src="js/premium-ui.js"></script>
+    <script src="js/mahacare-ai.js"></script>
 </body>
 </html>

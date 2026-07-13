@@ -12,6 +12,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/design-system.css">
+    <link rel="stylesheet" href="css/premium-upgrade.css">
     <style>
         :root {
             --primary: #0d7377;
@@ -279,8 +281,8 @@
 
     <!-- Page Header -->
     <section class="page-header">
-        <div class="container">
-            <p class="section-label">Infrastruktur & Peralatan</p>
+        <div class="container-premium container">
+            <p class="section-label-premium section-label">Infrastruktur & Peralatan</p>
             <h1>Fasilitas <span>RS Payangan</span></h1>
             <p>Fasilitas lengkap dan modern untuk mendukung pelayanan kesehatan terbaik bagi masyarakat Gianyar dan sekitarnya.</p>
             <div class="breadcrumb">
@@ -315,10 +317,10 @@
 
     <!-- Emergency Facilities -->
     <section class="facilities-section">
-        <div class="container">
+        <div class="container-premium container">
             <div class="section-header fade-in">
-                <p class="section-label"><i class="fas fa-ambulance"></i> Fasilitas Gawat Darurat</p>
-                <h2 class="section-title">Instalasi Gawat <span>Darurat</span></h2>
+                <p class="section-label-premium section-label"><i class="fas fa-ambulance"></i> Fasilitas Gawat Darurat</p>
+                <h2 class="section-title-premium section-title">Instalasi Gawat <span>Darurat</span></h2>
                 <p class="section-desc">Fasilitas darurat lengkap dengan peralatan medis modern dan tim medis berpengalaman siap 24 jam.</p>
             </div>
             
@@ -376,10 +378,10 @@
 
     <!-- Room Facilities -->
     <section class="facilities-section">
-        <div class="container">
+        <div class="container-premium container">
             <div class="section-header fade-in">
-                <p class="section-label"><i class="fas fa-bed"></i> Kamar Perawatan</p>
-                <h2 class="section-title">Fasilitas Kamar <span>Rawat Inap</span></h2>
+                <p class="section-label-premium section-label"><i class="fas fa-bed"></i> Kamar Perawatan</p>
+                <h2 class="section-title-premium section-title">Fasilitas Kamar <span>Rawat Inap</span></h2>
                 <p class="section-desc">Pilihan kamar perawatan dengan berbagai kelas untuk kenyamanan pasien dan keluarga.</p>
             </div>
             
@@ -453,10 +455,10 @@
 
     <!-- ICU & NICU -->
     <section class="facilities-section">
-        <div class="container">
+        <div class="container-premium container">
             <div class="section-header fade-in">
-                <p class="section-label"><i class="fas fa-heartbeat"></i> Perawatan Intensif</p>
-                <h2 class="section-title">ICU & <span>NICU</span></h2>
+                <p class="section-label-premium section-label"><i class="fas fa-heartbeat"></i> Perawatan Intensif</p>
+                <h2 class="section-title-premium section-title">ICU & <span>NICU</span></h2>
                 <p class="section-desc">Unit perawatan intensif dengan pemantauan 24 jam dan peralatan canggih.</p>
             </div>
             
@@ -500,10 +502,10 @@
 
     <!-- Technology Section -->
     <section class="tech-section">
-        <div class="container">
+        <div class="container-premium container">
             <div class="section-header fade-in">
-                <p class="section-label"><i class="fas fa-microscope"></i> Peralatan Medis</p>
-                <h2 class="section-title">Teknologi <span>Modern</span></h2>
+                <p class="section-label-premium section-label"><i class="fas fa-microscope"></i> Peralatan Medis</p>
+                <h2 class="section-title-premium section-title">Teknologi <span>Modern</span></h2>
                 <p class="section-desc">Peralatan medis canggih untuk diagnosis dan penanganan yang akurat.</p>
             </div>
             
@@ -544,10 +546,10 @@
 
     <!-- Support Facilities -->
     <section class="facilities-section">
-        <div class="container">
+        <div class="container-premium container">
             <div class="section-header fade-in">
-                <p class="section-label"><i class="fas fa-concierge-bell"></i> Fasilitas Pendukung</p>
-                <h2 class="section-title">Layanan <span>Pendukung</span></h2>
+                <p class="section-label-premium section-label"><i class="fas fa-concierge-bell"></i> Fasilitas Pendukung</p>
+                <h2 class="section-title-premium section-title">Layanan <span>Pendukung</span></h2>
                 <p class="section-desc">Fasilitas pendukung untuk kenyamanan pasien dan keluarga selama di rumah sakit.</p>
             </div>
             
@@ -641,7 +643,7 @@
 
     <!-- CTA Section -->
     <section class="cta-section">
-        <div class="container">
+        <div class="container-premium container">
             <div class="cta-box fade-in">
                 <h2>Tour Fasilitas RS Payangan</h2>
                 <p>Kunjungi dan lihat langsung fasilitas lengkap rumah sakit kami. Hubungi kami untuk jadwal kunjungan.</p>
@@ -797,5 +799,7 @@ function addMsg(t,n){const d=document.getElementById('chatMsgs'),e=document.crea
 function getResp(m){const msg=m.toLowerCase();if(msg.includes('dokter')||msg.includes('jadwal'))return'📅 <strong>Jadwal Dokter:</strong><br><br><a href="/dokter.html" style="color:#22d3ee">Lihat jadwal lengkap →</a>';if(msg.includes('daftar')||msg.includes('antrian'))return'📝 <strong>Pendaftaran Online:</strong><br><br><a href="/antrean.html" style="color:#22d3ee">Daftar sekarang →</a>';if(msg.includes('fasilitas')||msg.includes('kamar'))return'🏥 <strong>Fasilitas RS Payangan:</strong><br><br>• IGD 24 Jam<br>• ICU & NICU<br>• Kamar VIP, Kelas I, II, III<br>• Laboratorium<br>• Radiologi<br><br><a href="/fasilitas.html" style="color:#22d3ee">Lihat fasilitas lengkap →</a>';return'Terima kasih! 🙏<br><br>Hubungi <strong>0361 98087</strong><br><br>Ada yang bisa saya bantu?'}
 </script>
 
+    <script src="js/premium-ui.js"></script>
+    <script src="js/mahacare-ai.js"></script>
 </body>
 </html>

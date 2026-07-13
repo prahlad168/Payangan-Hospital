@@ -12,6 +12,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/design-system.css">
+    <link rel="stylesheet" href="css/premium-upgrade.css">
     <style>
         :root {
             --primary: #0d7377;
@@ -245,8 +247,8 @@
 
     <!-- Page Header -->
     <section class="page-header">
-        <div class="container">
-            <p class="section-label">Informasi & Edukasi</p>
+        <div class="container-premium container">
+            <p class="section-label-premium section-label">Informasi & Edukasi</p>
             <h1>Berita & <span>Artikel</span></h1>
             <p>Informasi terkini tentang layanan kesehatan, tips menjaga kesehatan, dan berita dari RS Payangan Hospital.</p>
             <div class="breadcrumb">
@@ -411,10 +413,10 @@
 
     <!-- Health Tips Section -->
     <section class="tips-section">
-        <div class="container">
+        <div class="container-premium container">
             <div class="section-header fade-in">
-                <p class="section-label"><i class="fas fa-lightbulb"></i> Tips Kesehatan</p>
-                <h2 class="section-title">Jaga Kesehatan <span>Setiap Hari</span></h2>
+                <p class="section-label-premium section-label"><i class="fas fa-lightbulb"></i> Tips Kesehatan</p>
+                <h2 class="section-title-premium section-title">Jaga Kesehatan <span>Setiap Hari</span></h2>
             </div>
             
             <div class="tips-grid">
@@ -483,7 +485,7 @@
 
     <!-- Newsletter Section -->
     <section class="newsletter-section">
-        <div class="container">
+        <div class="container-premium container">
             <div class="newsletter-content fade-in">
                 <h2>Berlangganan Newsletter</h2>
                 <p>Dapatkan informasi kesehatan dan berita terbaru dari RS Payangan langsung ke email Anda.</p>
@@ -643,5 +645,7 @@ function addMsg(t,n){const d=document.getElementById('chatMsgs'),e=document.crea
 function getResp(m){const msg=m.toLowerCase();if(msg.includes('berita')||msg.includes('artikel'))return'📰 <strong>Berita & Artikel:</strong><br><br>Klik untuk melihat berita terbaru:<br><br><a href="/berita.html" style="color:#22d3ee">📰 Berita Kesehatan →</a>';return'Terima kasih! 🙏<br><br>Kunjungi <a href="/berita.html" style="color:#22d3ee">halaman berita</a><br>Hubungi <strong>0361 98087</strong>'}
 </script>
 
+    <script src="js/premium-ui.js"></script>
+    <script src="js/mahacare-ai.js"></script>
 </body>
 </html>
