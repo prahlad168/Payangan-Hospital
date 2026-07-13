@@ -1,0 +1,25 @@
+# robots.txt for RS Payangan Hospital
+# Generated: 2026-07-13
+
+User-agent: *
+Allow: /
+
+# Disallow admin and backend areas
+Disallow: /rs-admin/
+Disallow: /api/
+Disallow: /progress/
+
+# Sitemap location
+Sitemap: https://payanganhospital.gianyarkab.go.id/sitemap.xml
+
+# Crawl-delay for polite crawling
+Crawl-delay: 1
+
+# Specific bot instructions
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 2
