@@ -378,6 +378,56 @@
         }
 
         /* Header Actions */
+
+        /* Mega Menu */
+        .nav-dropdown {
+            cursor: pointer;
+            position: relative;
+        }
+        .nav-dropdown .fas.fa-chevron-down {
+            font-size: 0.6rem;
+            margin-left: 5px;
+        }
+        .mega-menu {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            padding-top: 10px;
+        }
+        .mega-menu-content {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+            min-width: 200px;
+            padding: 10px 0;
+        }
+        .mega-menu-content a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 20px;
+            color: var(--text-dark);
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+            text-decoration: none;
+        }
+        .mega-menu-content a:hover {
+            background: var(--primary-50);
+            color: var(--primary);
+        }
+        .mega-menu-content a i {
+            width: 20px;
+            color: var(--primary);
+        }
+        .nav-dropdown:hover .mega-menu {
+            opacity: 1;
+            visibility: visible;
+        }
         .header-actions {
             display: flex;
             align-items: center;
@@ -1744,7 +1794,7 @@
                 <!-- Navigation -->
                 <nav class="nav-premium nav">
                     <a href="index.html" class="nav-link-premium nav-link active">Home</a>
-                    <a href="about.html" class="nav-link-premium nav-link">About</a>
+                    <a href="about.html" class="nav-link-premium nav-link nav-dropdown">About <i class="fas fa-chevron-down"></i><div class="mega-menu"><div class="mega-menu-content"><a href="about.html"><i class="fas fa-info-circle"></i> About Us</a><a href="dokumen.html"><i class="fas fa-file-alt"></i> Dokumen Publik</a></div></div></a>
                     <a href="dokter.html" class="nav-link-premium nav-link">Doctors</a>
                     <a href="layanan.html" class="nav-link-premium nav-link">Services</a>
                     <a href="fasilitas.html" class="nav-link-premium nav-link">Facilities</a>
