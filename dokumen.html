@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dokumen Publik - RS Payangan Hospital</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0d7377',
+                        secondary: '#14a3a8',
+                        accent: '#f4c430',
+                        dark: '#0a5a5d',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .doc-card {
+            transition: all 0.3s ease;
+        }
+        .doc-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #0d7377 0%, #14a3a8 50%, #0d7377 100%);
+        }
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(60px);
+            opacity: 0.3;
+            animation: float 8s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+        .file-icon {
+            transition: all 0.3s ease;
+        }
+        .doc-card:hover .file-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 bg-white/95 backdrop-blur-md shadow-sm">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <a href="index.html" class="flex items-center gap-3">
+                    <div class="w-12 h-12 bg-gradient-to-br from-primary to-secondary rounded-xl flex items-center justify-center">
+                        <i class="fas fa-hospital text-white text-xl"></i>
+                    </div>
+                    <div>
+                        <h1 class="font-bold text-gray-800">RS Payangan</h1>
+                        <p class="text-xs text-gray-500">Gianyar, Bali</p>
+                    </div>
+                </a>
+                <div class="hidden md:flex items-center gap-6">
+                    <a href="index.html" class="text-gray-600 hover:text-primary transition">Beranda</a>
+                    <a href="layanan.html" class="text-gray-600 hover:text-primary transition">Layanan</a>
+                    <a href="dokter.html" class="text-gray-600 hover:text-primary transition">Dokter</a>
+                    <a href="kontak.html" class="text-gray-600 hover:text-primary transition">Kontak</a>
+                    <a href="tel:+623619088087" class="bg-primary text-white px-5 py-2 rounded-full font-medium hover:bg-dark transition">
+                        <i class="fas fa-phone mr-2"></i>(0361) 9088087
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="gradient-bg pt-32 pb-20 relative overflow-hidden">
+        <div class="blob w-96 h-96 bg-yellow-400 -top-20 -left-20"></div>
+        <div class="blob w-72 h-72 bg-cyan-300 -bottom-10 -right-10" style="animation-delay: -4s;"></div>
+        
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="text-center text-white">
+                <div class="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full mb-6">
+                    <i class="fas fa-file-alt"></i>
+                    <span class="text-sm font-medium">Informasi Publik</span>
+                </div>
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6">
+                    Dokumen Publik
+                </h1>
+                <p class="text-xl text-white/90 max-w-3xl mx-auto mb-8">
+                    Kumpulan dokumen dan informasi penting RS Payangan Hospital yang dapat diakses oleh masyarakat umum
+                </p>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <a href="#unduh" class="bg-white text-primary px-8 py-4 rounded-full font-semibold hover:bg-gray-100 transition inline-flex items-center gap-2">
+                        <i class="fas fa-download"></i>Unduh Dokumen
+                    </a>
+                    <a href="#kontak" class="bg-white/20 text-white px-8 py-4 rounded-full font-semibold hover:bg-white/30 transition backdrop-blur-sm inline-flex items-center gap-2">
+                        <i class="fas fa-question-circle"></i>Hubungi Kami
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-12 bg-white -mt-10 relative z-20">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="text-center p-6">
+                    <div class="text-4xl font-extrabold text-primary mb-2">24</div>
+                    <div class="text-gray-600">Total Dokumen</div>
+                </div>
+                <div class="text-center p-6">
+                    <div class="text-4xl font-extrabold text-primary mb-2">8</div>
+                    <div class="text-gray-600">Kategori</div>
+                </div>
+                <div class="text-center p-6">
+                    <div class="text-4xl font-extrabold text-primary mb-2">100%</div>
+                    <div class="text-gray-600">Akses Publik</div>
+                </div>
+                <div class="text-center p-6">
+                    <div class="text-4xl font-extrabold text-primary mb-2">2026</div>
+                    <div class="text-gray-600">Tahun Update</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Document Categories -->
+    <section class="py-20" id="dokumen">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">KATEGORI DOKUMEN</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Pilih kategori dokumen yang ingin Anda akses</p>
+            </div>
+
+            <!-- Category Filter -->
+            <div class="flex flex-wrap justify-center gap-3 mb-12">
+                <button onclick="filterDocs('all')" class="filter-btn active bg-primary text-white px-6 py-3 rounded-full font-medium transition" data-filter="all">
+                    <i class="fas fa-globe mr-2"></i>Semua
+                </button>
+                <button onclick="filterDocs('regulasi')" class="filter-btn bg-gray-200 text-gray-700 px-6 py-3 rounded-full font-medium hover:bg-primary hover:text-white transition" data-filter="regulasi">
+                    <i class="fas fa-gavel mr-2"></i>Regulasi
+                </button>
+                <button onclick="filterDocs('pelayanan')" class="filter-btn bg-gray-200 text-gray-700 px-6 py-3 rounded-full font-medium hover:bg-primary hover:text-white transition" data-filter="pelayanan">
+                    <i class="fas fa-stethoscope mr-2"></i>Pelayanan
+                </button>
+                <button onclick="filterDocs('harga')" class="filter-btn bg-gray-200 text-gray-700 px-6 py-3 rounded-full font-medium hover:bg-primary hover:text-white transition" data-filter="harga">
+                    <i class="fas fa-tags mr-2"></i>Harga
+                </button>
+                <button onclick="filterDocs('mutu')" class="filter-btn bg-gray-200 text-gray-700 px-6 py-3 rounded-full font-medium hover:bg-primary hover:text-white transition" data-filter="mutu">
+                    <i class="fas fa-award mr-2"></i>Mutu
+                </button>
+                <button onclick="filterDocs('laporan')" class="filter-btn bg-gray-200 text-gray-700 px-6 py-3 rounded-full font-medium hover:bg-primary hover:text-white transition" data-filter="laporan">
+                    <i class="fas fa-chart-bar mr-2"></i>Laporan
+                </button>
+                <button onclick="filterDocs('loker')" class="filter-btn bg-gray-200 text-gray-700 px-6 py-3 rounded-full font-medium hover:bg-primary hover:text-white transition" data-filter="loker">
+                    <i class="fas fa-user-md mr-2"></i>Lowongan
+                </button>
+            </div>
+
+            <!-- Documents Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="docs-grid">
+                
+                <!-- Regulasi -->
+                <div class="doc-card glass-card rounded-2xl p-6 shadow-lg" data-category="regulasi">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center file-icon">
+                            <i class="fas fa-file-pdf text-white text-2xl"></i>
+                        </div>
+                        <div>
+                            <span class="text-xs font-medium text-blue-600 bg-blue-100 px-3 py-1 rounded-full">REGULASI</span>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Surat Izin Operasional</h3>
+                    <p class="text-gray-600 text-sm mb-4">Surat izin operasional RS Payangan Hospital dari Dinas Kesehatan Kabupaten Gianyar</p>
+                    <div class="flex items-center justify-between text-sm text-gray-500 mb-4">
+                        <span><i class="far fa-calendar mr-1"></i>Berlaku s/d 2027</span>
+                        <span><i class="far fa-file mr-1"></i>PDF</span>
+                    </div>
+                    <a href="#" class="block w-full bg-primary text-white text-center py-3 rounded-xl font-medium hover:bg-dark transition">
+                        <i class="fas fa-download mr-2"></i>Unduh
+                    </a>
+                </div>
+
+                <div class="doc-card glass-card rounded-2xl p-6 shadow-lg" data-category="regulasi">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-14 h-14 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl flex items-center justify-center file-icon">
+                            <i class="fas fa-file-pdf text-white text-2xl"></i>
+                        </div>
+                        <div>
+                            <span class="text-xs font-medium text-purple-600 bg-purple-100 px-3 py-1 rounded-full">REGULASI</span>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Akreditasi Paripurna</h3>
+                    <p class="text-gray-600 text-sm mb-4">Sertifikat akreditasi rumah sakit paripurna dari Komite Akreditasi Rumah Sakit</p>
+                    <div class="flex items-center justify-between text-sm text-gray-500 mb-4">
+                        <span><i class="far fa-calendar mr-1"></i>Berlaku s/d 2027</span>
+                        <span><i class="far fa-file mr-1"></i>PDF</span>
+                    </div>
+                    <a href="#" class="block w-full bg-primary text-white text-center py-3 rounded-xl font-medium hover:bg-dark transition">
+                        <i class="fas fa-download mr-2"></i>Unduh
+                    </a>
+                </div>
+
+                <!-- Pelayanan -->
+                <div class="doc-card glass-card rounded-2xl p-6 shadow-lg" data-category="pelayanan">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-14 h-14 bg-gradient-to-br from-teal-500 to-teal-600 rounded-xl flex items-center justify-center file-icon">
+                            <i class="fas fa-file-pdf text-white text-2xl"></i>
+                        </div>
+                        <div>
+                            <span class="text-xs font-medium text-teal-600 bg-teal-100 px-3 py-1 rounded-full">PELAYANAN</span>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Maklumat Pelayanan</h3>
+                    <p class="text-gray-600 text-sm mb-4">Maklumat dan standar pelayanan RS Payangan untuk pasien dan keluarga</p>
+                    <div class="flex items-center justify-between text-sm text-gray-500 mb-4">
+                        <span><i class="far fa-calendar mr-1"></i>Update: 2026</span>
+                        <span><i class="far fa-file mr-1"></i>PDF</span>
+                    </div>
+                    <a href="#" class="block w-full bg-primary text-white text-center py-3 rounded-xl font-medium hover:bg-dark transition">
+                        <i class="fas fa-download mr-2"></i>Unduh
+                    </a>
+                </div>
+
+                <div class="doc-card glass-card rounded-2xl p-6 shadow-lg" data-category="pelayanan">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-14 h-14 bg-gradient-to-br from-green-500 to-green-600 rounded-xl flex items-center justify-center file-icon">
+                            <i class="fas fa-file-pdf text-white text-2xl"></i>
+                        </div>
+                        <div>
+                            <span class="text-xs font-medium text-green-600 bg-green-100 px-3 py-1 rounded-full">PELAYANAN</span>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Buku Panduan Pasien</h3>
+                    <p class="text-gray-600 text-sm mb-4">Panduan lengkap untuk pasien dan keluarga selama masa perawatan</p>
+                    <div class="flex items-center justify-between text-sm text-gray-500 mb-4">
+                        <span><i class="far fa-calendar mr-1"></i>Update: 2026</span>
+                        <span><i class="far fa-file mr-1"></i>PDF</span>
+                    </div>
+                    <a href="#" class="block w-full bg-primary text-white text-center py-3 rounded-xl font-medium hover:bg-dark transition">
+                        <i class="fas fa-download mr-2"></i>Unduh
+                    </a>
+                </div>
+
+                <div class="doc-card glass-card rounded-2xl p-6 shadow-lg" data-category="pelayanan">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-14 h-14 bg-gradient-to-br from-amber-500 to-amber-600 rounded-xl flex items-center justify-center file-icon">
+                            <i class="fas fa-file-pdf text-white text-2xl"></i>
+                        </div>
+                        <div>
+                            <span class="text-xs font-medium text-amber-600 bg-amber-100 px-3 py-1 rounded-full">PELAYANAN</span>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Alur Pendaftaran</h3>
+                    <p class="text-gray-600 text-sm mb-4">Diagram alur pendaftaran pasien baru dan pasien lama</p>
+                    <div class="flex items-center justify-between text-sm text-gray-500 mb-4">
+                        <span><i class="far fa-calendar mr-1"></i>Update: 2026</span>
+                        <span><i class="far fa-file mr-1"></i>PDF</span>
+                    </div>
+                    <a href="#" class="block w-full bg-primary text-white text-center py-3 rounded-xl font-medium hover:bg-dark transition">
+                        <i class="fas fa-download mr-2"></i>Unduh
+                    </a>
+                </div>
+
+                <!-- Harga -->
+                <div class="doc-card glass-card rounded-2xl p-6 shadow-lg" data-category="harga">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-14 h-14 bg-gradient-to-br from-rose-500 to-rose-600 rounded-xl flex items-center justify-center file-icon">
+                            <i class="fas fa-file-excel text-white text-2xl"></i>
+                        </div>
+                        <div>
+                            <span class="text-xs font-medium text-rose-600 bg-rose-100 px-3 py-1 rounded-full">TARIF</span>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Tarif Tindakan</h3>
+                    <p class="text-gray-600 text-sm mb-4">Daftar tarif tindakan medis, visite dokter, dan tindakan khusus</p>
+                    <div class="flex items-center justify-between text-sm text-gray-500 mb-4">
+                        <span><i class="far fa-calendar mr-1"></i>Berlaku: 2026</span>
+                        <span><i class="far fa-file mr-1"></i>XLSX</span>
+                    </div>
+                    <a href="#" class="block w-full bg-primary text-white text-center py-3 rounded-xl font-medium hover:bg-dark transition">
+                        <i class="fas fa-download mr-2"></i>Unduh
+                    </a>
+                </div>
+
+                <div class="doc-card glass-card rounded-2xl p-6 shadow-lg" data-category="harga">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-14 h-14 bg-gradient-to-br from-rose-500 to-rose-600 rounded-xl flex items-center justify-center file-icon">
+                            <i class="fas fa-file-excel text-white text-2xl"></i>
+                        </div>
+                        <div>
+                            <span class="text-xs font-medium text-rose-600 bg-rose-100 px-3 py-1 rounded-full">TARIF</span>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Tarif Kamar</h3>
+                    <p class="text-gray-600 text-sm mb-4">Daftar tarif kamar rawat inap (Kelas VIP, I, II, III)</p>
+                    <div class="flex items-center justify-between text-sm text-gray-500 mb-4">
+                        <span><i class="far fa-calendar mr-1"></i>Berlaku: 2026</span>
+                        <span><i class="far fa-file mr-1"></i>XLSX</span>
+                    </div>
+                    <a href="#" class="block w-full bg-primary text-white text-center py-3 rounded-xl font-medium hover:bg-dark transition">
+                        <i class="fas fa-download mr-2"></i>Unduh
+                    </a>
+                </div>
+
+                <div class="doc-card glass-card rounded-2xl p-6 shadow-lg" data-category="harga">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-14 h-14 bg-gradient-to-br from-rose-500 to-rose-600 rounded-xl flex items-center justify-center file-icon">
+                            <i class="fas fa-file-pdf text-white text-2xl"></i>
+                        </div>
+                        <div>
+                            <span class="text-xs font-medium text-rose-600 bg-rose-100 px-3 py-1 rounded-full">TARIF</span>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Paket Tindakan</h3>
+                    <p class="text-gray-600 text-sm mb-4">Paket harga tindakan bedah, persalinan, dan prosedur khusus</p>
+                    <div class="flex items-center justify-between text-sm text-gray-500 mb-4">
+                        <span><i class="far fa-calendar mr-1"></i>Berlaku: 2026</span>
+                        <span><i class="far fa-file mr-1"></i>PDF</span>
+                    </div>
+                    <a href="#" class="block w-full bg-primary text-white text-center py-3 rounded-xl font-medium hover:bg-dark transition">
+                        <i class="fas fa-download mr-2"></i>Unduh
+                    </a>
+                </div>
+
+                <!-- Mutu -->
+                <div class="doc-card glass-card rounded-2xl p-6 shadow-lg" data-category="mutu">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-14 h-14 bg-gradient-to-br from-indigo-500 to-indigo-600 rounded-xl flex items-center justify-center file-icon">
+                            <i class="fas fa-file-pdf text-white text-2xl"></i>
+                        </div>
+                        <div>
+                            <span class="text-xs font-medium text-indigo-600 bg-indigo-100 px-3 py-1 rounded-full">MUTU</span>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Indikator Mutu</h3>
+                    <p class="text-gray-600 text-sm mb-4">Indikator mutu dan keselamatan pasien RS Payangan</p>
+                    <div class="flex items-center justify-between text-sm text-gray-500 mb-4">
+                        <span><i class="far fa-calendar mr-1"></i>Tahun: 2026</span>
+                        <span><i class="far fa-file mr-1"></i>PDF</span>
+                    </div>
+                    <a href="#" class="block w-full bg-primary text-white text-center py-3 rounded-xl font-medium hover:bg-dark transition">
+                        <i class="fas fa-download mr-2"></i>Unduh
+                    </a>
+                </div>
+
+                <div class="doc-card glass-card rounded-2xl p-6 shadow-lg" data-category="mutu">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-14 h-14 bg-gradient-to-br from-indigo-500 to-indigo-600 rounded-xl flex items-center justify-center file-icon">
+                            <i class="fas fa-file-pdf text-white text-2xl"></i>
+                        </div>
+                        <div>
+                            <span class="text-xs font-medium text-indigo-600 bg-indigo-100 px-3 py-1 rounded-full">MUTU</span>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Keperawatan</h3>
+                    <p class="text-gray-600 text-sm mb-4">Standar pelayanan keperawatan dan asuhan keperawatan</p>
+                    <div class="flex items-center justify-between text-sm text-gray-500 mb-4">
+                        <span><i class="far fa-calendar mr-1"></i>Update: 2026</span>
+                        <span><i class="far fa-file mr-1"></i>PDF</span>
+                    </div>
+                    <a href="#" class="block w-full bg-primary text-white text-center py-3 rounded-xl font-medium hover:bg-dark transition">
+                        <i class="fas fa-download mr-2"></i>Unduh
+                    </a>
+                </div>
+
+                <!-- Laporan -->
+                <div class="doc-card glass-card rounded-2xl p-6 shadow-lg" data-category="laporan">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-14 h-14 bg-gradient-to-br from-cyan-500 to-cyan-600 rounded-xl flex items-center justify-center file-icon">
+                            <i class="fas fa-file-pdf text-white text-2xl"></i>
+                        </div>
+                        <div>
+                            <span class="text-xs font-medium text-cyan-600 bg-cyan-100 px-3 py-1 rounded-full">LAPORAN</span>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Laporan Tahunan</h3>
+                    <p class="text-gray-600 text-sm mb-4">Laporan tahunan RS Payangan Hospital 2025</p>
+                    <div class="flex items-center justify-between text-sm text-gray-500 mb-4">
+                        <span><i class="far fa-calendar mr-1"></i>Tahun: 2025</span>
+                        <span><i class="far fa-file mr-1"></i>PDF</span>
+                    </div>
+                    <a href="#" class="block w-full bg-primary text-white text-center py-3 rounded-xl font-medium hover:bg-dark transition">
+                        <i class="fas fa-download mr-2"></i>Unduh
+                    </a>
+                </div>
+
+                <div class="doc-card glass-card rounded-2xl p-6 shadow-lg" data-category="laporan">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-14 h-14 bg-gradient-to-br from-cyan-500 to-cyan-600 rounded-xl flex items-center justify-center file-icon">
+                            <i class="fas fa-file-pdf text-white text-2xl"></i>
+                        </div>
+                        <div>
+                            <span class="text-xs font-medium text-cyan-600 bg-cyan-100 px-3 py-1 rounded-full">LAPORAN</span>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Profil RS</h3>
+                    <p class="text-gray-600 text-sm mb-4">Profil RS Payangan Hospital terbaru</p>
+                    <div class="flex items-center justify-between text-sm text-gray-500 mb-4">
+                        <span><i class="far fa-calendar mr-1"></i>Update: 2026</span>
+                        <span><i class="far fa-file mr-1"></i>PDF</span>
+                    </div>
+                    <a href="#" class="block w-full bg-primary text-white text-center py-3 rounded-xl font-medium hover:bg-dark transition">
+                        <i class="fas fa-download mr-2"></i>Unduh
+                    </a>
+                </div>
+
+                <!-- Lowongan -->
+                <div class="doc-card glass-card rounded-2xl p-6 shadow-lg" data-category="loker">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-14 h-14 bg-gradient-to-br from-orange-500 to-orange-600 rounded-xl flex items-center justify-center file-icon">
+                            <i class="fas fa-briefcase text-white text-2xl"></i>
+                        </div>
+                        <div>
+                            <span class="text-xs font-medium text-orange-600 bg-orange-100 px-3 py-1 rounded-full">LOWONGAN</span>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Lowongan Kerja</h3>
+                    <p class="text-gray-600 text-sm mb-4">Informasi lowongan kerja di RS Payangan Hospital</p>
+                    <div class="flex items-center justify-between text-sm text-gray-500 mb-4">
+                        <span><i class="far fa-calendar mr-1"></i>Terbuka</span>
+                        <span><i class="far fa-file mr-1"></i>PDF</span>
+                    </div>
+                    <a href="#" class="block w-full bg-primary text-white text-center py-3 rounded-xl font-medium hover:bg-dark transition">
+                        <i class="fas fa-download mr-2"></i>Unduh
+                    </a>
+                </div>
+
+                <!-- Regulasi -->
+                <div class="doc-card glass-card rounded-2xl p-6 shadow-lg" data-category="regulasi">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-14 h-14 bg-gradient-to-br from-red-500 to-red-600 rounded-xl flex items-center justify-center file-icon">
+                            <i class="fas fa-file-pdf text-white text-2xl"></i>
+                        </div>
+                        <div>
+                            <span class="text-xs font-medium text-red-600 bg-red-100 px-3 py-1 rounded-full">REGULASI</span>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3"> Hak & Kewajiban Pasien</h3>
+                    <p class="text-gray-600 text-sm mb-4">Daftar hak dan kewajiban pasien sesuai regulasi Kemenkes</p>
+                    <div class="flex items-center justify-between text-sm text-gray-500 mb-4">
+                        <span><i class="far fa-calendar mr-1"></i>Update: 2026</span>
+                        <span><i class="far fa-file mr-1"></i>PDF</span>
+                    </div>
+                    <a href="#" class="block w-full bg-primary text-white text-center py-3 rounded-xl font-medium hover:bg-dark transition">
+                        <i class="fas fa-download mr-2"></i>Unduh
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Info Box -->
+    <section class="py-16 bg-gradient-to-r from-primary/10 to-secondary/10" id="info">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-white rounded-2xl p-8 shadow-lg">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center">
+                            <i class="fas fa-question-circle text-blue-600 text-3xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-800">Butuh Bantuan?</h3>
+                    </div>
+                    <p class="text-gray-600 mb-6">Jika Anda tidak menemukan dokumen yang dicari atau memiliki pertanyaan, silakan hubungi kami:</p>
+                    <div class="space-y-3">
+                        <a href="tel:+623619088087" class="flex items-center gap-3 text-gray-700 hover:text-primary transition">
+                            <i class="fas fa-phone text-primary"></i>
+                            <span>(0361) 9088087</span>
+                        </a>
+                        <a href="mailto:info@payanganhospital.gianyarkab.go.id" class="flex items-center gap-3 text-gray-700 hover:text-primary transition">
+                            <i class="fas fa-envelope text-primary"></i>
+                            <span>info@payanganhospital.gianyarkab.go.id</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl p-8 shadow-lg">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center">
+                            <i class="fas fa-clock text-green-600 text-3xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-800">Jam Layanan</h3>
+                    </div>
+                    <p class="text-gray-600 mb-6">Dokumen dapat diunduh kapan saja. Untuk informasi lebih lanjut:</p>
+                    <div class="space-y-3">
+                        <div class="flex items-center gap-3">
+                            <i class="fas fa-calendar-check text-green-600"></i>
+                            <span>Senin - Jumat: 08.00 - 15.00 WITA</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i class="fas fa-hospital text-green-600"></i>
+                            <span>IGD: 24 Jam</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i class="fas fa-user-md text-green-600"></i>
+                            <span>Poliklinik: 24 Jam</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Request Document -->
+    <section class="py-20" id="permintaan">
+        <div class="max-w-3xl mx-auto px-6">
+            <div class="bg-white rounded-3xl shadow-2xl p-8 md:p-12">
+                <div class="text-center mb-10">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-4">Permintaan Informasi</h2>
+                    <p class="text-gray-600">Tidak menemukan dokumen yang Anda cari? Ajukan permintaan informasi.</p>
+                </div>
+                
+                <form class="space-y-6">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Nama Lengkap</label>
+                            <input type="text" class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-primary focus:border-primary transition" placeholder="Masukkan nama lengkap">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">NIK</label>
+                            <input type="text" class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-primary focus:border-primary transition" placeholder="Masukkan NIK" maxlength="16">
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                        <input type="email" class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-primary focus:border-primary transition" placeholder="Masukkan email aktif">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">No. Telepon</label>
+                        <input type="tel" class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-primary focus:border-primary transition" placeholder="Masukkan nomor telepon">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Dokumen yang Diminta</label>
+                        <textarea class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-primary focus:border-primary transition" rows="4" placeholder="Jelaskan dokumen atau informasi yang Anda butuhkan"></textarea>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Tujuan Penggunaan</label>
+                        <select class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-primary focus:border-primary transition">
+                            <option value="">Pilih tujuan</option>
+                            <option value="pribadi">Keperluan Pribadi</option>
+                            <option value="keluarga">Keperluan Keluarga</option>
+                            <option value="penelitian">Penelitian/Akademik</option>
+                            <option value="media">Media/Pers</option>
+                            <option value="lainnya">Lainnya</option>
+                        </select>
+                    </div>
+                    
+                    <button type="submit" class="w-full bg-primary text-white py-4 rounded-xl font-semibold hover:bg-dark transition flex items-center justify-center gap-2">
+                        <i class="fas fa-paper-plane"></i>Kirim Permintaan
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-16">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+                <div>
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-12 h-12 bg-gradient-to-br from-primary to-secondary rounded-xl flex items-center justify-center">
+                            <i class="fas fa-hospital text-white text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold">RS Payangan</h3>
+                            <p class="text-xs text-gray-400">Gianyar, Bali</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 text-sm">Melayani dengan hati, sehat bersama rakyat Gianyar.</p>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Layanan</h4>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li><a href="layanan.html" class="hover:text-white transition">Pelayanan Medis</a></li>
+                        <li><a href="rawat-inap.html" class="hover:text-white transition">Rawat Inap</a></li>
+                        <li><a href="igd.html" class="hover:text-white transition">IGD 24 Jam</a></li>
+                        <li><a href="antrean.html" class="hover:text-white transition">Antrean Online</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Dokumen</h4>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li><a href="#" class="hover:text-white transition">Profil RS</a></li>
+                        <li><a href="#" class="hover:text-white transition">Standar Pelayanan</a></li>
+                        <li><a href="#" class="hover:text-white transition">Tarif Layanan</a></li>
+                        <li><a href="#" class="hover:text-white transition">Akreditasi</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Kontak</h4>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li><i class="fas fa-map-marker-alt mr-2"></i>Payangan, Gianyar, Bali</li>
+                        <li><i class="fas fa-phone mr-2"></i>(0361) 9088087</li>
+                        <li><i class="fas fa-envelope mr-2"></i>info@payanganhospital.gianyarkab.go.id</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400 text-sm">
+                <p>&copy; 2026 RS Payangan Hospital. Pemerintah Kabupaten Gianyar.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Filter Script -->
+    <script>
+        function filterDocs(category) {
+            // Update button styles
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('bg-primary', 'text-white');
+                btn.classList.add('bg-gray-200', 'text-gray-700');
+            });
+            event.target.classList.remove('bg-gray-200', 'text-gray-700');
+            event.target.classList.add('bg-primary', 'text-white');
+            
+            // Filter documents
+            const docs = document.querySelectorAll('[data-category]');
+            docs.forEach(doc => {
+                if (category === 'all' || doc.dataset.category === category) {
+                    doc.style.display = 'block';
+                    doc.style.animation = 'fadeIn 0.3s ease';
+                } else {
+                    doc.style.display = 'none';
+                }
+            });
+        }
+        
+        // Add animation keyframe
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fadeIn {
+                from { opacity: 0; transform: translateY(10px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
