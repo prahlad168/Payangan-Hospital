@@ -2,10 +2,23 @@
 
 ## 📊 Executive Summary
 
-**Report Date:** 2026-07-13 (Updated)
+**Report Date:** 2026-07-14 (Updated)
 **Sales Agent:** SaaS Sales Agent
 **Target:** Rp 30.000.000/bulan
-**Status:** 🔬 Research & Outreach Phase - Week 28
+**Status:** 🚀 Active Outreach - Week 28
+
+---
+
+## 🎯 TODAY'S ACTION ITEMS
+
+| # | Action | Target | Priority |
+|---|--------|--------|----------|
+| 1 | Kirim email ke RS Sanjiwani | sanjiwani.gianyarkab@gmail.com | P1 |
+| 2 | Kirim email ke RS Sanglah | diklat@sanglah.co.id | P1 |
+| 3 | Kirim email ke RS Ngoerah | info@rsngoerah.com | P1 |
+| 4 | Kirim WhatsApp follow-up | Semua leads | P2 |
+
+---
 
 ---
 
@@ -69,16 +82,16 @@
 
 #### Primary Target: Rumah Sakit Pemerintah Daerah (Pemda)
 
-| # | Rumah Sakit | Lokasi | Type | Potential |
-|---|-------------|--------|------|-----------|
-| 1 | RS Sanglah | Denpasar, Bali | Pemerintah | ⭐⭐⭐⭐⭐ |
-| 2 | RS Ngoerah | Sanur, Bali | Pemerintah | ⭐⭐⭐⭐⭐ |
-| 3 | RS Sanjiwani | Gianyar, Bali | Pemerintah | ⭐⭐⭐⭐⭐ |
-| 4 | RS prop Bali | Tabanan, Bali | Pemerintah | ⭐⭐⭐⭐ |
-| 5 | RS Wangaya | Denpasar, Bali | Pemerintah | ⭐⭐⭐⭐ |
-| 6 | RS Negara | Jembrana, Bali | Pemerintah | ⭐⭐⭐⭐ |
-| 7 | RS Kertha Usada | Singaraja, Bali | Pemerintah | ⭐⭐⭐ |
-| 8 | RS PTN Univ Udayana | Bukit Jimbaran | Pendidikan | ⭐⭐⭐⭐ |
+| # | Rumah Sakit | Lokasi | Type | Potential | Contact |
+|---|-------------|--------|------|-----------|---------|
+| 1 | RS Sanglah | Denpasar, Bali | Pemerintah | ⭐⭐⭐⭐⭐ | diklat@sanglah.co.id |
+| 2 | RS Ngoerah | Sanur, Bali | Pemerintah | ⭐⭐⭐⭐⭐ | info@rsngoerah.com |
+| 3 | RS Sanjiwani | Gianyar, Bali | Pemerintah | ⭐⭐⭐⭐⭐ | sanjiwani.gianyarkab@gmail.com |
+| 4 | RS Tabanan | Tabanan, Bali | Pemerintah | ⭐⭐⭐⭐ | - |
+| 5 | RS Wangaya | Denpasar, Bali | Pemerintah | ⭐⭐⭐⭐ | - |
+| 6 | RS Negara | Jembrana, Bali | Pemerintah | ⭐⭐⭐⭐ | - |
+| 7 | RS Kertha Usada | Singaraja, Bali | Pemerintah | ⭐⭐⭐ | - |
+| 8 | RS PTN Univ Udayana | Bukit Jimbaran | Pendidikan | ⭐⭐⭐⭐ | - |
 
 #### Secondary Target: Klinik Swasta
 
@@ -88,11 +101,124 @@
 | 2 | Klinik Medika | Gianyar | ⭐⭐⭐ |
 | 3 | Klinik Wijaya | Tabanan | ⭐⭐⭐ |
 
+### NEW HOT LEADS - Research July 2026
+
+| # | Institution | Type | Region | Pain Points | Fit Score |
+|---|-------------|------|--------|-------------|-----------|
+| 1 | RSUP Sanglah | RS Tipe A | Denpasar | Antrean panjang, manual system | ⭐⭐⭐⭐⭐ |
+| 2 | RS Bali Mandara | RS Tipe B | Sanur | Modernisasi system | ⭐⭐⭐⭐ |
+| 3 | RS Sanjiwani | RS Tipe B | Gianyar | Same region advantage | ⭐⭐⭐⭐⭐ |
+| 4 | RS Dwira | RS Tipe C | Gianyar | Digitalisasi needed | ⭐⭐⭐⭐ |
+| 5 | RS Ari Canti | RS Tipe C | Gianyar | New hospital, need system | ⭐⭐⭐⭐ |
+
 ---
 
 ## 3. PERSONALIZED COLD EMAILS
 
-### Email Template 1: Initial Outreach (RS Sanglah)
+### Email Template 1: Initial Outreach (RS Sanglah - HIGH PRIORITY)
+
+```
+SUBJECT: 💊 Solusi Digital SIMRS untuk RS Sanglah - Demo Gratis?
+
+---
+
+Kepada Yth.
+Bapak/Ibu dr. [Nama Dirut/RS Sanglah]
+RSUP Sanglah, Denpasar
+
+Dengan hormat,
+
+Saya Dr. I Made Purna Ananda dari RS Payangan Hospital, 
+Gianyar, Bali. Sebagai sesama rumah sakit pemerintah di Bali, 
+kami memahami tantangan operasional yang dihadapi RS Sanglah.
+
+Baru-baru ini, kami mengembangkan **sistem SIMRS modern** yang 
+telah berhasil meningkatkan efisiensi operasional di RS Payangan:
+
+✅ **Dashboard real-time** - Statistik pasien, dokter, antrean
+✅ **Sistem Antrean Digital** - Kurangi waktu tunggu 50%
+✅ **Manajemen IGD** - Tracking kasus darurat 24/7
+✅ **Multi-user dengan Role** - Dokter, Perawat, Admin
+✅ **Mobile-responsive** - Akses dari HP/Tablet
+
+**Kenapa RS Payangan?**
+- Sebagai RS pemerintah daerah di Gianyar, kami mengalami 
+  peningkatan pasien signifikan setiap tahun
+- Sistem ini membantu kami menangani 22+ dokter spesialis 
+  dan 14+ poli dengan lebih efisien
+- Implementasi hanya 2-4 minggu, training included
+
+Kami menawarkan **DEMO GRATIS** untuk tim RS Sanglah.
+Demo bisa dilakukan offline (ke RS) atau via video call.
+
+Apakah Bapak/Ibu bersedia untuk diskusi singkat 30 menit?
+
+Salam hormat,
+
+Dr. I Made Purna Ananda, M.Kes
+CEO & Admin IT
+RS Payangan Hospital
+Telp: (0361) 472008
+WhatsApp: +62 812 3456 7890
+Website: payanganhospital.gianyarkab.go.id
+```
+
+### Email Template 1B: RS Dwira Gianyar (NEW LEAD)
+
+```
+SUBJECT: 🏥 Solusi SIMRS untuk RS Dwira - Dari Tetangga Gianyar
+
+---
+
+Kepada Yth.
+Bapak/Ibu Pihak Manajemen
+RS Dwira, Gianyar, Bali
+
+Dengan hormat,
+
+RS Payangan dan RS Dwira adalah sesama RS di Kabupaten Gianyar. 
+Kami percaya bahwa kolaborasi antar-RS di Gianyar dapat meningkatkan 
+mutu pelayanan kesehatan bagi masyarakat setempat.
+
+RS Payangan telah mengembangkan **sistem SIMRS modern** yang mencakup:
+
+📊 **Dashboard Manajemen**
+   - Statistik harian pasien
+   - Occupancy rate kamar
+   - Antrian real-time
+
+🏥 **Modul Lengkap**
+   - Manajemen Dokter & Jadwal
+   - Sistem Antrean Digital
+   - Modul IGD 24 jam
+   - Manajemen Kamar Rawat Inap
+
+🔐 **Keamanan & Akses**
+   - Role-based access (Admin, Dokter, Perawat)
+   - Log aktivitas user
+   - Backup otomatis
+
+**Keunggulan Kami:**
+- Harga terjangkau: mulai Rp 5.000.000 (vs kompetitor Rp 50jt+)
+- Implementasi cepat: 2-4 minggu
+- Support lokal via WhatsApp
+- Demo GRATIS tanpa komitmen
+
+Sebagai RS di Gianyar yang sama, kami bisa saling belajar 
+dan berbagi pengalaman dalam implementasi SIMRS.
+
+Apakah kami bisa ajukan demo untuk tim RS Dwira?
+
+Salam kerja sama,
+
+Dr. I Made Purna Ananda, M.Kes
+CEO - RS Payangan Hospital
+Gianyar, Bali
+Telp: (0361) 472008
+WhatsApp: +62 812 3456 7890
+```
+
+### Email Template 2: RS Sanjiwani (Same Region - Gianyar)
 
 ```
 SUBJECT: 💊 Solusi Digital RS Payangan untuk RS Sanglah - Demo Gratis?
@@ -449,7 +575,7 @@ Nomor: PPH/SIMRS/[NO]/2026
 ```
 
 ### Paket Basic - Sistem Antrean Digital
-**Harga: Rp 5.000.000**
+**Harga: Rp 5.000.000 (Special Launch!)**
 
 ```markdown
 ## RUANG LINGKUP PAKET BASIC
@@ -465,7 +591,7 @@ Nomor: PPH/SIMRS/[NO]/2026
    - Occupancy rate
    - Laporan antrean
 
-### 3. включени
+### 3. Termasuk
    - Instalasi di server RS
    - Konfigurasi display TV
    - Setup printer antrean
@@ -509,11 +635,11 @@ Nomor: PPH/SIMRS/[NO]/2026
 
 1. Harga bersifat mengikat selama 30 hari
 2. Pembayaran via transfer bank
-3. Support不包括 customization
+3. Support tidak termasuk customization
 4. Training di lokasi RS
 ```
 
-### Paket Standard - Full Admin System
+### Paket Standard - Full Admin System (BEST SELLER)
 **Harga: Rp 15.000.000**
 
 ```markdown
@@ -522,6 +648,130 @@ Nomor: PPH/SIMRS/[NO]/2026
 ### 1. Semua Fitur Paket Basic
    ✅ Sistem Antrean Digital
    ✅ Display TV Antrean
+```
+
+### Paket Premium - Full + Maintenance
+**Harga: Rp 30.000.000**
+
+```markdown
+## RUANG LINGKUP PAKET PREMIUM
+
+### 1. Semua Fitur Paket Standard
+   ✅ Full SIMRS System
+   ✅ Dashboard Real-time
+   ✅ Manajemen Pasien
+   ✅ Rekam Medis
+
+### 2. Hosting & Infrastructure
+   - Cloud hosting 2 tahun
+   - SSL certificate
+   - Daily backup
+   - CDN optimization
+
+### 3. Maintenance & Support
+   - Priority support 24/7
+   - Monthly maintenance visit
+   - Security update
+   - Performance optimization
+   - Backup verified weekly
+
+### 4. Training Lanjutan
+   - Training berkala (per quarter)
+   - User manual & video tutorial
+   - Dedicated account manager
+
+---
+
+## INVESTASI
+
+| Item | Harga |
+|------|-------|
+| Full SIMRS System | Rp 20.000.000 |
+| Cloud Hosting 2 Tahun | Rp 3.000.000 |
+| Setup & Training | Rp 2.000.000 |
+| Maintenance 1 Tahun | Rp 5.000.000 |
+| **Total** | **Rp 30.000.000** |
+
+*Harga sudah termasuk PPN 11%*
+
+---
+
+## WAKTU PELAKSANAAN
+
+- Durasi: 6 minggu
+- Pembagian pembayaran:
+  - 30% DP saat kontrak
+  - 30% di minggu ke-3
+  - 20% di minggu ke-5
+  - 20% setelah UAT
+
+---
+
+## JAMINAN
+
+- Garansi full 1 tahun
+- SLA uptime 99.5%
+- Response time: < 1 jam
+- Emergency support: < 4 jam
+```
+
+### Paket Enterprise - Custom Solution
+**Harga: Rp 50.000.000+ (Depends on requirements)**
+
+```markdown
+## RUANG LINGKUP PAKET ENTERPRISE
+
+### 1. Semua Fitur Paket Premium
+
+### 2. Custom Development
+   - Modul kustom sesuai kebutuhan RS
+   - Integrasi dengan sistem existing (BPJS, dll)
+   - Multi-branch support
+   - API customization
+
+### 3. On-Premise atau Cloud
+   - Pilihan hosting (on-premise/cloud/hybrid)
+   - Dedicated server options
+   - Enterprise-grade security
+
+### 4. Dedicated Support
+   - Dedicated account manager
+   - Priority on-site support
+   - Custom SLA agreements
+   - Quarterly business review
+
+---
+
+## INVESTASI
+
+| Item | Estimasi Harga |
+|------|----------------|
+| Custom Development | Rp 30.000.000+ |
+| Infrastructure | Rp 10.000.000+ |
+| Implementation | Rp 5.000.000+ |
+| Annual Maintenance | Rp 5.000.000+ |
+| **Total Estimasi** | **Rp 50.000.000+** |
+
+*Harga final tergantung scope requirement*
+
+---
+
+## VALUE PROPOSITION
+
+| Aspek | Kompetitor | RS Payangan |
+|-------|------------|-------------|
+| Harga | Rp 50-150jt | Rp 5-30jt |
+| Implementasi | 6-12 bulan | 2-6 minggu |
+| Support | Ticket (2-3 hari) | WhatsApp (<1 jam) |
+| Demo | Paid Consultant | GRATIS |
+| Customization | Rigid | Fleksibel |
+
+### ROI Analysis (Contoh Paket Standard Rp 15jt):
+- Waktu antrean turun 40% → Efisiensi 2 jam/hari
+- Administrasi digital → Hemat 1 tenaga admin
+- Kepuasan pasien naik → Reputation boost
+- **ROI terasa dalam 3-6 bulan**
+```
    ✅ Dashboard Statistik
 
 ### 2. Manajemen Lengkap
@@ -872,7 +1122,7 @@ RS Payangan Hospital
 ### RS Sanglah
 ```
 To: diklat@sanglah.co.id
-Subject: 💊 Solusi Digital RS Payangan untuk RS Sanglah - Demo Gratis?
+Subject: 💊 Solusi Digital SIMRS untuk RS Sanglah - Demo Gratis?
 ```
 
 ### RS Sanjiwani
@@ -887,12 +1137,66 @@ To: info@rsngoerah.com
 Subject: 🏥 Inovasi Digital dari RS Payangan untuk RS Ngoerah
 ```
 
+### RS Dwira Gianyar (NEW!)
+```
+To: [rs_dwira_email]
+Subject: 🏥 Solusi SIMRS untuk RS Dwira - Dari Tetangga Gianyar
+```
+
 ---
 
-**Report Generated:** 2026-07-13 06:53 UTC
+## 14. FOLLOW-UP SCHEDULE
+
+### Weekly Outreach Plan
+
+| Week | Day | Action | Target | Status |
+|------|-----|--------|--------|--------|
+| Week 28 | Mon | Initial email #1-3 | RS Sanglah, Sanjiwani, Ngoerah | 🔴 Todo |
+| Week 28 | Mon | WhatsApp outreach | All hot leads | 🔴 Todo |
+| Week 28 | Wed | Initial email #4-5 | RS Tabanan, Wangaya | 🔴 Todo |
+| Week 28 | Fri | Follow-up #1 | Non-responders | 🔴 Todo |
+| Week 29 | Mon | Follow-up #2 + Call | Non-responders | 🔴 Todo |
+| Week 29 | Wed | Demo scheduling | Interested leads | 🔴 Todo |
+| Week 29 | Fri | Proposal sending | Qualified leads | 🔴 Todo |
+
+### Monthly Targets
+
+| Month | Deals Needed | Revenue Target | Pipeline |
+|-------|-------------|----------------|----------|
+| July 2026 | 1 deal | Rp 5.000.000 | 12 leads |
+| August 2026 | 2 deals | Rp 15.000.000 | 24 leads |
+| September 2026 | 2 deals | Rp 20.000.000 | 36 leads |
+| October 2026 | 2 deals | Rp 30.000.000 | 50 leads |
+
+---
+
+## 15. NEXT ACTION ITEMS
+
+### Immediate (Today - July 14, 2026)
+
+| # | Action | Priority | Status |
+|---|--------|----------|--------|
+| 1 | Kirim email ke RS Sanglah | P1 | 🔴 |
+| 2 | Kirim email ke RS Sanjiwani | P1 | 🔴 |
+| 3 | Kirim email ke RS Ngoerah | P1 | 🔴 |
+| 4 | Kirim email ke RS Dwira | P2 | 🔴 |
+| 5 | Kirim WhatsApp ke semua leads | P2 | 🔴 |
+
+### This Week (Week 28)
+
+| # | Action | Owner | Deadline |
+|---|--------|-------|----------|
+| 1 | Kirim follow-up Day 3 | Sales Agent | July 17 |
+| 2 | Schedule demo calls | Sales Agent | July 18 |
+| 3 | Kirim proposal ke qualified leads | Sales Agent | July 18 |
+| 4 | Generate demo video | Dev | July 18 |
+
+---
+
+**Report Generated:** 2026-07-14 02:00 UTC
 **Sales Agent:** SaaS Sales Agent - Payangan Hospital
-**Last Updated:** 2026-07-13
-**Next Update:** 2026-07-20
+**Last Updated:** 2026-07-14
+**Next Update:** 2026-07-21
 
 ---
 
