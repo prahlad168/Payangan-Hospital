@@ -4,15 +4,8 @@
  * Triggered by GitHub push events
  */
 
-// Security: Verify GitHub signature (optional)
-$secret = 'your_webhook_secret'; // Set this in GitHub webhook settings
-$signature = $_SERVER['HTTP_X_HUB_SIGNATURE_256'] ?? '';
+// No secret required - simple webhook
 $payload = file_get_contents('php://input');
-
-if (!empty($secret) && !hash_equals('sha256=' . hash_hmac('sha256', $payload, $secret), $signature)) {
-    http_response_code(403);
-    die('Invalid signature');
-}
 
 // Log incoming request
 $logFile = __DIR__ . '/webhook.log';
