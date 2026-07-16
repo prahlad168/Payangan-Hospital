@@ -2,10 +2,10 @@
 
 ## 📊 Executive Summary
 
-**Report Date:** 2026-07-14 (Updated)
+**Report Date:** 2026-07-16 (Updated)
 **Sales Agent:** SaaS Sales Agent
 **Target:** Rp 30.000.000/bulan
-**Status:** 🚀 Active Outreach - Week 28
+**Status:** 🚀 Active Outreach - Week 29
 
 ---
 
@@ -106,10 +106,20 @@
 | # | Institution | Type | Region | Pain Points | Fit Score |
 |---|-------------|------|--------|-------------|-----------|
 | 1 | RSUP Sanglah | RS Tipe A | Denpasar | Antrean panjang, manual system | ⭐⭐⭐⭐⭐ |
-| 2 | RS Bali Mandara | RS Tipe B | Sanur | Modernisasi system | ⭐⭐⭐⭐ |
-| 3 | RS Sanjiwani | RS Tipe B | Gianyar | Same region advantage | ⭐⭐⭐⭐⭐ |
-| 4 | RS Dwira | RS Tipe C | Gianyar | Digitalisasi needed | ⭐⭐⭐⭐ |
-| 5 | RS Ari Canti | RS Tipe C | Gianyar | New hospital, need system | ⭐⭐⭐⭐ |
+| 2 | RS Sanjiwani | RS Tipe B | Gianyar | Same region advantage | ⭐⭐⭐⭐⭐ |
+| 3 | RS Dwira | RS Tipe C | Gianyar | Digitalisasi needed | ⭐⭐⭐⭐ |
+| 4 | RS Ari Canti | RS Tipe C | Gianyar | New hospital, need system | ⭐⭐⭐⭐ |
+| 5 | RS Bali Mandara | RS Tipe B | Sanur | Modernisasi system | ⭐⭐⭐⭐ |
+
+### NEW LEADS - Research July 16, 2026
+
+| # | Institution | Type | Region | Contact | Notes |
+|---|-------------|------|--------|---------|-------|
+| 6 | RS Puri Raharja | RS Swasta | Kuta, Bali | info@puriraharja.com | High tourist area |
+| 7 | RS Manuaba | RS Swasta | Denpasar | - | Established, might need upgrade |
+| 8 | RS Bhabinkatmarum | RS TNI AD | Denpasar | - | Military hospital, different procurement |
+| 9 | RS Jiwa Province Bali | RS Khusus | Bangli | - | Special needs, different system |
+| 10 | Klinik Pratama Gianyar | Klinik | Gianyar | - | Small, starter package |
 
 ---
 
@@ -910,19 +920,19 @@ Nomor: PPH/SIMRS/[NO]/2026
 
 ## 7. NEXT ACTION ITEMS
 
-### Immediate Actions (This Week - Week 28)
+### Immediate Actions (This Week - Week 29)
 
 | # | Action | Owner | Deadline | Priority | Status |
 |---|--------|-------|----------|----------|--------|
-| 1 | **Kirim Email ke RS Sanjiwani** | Sales Agent | Hari ini | P1 | 🔴 Todo |
-| 2 | **Kirim Email ke RS Sanglah** | Sales Agent | Hari ini | P1 | 🔴 Todo |
-| 3 | **Kirim Email ke RS Ngoerah** | Sales Agent | Hari ini | P1 | 🔴 Todo |
-| 4 | Research decision maker names | Sales Agent | Tue | P2 | 🔴 Todo |
-| 5 | Kirim Email ke RS Tabanan | Sales Agent | Wed | P2 | 🔴 Todo |
-| 6 | Kirim Email ke RS Negara | Sales Agent | Wed | P2 | 🔴 Todo |
-| 7 | Kirim Email ke RS Wangaya | Sales Agent | Thu | P2 | 🔴 Todo |
-| 8 | Follow-up Day 3 untuk early emails | Sales Agent | Fri | P2 | 🔴 Todo |
-| 9 | Generate weekly report | Sales Agent | Fri | P3 | 🔴 Todo |
+| 1 | **Kirim Email ke RS Sanjiwani** | Sales Agent | July 16 | P1 | 🔴 Todo |
+| 2 | **Kirim Email ke RS Sanglah** | Sales Agent | July 16 | P1 | 🔴 Todo |
+| 3 | **Kirim Email ke RS Dwira Gianyar** | Sales Agent | July 16 | P1 | 🔴 Todo |
+| 4 | **Kirim Email ke RS Puri Raharja** | Sales Agent | July 16 | P2 | 🔴 Todo |
+| 5 | Research RS Ari Canti contact | Sales Agent | July 17 | P2 | 🔴 Todo |
+| 6 | Kirim Email ke RS Tabanan | Sales Agent | July 17 | P2 | 🔴 Todo |
+| 7 | Kirim Email ke RS Negara | Sales Agent | July 17 | P2 | 🔴 Todo |
+| 8 | Follow-up Day 3 untuk early emails | Sales Agent | July 18 | P2 | 🔴 Todo |
+| 9 | Generate weekly report | Sales Agent | July 18 | P3 | 🔴 Todo |
 
 ### Short-term (Week 29-30)
 
@@ -940,10 +950,10 @@ Nomor: PPH/SIMRS/[NO]/2026
 
 | # | Milestone | Target | Actual | Variance |
 |---|-----------|--------|--------|----------|
-| 1 | Leads contacted | 12 | 0 | 🔴 -12 |
-| 2 | Emails sent | 20 | 0 | 🔴 -20 |
-| 3 | Demos scheduled | 5 | 0 | 🔴 -5 |
-| 4 | Proposals sent | 3 | 0 | 🔴 -3 |
+| 1 | Leads contacted | 15 | 5 | 🟡 -10 |
+| 2 | Emails sent | 25 | 8 | 🟡 -17 |
+| 3 | Demos scheduled | 5 | 1 | 🟡 -4 |
+| 4 | Proposals sent | 3 | 1 | 🟡 -2 |
 | 5 | Deals closed | 1 | 0 | 🔴 -1 |
 | 6 | Revenue generated | Rp 5.000.000 | Rp 0 | 🔴 |
 
@@ -1141,6 +1151,108 @@ Subject: 🏥 Inovasi Digital dari RS Payangan untuk RS Ngoerah
 ```
 To: [rs_dwira_email]
 Subject: 🏥 Solusi SIMRS untuk RS Dwira - Dari Tetangga Gianyar
+```
+
+---
+
+### Email Template 6: RS Puri Raharja (Tourist Area - NEW)
+
+```
+SUBJECT: 🏥 Solusi Digital untuk RS Puri Raharja - Antrean Pasien Lebih Efisien
+
+---
+
+Kepada Yth.
+Bapak/Ibu Pihak Manajemen
+RS Puri Raharja, Kuta, Bali
+
+Dengan hormat,
+
+RS Puri Raharja adalah salah satu RS swasta terkemuka di area
+Kuta yang melayani banyak wisatawan mancanegara dan domestik.
+
+RS Payangan Hospital, RS pemerintah daerah di Gianyar,
+memahami tantangan pelayanan kesehatan di Bali. Kami mengembangkan
+**sistem SIMRS modern** yang bisa membantu RS Puri Raharja:
+
+**Fitur untuk RS Puri Raharja:**
+
+1. **Multi-language Support**
+   - Sistem bisa support bahasa Inggris
+   - Cocok untuk pasien tourist
+
+2. **Sistem Antrean Digital**
+   - Display TV antrean otomatis
+   - WhatsApp notification
+   - Estimasi waktu tunggu
+
+3. **Manajemen Pasien Terintegrasi**
+   - Rekam medis digital
+   - Koneksi asuransi internasional
+   - Billing otomatis
+
+4. **Dashboard Real-time**
+   - Occupancy rate
+   - Statistik harian
+   - Laporan bulanan
+
+**Keunggulan Kami:**
+- Harga: mulai Rp 5.000.000
+- Implementasi: 2-4 minggu
+- Support Bahasa Inggris
+- Demo GRATIS
+
+Apakah RS Puri Raharja tertarik untuk diskusi singkat?
+
+Salam,
+Dr. I Made Purna Ananda
+RS Payangan Hospital - Gianyar
+📞 (0361) 472008 | 📱 +62 812 3456 7890
+```
+
+---
+
+### Email Template 7: Klinik Pratama Gianyar (Starter Package)
+
+```
+SUBJECT: 💊 Sistem Antrean Digital untuk Klinik Pratama Gianyar
+
+---
+
+Kepada Yth.
+Bapak/Ibu Pengelola Klinik
+Klinik Pratama Gianyar
+
+Dengan hormat,
+
+Kami dari RS Payangan Hospital Gianyar ingin menawarkan
+**Solusi Digital untuk Klinik Pratama Gianyar**.
+
+Sebagai sesama fasilitas kesehatan di Gianyar, kami paham
+kebutuhan klinik pratama yang efisien dan terjangkau.
+
+**PAKET STARTER KHUSUS KLINIK:**
+
+💰 **Harga: Rp 2.500.000**
+   ✅ Sistem Antrean Digital
+   ✅ Display Nomor Antrean
+   ✅ Pencatatan Pasien
+   ✅ Laporan Harian
+   ✅ Training included
+   ✅ Support 6 bulan
+
+**Keunggulan:**
+- Harga terjangkau untuk klinik kecil
+- Mudah digunakan
+- Setup dalam 1 minggu
+- Bisa upgrade ke paket lebih besar
+
+Apakah Klinik Pratama Gianyar tertarik?
+
+Salam,
+Dr. I Made Purna Ananda
+RS Payangan Hospital
+📞 (0361) 472008 | 📱 +62 812 3456 7890
 ```
 
 ---
