@@ -609,17 +609,23 @@
             position: relative;
             height: 280px;
             overflow: hidden;
+            background: linear-gradient(135deg, var(--primary-50) 0%, var(--bg-light) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .doctor-card-image img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: contain;
+            object-position: center center;
+            padding: 15px;
             transition: transform var(--transition-slow);
         }
 
         .doctor-card:hover .doctor-card-image img {
-            transform: scale(1.1);
+            transform: scale(1.05);
         }
 
         .doctor-card-badge {
