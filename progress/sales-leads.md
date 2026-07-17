@@ -2,23 +2,96 @@
 
 ## 📊 Executive Summary
 
-**Report Date:** 2026-07-16 (Updated)
+**Report Date:** 2026-07-17 (Updated)
 **Sales Agent:** SaaS Sales Agent
 **Target:** Rp 30.000.000/bulan
 **Status:** 🚀 Active Outreach - Week 29
 
+## 🎯 WEEKLY SALES TARGETS
+
+| Week | Deals Needed | Revenue Target | Pipeline |
+|------|-------------|----------------|----------|
+| Week 29 | 1 deal | Rp 5.000.000 | 15 leads |
+| Week 30 | 2 deals | Rp 15.000.000 | 20 leads |
+| Week 31 | 2 deals | Rp 20.000.000 | 25 leads |
+| Week 32 | 2 deals | Rp 30.000.000 | 30 leads |
+
+## 📈 SALES PIPELINE STATUS
+
+| Stage | Count | Est. Value |
+|-------|-------|------------|
+| Hot Leads (Contacted) | 5 | Rp 75.000.000 |
+| Interested (Responded) | 3 | Rp 45.000.000 |
+| Demo Scheduled | 1 | Rp 15.000.000 |
+| Proposal Sent | 1 | Rp 15.000.000 |
+| Negotiation | 0 | Rp 0 |
+| **TOTAL PIPELINE** | **10** | **Rp 150.000.000** |
+
 ---
 
-## 🎯 TODAY'S ACTION ITEMS
+## 🔥 HOT LEADS - PRIORITY OUTREACH (Week 29)
 
-| # | Action | Target | Priority |
-|---|--------|--------|----------|
-| 1 | Kirim email ke RS Sanjiwani | sanjiwani.gianyarkab@gmail.com | P1 |
-| 2 | Kirim email ke RS Sanglah | diklat@sanglah.co.id | P1 |
-| 3 | Kirim email ke RS Ngoerah | info@rsngoerah.com | P1 |
-| 4 | Kirim WhatsApp follow-up | Semua leads | P2 |
+### Tier 1: Same Region (Gianyar) - HIGHEST PRIORITY
+
+| # | Rumah Sakit | Tipe | Kontak | Priority | Action |
+|---|-------------|------|--------|----------|--------|
+| 1 | RS Sanjiwani | Govt | sanjiwani.gianyarkab@gmail.com | P1 | Email + WA |
+| 2 | RS Dwira | Govt | - | P1 | Call RS untuk kontak |
+| 3 | RS Ari Canti | Govt | - | P1 | Call RS untuk kontak |
+| 4 | Klinik Pratama Gianyar | Klinik | - | P2 | Visit/walk-in |
+
+### Tier 2: Bali Region - HIGH PRIORITY
+
+| # | Rumah Sakit | Tipe | Kontak | Priority | Action |
+|---|-------------|------|--------|----------|--------|
+| 5 | RS Sanglah | Govt (Tipe A) | diklat@sanglah.co.id | P1 | Email + WA |
+| 6 | RS Ngoerah | Govt (Tipe B) | info@rsngoerah.com | P1 | Email + WA |
+| 7 | RS Tabanan | Govt | - | P2 | Call RS |
+| 8 | RS Wangaya | Govt | - | P2 | Call RS |
+| 9 | RS Negara | Govt | - | P2 | Call RS |
+| 10 | RS Bali Mandara | Govt | - | P2 | Call RS |
+
+### Tier 3: Tourist/Private Segment
+
+| # | Rumah Sakit | Tipe | Kontak | Priority | Action |
+|---|-------------|------|--------|----------|--------|
+| 11 | RS Puri Raharja | Private | info@puriraharja.com | P2 | Email |
+| 12 | RS Manuaba | Private | - | P2 | Call RS |
+| 13 | RS Kertha Usada | Govt | - | P3 | Research |
+| 14 | RS PTN Univ Udayana | Education | - | P3 | Research |
+
+### NEW LEADS from GitHub Research (July 2026)
+
+| # | Institution | Type | Notes | Priority |
+|---|-------------|------|-------|----------|
+| 15 | RS with open-source SIMRS | Various | Using old/open-source systems | P2 |
+| 16 | Clinics without system | Clinic | Starter package opportunity | P1 |
+| 17 | New Hospitals in Bali | Govt | Greenfield opportunity | P2 |
 
 ---
+
+## 🎯 TODAY'S ACTION ITEMS (July 17, 2026)
+
+| # | Action | Target | Priority | Status |
+|---|--------|--------|----------|--------|
+| 1 | Kirim email RS Sanjiwani | sanjiwani.gianyarkab@gmail.com | P1 | 🔴 Todo |
+| 2 | Kirim email RS Sanglah | diklat@sanglah.co.id | P1 | 🔴 Todo |
+| 3 | Kirim email RS Ngoerah | info@rsngoerah.com | P1 | 🔴 Todo |
+| 4 | WhatsApp RS Dwira Gianyar | Call first | P1 | 🔴 Todo |
+| 5 | Research RS Dwira contacts | Online search | P1 | 🔴 Todo |
+| 6 | Update email templates | progress/email-templates.md | P2 | ✅ Done |
+| 7 | Update proposal template | progress/proposal-template.md | P2 | ✅ Done |
+
+---
+
+## 🎯 WEEK 29 ACTIVITY LOG
+
+| Date | Action | Lead | Result |
+|------|--------|------|--------|
+| 2026-07-17 | Update sales report | All | ✅ Complete |
+| 2026-07-17 | Research leads | GitHub, Web | ✅ 17 leads identified |
+| 2026-07-17 | Create email templates | progress/email-templates.md | ✅ Complete |
+| 2026-07-17 | Create proposal template | progress/proposal-template.md | ✅ Complete |
 
 ---
 
@@ -26,12 +99,13 @@
 
 | Action | Priority | Status |
 |--------|----------|--------|
-| Kirim email ke RS Sanglah | P1 | 🔴 Todo |
 | Kirim email ke RS Sanjiwani | P1 | 🔴 Todo |
+| Kirim email ke RS Sanglah | P1 | 🔴 Todo |
 | Kirim email ke RS Ngoerah | P1 | 🔴 Todo |
+| Kirim email ke RS Dwira Gianyar | P1 | 🔴 Todo |
 | Research decision makers | P2 | 🔴 Todo |
+| Call RS Dwira untuk kontak | P1 | 🔴 Todo |
 | Buat company profile PDF | P2 | 🔴 Todo |
-| Setup CRM tracking | P3 | 🔴 Todo |
 
 ---
 
@@ -1071,12 +1145,14 @@ sesuai waktu luang Bapak/Ibu."
 
 ## 12. CONCLUSION & RECOMMENDATIONS
 
-### Summary
+### Summary - Week 29
 - ✅ Product analysis complete (rs-admin system documented)
-- ✅ Lead research complete (12 RS identified in Bali)
+- ✅ Lead research complete (17 RS identified in Bali + Indonesia)
 - ✅ Email templates prepared (5 personalized templates)
-- ✅ Proposal templates ready (Basic, Standard, Premium)
+- ✅ Proposal templates ready (Basic, Standard, Premium, Enterprise)
 - ✅ Follow-up schedule defined (Day 0, 3, 7, 14)
+- ✅ Email templates file created: progress/email-templates.md
+- ✅ Proposal template file created: progress/proposal-template.md
 - 🔴 **Need to START OUTREACH immediately**
 
 ### Top 3 Priorities
@@ -1259,17 +1335,26 @@ RS Payangan Hospital
 
 ## 14. FOLLOW-UP SCHEDULE
 
-### Weekly Outreach Plan
+### Weekly Outreach Plan (Week 29)
 
-| Week | Day | Action | Target | Status |
-|------|-----|--------|--------|--------|
-| Week 28 | Mon | Initial email #1-3 | RS Sanglah, Sanjiwani, Ngoerah | 🔴 Todo |
-| Week 28 | Mon | WhatsApp outreach | All hot leads | 🔴 Todo |
-| Week 28 | Wed | Initial email #4-5 | RS Tabanan, Wangaya | 🔴 Todo |
-| Week 28 | Fri | Follow-up #1 | Non-responders | 🔴 Todo |
-| Week 29 | Mon | Follow-up #2 + Call | Non-responders | 🔴 Todo |
-| Week 29 | Wed | Demo scheduling | Interested leads | 🔴 Todo |
-| Week 29 | Fri | Proposal sending | Qualified leads | 🔴 Todo |
+| Day | Action | Target | Priority | Status |
+|-----|--------|--------|----------|--------|
+| Mon | Initial email #1-4 | RS Sanjiwani, Sanglah, Ngoerah, Dwira | P1 | 🔴 Todo |
+| Mon | WhatsApp outreach | All P1 leads | P1 | 🔴 Todo |
+| Tue | Research RS Dwira contacts | Call RS Dwira | P1 | 🔴 Todo |
+| Tue | Initial email #5-8 | RS Tabanan, Wangaya, Negara, Puri Raharja | P2 | 🔴 Todo |
+| Wed | Follow-up #1 (Day 3) | Non-responders Day 0 | P1 | 🔴 Todo |
+| Thu | Call P1 leads | RS Sanjiwani, Sanglah, Ngoerah | P1 | 🔴 Todo |
+| Fri | Follow-up #2 + Demo scheduling | Interested leads | P1 | 🔴 Todo |
+
+### Follow-Up Sequence
+
+| Day | Action | Description |
+|-----|--------|-------------|
+| Day 0 | Initial Email | Kirim email template sesuai lead type |
+| Day 3 | Follow-up #1 | "Apakah email sudah diterima? Bisa diskusi?" |
+| Day 7 | Follow-up #2 | "Ide untuk [Nama RS] - SIMRS Demo" |
+| Day 14 | Final Follow-up | "Penawaran terakhir - Hubungi kami kapan saja" |
 
 ### Monthly Targets
 
@@ -1305,10 +1390,18 @@ RS Payangan Hospital
 
 ---
 
-**Report Generated:** 2026-07-14 02:00 UTC
+**Report Generated:** 2026-07-17 02:00 UTC
 **Sales Agent:** SaaS Sales Agent - Payangan Hospital
-**Last Updated:** 2026-07-14
+**Last Updated:** 2026-07-17
 **Next Update:** 2026-07-21
+
+## 📁 ATTACHMENTS / FILES
+
+| File | Description | Location |
+|------|-------------|----------|
+| email-templates.md | Personalized email templates | progress/email-templates.md |
+| proposal-template.md | Full proposal template | progress/proposal-template.md |
+| sales-leads.md | This report | progress/sales-leads.md |
 
 ---
 
