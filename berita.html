@@ -37,17 +37,16 @@
         body { font-family: 'Montserrat', sans-serif; font-weight: 300; background: var(--bg-white); color: var(--text-dark); line-height: 1.7; overflow-x: hidden; }
         h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; font-weight: 500; line-height: 1.2; }
         .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
-        
+      
         /* Navigation */
         .navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 20px 0; transition: all 0.4s ease; }
         .navbar.scrolled { background: rgba(255,255,255,0.98); backdrop-filter: blur(20px); box-shadow: 0 1px 20px rgba(0,0,0,0.05); padding: 14px 0; }
         .nav-container { display: flex; justify-content: space-between; align-items: center; max-width: 1280px; margin: 0 auto; padding: 0 24px; }
         .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
-        .logo img { width: 50px; height: auto; transition: transform 0.3s ease; }
-        .logo img:hover { transform: scale(1.05); }
+        .logo img { width: 50px; height: auto; }
         .logo-text { display: flex; flex-direction: column; }
-        .logo-text-main { font-size: 1.2rem; font-weight: 600; color: white; transition: color 0.4s; }
-        .logo-text-sub { font-size: 0.6rem; color: rgba(255,255,255,0.7); font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.4s; }
+        .logo-text-main { font-size: 1.2rem; font-weight: 600; color: white;  }
+        .logo-text-sub { font-size: 0.6rem; color: rgba(255,255,255,0.7); font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase;  }
         .navbar.scrolled .logo-text-main { color: var(--text-dark); }
         .navbar.scrolled .logo-text-sub { color: var(--text-muted); }
         .nav-links { display: flex; gap: 6px; list-style: none; }
@@ -62,20 +61,20 @@
         .mobile-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 10px; }
         .mobile-toggle span { width: 25px; height: 2px; background: white; transition: 0.3s; }
         .navbar.scrolled .mobile-toggle span { background: var(--text-dark); }
-        
+      
         .mobile-menu { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(180deg, var(--primary-dark) 0%, var(--primary) 100%); z-index: 999; padding: 100px 40px; transform: translateX(100%); transition: transform 0.4s; }
         .mobile-menu.active { transform: translateX(0); }
         .mobile-menu ul { list-style: none; }
         .mobile-menu li { margin-bottom: 8px; }
         .mobile-menu a { color: white; font-size: 1.1rem; padding: 14px 0; display: block; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.1); }
         .mobile-menu a:hover { color: var(--secondary); }
-        
+      
         @media (max-width: 768px) {
             .nav-links { display: none; }
             .mobile-toggle { display: flex; }
             .mobile-menu { display: block; }
         }
-        
+      
         /* Page Header */
         .page-header { padding: 160px 0 80px; background: linear-gradient(135deg, var(--bg-cream) 0%, var(--bg-white) 100%); text-align: center; position: relative; overflow: hidden; }
         .page-header::before { content: ''; position: absolute; top: -50%; right: -10%; width: 60%; height: 150%; background: radial-gradient(circle, rgba(13, 115, 119, 0.05) 0%, transparent 70%); }
@@ -87,7 +86,7 @@
         .breadcrumb a { color: var(--text-muted); text-decoration: none; }
         .breadcrumb a:hover { color: var(--primary); }
         .breadcrumb span { color: var(--secondary); }
-        
+      
         /* Featured Post */
         .featured-section { padding: 0 0 60px; }
         .featured-post { display: grid; grid-template-columns: 1.2fr 1fr; gap: 50px; align-items: center; max-width: 1280px; margin: 0 auto; padding: 0 24px; }
@@ -105,29 +104,29 @@
         .featured-excerpt { font-size: 1.05rem; color: var(--text-muted); margin-bottom: 24px; line-height: 1.8; }
         .read-more { display: inline-flex; align-items: center; gap: 8px; padding: 14px 28px; background: var(--gradient-teal); color: white; text-decoration: none; border-radius: 50px; font-weight: 500; transition: all 0.3s; }
         .read-more:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(13, 115, 119, 0.3); }
-        
+      
         @media (max-width: 992px) {
             .featured-post { grid-template-columns: 1fr; gap: 30px; }
             .featured-image { height: 300px; }
         }
-        
+      
         /* Filter Section */
         .filter-section { padding: 40px 0; background: var(--bg-light); border-top: 1px solid rgba(0,0,0,0.05); border-bottom: 1px solid rgba(0,0,0,0.05); }
         .filter-container { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; max-width: 1000px; margin: 0 auto; padding: 0 24px; }
         .filter-btn { padding: 10px 24px; border: 2px solid transparent; background: white; color: var(--text-muted); border-radius: 50px; font-size: 0.9rem; font-weight: 500; cursor: pointer; transition: all 0.3s; }
         .filter-btn:hover, .filter-btn.active { background: var(--primary); color: white; border-color: var(--primary); }
-        
+      
         /* Posts Grid */
         .posts-section { padding: 80px 0; }
         .posts-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; max-width: 1280px; margin: 0 auto; padding: 0 24px; }
-        
+      
         .post-card { background: white; border-radius: 20px; overflow: hidden; box-shadow: var(--shadow-soft); transition: all 0.4s ease; }
         .post-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-hover); }
         .post-image { height: 200px; background: var(--gradient-teal); position: relative; overflow: hidden; }
         .post-image::before { content: ''; position: absolute; inset: 0; background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); }
         .post-image i { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 60px; color: white; opacity: 0.3; }
         .post-date { position: absolute; bottom: 12px; left: 12px; background: white; color: var(--text-dark); padding: 6px 14px; border-radius: 8px; font-size: 0.75rem; font-weight: 600; display: flex; align-items: center; gap: 6px; }
-        
+      
         .post-content { padding: 24px; }
         .post-category { display: inline-block; background: rgba(13, 115, 119, 0.1); color: var(--primary); padding: 4px 12px; border-radius: 50px; font-size: 0.75rem; font-weight: 500; margin-bottom: 12px; }
         .post-content h3 { font-size: 1.2rem; color: var(--text-dark); margin-bottom: 10px; line-height: 1.4; }
@@ -138,14 +137,14 @@
         .post-author { display: flex; align-items: center; gap: 10px; font-size: 0.85rem; color: var(--text-muted); }
         .post-author-avatar { width: 32px; height: 32px; background: var(--gradient-teal); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 0.75rem; font-weight: 600; }
         .post-read-time { font-size: 0.8rem; color: var(--text-muted); display: flex; align-items: center; gap: 6px; }
-        
+      
         /* Health Tips Section */
         .tips-section { padding: 80px 0; background: var(--bg-light); }
         .tips-section .section-header { text-align: center; margin-bottom: 50px; }
         .section-label { display: inline-flex; align-items: center; gap: 10px; background: rgba(13, 115, 119, 0.1); color: var(--primary); padding: 10px 24px; border-radius: 50px; font-size: 0.85rem; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 20px; }
         .section-title { font-size: 2.5rem; color: var(--text-dark); margin-bottom: 16px; }
         .section-title span { color: var(--primary); }
-        
+      
         .tips-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; max-width: 1200px; margin: 0 auto; padding: 0 24px; }
         .tip-card { background: white; border-radius: 16px; padding: 30px; display: flex; gap: 20px; align-items: flex-start; box-shadow: var(--shadow-soft); transition: all 0.3s; }
         .tip-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-hover); }
@@ -153,7 +152,7 @@
         .tip-icon i { font-size: 24px; color: white; }
         .tip-content h4 { font-size: 1.1rem; color: var(--text-dark); margin-bottom: 8px; }
         .tip-content p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.6; }
-        
+      
         /* Newsletter Section */
         .newsletter-section { padding: 80px 0; background: var(--gradient-teal); position: relative; overflow: hidden; }
         .newsletter-section::before { content: ''; position: absolute; inset: 0; background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); }
@@ -164,7 +163,7 @@
         .newsletter-form input { flex: 1; padding: 16px 24px; border: none; border-radius: 50px; font-size: 1rem; outline: none; }
         .newsletter-form button { padding: 16px 32px; background: var(--secondary); color: var(--text-dark); border: none; border-radius: 50px; font-weight: 600; cursor: pointer; transition: all 0.3s; white-space: nowrap; }
         .newsletter-form button:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(244,196,48,0.3); }
-        
+      
         @media (max-width: 768px) {
             .page-header h1 { font-size: 2.5rem; }
             .section-title { font-size: 2rem; }
@@ -173,7 +172,7 @@
             .newsletter-form { flex-direction: column; }
             .featured-meta { flex-wrap: wrap; gap: 10px; }
         }
-        
+      
         /* Footer */
         footer { background: var(--text-dark); color: white; padding: 80px 0 30px; }
         .footer-grid { display: grid; grid-template-columns: 2fr repeat(3, 1fr); gap: 60px; max-width: 1280px; margin: 0 auto; padding: 0 24px; }
@@ -191,7 +190,7 @@
         .footer-col a:hover { color: var(--secondary); padding-left: 5px; }
         .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); margin-top: 60px; padding-top: 30px; text-align: center; }
         .footer-bottom p { color: rgba(255,255,255,0.5); font-size: 0.85rem; }
-        
+      
         @media (max-width: 992px) {
             .footer-grid { grid-template-columns: repeat(2, 1fr); gap: 40px; }
             .footer-about { grid-column: span 2; }
@@ -200,7 +199,7 @@
             .footer-grid { grid-template-columns: 1fr; }
             .footer-about { grid-column: span 1; }
         }
-        
+      
         /* Animations */
         .fade-in { opacity: 0; transform: translateY(30px); transition: all 0.6s ease; }
         .fade-in.visible { opacity: 1; transform: translateY(0); }
@@ -231,7 +230,7 @@
             </div>
         </div>
     </nav>
-    
+  
     <!-- Mobile Menu -->
     <div class="mobile-menu" id="mobileMenu">
         <ul>
@@ -313,7 +312,7 @@
                     </div>
                 </div>
             </article>
-            
+          
             <article class="post-card fade-in">
                 <div class="post-image">
                     <i class="fas fa-heart"></i>
@@ -332,7 +331,7 @@
                     </div>
                 </div>
             </article>
-            
+          
             <article class="post-card fade-in">
                 <div class="post-image">
                     <i class="fas fa-baby"></i>
@@ -351,7 +350,7 @@
                     </div>
                 </div>
             </article>
-            
+          
             <article class="post-card fade-in">
                 <div class="post-image">
                     <i class="fas fa-calendar-check"></i>
@@ -370,7 +369,7 @@
                     </div>
                 </div>
             </article>
-            
+          
             <article class="post-card fade-in">
                 <div class="post-image">
                     <i class="fas fa-running"></i>
@@ -389,7 +388,7 @@
                     </div>
                 </div>
             </article>
-            
+          
             <article class="post-card fade-in">
                 <div class="post-image">
                     <i class="fas fa-users"></i>
@@ -418,7 +417,7 @@
                 <p class="section-label-premium section-label"><i class="fas fa-lightbulb"></i> Tips Kesehatan</p>
                 <h2 class="section-title-premium section-title">Jaga Kesehatan <span>Setiap Hari</span></h2>
             </div>
-            
+          
             <div class="tips-grid">
                 <div class="tip-card fade-in">
                     <div class="tip-icon">
@@ -429,7 +428,7 @@
                         <p>Minimal 5 porsi sayuran dan buah setiap hari untuk menjaga daya tahan tubuh.</p>
                     </div>
                 </div>
-                
+              
                 <div class="tip-card fade-in">
                     <div class="tip-icon">
                         <i class="fas fa-walking"></i>
@@ -439,7 +438,7 @@
                         <p>Lakukan olahraga minimal 30 menit setiap hari untuk kesehatan jantung.</p>
                     </div>
                 </div>
-                
+              
                 <div class="tip-card fade-in">
                     <div class="tip-icon">
                         <i class="fas fa-moon"></i>
@@ -449,7 +448,7 @@
                         <p>Minimal 7-8 jam tidur setiap malam untuk pemulihan tubuh optimal.</p>
                     </div>
                 </div>
-                
+              
                 <div class="tip-card fade-in">
                     <div class="tip-icon">
                         <i class="fas fa-tint"></i>
@@ -459,7 +458,7 @@
                         <p>Konsumsi minimal 8 gelas air putih setiap hari untuk hidrasi tubuh.</p>
                     </div>
                 </div>
-                
+              
                 <div class="tip-card fade-in">
                     <div class="tip-icon">
                         <i class="fas fa-heartbeat"></i>
@@ -469,7 +468,7 @@
                         <p>Lakukan medical check-up rutin setiap tahun untuk deteksi dini penyakit.</p>
                     </div>
                 </div>
-                
+              
                 <div class="tip-card fade-in">
                     <div class="tip-icon">
                         <i class="fas fa-smile"></i>

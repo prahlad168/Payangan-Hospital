@@ -33,7 +33,7 @@
             color: white;
         }
         .container { max-width: 1400px; margin: 0 auto; padding: 20px; }
-        
+      
         /* Header */
         .header {
             text-align: center;
@@ -85,7 +85,7 @@
             0%, 100% { opacity: 1; transform: scale(1); }
             50% { opacity: 0.5; transform: scale(1.2); }
         }
-        
+      
         /* Main Queue Display */
         .main-display {
             background: white;
@@ -130,7 +130,7 @@
             font-size: 1.5rem;
             font-weight: 700;
         }
-        
+      
         /* Poli Grid */
         .poli-grid {
             display: grid;
@@ -185,7 +185,7 @@
         .poli-stat .value.done {
             color: #28a745;
         }
-        
+      
         /* Emergency Queue */
         .emergency-card {
             background: linear-gradient(135deg, var(--emergency) 0%, #c82333 100%);
@@ -241,7 +241,7 @@
             font-weight: 900;
             line-height: 1;
         }
-        
+      
         /* Footer Info */
         .footer-info {
             background: rgba(255,255,255,0.1);
@@ -259,7 +259,7 @@
             color: var(--secondary);
             font-weight: 600;
         }
-        
+      
         /* Bed Availability */
         .bed-section {
             margin-top: 30px;
@@ -338,7 +338,7 @@
             font-size: 0.85rem;
             margin-top: 4px;
         }
-        
+      
         /* Responsive */
         @media (max-width: 1200px) {
             .poli-grid { grid-template-columns: repeat(3, 1fr) !important; }
@@ -354,7 +354,7 @@
             .emergency-card { flex-direction: column; text-align: center; }
             .emergency-left { flex-direction: column; }
         }
-        
+      
         /* Auto refresh animation */
         .refreshing {
             animation: flash 0.5s;
@@ -598,7 +598,7 @@
                         <div class="bed-count" id="totalBed" style="font-size: 5rem;">100</div>
                         <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 8px;">Tempat Tidur</p>
                     </div>
-                    
+                  
                     <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
                         <!-- KELAS I -->
                         <div class="bed-class-card" style="background: white; border-radius: 20px; padding: 30px 20px; text-align: center; box-shadow: 0 10px 40px rgba(0,0,0,0.1);">
@@ -621,7 +621,7 @@
                                 <span id="bedKelas1Total" style="color: var(--text-dark); font-weight: 700;">20</span>
                             </div>
                         </div>
-                        
+                      
                         <!-- KELAS II -->
                         <div class="bed-class-card" style="background: white; border-radius: 20px; padding: 30px 20px; text-align: center; box-shadow: 0 10px 40px rgba(0,0,0,0.1);">
                             <div style="width: 50px; height: 50px; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin: 0 auto 12px;">
@@ -643,7 +643,7 @@
                                 <span id="bedKelas2Total" style="color: var(--text-dark); font-weight: 700;">25</span>
                             </div>
                         </div>
-                        
+                      
                         <!-- KELAS III -->
                         <div class="bed-class-card" style="background: white; border-radius: 20px; padding: 30px 20px; text-align: center; box-shadow: 0 10px 40px rgba(0,0,0,0.1);">
                             <div style="width: 50px; height: 50px; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin: 0 auto 12px;">
@@ -693,46 +693,46 @@
         function getRandomInt(min, max) {
             return Math.floor(Math.random() * (max - min + 1)) + min;
         }
-        
+      
         function updateQueues() {
             // Add flash animation
             document.querySelector('.main-display').classList.add('refreshing');
-            
+          
             // Update main queue number (simulated)
             const mainQueue = 'A-' + String(getRandomInt(40, 50)).padStart(3, '0');
             document.getElementById('mainQueue').textContent = mainQueue;
-            
+          
             // Update poli queues (simulated)
             const polies = ['Umum', 'Saraf', 'Anak', 'Kandungan', 'THT', 'Gigi', 'PenyakitDalam', 'Bedah', 'Ortho', 'Jantung', 'Kestrad'];
             polies.forEach(poli => {
                 const now = String(getRandomInt(1, 20)).padStart(3, '0');
                 const wait = getRandomInt(1, 10);
                 const done = getRandomInt(5, 50);
-                
+              
                 document.getElementById('poli' + poli + 'Now').textContent = now;
                 document.getElementById('poli' + poli + 'Wait').textContent = wait;
                 document.getElementById('poli' + poli + 'Done').textContent = done;
             });
-            
+          
             // Update emergency queue
             document.getElementById('emergencyQueue').textContent = getRandomInt(0, 3);
-            
+          
 
             // Update bed availability (simulated)
             const bedKelas1Total = 20;
             const bedKelas2Total = 25;
             const bedKelas3Total = 55;
-            
+          
             const bedKelas1Tersedia = getRandomInt(8, 18);
             const bedKelas2Tersedia = getRandomInt(5, 20);
             const bedKelas3Tersedia = getRandomInt(15, 45);
-            
+          
             const bedKelas1Terpakai = bedKelas1Total - bedKelas1Tersedia;
             const bedKelas2Terpakai = bedKelas2Total - bedKelas2Tersedia;
             const bedKelas3Terpakai = bedKelas3Total - bedKelas3Tersedia;
-            
+          
             const totalBed = bedKelas1Tersedia + bedKelas2Tersedia + bedKelas3Tersedia;
-            
+          
             // Update DOM
             document.getElementById('bedKelas1Tersedia').textContent = bedKelas1Tersedia;
             document.getElementById('bedKelas1Terpakai').textContent = bedKelas1Terpakai;
@@ -749,13 +749,13 @@
                 document.querySelector('.main-display').classList.remove('refreshing');
             }, 500);
         }
-        
+      
         // Initial update
         updateQueues();
-        
+      
         // Auto refresh every 30 seconds
         setInterval(updateQueues, 30000);
-        
+      
         // Full page refresh every 5 minutes (to ensure sync with server)
         setTimeout(() => {
             location.reload();

@@ -28,7 +28,7 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
         body { font-family: 'Montserrat', sans-serif; font-weight: 300; background: var(--bg-white); color: var(--text-dark); line-height: 1.7; overflow-x: hidden; min-height: 100vh; display: flex; flex-direction: column; }
-        
+      
         /* Navigation */
         .navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 20px 0; transition: all 0.4s ease; background: white; box-shadow: 0 1px 20px rgba(0,0,0,0.05); }
         .nav-container { display: flex; justify-content: space-between; align-items: center; max-width: 1280px; margin: 0 auto; padding: 0 24px; }
@@ -44,36 +44,36 @@
         .nav-emergency { background: #dc3545 !important; color: white !important; }
         .mobile-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 10px; }
         .mobile-toggle span { width: 25px; height: 2px; background: var(--text-dark); }
-        
+      
         .mobile-menu { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(180deg, var(--primary-dark) 0%, var(--primary) 100%); z-index: 999; padding: 100px 40px; transform: translateX(100%); transition: transform 0.4s; }
         .mobile-menu.active { transform: translateX(0); }
         .mobile-menu ul { list-style: none; }
         .mobile-menu li { margin-bottom: 8px; }
         .mobile-menu a { color: white; font-size: 1.1rem; padding: 14px 0; display: block; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.1); }
         .mobile-menu a:hover { color: var(--secondary); }
-        
+      
         @media (max-width: 768px) {
             .nav-links { display: none; }
             .mobile-toggle { display: flex; }
             .mobile-menu { display: block; }
         }
-        
+      
         /* 404 Content */
         .error-page { flex: 1; display: flex; align-items: center; justify-content: center; padding: 120px 24px 80px; background: linear-gradient(135deg, var(--bg-cream) 0%, var(--bg-white) 100%); position: relative; overflow: hidden; }
         .error-page::before { content: ''; position: absolute; top: -50%; right: -20%; width: 80%; height: 150%; background: radial-gradient(circle, rgba(13, 115, 119, 0.03) 0%, transparent 70%); }
-        
+      
         .error-content { text-align: center; max-width: 600px; position: relative; z-index: 1; }
-        
+      
         .error-illustration { margin-bottom: 40px; }
         .error-number { font-size: 12rem; font-weight: 800; line-height: 1; background: var(--gradient-teal); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 20px; position: relative; }
         .error-number::after { content: '404'; position: absolute; top: 0; left: 50%; transform: translateX(-50%); font-size: 12rem; font-weight: 800; background: var(--gradient-teal); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; opacity: 0.2; z-index: -1; }
-        
+      
         .error-icon { width: 150px; height: 150px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 30px; box-shadow: 0 20px 60px rgba(13, 115, 119, 0.15); }
         .error-icon i { font-size: 60px; color: var(--primary); }
-        
+      
         .error-title { font-size: 2rem; color: var(--text-dark); margin-bottom: 16px; }
         .error-description { font-size: 1.1rem; color: var(--text-muted); margin-bottom: 40px; line-height: 1.8; }
-        
+      
         /* Quick Links */
         .quick-links { background: white; border-radius: 20px; padding: 30px; margin-bottom: 40px; box-shadow: 0 10px 40px rgba(0,0,0,0.05); }
         .quick-links h3 { font-size: 1.1rem; color: var(--text-dark); margin-bottom: 20px; }
@@ -81,11 +81,11 @@
         .quick-link { display: flex; align-items: center; gap: 12px; padding: 14px 18px; background: var(--bg-light); border-radius: 12px; text-decoration: none; color: var(--text-dark); font-size: 0.9rem; transition: all 0.3s; }
         .quick-link:hover { background: var(--primary); color: white; transform: translateX(5px); }
         .quick-link i { font-size: 16px; width: 20px; text-align: center; }
-        
+      
         @media (max-width: 480px) {
             .quick-links-grid { grid-template-columns: 1fr; }
         }
-        
+      
         /* Buttons */
         .error-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
         .btn { padding: 16px 32px; border-radius: 50px; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 10px; transition: all 0.3s; font-size: 1rem; }
@@ -93,7 +93,7 @@
         .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(13, 115, 119, 0.3); }
         .btn-secondary { background: var(--bg-light); color: var(--text-dark); }
         .btn-secondary:hover { transform: translateY(-3px); background: var(--text-dark); color: white; }
-        
+      
         /* Search Box */
         .search-section { margin-top: 40px; }
         .search-box { display: flex; gap: 12px; max-width: 400px; margin: 0 auto; }
@@ -101,7 +101,7 @@
         .search-box input:focus { border-color: var(--primary); }
         .search-box button { padding: 14px 24px; background: var(--gradient-teal); color: white; border: none; border-radius: 50px; cursor: pointer; transition: all 0.3s; }
         .search-box button:hover { transform: translateY(-2px); }
-        
+      
         @media (max-width: 480px) {
             .search-box { flex-direction: column; }
             .error-number { font-size: 8rem; }
@@ -110,7 +110,7 @@
             .error-icon i { font-size: 48px; }
             .error-title { font-size: 1.6rem; }
         }
-        
+      
         /* Footer */
         footer { background: var(--text-dark); color: white; padding: 60px 0 30px; margin-top: auto; }
         .footer-grid { display: grid; grid-template-columns: 2fr repeat(3, 1fr); gap: 60px; max-width: 1280px; margin: 0 auto; padding: 0 24px; }
@@ -128,7 +128,7 @@
         .footer-col a:hover { color: var(--secondary); }
         .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); margin-top: 60px; padding-top: 30px; text-align: center; }
         .footer-bottom p { color: rgba(255,255,255,0.5); font-size: 0.85rem; }
-        
+      
         @media (max-width: 992px) {
             .footer-grid { grid-template-columns: repeat(2, 1fr); gap: 40px; }
             .footer-about { grid-column: span 2; }
@@ -163,7 +163,7 @@
             </div>
         </div>
     </nav>
-    
+  
     <!-- Mobile Menu -->
     <div class="mobile-menu" id="mobileMenu">
         <ul>
@@ -184,13 +184,13 @@
                     <i class="fas fa-search"></i>
                 </div>
             </div>
-            
+          
             <h1 class="error-title">Oops! Halaman Tidak Ditemukan</h1>
             <p class="error-description">
                 Maaf, halaman yang Anda cari tidak ditemukan. 
                 Mungkin telah dipindahkan atau alamat URL yang Anda masukkan salah.
             </p>
-            
+          
             <div class="quick-links">
                 <h3>Navigasi Cepat</h3>
                 <div class="quick-links-grid">
@@ -219,7 +219,7 @@
                     </a>
                 </div>
             </div>
-            
+          
             <div class="error-buttons">
                 <a href="index.html" class="btn btn-primary">
                     <i class="fas fa-home"></i>
@@ -230,7 +230,7 @@
                     Hubungi Kami
                 </a>
             </div>
-            
+          
             <div class="search-section">
                 <form class="search-box" onsubmit="event.preventDefault(); window.location.href='index.html';">
                     <input type="text" placeholder="Cari informasi...">

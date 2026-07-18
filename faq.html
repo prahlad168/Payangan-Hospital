@@ -37,7 +37,7 @@
         body { font-family: 'Montserrat', sans-serif; font-weight: 300; background: var(--bg-white); color: var(--text-dark); line-height: 1.7; overflow-x: hidden; }
         h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; font-weight: 500; line-height: 1.2; }
         .container { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
-        
+      
         /* Navigation */
         .navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 20px 0; transition: all 0.4s ease; }
         .navbar.scrolled { background: rgba(255,255,255,0.98); backdrop-filter: blur(20px); box-shadow: 0 1px 20px rgba(0,0,0,0.05); padding: 14px 0; }
@@ -45,8 +45,8 @@
         .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
         .logo img { width: 50px; height: auto; }
         .logo-text { display: flex; flex-direction: column; }
-        .logo-text-main { font-size: 1.2rem; font-weight: 600; color: white; transition: color 0.4s; }
-        .logo-text-sub { font-size: 0.6rem; color: rgba(255,255,255,0.7); font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.4s; }
+        .logo-text-main { font-size: 1.2rem; font-weight: 600; color: white;  }
+        .logo-text-sub { font-size: 0.6rem; color: rgba(255,255,255,0.7); font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase;  }
         .navbar.scrolled .logo-text-main { color: var(--text-dark); }
         .navbar.scrolled .logo-text-sub { color: var(--text-muted); }
         .nav-links { display: flex; gap: 6px; list-style: none; }
@@ -59,20 +59,20 @@
         .mobile-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 10px; }
         .mobile-toggle span { width: 25px; height: 2px; background: white; transition: 0.3s; }
         .navbar.scrolled .mobile-toggle span { background: var(--text-dark); }
-        
+      
         .mobile-menu { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(180deg, var(--primary-dark) 0%, var(--primary) 100%); z-index: 999; padding: 100px 40px; transform: translateX(100%); transition: transform 0.4s; }
         .mobile-menu.active { transform: translateX(0); }
         .mobile-menu ul { list-style: none; }
         .mobile-menu li { margin-bottom: 8px; }
         .mobile-menu a { color: white; font-size: 1.1rem; padding: 14px 0; display: block; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.1); }
         .mobile-menu a:hover { color: var(--secondary); }
-        
+      
         @media (max-width: 768px) {
             .nav-links { display: none; }
             .mobile-toggle { display: flex; }
             .mobile-menu { display: block; }
         }
-        
+      
         /* Page Header */
         .page-header { padding: 160px 0 80px; background: linear-gradient(135deg, var(--bg-cream) 0%, var(--bg-white) 100%); text-align: center; position: relative; overflow: hidden; }
         .page-header::before { content: ''; position: absolute; top: -50%; right: -10%; width: 60%; height: 150%; background: radial-gradient(circle, rgba(13, 115, 119, 0.05) 0%, transparent 70%); }
@@ -84,7 +84,7 @@
         .breadcrumb a { color: var(--text-muted); text-decoration: none; }
         .breadcrumb a:hover { color: var(--primary); }
         .breadcrumb span { color: var(--secondary); }
-        
+      
         /* Search Section */
         .search-section { padding: 0 0 40px; }
         .search-box { display: flex; gap: 12px; max-width: 600px; margin: 0 auto; }
@@ -92,39 +92,39 @@
         .search-box input:focus { border-color: var(--primary); }
         .search-box button { padding: 16px 28px; background: var(--gradient-teal); color: white; border: none; border-radius: 50px; font-weight: 600; cursor: pointer; transition: all 0.3s; }
         .search-box button:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(13, 115, 119, 0.3); }
-        
+      
         @media (max-width: 768px) {
             .search-box { flex-direction: column; }
         }
-        
+      
         /* FAQ Categories */
         .categories-section { padding: 40px 0; background: var(--bg-light); }
         .categories-grid { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
         .category-btn { padding: 12px 24px; background: white; border: 2px solid transparent; border-radius: 50px; font-size: 0.9rem; font-weight: 500; color: var(--text-muted); cursor: pointer; transition: all 0.3s; display: flex; align-items: center; gap: 8px; }
         .category-btn:hover, .category-btn.active { background: var(--primary); color: white; border-color: var(--primary); }
         .category-btn i { font-size: 16px; }
-        
+      
         /* FAQ Section */
         .faq-section { padding: 60px 0 100px; }
-        
+      
         .faq-category { margin-bottom: 50px; }
         .faq-category-title { font-size: 1.5rem; color: var(--text-dark); margin-bottom: 24px; display: flex; align-items: center; gap: 12px; }
         .faq-category-title i { color: var(--primary); }
-        
+      
         .faq-item { background: white; border-radius: 16px; margin-bottom: 16px; box-shadow: var(--shadow-soft); overflow: hidden; transition: all 0.3s; }
         .faq-item:hover { box-shadow: var(--shadow-hover); }
-        
+      
         .faq-question { padding: 24px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; }
         .faq-question h3 { font-size: 1.05rem; color: var(--text-dark); font-weight: 500; flex: 1; padding-right: 16px; }
         .faq-question .faq-icon { width: 40px; height: 40px; background: var(--bg-light); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: all 0.3s; }
         .faq-question .faq-icon i { color: var(--primary); font-size: 14px; transition: transform 0.3s; }
         .faq-item.active .faq-icon { background: var(--primary); }
         .faq-item.active .faq-icon i { color: white; transform: rotate(180deg); }
-        
+      
         .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.4s ease; }
         .faq-item.active .faq-answer { max-height: 500px; }
         .faq-answer-content { padding: 0 24px 24px; color: var(--text-muted); line-height: 1.8; border-top: 1px solid rgba(0,0,0,0.05); padding-top: 20px; }
-        
+      
         /* Contact CTA */
         .contact-section { padding: 80px 0; background: var(--gradient-teal); position: relative; overflow: hidden; }
         .contact-section::before { content: ''; position: absolute; inset: 0; background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); }
@@ -137,13 +137,13 @@
         .contact-btn-white:hover { transform: translateY(-2px); box-shadow: 0 12px 30px rgba(0,0,0,0.2); }
         .contact-btn-outline { background: transparent; color: white; border: 2px solid rgba(255,255,255,0.3); }
         .contact-btn-outline:hover { background: rgba(255,255,255,0.1); transform: translateY(-2px); }
-        
+      
         @media (max-width: 768px) {
             .page-header h1 { font-size: 2.5rem; }
             .contact-content h2 { font-size: 1.6rem; }
             .contact-buttons { flex-direction: column; }
         }
-        
+      
         /* Footer */
         footer { background: var(--text-dark); color: white; padding: 80px 0 30px; }
         .footer-grid { display: grid; grid-template-columns: 2fr repeat(3, 1fr); gap: 60px; max-width: 1280px; margin: 0 auto; padding: 0 24px; }
@@ -161,7 +161,7 @@
         .footer-col a:hover { color: var(--secondary); }
         .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); margin-top: 60px; padding-top: 30px; text-align: center; }
         .footer-bottom p { color: rgba(255,255,255,0.5); font-size: 0.85rem; }
-        
+      
         @media (max-width: 992px) {
             .footer-grid { grid-template-columns: repeat(2, 1fr); gap: 40px; }
             .footer-about { grid-column: span 2; }
@@ -170,7 +170,7 @@
             .footer-grid { grid-template-columns: 1fr; }
             .footer-about { grid-column: span 1; }
         }
-        
+      
         /* Animations */
         .fade-in { opacity: 0; transform: translateY(30px); transition: all 0.6s ease; }
         .fade-in.visible { opacity: 1; transform: translateY(0); }
@@ -201,7 +201,7 @@
             </div>
         </div>
     </nav>
-    
+  
     <!-- Mobile Menu -->
     <div class="mobile-menu" id="mobileMenu">
         <ul>
@@ -269,7 +269,7 @@
             <!-- Pendaftaran -->
             <div class="faq-category fade-in" data-category="pendaftaran">
                 <h2 class="faq-category-title"><i class="fas fa-clipboard-list"></i> Pendaftaran</h2>
-                
+              
                 <div class="faq-item">
                     <div class="faq-question" onclick="toggleFAQ(this)">
                         <h3>Bagaimana cara mendaftar online di Payangan Hospital?</h3>
@@ -281,7 +281,7 @@
                         </div>
                     </div>
                 </div>
-                
+              
                 <div class="faq-item">
                     <div class="faq-question" onclick="toggleFAQ(this)">
                         <h3>Apakah saya perlu membuat janji temu sebelum datang?</h3>
@@ -293,7 +293,7 @@
                         </div>
                     </div>
                 </div>
-                
+              
                 <div class="faq-item">
                     <div class="faq-question" onclick="toggleFAQ(this)">
                         <h3>Apa saja dokumen yang diperlukan saat pendaftaran?</h3>
@@ -306,11 +306,11 @@
                     </div>
                 </div>
             </div>
-            
+          
             <!-- Jadwal Dokter -->
             <div class="faq-category fade-in" data-category="jadwal">
                 <h2 class="faq-category-title"><i class="fas fa-clock"></i> Jadwal Dokter</h2>
-                
+              
                 <div class="faq-item">
                     <div class="faq-question" onclick="toggleFAQ(this)">
                         <h3>Bagaimana cara melihat jadwal praktik dokter?</h3>
@@ -322,7 +322,7 @@
                         </div>
                     </div>
                 </div>
-                
+              
                 <div class="faq-item">
                     <div class="faq-question" onclick="toggleFAQ(this)">
                         <h3>Apakah Payangan Hospital memiliki dokter spesialis anak?</h3>
@@ -335,11 +335,11 @@
                     </div>
                 </div>
             </div>
-            
+          
             <!-- Kamar Inap -->
             <div class="faq-category fade-in" data-category="kamar">
                 <h2 class="faq-category-title"><i class="fas fa-bed"></i> Kamar Inap</h2>
-                
+              
                 <div class="faq-item">
                     <div class="faq-question" onclick="toggleFAQ(this)">
                         <h3>Apa saja tipe kamar yang tersedia di Payangan Hospital?</h3>
@@ -351,7 +351,7 @@
                         </div>
                     </div>
                 </div>
-                
+              
                 <div class="faq-item">
                     <div class="faq-question" onclick="toggleFAQ(this)">
                         <h3>Bagaimana prosedur rawat inap di Payangan Hospital?</h3>
@@ -364,11 +364,11 @@
                     </div>
                 </div>
             </div>
-            
+          
             <!-- IGD -->
             <div class="faq-category fade-in" data-category="igd">
                 <h2 class="faq-category-title"><i class="fas fa-ambulance"></i> Instalasi Gawat Darurat (IGD)</h2>
-                
+              
                 <div class="faq-item">
                     <div class="faq-question" onclick="toggleFAQ(this)">
                         <h3>Apakah IGD Payangan Hospital buka 24 jam?</h3>
@@ -380,7 +380,7 @@
                         </div>
                     </div>
                 </div>
-                
+              
                 <div class="faq-item">
                     <div class="faq-question" onclick="toggleFAQ(this)">
                         <h3>Bagaimana cara menghubungi layanan ambulans?</h3>
@@ -393,11 +393,11 @@
                     </div>
                 </div>
             </div>
-            
+          
             <!-- BPJS -->
             <div class="faq-category fade-in" data-category="bpjs">
                 <h2 class="faq-category-title"><i class="fas fa-shield-alt"></i> BPJS Kesehatan</h2>
-                
+              
                 <div class="faq-item">
                     <div class="faq-question" onclick="toggleFAQ(this)">
                         <h3>Apakah Payangan Hospital menerima BPJS Kesehatan?</h3>
@@ -409,7 +409,7 @@
                         </div>
                     </div>
                 </div>
-                
+              
                 <div class="faq-item">
                     <div class="faq-question" onclick="toggleFAQ(this)">
                         <h3>Apakah perlu surat rujukan untuk berobat dengan BPJS?</h3>
@@ -509,12 +509,12 @@
         function toggleFAQ(element) {
             const faqItem = element.parentElement;
             const wasActive = faqItem.classList.contains('active');
-            
+          
             // Close all FAQ items
             document.querySelectorAll('.faq-item').forEach(item => {
                 item.classList.remove('active');
             });
-            
+          
             // Toggle current item
             if (!wasActive) {
                 faqItem.classList.add('active');
@@ -526,7 +526,7 @@
             // Update active button
             document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
-            
+          
             // Show/hide categories
             document.querySelectorAll('.faq-category').forEach(cat => {
                 if (category === 'all' || cat.dataset.category === category) {
@@ -541,11 +541,11 @@
         function filterFAQs() {
             const searchText = document.getElementById('searchInput').value.toLowerCase();
             const faqItems = document.querySelectorAll('.faq-item');
-            
+          
             faqItems.forEach(item => {
                 const question = item.querySelector('h3').textContent.toLowerCase();
                 const answer = item.querySelector('.faq-answer-content').textContent.toLowerCase();
-                
+              
                 if (question.includes(searchText) || answer.includes(searchText)) {
                     item.style.display = 'block';
                 } else {

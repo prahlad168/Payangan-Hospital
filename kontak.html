@@ -30,7 +30,7 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Montserrat', sans-serif; font-weight: 300; color: var(--text-dark); line-height: 1.6; }
         .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-        
+      
         /* Navbar */
         .navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 20px 0; transition: all 0.3s; }
         .navbar.scrolled { background: var(--white); box-shadow: 0 2px 20px rgba(0,0,0,0.1); padding: 15px 0; }
@@ -58,7 +58,7 @@
         .mobile-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 10px; }
         .mobile-toggle span { width: 25px; height: 2px; background: var(--white); transition: 0.3s; }
         .navbar.scrolled .mobile-toggle span { background: var(--text-dark); }
-        
+      
         /* Mobile Menu */
         .mobile-menu { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: var(--primary); z-index: 999; padding: 100px 40px; transform: translateX(100%); transition: transform 0.4s; }
         .mobile-menu.active { transform: translateX(0); }
@@ -70,7 +70,7 @@
             .mobile-menu { display: block; }
             .mega-menu { display: none; }
         }
-        
+      
         /* Page Header */
         .page-header { background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%); padding: 160px 0 100px; text-align: center; color: white; position: relative; overflow: hidden; }
         .page-header::before { content: ''; position: absolute; inset: 0; background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); }
@@ -80,13 +80,13 @@
         .breadcrumb { display: flex; justify-content: center; gap: 12px; margin-top: 24px; font-size: 0.9rem; opacity: 0.8; }
         .breadcrumb a { color: white; text-decoration: none; }
         .breadcrumb span { color: var(--secondary); }
-        
+      
         /* Contact Info Section */
         .contact-section { padding: 80px 0; }
         .section-label { display: inline-block; background: rgba(13, 115, 119, 0.1); color: var(--primary); padding: 8px 20px; border-radius: 50px; font-size: 0.85rem; font-weight: 500; margin-bottom: 16px; }
         .section-title { font-family: 'Montserrat', sans-serif; font-size: 2.5rem; color: var(--text-dark); margin-bottom: 16px; text-align: center; }
         .section-desc { text-align: center; color: var(--text-muted); font-size: 1.1rem; max-width: 600px; margin: 0 auto 50px; }
-        
+      
         /* Single Full Width Contact Box */
         .contact-box { background: var(--white); border-radius: 30px; padding: 50px; box-shadow: 0 20px 80px rgba(0,0,0,0.08); }
         .contact-header { text-align: center; margin-bottom: 50px; padding-bottom: 30px; border-bottom: 2px solid var(--bg-light); }
@@ -117,7 +117,7 @@
         .social-link { width: 55px; height: 55px; background: var(--bg-light); border-radius: 16px; display: flex; align-items: center; justify-content: center; color: var(--text-dark); text-decoration: none; transition: all 0.3s; }
         .social-link:hover { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); color: white; transform: translateY(-4px); box-shadow: 0 10px 25px rgba(13, 115, 119, 0.3); }
         .social-link i { font-size: 22px; }
-        
+      
         /* Full Width Map Section */
         .map-section { width: 100%; }
         .map-container { position: relative; width: 100%; }
@@ -137,7 +137,7 @@
         .map-action-btn.primary:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(13, 115, 119, 0.4); }
         .map-action-btn.secondary { background: var(--white); color: var(--text-dark); border: 2px solid #eee; }
         .map-action-btn.secondary:hover { border-color: var(--primary); color: var(--primary); }
-        
+      
         /* Reviews Section */
         .reviews-section { background: var(--bg-light); padding: 80px 0; }
         .reviews-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px; flex-wrap: wrap; gap: 20px; }
@@ -147,7 +147,7 @@
         .rating-stars { color: #FBAD18; font-size: 1.2rem; }
         .rating-stars .empty { color: #ddd; }
         .rating-count { font-size: 0.9rem; color: var(--text-muted); }
-        
+      
         /* Review Cards */
         .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 24px; }
         .review-card { background: var(--white); border-radius: 20px; padding: 30px; box-shadow: 0 10px 40px rgba(0,0,0,0.05); transition: all 0.3s; }
@@ -164,12 +164,12 @@
         .review-action i { font-size: 14px; }
         .review-photos { display: flex; gap: 8px; margin-top: 12px; }
         .review-photo { width: 60px; height: 60px; border-radius: 10px; object-fit: cover; }
-        
+      
         /* Map Reviews Full */
         .map-reviews-full { background: var(--white); border-radius: 20px; padding: 30px; box-shadow: 0 10px 40px rgba(0,0,0,0.05); margin-top: 30px; }
         .map-reviews-full h3 { font-family: 'Montserrat', sans-serif; font-size: 1.5rem; color: var(--text-dark); margin-bottom: 24px; display: flex; align-items: center; gap: 12px; }
         .map-reviews-full h3 i { color: var(--primary); }
-        
+      
         /* Dynamic Reviews Widget */
         .reviews-grid-dynamic { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
         .review-card-dynamic { background: var(--bg-light); border-radius: 16px; padding: 24px; transition: all 0.3s; border: 1px solid transparent; }
@@ -184,14 +184,14 @@
         @keyframes pulse-dot { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.6; transform: scale(1.2); } }
         .review-source { display: flex; align-items: center; gap: 6px; font-size: 0.75rem; color: var(--text-muted); margin-top: 12px; padding-top: 12px; border-top: 1px solid rgba(0,0,0,0.05); }
         .review-source i { color: #4285F4; }
-        
+      
         /* CTA Section */
         .cta-section { background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%); padding: 80px 0; text-align: center; color: white; }
         .cta-section h2 { font-family: 'Montserrat', sans-serif; font-size: 2.5rem; margin-bottom: 16px; }
         .cta-section p { font-size: 1.1rem; opacity: 0.9; margin-bottom: 32px; max-width: 500px; margin-left: auto; margin-right: auto; }
         .cta-btn { display: inline-flex; align-items: center; gap: 10px; background: white; color: var(--primary); padding: 16px 36px; border-radius: 50px; font-weight: 600; text-decoration: none; transition: all 0.3s; font-size: 1rem; }
-        .cta-btn:hover { transform: scale(1.05); box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
-        
+        .cta-btn:hover {  box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
+      
         /* Footer */
         footer { background: var(--text-dark); color: white; padding: 60px 0 30px; }
         .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
@@ -217,7 +217,7 @@
             .footer-bottom { flex-direction: column; gap: 16px; }
             .reviews-grid { grid-template-columns: 1fr; }
         }
-        
+      
         /* Animations */
         .info-card, .review-card { animation: fadeInUp 0.5s ease forwards; opacity: 0; }
         @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
@@ -365,14 +365,14 @@
                 <h2 class="section-title-premium section-title">Informasi Kontak</h2>
                 <p class="section-desc">Tim kami siap membantu Anda 24 jam. Jangan ragu untuk menghubungi kami.</p>
             </div>
-            
+          
             <!-- Single Full Width Contact Box -->
             <div class="contact-box">
                 <div class="contact-header">
                     <h3>Payangan Hospital</h3>
                     <p>Jl. Raya Payangan No.104, Melinggih, Kec. Payangan, Kabupaten Gianyar, Bali 80572</p>
                 </div>
-                
+              
                 <div class="contact-grid">
                     <!-- Alamat -->
                     <div class="contact-item">
@@ -771,18 +771,18 @@
             document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
         });
         function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('active'); }
-        
+      
         // Dynamic Google Reviews Widget
         (function() {
             const container = document.getElementById('reviews-container');
             if (!container) return;
-            
+          
             // Place ID untuk Payangan Hospital (sesuaikan dengan Place ID Google Maps)
             const PLACE_ID = 'ChIJrTLr-GyuEmsRBfy61i59si0';
-            
+          
             // Avatar colors for variety
             const avatarColors = ['#4285F4', '#34A853', '#FBBC05', '#EA4335', '#9C27B0', '#00BCD4', '#FF5722', '#607D8B'];
-            
+          
             // Function to generate stars
             function generateStars(rating) {
                 let stars = '';
@@ -797,12 +797,12 @@
                 }
                 return stars;
             }
-            
+          
             // Function to get initials
             function getInitials(name) {
                 return name.split(' ').map(n => n[0]).join('').substring(0, 2).toUpperCase();
             }
-            
+          
             // Function to format relative date
             function getRelativeDate(dateStr) {
                 const date = new Date(dateStr);
@@ -815,7 +815,7 @@
                 if (diffDays < 365) return Math.floor(diffDays / 30) + ' bulan lalu';
                 return Math.floor(diffDays / 365) + ' tahun lalu';
             }
-            
+          
             // Render reviews
             function renderReviews(reviews) {
                 container.innerHTML = reviews.map((review, index) => {
@@ -823,7 +823,7 @@
                     const color = avatarColors[index % avatarColors.length];
                     const stars = generateStars(review.rating);
                     const date = getRelativeDate(review.date);
-                    
+                  
                     return `
                         <div class="review-card-dynamic">
                             <div class="review-header-dynamic">
@@ -844,14 +844,14 @@
                     `;
                 }).join('');
             }
-            
+          
             // Load reviews (with localStorage cache)
             function loadReviews() {
                 // Check cache first
                 const cached = localStorage.getItem('payangan_reviews');
                 const cacheTime = localStorage.getItem('payangan_reviews_time');
                 const now = Date.now();
-                
+              
                 // Cache valid for 1 hour
                 if (cached && cacheTime && (now - parseInt(cacheTime)) < 3600000) {
                     try {
@@ -860,7 +860,7 @@
                         return;
                     } catch (e) {}
                 }
-                
+              
                 // Sample reviews (will be replaced with API call)
                 const sampleReviews = [
                     { name: 'Ayu Lestari', rating: 5, date: new Date(Date.now() - 2 * 24 * 60 * 60 * 1000).toISOString(), text: 'Pelayanan sangat baik dari resepsionis sampai dokter. Ruang tunggu AC dan nyaman. Terdapat playground untuk anak-anak. Sangat recommended untuk keluarga di Gianyar!' },
@@ -870,14 +870,14 @@
                     { name: 'Sari Mahayanti', rating: 5, date: new Date(Date.now() - 14 * 24 * 60 * 60 * 1000).toISOString(), text: 'Klinik gigi dan orthopedi lengkap. Dokter sangat baik. Parkir luas dan gratis. Toilet bersih. Coffee shop ada di lobby.' },
                     { name: 'Wayan Surya', rating: 4, date: new Date(Date.now() - 18 * 24 * 60 * 60 * 1000).toISOString(), text: 'IGD 24 jam sangat membantu. Dokter jaga responsif. Ruang ICU bersih dan оборудование lengkap. Terima kasih Payangan Hospital!' }
                 ];
-                
+              
                 // Save to cache
                 localStorage.setItem('payangan_reviews', JSON.stringify(sampleReviews));
                 localStorage.setItem('payangan_reviews_time', now.toString());
-                
+              
                 renderReviews(sampleReviews);
             }
-            
+          
             // Load on page load
             if (document.readyState === 'loading') {
                 document.addEventListener('DOMContentLoaded', loadReviews);
