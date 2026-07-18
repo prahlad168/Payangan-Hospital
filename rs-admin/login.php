@@ -79,7 +79,7 @@ if (isset($_GET['timeout'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - RS Payangan Hospital</title>
     <link rel="icon" type="image/png" href="../img/logo-official.png">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -120,27 +120,25 @@ if (isset($_GET['timeout'])) {
         }
         
         .logo {
-            width: 90px;
+            width: 100px;
             height: auto;
-            margin-bottom: 10px;
-            border-radius: 16px;
+            margin-bottom: 30px;
         }
-
-        .hospital-name {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: var(--primary);
-            margin-bottom: 4px;
+        
+        .hospital-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
         }
-
-        .hospital-tagline {
-            font-size: 0.6rem;
-            font-weight: 500;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            color: var(--text-muted);
-            margin-bottom: 25px;
+        
+        .hospital-icon i {
+            font-size: 36px;
+            color: white;
         }
         
         .login-container h1 {
@@ -413,6 +411,23 @@ if (isset($_GET['timeout'])) {
             z-index: 1;
             animation: glow 2s ease-in-out infinite;
         }
+
+        .hospital-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin: 15px 0 4px 0;
+        }
+
+        .hospital-tagline {
+            font-size: 0.6rem;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 25px;
+        }
         /* ========== END LOGO ANIMATION ========== */
     </style>
 
@@ -420,11 +435,13 @@ if (isset($_GET['timeout'])) {
 <body>
 
     <div class="login-container">
-        <img src="../img/logo-official.png" alt="Logo Payangan Hospital" class="logo">
+        <!-- Logo with shimmer animation -->
+        <div class="logo-shimmer-wrap">
+            <img src="../img/logo-official.png" alt="Logo Payangan Hospital" class="logo">
+        </div>
         <p class="hospital-name">PAYANGAN HOSPITAL</p>
         <p class="hospital-tagline">PAVITRAM IDAM UTTAMAM</p>
-        
-        
+
         <h1>Sistem Admin RS</h1>
         <p class="subtitle">Masukkan username dan password untuk masuk</p>
         
