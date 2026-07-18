@@ -290,6 +290,8 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
+            flex-wrap: nowrap;
+            gap: 16px;
             padding: var(--space-5) 0;
             transition: padding var(--transition-smooth);
         }
@@ -303,6 +305,7 @@
             display: flex;
             align-items: center;
             gap: var(--space-3);
+            flex-shrink: 0;
         }
 
         .logo img {
@@ -344,6 +347,8 @@
             display: flex;
             align-items: center;
             gap: var(--space-2);
+            flex-shrink: 0;
+            flex-wrap: nowrap;
         }
 
         .nav-link {
