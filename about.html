@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Tentang RS Payangan Hospital - Rumah Sakit Pemerintah Daerah Gianyar, Bali. Visi, misi, dan sejarah layanan kesehatan kami.">
+    <meta name="description" content="Tentang Payangan Hospital Hospital - Rumah Sakit Pemerintah Daerah Gianyar, Bali. Visi, misi, dan sejarah layanan kesehatan kami.">
     <meta name="keywords" content="tentang rs payangan, rumah sakit gianyar, rumah sakit pemerintah bali, vis misi rumah sakit">
     <meta name="robots" content="index, follow">
-    <title>Tentang Kami - RS Payangan Hospital Gianyar</title>
+    <title>Tentang Kami - Payangan Hospital Hospital Gianyar</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -196,7 +196,7 @@
     <nav class="navbar">
         <div class="nav-container">
             <a href="index.html" class="logo-shimmer-wrap logo brand-header">
-                        <span class="logo-shimmer-wrap"><img src="img/logo.svg" class="logo-shimmer" alt="Payangan Hospital"></span><span class="logo-text brand-text-wrapper"><span class="brand-title">PAYANGAN HOSPITAL</span><span class="brand-tagline">PAVITRAM IDAM UTTAMAM</span></span></a>
+                        <span class="logo-shimmer-wrap"><img src="img/logo-official.png" class="logo-shimmer" alt="Payangan Hospital"></span><span class="logo-text brand-text-wrapper"><span class="brand-title">PAYANGAN HOSPITAL</span><span class="brand-tagline">PAVITRAM IDAM UTTAMAM</span></span></a>
             <ul class="nav-links">
                 <li><a href="index.html#hero">Beranda</a></li>
                 <li><a href="#">Tentang <i class="fas fa-chevron-down"></i></a>
@@ -585,7 +585,7 @@
     <footer>
         <div class="footer-grid">
             <div class="footer-brand"><a href="index.html" class="logo-shimmer-wrap logo brand-footer">
-                        <span class="logo-shimmer-wrap"><img src="img/logo.svg" class="logo-shimmer" alt="Payangan Hospital"></span><span class="logo-text brand-text-wrapper"><span class="brand-title brand-title-white">PAYANGAN HOSPITAL</span><span class="brand-tagline brand-tagline-white">PAVITRAM IDAM UTTAMAM</span></span></a><p>Rumah Sakit Payangan Hospital menyediakan layanan kesehatan berkualitas dengan tenaga medis profesional dan fasilitas modern.</p></div>
+                        <span class="logo-shimmer-wrap"><img src="img/logo-official.png" class="logo-shimmer" alt="Payangan Hospital"></span><span class="logo-text brand-text-wrapper"><span class="brand-title brand-title-white">PAYANGAN HOSPITAL</span><span class="brand-tagline brand-tagline-white">PAVITRAM IDAM UTTAMAM</span></span></a><p>Payangan Hospital Hospital menyediakan layanan kesehatan berkualitas dengan tenaga medis profesional dan fasilitas modern.</p></div>
             <div class="footer-links"><h4>Layanan</h4><ul><li><a href="index.html#layanan">IGD 24 Jam</a></li><li><a href="index.html#layanan">Rawat Inap</a></li><li><a href="index.html#layanan">Konsultasi</a></li><li><a href="index.html#layanan">Laboratorium</a></li></ul></div>
             <div class="footer-links"><h4>Tentang</h4><ul><li><a href="#sejarah">Sejarah</a></li><li><a href="#visimisi">Visi Misi</a></li><li><a href="#standar">Standar</a></li><li><a href="#maklumat">Maklumat</a></li>
                         <li><a href="#budaya">Budaya Kerja</a></li></ul></div>
@@ -640,12 +640,12 @@
 <div id="chat-win">
   <div class="ch-hdr">
     <div class="ch-av">🏥</div>
-    <div class="ch-inf"><h3>RS Payangan Assistant</h3><p>Online • AI Agent 24/7</p></div>
+    <div class="ch-inf"><h3>Payangan Hospital Assistant</h3><p>Online • AI Agent 24/7</p></div>
     <div class="ch-dot"></div>
     <button class="ch-cls" onclick="toggleChat()">×</button>
   </div>
   <div class="ch-msgs" id="chatMsgs">
-    <div class="ch-msg bot">Selamat datang di <strong>Rumah Sakit Payangan</strong>! 👋<br><br>Saya asisten virtual yang siap membantu Anda. Silakan tanyakan tentang:<br><br>📅 <strong>Jadwal dokter</strong><br>📝 <strong>Pendaftaran online</strong><br>🏥 <strong>Layanan poli</strong><br>🛏️ <strong>Informasi kamar</strong><br>📞 <strong>Kontak RS</strong><span class="ch-time">Baru saja</span></div>
+    <div class="ch-msg bot">Selamat datang di <strong>Payangan Hospital</strong>! 👋<br><br>Saya asisten virtual yang siap membantu Anda. Silakan tanyakan tentang:<br><br>📅 <strong>Jadwal dokter</strong><br>📝 <strong>Pendaftaran online</strong><br>🏥 <strong>Layanan poli</strong><br>🛏️ <strong>Informasi kamar</strong><br>📞 <strong>Kontak RS</strong><span class="ch-time">Baru saja</span></div>
   </div>
   <div class="ch-type" id="chatTyping"><span></span><span></span><span></span></div>
   <div class="ch-inp">
@@ -660,7 +660,7 @@ let chatOpen=false;
 function toggleChat(){chatOpen=!chatOpen;document.getElementById('chat-win').classList.toggle('active',chatOpen)}
 function sendMsg(){const i=document.getElementById('chatInput'),m=i.value.trim();if(!m)return;addMsg(m,'user');i.value='';document.getElementById('chatTyping').classList.add('active');setTimeout(()=>{document.getElementById('chatTyping').classList.remove('active');addMsg(getResp(m),'bot')},1500)}
 function addMsg(t,n){const d=document.getElementById('chatMsgs'),e=document.createElement('div');e.className='ch-msg '+n;e.innerHTML=t+'<span class="ch-time">Baru saja</span>';d.appendChild(e);d.scrollTop=d.scrollHeight}
-function getResp(m){const msg=m.toLowerCase();if(msg.includes('dokter')||msg.includes('jadwal'))return'📅 <strong>Jadwal Dokter Hari Ini:</strong><br><br>🕐 Poli Umum: 08:30-14:00<br>🕐 Poli Anak: 08:30-14:00<br>🕐 Poli Jantung: 08:30-14:00<br>🕐 Poli Bedah: 08:30-14:00<br><br><a href="/dokter.html" style="color:#22d3ee">Lihat jadwal lengkap →</a>';if(msg.includes('daftar')||msg.includes('online')||msg.includes('antrian'))return'📝 <strong>Pendaftaran Online:</strong><br><br>1️⃣ Buka <br>2️⃣ Isi data diri<br>3️⃣ Pilih poli & dokter<br>4️⃣ Dapatkan nomor antrean<br><br>Telepon: <strong>0361 9088087</strong>';if(msg.includes('telepon')||msg.includes('kontak')||msg.includes('hubungi'))return'📞 <strong>Kontak RS Payangan:</strong><br><br>☎️ Telepon: <strong>0361 9088087</strong><br>📱 WhatsApp: <strong>+62 361 9088087</strong><br>📧 Email: <strong>info@rsupayangan.co.id</strong><br>📍 Alamat: Jl. Raya Payangan No.104, Melinggih, Gianyar, Bali';if(msg.includes('igd')||msg.includes('darurat')||msg.includes('emergency'))return'🚨 <strong>IGD 24 Jam RS Payangan</strong><br><br>IGD siap melayani pasien darurat!<br><br>☎️ Telepon IGD: <strong>0361 9088087 ext. 1</strong><br>⏰ Layanan: <strong>24 jam / 7 hari</strong>';if(msg.includes('kamar')||msg.includes('rawat inap'))return'🛏️ <strong>Informasi Kamar Rawat Inap:</strong><br><br>Kelas VIP: ✅ Tersedia<br>Kelas 1: ✅ Tersedia<br>Kelas 2: ✅ Tersedia<br>Kelas 3: ✅ Tersedia<br><br>Hubungi <strong>0361 9088087</strong>';if(msg.includes('poli')||msg.includes('layanan'))return'🏥 <strong>Layanan RS Payangan:</strong><br><br>• Poli Umum<br>• Poli Anak<br>• Poli Jantung<br>• Poli Bedah<br>• Poli Gigi<br>• Poli Saraf<br>• Poli Orthopedic<br>• Poli Penyakit Dalam<br><br><a href="/poli-umum.html" style="color:#22d3ee">Lihat semua poli →</a>';return'Terima kasih! 🙏<br><br>Kunjungi <a href="/" style="color:#22d3ee">beranda</a> kami<br>Hubungi <strong>0361 9088087</strong><br><br>Ada yang bisa saya bantu lagi?'}
+function getResp(m){const msg=m.toLowerCase();if(msg.includes('dokter')||msg.includes('jadwal'))return'📅 <strong>Jadwal Dokter Hari Ini:</strong><br><br>🕐 Poli Umum: 08:30-14:00<br>🕐 Poli Anak: 08:30-14:00<br>🕐 Poli Jantung: 08:30-14:00<br>🕐 Poli Bedah: 08:30-14:00<br><br><a href="/dokter.html" style="color:#22d3ee">Lihat jadwal lengkap →</a>';if(msg.includes('daftar')||msg.includes('online')||msg.includes('antrian'))return'📝 <strong>Pendaftaran Online:</strong><br><br>1️⃣ Buka <br>2️⃣ Isi data diri<br>3️⃣ Pilih poli & dokter<br>4️⃣ Dapatkan nomor antrean<br><br>Telepon: <strong>0361 9088087</strong>';if(msg.includes('telepon')||msg.includes('kontak')||msg.includes('hubungi'))return'📞 <strong>Kontak Payangan Hospital:</strong><br><br>☎️ Telepon: <strong>0361 9088087</strong><br>📱 WhatsApp: <strong>+62 361 9088087</strong><br>📧 Email: <strong>info@rsupayangan.co.id</strong><br>📍 Alamat: Jl. Raya Payangan No.104, Melinggih, Gianyar, Bali';if(msg.includes('igd')||msg.includes('darurat')||msg.includes('emergency'))return'🚨 <strong>IGD 24 Jam Payangan Hospital</strong><br><br>IGD siap melayani pasien darurat!<br><br>☎️ Telepon IGD: <strong>0361 9088087 ext. 1</strong><br>⏰ Layanan: <strong>24 jam / 7 hari</strong>';if(msg.includes('kamar')||msg.includes('rawat inap'))return'🛏️ <strong>Informasi Kamar Rawat Inap:</strong><br><br>Kelas VIP: ✅ Tersedia<br>Kelas 1: ✅ Tersedia<br>Kelas 2: ✅ Tersedia<br>Kelas 3: ✅ Tersedia<br><br>Hubungi <strong>0361 9088087</strong>';if(msg.includes('poli')||msg.includes('layanan'))return'🏥 <strong>Layanan Payangan Hospital:</strong><br><br>• Poli Umum<br>• Poli Anak<br>• Poli Jantung<br>• Poli Bedah<br>• Poli Gigi<br>• Poli Saraf<br>• Poli Orthopedic<br>• Poli Penyakit Dalam<br><br><a href="/poli-umum.html" style="color:#22d3ee">Lihat semua poli →</a>';return'Terima kasih! 🙏<br><br>Kunjungi <a href="/" style="color:#22d3ee">beranda</a> kami<br>Hubungi <strong>0361 9088087</strong><br><br>Ada yang bisa saya bantu lagi?'}
 </script>
 
     <script src="js/premium-ui.js"></script>
