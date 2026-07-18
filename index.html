@@ -13,7 +13,8 @@
     <title>Payangan Hospital - Pavitram Idam Uttamam</title>
     
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="icon" type="image/svg+xml" href="img/logo.svg">
+    <link rel="icon" type="image/png" href="img/logo.svg">
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,6 +27,8 @@
     <!-- Premium Design System -->
     <link rel="stylesheet" href="css/design-system.css">
     <link rel="stylesheet" href="css/premium-upgrade.css">
+    <!-- Brand Identity CSS -->
+    <link rel="stylesheet" href="css/brand.css">
     
     <style>
         /* ========================================
@@ -1786,12 +1789,12 @@
     <header class="header-premium header transparent" id="header">
         <div class="container-premium container">
             <div class="header-inner-premium header-inner">
-                <!-- Logo -->
-                <a href="index.html" class="logo-premium logo">
-                    <img src="logo.png" alt="Payangan Hospital" onerror="this.style.display='none'">
-                    <div class="logo-text-premium logo-text">
-                        <span class="logo-name">Payangan Hospital</span>
-                        <span class="logo-tagline">Pavitram Idam Uttamam</span>
+                <!-- Logo - Brand Identity -->
+                <a href="index.html" class="logo-premium logo brand-header">
+                    <img src="img/logo.svg" alt="Payangan Hospital" onerror="this.style.display='none'">
+                    <div class="logo-text-premium logo-text brand-text-wrapper">
+                        <span class="logo-name brand-title">PAYANGAN HOSPITAL</span>
+                        <span class="logo-tagline brand-tagline">PAVITRAM IDAM UTTAMAM</span>
                     </div>
                 </a>
 
@@ -1838,12 +1841,13 @@
     <!-- Mobile Menu -->
     <div class="mobile-menu" id="mobileMenu">
         <div class="mobile-menu-header">
-            <div class="logo">
-                <img src="logo.png" alt="Payangan Hospital" onerror="this.style.display='none'">
-                <div class="logo-text">
-                    <span class="logo-name">Payangan Hospital</span>
+            <a href="index.html" class="logo brand-mobile">
+                <img src="img/logo.svg" alt="Payangan Hospital" onerror="this.style.display='none'">
+                <div class="logo-text brand-text-wrapper">
+                    <span class="logo-name brand-title">PAYANGAN HOSPITAL</span>
+                    <span class="logo-tagline brand-tagline">PAVITRAM IDAM UTTAMAM</span>
                 </div>
-            </div>
+            </a>
             <button class="mobile-menu-close" onclick="toggleMobileMenu()">
                 <i class="fas fa-times"></i>
             </button>
@@ -2713,10 +2717,13 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand">
-                    <div class="footer-logo">
-                        <img src="logo.png" alt="Payangan Hospital" onerror="this.style.display='none'">
-                        <span class="footer-logo-text">Payangan Hospital</span>
-                    </div>
+                    <a href="index.html" class="footer-logo brand-footer">
+                        <img src="img/logo.svg" alt="Payangan Hospital" onerror="this.style.display='none'">
+                        <div class="brand-text-wrapper">
+                            <span class="footer-logo-text brand-title">PAYANGAN HOSPITAL</span>
+                            <span class="brand-tagline brand-tagline-white">PAVITRAM IDAM UTTAMAM</span>
+                        </div>
+                    </a>
                     <p class="footer-desc">
                         Payangan Hospital berkomitmen memberikan pelayanan kesehatan berkualitas dengan berlandaskan nilai-nilai Tri Hita Karana untuk masyarakat Gianyar dan sekitarnya.
                     </p>
