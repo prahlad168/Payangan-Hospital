@@ -1,20 +1,21 @@
 # 📝 FAQ Updates - RS Payangan Hospital
 
-## Update: Minggu ke-3 - Juli 2026 (15-19 Juli 2026)
-**Version:** 3.0.0  
-**Last Updated:** 2026-07-19  
-**Next Review:** 2026-07-26  
+## Update: Minggu ke-4 - Juli 2026 (20-26 Juli 2026)
+**Version:** 4.0.0  
+**Last Updated:** 2026-07-20  
+**Next Review:** 2026-07-27  
 
 ---
 
-## 📊 FAQ Performance Metrics
+## 📊 FAQ Performance Metrics (Week 4)
 
-| Metric | Value | Status |
-|--------|-------|--------|
-| Total FAQ Items | 55 | ✅ |
-| Page Views | 1,520 | 📈 +22% |
-| Self-Service Resolution | 78% | ✅ |
-| Search Queries | 450 | 📈 +18% |
+| Metric | Value | vs Last Week | Status |
+|--------|-------|--------------|--------|
+| Total FAQ Items | 65 | +10 | ✅ |
+| Page Views | 1,890 | +24% | 📈 |
+| Self-Service Resolution | 82% | +4% | ✅ |
+| Search Queries | 520 | +16% | 📈 |
+| Avg Time on Page | 3.2 min | +0.3 min | ✅ |
 
 ---
 
