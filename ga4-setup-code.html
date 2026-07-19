@@ -1,0 +1,78 @@
+<!-- 
+===========================================
+GOOGLE ANALYTICS 4 (GA4) TRACKING CODE
+RS Payangan Hospital
+===========================================
+
+CARA SETUP:
+1. Buat GA4 property di https://analytics.google.com/
+2. Dapat Measurement ID (format: G-XXXXXXXXXX)
+3. Ganti G-XXXXXXXXXX di bawah dengan ID asli
+4. Paste kode ini di <head> semua halaman website
+
+===========================================
+-->
+<!-- Google Analytics 4 -->
+<!-- PASTE MEASUREMENT ID DI BAWAH INI -->
+<!-- 
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+  
+  // Custom events untuk RS Payangan
+  gtag('event', 'page_view', {
+    'page_title': document.title,
+    'page_location': window.location.href,
+    'page_path': window.location.pathname
+  });
+</script>
+-->
+
+<!-- 
+===========================================
+CUSTOM EVENT TRACKING (TAMBAHKAN DI FILE JS)
+===========================================
+
+// Antrean Online button click
+document.querySelectorAll('.btn-antrean').forEach(btn => {
+  btn.addEventListener('click', () => {
+    gtag('event', 'antrean_click', {
+      'event_category': 'Button',
+      'event_label': 'Antrean Online'
+    });
+  });
+});
+
+// WhatsApp click
+document.querySelectorAll('.wa-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    gtag('event', 'whatsapp_click', {
+      'event_category': 'Conversion',
+      'event_label': 'WhatsApp Button'
+    });
+  });
+});
+
+// Phone call click
+document.querySelectorAll('.tel-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    gtag('event', 'phone_click', {
+      'event_category': 'Conversion',
+      'event_label': 'Phone Call'
+    });
+  });
+});
+
+// Contact form submission
+document.querySelector('form').addEventListener('submit', () => {
+  gtag('event', 'form_submit', {
+    'event_category': 'Form',
+    'event_label': 'Contact Form'
+  });
+});
+
+===========================================
+-->
