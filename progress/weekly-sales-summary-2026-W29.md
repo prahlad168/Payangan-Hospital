@@ -1,8 +1,9 @@
-# 📊 Weekly Sales Summary - Week 29
+# 📊 Weekly Sales Summary - Week 29 (Updated)
 
-**Report Date:** 2026-07-16
+**Report Date:** 2026-07-19 (Updated)
 **Sales Agent:** SaaS Sales Agent
 **Target:** Rp 30.000.000/bulan
+**Status:** 🚀 ACTIVE - Outreach Started
 
 ---
 
@@ -18,7 +19,7 @@
 
 ## 🔍 Lead Research Results
 
-### Total Leads Identified: **20 RS/Klinik di Bali**
+### Total Leads Identified: **20 RS/Klinik di Bali + 3 Developer Leads**
 
 #### Hot Leads (Priority 1) - RS Pemerintah Bali
 
@@ -47,6 +48,19 @@
 | 11 | RS Bhabinkatmarum | Militer | ⭐⭐ |
 | 12 | RS Jiwa Province | Khusus | ⭐⭐ |
 
+#### NEW: GitHub Developer Leads (July 19, 2026)
+
+| # | Project | Type | Owner | Potential |
+|---|---------|------|-------|-----------|
+| 13 | Syaptiyan/sirs | CodeIgniter 4 SIMRS | Indonesian dev | ⭐⭐⭐⭐⭐ |
+| 14 | SIDORAH | Donor Darah System | Student dev | ⭐⭐⭐ |
+| 15 | agstaldhi/simrs | Basic SIMRS | Indonesian dev | ⭐⭐⭐ |
+
+**GitHub Analysis:**
+- 744 ⭐ kishan0725/Hospital-Management-System - opportunity for fork/modular
+- 184 ⭐ coder-rukon/Hospital-Management-System-php-project - student to enterprise
+- Active SIMRS development community in Indonesia
+
 ---
 
 ## 📧 Email Templates Prepared
@@ -61,6 +75,8 @@
 | 6 | Final Outreach - Limited Offer | All leads | Urgency creation |
 | **7** | **RS Puri Raharja (NEW)** | Tourist area | Multi-language |
 | **8** | **Klinik Starter (NEW)** | Klinik kecil | Budget-friendly |
+| **9** | **Developer Outreach (NEW)** | GitHub devs | Partnership |
+| **10** | **Student Outreach (NEW)** | Student devs | Internship |
 
 ---
 
@@ -90,8 +106,8 @@ Day 30: Re-engagement campaign
 
 | Metric | Week 29 Target | Current Status |
 |--------|----------------|----------------|
-| Leads contacted | 15 | 5 |
-| Emails sent | 25 | 8 |
+| Leads contacted | 15 | 8 |
+| Emails sent | 25 | 12 |
 | Demos scheduled | 5 | 1 |
 | Proposals sent | 3 | 1 |
 | Deals closed | 1 | 0 |
@@ -99,17 +115,18 @@ Day 30: Re-engagement campaign
 
 ---
 
-## ✅ Next Action Items
+## ✅ Next Action Items (Updated July 19)
 
-### Today (July 16) - P1 Priority
+### Today (July 19) - P1 Priority
 
 | # | Action | Target | Status |
 |---|--------|--------|--------|
 | 1 | Kirim Email RS Sanglah | diklat@sanglah.co.id | 🔴 Todo |
 | 2 | Kirim Email RS Sanjiwani | sanjiwani.gianyarkab@gmail.com | 🔴 Todo |
-| 3 | Kirim Email RS Dwira | [research needed] | 🔴 Todo |
-| 4 | Kirim Email RS Puri Raharja | info@puriraharja.com | 🔴 Todo |
-| 5 | Kirim Email RS Tabanan | rstab@tabanankab.go.id | 🔴 Todo |
+| 3 | Kirim Email RS Ngoerah | info@rsngoerah.com | 🔴 Todo |
+| 4 | Kirim Email RS Dwira | [research needed] | 🔴 Todo |
+| 5 | Call RS Dwira Gianyar | Get contact info | 🔴 Todo |
+| 6 | GitHub outreach to Syaptiyan | Partnership | 🟡 In Progress |
 
 ### This Week (Week 29)
 

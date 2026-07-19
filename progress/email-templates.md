@@ -385,5 +385,92 @@ Before sending, ensure:
 
 ---
 
+---
+
+## 🆕 NEW: Developer Outreach Template (GitHub Leads)
+
+### Template F: Developer/Contributor (GitHub)
+
+```
+SUBJECT: 💻 Kolaborasi SIMRS Open Source - Partnership Opportunity
+
+---
+
+Hi [Name],
+
+Saya Dr. I Made Purna Ananda dari RS Payangan Hospital, Gianyar, Bali.
+
+Saya melihat project [Repo Name] di GitHub dan sangat terkesan dengan 
+hasil pekerjaan Anda di bidang SIMRS.
+
+RS Payangan Hospital telah mengembangkan sistem SIMRS modern yang sudah 
+dipakai di production. Kami tertarik untuk mengeksplorasi kemungkinan
+kolaborasi dengan developer yang passionate di healthcare IT:
+
+🎯 **Kolaborasi yang Bisa Dijajaki:**
+1. **White-label Solution** - License teknologi kami untuk client Anda
+2. **Custom Development** - Tim development untuk project SIMRS enterprise
+3. **Partnership Program** - Developer referral untuk project SIMRS
+4. **Training & Consulting** - Sharing knowledge SIMRS development
+
+💰 **Benefit untuk Developer:**
+• Revenue sharing untuk setiap project referral
+• Akses ke codebase SIMRS production-ready
+• Support teknis dari tim kami
+• Co-branding opportunity
+
+Project Anda di GitHub sangat relevan dengan passion kami dalam
+meningkatkan healthcare IT di Indonesia.
+
+Apakah Anda terbuka untuk diskusi singkat?
+
+Best regards,
+
+Dr. I Made Purna Ananda
+RS Payangan Hospital
+GitHub: https://github.com/prahlad168/Payangan-Hospital
+WhatsApp: +62 812 3456 7890
+```
+
+---
+
+### Template G: Student/Research (Academic)
+
+```
+SUBJECT: 🎓 SIMRS Project Collaboration - RS Payangan Hospital
+
+---
+
+Hi [Name],
+
+Saya dari RS Payangan Hospital, Gianyar, Bali.
+
+Kami melihat project SIMRS Anda di GitHub dan tertarik untuk
+berkolaborasi di bidang healthcare IT.
+
+💡 **Opportunity untuk Student:**
+• Internship position di tim IT RS Payangan
+• Thesis/research collaboration tentang SIMRS
+• Access ke real production system untuk learning
+• Mentorship dari tim IT kami
+
+🎓 **Benefit:**
+• Pengalaman langsung dengan production SIMRS
+• Portfolio project untuk CV
+• Letter of recommendation
+• Potensi full-time position
+
+Apakah Anda tertarik untuk diskusi lebih lanjut?
+
+Best regards,
+
+Dr. I Made Purna Ananda
+RS Payangan Hospital
+WhatsApp: +62 812 3456 7890
+```
+
+---
+
 **Generated:** 2026-07-17
+**Last Updated:** 2026-07-19 (Added Developer Outreach Templates)
 **Sales Agent:** SaaS Sales Agent - Payangan Hospital

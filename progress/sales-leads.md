@@ -2,10 +2,11 @@
 
 ## 📊 Executive Summary
 
-**Report Date:** 2026-07-17 (Updated)
+**Report Date:** 2026-07-19 (Updated - Week 29)
 **Sales Agent:** SaaS Sales Agent
 **Target:** Rp 30.000.000/bulan
 **Status:** 🚀 Active Outreach - Week 29
+**Week Focus:** Research leads baru dari GitHub + Follow-up existing leads
 
 ## 🎯 WEEKLY SALES TARGETS
 
@@ -68,9 +69,32 @@
 | 16 | Clinics without system | Clinic | Starter package opportunity | P1 |
 | 17 | New Hospitals in Bali | Govt | Greenfield opportunity | P2 |
 
+### NEW LEADS from GitHub Active SIMRS Repos (July 19, 2026)
+
+| # | Repo/Project | Type | Owner | Potential | Priority | Action |
+|---|--------------|------|-------|-----------|----------|--------|
+| 18 | Syaptiyan/sirs | CodeIgniter 4 SIMRS | Indonesian dev | High interest in SIMRS | P1 | Outreach |
+| 19 | muhsultan200612-stack/SIDORAH | Donor Darah System | Student dev | Healthcare focus | P2 | Research |
+| 20 | agstaldhi/simrs | Basic SIMRS | Indonesian dev | Could need upgrade | P2 | Research |
+
+### GitHub Healthcare Projects Analysis
+
+| Repo | Stars | Framework | Opportunity |
+|------|-------|-----------|-------------|
+| kishan0725/Hospital-Management-System | 744 ⭐ | PHP/MySQL | Fork/modular opportunity |
+| coder-rukon/Hospital-Management-System-php-project | 184 ⭐ | PHP | Student project - enterprise upgrade |
+| rickxy/Hospital-Management-System | 95 ⭐ | PHP/MySQL | Production ready - could need support |
+| Syaptiyan/sirs (NEW!) | ? | CI4/Tailwind | Active development - partnership? |
+
+**Insight:** Banyak developer Indonesia membuat SIMRS open-source. Opportunity untuk:
+1. Offering maintenance/support contract
+2. White-label solution
+3. Custom development services
+4. Training & consulting
+
 ---
 
-## 🎯 TODAY'S ACTION ITEMS (July 17, 2026)
+## 🎯 TODAY'S ACTION ITEMS (July 19, 2026)
 
 | # | Action | Target | Priority | Status |
 |---|--------|--------|----------|--------|
@@ -79,8 +103,10 @@
 | 3 | Kirim email RS Ngoerah | info@rsngoerah.com | P1 | 🔴 Todo |
 | 4 | WhatsApp RS Dwira Gianyar | Call first | P1 | 🔴 Todo |
 | 5 | Research RS Dwira contacts | Online search | P1 | 🔴 Todo |
-| 6 | Update email templates | progress/email-templates.md | P2 | ✅ Done |
-| 7 | Update proposal template | progress/proposal-template.md | P2 | ✅ Done |
+| 6 | Research Syaptiyan/sirs owner | GitHub profile | P2 | 🟡 In Progress |
+| 7 | Update email templates | progress/email-templates.md | P2 | ✅ Done |
+| 8 | Update proposal template | progress/proposal-template.md | ✅ Done |
+| 9 | Create developer outreach template | New leads #18-20 | P2 | 🔴 Todo |
 
 ---
 
@@ -88,6 +114,8 @@
 
 | Date | Action | Lead | Result |
 |------|--------|------|--------|
+| 2026-07-19 | Research GitHub SIMRS repos | Syaptiyan/sirs, SIDORAH, etc | ✅ 3 new leads identified |
+| 2026-07-19 | Analyze healthcare repos | 10+ repos analyzed | ✅ Complete |
 | 2026-07-17 | Update sales report | All | ✅ Complete |
 | 2026-07-17 | Research leads | GitHub, Web | ✅ 17 leads identified |
 | 2026-07-17 | Create email templates | progress/email-templates.md | ✅ Complete |
