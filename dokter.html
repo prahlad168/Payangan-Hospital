@@ -1440,7 +1440,7 @@
                 </button>
                 <div class="modal-doctor-info">
                     <div class="modal-doctor-image">
-                        <img src="img/director.jpg" alt="Doctor" id="modalImage">
+                        <img src="img/director.png" alt="Doctor" id="modalImage" onerror="this.src='img/logo-official.png'">
                     </div>
                     <div>
                         <h2 class="modal-doctor-name" id="modalName"></h2>
@@ -1639,7 +1639,7 @@
             grid.innerHTML = filtered.map(doc => `
                 <div class="doctor-card" onclick="openModal('${doc.id}')">
                     <div class="doctor-card-image">
-                        <img src="${doc.image}" alt="${doc.name}" loading="lazy" onerror="this.src='img/director.jpg'">
+                        <img src="${doc.image}" alt="${doc.name}" loading="lazy" onerror="this.src='img/director.png'">
                         <div class="doctor-card-badge">
                             Tersedia Hari Ini
                         </div>
