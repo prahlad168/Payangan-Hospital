@@ -62,7 +62,7 @@ jobs:
               filename = html_file.name
               
               # Cek 1: Link logo yang salah (harus href="index.html", bukan href="#")
-              if 'href="#"' in content and 'class="logo"' in content:
+              if re.search(r'<a[^>]*class="[^"]*logo[^"]*"[^>]*href="#"', content) or re.search(r'<a[^>]*href="#"[^>]*class="[^"]*logo[^"]*"', content):
                   wrong_logo_links.append(filename)
               
               # Cek 2: Link dokter yang salah (harus href="dokter.html", bukan #dokter)

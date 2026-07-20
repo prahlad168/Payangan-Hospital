@@ -627,7 +627,7 @@ let chatOpen=false;
 function toggleChat(){chatOpen=!chatOpen;document.getElementById('chat-win').classList.toggle('active',chatOpen)}
 function sendMsg(){const i=document.getElementById('chatInput'),m=i.value.trim();if(!m)return;addMsg(m,'user');i.value='';document.getElementById('chatTyping').classList.add('active');setTimeout(()=>{document.getElementById('chatTyping').classList.remove('active');addMsg(getResp(m),'bot')},1500)}
 function addMsg(t,n){const d=document.getElementById('chatMsgs'),e=document.createElement('div');e.className='ch-msg '+n;e.innerHTML=t+'<span class="ch-time">Baru saja</span>';d.appendChild(e);d.scrollTop=d.scrollHeight}
-function getResp(m){return'Terima kasih! 🙏<br><br>Kunjungi <a href="/galeri.html" style="color:#22d3ee">halaman galeri</a><br>Hubungi <strong>0361 9088087</strong>'}
+function getResp(m){return'Terima kasih! 🙏<br><br>Kunjungi <a href="galeri.html" style="color:#22d3ee">halaman galeri</a><br>Hubungi <strong>0361 9088087</strong>'}
 </script>
 
     <script src="js/premium-ui.js"></script>
