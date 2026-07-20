@@ -1,0 +1,26 @@
+# Budget vs Actual Tracker - Juli 2026
+# Last Updated: 2026-07-20
+# Target Accuracy: 99.9%
+
+category,budget,actual,variance,status
+BPJS Kesehatan,510000000,510000000,0,on_track
+Pasien Umum,215000000,215000000,0,on_track
+Laboratorium,58000000,58000000,0,on_track
+Farmasi,42000000,42000000,0,on_track
+Radiologi,18000000,16000000,-2000000,below_target
+IGD Emergency,7000000,7300000,300000,above_target
+TOTAL REVENUE,850000000,848300000,-1700000,on_track
+
+Gaji Kesejahteraan,218500000,218500000,0,on_track
+Obat Alkes,82000000,80000000,2000000,under_budget
+Listrik Utilitas,36200000,36100000,100000,under_budget
+Makanan Gizi,24800000,24700000,100000,under_budget
+Pemeliharaan,18500000,23500000,-5000000,over_budget
+Asuransi,18000000,18000000,0,on_track
+Transport,14200000,14100000,100000,under_budget
+Kantor Admin,11800000,11700000,100000,under_budget
+IT Teknologi,7500000,9500000,-2000000,over_budget
+Pelatihan SDM,3000000,3000000,0,on_track
+Marketing,1500000,1500000,0,on_track
+Lainnya,2000000,2000000,0,on_track
+TOTAL EXPENSES,438000000,442600000,-4600000,over_budget
