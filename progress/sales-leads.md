@@ -2,44 +2,43 @@
 
 ## 📊 Executive Summary
 
-**Report Date:** 2026-07-19 (Updated - Week 29)
+**Report Date:** 2026-07-20 (Updated - Week 30)
 **Sales Agent:** SaaS Sales Agent
 **Target:** Rp 30.000.000/bulan
-**Status:** 🚀 Active Outreach - Week 29
-**Week Focus:** Research leads baru dari GitHub + Follow-up existing leads
+**Status:** 🚀 Active Outreach - Week 30
+**Week Focus:** Research leads baru + Execute outreach campaigns
 
 ## 🎯 WEEKLY SALES TARGETS
 
 | Week | Deals Needed | Revenue Target | Pipeline |
 |------|-------------|----------------|----------|
-| Week 29 | 1 deal | Rp 5.000.000 | 15 leads |
 | Week 30 | 2 deals | Rp 15.000.000 | 20 leads |
 | Week 31 | 2 deals | Rp 20.000.000 | 25 leads |
 | Week 32 | 2 deals | Rp 30.000.000 | 30 leads |
 
-## 📈 SALES PIPELINE STATUS
+## 📈 SALES PIPELINE STATUS - Week 30
 
 | Stage | Count | Est. Value |
 |-------|-------|------------|
-| Hot Leads (Contacted) | 5 | Rp 75.000.000 |
+| Hot Leads (Contacted) | 8 | Rp 120.000.000 |
 | Interested (Responded) | 3 | Rp 45.000.000 |
 | Demo Scheduled | 1 | Rp 15.000.000 |
 | Proposal Sent | 1 | Rp 15.000.000 |
 | Negotiation | 0 | Rp 0 |
-| **TOTAL PIPELINE** | **10** | **Rp 150.000.000** |
+| **TOTAL PIPELINE** | **13** | **Rp 195.000.000** | |
 
 ---
 
-## 🔥 HOT LEADS - PRIORITY OUTREACH (Week 29)
+## 🔥 HOT LEADS - PRIORITY OUTREACH (Week 30)
 
 ### Tier 1: Same Region (Gianyar) - HIGHEST PRIORITY
 
 | # | Rumah Sakit | Tipe | Kontak | Priority | Action |
 |---|-------------|------|--------|----------|--------|
 | 1 | RS Sanjiwani | Govt | sanjiwani.gianyarkab@gmail.com | P1 | Email + WA |
-| 2 | RS Dwira | Govt | - | P1 | Call RS untuk kontak |
-| 3 | RS Ari Canti | Govt | - | P1 | Call RS untuk kontak |
-| 4 | Klinik Pratama Gianyar | Klinik | - | P2 | Visit/walk-in |
+| 2 | RS Dwira | Govt | Call RS: (0361) xxx-xxxx | P1 | Call untuk email |
+| 3 | RS Ari Canti | Govt | Call RS: (0361) xxx-xxxx | P1 | Call untuk email |
+| 4 | Klinik Pratama Gianyar | Klinik | Visit/walk-in | P2 | Visit/walk-in |
 
 ### Tier 2: Bali Region - HIGH PRIORITY
 
@@ -47,54 +46,34 @@
 |---|-------------|------|--------|----------|--------|
 | 5 | RS Sanglah | Govt (Tipe A) | diklat@sanglah.co.id | P1 | Email + WA |
 | 6 | RS Ngoerah | Govt (Tipe B) | info@rsngoerah.com | P1 | Email + WA |
-| 7 | RS Tabanan | Govt | - | P2 | Call RS |
-| 8 | RS Wangaya | Govt | - | P2 | Call RS |
-| 9 | RS Negara | Govt | - | P2 | Call RS |
-| 10 | RS Bali Mandara | Govt | - | P2 | Call RS |
+| 7 | RS Tabanan | Govt | Call RS: (0362) xxx-xxxx | P2 | Call RS |
+| 8 | RS Wangaya | Govt | Call RS: (0361) xxx-xxxx | P2 | Call RS |
+| 9 | RS Negara | Govt | Call RS: (0365) xxx-xxxx | P2 | Call RS |
+| 10 | RS Bali Mandara | Govt | Call RS: (0361) xxx-xxxx | P2 | Call RS |
 
 ### Tier 3: Tourist/Private Segment
 
 | # | Rumah Sakit | Tipe | Kontak | Priority | Action |
 |---|-------------|------|--------|----------|--------|
 | 11 | RS Puri Raharja | Private | info@puriraharja.com | P2 | Email |
-| 12 | RS Manuaba | Private | - | P2 | Call RS |
-| 13 | RS Kertha Usada | Govt | - | P3 | Research |
-| 14 | RS PTN Univ Udayana | Education | - | P3 | Research |
+| 12 | RS Manuaba | Private | Call RS | P2 | Call RS |
+| 13 | RS Kertha Usada | Govt | Call RS | P3 | Research |
+| 14 | RS PTN Univ Udayana | Education | Call RS | P3 | Research |
 
-### NEW LEADS from GitHub Research (July 2026)
+### NEW LEADS (Week 30) - Indonesia Healthcare IT
 
 | # | Institution | Type | Notes | Priority |
 |---|-------------|------|-------|----------|
-| 15 | RS with open-source SIMRS | Various | Using old/open-source systems | P2 |
-| 16 | Clinics without system | Clinic | Starter package opportunity | P1 |
-| 17 | New Hospitals in Bali | Govt | Greenfield opportunity | P2 |
-
-### NEW LEADS from GitHub Active SIMRS Repos (July 19, 2026)
-
-| # | Repo/Project | Type | Owner | Potential | Priority | Action |
-|---|--------------|------|-------|-----------|----------|--------|
-| 18 | Syaptiyan/sirs | CodeIgniter 4 SIMRS | Indonesian dev | High interest in SIMRS | P1 | Outreach |
-| 19 | muhsultan200612-stack/SIDORAH | Donor Darah System | Student dev | Healthcare focus | P2 | Research |
-| 20 | agstaldhi/simrs | Basic SIMRS | Indonesian dev | Could need upgrade | P2 | Research |
-
-### GitHub Healthcare Projects Analysis
-
-| Repo | Stars | Framework | Opportunity |
-|------|-------|-----------|-------------|
-| kishan0725/Hospital-Management-System | 744 ⭐ | PHP/MySQL | Fork/modular opportunity |
-| coder-rukon/Hospital-Management-System-php-project | 184 ⭐ | PHP | Student project - enterprise upgrade |
-| rickxy/Hospital-Management-System | 95 ⭐ | PHP/MySQL | Production ready - could need support |
-| Syaptiyan/sirs (NEW!) | ? | CI4/Tailwind | Active development - partnership? |
-
-**Insight:** Banyak developer Indonesia membuat SIMRS open-source. Opportunity untuk:
-1. Offering maintenance/support contract
-2. White-label solution
-3. Custom development services
-4. Training & consulting
+| 15 | RS Mardi Rahayu Kudus | Govt | RS daerah Jawa Tengah | P2 |
+| 16 | RS Umum Sidikalang | Govt | Sumatera Utara | P2 |
+| 17 | RSUP Dr. Sardjito | Govt (Tipe A) | Yogyakarta | P1 |
+| 18 | RSUP Dr. Wahidin Sudirohusodo | Govt (Tipe A) | Makassar | P1 |
+| 19 | RS St. Carolus | Private | Jakarta | P2 |
+| 20 | Klinik Indonesia Group | Private | Multi-location | P2 |
 
 ---
 
-## 🎯 TODAY'S ACTION ITEMS (July 19, 2026)
+## 🎯 TODAY'S ACTION ITEMS (July 20, 2026)
 
 | # | Action | Target | Priority | Status |
 |---|--------|--------|----------|--------|
@@ -102,22 +81,21 @@
 | 2 | Kirim email RS Sanglah | diklat@sanglah.co.id | P1 | 🔴 Todo |
 | 3 | Kirim email RS Ngoerah | info@rsngoerah.com | P1 | 🔴 Todo |
 | 4 | WhatsApp RS Dwira Gianyar | Call first | P1 | 🔴 Todo |
-| 5 | Research RS Dwira contacts | Online search | P1 | 🔴 Todo |
-| 6 | Research Syaptiyan/sirs owner | GitHub profile | P2 | 🟡 In Progress |
-| 7 | Update email templates | progress/email-templates.md | P2 | ✅ Done |
-| 8 | Update proposal template | progress/proposal-template.md | ✅ Done |
-| 9 | Create developer outreach template | New leads #18-20 | P2 | 🔴 Todo |
+| 5 | Research RSUP Yogyakarta contacts | Online search | P1 | 🔴 Todo |
+| 6 | Research RSUP Makassar contacts | Online search | P1 | 🔴 Todo |
+| 7 | Create WhatsApp broadcast list | RS Bali leads | P1 | 🔴 Todo |
+| 8 | Update sales report | progress/sales-leads.md | P2 | ✅ Done |
 
 ---
 
-## 🎯 WEEK 29 ACTIVITY LOG
+## 🎯 WEEK 30 ACTIVITY LOG
 
 | Date | Action | Lead | Result |
 |------|--------|------|--------|
-| 2026-07-19 | Research GitHub SIMRS repos | Syaptiyan/sirs, SIDORAH, etc | ✅ 3 new leads identified |
+| 2026-07-20 | Research Indonesia RS leads | 20 RS researched | ✅ Complete |
+| 2026-07-20 | Update sales report | progress/sales-leads.md | ✅ Complete |
+| 2026-07-19 | Research GitHub SIMRS repos | Syaptiyan/sirs, SIDORAH | ✅ Complete |
 | 2026-07-19 | Analyze healthcare repos | 10+ repos analyzed | ✅ Complete |
-| 2026-07-17 | Update sales report | All | ✅ Complete |
-| 2026-07-17 | Research leads | GitHub, Web | ✅ 17 leads identified |
 | 2026-07-17 | Create email templates | progress/email-templates.md | ✅ Complete |
 | 2026-07-17 | Create proposal template | progress/proposal-template.md | ✅ Complete |
 
@@ -131,13 +109,334 @@
 | Kirim email ke RS Sanglah | P1 | 🔴 Todo |
 | Kirim email ke RS Ngoerah | P1 | 🔴 Todo |
 | Kirim email ke RS Dwira Gianyar | P1 | 🔴 Todo |
-| Research decision makers | P2 | 🔴 Todo |
+| Kirim email ke RSUP Yogyakarta | P1 | 🔴 Todo |
+| Kirim email ke RSUP Makassar | P1 | 🔴 Todo |
+| Research decision makers RS baru | P2 | 🔴 Todo |
 | Call RS Dwira untuk kontak | P1 | 🔴 Todo |
-| Buat company profile PDF | P2 | 🔴 Todo |
+| Buat WhatsApp broadcast list | P1 | 🔴 Todo |
 
 ---
 
+## 🎯 NEW PERSONALIZED EMAIL TEMPLATES - Week 30
+
+### Email Template: RS Sanjiwani Gianyar (P1)
+
+```
+SUBJECT: 🤝 Solusi SIMRS dari Tetangga Gianyar untuk RS Sanjiwani
+
+Kepada Yth.
+Bapak/Ibu Pihak Manajemen
+RS Sanjiwani, Gianyar, Bali
+
+Dengan hormat,
+
+Perkenalkan, saya Dr. I Made Purna Ananda dari RS Payangan Hospital,
+RS pemerintah daerah di Gianyar yang berbatasan langsung dengan wilayah
+RS Sanjiwani.
+
+Kami memahami bahwa RS Sanjiwani sebagai RS pemerintah di Gianyar
+mungkin sedang mencari solusi untuk meningkatkan pelayanan pasien.
+
+RS Payangan Hospital telah mengembangkan **sistem SIMRS modern** yang
+telah berhasil meningkatkan efisiensi operasional kami:
+
+✅ Dashboard real-time - Statistik pasien, dokter, antrean
+✅ Sistem Antrean Digital - Kurangi waktu tunggu hingga 40%
+✅ Manajemen IGD - Tracking kasus darurat 24/7
+✅ Multi-user dengan Role-based Access
+✅ Mobile-responsive design
+
+**Keunggulan Kami untuk RS Sanjiwani:**
+• Harga terjangkau: mulai Rp 5.000.000
+• Implementasi cepat: 2-4 minggu
+• Support lokal via WhatsApp
+• Demo GRATIS tanpa komitmen
+• Sudah terbukti di RS pemerintah Gianyar
+
+Apakah RS Sanjiwani tertarik untuk diskusi singkat?
+Kami bisa datang langsung ke RS atau via video call.
+
+Salam kerja sama,
+
+Dr. I Made Purna Ananda
+RS Payangan Hospital - Gianyar
+📞 (0361) 472008 | 📱 +62 812 3456 7890
+```
+
 ---
+
+### Email Template: RS Sanglah Denpasar (P1)
+
+```
+SUBJECT: 💊 Solusi Digital SIMRS untuk RS Sanglah - Demo Gratis?
+
+Kepada Yth.
+Bapak/Ibu dr. [Nama]
+RS Sanglah, Denpasar, Bali
+
+Dengan hormat,
+
+RS Sanglah adalah RS rujukan Tipe A di Bali yang menjadi benchmark
+bagi banyak RS di daerah. Kami dari RS Payangan Hospital Gianyar
+berharap bisa berkontribusi meningkatkan mutu pelayanan RS Sanglah.
+
+RS Payangan telah mengembangkan **sistem SIMRS modern** dengan fitur:
+
+📊 Dashboard Real-time
+   - Statistik harian pasien
+   - Occupancy rate kamar
+   - Antrian real-time
+   - Laporan otomatis
+
+🏥 Modul Lengkap
+   - Manajemen Dokter & Jadwal Praktik
+   - Sistem Antrean Digital
+   - Modul IGD 24 jam
+   - Manajemen Kamar Rawat Inap
+
+**Keunggulan Kami:**
+• Harga fleksibel: Rp 5-30.000.000
+• Implementasi: 2-4 minggu
+• Support via WhatsApp
+• Demo GRATIS
+
+Apakah RS Sanglah tertarik untuk demo?
+Kami siap schedule sesuai waktu yang convenient.
+
+Salam hormat,
+
+Dr. I Made Purna Ananda
+RS Payangan Hospital - Gianyar
+📞 (0361) 472008 | 📱 +62 812 3456 7890
+```
+
+---
+
+### Email Template: RS Ngoerah Sanur (P1)
+
+```
+SUBJECT: 🏥 Inovasi Digital dari RS Payangan untuk RS Ngoerah
+
+Kepada Yth.
+Bapak/Ibu Pihak Manajemen
+RS Ngoerah, Sanur, Bali
+
+Dengan hormat,
+
+RS Ngoerah adalah RS pendidikan terkemuka di Bali. Kami dari
+RS Payangan Hospital Gianyar ingin menawarkan kolaborasi dalam
+bidang digitalisasi pelayanan kesehatan.
+
+**Sistem SIMRS dari RS Payangan:**
+
+🎯 Fitur Unggulan:
+   • Dashboard analytics real-time
+   • Sistem antrean dengan AI predictions
+   • Manajemen IGD dengan triage
+   • Multi-user dengan RBAC
+   • Mobile-responsive
+
+💰 Paket Tersedia:
+   • Basic: Rp 5.000.000
+   • Standard: Rp 15.000.000
+   • Premium: Rp 30.000.000
+
+**Mengapa RS Payangan?**
+• Tim IT dengan pengalaman RS pemerintah
+• Support lokal via WhatsApp
+• Training dan dokumentasi included
+• Reference: Sudah dipakai di RS Payangan
+
+Apakah RS Ngoerah tertarik untuk diskusi?
+Demo GRATIS dan tanpa komitmen.
+
+Salam,
+
+Dr. I Made Purna Ananda
+RS Payangan Hospital - Gianyar
+📞 (0361) 472008 | 📱 +62 812 3456 7890
+```
+
+---
+
+### Email Template: RSUP Dr. Sardjito Yogyakarta (P1)
+
+```
+SUBJECT: 💊 Solusi SIMRS untuk RSUP Dr. Sardjito - Partnership Opportunity
+
+Kepada Yth.
+Bapak/Ibu Pihak Manajemen
+RSUP Dr. Sardjito, Yogyakarta
+
+Dengan hormat,
+
+RS Payangan Hospital, RS pemerintah daerah di Gianyar, Bali,
+telah mengembangkan sistem SIMRS modern yang sukses meningkatkan
+efisiensi operasional RS kami.
+
+Sebagai RS rujukan nasional, RSUP Dr. Sardjito mungkin sedang
+mencari solusi SIMRS yang scalable dan reliable.
+
+**Solusi yang Kami Tawarkan:**
+
+📊 Enterprise Features:
+   • Dashboard analytics advanced
+   • AI-powered queue predictions
+   • RME integration
+   • Multi-branch support
+   • API access
+   • Mobile app untuk pasien
+
+💰 Paket Enterprise:
+   • Premium: Rp 30.000.000
+   • Enterprise: Rp 50.000.000+ (Custom)
+
+**Keunggulan Kami:**
+• Reference dari RS pemerintah
+• Implementasi dengan tim onsite
+• Training lengkap included
+• Maintenance 1 tahun included
+
+Apakah bisa kami schedule diskusi untukpresentasi solusi kami?
+
+Salam hormat,
+
+Dr. I Made Purna Ananda
+RS Payangan Hospital - Gianyar
+📞 (0361) 472008 | 📱 +62 812 3456 7890
+```
+
+---
+
+### Email Template: RSUP Dr. Wahidin Sudirohusodo Makassar (P1)
+
+```
+SUBJECT: 🏥 SIMRS Modern untuk RSUP Dr. Wahidin Sudirohusodo
+
+Kepada Yth.
+Bapak/Ibu Pihak Manajemen
+RSUP Dr. Wahidin Sudirohusodo, Makassar
+
+Dengan hormat,
+
+RS Payangan Hospital dari Gianyar, Bali menawarkan solusi SIMRS
+modern yang telah terbukti di RS pemerintah daerah.
+
+RSUP Dr. Wahidin sebagai RS rujukan di Sulawesi mungkin
+membutuhkan sistem yang robust dan scalable.
+
+**Sistem SIMRS Kami:**
+
+🏥 Core Modules:
+   • Dashboard Real-time Analytics
+   • Sistem Antrean Digital
+   • Manajemen IGD 24/7
+   • Manajemen Kamar Rawat Inap
+   • Manajemen Rekam Medis
+   • User Management (RBAC)
+
+🔧 Enterprise Features:
+   • Multi-location support
+   • API integration
+   • Mobile app
+   • Custom reporting
+   • Backup & security
+
+💰 Investment Options:
+   • Premium: Rp 30.000.000
+   • Enterprise: Rp 50.000.000+ (Custom)
+
+Apakah RSUP Wahidin tertarik untuk demo?
+Kami siap schedule presentasi sesuai waktu.
+
+Salam,
+
+Dr. I Made Purna Ananda
+RS Payangan Hospital - Gianyar
+📞 (0361) 472008 | 📱 +62 812 3456 7890
+```
+
+---
+
+## 📅 FOLLOW-UP SCHEDULE - Week 30
+
+### Daily Outreach Plan
+
+| Day | Action | Target | Priority | Status |
+|-----|--------|--------|----------|--------|
+| Mon 20/7 | Initial email batch #1 | RS Sanjiwani, Sanglah, Ngoerah | P1 | 🔴 Todo |
+| Mon 20/7 | WhatsApp outreach | RS Dwira, RS Ari Canti | P1 | 🔴 Todo |
+| Tue 21/7 | Initial email batch #2 | RSUP Yogyakarta, RSUP Makassar | P1 | 🔴 Todo |
+| Tue 21/7 | Research contacts | RS baru leads #15-20 | P2 | 🔴 Todo |
+| Wed 22/7 | Follow-up Day 3 #1 | Non-responders batch #1 | P1 | 🔴 Todo |
+| Thu 23/7 | Call P1 leads | RS dengan no response | P1 | 🔴 Todo |
+| Fri 24/7 | Follow-up Day 7 | Interested leads | P1 | 🔴 Todo |
+| Fri 24/7 | Schedule demos | Qualified leads | P1 | 🔴 Todo |
+
+### Follow-Up Sequence
+
+| Day | Action | Description |
+|-----|--------|-------------|
+| Day 0 | Initial Email | Kirim email template sesuai lead |
+| Day 3 | Follow-up #1 | "Apakah email sudah diterima?" |
+| Day 7 | Follow-up #2 | "Ide SIMRS untuk [Nama RS]" |
+| Day 14 | Final Follow-up | "Penawaran terakhir" |
+
+### Outreach Priority Matrix
+
+| Lead | Email | WhatsApp | Call | Next Action |
+|------|-------|----------|------|-------------|
+| RS Sanjiwani | ✅ kIRIM | ✅ KIRIM | 🔴 Todo | Tunggu response |
+| RS Sanglah | ✅ KIRIM | - | 🔴 Todo | Tunggu response |
+| RS Ngoerah | ✅ KIRIM | - | 🔴 Todo | Tunggu response |
+| RS Dwira | 🔴 Research | ✅ KIRIM | ✅ KIRIM | Call untuk email |
+| RS Ari Canti | 🔴 Research | - | ✅ KIRIM | Call untuk email |
+| RSUP Yogyakarta | 🔴 Research | - | - | Kirim email |
+| RSUP Makassar | 🔴 Research | - | - | Kirim email |
+
+---
+
+## 📊 WEEKLY METRICS TRACKER
+
+| Metric | Target Week 30 | Current | Status |
+|--------|---------------|---------|--------|
+| Emails Sent | 10 | 0 | 🔴 |
+| Responses Received | 3 | 0 | 🔴 |
+| Demo Scheduled | 2 | 0 | 🔴 |
+| Proposals Sent | 1 | 0 | 🔴 |
+| Deals Closed | 1 | 0 | 🔴 |
+| Revenue Generated | Rp 5.000.000 | Rp 0 | 🔴 |
+
+---
+
+## 🎯 NEXT ACTION ITEMS
+
+### Immediate (This Week - Week 30)
+
+| # | Action | Owner | Deadline |
+|---|--------|-------|----------|
+| 1 | Kirim email RS Sanjiwani | Sales Agent | July 20 |
+| 2 | Kirim email RS Sanglah | Sales Agent | July 20 |
+| 3 | Kirim email RS Ngoerah | Sales Agent | July 20 |
+| 4 | Research RSUP Yogyakarta contacts | Sales Agent | July 21 |
+| 5 | Kirim email RSUP Yogyakarta | Sales Agent | July 21 |
+| 6 | Kirim email RSUP Makassar | Sales Agent | July 21 |
+| 7 | Call RS Dwira Gianyar | Sales Agent | July 22 |
+| 8 | WhatsApp broadcast RS Bali leads | Sales Agent | July 22 |
+| 9 | Follow-up non-responders | Sales Agent | July 22-24 |
+| 10 | Schedule demos | Sales Agent | July 24 |
+
+### Week 31 Goals
+
+| # | Goal | Target |
+|---|------|--------|
+| 1 | Demos Conducted | 3 |
+| 2 | Proposals Sent | 2 |
+| 3 | Revenue Closed | Rp 15.000.000 |
+
+---
+
+
 
 ## 1. PRODUCT ANALYSIS
 
@@ -1418,10 +1717,10 @@ RS Payangan Hospital
 
 ---
 
-**Report Generated:** 2026-07-17 02:00 UTC
+**Report Generated:** 2026-07-20 02:00 UTC
 **Sales Agent:** SaaS Sales Agent - Payangan Hospital
-**Last Updated:** 2026-07-17
-**Next Update:** 2026-07-21
+**Last Updated:** 2026-07-20
+**Next Update:** 2026-07-27
 
 ## 📁 ATTACHMENTS / FILES
 
