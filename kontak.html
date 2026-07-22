@@ -194,7 +194,7 @@
       
         /* Footer */
         footer { background: var(--text-dark); color: white; padding: 60px 0 30px; }
-        .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
+        .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr; gap: 30px; margin-bottom: 40px; }
         .footer-brand .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; color: white; margin-bottom: 20px; }
         .footer-brand .logo img { height: 45px; }
         .footer-brand h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; font-size: 1.4rem; font-weight: 600; }
@@ -210,7 +210,7 @@
         .footer-social a { width: 40px; height: 40px; background: rgba(255,255,255,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; transition: all 0.3s; }
         .footer-social a:hover { background: var(--primary); }
         @media (max-width: 992px) {
-            .footer-grid { grid-template-columns: repeat(2, 1fr); }
+            .footer-grid { grid-template-columns: repeat(3, 1fr); }
         }
         @media (max-width: 576px) {
             .footer-grid { grid-template: 1fr; }
@@ -229,6 +229,19 @@
         .review-card:nth-child(2) { animation-delay: 0.2s; }
         .review-card:nth-child(3) { animation-delay: 0.3s; }
         .review-card:nth-child(4) { animation-delay: 0.4s; }
+
+        /* LAPOR Card Hover Effect */
+        .lapor-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 40px rgba(13, 71, 161, 0.4) !important;
+        }
+        .lapor-card:hover .lapor-arrow {
+            transform: translateX(5px);
+            color: white !important;
+        }
+        .lapor-arrow {
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
     </style>
 
     <style>
@@ -415,6 +428,41 @@
                         <a href="#" class="social-link"><i class="fab fa-tiktok"></i></a>
                         <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
                     </div>
+                </div>
+
+                <!-- LAPOR.go.id Section -->
+                <div class="lapor-section" style="margin-top: 40px; padding-top: 40px; border-top: 2px solid var(--bg-light);">
+                    <h4 style="font-family: 'Montserrat', sans-serif; font-size: 1.2rem; color: var(--text-dark); margin-bottom: 8px; display: flex; align-items: center; gap: 10px;">
+                        <i class="fas fa-bullhorn" style="color: var(--primary);"></i>
+                        Sampaikan Aspirasi & Pengaduan
+                    </h4>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 20px;">
+                        Sampaikan keluhan, saran, atau aspirasi Anda melalui portal resmi pemerintah.
+                    </p>
+                    <a href="https://www.lapor.go.id/" target="_blank" class="lapor-card" style="display: flex; align-items: center; gap: 20px; padding: 24px; background: linear-gradient(135deg, #1e3a5f 0%, #0d47a1 100%); border-radius: 16px; text-decoration: none; transition: all 0.3s; box-shadow: 0 8px 25px rgba(13, 71, 161, 0.3);">
+                        <div class="lapor-icon" style="width: 70px; height: 70px; background: rgba(255,255,255,0.15); border-radius: 16px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                            <svg width="40" height="40" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="64" height="64" rx="12" fill="#FF6B00"/>
+                                <path d="M32 16C23.164 16 16 23.164 16 32C16 40.836 23.164 48 32 48C40.836 48 48 40.836 48 32C48 23.164 40.836 16 32 16ZM38.4 35.2H34.4V39.2C34.4 40.096 33.696 40.8 32.8 40.8C31.904 40.8 31.2 40.096 31.2 39.2V35.2H27.2C26.304 35.2 25.6 34.496 25.6 33.6C25.6 32.704 26.304 32 27.2 32H31.2V28C31.2 27.104 31.904 26.4 32.8 26.4C33.696 26.4 34.4 27.104 34.4 28V32H38.4C39.296 32 40 32.704 40 33.6C40 34.496 39.296 35.2 38.4 35.2Z" fill="white"/>
+                                <circle cx="50" cy="14" r="8" fill="#FF6B00" stroke="white" stroke-width="2"/>
+                                <path d="M50 11V14M50 17V14M47 14H50M53 14H50" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <div class="lapor-content">
+                            <h3 style="font-family: 'Montserrat', sans-serif; font-size: 1.3rem; font-weight: 700; color: white; margin: 0 0 4px 0;">LAPOR.go.id</h3>
+                            <p style="font-size: 0.9rem; color: rgba(255,255,255,0.85); margin: 0 0 8px 0;">Layanan Aspirasi dan Pengaduan Online Rakyat</p>
+                            <span style="display: inline-flex; align-items: center; gap: 6px; background: rgba(255,255,255,0.2); padding: 6px 14px; border-radius: 50px; font-size: 0.8rem; color: white;">
+                                <i class="fas fa-external-link-alt"></i> Kunjungi Portal Resmi
+                            </span>
+                        </div>
+                        <div class="lapor-arrow" style="margin-left: auto; color: rgba(255,255,255,0.6); font-size: 1.5rem;">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </a>
+                    <p style="margin-top: 12px; font-size: 0.8rem; color: var(--text-muted); display: flex; align-items: center; gap: 6px;">
+                        <i class="fas fa-info-circle"></i>
+                        Melalui LAPOR, Anda dapat melaporkan masalah atau memberikan masukan langsung kepada pemerintah.
+                    </p>
                 </div>
             </div>
         </div>
@@ -723,6 +771,14 @@
                         <li><a href="#">Jl. Raya Payangan No.104, Melinggih</a></li>
                         <li><a href="#">Gianyar, Bali</a></li>
                         <li><a href="mailto:info@rsupayangan.co.id">info@rsupayangan.co.id</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Link Pemerintah</h4>
+                    <ul>
+                        <li><a href="https://www.lapor.go.id/" target="_blank"><i class="fas fa-external-link-alt" style="margin-right: 8px; font-size: 0.75rem;"></i>LAPOR.go.id</a></li>
+                        <li><a href="https://gianyarkab.go.id/" target="_blank"><i class="fas fa-external-link-alt" style="margin-right: 8px; font-size: 0.75rem;"></i>Pemkab Gianyar</a></li>
+                        <li><a href="https://dinkes.gianyarkab.go.id/" target="_blank"><i class="fas fa-external-link-alt" style="margin-right: 8px; font-size: 0.75rem;"></i>Dinkes Gianyar</a></li>
                     </ul>
                 </div>
             </div>
