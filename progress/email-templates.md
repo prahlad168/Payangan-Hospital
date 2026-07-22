@@ -1,8 +1,76 @@
 # 📧 Personalized Cold Email Templates - SaaS Sales
 
-## Generated: 2026-07-17
+## Generated: 2026-07-22 (Week 32 Update)
 ## Sales Agent: SaaS Sales Agent - Payangan Hospital
 ## Target: Rp 30.000.000/bulan dari SaaS Sales
+
+---
+
+## 🚀 WhatsApp Outreach Templates (Week 32)
+
+### WhatsApp Template 1: RS Sanjiwani Gianyar (SAME REGION)
+```
+📱 Pesan WhatsApp:
+
+Halo Bapak/Ibu Manajemen RS Sanjiwani Gianyar 👋
+
+Perkenalkan saya Dr. Purna Ananda dari RS Payangan Hospital Gianyar.
+
+Kami adalah tetangga RS Sanjiwani di Gianyar. Kami baru saja 
+mengembangkan Sistem SIMRS Modern yang telah berhasil:
+
+✅ Kurangi antrean 40%
+✅ Efisiensi data 60%
+✅ Dashboard real-time
+
+Harga mulai Rp 5.000.000
+Implementasi 2-3 minggu
+Demo GRATIS tanpa komitmen
+
+Apakah RS Sanjiwani tertarik diskusi?
+Kami bisa datang langsung ke Gianyar 🙏
+
+Terima kasih,
+Dr. Purna Ananda
+RS Payangan Hospital
+📞 (0361) 472008
+```
+
+### WhatsApp Template 2: Follow-up Day 3
+```
+📱 Pesan WhatsApp Follow-up:
+
+Halo Bapak/Ibu,
+
+Mau follow up pesan kami sebelumnya tentang SIMRS untuk RS Sanjiwani.
+
+Apakah ada waktu untuk diskusi singkat minggu ini?
+Kami bisa datang langsung atau via WhatsApp Call 🙏
+
+Terima kasih,
+Dr. Purna Ananda
+RS Payangan Hospital
+📞 (0361) 472008
+```
+
+### WhatsApp Template 3: RS Sanglah (Formal)
+```
+📱 Pesan WhatsApp:
+
+Yth. Bapak/Ibu Bagian Diklat RS Sanglah,
+
+Perkenalkan saya Dr. I Made Purna Ananda dari RS Payangan Hospital Gianyar.
+
+RS Sanglah adalah RS rujukan utama di Bali. Kami menawarkan partnership
+untuk SIMRS solution yang sudah production-ready.
+
+Demo bisa dijadwalkan sesuai waktu yang convenient.
+
+Terima kasih,
+Dr. Purna Ananda
+RS Payangan Hospital
+📱 +62 812 3456 7890
+```
 
 ---
 

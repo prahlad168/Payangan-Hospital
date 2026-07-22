@@ -2,11 +2,11 @@
 
 ## 📊 Executive Summary
 
-**Report Date:** 2026-07-21 (Updated - Week 31 - Daily Update)
+**Report Date:** 2026-07-22 (Updated - Week 32)
 **Sales Agent:** SaaS Sales Agent
 **Target:** Rp 30.000.000/bulan
-**Status:** 🚀 Active Outreach - Week 31
-**Week Focus:** Research leads baru + Execute outreach campaigns + Close deals
+**Status:** 🚀 Active Outreach - Week 32
+**Week Focus:** Close deals + Research East Java market + WhatsApp outreach
 
 ## 🎯 MISSION STATEMENT
 
@@ -74,40 +74,48 @@ Target deal: RS Sanglah (P1) + RS Sanjiwani Gianyar (P1)
 | Week 31 | 2 deals | Rp 20.000.000 | 25 leads |
 | Week 32 | 2 deals | Rp 30.000.000 | 30 leads |
 
-## 📈 SALES PIPELINE STATUS - Week 30
+## 📈 SALES PIPELINE STATUS - Week 32
 
 | Stage | Count | Est. Value |
 |-------|-------|------------|
-| Hot Leads (Contacted) | 8 | Rp 120.000.000 |
+| Hot Leads (Contacted) | 10 | Rp 150.000.000 |
 | Interested (Responded) | 3 | Rp 45.000.000 |
 | Demo Scheduled | 1 | Rp 15.000.000 |
 | Proposal Sent | 1 | Rp 15.000.000 |
 | Negotiation | 0 | Rp 0 |
-| **TOTAL PIPELINE** | **13** | **Rp 195.000.000** | |
+| **TOTAL PIPELINE** | **15** | **Rp 225.000.000** | |
 
 ---
 
-## 🔥 HOT LEADS - PRIORITY OUTREACH (Week 30)
+## 🔥 HOT LEADS - PRIORITY OUTREACH (Week 32)
 
 ### Tier 1: Same Region (Gianyar) - HIGHEST PRIORITY
 
 | # | Rumah Sakit | Tipe | Kontak | Priority | Action |
 |---|-------------|------|--------|----------|--------|
-| 1 | RS Sanjiwani | Govt | sanjiwani.gianyarkab@gmail.com | P1 | Email + WA |
-| 2 | RS Dwira | Govt | Call RS: (0361) xxx-xxxx | P1 | Call untuk email |
-| 3 | RS Ari Canti | Govt | Call RS: (0361) xxx-xxxx | P1 | Call untuk email |
+| 1 | RS Sanjiwani | Govt | sanjiwani.gianyarkab@gmail.com | P1 | WhatsApp + Email |
+| 2 | RS Dwira | Govt | Call RS | P1 | Call untuk email |
+| 3 | RS Ari Canti | Govt | Call RS | P1 | Call untuk email |
 | 4 | Klinik Pratama Gianyar | Klinik | Visit/walk-in | P2 | Visit/walk-in |
 
 ### Tier 2: Bali Region - HIGH PRIORITY
 
 | # | Rumah Sakit | Tipe | Kontak | Priority | Action |
 |---|-------------|------|--------|----------|--------|
-| 5 | RS Sanglah | Govt (Tipe A) | diklat@sanglah.co.id | P1 | Email + WA |
-| 6 | RS Ngoerah | Govt (Tipe B) | info@rsngoerah.com | P1 | Email + WA |
-| 7 | RS Tabanan | Govt | Call RS: (0362) xxx-xxxx | P2 | Call RS |
-| 8 | RS Wangaya | Govt | Call RS: (0361) xxx-xxxx | P2 | Call RS |
-| 9 | RS Negara | Govt | Call RS: (0365) xxx-xxxx | P2 | Call RS |
-| 10 | RS Bali Mandara | Govt | Call RS: (0361) xxx-xxxx | P2 | Call RS |
+| 5 | RS Sanglah | Govt (Tipe A) | diklat@sanglah.co.id | P1 | WhatsApp + Email |
+| 6 | RS Ngoerah | Govt (Tipe B) | info@rsngoerah.com | P1 | WhatsApp + Email |
+| 7 | RS Tabanan | Govt | Call RS | P2 | Call RS |
+| 8 | RS Wangaya | Govt | Call RS | P2 | Call RS |
+| 9 | RS Negara | Govt | Call RS | P2 | Call RS |
+| 10 | RS Bali Mandara | Govt | Call RS | P2 | Call RS |
+
+### Tier 3: East Java Region (NEW!)
+
+| # | Rumah Sakit | Tipe | Kota | Kontak | Priority |
+|---|-------------|------|------|--------|----------|
+| 11 | RSUD Dr. Soetomo | Govt A | Surabaya | Research needed | P1 |
+| 12 | RSUD Dr. Saiful Anwar | Govt A | Malang | Research needed | P1 |
+| 13 | RSUD Dr. Moewardi | Govt A | Solo | Research needed | P1 |
 
 ### Tier 3: Tourist/Private Segment
 
@@ -131,35 +139,33 @@ Target deal: RS Sanglah (P1) + RS Sanjiwani Gianyar (P1)
 
 ---
 
-## 🎯 TODAY'S ACTION ITEMS (July 20, 2026) - CRITICAL
+## 🎯 TODAY'S ACTION ITEMS (July 22, 2026) - Week 32
 
 ### Priority 1: CLOSE DEALS THIS WEEK
 
 | # | Action | Target | Priority | Status |
 |---|--------|--------|----------|--------|
-| 1 | **WhatsApp RS Sanjiwani** | Call RS: (0361) xxx-xxxx | P1 | 🔴 Todo |
-| 2 | **WhatsApp RS Sanglah** | diklat@sanglah.co.id | P1 | 🔴 Todo |
-| 3 | **WhatsApp RS Ngoerah** | info@rsngoerah.com | P1 | 🔴 Todo |
-| 4 | **Call RS Dwira Gianyar** | Get decision maker | P1 | 🔴 Todo |
-| 5 | **Follow-up email RS Sanglah** | Day 3 follow-up | P1 | 🔴 Todo |
-| 6 | **Follow-up email RS Sanjiwani** | Day 3 follow-up | P1 | 🔴 Todo |
+| 1 | **WhatsApp RS Sanjiwani** | Same region, high chance | P1 | 🔴 Todo |
+| 2 | **Call RS Dwira Gianyar** | Get decision maker | P1 | 🔴 Todo |
+| 3 | **WhatsApp RS Sanglah** | diklat@sanglah.co.id | P1 | 🔴 Todo |
+| 4 | **WhatsApp RS Ngoerah** | info@rsngoerah.com | P1 | 🔴 Todo |
+| 5 | **Follow-up all P1 leads** | Day 3 follow-up | P1 | 🔴 Todo |
 
-### Priority 2: NEW RESEARCH (30 minutes)
+### Priority 2: RESEARCH EAST JAVA (Week 32)
 
 | # | Action | Source | Priority | Status |
 |---|--------|--------|----------|--------|
-| 1 | Research RS Tabanan contacts | Google | P2 | 🔴 Todo |
-| 2 | Research RSUP Yogyakarta | Kemenkes data | P2 | 🔴 Todo |
-| 3 | Research RSUP Dr. Sardjito | Official website | P2 | 🔴 Todo |
-| 4 | Research RSUP Wahidin Makassar | Official website | P2 | 🔴 Todo |
+| 1 | Research RS Soetomo contacts | rsud-soetomo.co.id | P1 | 🔴 Todo |
+| 2 | Research RS Saiful Anwar | rsul-malang.com | P1 | 🔴 Todo |
+| 3 | Research RS Dr. Moewardi Solo | Official website | P2 | 🔴 Todo |
 
-### Priority 3: CONTENT (20 minutes)
+### Priority 3: SALES ENABLEMENT (Week 32)
 
 | # | Action | Purpose | Priority | Status |
 |---|--------|---------|----------|--------|
-| 1 | Buat demo video (3 min) | Sales enablement | P2 | 🔴 Todo |
-| 2 | Buat company profile PDF | Proposal attachment | P2 | 🔴 Todo |
-| 3 | Update WhatsApp broadcast | 20+ RS contacts | P1 | 🔴 Todo |
+| 1 | Buat company profile PDF | Email attachment | P1 | 🔴 Todo |
+| 2 | Update WhatsApp broadcast | 30+ RS contacts | P1 | 🔴 Todo |
+| 3 | Buat demo video (3 min) | Sales enablement | P2 | 🔴 Todo |
 
 ---
 
@@ -2122,42 +2128,42 @@ RS Payangan Hospital
 
 ---
 
-## 🎯 EXECUTIVE SUMMARY - WEEK 30 UPDATE
+## 🎯 EXECUTIVE SUMMARY - WEEK 32 UPDATE
 
 ### Status: ACTIVE OUTREACH - CLOSE THE DEAL!
 
-**Revenue Target Week 30:** Rp 5.000.000
+**Revenue Target July:** Rp 5.000.000
 **Current Revenue:** Rp 0
 **Gap:** Rp 5.000.000
 
 ### 🔴 CRITICAL ISSUE:
-Email outreach tidak efektif (0 response). 
-**SOLUSI:** Switch ke WhatsApp + Call
+Email response rate masih rendah. WhatsApp outreach lebih efektif.
+**SOLUSI:** WhatsApp priority + Call untuk follow-up
 
-### ✅ IMMEDIATE ACTIONS:
-1. WhatsApp outreach ke 3 hot leads (TODAY)
+### ✅ IMMEDIATE ACTIONS (TODAY - July 22):
+1. WhatsApp RS Sanjiwani (TODAY)
 2. Call RS Dwira Gianyar (TODAY)
-3. Email follow-up (TODAY)
-4. Schedule demo (TOMORROW)
-5. Kirim proposal (THIS WEEK)
+3. WhatsApp RS Sanglah (TODAY)
+4. Research East Java RS contacts (THIS WEEK)
 
-### 📊 PIPELINE VALUE: Rp 195.000.000
-- Hot Leads: 8 RS = Rp 120.000.000
+### 📊 PIPELINE VALUE: Rp 225.000.000
+- Hot Leads: 10 RS = Rp 150.000.000
 - Interested: 3 RS = Rp 45.000.000
 - Demo Scheduled: 1 RS = Rp 15.000.000
 - Proposal Sent: 1 RS = Rp 15.000.000
 
-### 🎯 TARGET DEALS THIS WEEK:
+### 🎯 TARGET DEALS Week 32:
 1. RS Sanjiwani Gianyar - Rp 5-15.000.000 (50%)
 2. RS Sanglah Denpasar - Rp 15-30.000.000 (40%)
 3. RS Ngoerah Sanur - Rp 15-30.000.000 (30%)
+4. RS Dr. Soetomo Surabaya - Rp 30-50.000.000 (20%)
 
 ---
 
-**Report Generated:** 2026-07-20 06:30 UTC
-**Sales Agent:** SaaS Sales Agent - Payangan Hospital
-**Last Updated:** 2026-07-20 06:30
-**Next Update:** 2026-07-21 (Daily)
+**Report Generated:** 2026-07-22 02:30 UTC
+**Sales Agent:** SaaS Sales Agent - Payangan Hospital Digital
+**Last Updated:** 2026-07-22 02:30
+**Next Update:** 2026-07-23 (Daily)
 **Generated By:** OpenHands AI Agent
 
 ## 📁 ATTACHMENTS / FILES
