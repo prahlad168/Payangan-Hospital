@@ -1,0 +1,207 @@
+name: 📊 Auto Update Progress Page
+
+on:
+  push:
+    branches: [main]
+    paths-ignore:
+      - 'progress/**'  # Jangan trigger sendiri
+      - '.github/workflows/06-auto-update-progress.yml'
+  
+  # Manual trigger
+  workflow_dispatch:
+
+jobs:
+  update-progress:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 50
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Run Progress Update Agent
+        id: update-progress
+        run: |
+          python << 'EOF'
+          import os
+          import re
+          from pathlib import Path
+          from datetime import datetime, timedelta
+
+          print("📊 MEMULAI AUTO PROGRESS UPDATE AGENT")
+          print("=" * 60)
+
+          # Get commit history with dates
+          commits_raw = os.popen('git log --format="%h|%s|%ad" --date=short -30').read().strip().split('\n')
+          
+          # Get statistics
+          html_files = list(Path('.').glob('*.html'))
+          total_html = len(html_files)
+          
+          poli_files = list(Path('.').glob('poli-*.html'))
+          poli_count = len(poli_files)
+          
+          img_files = len(list(Path('img').rglob('*'))) if Path('img').exists() else 0
+          
+          workflow_files = list(Path('.github/workflows').glob('*.yml')) if Path('.github/workflows').exists() else []
+          agent_count = len([w for w in workflow_files if not w.name.startswith('dependabot')])
+          
+          last_update = datetime.now().strftime('%B %d, %Y')
+          
+          print(f"📈 Statistics:")
+          print(f"   - Total HTML: {total_html}")
+          print(f"   - Poli Pages: {poli_count}")
+          print(f"   - Images: {img_files}")
+          print(f"   - Agents: {agent_count}")
+          print(f"   - Last update: {last_update}")
+          
+          # Read current progress page
+          progress_file = Path('progress/index.html')
+          if progress_file.exists():
+              content = progress_file.read_text(encoding='utf-8')
+              
+              # Update last updated date
+              content = re.sub(
+                  r'Last Updated:.*?\d{4}',
+                  f'Last Updated: {last_update}',
+                  content
+              )
+              
+              # Update statistics in overview section
+              content = re.sub(
+                  r'(<div class="number">)(\d+)(</div>\s*<div class="label">Halaman HTML)',
+                  f'\\g<1>{total_html}\\g<3>',
+                  content
+              )
+              
+              content = re.sub(
+                  r'(<div class="number">)(\d+)(</div>\s*<div class="label">Poliklinik)',
+                  f'\\g<1>{poli_count}\\g<3>',
+                  content
+              )
+              
+              # Build commit list with dates
+              commit_html = ""
+              current_date = datetime.now().date()
+              
+              for commit_line in commits_raw:
+                  if commit_line.strip() and len(commit_line.split('|')) == 3:
+                      sha, msg, date_str = commit_line.split('|')
+                      
+                      # Determine icon based on message
+                      icon_class = "fa-file-alt"
+                      if any(x in msg.lower() for x in ["fix", "bug"]):
+                          icon_class = "fa-bug"
+                      elif "add" in msg.lower() and "document" not in msg.lower():
+                          icon_class = "fa-plus"
+                      elif "update" in msg.lower() or "improve" in msg.lower():
+                          icon_class = "fa-chart-line"
+                      elif "agent" in msg.lower():
+                          icon_class = "fa-robot"
+                      elif "skill" in msg.lower():
+                          icon_class = "fa-tools"
+                      elif any(x in msg.lower() for x in ["design", "ui", "css", "logo"]):
+                          icon_class = "fa-paint-brush"
+                      elif "progress" in msg.lower():
+                          icon_class = "fa-chart-bar"
+                      elif "doc" in msg.lower() or "readme" in msg.lower():
+                          icon_class = "fa-file-alt"
+                      
+                      # Calculate relative date
+                      try:
+                          commit_date = datetime.strptime(date_str, '%Y-%m-%d').date()
+                          days_ago = (current_date - commit_date).days
+                          
+                          if days_ago == 0:
+                              date_label = "Today"
+                          elif days_ago == 1:
+                              date_label = "Yesterday"
+                          elif days_ago < 7:
+                              date_label = f"{days_ago} days ago"
+                          elif days_ago < 30:
+                              weeks = days_ago // 7
+                              date_label = f"{weeks} week{'s' if weeks > 1 else ''} ago"
+                          else:
+                              months = days_ago // 30
+                              date_label = f"{months} month{'s' if months > 1 else ''} ago"
+                      except:
+                          date_label = date_str
+                      
+                      # Truncate long messages
+                      display_msg = msg[:60] + "..." if len(msg) > 60 else msg
+                      
+                      commit_html += f'''
+                <div class="commit-item">
+                    <i class="fas {icon_class}"></i>
+                    <span>
+                        <strong>{sha}</strong> - {display_msg}
+                        <span class="commit-date">{date_label}</span>
+                    </span>
+                </div>'''
+              
+              # Add CSS for commit date
+              commit_date_css = '''
+        .commit-date {
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.6);
+            margin-left: 8px;
+            background: rgba(255,255,255,0.1);
+            padding: 2px 8px;
+            border-radius: 10px;
+        }'''
+              
+              # Insert commit date CSS if not exists
+              if '.commit-date {' not in content:
+                  content = content.replace('.commit-item i {', commit_date_css + '\n        .commit-item i {')
+              
+              # Replace commit list
+              pattern = r'<div class="commit-list">.*?</div>\s*</div>\s*</div>\s*</header>'
+              replacement = f'''<div class="commit-list">
+                {commit_html}
+            </div>
+        </div>
+    </header>'''
+              
+              content = re.sub(pattern, replacement, content, flags=re.DOTALL)
+              
+              # Save updated content
+              progress_file.write_text(content, encoding='utf-8')
+              
+              print("\n✅ Progress page updated successfully!")
+              print(f"   - Updated: {progress_file}")
+              print(f"   - Last update: {last_update}")
+              print(f"   - Commits shown: {len(commits_raw)}")
+          else:
+              print("⚠️ Progress file not found!")
+          
+          print("=" * 60)
+          
+          EOF
+
+      - name: Check for changes
+        id: git_diff
+        run: |
+          git diff --stat progress/index.html
+          if git diff --quiet progress/index.html; then
+            echo "no_changes=true" >> $GITHUB_OUTPUT
+            echo "No changes to progress page"
+          else
+            echo "no_changes=false" >> $GITHUB_OUTPUT
+            echo "Changes detected in progress page"
+          fi
+
+      - name: Commit and Push Changes
+        if: github.event_name != 'workflow_dispatch' && steps.git_diff.outputs.no_changes == 'false'
+        run: |
+          git config --local user.email "actions@github.com"
+          git config --local user.name "GitHub Actions Bot"
+          
+          git add progress/index.html
+          git commit -m "📊 Auto-update progress page - $(date '+%Y-%m-%d %H:%M')"
+          git push

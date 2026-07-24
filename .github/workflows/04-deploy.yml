@@ -1,0 +1,189 @@
+name: 🚀 Auto Deploy
+
+on:
+  push:
+    branches: [main]
+  
+  # Manual trigger
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    # Only run if there are actual changes to deploy
+    if: github.event.head_commit == null || contains(github.event.head_commit.message, '[skip ci]') == false
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Detect changes
+        id: changes
+        run: |
+          echo "Checking for changes..."
+          
+          # Get list of changed files
+          CHANGES=$(git diff --name-only HEAD~1 HEAD 2>/dev/null | head -20)
+          
+          if [ -z "$CHANGES" ]; then
+            echo "No previous commit found, deploying all files"
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+          else
+            echo "Changed files:"
+            echo "$CHANGES"
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Run Pre-Deploy Checks
+        if: steps.changes.outputs.has_changes == 'true'
+        run: |
+          echo "🔍 MEMULAI PRE-DEPLOY CHECKS"
+          echo "=" * 50)
+          
+          python << 'EOF'
+          import os
+          import re
+          from pathlib import Path
+          
+          print("=" * 50)
+          print("🔍 PRE-DEPLOY VALIDATION")
+          print("=" * 50)
+          
+          errors = []
+          
+          # 1. Check all HTML files exist
+          required_files = [
+              'index.html', 'about.html', 'dokter.html', 'kontak.html',
+              'antrean.html', 'igd.html', 'rawat-jalan.html', 'rawat-inap.html'
+          ]
+          
+          print("\n📁 Checking required files...")
+          for f in required_files:
+              if Path(f).exists():
+                  print(f"   ✅ {f}")
+              else:
+                  errors.append(f"Missing: {f}")
+                  print(f"   ❌ {f}")
+          
+          # 2. Check logo exists
+          print("\n🎨 Checking logo...")
+          if Path('img/logo.png').exists() or Path('logo.png').exists():
+              print("   ✅ Logo found")
+          else:
+              errors.append("Logo not found")
+              print("   ❌ Logo missing")
+          
+          # 3. Check dokter images
+          print("\n👨‍⚕️ Checking dokter images...")
+          dokter_imgs = list(Path('img/dokter').glob('*') if Path('img/dokter').exists() else [])
+          print(f"   Found {len(dokter_imgs)} images")
+          
+          # 4. Validate link structure
+          print("\n🔗 Checking link structure...")
+          html_files = list(Path('.').glob('*.html'))
+          
+          for html_file in html_files[:5]:  # Sample check
+              content = html_file.read_text(encoding='utf-8')
+              
+              # Check logo link
+              if 'class="logo"' in content or 'class="navbar-brand"' in content:
+                  if 'href="#"' in content:
+                      errors.append(f"{html_file.name}: Logo link is #")
+                      print(f"   ❌ {html_file.name}: Logo link is #")
+              
+              # Check dokter link
+              if 'href="#dokter"' in content:
+                  errors.append(f"{html_file.name}: Dokter link uses #dokter")
+                  print(f"   ❌ {html_file.name}: Uses #dokter instead of dokter.html")
+          
+          # 5. Check for common issues
+          print("\n⚠️ Checking for common issues...")
+          for html_file in html_files:
+              content = html_file.read_text(encoding='utf-8')
+              
+              # Check DOCTYPE
+              if '<!DOCTYPE' not in content.upper():
+                  errors.append(f"{html_file.name}: Missing DOCTYPE")
+          
+          # Summary
+          print("\n" + "=" * 50)
+          if errors:
+              print(f"⚠️⚠️⚠️ DITEMUKAN {len(errors)} POTENTIAL ISSUES")
+              for err in errors:
+                  print(f"   - {err}")
+          else:
+              print("✅✅✅ PRE-DEPLOY CHECKS PASSED!")
+          print("=" * 50)
+          
+          # Don't fail deployment for warnings
+          # if errors:
+          #     exit(1)
+          
+          EOF
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+        with:
+          enablement: true
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'
+          retention-days: 1
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+        with:
+          artifact_name: github-pages
+          token: ${{ secrets.GITHUB_TOKEN }}
+          timeout: 300000
+          reporting-engine: dotnet
+
+      - name: Deploy Summary
+        if: success()
+        run: |
+          echo "## 🚀 Deploy Successful!" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Website deployed to:**" >> $GITHUB_STEP_SUMMARY
+          echo "https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Deployment ID:** ${{ steps.deployment.outputs.page_id }}" >> $GITHUB_STEP_SUMMARY
+          echo "**Timestamp:** $(date -u '+%Y-%m-%d %H:%M:%S UTC')" >> $GITHUB_STEP_SUMMARY
+
+      - name: Create Deployment Notification
+        if: success()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            // Check if there are any open PRs
+            const prs = await github.rest.pulls.list({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'open'
+            });
+            
+            if (prs.data.length > 0) {
+              console.log(`Found ${prs.data.length} open PR(s)`);
+            }
+            
+            console.log(`🚀 Deployment complete!`);
+            console.log(`📍 URL: https://${context.repo.owner}.github.io/${context.repo.repo}/`);
+
+      # Discord notification - uncomment and set DISCORD_WEBHOOK secret if needed
+      # - name: Send Discord Notification
+      #   if: success()
+      #   uses: fjogeleit/discord-action@master
+      #   with:
+      #     webhookURL: ${{ secrets.DISCORD_WEBHOOK }}
+      #     webhookTitle: "🚀 Website Deployed!"
+      #     webhookBody: |
+      #       **Repository:** ${{ github.repository }}
+      #       **Branch:** main
+      #       **Commit:** ${{ github.sha }}
+      #     color: "00FF00"

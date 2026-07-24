@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Fasilitas Payangan Hospital Gianyar, Bali. Kamar perawatan, IGD, ruang operasi, laboratorium, radiologi, dan fasilitas pendukung lainnya.">
+    <meta name="keywords" content="fasilitas rumah sakit gianyar, kamar rs payangan, igd, ruang operasi, laboratorium, radiologi, bali">
+    <meta name="robots" content="index, follow">
+    <title>Fasilitas - Payangan Hospital Gianyar</title>
+    <link rel="icon" type="image/png" href="img/logo-official.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/design-system.css">
+    <link rel="stylesheet" href="css/premium-upgrade.css">
+    <!-- Brand Identity CSS -->
+    <link rel="stylesheet" href="css/brand.css">
+    <style>
+        :root {
+            --primary: #0d7377;
+            --primary-dark: #095456;
+            --primary-light: #14919b;
+            --secondary: #f4c430;
+            --accent: #e85d04;
+            --bg-white: #ffffff;
+            --bg-light: #f8fafc;
+            --bg-cream: #fefcf8;
+            --text-dark: #1a1a2e;
+            --text-muted: #64748b;
+            --gradient-teal: linear-gradient(135deg, #0d7377 0%, #14919b 100%);
+            --shadow-soft: 0 4px 20px rgba(13, 115, 119, 0.08);
+            --shadow-hover: 0 20px 40px rgba(13, 115, 119, 0.15);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Montserrat', sans-serif; font-weight: 300; background: var(--bg-white); color: var(--text-dark); line-height: 1.7; overflow-x: hidden; }
+        h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; font-weight: 500; line-height: 1.2; }
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+      
+        /* Navigation */
+        .navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 20px 0; transition: all 0.4s ease; }
+        .navbar.scrolled { background: rgba(255,255,255,0.98); backdrop-filter: blur(20px); box-shadow: 0 1px 20px rgba(0,0,0,0.05); padding: 14px 0; }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+        .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .logo img { width: 50px; height: auto; }
+        .logo-text { display: flex; flex-direction: column; }
+        .logo-text-main { font-size: 1.2rem; font-weight: 600; color: white;  }
+        .logo-text-sub { font-size: 0.6rem; color: rgba(255,255,255,0.7); font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase;  }
+        .navbar.scrolled .logo-text-main { color: var(--text-dark); }
+        .navbar.scrolled .logo-text-sub { color: var(--text-muted); }
+        .nav-links { display: flex; gap: 6px; list-style: none; }
+        .nav-links > li { position: relative; }
+        .nav-links a { text-decoration: none; color: rgba(255,255,255,0.9); font-size: 0.85rem; font-weight: 400; padding: 10px 16px; border-radius: 50px; display: block; transition: all 0.3s ease; }
+        .navbar.scrolled .nav-links a { color: var(--text-muted); }
+        .nav-links a i { font-size: 10px; margin-left: 4px; }
+        .nav-links a:hover, .nav-links a.active { color: var(--secondary); }
+        .navbar.scrolled .nav-links a:hover, .navbar.scrolled .nav-links a.active { color: var(--primary); background: var(--bg-light); }
+        .nav-links > li:hover .mega-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(10px); }
+        .mega-menu { position: absolute; top: 100%; left: 50%; transform: translateX(-50%); background: white; border-radius: 20px; box-shadow: 0 25px 80px rgba(0,0,0,0.12); padding: 20px; min-width: 500px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; opacity: 0; visibility: hidden; transition: all 0.4s ease; }
+        .mega-menu a { display: flex; align-items: flex-start; gap: 14px; padding: 14px; border-radius: 14px; color: var(--text-dark) !important; transition: all 0.3s; }
+        .mega-menu a:hover { background: var(--bg-light); }
+        .mega-menu a:hover h4 { color: var(--primary); }
+        .mega-menu .icon { width: 44px; height: 44px; background: var(--gradient-teal); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 16px; flex-shrink: 0; }
+        .mega-menu h4 { font-size: 0.95rem; font-weight: 500; margin-bottom: 2px; transition: color 0.3s; }
+        .mega-menu p { font-size: 0.8rem; color: var(--text-muted); line-height: 1.4; }
+        .nav-cta { background: var(--secondary) !important; color: var(--text-dark) !important; font-weight: 600 !important; }
+        .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(244,196,48,0.3); }
+        .nav-emergency { background: #dc3545 !important; color: white !important; }
+        .nav-emergency:hover { background: #c82333 !important; transform: translateY(-2px); }
+        .mobile-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 10px; }
+        .mobile-toggle span { width: 25px; height: 2px; background: white; transition: 0.3s; }
+        .navbar.scrolled .mobile-toggle span { background: var(--text-dark); }
+      
+        /* Mobile Menu */
+        .mobile-menu { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(180deg, var(--primary-dark) 0%, var(--primary) 100%); z-index: 999; padding: 100px 40px; transform: translateX(100%); transition: transform 0.4s; }
+        .mobile-menu.active { transform: translateX(0); }
+        .mobile-menu ul { list-style: none; }
+        .mobile-menu li { margin-bottom: 8px; }
+        .mobile-menu a { color: white; font-size: 1.1rem; padding: 14px 0; display: block; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .mobile-menu a:hover { color: var(--secondary); }
+      
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .mobile-toggle { display: flex; }
+            .mobile-menu { display: block; }
+            .mega-menu { display: none; }
+        }
+      
+        /* Page Header */
+        .page-header { padding: 160px 0 100px; background: linear-gradient(135deg, var(--bg-cream) 0%, var(--bg-white) 100%); text-align: center; position: relative; overflow: hidden; }
+        .page-header::before { content: ''; position: absolute; top: -50%; right: -10%; width: 60%; height: 150%; background: radial-gradient(circle, rgba(13, 115, 119, 0.05) 0%, transparent 70%); }
+        .page-header .section-label { font-size: 0.85rem; font-weight: 500; color: var(--primary); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 16px; }
+        .page-header h1 { font-size: 3.5rem; color: var(--text-dark); margin-bottom: 20px; }
+        .page-header h1 span { color: var(--primary); }
+        .page-header p { font-size: 1.15rem; color: var(--text-muted); max-width: 650px; margin: 0 auto; }
+        .breadcrumb { display: flex; justify-content: center; gap: 12px; margin-top: 24px; font-size: 0.9rem; }
+        .breadcrumb a { color: var(--text-muted); text-decoration: none; transition: color 0.3s; }
+        .breadcrumb a:hover { color: var(--primary); }
+        .breadcrumb span { color: var(--secondary); }
+      
+        /* Stats Section */
+        .stats-section { padding: 80px 0; background: var(--gradient-teal); position: relative; overflow: hidden; }
+        .stats-section::before { content: ''; position: absolute; inset: 0; background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); }
+        .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; max-width: 1000px; margin: 0 auto; position: relative; }
+        .stat-item { text-align: center; color: white; }
+        .stat-number { font-size: 3.5rem; font-weight: 700; margin-bottom: 8px; }
+        .stat-label { font-size: 1rem; opacity: 0.9; }
+      
+        @media (max-width: 768px) {
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .stat-number { font-size: 2.5rem; }
+        }
+      
+        /* Facilities Section */
+        .facilities-section { padding: 100px 0; }
+        .facilities-section:nth-child(even) { background: var(--bg-light); }
+      
+        .section-header { text-align: center; margin-bottom: 60px; }
+        .section-label { display: inline-flex; align-items: center; gap: 10px; background: rgba(13, 115, 119, 0.1); color: var(--primary); padding: 10px 24px; border-radius: 50px; font-size: 0.85rem; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 20px; }
+        .section-title { font-size: 2.8rem; color: var(--text-dark); margin-bottom: 16px; }
+        .section-title span { color: var(--primary); }
+        .section-desc { font-size: 1.1rem; color: var(--text-muted); max-width: 650px; margin: 0 auto; }
+      
+        /* Facility Cards */
+        .facility-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+      
+        .facility-card { background: white; border-radius: 24px; overflow: hidden; box-shadow: var(--shadow-soft); transition: all 0.4s ease; }
+        .facility-card:hover { transform: translateY(-10px); box-shadow: var(--shadow-hover); }
+      
+        .facility-image { height: 220px; background: var(--gradient-teal); position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+        .facility-image::before { content: ''; position: absolute; inset: 0; background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); }
+        .facility-image i { font-size: 80px; color: white; opacity: 0.3; position: relative; z-index: 1; }
+        .facility-badge { position: absolute; top: 16px; right: 16px; background: white; color: var(--primary); padding: 6px 16px; border-radius: 50px; font-size: 0.8rem; font-weight: 600; z-index: 2; }
+      
+        .facility-content { padding: 30px; }
+        .facility-content h3 { font-size: 1.4rem; color: var(--text-dark); margin-bottom: 12px; }
+        .facility-content p { font-size: 0.95rem; color: var(--text-muted); margin-bottom: 20px; line-height: 1.7; }
+      
+        .facility-features { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+        .facility-features span { background: var(--bg-light); color: var(--text-muted); padding: 6px 14px; border-radius: 50px; font-size: 0.8rem; }
+      
+        .facility-btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; background: var(--gradient-teal); color: white; text-decoration: none; border-radius: 50px; font-weight: 500; font-size: 0.9rem; transition: all 0.3s; }
+        .facility-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(13, 115, 119, 0.3); }
+      
+        /* Room Types */
+        .room-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+      
+        .room-card { background: white; border-radius: 20px; padding: 40px 30px; text-align: center; box-shadow: var(--shadow-soft); transition: all 0.4s ease; border: 2px solid transparent; }
+        .room-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-hover); border-color: var(--primary); }
+        .room-card.vip { background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); }
+      
+        .room-icon { width: 80px; height: 80px; background: var(--gradient-teal); border-radius: 20px; display: flex; align-items: center; justify-content: center; margin: 0 auto 24px; }
+        .room-card.vip .room-icon { background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); }
+        .room-icon i { font-size: 32px; color: white; }
+      
+        .room-card h3 { font-size: 1.3rem; margin-bottom: 12px; }
+        .room-price { font-size: 2rem; font-weight: 700; color: var(--primary); margin-bottom: 16px; }
+        .room-price span { font-size: 0.9rem; font-weight: 400; color: var(--text-muted); }
+      
+        .room-features { text-align: left; margin-bottom: 24px; }
+        .room-features li { display: flex; align-items: center; gap: 10px; padding: 8px 0; font-size: 0.9rem; color: var(--text-muted); }
+        .room-features li i { color: var(--primary); }
+      
+        /* Technology Section */
+        .tech-section { padding: 100px 0; background: var(--text-dark); color: white; position: relative; overflow: hidden; }
+        .tech-section::before { content: ''; position: absolute; inset: 0; background: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M50 50c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10s-10-4.477-10-10 4.477-10 10-10zM10 10c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10S0 25.523 0 20s4.477-10 10-10z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); }
+      
+        .tech-section .section-label { background: rgba(255,255,255,0.1); color: white; }
+        .tech-section .section-title { color: white; }
+        .tech-section .section-desc { color: rgba(255,255,255,0.7); }
+      
+        .tech-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto; padding: 0 24px; position: relative; }
+      
+        .tech-item { text-align: center; padding: 40px 30px; background: rgba(255,255,255,0.05); border-radius: 20px; border: 1px solid rgba(255,255,255,0.1); transition: all 0.4s; }
+        .tech-item:hover { background: rgba(255,255,255,0.1); transform: translateY(-5px); }
+        .tech-item i { font-size: 48px; margin-bottom: 20px; color: var(--secondary); }
+        .tech-item h4 { font-size: 1.2rem; margin-bottom: 12px; color: white; }
+        .tech-item p { font-size: 0.9rem; color: rgba(255,255,255,0.7); }
+      
+        /* CTA Section */
+        .cta-section { padding: 100px 0; background: var(--bg-light); }
+        .cta-box { background: var(--gradient-teal); border-radius: 30px; padding: 80px 60px; text-align: center; position: relative; overflow: hidden; max-width: 1000px; margin: 0 auto; }
+        .cta-box::before { content: ''; position: absolute; inset: 0; background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); }
+        .cta-box h2 { font-size: 2.5rem; color: white; margin-bottom: 16px; position: relative; }
+        .cta-box p { color: rgba(255,255,255,0.9); font-size: 1.15rem; margin-bottom: 32px; position: relative; }
+        .cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; position: relative; }
+        .cta-btn { padding: 16px 32px; border-radius: 50px; font-weight: 600; font-size: 1rem; text-decoration: none; display: inline-flex; align-items: center; gap: 10px; transition: all 0.3s; }
+        .cta-btn-primary { background: white; color: var(--primary); }
+        .cta-btn-primary:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(0,0,0,0.2); }
+        .cta-btn-secondary { background: rgba(255,255,255,0.2); color: white; border: 2px solid rgba(255,255,255,0.3); }
+        .cta-btn-secondary:hover { background: rgba(255,255,255,0.3); transform: translateY(-3px); }
+      
+        @media (max-width: 768px) {
+            .page-header h1 { font-size: 2.5rem; }
+            .section-title { font-size: 2rem; }
+            .cta-box { padding: 50px 30px; }
+            .cta-box h2 { font-size: 1.8rem; }
+            .facility-grid { grid-template-columns: 1fr; }
+        }
+      
+        /* Footer */
+        footer { background: var(--text-dark); color: white; padding: 80px 0 30px; }
+        .footer-grid { display: grid; grid-template-columns: 2fr repeat(3, 1fr); gap: 60px; max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+        .footer-about .footer-logo { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
+        .footer-about .footer-logo img { width: 50px; height: auto; }
+        .footer-about .footer-logo span { font-size: 1.3rem; font-weight: 600; }
+        .footer-about p { color: rgba(255,255,255,0.7); font-size: 0.95rem; line-height: 1.7; margin-bottom: 24px; }
+        .footer-social { display: flex; gap: 12px; }
+        .footer-social a { width: 44px; height: 44px; background: rgba(255,255,255,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; transition: all 0.3s; }
+        .footer-social a:hover { background: var(--primary); transform: translateY(-3px); }
+        .footer-col h4 { font-size: 1.1rem; margin-bottom: 24px; color: white; }
+        .footer-col ul { list-style: none; }
+        .footer-col li { margin-bottom: 12px; }
+        .footer-col a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 0.9rem; transition: all 0.3s; display: flex; align-items: center; gap: 8px; }
+        .footer-col a:hover { color: var(--secondary); padding-left: 5px; }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); margin-top: 60px; padding-top: 30px; text-align: center; }
+        .footer-bottom p { color: rgba(255,255,255,0.5); font-size: 0.85rem; }
+      
+        @media (max-width: 992px) {
+            .footer-grid { grid-template-columns: repeat(2, 1fr); gap: 40px; }
+            .footer-about { grid-column: span 2; }
+        }
+        @media (max-width: 768px) {
+            .footer-grid { grid-template-columns: 1fr; }
+            .footer-about { grid-column: span 1; }
+        }
+      
+        /* Animations */
+        .fade-in { opacity: 0; transform: translateY(30px); transition: all 0.6s ease; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="img/logo-official.png" alt="Payangan Hospital">
+                <div class="logo-text">
+                    <span class="logo-text-main">Payangan Hospital</span>
+                    <span class="logo-text-sub">PAVITRAM IDAM UTTAMAM</span>
+                </div>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Beranda</a></li>
+                <li><a href="about.html">Tentang</a></li>
+                <li>
+                    <a href="layanan.html">Layanan <i class="fas fa-chevron-down"></i></a>
+                    <div class="mega-menu">
+                        <a href="igd.html"><div class="icon"><i class="fas fa-ambulance"></i></div><div><h4>IGD 24 Jam</h4><p>Layanan gawat darurat</p></div></a>
+                        <a href="rawat-jalan.html"><div class="icon"><i class="fas fa-stethoscope"></i></div><div><h4>Rawat Jalan</h4><p>Konsultasi dokter spesialis</p></div></a>
+                        <a href="rawat-inap.html"><div class="icon"><i class="fas fa-bed"></i></div><div><h4>Rawat Inap</h4><p>Kamar perawatan intensif</p></div></a>
+                        <a href="layanan.html"><div class="icon"><i class="fas fa-flask"></i></div><div><h4>Laboratorium</h4><p>Pemeriksaan kesehatan</p></div></a>
+                    </div>
+                </li>
+                <li><a href="dokter.html">Dokter</a></li>
+                <li><a href="fasilitas.html" class="active">Fasilitas</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="kontak.html">Kontak</a></li>
+                <li><a href="igd.html" class="nav-emergency"><i class="fas fa-phone"></i> IGD</a></li>
+            </ul>
+            <div class="mobile-toggle" onclick="toggleMenu()">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </nav>
+  
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <ul>
+            <li><a href="index.html" onclick="toggleMenu()">Beranda</a></li>
+            <li><a href="about.html" onclick="toggleMenu()">Tentang Kami</a></li>
+            <li><a href="layanan.html" onclick="toggleMenu()">Layanan</a></li>
+            <li><a href="dokter.html" onclick="toggleMenu()">Dokter</a></li>
+            <li><a href="fasilitas.html" onclick="toggleMenu()">Fasilitas</a></li>
+            <li><a href="faq.html" onclick="toggleMenu()">FAQ</a></li>
+            <li><a href="kontak.html" onclick="toggleMenu()">Kontak</a></li>
+            <li><a href="igd.html" onclick="toggleMenu()">🚨 IGD 24 Jam</a></li>
+        </ul>
+    </div>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container-premium container">
+            <p class="section-label-premium section-label">Infrastruktur & Peralatan</p>
+            <h1>Fasilitas <span>Payangan Hospital</span></h1>
+            <p>Fasilitas lengkap dan modern untuk mendukung pelayanan kesehatan terbaik bagi masyarakat Gianyar dan sekitarnya.</p>
+            <div class="breadcrumb">
+                <a href="index.html">Beranda</a>
+                <span>/</span>
+                <span>Fasilitas</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="stats-grid">
+            <div class="stat-item fade-in">
+                <div class="stat-number">22+</div>
+                <div class="stat-label">Dokter Spesialis</div>
+            </div>
+            <div class="stat-item fade-in">
+                <div class="stat-number">50+</div>
+                <div class="stat-label">Tempat Tidur</div>
+            </div>
+            <div class="stat-item fade-in">
+                <div class="stat-number">8</div>
+                <div class="stat-label">Poli Spesialis</div>
+            </div>
+            <div class="stat-item fade-in">
+                <div class="stat-number">24/7</div>
+                <div class="stat-label">Layanan Darurat</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Emergency Facilities -->
+    <section class="facilities-section">
+        <div class="container-premium container">
+            <div class="section-header fade-in">
+                <p class="section-label-premium section-label"><i class="fas fa-ambulance"></i> Fasilitas Gawat Darurat</p>
+                <h2 class="section-title-premium section-title">Instalasi Gawat <span>Darurat</span></h2>
+                <p class="section-desc">Fasilitas darurat lengkap dengan peralatan medis modern dan tim medis berpengalaman siap 24 jam.</p>
+            </div>
+          
+            <div class="facility-grid">
+                <div class="facility-card fade-in">
+                    <div class="facility-image" style="background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);">
+                        <i class="fas fa-ambulance"></i>
+                        <span class="facility-badge">24/7</span>
+                    </div>
+                    <div class="facility-content">
+                        <h3>Ruang Triage & Resusitasi</h3>
+                        <p>Ruang penanganan awal pasien gawat darurat dengan peralatan lengkap untuk resusitasi jantung paru.</p>
+                        <div class="facility-features">
+                            <span>Defibrilator</span>
+                            <span>Ventilator</span>
+                            <span>Monitor Jantung</span>
+                        </div>
+                    </div>
+                </div>
+              
+                <div class="facility-card fade-in">
+                    <div class="facility-image" style="background: linear-gradient(135deg, #fd7e14 0%, #e8590c 100%);">
+                        <i class="fas fa-procedures"></i>
+                        <span class="facility-badge">24/7</span>
+                    </div>
+                    <div class="facility-content">
+                        <h3>Ruang Perawatan Darurat</h3>
+                        <p>6 tempat tidur perawatan darurat dengan pemantauan intensif dan tenaga medis standby.</p>
+                        <div class="facility-features">
+                            <span>AC Sentral</span>
+                            <span>Oksigen Sentral</span>
+                            <span>Suction</span>
+                        </div>
+                    </div>
+                </div>
+              
+                <div class="facility-card fade-in">
+                    <div class="facility-image" style="background: linear-gradient(135deg, #0dcaf0 0%, #0aa2c0 100%);">
+                        <i class="fas fa-car"></i>
+                        <span class="facility-badge">Siaga</span>
+                    </div>
+                    <div class="facility-content">
+                        <h3>Ambulans Emergency</h3>
+                        <p>2 unit ambulans lengkap dengan peralatan medis darurat dan komunikasi radio.</p>
+                        <div class="facility-features">
+                            <span>Peralatan CPR</span>
+                            <span>Obat Darurat</span>
+                            <span>Radio Komunikai</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Room Facilities -->
+    <section class="facilities-section">
+        <div class="container-premium container">
+            <div class="section-header fade-in">
+                <p class="section-label-premium section-label"><i class="fas fa-bed"></i> Kamar Perawatan</p>
+                <h2 class="section-title-premium section-title">Fasilitas Kamar <span>Rawat Inap</span></h2>
+                <p class="section-desc">Pilihan kamar perawatan dengan berbagai kelas untuk kenyamanan pasien dan keluarga.</p>
+            </div>
+          
+            <div class="room-grid">
+                <div class="room-card vip fade-in">
+                    <div class="room-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3>Kamar VIP</h3>
+                    <div class="room-price">Hubungi Kami</div>
+                    <ul class="room-features">
+                        <li><i class="fas fa-check"></i> AC & TV Layar Datar 43"</li>
+                        <li><i class="fas fa-check"></i> Kamar Mandi Dalam</li>
+                        <li><i class="fas fa-check"></i> Sofa Bed untuk Keluarga</li>
+                        <li><i class="fas fa-check"></i> Kulkas & Dispenser</li>
+                        <li><i class="fas fa-check"></i> Layanan Room Service</li>
+                    </ul>
+                    <a href="rawat-inap.html" class="facility-btn">Pesan Kamar <i class="fas fa-arrow-right"></i></a>
+                </div>
+              
+                <div class="room-card fade-in">
+                    <div class="room-icon">
+                        <i class="fas fa-door-open"></i>
+                    </div>
+                    <h3>Kamar Kelas I</h3>
+                    <div class="room-price">Hubungi Kami</div>
+                    <ul class="room-features">
+                        <li><i class="fas fa-check"></i> AC & TV 32"</li>
+                        <li><i class="fas fa-check"></i> Kamar Mandi Bersama</li>
+                        <li><i class="fas fa-check"></i> Kursi Tamu</li>
+                        <li><i class="fas fa-check"></i> Kipas Angin Cadangan</li>
+                        <li><i class="fas fa-check"></i> Lemari Pakaian</li>
+                    </ul>
+                    <a href="rawat-inap.html" class="facility-btn">Pesan Kamar <i class="fas fa-arrow-right"></i></a>
+                </div>
+              
+                <div class="room-card fade-in">
+                    <div class="room-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Kamar Kelas II</h3>
+                    <div class="room-price">Hubungi Kami</div>
+                    <ul class="room-features">
+                        <li><i class="fas fa-check"></i> AC & Kipas Angin</li>
+                        <li><i class="fas fa-check"></i> 2 Tempat Tidur</li>
+                        <li><i class="fas fa-check"></i> Kamar Mandi Bersama</li>
+                        <li><i class="fas fa-check"></i> Meja Nakas</li>
+                        <li><i class="fas fa-check"></i> Stop Kontak</li>
+                    </ul>
+                    <a href="rawat-inap.html" class="facility-btn">Pesan Kamar <i class="fas fa-arrow-right"></i></a>
+                </div>
+              
+                <div class="room-card fade-in">
+                    <div class="room-icon">
+                        <i class="fas fa-user-friends"></i>
+                    </div>
+                    <h3>Kamar Kelas III</h3>
+                    <div class="room-price">Hubungi Kami</div>
+                    <ul class="room-features">
+                        <li><i class="fas fa-check"></i> Kipas Angin</li>
+                        <li><i class="fas fa-check"></i> 4-6 Tempat Tidur</li>
+                        <li><i class="fas fa-check"></i> Kamar Mandi Bersama</li>
+                        <li><i class="fas fa-check"></i> Subsidi BPJS</li>
+                        <li><i class="fas fa-check"></i> Aksesibilitas</li>
+                    </ul>
+                    <a href="rawat-inap.html" class="facility-btn">Pesan Kamar <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ICU & NICU -->
+    <section class="facilities-section">
+        <div class="container-premium container">
+            <div class="section-header fade-in">
+                <p class="section-label-premium section-label"><i class="fas fa-heartbeat"></i> Perawatan Intensif</p>
+                <h2 class="section-title-premium section-title">ICU & <span>NICU</span></h2>
+                <p class="section-desc">Unit perawatan intensif dengan pemantauan 24 jam dan peralatan canggih.</p>
+            </div>
+          
+            <div class="facility-grid" style="grid-template-columns: repeat(2, 1fr); max-width: 900px; margin: 0 auto;">
+                <div class="facility-card fade-in">
+                    <div class="facility-image" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                        <i class="fas fa-heartbeat"></i>
+                        <span class="facility-badge">6 Bed</span>
+                    </div>
+                    <div class="facility-content">
+                        <h3>ICU - Intensive Care Unit</h3>
+                        <p>6 tempat tidur ICU dengan pemantauan intensif 24 jam oleh tim medis spesialis.</p>
+                        <div class="facility-features">
+                            <span>Ventilator</span>
+                            <span>Monitor Jantung</span>
+                            <span>Infusion Pump</span>
+                            <span>Syringe Pump</span>
+                        </div>
+                    </div>
+                </div>
+              
+                <div class="facility-card fade-in">
+                    <div class="facility-image" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                        <i class="fas fa-baby"></i>
+                        <span class="facility-badge">4 Bed</span>
+                    </div>
+                    <div class="facility-content">
+                        <h3>NICU - Neonatal ICU</h3>
+                        <p>4 tempat tidur NICU untuk perawatan bayi prematur dan bayi dengan kondisi khusus.</p>
+                        <div class="facility-features">
+                            <span>Incubator</span>
+                            <span>Phototherapy</span>
+                            <span>Monitor Pernapasan</span>
+                            <span>Infant Warmer</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Section -->
+    <section class="tech-section">
+        <div class="container-premium container">
+            <div class="section-header fade-in">
+                <p class="section-label-premium section-label"><i class="fas fa-microscope"></i> Peralatan Medis</p>
+                <h2 class="section-title-premium section-title">Teknologi <span>Modern</span></h2>
+                <p class="section-desc">Peralatan medis canggih untuk diagnosis dan penanganan yang akurat.</p>
+            </div>
+          
+            <div class="tech-grid">
+                <div class="tech-item fade-in">
+                    <i class="fas fa-wave-square"></i>
+                    <h4>ECG / EKG</h4>
+                    <p>Pemeriksaan irama jantung secara real-time dengan hasil akurat.</p>
+                </div>
+                <div class="tech-item fade-in">
+                    <i class="fas fa-lungs"></i>
+                    <h4>Spirometri</h4>
+                    <p>Uji fungsi paru untuk mendiagnosis gangguan pernapasan.</p>
+                </div>
+                <div class="tech-item fade-in">
+                    <i class="fas fa-eye"></i>
+                    <h4>Audiometri</h4>
+                    <p>Pemeriksaan pendengaran untuk semua usia.</p>
+                </div>
+                <div class="tech-item fade-in">
+                    <i class="fas fa-x-ray"></i>
+                    <h4>Rontgen Digital</h4>
+                    <p>Gambar rontgen berkualitas tinggi dengan radiasi rendah.</p>
+                </div>
+                <div class="tech-item fade-in">
+                    <i class="fas fa-tv"></i>
+                    <h4>USG 4D</h4>
+                    <p>Gambaran USG detail untuk diagnosis akurat termasuk kehamilan.</p>
+                </div>
+                <div class="tech-item fade-in">
+                    <i class="fas fa-microscope"></i>
+                    <h4>Laboratorium</h4>
+                    <p>Peralatan laboratorium lengkap untuk berbagai pemeriksaan.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Support Facilities -->
+    <section class="facilities-section">
+        <div class="container-premium container">
+            <div class="section-header fade-in">
+                <p class="section-label-premium section-label"><i class="fas fa-concierge-bell"></i> Fasilitas Pendukung</p>
+                <h2 class="section-title-premium section-title">Layanan <span>Pendukung</span></h2>
+                <p class="section-desc">Fasilitas pendukung untuk kenyamanan pasien dan keluarga selama di rumah sakit.</p>
+            </div>
+          
+            <div class="facility-grid">
+                <div class="facility-card fade-in">
+                    <div class="facility-image">
+                        <i class="fas fa-parking"></i>
+                    </div>
+                    <div class="facility-content">
+                        <h3>Area Parkir</h3>
+                        <p>Area parkir luas dan aman untuk kendaraan pasien dan pengunjung.</p>
+                        <div class="facility-features">
+                            <span>Parkir Gratis</span>
+                            <span>Keamanan 24 Jam</span>
+                        </div>
+                    </div>
+                </div>
+              
+                <div class="facility-card fade-in">
+                    <div class="facility-image">
+                        <i class="fas fa-coffee"></i>
+                    </div>
+                    <div class="facility-content">
+                        <h3>Kantin & Kafe</h3>
+                        <p>Kantin dan kafe dengan makanan sehat dan minuman untuk pasien dan pengunjung.</p>
+                        <div class="facility-features">
+                            <span>Makanan Sehat</span>
+                            <span>Jam Buka: 07:00-21:00</span>
+                        </div>
+                    </div>
+                </div>
+              
+                <div class="facility-card fade-in">
+                    <div class="facility-image">
+                        <i class="fas fa-mosque"></i>
+                    </div>
+                    <div class="facility-content">
+                        <h3>Ruang Ibadah</h3>
+                        <p>Ruang ibadah untuk pasien dan keluarga dari berbagai agama.</p>
+                        <div class="facility-features">
+                            <span>Musholla</span>
+                            <span>Ruang Doa</span>
+                        </div>
+                    </div>
+                </div>
+              
+                <div class="facility-card fade-in">
+                    <div class="facility-image">
+                        <i class="fas fa-wheelchair"></i>
+                    </div>
+                    <div class="facility-content">
+                        <h3>Aksesibilitas</h3>
+                        <p>Fasilitas ramah disabilitas di seluruh area rumah sakit.</p>
+                        <div class="facility-features">
+                            <span>Ramp</span>
+                            <span>Kursi Roda</span>
+                        </div>
+                    </div>
+                </div>
+              
+                <div class="facility-card fade-in">
+                    <div class="facility-image">
+                        <i class="fas fa-wifi"></i>
+                    </div>
+                    <div class="facility-content">
+                        <h3>WiFi Gratis</h3>
+                        <p>Koneksi internet gratis untuk pasien dan pengunjung.</p>
+                        <div class="facility-features">
+                            <span>High Speed</span>
+                            <span>Semua Area</span>
+                        </div>
+                    </div>
+                </div>
+              
+                <div class="facility-card fade-in">
+                    <div class="facility-image">
+                        <i class="fas fa-store"></i>
+                    </div>
+                    <div class="facility-content">
+                        <h3>Apotek 24 Jam</h3>
+                        <p>Apotek lengkap yang beroperasi 24 jam untuk kebutuhan obat Anda.</p>
+                        <div class="facility-features">
+                            <span>Obat Lengkap</span>
+                            <span>Konsultasi Farmasi</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container-premium container">
+            <div class="cta-box fade-in">
+                <h2>Tour Fasilitas Payangan Hospital</h2>
+                <p>Kunjungi dan lihat langsung fasilitas lengkap rumah sakit kami. Hubungi kami untuk jadwal kunjungan.</p>
+                <div class="cta-buttons">
+                        <i class="fas fa-calendar-check"></i> Jadwalkan Kunjungan
+                    </a>
+                    <a href="tel:+62361 9088087" class="cta-btn cta-btn-secondary">
+                        <i class="fas fa-phone"></i> 0361 9088087
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-about">
+                <div class="footer-logo">
+                    <img src="img/logo-official.png" alt="Payangan Hospital">
+                    <span>Payangan Hospital</span>
+                </div>
+                <p>Rumah Sakit Pemerintah Daerah Payangan, Gianyar, Bali. Memberikan pelayanan kesehatan berkualitas dengan pendekatan humanis dan profesional.</p>
+                <div class="footer-social">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Layanan</h4>
+                <ul>
+                    <li><a href="igd.html">IGD 24 Jam</a></li>
+                    <li><a href="rawat-jalan.html">Rawat Jalan</a></li>
+                    <li><a href="rawat-inap.html">Rawat Inap</a></li>
+                    <li><a href="layanan.html">Laboratorium</a></li>
+                    <li><a href="layanan.html">Radiologi</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Poli Spesialis</h4>
+                <ul>
+                    <li><a href="poli-umum.html">Poli Umum</a></li>
+                    <li><a href="poli-anak.html">Poli Anak</a></li>
+                    <li><a href="poli-jantung.html">Poli Jantung</a></li>
+                    <li><a href="poli-bedah.html">Poli Bedah</a></li>
+                    <li><a href="poli-saraf.html">Poli Saraf</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Kontak</h4>
+                <ul>
+                    <li><a href="tel:+62361 9088087"><i class="fas fa-phone"></i> 0361 9088087</a></li>
+                    <li><a href="https://wa.me/623619088087"><i class="fab fa-whatsapp"></i> +62 361 9088087</a></li>
+                    <li><a href="mailto:info@rsupayangan.co.id"><i class="fas fa-envelope"></i> info@rsupayangan.co.id</a></li>
+                    <li><a href="kontak.html"><i class="fas fa-map-marker-alt"></i> Jl. Raya Payangan No.104, Melinggih, Gianyar</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Payangan Hospital - Gianyar, Bali. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        // Mobile menu toggle
+        function toggleMenu() {
+            document.getElementById('mobileMenu').classList.toggle('active');
+        }
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+<!-- Live Chat Widget - Payangan Hospital -->
+<style>
+#chat-fab{position:fixed;bottom:20px;right:20px;width:60px;height:60px;background:linear-gradient(135deg,#0d7377,#14919b);border-radius:50%;border:none;cursor:pointer;z-index:99999;display:flex;align-items:center;justify-content:center;font-size:1.8rem;color:#fff;box-shadow:0 5px 25px rgba(13,115,119,0.4);transition:all .3s;animation:pulse 2s infinite}
+#chat-fab:hover{transform:scale(1.1)}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
+#chat-win{display:none;position:fixed;bottom:90px;right:20px;width:380px;max-width:calc(100vw-40px);height:500px;background:rgba(15,23,42,0.98);border-radius:20px;border:1px solid rgba(255,255,255,0.1);z-index:99999;flex-direction:column;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,0.5)}
+#chat-win.active{display:flex}
+.ch-hdr{background:linear-gradient(135deg,#0d7377,#14919b);padding:15px 20px;display:flex;align-items:center;gap:12px}
+.ch-av{width:45px;height:45px;background:rgba(255,255,255,0.2);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5rem}
+.ch-inf h3{color:#fff;font-size:1rem;margin:0}
+.ch-inf p{color:rgba(255,255,255,0.8);font-size:.8rem;margin:0}
+.ch-dot{width:10px;height:10px;background:#10b981;border-radius:50%;margin-left:auto;animation:blink 1.5s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.4}}
+.ch-cls{background:none;border:none;color:#fff;font-size:1.8rem;cursor:pointer;opacity:.8}
+.ch-cls:hover{opacity:1}
+.ch-msgs{flex:1;overflow-y:auto;padding:20px;display:flex;flex-direction:column;gap:12px}
+.ch-msg{max-width:85%;padding:12px 16px;border-radius:16px;line-height:1.5;font-size:.95rem;animation:fadeIn .3s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.ch-msg.bot{background:rgba(255,255,255,0.08);border-bottom-left-radius:4px;align-self:flex-start}
+.ch-msg.user{background:linear-gradient(135deg,#0d7377,#14919b);color:#fff;border-bottom-right-radius:4px;align-self:flex-end}
+.ch-time{font-size:.7rem;opacity:.5;margin-top:5px;display:block}
+.ch-type{display:none;padding:15px 20px}
+.ch-type.active{display:flex;gap:6px}
+.ch-type span{width:8px;height:8px;background:#14919b;border-radius:50%;animation:typ 1.4s infinite}
+.ch-type span:nth-child(2){animation-delay:.2s}.ch-type span:nth-child(3){animation-delay:.4s}
+@keyframes typ{0%,100%{transform:translateY(0);opacity:.4}50%{transform:translateY(-6px);opacity:1}}
+.ch-inp{padding:15px;background:rgba(255,255,255,0.03);border-top:1px solid rgba(255,255,255,0.05);display:flex;gap:10px}
+.ch-inp input{flex:1;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.1);border-radius:25px;padding:12px 18px;color:#fff;font-size:.9rem;outline:none}
+.ch-inp input:focus{border-color:#0d7377}
+.ch-inp input::placeholder{color:rgba(255,255,255,0.4)}
+.ch-snd{width:45px;height:45px;background:linear-gradient(135deg,#0d7377,#14919b);border:none;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1.2rem;color:#fff}
+.ch-snd:hover{transform:scale(1.05)}
+</style>
+
+<div id="chat-win">
+  <div class="ch-hdr">
+    <div class="ch-av">🏥</div>
+    <div class="ch-inf"><h3>Payangan Hospital Assistant</h3><p>Online • AI Agent 24/7</p></div>
+    <div class="ch-dot"></div>
+    <button class="ch-cls" onclick="toggleChat()">×</button>
+  </div>
+  <div class="ch-msgs" id="chatMsgs">
+    <div class="ch-msg bot">Selamat datang di <strong>Payangan Hospital</strong>! 👋<br><br>Saya asisten virtual yang siap membantu Anda. Silakan tanyakan tentang:<br><br>📅 <strong>Jadwal dokter</strong><br>📝 <strong>Pendaftaran online</strong><br>🏥 <strong>Layanan poli</strong><br>🛏️ <strong>Informasi kamar</strong><br>📞 <strong>Kontak RS</strong><span class="ch-time">Baru saja</span></div>
+  </div>
+  <div class="ch-type" id="chatTyping"><span></span><span></span><span></span></div>
+  <div class="ch-inp">
+    <input type="text" id="chatInput" placeholder="Ketik pesan Anda..." onkeypress="if(event.key==='Enter')sendMsg()">
+    <button class="ch-snd" onclick="sendMsg()">➤</button>
+  </div>
+</div>
+<button id="chat-fab" onclick="toggleChat()">💬</button>
+
+<script>
+let chatOpen=false;
+function toggleChat(){chatOpen=!chatOpen;document.getElementById('chat-win').classList.toggle('active',chatOpen)}
+function sendMsg(){const i=document.getElementById('chatInput'),m=i.value.trim();if(!m)return;addMsg(m,'user');i.value='';document.getElementById('chatTyping').classList.add('active');setTimeout(()=>{document.getElementById('chatTyping').classList.remove('active');addMsg(getResp(m),'bot')},1500)}
+function addMsg(t,n){const d=document.getElementById('chatMsgs'),e=document.createElement('div');e.className='ch-msg '+n;e.innerHTML=t+'<span class="ch-time">Baru saja</span>';d.appendChild(e);d.scrollTop=d.scrollHeight}
+</script>
+
+    <script src="js/premium-ui.js"></script>
+    <script src="js/mahacare-ai.js"></script>
+</body>
+</html>

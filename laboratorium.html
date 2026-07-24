@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Unit Laboratorium Payangan Hospital - Pelayanan laboratorium berkualitas untuk pemeriksaan hematologi, kimia klinik, imunoserologi, dan infeksi.">
+    <meta name="keywords" content="laboratorium payangan, tes darah, hematologi, kimia klinik, imunoserologi, gianyar, bali">
+    <meta name="robots" content="index, follow">
+    <title>Unit Laboratorium - Payangan Hospital Gianyar</title>
+    <link rel="icon" type="image/png" href="img/logo-official.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/design-system.css">
+    <link rel="stylesheet" href="css/premium-upgrade.css">
+    <!-- Brand Identity CSS -->
+    <link rel="stylesheet" href="css/brand.css">
+    <style>
+        :root {
+            --primary: #0d7377;
+            --primary-dark: #095456;
+            --primary-light: #14919b;
+            --secondary: #f4c430;
+            --accent: #e85d04;
+            --bg-white: #ffffff;
+            --bg-light: #f8fafc;
+            --bg-cream: #fefcf8;
+            --text-dark: #1a1a2e;
+            --text-muted: #64748b;
+            --border: #e2e8f0;
+        }
+        body { font-family: 'Montserrat', sans-serif; font-weight: 300; color: var(--text-dark); line-height: 1.7; overflow-x: hidden; }
+        h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; font-weight: 600; line-height: 1.2; }
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+        .navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 20px 0; background: white; box-shadow: 0 1px 20px rgba(0,0,0,0.05); }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+        .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--primary); }
+        .logo img { height: 45px; }
+        .logo-text { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 600; letter-spacing: -0.01em; }
+        .nav-links { display: flex; gap: 8px; list-style: none; }
+        .nav-links > li { position: relative; }
+        .nav-links a { text-decoration: none; color: rgba(255,255,255,0.9); font-size: 0.85rem; font-weight: 400; padding: 10px 16px; border-radius: 50px; display: block; transition: all 0.3s; }
+        .navbar.scrolled .nav-links a { color: var(--text-muted); }
+        .nav-links a:hover, .nav-links a.active { color: var(--secondary); background: rgba(255,255,255,0.1); }
+        .navbar.scrolled .nav-links a:hover, .navbar.scrolled .nav-links a.active { color: var(--primary); background: var(--bg-light); }
+        .mega-menu { position: absolute; top: 100%; left: 50%; transform: translateX(-50%); background: white; border-radius: 20px; box-shadow: 0 25px 80px rgba(0,0,0,0.12); padding: 20px; opacity: 0; visibility: hidden; transition: all 0.4s ease; min-width: 500px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; z-index: 100; }
+        .nav-links > li:hover .mega-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(10px); }
+        .mega-item { display: flex; align-items: flex-start; gap: 14px; padding: 16px; border-radius: 14px; text-decoration: none; transition: all 0.3s; }
+        .mega-item:hover { background: var(--bg-light); }
+        .mega-item .icon { width: 44px; height: 44px; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .mega-item .icon i { color: white; font-size: 16px; }
+        .mega-item .text h4 { font-family: 'Montserrat', sans-serif; font-size: 0.95rem; font-weight: 500; color: var(--text-dark); margin-bottom: 2px; }
+        .mega-item .text p { font-size: 0.8rem; color: var(--text-muted); line-height: 1.4; }
+        .page-header { padding: 160px 0 80px; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); text-align: center; position: relative; overflow: hidden; }
+        .page-header::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></svg>'); opacity: 0.5; }
+        .page-header .section-label { font-size: 0.8rem; font-weight: 500; color: var(--secondary); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 16px; }
+        .page-header h1 { font-size: 3rem; color: white; margin-bottom: 20px; }
+        .page-header p { font-size: 1.1rem; color: rgba(255,255,255,0.9); max-width: 600px; margin: 0 auto; }
+        .content-section { padding: 80px 0; }
+        .content-section:nth-child(even) { background: var(--bg-light); }
+        .section-title { font-size: 2.2rem; color: var(--text-dark); margin-bottom: 24px; text-align: center; }
+        .section-title span { color: var(--primary); }
+        .service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px; }
+        .service-card { background: white; border-radius: 24px; padding: 40px; box-shadow: 0 10px 40px rgba(0,0,0,0.08); transition: all 0.4s ease; }
+        .service-card:hover { transform: translateY(-8px); box-shadow: 0 20px 60px rgba(0,0,0,0.12); }
+        .service-icon { width: 70px; height: 70px; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); border-radius: 20px; display: flex; align-items: center; justify-content: center; margin-bottom: 24px; }
+        .service-icon i { font-size: 28px; color: white; }
+        .service-card h3 { font-size: 1.4rem; color: var(--text-dark); margin-bottom: 16px; }
+        .service-card p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; }
+        .service-list { list-style: none; margin-top: 16px; }
+        .service-list li { padding: 8px 0; color: var(--text-muted); font-size: 0.9rem; }
+        .service-list li::before { content: '✓'; color: var(--primary); font-weight: 600; margin-right: 10px; }
+        .flow-section { background: var(--primary); padding: 80px 0; }
+        .flow-section .section-title { color: white; }
+        .flow-section .section-title span { color: var(--secondary); }
+        .flow-timeline { display: flex; justify-content: center; flex-wrap: wrap; gap: 20px; margin-top: 50px; }
+        .flow-step { background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border-radius: 20px; padding: 30px; text-align: center; min-width: 200px; flex: 1; }
+        .flow-step .number { width: 50px; height: 50px; background: var(--secondary); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; font-weight: 700; color: var(--text-dark); font-size: 1.2rem; }
+        .flow-step h4 { color: white; font-size: 1.1rem; margin-bottom: 8px; }
+        .flow-step p { color: rgba(255,255,255,0.8); font-size: 0.85rem; }
+        .flow-arrow { display: flex; align-items: center; color: var(--secondary); font-size: 24px; align-self: center; }
+        .info-box { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); border-radius: 24px; padding: 50px; text-align: center; color: white; margin-top: 50px; }
+        .info-box h3 { font-size: 1.8rem; margin-bottom: 16px; }
+        .info-box p { font-size: 1rem; opacity: 0.9; margin-bottom: 24px; }
+        .info-box .btn { display: inline-flex; align-items: center; gap: 10px; background: var(--secondary); color: var(--text-dark); padding: 14px 32px; border-radius: 50px; font-weight: 600; text-decoration: none; transition: all 0.3s; }
+        .info-box .btn:hover {  box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
+        footer { background: var(--primary-dark); padding: 60px 0 30px; margin-top: 80px; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+        .footer-brand .logo { color: white; margin-bottom: 20px; }
+        .footer-brand .logo-text { color: white; }
+        .footer-brand p { color: rgba(255,255,255,0.6); font-size: 0.95rem; line-height: 1.7; }
+        .footer-links h4 { font-family: 'Montserrat', sans-serif; font-size: 0.85rem; font-weight: 500; color: var(--secondary); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 20px; }
+        .footer-links ul { list-style: none; }
+        .footer-links li { margin-bottom: 12px; }
+        .footer-links a { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.9rem; transition: color 0.3s; }
+        .footer-links a:hover { color: white; }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 30px; margin-top: 40px; text-align: center; color: rgba(255,255,255,0.5); font-size: 0.85rem; max-width: 1280px; margin-left: auto; margin-right: auto; padding-left: 24px; padding-right: 24px; }
+        .mobile-menu { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: var(--primary); z-index: 998; padding: 100px 40px; transform: translateX(100%); transition: transform 0.4s ease; }
+        .mobile-menu.active { transform: translateX(0); }
+        .mobile-menu ul { list-style: none; }
+        .mobile-menu a { display: block; color: white; font-size: 1.2rem; padding: 15px 0; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .mobile-toggle { display: none; background: none; border: none; color: var(--primary); font-size: 24px; cursor: pointer; }
+        @media (max-width: 968px) {
+            .nav-links { display: none; }
+            .mobile-toggle { display: block; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+            .page-header h1 { font-size: 2.2rem; }
+            .flow-timeline { flex-direction: column; align-items: center; }
+            .flow-arrow { transform: rotate(90deg); }
+        }
+        @media (max-width: 640px) {
+            .footer-grid { grid-template-columns: 1fr; }
+            .service-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="img/logo-official.png" alt="Payangan Hospital">
+                <span class="logo-text">PAYANGAN HOSPITAL</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html#hero">Beranda</a></li>
+                <li><a href="#">Tentang <i class="fas fa-chevron-down"></i></a>
+                    <div class="mega-menu">
+                        <a href="about.html" class="mega-item"><div class="icon"><i class="fas fa-building"></i></div><div class="text"><h4>Tentang Kami</h4><p>Visi, misi, dan sejarah RS</p></div></a>
+                        <a href="dokter.html" class="mega-item"><div class="icon"><i class="fas fa-user-md"></i></div><div class="text"><h4>Dokter</h4><p>Daftar dokter spesialis</p></div></a>
+                        <a href="fasilitas.html" class="mega-item"><div class="icon"><i class="fas fa-microscope"></i></div><div class="text"><h4>Fasilitas</h4><p>Fasilitas rumah sakit</p></div></a>
+                        <a href="laboratorium.html" class="mega-item"><div class="icon"><i class="fas fa-flask"></i></div><div class="text"><h4>Laboratorium</h4><p>Unit laboratorium</p></div></a>
+                    </div>
+                </li>
+                <li><a href="#">Layanan <i class="fas fa-chevron-down"></i></a>
+                    <div class="mega-menu">
+                        <a href="igd.html" class="mega-item"><div class="icon"><i class="fas fa-ambulance"></i></div><div class="text"><h4>IGD 24 Jam</h4><p>Layanan gawat darurat</p></div></a>
+                        <a href="rawat-inap.html" class="mega-item"><div class="icon"><i class="fas fa-procedures"></i></div><div class="text"><h4>Rawat Inap</h4><p>Kamar dan perawatan</p></div></a>
+                        <a href="rawat-jalan.html" class="mega-item"><div class="icon"><i class="fas fa-stethoscope"></i></div><div class="text"><h4>Rawat Jalan</h4><p>Kunjungan poli</p></div></a>
+                        <a href="antrean.html" class="mega-item"><div class="icon"><i class="fas fa-clipboard-list"></i></div><div class="text"><h4>Antrean</h4><p>Sistem antrean online</p></div></a>
+                    </div>
+                </li>
+                <li><a href="#">Poli <i class="fas fa-chevron-down"></i></a>
+                    <div class="mega-menu">
+                        <a href="poli-umum.html" class="mega-item"><div class="icon"><i class="fas fa-notes-medical"></i></div><div class="text"><h4>Poli Umum</h4></div></a>
+                        <a href="poli-anak.html" class="mega-item"><div class="icon"><i class="fas fa-child"></i></div><div class="text"><h4>Poli Anak</h4></div></a>
+                        <a href="poli-saraf.html" class="mega-item"><div class="icon"><i class="fas fa-brain"></i></div><div class="text"><h4>Poli Saraf</h4></div></a>
+                        <a href="poli-bedah.html" class="mega-item"><div class="icon"><i class="fas fa-user-md"></i></div><div class="text"><h4>Poli Bedah</h4></div></a>
+                    </div>
+                </li>
+                <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="kontak.html">Kontak</a></li>
+            </ul>
+            <button class="mobile-toggle" onclick="toggleMenu()"><i class="fas fa-bars"></i></button>
+        </div>
+    </nav>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <ul>
+            <li><a href="index.html" onclick="toggleMenu()">Beranda</a></li>
+            <li><a href="about.html" onclick="toggleMenu()">Tentang</a></li>
+            <li><a href="igd.html" onclick="toggleMenu()">IGD 24 Jam</a></li>
+            <li><a href="dokter.html" onclick="toggleMenu()">Dokter</a></li>
+            <li><a href="fasilitas.html" onclick="toggleMenu()">Fasilitas</a></li>
+            <li><a href="laboratorium.html" onclick="toggleMenu()">Laboratorium</a></li>
+            <li><a href="faq.html" onclick="toggleMenu()">FAQ</a></li>
+            <li><a href="kontak.html" onclick="toggleMenu()">Kontak</a></li>
+        </ul>
+    </div>
+
+    <section class="page-header">
+        <div class="container">
+            <p class="section-label">Unit Penunjang</p>
+            <h1>Unit Laboratorium</h1>
+            <p>Pelayanan laboratorium berkualitas untuk mendukung diagnosis dan penatalaksanaan pasien</p>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <div class="container">
+            <h2 class="section-title">Tentang <span>Laboratorium</span></h2>
+            <div style="max-width: 900px; margin: 0 auto;">
+                <p style="font-size: 1.1rem; color: var(--text-muted); line-height: 1.9; text-align: center;">
+                    Pelayanan laboratorium sebagai salah satu pelayanan penunjang di rumah sakit merupakan bagian integral dari pelayanan rumah sakit. Sebagai komponen penting dalam penatalaksanaan pasien, hasil pemeriksaan laboratorium digunakan oleh klinisi untuk penegakan diagnosis, pemberian pengobatan dan pemantauan hasil pengobatan, serta penentuan prognosis. Oleh karena itu hasil pemeriksaan laboratorium harus terjamin mutunya.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section" style="background: var(--bg-light);">
+        <div class="container">
+            <h2 class="section-title">Jenis <span>Pelayanan</span></h2>
+            <div class="service-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-tint"></i>
+                    </div>
+                    <h3>Hematologi</h3>
+                    <p>Pemeriksaan parameter hematologi untuk mengetahui kondisi darah pasien.</p>
+                    <ul class="service-list">
+                        <li>Darah Lengkap (Complete Blood Count)</li>
+                        <li>Laju Endap Darah (LED)</li>
+                        <li>Faal Hemostasis</li>
+                        <li>Evaluasi Apusan Darah Tepi</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-flask"></i>
+                    </div>
+                    <h3>Kimia Klinik</h3>
+                    <p>Pemeriksaan kimia klinik untuk menilai fungsi organ tubuh.</p>
+                    <ul class="service-list">
+                        <li>Tes Fungsi Hati</li>
+                        <li>Tes Fungsi Ginjal</li>
+                        <li>Elektrolit</li>
+                        <li>Profil Lipid</li>
+                        <li>Glukosa</li>
+                        <li>Urinalisis</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-shield-virus"></i>
+                    </div>
+                    <h3>Imunoserologi</h3>
+                    <p>Pemeriksaan imunoserologi untuk mendeteksi penyakit infeksi.</p>
+                    <ul class="service-list">
+                        <li>Hepatitis</li>
+                        <li>HIV</li>
+                        <li> Tes Torches</li>
+                        <li> Rheumatoid Factor</li>
+                        <li> Widal</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-microscope"></i>
+                    </div>
+                    <h3>Infeksi</h3>
+                    <p>Pemeriksaan untuk mendeteksi adanya infeksi pada pasien.</p>
+                    <ul class="service-list">
+                        <li>Kultur Darah</li>
+                        <li>Pengecatan Gram</li>
+                        <li>Mikroskopis TB</li>
+                        <li>Malaria</li>
+                        <li>Dengue (NS1, IgG, IgM)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="flow-section">
+        <div class="container">
+            <h2 class="section-title">Alur <span>Pelayanan</span></h2>
+            <div class="flow-timeline">
+                <div class="flow-step">
+                    <div class="number">1</div>
+                    <h4>Pendaftaran</h4>
+                    <p>Pasien datang ke loket laboratorium untuk pendaftaran</p>
+                </div>
+                <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+                <div class="flow-step">
+                    <div class="number">2</div>
+                    <h4>Pengambilan Spesimen</h4>
+                    <p>Pengambilan spesimen (darah, urine) di ruang sampling</p>
+                </div>
+                <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+                <div class="flow-step">
+                    <div class="number">3</div>
+                    <h4>Analisis</h4>
+                    <p>Penanganan spesimen dan pemeriksaan di ruang analisis</p>
+                </div>
+                <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+                <div class="flow-step">
+                    <div class="number">4</div>
+                    <h4>Validasi</h4>
+                    <p>Validasi dan pengiriman hasil laboratorium</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <div class="container">
+            <h2 class="section-title">Tujuan <span>Pelayanan</span></h2>
+            <div class="service-grid">
+                <div class="service-card" style="text-align: center;">
+                    <div class="service-icon" style="margin: 0 auto 24px;">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h3>Berkualitas</h3>
+                    <p>Memberikan pelayanan laboratorium yang berkualitas, valid dan dapat dipercaya</p>
+                </div>
+                <div class="service-card" style="text-align: center;">
+                    <div class="service-icon" style="margin: 0 auto 24px;">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Membantu Klinisi</h3>
+                    <p>Memberikan hasil pemeriksaan laboratorium yang dapat membantu klinisi dalam penatalaksanaan pasien</p>
+                </div>
+                <div class="service-card" style="text-align: center;">
+                    <div class="service-icon" style="margin: 0 auto 24px;">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3>Laboratorium Rujukan</h3>
+                    <p>Menjadi laboratorium rujukan di wilayah Payangan dan sekitarnya</p>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <h3>Informasi & Pendaftaran</h3>
+                <p>Untuk informasi lebih lanjut tentang layanan laboratorium, silakan hubungi kami atau datang langsung ke Payangan Hospital.</p>
+                <a href="kontak.html" class="btn">
+                    <i class="fas fa-phone"></i> Hubungi Kami
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="index.html" class="logo">
+                    <img src="img/logo-official.png" alt="Payangan Hospital">
+                    <span class="logo-text">PAYANGAN HOSPITAL</span>
+                </a>
+                <p>Rumah Sakit Pemerintah Daerah Payangan, memberikan pelayanan kesehatan berkualitas dengan tenaga medis profesional dan fasilitas modern.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Layanan</h4>
+                <ul>
+                    <li><a href="igd.html">IGD 24 Jam</a></li>
+                    <li><a href="rawat-inap.html">Rawat Inap</a></li>
+                    <li><a href="laboratorium.html">Laboratorium</a></li>
+                    <li><a href="antrean.html">Antrean Online</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Poliklinik</h4>
+                <ul>
+                    <li><a href="poli-umum.html">Poli Umum</a></li>
+                    <li><a href="poli-anak.html">Poli Anak</a></li>
+                    <li><a href="poli-saraf.html">Poli Saraf</a></li>
+                    <li><a href="dokter.html">Semua Poli</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Kontak</h4>
+                <ul>
+                    <li><a href="tel:+623619088087">0361 9088087</a></li>
+                    <li><a href="kontak.html">Jl. Raya Payangan</a></li>
+                    <li><a href="kontak.html">Gianyar, Bali</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Payangan Hospital. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu toggle
+        function toggleMenu() {
+            document.getElementById('mobileMenu').classList.toggle('active');
+        }
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

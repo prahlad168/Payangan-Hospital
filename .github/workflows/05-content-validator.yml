@@ -1,0 +1,325 @@
+name: 📋 Content Validator
+
+on:
+  push:
+    branches: [main, develop]
+    paths:
+      - '*.html'
+      - 'img/dokter/**'
+  
+  # Manual trigger
+  workflow_dispatch:
+
+  # Scheduled: Daily at 7 AM WIB
+  schedule:
+    - cron: '0 0 * * *'  # Midnight UTC = 7 AM WIB
+
+jobs:
+  content-validator:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Run Content Validator Agent
+        id: validate
+        run: |
+          python << 'EOF'
+          import os
+          import re
+          from pathlib import Path
+          from datetime import datetime
+          
+          print("📋 MEMULAI CONTENT VALIDATOR AGENT")
+          print("=" * 60)
+          
+          # ===== DAFTAR DOKTER RESMI (dari AGENTS.md) =====
+          DOKTER_RESMI = [
+              "dr. I Gusti Putu Hery Sikesa, Sp.PD",
+              "dr. Sang Ketut Widiana, Sp.PD",
+              "dr. Tjokorda Prima Dewi Pemayun, Sp.PD",
+              "dr. Made Ayu Widyaningsih, Sp.A",
+              "dr. Ni Made Ayu Agustini, M.Biomed., SpA",
+              "dr. I Gede Agus Hendra Sujana, Sp.OG",
+              "dr. I Made Brammartha Kusuma, Sp.OG",
+              "dr. Pande Made Suwanpramana, Sp.OG",
+              "dr. Kade Agus Sudha Naryana, Sp.N",
+              "dr. Ni Komang Dewi Mahayani, Sp.N",
+              "dr. I G N Bagus Arimanjaya, Sp.An",
+              "dr. Manik Dirgayunitri, M.Biomed., Sp.An",
+              "dr. I Wayan Eka Arnawa, Sp.An-TI",
+              "dr. I Wayan Suwarna, S.Ked., Sp.B",
+              "dr. I Putu Swastika Kepakisan, M.Biomed., Sp.B",
+              "dr. I Ketut Wahyu Tri Saputra, Sp.OT",
+              "dr. I Gede Ketut Alit Satria Nugraha, SpOT",
+              "dr. Anak Agung Ayu Ngurah Desy Widya Putri, Sp.JP",
+              "dr. Herry Juniada, Sp.Rad",
+              "dr. Ika Nurvidha Mahayanthi Mantra, Sp.MK",
+              "dr. Made Minarti Witarini Dewi, Sp.PK",
+              "dr. Theresia Maharani Sari Nastiti, Sp.PK"
+          ]
+          
+          # ===== POLI RESMI (dari AGENTS.md) =====
+          POLI_RESMI = [
+              'poli-umum.html', 'poli-saraf.html', 'poli-anak.html',
+              'poli-kandungan.html', 'poli-tht.html', 'poli-gigi.html',
+              'poli-dalam.html', 'poli-bedah.html', 'poli-orthopedic.html',
+              'poli-jantung.html'
+          ]
+          
+          # ===== FILTER POLI DI dokter.html =====
+          FILTER_Poli = ['umum', 'saraf', 'anak', 'kandung', 'tht', 'gigi', 'dalam', 'bedah', 'ortho', 'jantung', 'radiologi', 'anestesi', 'laboratorium']
+          
+          results = {
+              'dokter': [],
+              'poli': [],
+              'images': [],
+              'links': []
+          }
+          
+          # ===== CHECK 1: Validasi DOKTER di dokter.html =====
+          print("\n👨‍⚕️ Checking dokter.html...")
+          dokter_html = Path('dokter.html')
+          
+          if dokter_html.exists():
+              content = dokter_html.read_text(encoding='utf-8')
+              
+              # Cek apakah semua dokter resmi ada di HTML
+              for dokter in DOKTER_RESMI:
+                  if dokter not in content:
+                      # Cek dengan pattern yang lebih flexible
+                      nama_pendek = dokter.split(',')[0]
+                      if nama_pendek not in content:
+                          results['dokter'].append({
+                              'file': 'dokter.html',
+                              'issue': f'Dokter tidak ditemukan: {dokter}',
+                              'severity': 'error'
+                          })
+              
+              # Cek filter poli
+              for filter_name in FILTER_Poli:
+                  if f'data-filter=".{filter_name}"' not in content and f"data-filter='.{filter_name}'" not in content:
+                      results['dokter'].append({
+                          'file': 'dokter.html',
+                          'issue': f'Filter poli tidak ditemukan: .{filter_name}',
+                          'severity': 'warning'
+                      })
+              
+              print(f"   ✅ dokter.html: {len(DOKTER_RESMI)} dokter dicek")
+          
+          # ===== CHECK 2: Validasi FILE POLI =====
+          print("\n🏥 Checking poli files...")
+          for poli in POLI_RESMI:
+              poli_path = Path(poli)
+              if not poli_path.exists():
+                  results['poli'].append({
+                      'file': poli,
+                      'issue': f'File poli tidak ditemukan: {poli}',
+                      'severity': 'error'
+                  })
+              else:
+                  content = poli_path.read_text(encoding='utf-8')
+                  
+                  # Cek link logo
+                  if 'href="#"' in content and 'class="logo"' in content:
+                      results['links'].append({
+                          'file': poli,
+                          'issue': 'Logo link menggunakan href="#"',
+                          'severity': 'error'
+                      })
+                  
+                  # Cek DOCTYPE
+                  if '<!DOCTYPE' not in content.upper():
+                      results['poli'].append({
+                          'file': poli,
+                          'issue': 'Missing DOCTYPE',
+                          'severity': 'error'
+                      })
+          
+          print(f"   ✅ {len([p for p in POLI_RESMI if Path(p).exists()])}/{len(POLI_RESMI)} poli files ada")
+          
+          # ===== CHECK 3: Validasi GAMBAR DOKTER =====
+          print("\n📷 Checking dokter images...")
+          img_dir = Path('img/dokter')
+          
+          if img_dir.exists():
+              existing_images = list(img_dir.glob('*'))
+              print(f"   Found {len(existing_images)} images in img/dokter/")
+              
+              # Cek apakah semua gambar yang direference ada
+              for html_file in Path('.').glob('*.html'):
+                  content = html_file.read_text(encoding='utf-8')
+                  referenced_imgs = re.findall(r'img/dokter/([^"]+)', content)
+                  
+                  for img_name in referenced_imgs:
+                      img_path = img_dir / img_name
+                      if not img_path.exists():
+                          results['images'].append({
+                              'file': html_file.name,
+                              'issue': f'Gambar tidak ditemukan: img/dokter/{img_name}',
+                              'severity': 'error'
+                          })
+          
+          # ===== CHECK 4: Validasi LINK STANDARS =====
+          print("\n🔗 Checking link standards...")
+          link_issues = []
+          
+          for html_file in Path('.').glob('*.html'):
+              content = html_file.read_text(encoding='utf-8')
+              filename = html_file.name
+              
+              # Cek link logo
+              if 'href="#"' in content:
+                  logo_match = re.search(r'<a[^>]+class="[^"]*logo[^"]*"[^>]+href="#"', content, re.I)
+                  if logo_match:
+                      link_issues.append({
+                          'file': filename,
+                          'issue': 'Logo link salah: harus href="index.html"',
+                          'severity': 'error'
+                      })
+              
+              # Cek link dokter
+              if 'href="#dokter"' in content or 'href="index.html#dokter"' in content:
+                  link_issues.append({
+                      'file': filename,
+                      'issue': 'Link dokter salah: harus href="dokter.html"',
+                      'severity': 'error'
+                  })
+              
+              # Cek link kontak
+              if 'href="#kontak"' in content or 'href="index.html#kontak"' in content:
+                  link_issues.append({
+                      'file': filename,
+                      'issue': 'Link kontak salah: harus href="kontak.html"',
+                      'severity': 'error'
+                  })
+          
+          results['links'] = link_issues
+          
+          # ===== CHECK 5: Validasi STRUKTUR WEBSITE =====
+          print("\n📊 Checking website structure...")
+          required_pages = [
+              'index.html', 'about.html', 'dokter.html', 'kontak.html',
+              'antrean.html', 'igd.html', 'rawat-jalan.html', 'rawat-inap.html'
+          ]
+          
+          structure_issues = []
+          for page in required_pages:
+              if not Path(page).exists():
+                  structure_issues.append({
+                      'file': page,
+                      'issue': f'Required page missing: {page}',
+                      'severity': 'error'
+                  })
+          
+          # ===== GENERATE REPORT =====
+          print("\n" + "=" * 60)
+          print("📊 CONTENT VALIDATION REPORT")
+          print("=" * 60)
+          
+          total_errors = 0
+          total_warnings = 0
+          
+          categories = [
+              ('dokter', '👨‍⚕️ Dokter'),
+              ('poli', '🏥 Poli'),
+              ('images', '📷 Images'),
+              ('links', '🔗 Links')
+          ]
+          
+          for cat_key, cat_name in categories:
+              items = results.get(cat_key, [])
+              errors = [i for i in items if i.get('severity') == 'error']
+              warnings = [i for i in items if i.get('severity') == 'warning']
+              
+              total_errors += len(errors)
+              total_warnings += len(warnings)
+              
+              if items:
+                  print(f"\n{cat_name}:")
+                  for item in errors[:5]:
+                      print(f"   ❌ {item['file']}: {item['issue']}")
+                  for item in warnings[:5]:
+                      print(f"   ⚠️ {item['file']}: {item['issue']}")
+          
+          print("\n" + "=" * 60)
+          print(f"📈 Summary:")
+          print(f"   ❌ Errors: {total_errors}")
+          print(f"   ⚠️ Warnings: {total_warnings}")
+          
+          if total_errors == 0:
+              print("\n✅✅✅ CONTENT VALIDATION PASSED!")
+          else:
+              print(f"\n⚠️⚠️⚠️ CONTENT VALIDATION FAILED - {total_errors} errors")
+          print("=" * 60)
+          
+          # Generate markdown report
+          with open('content_validation_report.md', 'w') as f:
+              f.write(f"# 📋 Content Validation Report\n\n")
+              f.write(f"**Timestamp:** {datetime.now().strftime('%Y-%m-%d %H:%M:%S')} UTC\n")
+              f.write(f"**Branch:** {os.getenv('GITHUB_REF_NAME', 'N/A')}\n\n")
+              
+              f.write(f"## 📊 Summary\n\n")
+              f.write(f"| Type | Count |\n")
+              f.write(f"|------|-------|\n")
+              f.write(f"| ❌ Errors | {total_errors} |\n")
+              f.write(f"| ⚠️ Warnings | {total_warnings} |\n\n")
+              
+              for cat_key, cat_name in categories:
+                  items = results.get(cat_key, [])
+                  if items:
+                      f.write(f"## {cat_name}\n\n")
+                      f.write("| File | Severity | Issue |\n")
+                      f.write("|------|----------|-------|\n")
+                      for item in items[:20]:
+                          f.write(f"| `{item['file']}` | {item.get('severity', 'info').upper()} | {item['issue']} |\n")
+                      f.write("\n")
+              
+              if total_errors == 0:
+                  f.write("✅ **Status:** CONTENT VALID - Ready for deployment!\n")
+              else:
+                  f.write(f"❌ **Status:** {total_errors} issues found - Please fix before deploying!\n")
+          
+          # Set outputs
+          with open(os.getenv('GITHUB_OUTPUT', '/dev/stdout'), 'a') as f:
+              f.write(f"errors={total_errors}\n")
+              f.write(f"warnings={total_warnings}\n")
+              f.write(f"status={'pass' if total_errors == 0 else 'fail'}\n")
+          
+          if total_errors > 0:
+              exit(1)
+          
+          EOF
+
+      - name: Post Validation Report
+        if: github.event_name == 'pull_request' || github.event_name == 'schedule'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const report = fs.readFileSync('content_validation_report.md', 'utf8');
+            
+            // Create or update issue comment
+            if (context.eventName === 'pull_request') {
+              github.rest.issues.createComment({
+                issue_number: context.issue.number,
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                body: report
+              });
+            }
+
+      - name: Upload Validation Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: content-validation-report
+          path: content_validation_report.md
+          retention-days: 30

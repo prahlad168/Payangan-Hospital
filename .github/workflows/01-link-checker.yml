@@ -1,0 +1,170 @@
+name: 🔍 Auto Link Checker
+
+on:
+  schedule:
+    # Jalan setiap 6 jam (0, 6, 12, 18 UTC = 7, 13, 19, 1 WIB)
+    - cron: '0 */6 * * *'
+  
+  # Manual trigger via GitHub UI
+  workflow_dispatch:
+
+  # Trigger saat ada push ke branch manapun
+  push:
+    branches: [ '*' ]
+  
+  # Trigger harian jam 7 pagi WIB (0 UTC)
+  # comment: Cron schedule daily at 7 AM WIB
+
+jobs:
+  link-checker:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install requests beautifulsoup4 lxml
+
+      - name: Run Link Checker Agent
+        id: check-links
+        run: |
+          python << 'EOF'
+          import os
+          import re
+          from pathlib import Path
+          
+          print("🔍 MEMULAI LINK CHECKER AGENT")
+          print("=" * 50)
+          
+          # Ambil semua file HTML
+          html_files = list(Path('.').glob('*.html'))
+          print(f"📁 Ditemukan {len(html_files)} file HTML")
+          
+          broken_links = []
+          warnings = []
+          
+          # Pattern untuk cek遵守 link standards dari AGENTS.md
+          wrong_logo_links = []
+          wrong_dokter_links = []
+          wrong_kontak_links = []
+          
+          for html_file in html_files:
+              content = html_file.read_text(encoding='utf-8')
+              filename = html_file.name
+              
+              # Cek 1: Link logo yang salah (harus href="index.html", bukan href="#")
+              if re.search(r'<a[^>]*class="[^"]*logo[^"]*"[^>]*href="#"', content) or re.search(r'<a[^>]*href="#"[^>]*class="[^"]*logo[^"]*"', content):
+                  wrong_logo_links.append(filename)
+              
+              # Cek 2: Link dokter yang salah (harus href="dokter.html", bukan #dokter)
+              if 'href="#dokter"' in content or 'href="index.html#dokter"' in content:
+                  wrong_dokter_links.append(filename)
+              
+              # Cek 3: Link kontak yang salah
+              if 'href="#kontak"' in content or 'href="index.html#kontak"' in content:
+                  wrong_kontak_links.append(filename)
+              
+              # Cek 4: Internal links yang tidak ada
+              internal_links = re.findall(r'href="([^"#]+)"', content)
+              for link in internal_links:
+                  if link.endswith('.html') and not link.startswith('http'):
+                      if not Path(link).exists():
+                          broken_links.append(f"{filename} -> {link}")
+          
+          # REPORT
+          print("\n" + "=" * 50)
+          print("📊 LINK CHECKER REPORT")
+          print("=" * 50)
+          
+          if wrong_logo_links:
+              print(f"\n❌❌❌ LOGO LINKS SALAH ({len(wrong_logo_links)} file):")
+              for f in wrong_logo_links:
+                  print(f"   - {f}")
+          
+          if wrong_dokter_links:
+              print(f"\n❌❌❌ DOKTER LINKS SALAH ({len(wrong_dokter_links)} file):")
+              for f in wrong_dokter_links:
+                  print(f"   - {f}")
+          
+          if wrong_kontak_links:
+              print(f"\n❌❌❌ KONTAK LINKS SALAH ({len(wrong_kontak_links)} file):")
+              for f in wrong_kontak_links:
+                  print(f"   - {f}")
+          
+          if broken_links:
+              print(f"\n❌ BROKEN INTERNAL LINKS ({len(broken_links)}):")
+              for link in broken_links[:20]:  # Max 20 item
+                  print(f"   - {link}")
+          
+          # Summary
+          total_issues = len(wrong_logo_links) + len(wrong_dokter_links) + len(wrong_kontak_links) + len(broken_links)
+          
+          print("\n" + "=" * 50)
+          if total_issues == 0:
+              print("✅✅✅ SEMUA LINK BENAR!")
+          else:
+              print(f"⚠️⚠️⚠️ DITEMUKAN {total_issues} MASALAH!")
+          print("=" * 50)
+          
+          # Exit dengan error code jika ada masalah
+          if total_issues > 0:
+              with open('link_checker_report.md', 'w') as f:
+                  f.write(f"# 🔍 Link Checker Report\n\n")
+                  f.write(f"**Timestamp:** {os.popen('date').read().strip()}\n\n")
+                  f.write(f"## ❌ Masalah Ditemukan: {total_issues}\n\n")
+                  
+                  if wrong_logo_links:
+                      f.write(f"### Logo Links Salah ({len(wrong_logo_links)} file)\n")
+                      for f_name in wrong_logo_links:
+                          f.write(f"- `{f_name}`: Link logo harus `href=\"index.html\"`\n")
+                      f.write("\n")
+                  
+                  if wrong_dokter_links:
+                      f.write(f"### Dokter Links Salah ({len(wrong_dokter_links)} file)\n")
+                      for f_name in wrong_dokter_links:
+                          f.write(f"- `{f_name}`: Link dokter harus `href=\"dokter.html\"`\n")
+                      f.write("\n")
+                  
+                  if wrong_kontak_links:
+                      f.write(f"### Kontak Links Salah ({len(wrong_kontak_links)} file)\n")
+                      for f_name in wrong_kontak_links:
+                          f.write(f"- `{f_name}`: Link kontak harus `href=\"kontak.html\"`\n")
+                      f.write("\n")
+                  
+                  if broken_links:
+                      f.write(f"### Broken Internal Links ({len(broken_links)} file)\n")
+                      for link in broken_links:
+                          f.write(f"- {link}\n")
+              exit(1)
+          EOF
+
+      - name: Upload Report
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: link-checker-report
+          path: link_checker_report.md
+          retention-days: 7
+
+      - name: Post comment on PR
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: '## 🔍 Link Checker Report\n\n' +
+                    '✅ Semua link sudah benar!\n\n' +
+                    'Checked by [Link Checker Agent](https://github.com/${context.repo.owner}/${context.repo.repo}/actions)'
+            })
