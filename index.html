@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
@@ -27,7 +27,7 @@
     <meta property="og:description" content="Rumah Sakit Pemerintah Daerah Gianyar, Bali dengan tenaga medis profesional dan fasilitas modern.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://payanganhospital.gianyarkab.go.id/">
-    <meta property="og:image" content="https://payanganhospital.gianyarkab.go.id/img/og-image.png">
+    <meta property="og:image" content="https://payanganhospital.gianyarkab.go.id/img/logo-official.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:site_name" content="RS Payangan Hospital">
@@ -37,7 +37,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Payangan Hospital - Pelayanan Kesehatan Modern dengan Sentuhan Humanis">
     <meta name="twitter:description" content="Rumah Sakit Pemerintah Daerah Gianyar, Bali dengan tenaga medis profesional dan fasilitas modern.">
-    <meta name="twitter:image" content="https://payanganhospital.gianyarkab.go.id/img/og-image.png">
+    <meta name="twitter:image" content="https://payanganhospital.gianyarkab.go.id/img/logo-official.png">
     
     <!-- Canonical URL -->
     <link rel="canonical" href="https://payanganhospital.gianyarkab.go.id/">
@@ -435,12 +435,13 @@
         }
 
         .logo-name {
-            font-family: var(--font-display);
-            font-size: 1.2rem;
-            font-weight: 700;
+            font-family: var(--brand-font);
+            font-size: 1.1rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
             line-height: 1.2;
             color: white;
-            letter-spacing: -0.01em;
         }
 
         .logo-tagline {
@@ -1370,19 +1371,38 @@
         ======================================== */
         .news-section {
             background: var(--bg-white);
+            overflow: hidden;
         }
 
-        .news-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
+        .news-slider-wrapper {
+            position: relative;
+            margin: 0 -24px;
+            padding: 0 24px;
+        }
+
+        .news-slider {
+            display: flex;
             gap: var(--space-8);
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            padding: var(--space-4) 0;
+        }
+
+        .news-slider::-webkit-scrollbar {
+            display: none;
         }
 
         .news-card {
-            background: var(--bg-light);
+            flex: 0 0 360px;
+            scroll-snap-align: start;
+            background: #ffffff;
             border-radius: var(--radius-xl);
             overflow: hidden;
             transition: all var(--transition-base);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
         }
 
         .news-card:hover {
@@ -1391,8 +1411,9 @@
         }
 
         .news-card-image {
-            height: 200px;
+            height: 220px;
             overflow: hidden;
+            background: #f1f5f9;
         }
 
         .news-card-image img {
@@ -1408,6 +1429,7 @@
 
         .news-card-content {
             padding: var(--space-6);
+            background: #ffffff;
         }
 
         .news-card-date {
@@ -1415,20 +1437,180 @@
             color: var(--primary);
             font-weight: 600;
             margin-bottom: var(--space-3);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .news-card-category {
+            display: inline-block;
+            background: rgba(13, 115, 119, 0.1);
+            color: var(--primary);
+            padding: 4px 12px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: var(--space-3);
         }
 
         .news-card-title {
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             font-weight: 700;
             color: var(--text-dark);
             margin-bottom: var(--space-3);
             line-height: 1.4;
         }
 
+        .news-card-title a {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .news-card-title a:hover {
+            color: var(--primary);
+        }
+
         .news-card-excerpt {
             font-size: 0.9rem;
             color: var(--text-muted);
             line-height: 1.7;
+            margin-bottom: var(--space-4);
+        }
+
+        .news-card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: var(--space-4);
+            border-top: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .news-card-author {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .news-card-avatar {
+            width: 32px;
+            height: 32px;
+            background: var(--gradient-teal);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .news-card-read-time {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .news-slider-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 50%;
+            font-size: 1rem;
+            color: var(--text-dark);
+            cursor: pointer;
+            box-shadow: var(--shadow-md);
+            transition: all var(--transition-base);
+            z-index: 10;
+        }
+
+        .news-slider-btn:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .news-prev {
+            left: 12px;
+        }
+
+        .news-next {
+            right: 12px;
+        }
+
+        .news-slider-dots {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-3);
+            margin-top: var(--space-8);
+        }
+
+        .news-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--border);
+            cursor: pointer;
+            transition: all var(--transition-base);
+        }
+
+        .news-dot.active {
+            background: var(--primary);
+            transform: scale(1.2);
+        }
+
+        .news-view-all-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 18px 36px;
+            background: white;
+            color: var(--primary);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            border: 2px solid var(--primary);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .news-view-all-btn i {
+            font-size: 1.1rem;
+            transition: transform 0.3s ease;
+        }
+
+        .news-view-all-btn:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(13, 115, 119, 0.3);
+        }
+
+        .news-view-all-btn:hover i {
+            transform: translateX(5px);
+        }
+
+        @media (max-width: 768px) {
+            .news-slider-btn {
+                display: none;
+            }
+
+            .news-view-all-btn {
+                width: 100%;
+                justify-content: center;
+            }
         }
 
         /* ========================================
@@ -1673,10 +1855,11 @@
         }
 
         .footer-logo-text {
-            font-family: var(--font-display);
-            font-size: 1.2rem;
-            font-weight: 700;
-            letter-spacing: -0.01em;
+            font-family: var(--brand-font);
+            font-size: 1rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
         }
 
         .footer-desc {
@@ -1906,12 +2089,34 @@
                 <!-- Navigation -->
                 <nav class="nav-premium nav">
                     <a href="index.html" class="nav-link-premium nav-link active">Home</a>
-                    <a href="about.html" class="nav-link-premium nav-link">About</a>
+                    <div class="nav-dropdown">
+                        <a href="about.html" class="nav-link-premium nav-link">Tentang <i class="fas fa-chevron-down"></i></a>
+                        <div class="mega-menu">
+                            <div class="mega-menu-content">
+                                <a href="about.html#sambutan"><i class="fas fa-user-tie"></i> Sambutan</a>
+                                <a href="about.html#sejarah"><i class="fas fa-landmark"></i> Sejarah</a>
+                                <a href="about.html#visimisi"><i class="fas fa-bullseye"></i> Visi & Misi</a>
+                                <a href="about.html#standar"><i class="fas fa-clipboard-check"></i> Standar Pelayanan</a>
+                                <a href="about.html#maklumat"><i class="fas fa-file-contract"></i> Maklumat</a>
+                                <a href="about.html#mutu"><i class="fas fa-award"></i> Mutu</a>
+                                <a href="about.html#budaya"><i class="fas fa-hands-helping"></i> Budaya Kerja</a>
+                            </div>
+                        </div>
+                    </div>
                     <a href="dokumen.html" class="nav-link-premium nav-link">Dokumen</a>
                     <a href="dokter.html" class="nav-link-premium nav-link">Doctors</a>
-                    <a href="layanan.html" class="nav-link-premium nav-link">Services</a>
+                    <div class="nav-dropdown">
+                        <a href="layanan.html" class="nav-link-premium nav-link">Layanan <i class="fas fa-chevron-down"></i></a>
+                        <div class="mega-menu">
+                            <div class="mega-menu-content">
+                                <a href="rawat-jalan.html"><i class="fas fa-stethoscope"></i> Rawat Jalan</a>
+                                <a href="rawat-inap.html"><i class="fas fa-procedures"></i> Rawat Inap</a>
+                                <a href="igd.html"><i class="fas fa-ambulance"></i> IGD / UGD</a>
+                            </div>
+                        </div>
+                    </div>
                     <a href="fasilitas.html" class="nav-link-premium nav-link">Facilities</a>
-                    <a href="berita.html" class="nav-link-premium nav-link">PH Update</a>
+                    <a href="ph-update.html" class="nav-link-premium nav-link">PH Update</a>
                     <a href="galeri.html" class="nav-link-premium nav-link">Gallery</a>
                     <a href="faq.html" class="nav-link-premium nav-link">FAQ</a>
                     <a href="kontak.html" class="nav-link-premium nav-link">Contact</a>
@@ -1960,15 +2165,25 @@
         </div>
         <nav class="mobile-nav">
             <a href="index.html" class="mobile-nav-link">Home</a>
-            <a href="about.html" class="mobile-nav-link">About</a>
+            <a href="about.html" class="mobile-nav-link">Tentang</a>
+            <a href="about.html#sambutan" class="mobile-nav-link">Sambutan</a>
+            <a href="about.html#sejarah" class="mobile-nav-link">Sejarah</a>
+            <a href="about.html#visimisi" class="mobile-nav-link">Visi & Misi</a>
+            <a href="about.html#standar" class="mobile-nav-link">Standar Pelayanan</a>
+            <a href="about.html#maklumat" class="mobile-nav-link">Maklumat</a>
+            <a href="about.html#mutu" class="mobile-nav-link">Mutu</a>
+            <a href="about.html#budaya" class="mobile-nav-link">Budaya Kerja</a>
             <a href="dokumen.html" class="mobile-nav-link">Dokumen</a>
             <a href="dokter.html" class="mobile-nav-link">Dokters</a>
             <a href="layanan.html" class="mobile-nav-link">Layanan</a>
-            <a href="fasilitas.html" class="mobile-nav-link">Fasilitas</a>
-            <a href="berita.html" class="mobile-nav-link">PH Update</a>
+            <a href="rawat-jalan.html" class="mobile-nav-link">Rawat Jalan</a>
+            <a href="rawat-inap.html" class="mobile-nav-link">Rawat Inap</a>
+            <a href="igd.html" class="mobile-nav-link">IGD / UGD</a>
+            <a href="fasilitas.html" class="mobile-nav-link">Facilities</a>
+            <a href="ph-update.html" class="mobile-nav-link">PH Update</a>
             <a href="galeri.html" class="mobile-nav-link">Galeri</a>
             <a href="faq.html" class="mobile-nav-link">FAQ</a>
-            <a href="kontak.html" class="mobile-nav-link">Kontak</a>
+            <a href="kontak.html" class="mobile-nav-link">Contact</a>
         </nav>
         <div class="mobile-menu-footer">
             <a href="tel:+62361 9088087" class="btn-emergency" style="justify-content: center;">
@@ -2011,7 +2226,7 @@
                     </div>
                 </div>
                 <!-- Slide 3 -->
-                <div class="slide" style="background-image: linear-gradient(135deg, rgba(156, 39, 176, 0.85), rgba(0, 150, 136, 0.75)), url('img/slider/slider-3.png');">
+                <div class="slide" style="background-image: linear-gradient(135deg, rgba(156, 39, 176, 0.85), rgba(0, 150, 136, 0.75)), url('img/slider/slider-3.png'); background-size: cover; background-position: center;">
                     <div class="slide-content">
                         <div class="slide-badge">
                             <i class="fas fa-ambulance"></i>
@@ -2039,7 +2254,7 @@
                     </div>
                 </div>
                 <!-- Slide 5 - Fasilitas Modern -->
-                <div class="slide" style="background: linear-gradient(135deg, rgba(13, 71, 161, 0.92), rgba(0, 150, 136, 0.88));">
+                <div class="slide" style="background-image: linear-gradient(135deg, rgba(13, 71, 161, 0.90), rgba(0, 150, 136, 0.80)), url('img/optimized/slider-5.webp');">
                     <div class="slide-content">
                         <div class="slide-badge">
                             <i class="fas fa-microscope"></i>
@@ -2053,7 +2268,7 @@
                     </div>
                 </div>
                 <!-- Slide 6 - Ruang Rawat Inap -->
-                <div class="slide" style="background: linear-gradient(135deg, rgba(72, 61, 139, 0.92), rgba(0, 100, 150, 0.88));">
+                <div class="slide" style="background-image: linear-gradient(135deg, rgba(72, 61, 139, 0.90), rgba(0, 100, 150, 0.80)), url('img/optimized/slider-6.webp'); background-size: cover; background-position: center;">
                     <div class="slide-content">
                         <div class="slide-badge">
                             <i class="fas fa-bed"></i>
@@ -2067,7 +2282,7 @@
                     </div>
                 </div>
                 <!-- Slide 7 - Laboratorium -->
-                <div class="slide" style="background: linear-gradient(135deg, rgba(139, 69, 19, 0.92), rgba(72, 61, 139, 0.88));">
+                <div class="slide" style="background-image: linear-gradient(135deg, rgba(139, 69, 19, 0.92), rgba(72, 61, 139, 0.88)), url('img/optimized/slider-7.webp'); background-size: cover; background-position: center;">
                     <div class="slide-content">
                         <div class="slide-badge">
                             <i class="fas fa-flask"></i>
@@ -2081,7 +2296,7 @@
                     </div>
                 </div>
                 <!-- Slide 8 - Lokasi Strategis -->
-                <div class="slide" style="background: linear-gradient(135deg, rgba(34, 139, 34, 0.92), rgba(139, 69, 19, 0.88));">
+                <div class="slide" style="background-image: linear-gradient(135deg, rgba(13, 71, 161, 0.80), rgba(0, 150, 136, 0.75)), url('img/optimized/slider-8.webp'); background-size: cover; background-position: center;">
                     <div class="slide-content">
                         <div class="slide-badge">
                             <i class="fas fa-map-marker-alt"></i>
@@ -2192,11 +2407,28 @@
             opacity: 1;
             visibility: visible;
         }
+        .slide-map {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            overflow: hidden;
+        }
+        .slide-map iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+            filter: brightness(0.7);
+        }
+        .slide::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(8, 36, 20, 0.45), rgba(30, 10, 10, 0.4));
+            z-index: 2;
+            pointer-events: none;
+        }
         .slide-content {
-            text-align: center;
-            color: white;
-            max-width: 900px;
-            padding: 0 20px;
+            position: relative;
             z-index: 10;
         }
         .slide-badge {
@@ -2279,12 +2511,40 @@
             background: rgba(255, 255, 255, 0.25);
             border-color: rgba(255, 255, 255, 0.5);
         }
-        /* Slider Navigation - Hidden */
+        /* Slider Navigation */
         .slider-nav {
-            display: none !important;
+            position: absolute;
+            bottom: 120px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            gap: var(--space-6);
+            z-index: 30;
+        }
+        .slider-prev, .slider-next {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            color: white;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .slider-prev:hover, .slider-next:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: white;
+            transform: scale(1.1);
         }
         .slider-dots {
-            display: none !important;
+            display: flex;
+            gap: 12px;
         }
         .dot {
             width: 12px;
@@ -2420,6 +2680,89 @@
             touchEndX = e.changedTouches[0].screenX;
             if (touchStartX - touchEndX > 50) changeSlide(1);
             if (touchEndX - touchStartX > 50) changeSlide(-1);
+        });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // News Slider
+            const newsSlider = document.getElementById('newsSlider');
+            const newsDotsContainer = document.getElementById('newsDots');
+            let currentNewsIndex = 0;
+            const newsCards = newsSlider ? newsSlider.querySelectorAll('.news-card') : [];
+            const cardsPerView = () => window.innerWidth < 768 ? 1 : window.innerWidth < 1024 ? 2 : 3;
+            
+            function getCardStep() {
+                if (!newsCards.length) return 360;
+                const firstCard = newsCards[0];
+                const secondCard = newsCards[1];
+                if (secondCard) {
+                    return secondCard.getBoundingClientRect().left - firstCard.getBoundingClientRect().left;
+                }
+                return firstCard.offsetWidth;
+            }
+            
+            function createNewsDots() {
+                if (!newsDotsContainer || !newsCards.length) return;
+                const perView = cardsPerView();
+                const totalDots = Math.max(1, newsCards.length - perView + 1);
+                newsDotsContainer.innerHTML = '';
+                for (let i = 0; i < totalDots; i++) {
+                    const dot = document.createElement('span');
+                    dot.className = 'news-dot' + (i === 0 ? ' active' : '');
+                    dot.onclick = () => goToNewsSlide(i);
+                    newsDotsContainer.appendChild(dot);
+                }
+            }
+            
+            function updateNewsDots() {
+                if (!newsDotsContainer) return;
+                const dots = newsDotsContainer.querySelectorAll('.news-dot');
+                dots.forEach((dot, i) => dot.classList.toggle('active', i === currentNewsIndex));
+            }
+            
+            function getMaxIndex() {
+                const perView = cardsPerView();
+                return Math.max(0, newsCards.length - perView);
+            }
+            
+            function goToNewsSlide(index) {
+                if (!newsSlider || !newsCards.length) return;
+                const maxIndex = getMaxIndex();
+                currentNewsIndex = Math.max(0, Math.min(index, maxIndex));
+                const step = getCardStep();
+                const targetScroll = currentNewsIndex * step;
+                newsSlider.scrollTo({ left: targetScroll, behavior: 'smooth' });
+                updateNewsDots();
+            }
+            
+            function changeNewsSlide(direction) {
+                goToNewsSlide(currentNewsIndex + direction);
+            }
+            
+            if (newsSlider) {
+                createNewsDots();
+                
+                let scrollTimeout;
+                newsSlider.addEventListener('scroll', () => {
+                    if (scrollTimeout) cancelAnimationFrame(scrollTimeout);
+                    scrollTimeout = requestAnimationFrame(() => {
+                        const step = getCardStep();
+                        if (step <= 0) return;
+                        const newIndex = Math.round(newsSlider.scrollLeft / step);
+                        const maxIndex = getMaxIndex();
+                        if (newIndex !== currentNewsIndex && newIndex >= 0 && newIndex <= maxIndex) {
+                            currentNewsIndex = newIndex;
+                            updateNewsDots();
+                        }
+                    });
+                }, { passive: true });
+                
+                window.addEventListener('resize', () => {
+                    createNewsDots();
+                    goToNewsSlide(Math.min(currentNewsIndex, getMaxIndex()));
+                });
+            }
         });
     </script>
 
@@ -2591,7 +2934,7 @@
             </div>
             <div class="facilities-grid">
                 <div class="facility-card">
-                    <img src="img/bg_medical.jpg" alt="Ruang Rawat Inap">
+                    <img src="img/Ranap.jpg" alt="Ruang Rawat Inap">
                     <div class="facility-overlay">
                         <span class="facility-name">Ruang Rawat Inap</span>
                     </div>
@@ -2641,47 +2984,121 @@
                     Tetap informed dengan berita dan artikel kesehatan terbaru dari Payangan Hospital.
                 </p>
             </div>
-            <div class="news-grid">
-                <article class="news-card">
-                    <div class="news-card-image">
-                        <img src="img/bg_medical.jpg" alt="Berita 1">
-                    </div>
-                    <div class="news-card-content">
-                        <div class="news-card-date">
-                            <i class="far fa-calendar"></i> 15 Januari 2025
+            <div class="news-slider-wrapper">
+                <div class="news-slider" id="newsSlider">
+                    <article class="news-card">
+                        <div class="news-card-image">
+                            <img src="img/optimized/health-diabetes.webp" alt="Diabetes Melitus" loading="lazy" decoding="async">
                         </div>
-                        <h3 class="news-card-title">Payangan Hospital Terus Tingkatkan Kualitas Pelayanan Kesehatan</h3>
-                        <p class="news-card-excerpt">Dengan semangat Tri Hita Karana, Payangan Hospital terus berinovasi untuk memberikan pelayanan kesehatan terbaik...</p>
-                    </div>
-                </article>
-                <article class="news-card">
-                    <div class="news-card-image">
-                        <img src="img/bg_medical.jpg" alt="Berita 2">
-                    </div>
-                    <div class="news-card-content">
-                        <div class="news-card-date">
-                            <i class="far fa-calendar"></i> 10 Januari 2025
+                        <div class="news-card-content">
+                            <div class="news-card-date">
+                                <i class="far fa-calendar"></i> 10 Jan 2026
+                            </div>
+                            <span class="news-card-category">Info Kesehatan</span>
+                            <h3 class="news-card-title"><a href="info-kesehatan-1.html">Cegah Diabetes Melitus dengan CERDIK</a></h3>
+                            <p class="news-card-excerpt">Diabetes melitus adalah penyakit kronis yang terjadi ketika tubuh tidak mampu memproduksi atau menggunakan insulin dengan efektif. Kenali cara pencegahannya sejak dini.</p>
+                            <div class="news-card-footer">
+                                <div class="news-card-author">
+                                    <div class="news-card-avatar">WA</div>
+                                    <span>Web Admin PH</span>
+                                </div>
+                                <span class="news-card-read-time"><i class="far fa-clock"></i> 6 menit</span>
+                            </div>
                         </div>
-                        <h3 class="news-card-title">Dokter Spesialis Baru Payangan Hospital</h3>
-                        <p class="news-card-excerpt">Selamat datang dokter spesialis baru kami dalam bidang jantung dan pembuluh darah...</p>
-                    </div>
-                </article>
-                <article class="news-card">
-                    <div class="news-card-image">
-                        <img src="img/bg_medical.jpg" alt="Berita 3">
-                    </div>
-                    <div class="news-card-content">
-                        <div class="news-card-date">
-                            <i class="far fa-calendar"></i> 5 Januari 2025
+                    </article>
+                    <article class="news-card">
+                        <div class="news-card-image">
+                            <img src="img/optimized/health-diare.webp" alt="Diare" loading="lazy" decoding="async">
                         </div>
-                        <h3 class="news-card-title">Tips Menjaga Kesehatan di Musim Pancaroba</h3>
-                        <p class="news-card-excerpt">Perhatikan beberapa tips penting untuk menjaga kesehatan keluarga di musim pancaroba...</p>
-                    </div>
-                </article>
+                        <div class="news-card-content">
+                            <div class="news-card-date">
+                                <i class="far fa-calendar"></i> 15 Jan 2026
+                            </div>
+                            <span class="news-card-category">Info Kesehatan</span>
+                            <h3 class="news-card-title"><a href="info-kesehatan-2.html">Cegah Diare: Langkah Sederhana yang Bisa Dilakukan</a></h3>
+                            <p class="news-card-excerpt">Diare bisa dicegah dengan kebiasaan hidup bersih dan sehat. Pelajari langkah-langkah sederhana mulai dari cuci tangan hingga vaksinasi rotavirus untuk bayi.</p>
+                            <div class="news-card-footer">
+                                <div class="news-card-author">
+                                    <div class="news-card-avatar">WA</div>
+                                    <span>Web Admin PH</span>
+                                </div>
+                                <span class="news-card-read-time"><i class="far fa-clock"></i> 5 menit</span>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="news-card">
+                        <div class="news-card-image">
+                            <img src="img/optimized/health-etika-batuk.webp" alt="Etika Batuk" loading="lazy" decoding="async">
+                        </div>
+                        <div class="news-card-content">
+                            <div class="news-card-date">
+                                <i class="far fa-calendar"></i> 20 Jan 2026
+                            </div>
+                            <span class="news-card-category">Info Kesehatan</span>
+                            <h3 class="news-card-title"><a href="info-kesehatan-3.html">Etika Batuk yang Benar untuk Mencegah Penularan Penyakit</a></h3>
+                            <p class="news-card-excerpt">Batuk yang tidak ditutup dapat menyebarkan hingga 3.000 droplet per kali batuk. Kenali etika batuk yang benar sesuai anjuran Kemenkes dan WHO.</p>
+                            <div class="news-card-footer">
+                                <div class="news-card-author">
+                                    <div class="news-card-avatar">WA</div>
+                                    <span>Web Admin PH</span>
+                                </div>
+                                <span class="news-card-read-time"><i class="far fa-clock"></i> 4 menit</span>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="news-card">
+                        <div class="news-card-image">
+                            <img src="img/optimized/health-hipertensi.webp" alt="Hipertensi" loading="lazy" decoding="async">
+                        </div>
+                        <div class="news-card-content">
+                            <div class="news-card-date">
+                                <i class="far fa-calendar"></i> 25 Jan 2026
+                            </div>
+                            <span class="news-card-category">Info Kesehatan</span>
+                            <h3 class="news-card-title"><a href="info-kesehatan-4.html">Kendalikan Hipertensi: Faktor Risiko dan Cara Mencegahnya</a></h3>
+                            <p class="news-card-excerpt">Hipertensi adalah silent killer yang tidak menimbulkan gejala jelas. Kenali faktor risiko dan langkah pencegahan untuk tekanan darah yang lebih sehat.</p>
+                            <div class="news-card-footer">
+                                <div class="news-card-author">
+                                    <div class="news-card-avatar">WA</div>
+                                    <span>Web Admin PH</span>
+                                </div>
+                                <span class="news-card-read-time"><i class="far fa-clock"></i> 6 menit</span>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="news-card">
+                        <div class="news-card-image">
+                            <img src="img/optimized/health-stroke.webp" alt="Stroke" loading="lazy" decoding="async">
+                        </div>
+                        <div class="news-card-content">
+                            <div class="news-card-date">
+                                <i class="far fa-calendar"></i> 30 Jan 2026
+                            </div>
+                            <span class="news-card-category">Info Kesehatan</span>
+                            <h3 class="news-card-title"><a href="info-kesehatan-5.html">Kenali Gejala Awal Stroke dengan Metode BEFAST</a></h3>
+                            <p class="news-card-excerpt">Stroke adalah darurat medis. Kenali gejala awal dengan metode BEFAST — Balance, Eyes, Face, Arms, Speech, Time — untuk pertolongan yang lebih cepat.</p>
+                            <div class="news-card-footer">
+                                <div class="news-card-author">
+                                    <div class="news-card-avatar">WA</div>
+                                    <span>Web Admin PH</span>
+                                </div>
+                                <span class="news-card-read-time"><i class="far fa-clock"></i> 6 menit</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+                <button class="news-slider-btn news-prev" onclick="changeNewsSlide(-1)" aria-label="Sebelumnya">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="news-slider-btn news-next" onclick="changeNewsSlide(1)" aria-label="Selanjutnya">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+                <div class="news-slider-dots" id="newsDots"></div>
             </div>
             <div style="text-align: center; margin-top: var(--space-10);">
-                <a href="berita.html" class="btn-appointment">
-                    <i class="fas fa-readme"></i> Lihat Semua Berita
+                <a href="ph-update.html" class="news-view-all-btn">
+                    <span>Lihat Semua Berita</span>
+                    <i class="fas fa-arrow-right"></i>
                 </a>
             </div>
         </div>
@@ -2703,37 +3120,37 @@
             </div>
             <div class="gallery-grid">
                 <div class="gallery-item">
-                    <img src="img/bg_medical.jpg" alt="Gallery 1">
+                    <img src="img/optimized/gallery-koas-1.webp" alt="Penerimaan dokter koas dari Warmadewa" loading="lazy" decoding="async">
                     <div class="gallery-overlay">
                         <i class="fas fa-search-plus"></i>
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="img/bg_medical.jpg" alt="Gallery 2">
+                    <img src="img/optimized/gallery-lt4-04520.webp" alt="Ruang perawatan lantai 4" loading="lazy" decoding="async">
                     <div class="gallery-overlay">
                         <i class="fas fa-search-plus"></i>
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="img/bg_medical.jpg" alt="Gallery 3">
+                    <img src="img/optimized/gallery-lt1-01043.webp" alt="Ruang perawatan lantai 1" loading="lazy" decoding="async">
                     <div class="gallery-overlay">
                         <i class="fas fa-search-plus"></i>
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="img/bg_medical.jpg" alt="Gallery 4">
+                    <img src="img/optimized/gallery-nifas-2647.webp" alt="Kegiatan nifas" loading="lazy" decoding="async">
                     <div class="gallery-overlay">
                         <i class="fas fa-search-plus"></i>
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="img/bg_medical.jpg" alt="Gallery 5">
+                    <img src="img/optimized/gallery-lt4-04508.webp" alt="Fasilitas lantai 4" loading="lazy" decoding="async">
                     <div class="gallery-overlay">
                         <i class="fas fa-search-plus"></i>
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="img/bg_medical.jpg" alt="Gallery 6">
+                    <img src="img/optimized/gallery-koas-4.webp" alt="Dokter koas dari Warmadewa" loading="lazy" decoding="async">
                     <div class="gallery-overlay">
                         <i class="fas fa-search-plus"></i>
                     </div>

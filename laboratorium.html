@@ -37,7 +37,7 @@
         .nav-container { display: flex; justify-content: space-between; align-items: center; max-width: 1280px; margin: 0 auto; padding: 0 24px; }
         .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--primary); }
         .logo img { height: 45px; }
-        .logo-text { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 600; letter-spacing: -0.01em; }
+        .logo-text { display: flex; flex-direction: column; gap: 2px; }
         .nav-links { display: flex; gap: 8px; list-style: none; }
         .nav-links > li { position: relative; }
         .nav-links a { text-decoration: none; color: rgba(255,255,255,0.9); font-size: 0.85rem; font-weight: 400; padding: 10px 16px; border-radius: 50px; display: block; transition: all 0.3s; }
@@ -120,24 +120,26 @@
         <div class="nav-container">
             <a href="index.html" class="logo">
                 <img src="img/logo-official.png" alt="Payangan Hospital">
-                <span class="logo-text">PAYANGAN HOSPITAL</span>
+                <span class="brand-title">PAYANGAN HOSPITAL</span>
             </a>
             <ul class="nav-links">
                 <li><a href="index.html#hero">Beranda</a></li>
                 <li><a href="#">Tentang <i class="fas fa-chevron-down"></i></a>
                     <div class="mega-menu">
-                        <a href="about.html" class="mega-item"><div class="icon"><i class="fas fa-building"></i></div><div class="text"><h4>Tentang Kami</h4><p>Visi, misi, dan sejarah RS</p></div></a>
-                        <a href="dokter.html" class="mega-item"><div class="icon"><i class="fas fa-user-md"></i></div><div class="text"><h4>Dokter</h4><p>Daftar dokter spesialis</p></div></a>
-                        <a href="fasilitas.html" class="mega-item"><div class="icon"><i class="fas fa-microscope"></i></div><div class="text"><h4>Fasilitas</h4><p>Fasilitas rumah sakit</p></div></a>
-                        <a href="laboratorium.html" class="mega-item"><div class="icon"><i class="fas fa-flask"></i></div><div class="text"><h4>Laboratorium</h4><p>Unit laboratorium</p></div></a>
+                        <a href="about.html#sambutan" class="mega-item"><div class="icon"><i class="fas fa-user-tie"></i></div><div class="text"><h4>Sambutan</h4><p>Sambutan dari Direktur</p></div></a>
+                        <a href="about.html#sejarah" class="mega-item"><div class="icon"><i class="fas fa-landmark"></i></div><div class="text"><h4>Sejarah</h4><p>Perjalanan Payangan Hospital</p></div></a>
+                        <a href="about.html#visimisi" class="mega-item"><div class="icon"><i class="fas fa-bullseye"></i></div><div class="text"><h4>Visi & Misi</h4><p>Arah dan tujuan kami</p></div></a>
+                        <a href="about.html#standar" class="mega-item"><div class="icon"><i class="fas fa-clipboard-check"></i></div><div class="text"><h4>Standar Pelayanan</h4><p>Standar kualitas kami</p></div></a>
+                        <a href="about.html#maklumat" class="mega-item"><div class="icon"><i class="fas fa-file-contract"></i></div><div class="text"><h4>Maklumat</h4><p>Janji pelayanan</p></div></a>
+                        <a href="about.html#mutu" class="mega-item"><div class="icon"><i class="fas fa-award"></i></div><div class="text"><h4>Mutu</h4><p>Komitmen kualitas</p></div></a>
+                        <a href="about.html#budaya" class="mega-item"><div class="icon"><i class="fas fa-hands-helping"></i></div><div class="text"><h4>Budaya Kerja</h4><p>Nilai-nilai kerja kami</p></div></a>
                     </div>
                 </li>
                 <li><a href="#">Layanan <i class="fas fa-chevron-down"></i></a>
                     <div class="mega-menu">
-                        <a href="igd.html" class="mega-item"><div class="icon"><i class="fas fa-ambulance"></i></div><div class="text"><h4>IGD 24 Jam</h4><p>Layanan gawat darurat</p></div></a>
-                        <a href="rawat-inap.html" class="mega-item"><div class="icon"><i class="fas fa-procedures"></i></div><div class="text"><h4>Rawat Inap</h4><p>Kamar dan perawatan</p></div></a>
-                        <a href="rawat-jalan.html" class="mega-item"><div class="icon"><i class="fas fa-stethoscope"></i></div><div class="text"><h4>Rawat Jalan</h4><p>Kunjungan poli</p></div></a>
-                        <a href="antrean.html" class="mega-item"><div class="icon"><i class="fas fa-clipboard-list"></i></div><div class="text"><h4>Antrean</h4><p>Sistem antrean online</p></div></a>
+                        <a href="rawat-jalan.html" class="mega-item"><div class="icon"><i class="fas fa-stethoscope"></i></div><div class="text"><h4>Rawat Jalan</h4><p>Konsultasi dokter spesialis</p></div></a>
+                        <a href="rawat-inap.html" class="mega-item"><div class="icon"><i class="fas fa-procedures"></i></div><div class="text"><h4>Rawat Inap</h4><p>Pelayanan inap nyaman</p></div></a>
+                        <a href="igd.html" class="mega-item"><div class="icon"><i class="fas fa-ambulance"></i></div><div class="text"><h4>IGD / UGD</h4><p>Gawat darurat 24 jam</p></div></a>
                     </div>
                 </li>
                 <li><a href="#">Poli <i class="fas fa-chevron-down"></i></a>
@@ -159,7 +161,17 @@
         <ul>
             <li><a href="index.html" onclick="toggleMenu()">Beranda</a></li>
             <li><a href="about.html" onclick="toggleMenu()">Tentang</a></li>
-            <li><a href="igd.html" onclick="toggleMenu()">IGD 24 Jam</a></li>
+            <li><a href="about.html#sambutan" onclick="toggleMenu()">- Sambutan</a></li>
+            <li><a href="about.html#sejarah" onclick="toggleMenu()">- Sejarah</a></li>
+            <li><a href="about.html#visimisi" onclick="toggleMenu()">- Visi & Misi</a></li>
+            <li><a href="about.html#standar" onclick="toggleMenu()">- Standar Pelayanan</a></li>
+            <li><a href="about.html#maklumat" onclick="toggleMenu()">- Maklumat</a></li>
+            <li><a href="about.html#mutu" onclick="toggleMenu()">- Mutu</a></li>
+            <li><a href="about.html#budaya" onclick="toggleMenu()">- Budaya Kerja</a></li>
+            <li><a href="rawat-jalan.html" onclick="toggleMenu()">Layanan</a></li>
+            <li><a href="rawat-jalan.html" onclick="toggleMenu()">- Rawat Jalan</a></li>
+            <li><a href="rawat-inap.html" onclick="toggleMenu()">- Rawat Inap</a></li>
+            <li><a href="igd.html" onclick="toggleMenu()">- IGD / UGD</a></li>
             <li><a href="dokter.html" onclick="toggleMenu()">Dokter</a></li>
             <li><a href="fasilitas.html" onclick="toggleMenu()">Fasilitas</a></li>
             <li><a href="laboratorium.html" onclick="toggleMenu()">Laboratorium</a></li>
@@ -324,7 +336,7 @@
             <div class="footer-brand">
                 <a href="index.html" class="logo">
                     <img src="img/logo-official.png" alt="Payangan Hospital">
-                    <span class="logo-text">PAYANGAN HOSPITAL</span>
+                    <span class="brand-title brand-title-white">PAYANGAN HOSPITAL</span>
                 </a>
                 <p>Rumah Sakit Pemerintah Daerah Payangan, memberikan pelayanan kesehatan berkualitas dengan tenaga medis profesional dan fasilitas modern.</p>
             </div>

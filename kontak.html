@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
@@ -39,7 +39,7 @@
         .navbar.scrolled .logo { color: var(--text-dark); }
         .logo img { height: 45px; }
         h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; font-size: 1.4rem; font-weight: 600; }
-        .logo-text { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 600; letter-spacing: -0.01em; color: var(--primary); }
+        .logo-text { font-family: var(--brand-font); font-size: 1.1rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: var(--primary); }
         .logo-text-sub { font-family: 'Montserrat', sans-serif; font-size: 0.7rem; opacity: 0.8; font-weight: 400; letter-spacing: 0.05em; }
         .nav-links { display: flex; gap: 8px; list-style: none; }
         .nav-links > li { position: relative; }
@@ -276,6 +276,7 @@
                 <li>
                     <a href="about.html">Tentang <i class="fas fa-chevron-down"></i></a>
                     <div class="mega-menu">
+                        <a href="about.html#sambutan" class="mega-item"><div class="icon"><i class="fas fa-user-tie"></i></div><div class="text"><h4>Sambutan</h4><p>Sambutan dari Direktur</p></div></a>
                         <a href="about.html#sejarah" class="mega-item"><div class="icon"><i class="fas fa-landmark"></i></div><div class="text"><h4>Sejarah</h4><p>Perjalanan Payangan Hospital</p></div></a>
                         <a href="about.html#visimisi" class="mega-item"><div class="icon"><i class="fas fa-bullseye"></i></div><div class="text"><h4>Visi & Misi</h4><p>Arah dan tujuan kami</p></div></a>
                         <a href="about.html#standar" class="mega-item"><div class="icon"><i class="fas fa-clipboard-check"></i></div><div class="text"><h4>Standar Pelayanan</h4><p>Standar kualitas kami</p></div></a>
@@ -290,11 +291,10 @@
                         <a href="rawat-jalan.html" class="mega-item"><div class="icon"><i class="fas fa-stethoscope"></i></div><div class="text"><h4>Rawat Jalan</h4><p>Konsultasi dokter spesialis</p></div></a>
                         <a href="rawat-inap.html" class="mega-item"><div class="icon"><i class="fas fa-procedures"></i></div><div class="text"><h4>Rawat Inap</h4><p>Pelayanan inap nyaman</p></div></a>
                         <a href="igd.html" class="mega-item"><div class="icon"><i class="fas fa-ambulance"></i></div><div class="text"><h4>IGD / UGD</h4><p>Gawat darurat 24 jam</p></div></a>
-                        <a href="dokter.html" class="mega-item"><div class="icon"><i class="fas fa-user-md"></i></div><div class="text"><h4>Daftar Dokter</h4><p>Profil dokter</p></div></a>
                     </div>
                 </li>
                 <li><a href="dokter.html">Dokter</a></li>
-                        <li><a href="berita.html">PH Update</a></li>
+                        <li><a href="ph-update.html">PH Update</a></li>
                 <li><a href="kontak.html" class="active">Kontak</a></li>
                 <li><a href="#login" class="nav-cta"><i class="fas fa-sign-in-alt"></i> Login</a></li>
             </ul>
@@ -309,6 +309,7 @@
         <ul>
             <li><a href="index.html#hero" onclick="toggleMenu()">Beranda</a></li>
             <li><a href="about.html" onclick="toggleMenu()">Tentang</a></li>
+            <li><a href="about.html#sambutan" onclick="toggleMenu()">- Sambutan</a></li>
             <li><a href="about.html#sejarah" onclick="toggleMenu()">- Sejarah</a></li>
             <li><a href="about.html#visimisi" onclick="toggleMenu()">- Visi Misi</a></li>
             <li><a href="about.html#standar" onclick="toggleMenu()">- Standar</a></li>
@@ -320,7 +321,7 @@
             <li><a href="rawat-inap.html" onclick="toggleMenu()">- Rawat Inap</a></li>
             <li><a href="igd.html" onclick="toggleMenu()">- IGD / UGD</a></li>
             <li><a href="dokter.html" onclick="toggleMenu()">Dokter</a></li>
-            <li><a href="berita.html" onclick="toggleMenu()">PH Update</a></li>
+            <li><a href="ph-update.html" onclick="toggleMenu()">PH Update</a></li>
             <li><a href="faq.html" onclick="toggleMenu()">FAQ</a></li>
             <li><a href="kontak.html" onclick="toggleMenu()">Kontak</a></li>
             <li><a href="#login" onclick="toggleMenu()">Login</a></li>
@@ -740,7 +741,7 @@
                 <div class="footer-brand">
                     <a href="index.html" class="logo">
                         <img  src="img/logo-official.png"  alt="Payangan Hospital">
-                        <span class="logo-text">PAYANGAN HOSPITAL</span>
+                        <span class="brand-title brand-title-white">PAYANGAN HOSPITAL</span>
                     </a>
                     <p>Memberikan pelayanan kesehatan berkualitas berbasis Tri Hita Karana.</p>
                 </div>
@@ -751,7 +752,7 @@
                         <li><a href="rawat-inap.html">Rawat Inap</a></li>
                         <li><a href="igd.html">IGD 24 Jam</a></li>
                         <li><a href="dokter.html">Dokter</a></li>
-                        <li><a href="berita.html">PH Update</a></li>
+                        <li><a href="ph-update.html">PH Update</a></li>
                     </ul>
                 </div>
                 <div class="footer-links">

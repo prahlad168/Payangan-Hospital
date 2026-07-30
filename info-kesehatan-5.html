@@ -1,0 +1,209 @@
+﻿<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kenali Gejala Awal Stroke dengan Metode BEFAST - Payangan Hospital</title>
+    <link rel="icon" type="image/png" href="img/logo-official.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/brand.css">
+    <style>
+        :root {
+            --primary: #0891b2; --primary-dark: #0e7490; --primary-light: #22d3ee;
+            --primary-50: #ecfeff; --primary-100: #cffafe;
+            --bg-white: #ffffff; --bg-light: #f8fafc;
+            --text-dark: #0f172a; --text-muted: #64748b;
+            --gradient-primary: linear-gradient(135deg, #0891b2 0%, #22d3ee 100%);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+            --shadow-lg: 0 10px 30px rgba(0,0,0,0.1);
+            --radius-lg: 16px; --radius-xl: 24px; --radius-full: 9999px;
+            --font-sans: 'Plus Jakarta Sans', sans-serif;
+            --font-display: 'Playfair Display', serif;
+        }
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: var(--font-sans); color: var(--text-dark); background: var(--bg-light); }
+        a { text-decoration: none; color: inherit; }
+        img { max-width: 100%; height: auto; display: block; }
+        .container { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+
+        /* HEADER */
+        .header { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(255,255,255,0.98); backdrop-filter: blur(20px); box-shadow: 0 2px 10px rgba(0,0,0,0.08); }
+        .header-inner { display: flex; align-items: center; justify-content: space-between; max-width: 1280px; margin: 0 auto; padding: 14px 24px; }
+        .logo { display: flex; align-items: center; gap: 12px; }
+        .logo img { width: 44px; height: 44px; border-radius: 10px; }
+        .logo-text { display: flex; flex-direction: column; }
+
+        .logo-text .brand-tagline { font-size: 0.65rem; color: var(--text-muted); letter-spacing: 0.08em; }
+        .back-btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; background: var(--primary-50); color: var(--primary); border-radius: var(--radius-full); font-size: 0.88rem; font-weight: 600; transition: all 0.3s; }
+        .back-btn:hover { background: var(--primary); color: white; }
+
+        /* HERO */
+        .article-hero { margin-top: 72px; position: relative; }
+        .article-hero img { width: 100%; max-height: 500px; object-fit: cover; object-position: center top; display: block; }
+        .article-hero-overlay { display: none; }
+        .article-hero-content { position: relative; background: white; padding: 32px 0 24px; border-top: 4px solid var(--primary); max-width: 900px; margin: 0 auto; padding-left: 24px; padding-right: 24px; }
+        .article-category { display: inline-flex; align-items: center; gap: 8px; background: var(--primary-50); color: var(--primary); border: 1px solid var(--primary-100); padding: 6px 16px; border-radius: var(--radius-full); font-size: 0.78rem; font-weight: 600; margin-bottom: 16px; }
+        .article-title { font-family: var(--font-display); font-size: clamp(1.5rem, 4vw, 2.2rem); font-weight: 700; line-height: 1.3; margin-bottom: 16px; color: var(--text-dark); }
+        .article-meta { display: flex; gap: 20px; flex-wrap: wrap; font-size: 0.85rem; color: var(--text-muted); }
+        .article-meta span { display: flex; align-items: center; gap: 6px; }
+
+        /* CONTENT */
+        .article-body { background: white; padding: 48px 0 64px; }
+        .article-content { font-size: 1.05rem; line-height: 1.85; color: #334155; }
+        .article-content h2 { font-family: var(--font-display); font-size: 1.5rem; color: var(--text-dark); margin: 36px 0 16px; }
+        .article-content h3 { font-size: 1.15rem; font-weight: 700; color: var(--text-dark); margin: 28px 0 12px; }
+        .article-content p { margin-bottom: 20px; }
+        .article-content ul, .article-content ol { padding-left: 24px; margin-bottom: 20px; }
+        .article-content li { margin-bottom: 10px; }
+        .article-content .highlight-box { background: var(--primary-50); border-left: 4px solid var(--primary); padding: 20px 24px; border-radius: 0 12px 12px 0; margin: 28px 0; }
+        .article-content .highlight-box p { margin: 0; color: var(--primary-dark); font-weight: 500; }
+
+        /* AUTHOR */
+        .author-box { display: flex; align-items: center; gap: 20px; background: var(--bg-light); padding: 24px; border-radius: var(--radius-xl); margin-top: 48px; }
+        .author-avatar { width: 64px; height: 64px; border-radius: 50%; background: var(--gradient-primary); display: flex; align-items: center; justify-content: center; color: white; font-size: 1.4rem; font-weight: 700; flex-shrink: 0; }
+        .author-name { font-weight: 700; color: var(--text-dark); font-size: 1rem; }
+        .author-spec { font-size: 0.85rem; color: var(--primary); margin-top: 2px; }
+        .author-desc { font-size: 0.85rem; color: var(--text-muted); margin-top: 6px; line-height: 1.6; }
+
+        /* NAVIGASI ARTIKEL */
+        .article-nav { display: flex; gap: 16px; margin-top: 40px; }
+        .article-nav a { flex: 1; padding: 16px 20px; border-radius: var(--radius-lg); border: 2px solid var(--primary-100); transition: all 0.3s; }
+        .article-nav a:hover { border-color: var(--primary); background: var(--primary-50); }
+        .article-nav .nav-label { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; }
+        .article-nav .nav-title { font-size: 0.92rem; font-weight: 600; color: var(--text-dark); margin-top: 4px; }
+        .article-nav .next { text-align: right; }
+
+        /* BACK TO LIST */
+        .back-to-list { text-align: center; margin-top: 48px; }
+        .btn-back-list { display: inline-flex; align-items: center; gap: 10px; padding: 14px 32px; background: var(--gradient-primary); color: white; border-radius: var(--radius-full); font-weight: 600; font-size: 0.95rem; transition: all 0.3s; box-shadow: 0 4px 15px rgba(8,145,178,0.3); }
+        .btn-back-list:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(8,145,178,0.4); }
+
+        /* FOOTER */
+        footer { background: #0f172a; color: rgba(255,255,255,0.6); padding: 32px 0; text-align: center; font-size: 0.85rem; }
+        footer a { color: #22d3ee; }
+
+        @media (max-width: 768px) {
+            .article-hero { height: 320px; }
+            .article-hero-content { padding: 24px; }
+            .article-nav { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+    <div class="header-inner">
+        <div class="logo">
+            <img src="img/logo-official.png" alt="Payangan Hospital">
+            <div class="logo-text">
+                <span class="brand-title">PAYANGAN HOSPITAL</span>
+                <span class="brand-tagline">PAVITRAM IDAM UTTAMAM</span>
+            </div>
+        </div>
+        <a href="ph-update.html?cat=kesehatan" class="back-btn">
+            <i class="fas fa-arrow-left"></i> Kembali ke PH Update
+        </a>
+    </div>
+</header>
+
+<!-- HERO -->
+<section class="article-hero">
+    <img src="img/PH Update/info Kesehatan/kenali gejala awal stroke  BEFAST (bslsnce, eyes,face,arms, speech,time) .jpg" alt="Kenali Gejala Awal Stroke dengan Metode BEFAST">
+    <div class="article-hero-content">
+        <span class="article-category"><i class="fas fa-heartbeat"></i> Info Kesehatan</span>
+        <h1 class="article-title">Kenali Gejala Awal Stroke dengan Metode BEFAST</h1>
+        <div class="article-meta">
+            <span><i class="fas fa-user-md"></i> Web Admin PH</span>
+            <span><i class="fas fa-calendar"></i> 30 Januari 2025</span>
+            <span><i class="fas fa-clock"></i> 6 menit baca</span>
+        </div>
+    </div>
+</section>
+
+<!-- BODY -->
+<section class="article-body">
+    <div class="container">
+        <div class="article-content">
+
+            <p>Stroke adalah darurat medis yang terjadi ketika aliran darah ke otak terganggu, menyebabkan sel-sel otak mulai mati dalam hitungan menit. Setiap detik sangat berarti — semakin cepat pertolongan diberikan, semakin besar kemungkinan pemulihan. Metode BEFAST adalah cara mudah dan cepat untuk mengenali gejala awal stroke sehingga tindakan darurat dapat segera dilakukan.</p>
+
+            <h2>Apa Itu Stroke?</h2>
+            <p>Stroke terjadi ketika pasokan darah ke bagian otak terhenti atau berkurang drastis, sehingga jaringan otak tidak mendapatkan oksigen dan nutrisi yang dibutuhkan. Ada dua jenis stroke utama: stroke iskemik, yang paling umum dan disebabkan oleh penyumbatan pembuluh darah otak; dan stroke hemoragik, yang disebabkan oleh pecahnya pembuluh darah di otak.</p>
+            <p>Stroke iskemik menyumbang sekitar 87% dari seluruh kasus stroke. Penyebab utamanya adalah gumpalan darah (trombus) yang terbentuk di dalam pembuluh darah otak atau emboli yang berasal dari jantung. Stroke hemoragik, meski lebih jarang, umumnya lebih fatal karena perdarahan merusak jaringan otak secara langsung.</p>
+
+            <div class="highlight-box">
+                <p><i class="fas fa-stopwatch"></i> &nbsp;<strong>Golden Period stroke adalah 4,5 jam. Dalam waktu ini terapi trombolitik dapat menyelamatkan jutaan sel otak</strong></p>
+            </div>
+
+            <h2>Metode BEFAST</h2>
+            <p>BEFAST adalah akronim yang diciptakan untuk memudahkan masyarakat mengenali tanda-tanda stroke dengan cepat. Setiap huruf mewakili gejala atau tindakan yang perlu diperhatikan:</p>
+
+            <h3>B — Balance (Keseimbangan)</h3>
+            <p>Perhatikan apakah seseorang tiba-tiba kehilangan keseimbangan, sulit berjalan, atau sempoyongan tanpa sebab yang jelas. Gangguan koordinasi gerak yang mendadak bisa menjadi tanda awal stroke yang menyerang serebelum atau batang otak.</p>
+
+            <h3>E — Eyes (Mata/Penglihatan)</h3>
+            <p>Waspadai jika seseorang tiba-tiba mengalami gangguan penglihatan, seperti penglihatan kabur, buram, gelap pada salah satu atau kedua mata, atau kesulitan melihat ke satu arah. Gangguan penglihatan mendadak tanpa rasa sakit adalah salah satu tanda stroke yang sering diabaikan.</p>
+
+            <h3>F — Face (Wajah)</h3>
+            <p>Minta orang tersebut untuk tersenyum. Jika satu sisi wajah terlihat turun, kaku, atau tidak bergerak simetris, ini bisa menjadi tanda kelumpuhan wajah akibat stroke. Tanyakan apakah mereka merasakan kebas atau mati rasa di satu sisi wajah.</p>
+
+            <h3>A — Arms (Lengan)</h3>
+            <p>Minta orang tersebut untuk mengangkat kedua lengan secara bersamaan dengan mata terpejam. Jika salah satu lengan melemah dan jatuh ke bawah, atau jika mereka tidak mampu mengangkat salah satu lengan, ini adalah tanda kelemahan satu sisi tubuh yang khas pada stroke.</p>
+
+            <h3>S — Speech (Bicara)</h3>
+            <p>Perhatikan cara bicara orang tersebut. Apakah bicaranya menjadi pelo, tidak jelas, tidak bisa berbicara sama sekali, atau mengucapkan kata-kata yang tidak masuk akal? Gangguan bicara mendadak, baik dalam mengucapkan maupun memahami kata-kata, adalah tanda stroke yang sangat penting.</p>
+
+            <h3>T — Time (Waktu)</h3>
+            <p>Jika Anda melihat satu atau lebih tanda di atas, <strong>segera hubungi layanan darurat atau bawa ke IGD rumah sakit terdekat</strong>. Catat waktu gejala pertama kali muncul karena informasi ini sangat penting bagi tim medis untuk menentukan penanganan yang tepat, terutama terkait pemberian terapi trombolitik dalam golden period.</p>
+
+            <h2>Faktor Risiko yang Harus Dikontrol</h2>
+            <p>Memahami faktor risiko stroke sama pentingnya dengan mengenali gejalanya. Dengan mengendalikan faktor risiko, kemungkinan terjadinya stroke dapat dikurangi secara signifikan:</p>
+            <ul>
+                <li><strong>Hipertensi (tekanan darah tinggi)</strong> – Faktor risiko terbesar stroke. Tekanan darah yang tidak terkontrol merusak dinding pembuluh darah dan memicu pembentukan gumpalan. Pantau tekanan darah secara rutin dan konsumsi obat sesuai anjuran dokter.</li>
+                <li><strong>Diabetes melitus</strong> – Kadar gula darah yang tinggi merusak pembuluh darah dari dalam, meningkatkan risiko penyumbatan. Kontrol gula darah dengan pola makan sehat, olahraga, dan obat-obatan yang diresepkan dokter.</li>
+                <li><strong>Penyakit jantung (fibrilasi atrium)</strong> – Gangguan irama jantung dapat menyebabkan pembentukan gumpalan darah di jantung yang kemudian berpindah ke otak. Lakukan EKG secara berkala jika memiliki riwayat penyakit jantung.</li>
+                <li><strong>Merokok</strong> – Nikotin dan zat kimia dalam rokok mempersempit dan merusak pembuluh darah, meningkatkan risiko stroke dua hingga empat kali lipat. Berhenti merokok adalah salah satu langkah paling efektif untuk menurunkan risiko stroke.</li>
+                <li><strong>Kolesterol tinggi</strong> – Penumpukan plak lemak di dinding pembuluh darah (aterosklerosis) mempersempit aliran darah ke otak. Kontrol kadar kolesterol dengan pola makan rendah lemak jenuh dan obat-obatan bila diperlukan.</li>
+                <li><strong>Kurang aktivitas fisik dan obesitas</strong> – Gaya hidup sedentary dan kelebihan berat badan meningkatkan hampir semua faktor risiko stroke secara bersamaan. Olahraga rutin dan menjaga berat badan ideal adalah investasi terbaik untuk kesehatan otak jangka panjang.</li>
+            </ul>
+
+            <p>Stroke bukan sekadar ancaman bagi lansia — semakin banyak kasus stroke yang ditemukan pada usia produktif. Kenali metode BEFAST, kendalikan faktor risiko, dan jangan ragu untuk membawa orang tersayang ke IGD Payangan Hospital jika mencurigai tanda-tanda stroke. Setiap menit yang terselamatkan adalah ribuan sel otak yang terlindungi.</p>
+        </div>
+
+        <!-- AUTHOR BOX -->
+        <div class="author-box">
+            <div class="author-avatar">WA</div>
+            <div>
+                <div class="author-name">Web Admin PH</div>
+                <div class="author-spec">Administrator Website – Payangan Hospital</div>
+                <div class="author-desc">Tim admin website Payangan Hospital yang mengelola dan mempublikasikan konten informasi kesehatan untuk masyarakat.</div>
+            </div>
+        </div>
+
+        <!-- NAVIGASI ARTIKEL -->
+        <div class="article-nav">
+            <a href="info-kesehatan-4.html" class="prev">
+                <div class="nav-label"><i class="fas fa-arrow-left"></i> Artikel Sebelumnya</div>
+                <div class="nav-title">Kendalikan Hipertensi</div>
+            </a>
+            <div style="flex:1"></div>
+        </div>
+
+        <!-- BACK TO LIST -->
+        <div class="back-to-list">
+            <a href="ph-update.html?cat=kesehatan" class="btn-back-list">
+                <i class="fas fa-th-large"></i> Lihat Semua Info Kesehatan
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <p>&copy; 2025 <a href="index.html">Payangan Hospital</a> &mdash; Jl. Payangan, Gianyar, Bali &nbsp;|&nbsp; <a href="kontak.html">Hubungi Kami</a></p>
+</footer>
+</body>
+</html>

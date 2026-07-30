@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
@@ -6,7 +6,7 @@
     <meta name="description" content="Berita & Artikel Kesehatan Payangan Hospital Gianyar, Bali. Informasi terkini tentang layanan kesehatan, acara, dan tips kesehatan.">
     <meta name="keywords" content="berita rs payangan, artikel kesehatan, kesehatan gianyar, tips kesehatan, acara rumah sakit">
     <meta name="robots" content="index, follow">
-    <title>Berita & Artikel - Payangan Hospital Gianyar</title>
+    <title>PH Update - Payangan Hospital Gianyar</title>
     <link rel="icon" type="image/png" href="img/logo-official.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -39,25 +39,35 @@
         .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
       
         /* Navigation */
-        .navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 20px 0; transition: all 0.4s ease; }
-        .navbar.scrolled { background: rgba(255,255,255,0.98); backdrop-filter: blur(20px); box-shadow: 0 1px 20px rgba(0,0,0,0.05); padding: 14px 0; }
+        .navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 16px 0; background: var(--primary-dark); transition: all 0.4s ease; }
+        .navbar.scrolled { background: rgba(255,255,255,0.98); backdrop-filter: blur(20px); box-shadow: 0 1px 20px rgba(0,0,0,0.05); padding: 12px 0; }
         .nav-container { display: flex; justify-content: space-between; align-items: center; max-width: 1280px; margin: 0 auto; padding: 0 24px; }
         .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
         .logo img { width: 50px; height: auto; }
         .logo-text { display: flex; flex-direction: column; }
-        .logo-text-main { font-size: 1.2rem; font-weight: 600; color: white;  }
-        .logo-text-sub { font-size: 0.6rem; color: rgba(255,255,255,0.7); font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase;  }
+        .logo-text-main { font-size: 1.1rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: white; }
+        .logo-text-sub { font-size: 0.6rem; color: rgba(255,255,255,0.7); font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase; }
         .navbar.scrolled .logo-text-main { color: var(--text-dark); }
         .navbar.scrolled .logo-text-sub { color: var(--text-muted); }
         .nav-links { display: flex; gap: 6px; list-style: none; }
         .nav-links > li { position: relative; }
-        .nav-links a { text-decoration: none; color: rgba(255,255,255,0.9); font-size: 0.85rem; font-weight: 400; padding: 10px 16px; border-radius: 50px; display: block; transition: all 0.3s ease; }
-        .navbar.scrolled .nav-links a { color: var(--text-muted); }
+        .nav-links a { text-decoration: none; color: rgba(255,255,255,0.95); font-size: 0.85rem; font-weight: 600; padding: 10px 18px; border-radius: 50px; display: block; transition: all 0.3s ease; }
+        .navbar.scrolled .nav-links a { color: var(--text-dark); font-weight: 500; }
         .nav-links a i { font-size: 10px; margin-left: 4px; }
-        .nav-links a:hover, .nav-links a.active { color: var(--secondary); }
-        .navbar.scrolled .nav-links a:hover, .navbar.scrolled .nav-links a.active { color: var(--primary); background: var(--bg-light); }
+        .nav-links a:hover, .nav-links a.active { background: rgba(255,255,255,0.15); color: white; }
+        .navbar.scrolled .nav-links a:hover, .navbar.scrolled .nav-links a.active { background: var(--bg-light); color: var(--primary); }
         .nav-cta { background: var(--secondary) !important; color: var(--text-dark) !important; font-weight: 600 !important; }
         .nav-emergency { background: #dc3545 !important; color: white !important; }
+
+        /* Dropdown submenu PH Update */
+        .has-dropdown { position: relative; }
+        .has-dropdown > a { display: flex; align-items: center; gap: 4px; }
+        .dropdown-menu { display: none; position: absolute; top: calc(100% + 8px); left: 50%; transform: translateX(-50%); background: white; border-radius: 14px; box-shadow: 0 10px 40px rgba(0,0,0,0.12); padding: 8px; min-width: 200px; z-index: 100; list-style: none; }
+        .dropdown-menu::before { content: ''; position: absolute; top: -6px; left: 50%; transform: translateX(-50%); border-left: 6px solid transparent; border-right: 6px solid transparent; border-bottom: 6px solid white; }
+        .has-dropdown:hover .dropdown-menu { display: block; }
+        .dropdown-menu li a { color: var(--text-dark) !important; background: transparent !important; font-size: 0.85rem; font-weight: 500; padding: 10px 16px; border-radius: 8px; display: flex; align-items: center; gap: 10px; white-space: nowrap; }
+        .dropdown-menu li a:hover { background: var(--bg-light) !important; color: var(--primary) !important; }
+        .dropdown-menu li a i { font-size: 0.9rem; width: 18px; color: var(--primary); opacity: 0.8; }
         .mobile-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 10px; }
         .mobile-toggle span { width: 25px; height: 2px; background: white; transition: 0.3s; }
         .navbar.scrolled .mobile-toggle span { background: var(--text-dark); }
@@ -90,10 +100,9 @@
         /* Featured Post */
         .featured-section { padding: 0 0 60px; }
         .featured-post { display: grid; grid-template-columns: 1.2fr 1fr; gap: 50px; align-items: center; max-width: 1280px; margin: 0 auto; padding: 0 24px; }
-        .featured-image { border-radius: 24px; overflow: hidden; position: relative; height: 400px; background: var(--gradient-teal); }
-        .featured-image::before { content: ''; position: absolute; inset: 0; background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); }
-        .featured-image i { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 120px; color: white; opacity: 0.3; }
-        .featured-badge { position: absolute; top: 20px; left: 20px; background: var(--secondary); color: var(--text-dark); padding: 8px 20px; border-radius: 50px; font-size: 0.8rem; font-weight: 600; }
+        .featured-image { border-radius: 24px; position: relative; height: 640px; background: #000; }
+        .featured-image iframe { position: relative; z-index: 1; display: block; border: none; border-radius: 24px; }
+
         .featured-content { padding: 20px 0; }
         .featured-category { display: inline-flex; align-items: center; gap: 8px; background: rgba(13, 115, 119, 0.1); color: var(--primary); padding: 8px 16px; border-radius: 50px; font-size: 0.8rem; font-weight: 500; margin-bottom: 16px; }
         .featured-content h2 { font-size: 2.2rem; color: var(--text-dark); margin-bottom: 16px; line-height: 1.3; }
@@ -107,7 +116,7 @@
       
         @media (max-width: 992px) {
             .featured-post { grid-template-columns: 1fr; gap: 30px; }
-            .featured-image { height: 300px; }
+            .featured-image { height: 480px; }
         }
       
         /* Filter Section */
@@ -212,7 +221,7 @@
             <a href="index.html" class="logo">
                 <img src="img/logo-official.png" alt="Payangan Hospital">
                 <div class="logo-text">
-                    <span class="logo-text-main">Payangan Hospital</span>
+                     <span class="logo-text-main">PAYANGAN HOSPITAL</span>
                     <span class="logo-text-sub">PAVITRAM IDAM UTTAMAM</span>
                 </div>
             </a>
@@ -221,9 +230,17 @@
                 <li><a href="about.html">Tentang</a></li>
                 <li><a href="layanan.html">Layanan</a></li>
                 <li><a href="dokter.html">Dokter</a></li>
-                <li><a href="berita.html" class="active">Berita</a></li>
+                <li class="has-dropdown">
+                    <a href="ph-update.html" class="active">PH Update <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="ph-update.html?cat=kesehatan"><i class="fas fa-heartbeat"></i> Info Kesehatan</a></li>
+                        <li><a href="ph-update.html?cat=teknologi"><i class="fas fa-microchip"></i> Teknologi</a></li>
+                        <li><a href="ph-update.html?cat=creative"><i class="fas fa-paint-brush"></i> PH Creative</a></li>
+                        <li><a href="ph-update.html?cat=pengumuman"><i class="fas fa-bullhorn"></i> Pengumuman</a></li>
+                    </ul>
+                </li>
                 <li><a href="faq.html">FAQ</a></li>
-                    <li><a href="kontak.html">Kontak</a></li>
+                <li><a href="kontak.html">Kontak</a></li>
                 <li><a href="igd.html" class="nav-emergency"><i class="fas fa-phone"></i> IGD</a></li>
             </ul>
             <div class="mobile-toggle" onclick="toggleMenu()">
@@ -239,7 +256,11 @@
             <li><a href="about.html" onclick="toggleMenu()">Tentang Kami</a></li>
             <li><a href="layanan.html" onclick="toggleMenu()">Layanan</a></li>
             <li><a href="dokter.html" onclick="toggleMenu()">Dokter</a></li>
-            <li><a href="berita.html" onclick="toggleMenu()">Berita</a></li>
+            <li><a href="ph-update.html" onclick="toggleMenu()">PH Update</a></li>
+            <li><a href="ph-update.html?cat=kesehatan" onclick="toggleMenu()" style="padding-left:28px;font-size:0.95rem;opacity:0.85;">— Info Kesehatan</a></li>
+            <li><a href="ph-update.html?cat=teknologi" onclick="toggleMenu()" style="padding-left:28px;font-size:0.95rem;opacity:0.85;">— Teknologi</a></li>
+            <li><a href="ph-update.html?cat=creative" onclick="toggleMenu()" style="padding-left:28px;font-size:0.95rem;opacity:0.85;">— PH Creative</a></li>
+            <li><a href="ph-update.html?cat=pengumuman" onclick="toggleMenu()" style="padding-left:28px;font-size:0.95rem;opacity:0.85;">— Pengumuman</a></li>
             <li><a href="faq.html" onclick="toggleMenu()">FAQ</a></li>
             <li><a href="kontak.html" onclick="toggleMenu()">Kontak</a></li>
             <li><a href="igd.html" onclick="toggleMenu()">🚨 IGD 24 Jam</a></li>
@@ -250,12 +271,12 @@
     <section class="page-header">
         <div class="container-premium container">
             <p class="section-label-premium section-label">Informasi & Edukasi</p>
-            <h1>Berita & <span>Artikel</span></h1>
-            <p>Informasi terkini tentang layanan kesehatan, tips menjaga kesehatan, dan berita dari Payangan Hospital.</p>
+            <h1>PH <span>Update</span></h1>
+            <p>Info kesehatan terkini, inovasi teknologi medis, dan kreasi dari Payangan Hospital.</p>
             <div class="breadcrumb">
                 <a href="index.html">Beranda</a>
                 <span>/</span>
-                <span>Berita</span>
+                <span>PH Update</span>
             </div>
         </div>
     </section>
@@ -264,19 +285,18 @@
     <section class="featured-section">
         <div class="featured-post fade-in">
             <div class="featured-image">
-                <i class="fas fa-heartbeat"></i>
-                <span class="featured-badge">Featured</span>
+                <iframe src="https://www.instagram.com/p/DX0X5ycJgNG/embed/" width="100%" height="100%" frameborder="0" allowtransparency="true" allow="autoplay; encrypted-media"></iframe>
             </div>
             <div class="featured-content">
-                <span class="featured-category"><i class="fas fa-stethoscope"></i> Kesehatan</span>
-                <h2><a href="#">Payangan Hospital Hadirkan Layanan Baru: Cath Lab untuk Penanganan Penyakit Jantung</a></h2>
+                <span class="featured-category"><i class="fas fa-bullhorn"></i> Pengumuman</span>
+                <h2><a href="#">Payangan Hospital telah membuka layanan Poliklinik THT</a></h2>
                 <div class="featured-meta">
-                    <span><i class="fas fa-calendar"></i> 15 Januari 2025</span>
-                    <span><i class="fas fa-user"></i> Admin Payangan Hospital</span>
-                    <span><i class="fas fa-clock"></i> 5 menit baca</span>
+                    <span><i class="fas fa-calendar"></i> 1 Mei 2026</span>
+                    <span><i class="fas fa-user"></i> Web Admin PH</span>
+                    <span><i class="fas fa-clock"></i> 2 menit baca</span>
                 </div>
-                <p class="featured-excerpt">Payangan Hospital terus berinovasi dalam memberikan pelayanan kesehatan terbaik. Kali ini, kami bangga mengumumkan kehadiran Cath Lab (Catheterization Laboratory) untuk membantu penanganan penyakit jantung dan pembuluh darah dengan teknologi tercanggih di Bali.</p>
-                <a href="#" class="read-more">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
+                <p class="featured-excerpt">Sehubungan dengan ditetapkannya Adendum Perjanjian Kerja Sama (PKS) antara RSU Payangan dan BPJS Kesehatan Cabang Klungkung yang mencakup penambahan layanan Spesialis Telinga Hidung Tenggorok Bedah Kepala dan Leher, dengan ini disampaikan bahwa layanan tersebut telah dapat dimanfaatkan oleh peserta JKN dan Non-JKN di RSU Payangan. Pelayanan Poliklinik Spesialis THT Bedah Kepala dan Leher mulai dibuka dan beroperasi pada tanggal 1 Mei 2026.</p>
+                <a href="https://www.instagram.com/p/DX0X5ycJgNG/" target="_blank" rel="noopener" class="read-more">Tonton Video <i class="fas fa-play-circle"></i></a>
             </div>
         </div>
     </section>
@@ -284,133 +304,99 @@
     <!-- Filter Section -->
     <section class="filter-section">
         <div class="filter-container">
-            <button class="filter-btn active">Semua</button>
-            <button class="filter-btn">Kesehatan</button>
-            <button class="filter-btn">Tips</button>
-            <button class="filter-btn">Acara</button>
-            <button class="filter-btn">Edukasi</button>
-            <button class="filter-btn">Pengumuman</button>
+            <button class="filter-btn active" data-filter="semua">Semua</button>
+            <button class="filter-btn" data-filter="info-kesehatan">Info Kesehatan</button>
+            <button class="filter-btn" data-filter="teknologi">Teknologi</button>
+            <button class="filter-btn" data-filter="creative">PH Creative</button>
+            <button class="filter-btn" data-filter="pengumuman">Pengumuman</button>
         </div>
     </section>
 
     <!-- Posts Grid -->
     <section class="posts-section">
         <div class="posts-grid">
-            <article class="post-card fade-in">
-                <div class="post-image">
-                    <i class="fas fa-syringe"></i>
-                    <span class="post-date"><i class="fas fa-calendar"></i> 12 Jan 2025</span>
+            <article class="post-card fade-in" data-category="info-kesehatan">
+                <div class="post-image" style="background:none;padding:0;">
+                    <img src="img/PH Update/info Kesehatan/Cegah Diabetes Militus dengan CERDIK, (cek kesehatan rutin,enyahkan asap rokok,  .jpg" alt="Diabetes Melitus" style="width:100%;height:100%;object-fit:cover;">
+                    <span class="post-date"><i class="fas fa-calendar"></i> 10 Jan 2026</span>
                 </div>
                 <div class="post-content">
-                    <span class="post-category">Edukasi</span>
-                    <h3><a href="#">Pentingnya Vaksinasi untuk Mencegah Penyakit Menular</a></h3>
-                    <p class="post-excerpt">Vaksinasi adalah salah satu cara paling efektif untuk mencegah penyakit menular. Payangan Hospital menyediakan layanan vaksinasi lengkap untuk anak dan dewasa.</p>
+                    <span class="post-category">Info Kesehatan</span>
+                    <h3><a href="info-kesehatan-1.html">Cegah Diabetes Melitus dengan CERDIK</a></h3>
+                    <p class="post-excerpt">Diabetes melitus adalah penyakit kronis yang terjadi ketika tubuh tidak mampu memproduksi atau menggunakan insulin dengan efektif. Kenali cara pencegahannya sejak dini.</p>
                     <div class="post-footer">
-                        <div class="post-author">
-                            <div class="post-author-avatar">RS</div>
-                            <span>Tim Payangan Hospital</span>
-                        </div>
-                        <span class="post-read-time"><i class="fas fa-clock"></i> 4 menit</span>
-                    </div>
-                </div>
-            </article>
-          
-            <article class="post-card fade-in">
-                <div class="post-image">
-                    <i class="fas fa-heart"></i>
-                    <span class="post-date"><i class="fas fa-calendar"></i> 10 Jan 2025</span>
-                </div>
-                <div class="post-content">
-                    <span class="post-category">Kesehatan</span>
-                    <h3><a href="#">Mengenal Gejala dan Pencegahan Diabetes Sejak Dini</a></h3>
-                    <p class="post-excerpt">Diabetes menjadi salah satu penyakit tidak menular yang semakin meningkat. Kenali gejala dan cara pencegahannya sejak dini untuk hidup lebih sehat.</p>
-                    <div class="post-footer">
-                        <div class="post-author">
-                            <div class="post-author-avatar">DP</div>
-                            <span>dr. Tjokorda Prima Dewi Pemayun, Sp.PD</span>
-                        </div>
+                        <div class="post-author"><div class="post-author-avatar">WA</div><span>Web Admin PH</span></div>
                         <span class="post-read-time"><i class="fas fa-clock"></i> 6 menit</span>
                     </div>
                 </div>
             </article>
-          
-            <article class="post-card fade-in">
-                <div class="post-image">
-                    <i class="fas fa-baby"></i>
-                    <span class="post-date"><i class="fas fa-calendar"></i> 8 Jan 2025</span>
+
+            <article class="post-card fade-in" data-category="info-kesehatan">
+                <div class="post-image" style="background:none;padding:0;">
+                    <img src="img/PH Update/info Kesehatan/Cegah Diare, yang dapat dilakukan untuk mencegah diare .jpg" alt="Diare" style="width:100%;height:100%;object-fit:cover;">
+                    <span class="post-date"><i class="fas fa-calendar"></i> 15 Jan 2026</span>
                 </div>
                 <div class="post-content">
-                    <span class="post-category">Tips</span>
-                    <h3><a href="#">5 Tips Menjaga Kesehatan Anak di Musim Pancaroba</a></h3>
-                    <p class="post-excerpt">Musim pancaroba sering membuat anak-anak mudah sakit. Berikut tips dari dokter spesialis anak Payangan Hospital untuk menjaga kesehatan buah hati Anda.</p>
+                    <span class="post-category">Info Kesehatan</span>
+                    <h3><a href="info-kesehatan-2.html">Cegah Diare: Langkah Sederhana yang Bisa Dilakukan</a></h3>
+                    <p class="post-excerpt">Diare bisa dicegah dengan kebiasaan hidup bersih dan sehat. Pelajari langkah-langkah sederhana mulai dari cuci tangan hingga vaksinasi rotavirus untuk bayi.</p>
                     <div class="post-footer">
-                        <div class="post-author">
-                            <div class="post-author-avatar">MW</div>
-                            <span>dr. Made Ayu Widyaningsih, Sp.A</span>
-                        </div>
+                        <div class="post-author"><div class="post-author-avatar">WA</div><span>Web Admin PH</span></div>
                         <span class="post-read-time"><i class="fas fa-clock"></i> 5 menit</span>
                     </div>
                 </div>
             </article>
-          
-            <article class="post-card fade-in">
-                <div class="post-image">
-                    <i class="fas fa-calendar-check"></i>
-                    <span class="post-date"><i class="fas fa-calendar"></i> 5 Jan 2025</span>
+
+            <article class="post-card fade-in" data-category="info-kesehatan">
+                <div class="post-image" style="background:none;padding:0;">
+                    <img src="img/PH Update/info Kesehatan/Etika Batuk (gunakan masker, tutup mulut dan hidung dengan lengan atas bagian dalam, tutup mulut dan hidung dengan tisu, buang tisu yg telah digunakan di tempat sampah, cuci tangan dengan sabun.jpg" alt="Etika Batuk" style="width:100%;height:100%;object-fit:cover;">
+                    <span class="post-date"><i class="fas fa-calendar"></i> 20 Jan 2026</span>
                 </div>
                 <div class="post-content">
-                    <span class="post-category">Pengumuman</span>
-                    <h3><a href="#">Jadwal Praktik Dokter Spesialis Bulan Januari 2025</a></h3>
-                    <p class="post-excerpt">Update jadwal praktik dokter spesialis di Payangan Hospital untuk bulan Januari 2025. Pastikan Anda dapat nomor pendaftaran sebelum berkunjung.</p>
+                    <span class="post-category">Info Kesehatan</span>
+                    <h3><a href="info-kesehatan-3.html">Etika Batuk yang Benar untuk Mencegah Penularan Penyakit</a></h3>
+                    <p class="post-excerpt">Batuk yang tidak ditutup dapat menyebarkan hingga 3.000 droplet per kali batuk. Kenali etika batuk yang benar sesuai anjuran Kemenkes dan WHO.</p>
                     <div class="post-footer">
-                        <div class="post-author">
-                            <div class="post-author-avatar">RS</div>
-                            <span>Admin Payangan Hospital</span>
-                        </div>
-                        <span class="post-read-time"><i class="fas fa-clock"></i> 3 menit</span>
-                    </div>
-                </div>
-            </article>
-          
-            <article class="post-card fade-in">
-                <div class="post-image">
-                    <i class="fas fa-running"></i>
-                    <span class="post-date"><i class="fas fa-calendar"></i> 3 Jan 2025</span>
-                </div>
-                <div class="post-content">
-                    <span class="post-category">Kesehatan</span>
-                    <h3><a href="#">Olahraga yang Tepat untuk Penderita Penyakit Jantung</a></h3>
-                    <p class="post-excerpt">Penderita penyakit jantung tetap bisa berolahraga dengan aman. Dokter spesialis jantung Payangan Hospital memberikan panduan olahraga yang tepat.</p>
-                    <div class="post-footer">
-                        <div class="post-author">
-                            <div class="post-author-avatar">AD</div>
-                            <span>dr. Anak Agung Ayu Ngurah Desy Widya Putri, Sp.JP</span>
-                        </div>
-                        <span class="post-read-time"><i class="fas fa-clock"></i> 7 menit</span>
-                    </div>
-                </div>
-            </article>
-          
-            <article class="post-card fade-in">
-                <div class="post-image">
-                    <i class="fas fa-users"></i>
-                    <span class="post-date"><i class="fas fa-calendar"></i> 1 Jan 2025</span>
-                </div>
-                <div class="post-content">
-                    <span class="post-category">Acara</span>
-                    <h3><a href="#">Screening Kesehatan Gratis untuk Masyarakat Gianyar</a></h3>
-                    <p class="post-excerpt">Payangan Hospital mengadakan kegiatan screening kesehatan gratis untuk masyarakat Gianyar pada tanggal 20 Januari 2025. Daftarkan diri Anda sekarang!</p>
-                    <div class="post-footer">
-                        <div class="post-author">
-                            <div class="post-author-avatar">RS</div>
-                            <span>Tim PKRS Payangan Hospital</span>
-                        </div>
+                        <div class="post-author"><div class="post-author-avatar">WA</div><span>Web Admin PH</span></div>
                         <span class="post-read-time"><i class="fas fa-clock"></i> 4 menit</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="post-card fade-in" data-category="info-kesehatan">
+                <div class="post-image" style="background:none;padding:0;">
+                    <img src="img/PH Update/info Kesehatan/Hipertensi kendalikan tekanan darah(Mengendalikan hipertensi, faktor resiko hipertensi, gejala hipertensi, mencegah hipertensi).jpg" alt="Hipertensi" style="width:100%;height:100%;object-fit:cover;">
+                    <span class="post-date"><i class="fas fa-calendar"></i> 25 Jan 2026</span>
+                </div>
+                <div class="post-content">
+                    <span class="post-category">Info Kesehatan</span>
+                    <h3><a href="info-kesehatan-4.html">Kendalikan Hipertensi: Faktor Risiko dan Cara Mencegahnya</a></h3>
+                    <p class="post-excerpt">Hipertensi adalah silent killer yang tidak menimbulkan gejala jelas. Kenali faktor risiko dan langkah pencegahan untuk tekanan darah yang lebih sehat.</p>
+                    <div class="post-footer">
+                        <div class="post-author"><div class="post-author-avatar">WA</div><span>Web Admin PH</span></div>
+                        <span class="post-read-time"><i class="fas fa-clock"></i> 6 menit</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="post-card fade-in" data-category="info-kesehatan">
+                <div class="post-image" style="background:none;padding:0;">
+                    <img src="img/PH Update/info Kesehatan/kenali gejala awal stroke  BEFAST (bslsnce, eyes,face,arms, speech,time) .jpg" alt="Stroke" style="width:100%;height:100%;object-fit:cover;">
+                    <span class="post-date"><i class="fas fa-calendar"></i> 30 Jan 2026</span>
+                </div>
+                <div class="post-content">
+                    <span class="post-category">Info Kesehatan</span>
+                    <h3><a href="info-kesehatan-5.html">Kenali Gejala Awal Stroke dengan Metode BEFAST</a></h3>
+                    <p class="post-excerpt">Stroke adalah darurat medis. Kenali gejala awal dengan metode BEFAST — Balance, Eyes, Face, Arms, Speech, Time — untuk pertolongan yang lebih cepat.</p>
+                    <div class="post-footer">
+                        <div class="post-author"><div class="post-author-avatar">WA</div><span>Web Admin PH</span></div>
+                        <span class="post-read-time"><i class="fas fa-clock"></i> 6 menit</span>
                     </div>
                 </div>
             </article>
         </div>
     </section>
+
 
     <!-- Health Tips Section -->
     <section class="tips-section">
@@ -565,6 +551,14 @@
             btn.addEventListener('click', function() {
                 document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
                 this.classList.add('active');
+                const filter = this.getAttribute('data-filter');
+                document.querySelectorAll('.post-card').forEach(card => {
+                    if (filter === 'semua' || card.getAttribute('data-category') === filter) {
+                        card.style.display = '';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
             });
         });
 
@@ -643,7 +637,7 @@ let chatOpen=false;
 function toggleChat(){chatOpen=!chatOpen;document.getElementById('chat-win').classList.toggle('active',chatOpen)}
 function sendMsg(){const i=document.getElementById('chatInput'),m=i.value.trim();if(!m)return;addMsg(m,'user');i.value='';document.getElementById('chatTyping').classList.add('active');setTimeout(()=>{document.getElementById('chatTyping').classList.remove('active');addMsg(getResp(m),'bot')},1500)}
 function addMsg(t,n){const d=document.getElementById('chatMsgs'),e=document.createElement('div');e.className='ch-msg '+n;e.innerHTML=t+'<span class="ch-time">Baru saja</span>';d.appendChild(e);d.scrollTop=d.scrollHeight}
-function getResp(m){const msg=m.toLowerCase();if(msg.includes('berita')||msg.includes('artikel'))return'📰 <strong>Berita & Artikel:</strong><br><br>Klik untuk melihat berita terbaru:<br><br><a href="berita.html" style="color:#22d3ee">📰 Berita Kesehatan →</a>';return'Terima kasih! 🙏<br><br>Kunjungi <a href="berita.html" style="color:#22d3ee">halaman berita</a><br>Hubungi <strong>0361 9088087</strong>'}
+function getResp(m){const msg=m.toLowerCase();if(msg.includes('berita')||msg.includes('artikel'))return'📰 <strong>Berita & Artikel:</strong><br><br>Klik untuk melihat berita terbaru:<br><br><a href="ph-update.html" style="color:#22d3ee">📰 Berita Kesehatan →</a>';return'Terima kasih! 🙏<br><br>Kunjungi <a href="ph-update.html" style="color:#22d3ee">halaman berita</a><br>Hubungi <strong>0361 9088087</strong>'}
 </script>
 
     <script src="js/premium-ui.js"></script>

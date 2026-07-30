@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
@@ -35,14 +35,19 @@
         .navbar.scrolled .logo { color: var(--text-dark); }
         .logo img { height: 45px; }
         h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; font-size: 1.4rem; font-weight: 600; }
-        .logo-text-sub { font-size: 0.7rem; opacity: 0.8; font-weight: 400; }
+        .logo-text-sub { font-family: 'Montserrat', sans-serif; font-size: 0.7rem; font-weight: 400; letter-spacing: 0.05em; color: rgba(255,255,255,0.7); }
+        .navbar.scrolled .logo-text-sub { color: var(--text-muted); }
         .nav-links { display: flex; gap: 8px; list-style: none; }
         .nav-links > li { position: relative; }
-        .nav-links a { text-decoration: none; color: rgba(255,255,255,0.9); font-size: 0.85rem; font-weight: 400; padding: 10px 16px; border-radius: 50px; display: block; transition: all 0.3s; }
-        .navbar.scrolled .nav-links a { color: var(--text-muted); }
+        .nav-links a { text-decoration: none; color: rgba(255,255,255,0.95); font-size: 0.85rem; font-weight: 500; padding: 10px 16px; border-radius: 50px; display: block; transition: all 0.3s ease; background: transparent; }
+        .navbar.scrolled .nav-links a { color: var(--text-dark); }
         .nav-links a i { font-size: 10px; margin-left: 4px; }
-        .nav-links a:hover, .nav-links a.active { color: var(--secondary); background: rgba(255,255,255,0.1); }
+        .nav-links a:hover, .nav-links a.active { color: var(--secondary); background: rgba(255,255,255,0.15); }
         .navbar.scrolled .nav-links a:hover, .navbar.scrolled .nav-links a.active { color: var(--primary); background: var(--bg-light); }
+        .nav-cta { background: var(--secondary) !important; color: var(--text-dark) !important; font-weight: 600 !important; }
+        .nav-cta:hover { background: #e6b800 !important; color: var(--text-dark) !important; }
+        .navbar.scrolled .nav-cta { background: var(--primary) !important; color: white !important; }
+        .navbar.scrolled .nav-cta:hover { background: var(--primary-dark) !important; color: white !important; }
         .nav-links > li:hover .mega-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(10px); }
         .mega-menu { position: absolute; top: 100%; left: 50%; transform: translateX(-50%); background: var(--white); border-radius: 16px; box-shadow: 0 20px 60px rgba(0,0,0,0.15); padding: 20px; min-width: 300px; opacity: 0; visibility: hidden; transition: all 0.3s; }
         .mega-menu a { display: flex; align-items: center; gap: 16px; padding: 12px 16px; border-radius: 10px; color: var(--text-dark) !important; transition: all 0.3s; }
@@ -83,11 +88,12 @@
       
         /* Room Cards */
         .room-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; margin-top: 40px; }
-        .room-card { background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.05); transition: all 0.3s; }
-        .room-card:hover { transform: translateY(-5px); box-shadow: 0 20px 60px rgba(0,0,0,0.1); }
-        .room-card .header { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); padding: 30px; color: white; }
-        .room-card .header h3 { font-size: 1.5rem; margin-bottom: 8px; }
-        .room-card .header p { opacity: 0.9; font-size: 0.95rem; }
+        .room-card { background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.05); transition: transform 0.3s, box-shadow 0.3s; will-change: transform; }
+        .room-card:hover { transform: translateY(-4px); box-shadow: 0 15px 45px rgba(0,0,0,0.1); }
+        .room-card .header { background: linear-gradient(135deg, #042f2e 0%, #0f766e 100%); padding: 30px; color: white; }
+        .room-card .header.isolation { background: linear-gradient(135deg, #450a0a 0%, #7f1d1d 100%); }
+        .room-card .header h3 { font-size: 1.5rem; margin-bottom: 8px; font-weight: 800; text-shadow: 0 3px 6px rgba(0,0,0,0.5); }
+        .room-card .header p { opacity: 1; font-size: 0.95rem; font-weight: 700; text-shadow: 0 2px 5px rgba(0,0,0,0.45); }
         .room-card .body { padding: 30px; }
         .room-card ul { list-style: none; }
         .room-card li { display: flex; align-items: center; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--bg-light); }
@@ -140,14 +146,15 @@
     <nav class="navbar" id="navbar">
         <div class="container-premium container">
             <a href="index.html" class="logo">
-                        <img  src="img/logo-official.png"  alt="Payangan Hospital">
-                <div><span class="brand-title">PAYANGAN HOSPITAL</span><span class="brand-tagline">PAVITRAM IDAM UTTAMAM</span></div>
+                        <img src="img/logo-official.png" alt="Payangan Hospital">
+                <div class="logo-text"><span class="brand-title">PAYANGAN HOSPITAL</span><span class="brand-tagline">PAVITRAM IDAM UTTAMAM</span></div>
             </a>
             <ul class="nav-links">
                 <li><a href="index.html">Beranda</a></li>
                 <li>
                     <a href="about.html">Tentang <i class="fas fa-chevron-down"></i></a>
                     <div class="mega-menu">
+                        <a href="about.html#sambutan" class="mega-item"><div class="icon"><i class="fas fa-user-tie"></i></div><div class="text"><h4>Sambutan</h4><p>Sambutan dari Direktur</p></div></a>
                         <a href="about.html#sejarah" class="mega-item"><div class="icon"><i class="fas fa-landmark"></i></div><div class="text"><h4>Sejarah</h4><p>Perjalanan Payangan Hospital</p></div></a>
                         <a href="about.html#visimisi" class="mega-item"><div class="icon"><i class="fas fa-bullseye"></i></div><div class="text"><h4>Visi & Misi</h4><p>Arah dan tujuan kami</p></div></a>
                         <a href="about.html#standar" class="mega-item"><div class="icon"><i class="fas fa-clipboard-check"></i></div><div class="text"><h4>Standar Pelayanan</h4><p>Standar kualitas kami</p></div></a>
@@ -165,7 +172,7 @@
                     </div>
                 </li>
                 <li><a href="dokter.html">Dokter</a></li>
-                <li><a href="berita.html">PH Update</a></li>
+                <li><a href="ph-update.html">PH Update</a></li>
                 <li><a href="faq.html">FAQ</a></li>
                     <li><a href="kontak.html">Kontak</a></li>
                 <li><a href="#login" class="nav-cta"><i class="fas fa-sign-in-alt"></i> Login</a></li>
@@ -179,9 +186,19 @@
         <ul>
             <li><a href="index.html" onclick="toggleMenu()">Beranda</a></li>
             <li><a href="about.html" onclick="toggleMenu()">Tentang</a></li>
-            <li><a href="rawat-inap.html" onclick="toggleMenu()">Layanan</a></li>
+            <li><a href="about.html#sambutan" onclick="toggleMenu()">- Sambutan</a></li>
+            <li><a href="about.html#sejarah" onclick="toggleMenu()">- Sejarah</a></li>
+            <li><a href="about.html#visimisi" onclick="toggleMenu()">- Visi & Misi</a></li>
+            <li><a href="about.html#standar" onclick="toggleMenu()">- Standar Pelayanan</a></li>
+            <li><a href="about.html#maklumat" onclick="toggleMenu()">- Maklumat</a></li>
+            <li><a href="about.html#mutu" onclick="toggleMenu()">- Mutu</a></li>
+            <li><a href="about.html#budaya" onclick="toggleMenu()">- Budaya Kerja</a></li>
+            <li><a href="rawat-jalan.html" onclick="toggleMenu()">Layanan</a></li>
+            <li><a href="rawat-jalan.html" onclick="toggleMenu()">- Rawat Jalan</a></li>
+            <li><a href="rawat-inap.html" onclick="toggleMenu()">- Rawat Inap</a></li>
+            <li><a href="igd.html" onclick="toggleMenu()">- IGD / UGD</a></li>
             <li><a href="dokter.html" onclick="toggleMenu()">Dokter</a></li>
-            <li><a href="berita.html" onclick="toggleMenu()">PH Update</a></li>
+            <li><a href="ph-update.html" onclick="toggleMenu()">PH Update</a></li>
             <li><a href="faq.html" onclick="toggleMenu()">FAQ</a></li>
             <li><a href="kontak.html" onclick="toggleMenu()">Kontak</a></li>
             <li><a href="#login" onclick="toggleMenu()">Login</a></li>
@@ -282,9 +299,9 @@
               
                 <div class="room-grid" style="margin-top: 30px;">
                     <div class="room-card">
-                        <div class="header" style="background: linear-gradient(135deg, #0d7377 0%, #14919b 100%);">
-                            <h3><i class="fas fa-building"></i> Lantai I</h3>
-                            <p>Kelas 1 & 2</p>
+                        <div class="header">
+                             <h3><i class="fas fa-building"></i> Lantai I</h3>
+                             <p>Kelas 1 & 2</p>
                         </div>
                         <div class="body">
                             <ul>
@@ -295,9 +312,9 @@
                         </div>
                     </div>
                     <div class="room-card">
-                        <div class="header" style="background: linear-gradient(135deg, #0d7377 0%, #14919b 100%);">
-                            <h3><i class="fas fa-building"></i> Lantai II</h3>
-                            <p>Kelas 2 & 3</p>
+                        <div class="header">
+                             <h3><i class="fas fa-building"></i> Lantai II</h3>
+                             <p>Kelas 2 & 3</p>
                         </div>
                         <div class="body">
                             <ul>
@@ -308,9 +325,9 @@
                         </div>
                     </div>
                     <div class="room-card">
-                        <div class="header" style="background: linear-gradient(135deg, #0d7377 0%, #14919b 100%);">
-                            <h3><i class="fas fa-building"></i> Lantai III</h3>
-                            <p>Kelas 2 & 3</p>
+                        <div class="header">
+                             <h3><i class="fas fa-building"></i> Lantai III</h3>
+                             <p>Kelas 2 & 3</p>
                         </div>
                         <div class="body">
                             <ul>
@@ -321,7 +338,7 @@
                         </div>
                     </div>
                     <div class="room-card">
-                        <div class="header" style="background: linear-gradient(135deg, #ef4444 0%, #f97316 100%);">
+                        <div class="header isolation">
                             <h3><i class="fas fa-biohazard"></i> Ruang Isolasi</h3>
                             <p>Tekanan Negatif & Positif</p>
                         </div>
@@ -503,8 +520,8 @@
             <div class="footer-grid">
                 <div class="footer-brand">
                     <a href="index.html" class="logo">
-                        <img  src="img/logo-official.png"  alt="Payangan Hospital">
-                        <div><span class="brand-title">PAYANGAN HOSPITAL</span><span class="brand-tagline">PAVITRAM IDAM UTTAMAM</span></div>
+                        <img src="img/logo-official.png" alt="Payangan Hospital">
+                        <div class="logo-text"><span class="brand-title">PAYANGAN HOSPITAL</span><span class="brand-tagline">PAVITRAM IDAM UTTAMAM</span></div>
                     </a>
                     <p>Payangan Hospital - Memberikan pelayanan kesehatan berkualitas berbasis Tri Hita Karana.</p>
                 </div>

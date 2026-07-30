@@ -4,6 +4,14 @@
  * Backend Administration System
  */
 
+// Keep authentication cookies out of JavaScript and off non-HTTPS connections.
+session_set_cookie_params([
+    'lifetime' => 0,
+    'path' => '/',
+    'secure' => true,
+    'httponly' => true,
+    'samesite' => 'Lax'
+]);
 session_start();
 
 // Check if already logged in
@@ -50,6 +58,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         
         if (isset($demo_users[$username]) && $demo_users[$username]['password'] === $password) {
             // Login berhasil
+            session_regenerate_id(true);
             $_SESSION['user_id'] = $username;
             $_SESSION['username'] = $username;
             $_SESSION['nama'] = $demo_users[$username]['nama'];
@@ -483,22 +492,6 @@ if (isset($_GET['timeout'])) {
                 <i class="fas fa-sign-in-alt"></i> Masuk
             </button>
         </form>
-        
-        <div class="demo-accounts">
-            <h4><i class="fas fa-info-circle"></i> Demo Account</h4>
-            <div class="demo-account">
-                <span><strong>direktur</strong> / welcomehome</span>
-                <span class="role direktur">Direktur</span>
-            </div>
-            <div class="demo-account">
-                <span><strong>admin</strong> / admin123</span>
-                <span class="role admin">Admin</span>
-            </div>
-            <div class="demo-account">
-                <span><strong>karyawan</strong> / staf2026</span>
-                <span class="role karyawan">Karyawan</span>
-            </div>
-        </div>
         
         <div class="back-link">
             <a href="../index.html">

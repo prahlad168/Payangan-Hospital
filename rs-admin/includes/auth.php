@@ -5,8 +5,15 @@
  * Include this file in all protected pages
  */
 
-// Start session if not started
+// Start session with browser-only, HTTPS-only cookies.
 if (session_status() === PHP_SESSION_NONE) {
+    session_set_cookie_params([
+        'lifetime' => 0,
+        'path' => '/',
+        'secure' => true,
+        'httponly' => true,
+        'samesite' => 'Lax'
+    ]);
     session_start();
 }
 

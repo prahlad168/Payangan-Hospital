@@ -12,9 +12,9 @@
     'use strict';
 
     const MAHACARE_CONFIG = {
-        name: 'MahaCare AI',
-        avatar: '🤖',
-        greeting: `Selamat datang di Payangan Hospital. Saya <strong>MahaCare AI</strong>. 
+        name: 'PH Care Assistant',
+        avatar: '<video autoplay muted loop playsinline poster="img/assistant-nurse.svg" aria-label="Perawat Payangan Hospital"><source src="video/perawat.mp4" type="video/mp4"></video>',
+        greeting: `Selamat datang di Payangan Hospital. Saya <strong>PH Care Assistant</strong>. 
 
 Saya siap membantu Anda mencari informasi tentang:
 • Layanan rumah sakit
@@ -213,8 +213,29 @@ Kunjungi halaman <a href="about.html">About Us</a> untuk informasi lebih lanjut.
             this.conversationHistory = [];
             this.isTyping = false;
             this.startTime = null;
+
+            if (document.getElementById('mahacare-button') || document.getElementById('mahacare-window')) {
+                return;
+            }
+
+            this.removeLegacyChat();
             this.createWidget();
             this.bindEvents();
+        }
+
+        removeLegacyChat() {
+            const legacyIds = ['chat-fab', 'chat-win'];
+            legacyIds.forEach(id => {
+                const el = document.getElementById(id);
+                if (el) el.remove();
+            });
+
+            document.querySelectorAll('style').forEach(style => {
+                const text = style.textContent || '';
+                if (text.includes('#chat-fab') || text.includes('#chat-win')) {
+                    style.remove();
+                }
+            });
         }
 
         createWidget() {
@@ -224,7 +245,7 @@ Kunjungi halaman <a href="about.html">About Us</a> untuk informasi lebih lanjut.
             this.chatButton.innerHTML = `
                 <div class="mahacare-badge" id="mahacare-badge">0</div>
                 <div class="mahacare-avatar">
-                    <span>${MAHACARE_CONFIG.avatar}</span>
+                    ${MAHACARE_CONFIG.avatar}
                 </div>
             `;
             document.body.appendChild(this.chatButton);
@@ -235,7 +256,9 @@ Kunjungi halaman <a href="about.html">About Us</a> untuk informasi lebih lanjut.
             this.chatWindow.innerHTML = `
                 <div class="mahacare-header">
                     <div class="mahacare-header-info">
-                        <div class="mahacare-header-avatar">${MAHACARE_CONFIG.avatar}</div>
+                        <div class="mahacare-header-avatar">
+                            ${MAHACARE_CONFIG.avatar}
+                        </div>
                         <div>
                             <div class="mahacare-header-name">${MAHACARE_CONFIG.name}</div>
                             <div class="mahacare-header-status">
@@ -320,9 +343,19 @@ Kunjungi halaman <a href="about.html">About Us</a> untuk informasi lebih lanjut.
                     display: flex;
                     align-items: center;
                     justify-content: center;
-                    font-size: 28px;
+                    overflow: hidden;
                     box-shadow: 0 4px 20px rgba(37, 99, 235, 0.4);
                     transition: all 0.3s ease;
+                }
+
+                .mahacare-avatar video,
+                .mahacare-header-avatar video {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    display: block;
+                    background: #0f172a;
+                    pointer-events: none;
                 }
 
                 #mahacare-button:hover .mahacare-avatar {
@@ -382,7 +415,8 @@ Kunjungi halaman <a href="about.html">About Us</a> untuk informasi lebih lanjut.
                     display: flex;
                     align-items: center;
                     justify-content: center;
-                    font-size: 22px;
+                    overflow: hidden;
+                    padding: 2px;
                 }
 
                 .mahacare-header-name {

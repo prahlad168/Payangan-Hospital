@@ -1,0 +1,194 @@
+﻿<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Etika Batuk yang Benar untuk Mencegah Penularan Penyakit - Payangan Hospital</title>
+    <link rel="icon" type="image/png" href="img/logo-official.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/brand.css">
+    <style>
+        :root {
+            --primary: #0891b2; --primary-dark: #0e7490; --primary-light: #22d3ee;
+            --primary-50: #ecfeff; --primary-100: #cffafe;
+            --bg-white: #ffffff; --bg-light: #f8fafc;
+            --text-dark: #0f172a; --text-muted: #64748b;
+            --gradient-primary: linear-gradient(135deg, #0891b2 0%, #22d3ee 100%);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+            --shadow-lg: 0 10px 30px rgba(0,0,0,0.1);
+            --radius-lg: 16px; --radius-xl: 24px; --radius-full: 9999px;
+            --font-sans: 'Plus Jakarta Sans', sans-serif;
+            --font-display: 'Playfair Display', serif;
+        }
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: var(--font-sans); color: var(--text-dark); background: var(--bg-light); }
+        a { text-decoration: none; color: inherit; }
+        img { max-width: 100%; height: auto; display: block; }
+        .container { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+
+        /* HEADER */
+        .header { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(255,255,255,0.98); backdrop-filter: blur(20px); box-shadow: 0 2px 10px rgba(0,0,0,0.08); }
+        .header-inner { display: flex; align-items: center; justify-content: space-between; max-width: 1280px; margin: 0 auto; padding: 14px 24px; }
+        .logo { display: flex; align-items: center; gap: 12px; }
+        .logo img { width: 44px; height: 44px; border-radius: 10px; }
+        .logo-text { display: flex; flex-direction: column; }
+
+        .logo-text .brand-tagline { font-size: 0.65rem; color: var(--text-muted); letter-spacing: 0.08em; }
+        .back-btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; background: var(--primary-50); color: var(--primary); border-radius: var(--radius-full); font-size: 0.88rem; font-weight: 600; transition: all 0.3s; }
+        .back-btn:hover { background: var(--primary); color: white; }
+
+        /* HERO */
+        .article-hero { margin-top: 72px; position: relative; }
+        .article-hero img { width: 100%; max-height: 500px; object-fit: cover; object-position: center top; display: block; }
+        .article-hero-overlay { display: none; }
+        .article-hero-content { position: relative; background: white; padding: 32px 0 24px; border-top: 4px solid var(--primary); max-width: 900px; margin: 0 auto; padding-left: 24px; padding-right: 24px; }
+        .article-category { display: inline-flex; align-items: center; gap: 8px; background: var(--primary-50); color: var(--primary); border: 1px solid var(--primary-100); padding: 6px 16px; border-radius: var(--radius-full); font-size: 0.78rem; font-weight: 600; margin-bottom: 16px; }
+        .article-title { font-family: var(--font-display); font-size: clamp(1.5rem, 4vw, 2.2rem); font-weight: 700; line-height: 1.3; margin-bottom: 16px; color: var(--text-dark); }
+        .article-meta { display: flex; gap: 20px; flex-wrap: wrap; font-size: 0.85rem; color: var(--text-muted); }
+        .article-meta span { display: flex; align-items: center; gap: 6px; }
+
+        /* CONTENT */
+        .article-body { background: white; padding: 48px 0 64px; }
+        .article-content { font-size: 1.05rem; line-height: 1.85; color: #334155; }
+        .article-content h2 { font-family: var(--font-display); font-size: 1.5rem; color: var(--text-dark); margin: 36px 0 16px; }
+        .article-content h3 { font-size: 1.15rem; font-weight: 700; color: var(--text-dark); margin: 28px 0 12px; }
+        .article-content p { margin-bottom: 20px; }
+        .article-content ul, .article-content ol { padding-left: 24px; margin-bottom: 20px; }
+        .article-content li { margin-bottom: 10px; }
+        .article-content .highlight-box { background: var(--primary-50); border-left: 4px solid var(--primary); padding: 20px 24px; border-radius: 0 12px 12px 0; margin: 28px 0; }
+        .article-content .highlight-box p { margin: 0; color: var(--primary-dark); font-weight: 500; }
+
+        /* AUTHOR */
+        .author-box { display: flex; align-items: center; gap: 20px; background: var(--bg-light); padding: 24px; border-radius: var(--radius-xl); margin-top: 48px; }
+        .author-avatar { width: 64px; height: 64px; border-radius: 50%; background: var(--gradient-primary); display: flex; align-items: center; justify-content: center; color: white; font-size: 1.4rem; font-weight: 700; flex-shrink: 0; }
+        .author-name { font-weight: 700; color: var(--text-dark); font-size: 1rem; }
+        .author-spec { font-size: 0.85rem; color: var(--primary); margin-top: 2px; }
+        .author-desc { font-size: 0.85rem; color: var(--text-muted); margin-top: 6px; line-height: 1.6; }
+
+        /* NAVIGASI ARTIKEL */
+        .article-nav { display: flex; gap: 16px; margin-top: 40px; }
+        .article-nav a { flex: 1; padding: 16px 20px; border-radius: var(--radius-lg); border: 2px solid var(--primary-100); transition: all 0.3s; }
+        .article-nav a:hover { border-color: var(--primary); background: var(--primary-50); }
+        .article-nav .nav-label { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; }
+        .article-nav .nav-title { font-size: 0.92rem; font-weight: 600; color: var(--text-dark); margin-top: 4px; }
+        .article-nav .next { text-align: right; }
+
+        /* BACK TO LIST */
+        .back-to-list { text-align: center; margin-top: 48px; }
+        .btn-back-list { display: inline-flex; align-items: center; gap: 10px; padding: 14px 32px; background: var(--gradient-primary); color: white; border-radius: var(--radius-full); font-weight: 600; font-size: 0.95rem; transition: all 0.3s; box-shadow: 0 4px 15px rgba(8,145,178,0.3); }
+        .btn-back-list:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(8,145,178,0.4); }
+
+        /* FOOTER */
+        footer { background: #0f172a; color: rgba(255,255,255,0.6); padding: 32px 0; text-align: center; font-size: 0.85rem; }
+        footer a { color: #22d3ee; }
+
+        @media (max-width: 768px) {
+            .article-hero { height: 320px; }
+            .article-hero-content { padding: 24px; }
+            .article-nav { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+    <div class="header-inner">
+        <div class="logo">
+            <img src="img/logo-official.png" alt="Payangan Hospital">
+            <div class="logo-text">
+                <span class="brand-title">PAYANGAN HOSPITAL</span>
+                <span class="brand-tagline">PAVITRAM IDAM UTTAMAM</span>
+            </div>
+        </div>
+        <a href="ph-update.html?cat=kesehatan" class="back-btn">
+            <i class="fas fa-arrow-left"></i> Kembali ke PH Update
+        </a>
+    </div>
+</header>
+
+<!-- HERO -->
+<section class="article-hero">
+    <img src="img/PH Update/info Kesehatan/Etika Batuk (gunakan masker, tutup mulut dan hidung dengan lengan atas bagian dalam, tutup mulut dan hidung dengan tisu, buang tisu yg telah digunakan di tempat sampah, cuci tangan dengan sabun.jpg" alt="Etika Batuk yang Benar untuk Mencegah Penularan Penyakit">
+    <div class="article-hero-content">
+        <span class="article-category"><i class="fas fa-heartbeat"></i> Info Kesehatan</span>
+        <h1 class="article-title">Etika Batuk yang Benar untuk Mencegah Penularan Penyakit</h1>
+        <div class="article-meta">
+            <span><i class="fas fa-user-md"></i> Web Admin PH</span>
+            <span><i class="fas fa-calendar"></i> 20 Januari 2025</span>
+            <span><i class="fas fa-clock"></i> 4 menit baca</span>
+        </div>
+    </div>
+</section>
+
+<!-- BODY -->
+<section class="article-body">
+    <div class="container">
+        <div class="article-content">
+
+            <p>Batuk adalah refleks alami tubuh untuk membersihkan saluran pernapasan dari lendir, debu, atau benda asing. Namun, jika tidak dilakukan dengan cara yang benar, batuk justru dapat menjadi media penularan penyakit yang efektif. Droplet yang keluar saat batuk tanpa penutup dapat membawa virus dan bakteri ke udara di sekitar kita, menginfeksi orang lain tanpa kita sadari.</p>
+
+            <h2>Mengapa Etika Batuk Penting?</h2>
+            <p>Berbagai penyakit infeksi saluran pernapasan seperti influenza, COVID-19, TBC, dan pertusis menyebar utamanya melalui droplet yang dikeluarkan saat seseorang batuk, bersin, atau berbicara. Partikel-partikel kecil ini dapat bertahan di udara dan menempel pada permukaan benda selama beberapa jam hingga beberapa hari, tergantung jenis kumannya.</p>
+            <p>Dengan menerapkan etika batuk yang benar, kita tidak hanya melindungi orang-orang di sekitar kita, tetapi juga berperan aktif dalam memutus rantai penularan penyakit di komunitas. Ini adalah bentuk tanggung jawab sosial yang sederhana namun berdampak besar bagi kesehatan masyarakat.</p>
+
+            <div class="highlight-box">
+                <p><i class="fas fa-wind"></i> &nbsp;<strong>Satu batuk tanpa tutup dapat menyebarkan hingga 3.000 droplet dengan kecepatan 80 km/jam ke radius 1 meter</strong></p>
+            </div>
+
+            <h2>Cara Batuk yang Benar</h2>
+            <p>Berikut adalah lima langkah etika batuk yang dianjurkan oleh Kementerian Kesehatan RI dan Organisasi Kesehatan Dunia (WHO):</p>
+            <ol>
+                <li><strong>Tutup mulut dan hidung dengan siku bagian dalam atau lengan atas</strong> – Ini adalah cara yang paling dianjurkan karena siku jarang bersentuhan langsung dengan orang lain atau benda-benda di sekitar kita. Hindari menutup mulut dengan telapak tangan karena kuman mudah berpindah dari tangan ke benda lain.</li>
+                <li><strong>Gunakan tisu, lalu segera buang ke tempat sampah tertutup</strong> – Jika tersedia, gunakan tisu bersih untuk menutup mulut dan hidung saat batuk. Setelah digunakan, langsung buang tisu ke tempat sampah. Jangan menyimpan tisu bekas di saku atau meja.</li>
+                <li><strong>Kenakan masker bila sedang sakit</strong> – Jika Anda mengalami gejala batuk atau flu, gunakan masker medis saat berada di tempat umum atau berinteraksi dengan orang lain, terutama yang rentan seperti lansia, bayi, atau penderita penyakit kronis.</li>
+                <li><strong>Cuci tangan dengan sabun setelah batuk</strong> – Segera cuci tangan dengan sabun dan air mengalir selama minimal 20 detik setelah batuk, terutama jika Anda menyentuh mulut atau hidung. Jika tidak ada air, gunakan hand sanitizer berbasis alkohol minimal 60%.</li>
+                <li><strong>Hindari kontak dekat dengan orang lain saat sakit</strong> – Sebisa mungkin jaga jarak minimal 1 meter dari orang sehat saat Anda sedang batuk atau mengalami infeksi saluran pernapasan. Hindari berjabat tangan, memeluk, atau berbagi peralatan makan dan minum.</li>
+            </ol>
+
+            <h2>Kapan Harus Pakai Masker?</h2>
+            <p>Masker sebaiknya dikenakan ketika Anda mengalami gejala infeksi saluran pernapasan seperti batuk, pilek, atau demam. Selain itu, penggunaan masker sangat dianjurkan saat berada di fasilitas kesehatan, mengunjungi orang yang sedang sakit, berada di kerumunan dalam ruangan tertutup, atau ketika terjadi wabah penyakit menular di komunitas.</p>
+            <p>Pilih masker bedah atau masker kain berlapis yang dapat menutup hidung dan mulut dengan rapat. Pastikan masker diganti secara berkala dan tidak digunakan kembali setelah basah atau kotor.</p>
+
+            <p>Etika batuk adalah kebiasaan kecil dengan dampak besar. Dengan mempraktikkannya setiap hari, kita turut berkontribusi dalam menciptakan lingkungan yang lebih sehat dan aman bagi semua orang. Jika batuk Anda berlangsung lebih dari dua minggu atau disertai darah, segera konsultasikan ke dokter di Payangan Hospital.</p>
+        </div>
+
+        <!-- AUTHOR BOX -->
+        <div class="author-box">
+            <div class="author-avatar">WA</div>
+            <div>
+                <div class="author-name">Web Admin PH</div>
+                <div class="author-spec">Administrator Website – Payangan Hospital</div>
+                <div class="author-desc">Tim admin website Payangan Hospital yang mengelola dan mempublikasikan konten informasi kesehatan untuk masyarakat.</div>
+            </div>
+        </div>
+
+        <!-- NAVIGASI ARTIKEL -->
+        <div class="article-nav">
+            <a href="info-kesehatan-2.html" class="prev">
+                <div class="nav-label"><i class="fas fa-arrow-left"></i> Artikel Sebelumnya</div>
+                <div class="nav-title">Cegah Diare</div>
+            </a>
+            <a href="info-kesehatan-4.html" class="next">
+                <div class="nav-label">Artikel Berikutnya <i class="fas fa-arrow-right"></i></div>
+                <div class="nav-title">Kendalikan Hipertensi</div>
+            </a>
+        </div>
+
+        <!-- BACK TO LIST -->
+        <div class="back-to-list">
+            <a href="ph-update.html?cat=kesehatan" class="btn-back-list">
+                <i class="fas fa-th-large"></i> Lihat Semua Info Kesehatan
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <p>&copy; 2025 <a href="index.html">Payangan Hospital</a> &mdash; Jl. Payangan, Gianyar, Bali &nbsp;|&nbsp; <a href="kontak.html">Hubungi Kami</a></p>
+</footer>
+</body>
+</html>

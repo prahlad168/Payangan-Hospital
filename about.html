@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
@@ -12,14 +12,14 @@
     <meta property="og:description" content="Rumah Sakit Pemerintah Daerah Payangan Gianyar, Bali. Visi, misi, dan sejarah layanan kesehatan kami.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://payanganhospital.gianyarkab.go.id/about.html">
-    <meta property="og:image" content="https://payanganhospital.gianyarkab.go.id/img/og-image.png">
+    <meta property="og:image" content="https://payanganhospital.gianyarkab.go.id/img/logo-official.png">
     <meta property="og:site_name" content="RS Payangan Hospital">
     
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Tentang Kami - RS Payangan Hospital Gianyar">
     <meta name="twitter:description" content="Rumah Sakit Pemerintah Daerah Payangan Gianyar, Bali.">
-    <meta name="twitter:image" content="https://payanganhospital.gianyarkab.go.id/img/og-image.png">
+    <meta name="twitter:image" content="https://payanganhospital.gianyarkab.go.id/img/logo-official.png">
     
     <!-- Canonical URL -->
     <link rel="canonical" href="https://payanganhospital.gianyarkab.go.id/about.html">
@@ -145,13 +145,15 @@
         .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 60px; margin-bottom: 60px; max-width: 1280px; margin-left: auto; margin-right: auto; padding: 0 24px; }
         .footer-brand .logo { margin-bottom: 20px; }
         .logo-text {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.3rem;
+            font-family: var(--brand-font);
+            font-size: 1.1rem;
             font-weight: 600;
-            letter-spacing: -0.01em;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
             color: var(--primary);
+            line-height: 1.2;
         }
-        .footer-brand .logo-text { color: white; font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 600; }
+        .footer-brand .logo-text { color: white; font-family: var(--brand-font); font-size: 1.1rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; }
         .footer-brand p { color: rgba(255,255,255,0.6); font-size: 0.95rem; line-height: 1.7; }
         .footer-links h4 { font-family: 'Montserrat', sans-serif; font-size: 0.85rem; font-weight: 500; color: var(--secondary); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 24px; }
         .footer-links ul { list-style: none; }
@@ -222,7 +224,7 @@
                     </div>
                 </li>
                 <li><a href="dokter.html">Dokter</a></li>
-                <li><a href="berita.html">PH Update</a></li>
+                <li><a href="ph-update.html">PH Update</a></li>
                     <li><a href="faq.html">FAQ</a></li>
                     <li><a href="kontak.html">Kontak</a></li>
                 <li><a href="#login" class="nav-cta"><i class="fas fa-sign-in-alt"></i> Login</a></li>
@@ -241,7 +243,7 @@
             <li><a href="#mutu" onclick="toggleMenu()">Mutu</a></li>
             <li><a href="#budaya" onclick="toggleMenu()">Budaya Kerja</a></li>
             <li><a href="dokter.html" onclick="toggleMenu()">Dokter</a></li>
-            <li><a href="berita.html" onclick="toggleMenu()">PH Update</a></li>
+            <li><a href="ph-update.html" onclick="toggleMenu()">PH Update</a></li>
             <li><a href="faq.html" onclick="toggleMenu()">FAQ</a></li>
             <li><a href="kontak.html" onclick="toggleMenu()">Kontak</a></li>
         </ul>
@@ -257,7 +259,9 @@
 
     <section class="content-section" id="sejarah">
         <div class="section-container">
-            <div class="section-icon"><i class="fas fa-landmark"></i></div>
+            <div class="section-icon">
+                <img src="img/gedung ph.png" alt="Gedung RS Payangan" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+            </div>
             <div class="section-content">
                 <h2>Sejarah <span>PAYANGAN HOSPITAL</span></h2>
                 <p><strong>Payangan Hospital</strong> adalah rumah sakit tipe C pertama di Kecamatan Payangan, Kabupaten Gianyar, Bali. Pembangunan rumah sakit ini dimulai pada tahun 2019 oleh Pemerintah Kabupaten Gianyar untuk memenuhi kebutuhan masyarakat akan pelayanan kesehatan yang cepat dan akses yang lebih dekat.</p>
@@ -615,7 +619,7 @@
                 <div class="mutu-card animate-on-scroll"><div class="icon"><i class="fas fa-chart-line"></i></div><h4>PENGENDALIAN MUTU</h4><p>Melakukan evaluasi dan perbaikan mutu secara berkala untuk meningkatkan kualitas layanan</p></div>
                 <div class="mutu-card animate-on-scroll"><div class="icon"><i class="fas fa-user-md"></i></div><h4>PELATIHAN SDM</h4><p>Mengadakan pelatihan dan pengembangan kompetensi tenaga medis secara berkelanjutan</p></div>
                 <div class="mutu-card animate-on-scroll"><div class="icon"><i class="fas fa-tools"></i></div><h4>PERALATAN</h4><p>Melakukan kalibrasi dan pemeliharaan berkala terhadap seluruh peralatan medis</p></div>
-                <div class="mutu-card animate-on-scroll"><div class="icon"><i class="fas fa-comments"></i></div><h4>KEPUASAN PASIEN</h4><p>Mengukur dan meningkatkan kepuasan pasien melalui survei dan umpan balik berkala</p></div>
+                <a href="kepuasan-pasien.html" class="mutu-card animate-on-scroll" style="display:block;cursor:pointer;text-decoration:none;color:inherit;border:2px solid transparent;transition:all 0.3s;" onmouseover="this.style.borderColor='var(--primary)'" onmouseout="this.style.borderColor='transparent'"><div class="icon"><i class="fas fa-star"></i></div><h4>KEPUASAN PASIEN</h4><p>Lihat indeks kepuasan pasien dari tahun ke tahun berdasarkan hasil survei berkala &rarr;</p></a>
             </div>
         </div>
     </section>

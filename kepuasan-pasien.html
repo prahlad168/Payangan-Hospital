@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Indeks Kepuasan Pasien Payangan Hospital - Hasil survei kepuasan pasien dari tahun ke tahun.">
+    <meta name="robots" content="index, follow">
+    <title>Indeks Kepuasan Pasien - Payangan Hospital Gianyar</title>
+    <link rel="icon" type="image/png" href="img/logo-official.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/brand.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <style>
+        :root {
+            --primary: #0891b2; --primary-dark: #0e7490; --primary-light: #22d3ee;
+            --primary-50: #ecfeff; --primary-100: #cffafe;
+            --secondary: #f4c430; --success: #10b981; --warning: #f59e0b;
+            --bg-white: #ffffff; --bg-light: #f8fafc; --bg-warm: #fefcf8;
+            --text-dark: #0f172a; --text-muted: #64748b; --text-light: #94a3b8;
+            --gradient-primary: linear-gradient(135deg, #0891b2 0%, #22d3ee 100%);
+            --shadow-sm: 0 2px 4px rgba(0,0,0,0.06); --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+            --shadow-lg: 0 10px 30px rgba(0,0,0,0.1); --shadow-xl: 0 20px 50px rgba(0,0,0,0.15);
+            --radius-md: 12px; --radius-lg: 16px; --radius-xl: 24px; --radius-full: 9999px;
+            --font-sans: 'Plus Jakarta Sans', sans-serif; --font-display: 'Playfair Display', serif;
+        }
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+        body { font-family: var(--font-sans); color: var(--text-dark); background: var(--bg-light); }
+        a { text-decoration: none; color: inherit; }
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+
+        /* HEADER */
+        .header { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(255,255,255,0.98); backdrop-filter: blur(20px); box-shadow: var(--shadow-md); }
+        .header-inner { display: flex; align-items: center; justify-content: space-between; padding: 16px 0; }
+        .logo { display: flex; align-items: center; gap: 12px; }
+        .logo img { width: 44px; height: 44px; border-radius: 12px; }
+        .logo-name { font-family: var(--brand-font); font-size: 1.1rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: var(--text-dark); }
+        .logo-tagline { font-size: 0.58rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); }
+        .nav { display: flex; align-items: center; gap: 4px; }
+        .nav-link { padding: 10px 18px; font-size: 0.88rem; font-weight: 500; color: var(--text-muted); border-radius: var(--radius-full); transition: all 0.3s; }
+        .nav-link:hover, .nav-link.active { color: var(--primary); background: var(--primary-50); }
+        .btn-emergency { display: flex; align-items: center; gap: 8px; padding: 10px 18px; background: #ef4444; color: white; font-size: 0.83rem; font-weight: 600; border-radius: var(--radius-full); }
+
+        /* PAGE HERO */
+        .page-hero { padding: 130px 0 70px; background: linear-gradient(135deg, #0891b2 0%, #0e7490 60%, #164e63 100%); color: white; text-align: center; position: relative; overflow: hidden; }
+        .page-hero::before { content: ''; position: absolute; top: -40%; right: -10%; width: 55%; height: 170%; background: radial-gradient(circle, rgba(255,255,255,0.06) 0%, transparent 70%); pointer-events: none; }
+        .page-hero::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 60px; background: var(--bg-light); clip-path: ellipse(55% 100% at 50% 100%); }
+        .hero-label { display: inline-flex; align-items: center; gap: 8px; font-size: 0.82rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.75); margin-bottom: 16px; }
+        .hero-title { font-family: var(--font-display); font-size: clamp(2rem, 5vw, 3rem); font-weight: 700; margin-bottom: 16px; line-height: 1.2; }
+        .hero-title span { color: #7dd3fc; }
+        .hero-subtitle { font-size: 1.05rem; opacity: 0.85; max-width: 580px; margin: 0 auto 48px; line-height: 1.7; }
+        .hero-stats { display: flex; justify-content: center; gap: 48px; flex-wrap: wrap; }
+        .hero-stat { text-align: center; }
+        .hero-stat-value { font-size: 2.8rem; font-weight: 800; line-height: 1; color: white; }
+        .hero-stat-label { font-size: 0.85rem; opacity: 0.75; margin-top: 6px; }
+
+        /* MAIN */
+        .main { padding: 60px 0 80px; }
+        .section-title { font-family: var(--font-display); font-size: 1.75rem; font-weight: 700; color: var(--text-dark); margin-bottom: 8px; }
+        .section-label { display: inline-flex; align-items: center; gap: 8px; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--primary); margin-bottom: 10px; }
+        .section-label::before { content: ''; width: 20px; height: 2px; background: var(--primary); }
+
+        /* IKM SUMMARY CARDS */
+        .ikm-cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-bottom: 60px; }
+        .ikm-card { background: white; border-radius: var(--radius-xl); padding: 28px 24px; box-shadow: var(--shadow-md); border-top: 4px solid var(--primary); transition: all 0.3s; text-align: center; }
+        .ikm-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-xl); }
+        .ikm-card.highlight { background: var(--gradient-primary); color: white; border-top-color: transparent; }
+        .ikm-card .year { font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin-bottom: 8px; }
+        .ikm-card.highlight .year { color: rgba(255,255,255,0.75); }
+        .ikm-card .score { font-size: 3rem; font-weight: 800; line-height: 1; color: var(--primary); }
+        .ikm-card.highlight .score { color: white; }
+        .ikm-card .score span { font-size: 1.2rem; font-weight: 500; }
+        .ikm-card .grade { display: inline-block; margin: 10px 0 6px; padding: 4px 14px; border-radius: var(--radius-full); font-size: 0.78rem; font-weight: 700; background: #dcfce7; color: #15803d; }
+        .ikm-card.highlight .grade { background: rgba(255,255,255,0.25); color: white; }
+        .ikm-card .label { font-size: 0.82rem; color: var(--text-muted); }
+        .ikm-card.highlight .label { color: rgba(255,255,255,0.8); }
+        .ikm-card .trend { font-size: 0.8rem; margin-top: 8px; }
+        .trend-up { color: var(--success); } .trend-down { color: #ef4444; } .trend-flat { color: var(--text-muted); }
+
+        /* CHART SECTION */
+        .chart-section { background: white; border-radius: var(--radius-xl); padding: 36px; box-shadow: var(--shadow-md); margin-bottom: 40px; }
+        .chart-header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 28px; flex-wrap: wrap; gap: 16px; }
+        .chart-legend { display: flex; gap: 20px; flex-wrap: wrap; }
+        .legend-item { display: flex; align-items: center; gap: 8px; font-size: 0.82rem; color: var(--text-muted); }
+        .legend-dot { width: 12px; height: 12px; border-radius: 50%; }
+        .chart-wrap { position: relative; height: 340px; }
+
+        /* DETAIL TABLE */
+        .detail-section { background: white; border-radius: var(--radius-xl); padding: 36px; box-shadow: var(--shadow-md); margin-bottom: 40px; }
+        .table-wrap { overflow-x: auto; }
+        table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+        thead tr { background: var(--gradient-primary); color: white; }
+        thead th { padding: 14px 18px; text-align: left; font-weight: 600; font-size: 0.85rem; }
+        tbody tr { border-bottom: 1px solid #f1f5f9; transition: background 0.2s; }
+        tbody tr:hover { background: var(--primary-50); }
+        tbody td { padding: 13px 18px; color: var(--text-dark); }
+        .badge { display: inline-block; padding: 3px 12px; border-radius: var(--radius-full); font-size: 0.75rem; font-weight: 700; }
+        .badge-a { background: #dcfce7; color: #15803d; }
+        .badge-b { background: #dbeafe; color: #1d4ed8; }
+        .badge-latest { background: linear-gradient(135deg, #0891b2, #22d3ee); color: white; }
+
+        /* UNSUR SECTION */
+        .unsur-section { background: white; border-radius: var(--radius-xl); padding: 36px; box-shadow: var(--shadow-md); margin-bottom: 40px; }
+        .unsur-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 28px; }
+        .unsur-item { display: flex; flex-direction: column; gap: 8px; padding: 18px; background: var(--bg-light); border-radius: var(--radius-lg); }
+        .unsur-top { display: flex; justify-content: space-between; align-items: center; }
+        .unsur-name { font-size: 0.88rem; font-weight: 600; color: var(--text-dark); }
+        .unsur-score { font-size: 1rem; font-weight: 800; color: var(--primary); }
+        .progress-bar { height: 8px; background: var(--primary-100); border-radius: var(--radius-full); overflow: hidden; }
+        .progress-fill { height: 100%; background: var(--gradient-primary); border-radius: var(--radius-full); transition: width 1.2s cubic-bezier(0.4,0,0.2,1); }
+        .unsur-desc { font-size: 0.78rem; color: var(--text-muted); }
+
+        /* NOTE SECTION */
+        .note-section { background: linear-gradient(135deg, #ecfeff, #cffafe); border-radius: var(--radius-xl); padding: 32px; border-left: 4px solid var(--primary); margin-bottom: 40px; }
+        .note-section h3 { font-size: 1rem; font-weight: 700; color: var(--primary-dark); margin-bottom: 12px; }
+        .note-section p { font-size: 0.88rem; color: var(--text-muted); line-height: 1.7; }
+        .note-section ul { padding-left: 20px; margin-top: 10px; }
+        .note-section li { font-size: 0.88rem; color: var(--text-muted); margin-bottom: 6px; line-height: 1.6; }
+
+        /* FOOTER */
+        footer { background: #0f172a; color: rgba(255,255,255,0.7); padding: 48px 0 24px; }
+        .footer-inner { display: flex; flex-wrap: wrap; gap: 40px; justify-content: space-between; margin-bottom: 32px; }
+        .footer-brand p { font-size: 0.88rem; max-width: 280px; margin-top: 12px; line-height: 1.7; }
+        .footer-links h4 { color: white; font-size: 0.9rem; font-weight: 600; margin-bottom: 14px; }
+        .footer-links ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+        .footer-links li a { font-size: 0.85rem; color: rgba(255,255,255,0.6); transition: color 0.2s; }
+        .footer-links li a:hover { color: var(--primary-light); }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 20px; text-align: center; font-size: 0.82rem; }
+
+        /* RESPONSIVE */
+        @media (max-width: 1024px) { .ikm-cards { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 768px) {
+            .ikm-cards { grid-template-columns: repeat(2, 1fr); }
+            .unsur-grid { grid-template-columns: 1fr; }
+            .hero-stats { gap: 28px; }
+            .nav { display: none; }
+        }
+        @media (max-width: 480px) { .ikm-cards { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+    <div class="container">
+        <div class="header-inner">
+            <a href="index.html" class="logo">
+                <img src="img/logo-official.png" alt="Payangan Hospital">
+                <div class="logo-text">
+                    <span class="brand-title">PAYANGAN HOSPITAL</span>
+                    <span class="brand-tagline">PAVITRAM IDAM UTTAMAM</span>
+                </div>
+            </a>
+            <nav class="nav">
+                <a href="index.html" class="nav-link">Beranda</a>
+                <a href="about.html" class="nav-link active">Tentang</a>
+                <a href="dokter.html" class="nav-link">Dokter</a>
+                <a href="layanan.html" class="nav-link">Layanan</a>
+                <a href="kontak.html" class="nav-link">Kontak</a>
+            </nav>
+            <a href="tel:+628193635" class="btn-emergency">
+                <i class="fas fa-phone-alt"></i> IGD 24 Jam
+            </a>
+        </div>
+    </div>
+</header>
+
+<!-- HERO -->
+<section class="page-hero">
+    <div class="container">
+        <div class="hero-label"><i class="fas fa-star"></i> Mutu Pelayanan</div>
+        <h1 class="hero-title">Indeks Kepuasan <span>Pasien</span></h1>
+        <p class="hero-subtitle">Hasil survei kepuasan pasien Payangan Hospital yang dilakukan secara berkala sebagai wujud komitmen kami terhadap peningkatan mutu pelayanan kesehatan.</p>
+        <div class="hero-stats">
+            <div class="hero-stat">
+                <div class="hero-stat-value" id="stat-latest">—</div>
+                <div class="hero-stat-label">IKM Terbaru</div>
+            </div>
+            <div class="hero-stat">
+                <div class="hero-stat-value" id="stat-grade">—</div>
+                <div class="hero-stat-label">Kategori Mutu</div>
+            </div>
+            <div class="hero-stat">
+                <div class="hero-stat-value" id="stat-years">—</div>
+                <div class="hero-stat-label">Tahun Survei</div>
+            </div>
+            <div class="hero-stat">
+                <div class="hero-stat-value" id="stat-resp">—</div>
+                <div class="hero-stat-label">Responden Terbaru</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- MAIN CONTENT -->
+<main class="main">
+    <div class="container">
+
+        <!-- BREADCRUMB -->
+        <div style="display:flex;align-items:center;gap:8px;font-size:0.83rem;color:var(--text-muted);margin-bottom:36px;">
+            <a href="index.html" style="color:var(--primary);">Beranda</a>
+            <i class="fas fa-chevron-right" style="font-size:0.65rem;"></i>
+            <a href="about.html" style="color:var(--primary);">Tentang</a>
+            <i class="fas fa-chevron-right" style="font-size:0.65rem;"></i>
+            <span>Indeks Kepuasan Pasien</span>
+        </div>
+
+        <!-- IKM SUMMARY CARDS -->
+        <div class="section-label"><i class="fas fa-chart-bar"></i> Ringkasan Tahunan</div>
+        <h2 class="section-title" style="margin-bottom:28px;">Hasil IKM Per Tahun</h2>
+        <div class="ikm-cards" id="ikmCards">
+            <!-- Diisi oleh JavaScript -->
+        </div>
+
+        <!-- CHART -->
+        <div class="chart-section">
+            <div class="chart-header">
+                <div>
+                    <div class="section-label"><i class="fas fa-chart-line"></i> Tren IKM</div>
+                    <h2 class="section-title">Grafik Indeks Kepuasan Pasien</h2>
+                    <p style="font-size:0.88rem;color:var(--text-muted);margin-top:4px;">Perkembangan nilai IKM dari tahun ke tahun berdasarkan hasil survei.</p>
+                </div>
+                <div class="chart-legend">
+                    <div class="legend-item"><div class="legend-dot" style="background:#0891b2;"></div> Nilai IKM</div>
+                    <div class="legend-item"><div class="legend-dot" style="background:#f4c430;"></div> Target (85.00)</div>
+                </div>
+            </div>
+            <div class="chart-wrap">
+                <canvas id="ikmChart"></canvas>
+            </div>
+        </div>
+
+        <!-- DETAIL TABLE -->
+        <div class="detail-section">
+            <div class="section-label"><i class="fas fa-table"></i> Data Lengkap</div>
+            <h2 class="section-title" style="margin-bottom:24px;">Tabel Detail Survei</h2>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Tahun</th>
+                            <th>Periode Survei</th>
+                            <th>Nilai IKM</th>
+                            <th>Konversi (×25)</th>
+                            <th>Mutu Pelayanan</th>
+                            <th>Kinerja Unit</th>
+                            <th>Jumlah Responden</th>
+                        </tr>
+                    </thead>
+                    <tbody id="ikmTableBody">
+                        <!-- Diisi oleh JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- UNSUR PELAYANAN (tahun terbaru) -->
+        <div class="unsur-section">
+            <div class="section-label"><i class="fas fa-list-check"></i> Unsur Pelayanan</div>
+            <h2 class="section-title">Nilai Per Unsur Pelayanan <span id="unsurYear" style="color:var(--primary);"></span></h2>
+            <p style="font-size:0.88rem;color:var(--text-muted);margin-top:6px;">Penilaian kepuasan pasien berdasarkan 9 unsur pelayanan sesuai Permenpan RB No. 14 Tahun 2017.</p>
+            <div class="unsur-grid" id="unsurGrid">
+                <!-- Diisi oleh JavaScript -->
+            </div>
+        </div>
+
+        <!-- CATATAN METODOLOGI -->
+        <div class="note-section">
+            <h3><i class="fas fa-info-circle"></i> Metodologi Survei</h3>
+            <p>Survei Kepuasan Masyarakat (SKM) dilaksanakan mengacu pada <strong>Peraturan Menteri PAN-RB No. 14 Tahun 2017</strong> tentang Pedoman Penyusunan Survei Kepuasan Masyarakat Unit Penyelenggara Pelayanan Publik.</p>
+            <ul>
+                <li>Pengumpulan data dilakukan melalui kuesioner yang dibagikan kepada pasien rawat jalan dan rawat inap.</li>
+                <li>Nilai IKM dihitung dari rata-rata tertimbang 9 unsur pelayanan dengan skala 1–4.</li>
+                <li>Konversi nilai: Nilai rata-rata × 25 = Nilai IKM (skala 100).</li>
+                <li>Kategori: A = Sangat Baik (88,31–100) · B = Baik (76,61–88,30) · C = Kurang Baik (65,00–76,60) · D = Tidak Baik (&lt;65,00).</li>
+            </ul>
+        </div>
+
+        <!-- QR CODE SURVEY -->
+        <div class="note-section" style="text-align:center;">
+            <h3><i class="fas fa-qrcode"></i> Survey Kepuasan & Keluhan Pasien</h3>
+            <p style="max-width:600px;margin:0 auto 20px;">Pindai QR code berikut untuk mengisi survei kepuasan pasien atau memberikan keluhan Anda. Masukan Anda sangat berarti untuk meningkatkan kualitas pelayanan kami.</p>
+            <img src="img/Puas-dan-Mengeluh.jpg" alt="QR Code Survey Kepuasan dan Keluhan Pasien" style="max-width:260px;width:100%;height:auto;border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,0.08);border:4px solid white;">
+        </div>
+
+        <!-- DOKUMEN HASIL SURVEY -->
+        <div class="note-section">
+            <h3><i class="fas fa-file-alt"></i> Dokumen Hasil Survey IKM</h3>
+            <p style="max-width:800px;margin:0 auto 28px;">Berikut adalah dokumen hasil survei Indeks Kepuasan Masyarakat (IKM) dari tahun ke tahun yang telah dilaksanakan oleh Payangan Hospital.</p>
+            <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:20px;">
+                <div style="background:white;border-radius:16px;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,0.06);">
+                    <img src="img/IKP/2022/Hasil Survey 2022.jpg" alt="Hasil Survey 2022" style="width:100%;height:220px;object-fit:cover;display:block;">
+                    <div style="padding:16px;">
+                        <div style="font-weight:700;color:var(--text-dark);margin-bottom:4px;">Hasil Survey 2022</div>
+                        <div style="font-size:0.82rem;color:var(--text-muted);">Survei tahunan + 2 periode</div>
+                    </div>
+                </div>
+                <div style="background:white;border-radius:16px;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,0.06);">
+                    <img src="img/IKP/2022/Hasil Survey JAN-JUN 2022.jpg" alt="Hasil Survey JAN-JUN 2022" style="width:100%;height:220px;object-fit:cover;display:block;">
+                    <div style="padding:16px;">
+                        <div style="font-weight:700;color:var(--text-dark);margin-bottom:4px;">Hasil Survey JAN-JUN 2022</div>
+                        <div style="font-size:0.82rem;color:var(--text-muted);">Periode Januari – Juni 2022</div>
+                    </div>
+                </div>
+                <div style="background:white;border-radius:16px;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,0.06);">
+                    <img src="img/IKP/2022/Hasil Survey JUL-DES 2022.jpg" alt="Hasil Survey JUL-DES 2022" style="width:100%;height:220px;object-fit:cover;display:block;">
+                    <div style="padding:16px;">
+                        <div style="font-weight:700;color:var(--text-dark);margin-bottom:4px;">Hasil Survey JUL-DES 2022</div>
+                        <div style="font-size:0.82rem;color:var(--text-muted);">Periode Juli – Desember 2022</div>
+                    </div>
+                </div>
+                <div style="background:white;border-radius:16px;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,0.06);">
+                    <img src="img/IKP/2023/Hasil Survey JUL-DES 2023.jpg" alt="Hasil Survey JUL-DES 2023" style="width:100%;height:220px;object-fit:cover;display:block;">
+                    <div style="padding:16px;">
+                        <div style="font-weight:700;color:var(--text-dark);margin-bottom:4px;">Hasil Survey JUL-DES 2023</div>
+                        <div style="font-size:0.82rem;color:var(--text-muted);">Periode Juli – Desember 2023</div>
+                    </div>
+                </div>
+                <div style="background:white;border-radius:16px;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,0.06);">
+                    <img src="img/IKP/2026/IKP tw 1 2026.jpeg" alt="IKP TW 1 2026" style="width:100%;height:220px;object-fit:cover;display:block;">
+                    <div style="padding:16px;">
+                        <div style="font-weight:700;color:var(--text-dark);margin-bottom:4px;">IKP TW 1 2026</div>
+                        <div style="font-size:0.82rem;color:var(--text-muted);">Triwulan 1 Tahun 2026</div>
+                    </div>
+                </div>
+            </div>
+            <div style="margin-top:18px;font-size:0.85rem;color:var(--text-muted);">
+                <i class="fas fa-info-circle"></i> &nbsp;Klik gambar untuk melihat dokumen hasil survey. Data IKM di atas disesuaikan dengan dokumen resmi yang tertera.
+            </div>
+        </div>
+
+        <!-- DOKUMEN IKM 2024 & 2025 -->
+        <div class="note-section" style="margin-top:20px;">
+            <h3><i class="fas fa-file-alt"></i> Dokumen IKM Tahun 2024 & 2025</h3>
+            <p style="max-width:800px;margin:0 auto 20px;">Dokumen hasil survei Indeks Kepuasan Masyarakat (IKM) untuk tahun 2024 dan 2025 disimpan dalam file Word berikut.</p>
+            <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:20px;">
+                <div style="background:white;border-radius:16px;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,0.06);">
+                    <div style="padding:24px;text-align:center;">
+                        <i class="fas fa-file-word" style="font-size:3rem;color:#2b579a;margin-bottom:12px;display:block;"></i>
+                        <div style="font-weight:700;color:var(--text-dark);margin-bottom:4px;">IKP Tahun 2024 & 2025</div>
+                        <div style="font-size:0.82rem;color:var(--text-muted);">File Word (.docx) — 30 KB</div>
+                    </div>
+                    <div style="padding:0 16px 16px;">
+                        <a href="img/IKP/IKP Tahun 2024&amp;2025.docx" download style="display:flex;align-items:center;justify-content:center;gap:8px;padding:10px 20px;background:var(--primary);color:white;border-radius:var(--radius-full);font-size:0.85rem;font-weight:600;text-decoration:none;">
+                            <i class="fas fa-download"></i> Unduh Dokumen
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</main>
+
+<!-- FOOTER -->
+<footer>
+    <div class="container">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <a href="index.html" style="display:flex;align-items:center;gap:10px;">
+                    <img src="img/logo-official.png" alt="Payangan Hospital" style="width:40px;height:40px;border-radius:10px;">
+                    <span class="brand-title brand-title-white">PAYANGAN HOSPITAL</span>
+                </a>
+                <p>Rumah Sakit Umum Daerah Payangan, menyediakan layanan kesehatan berkualitas untuk masyarakat Gianyar, Bali.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Tentang</h4>
+                <ul>
+                    <li><a href="about.html#mutu">Komitmen Mutu</a></li>
+                    <li><a href="about.html#standar">Standar Pelayanan</a></li>
+                    <li><a href="about.html#maklumat">Maklumat</a></li>
+                    <li><a href="kepuasan-pasien.html">Indeks Kepuasan Pasien</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Layanan</h4>
+                <ul>
+                    <li><a href="igd.html">IGD 24 Jam</a></li>
+                    <li><a href="rawat-inap.html">Rawat Inap</a></li>
+                    <li><a href="rawat-jalan.html">Rawat Jalan</a></li>
+                    <li><a href="dokter.html">Dokter Spesialis</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Kontak</h4>
+                <ul>
+                    <li><a href="tel:+628193635"><i class="fas fa-phone" style="margin-right:6px;"></i>+62 819 3635 8087</a></li>
+                    <li><a href="kontak.html"><i class="fas fa-map-marker-alt" style="margin-right:6px;"></i>Jl. Raya Payangan No.104</a></li>
+                    <li><a href="kontak.html">Gianyar, Bali 80572</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Payangan Hospital. All rights reserved. · <a href="about.html" style="color:var(--primary-light);">Tentang Kami</a></p>
+        </div>
+    </div>
+</footer>
+
+<script>
+// ============================================================
+// DATA IKM - Edit bagian ini untuk update data survei
+// Sumber data: img/IKP/
+//   - 2022: Hasil Survey 2022.jpg, Hasil Survey JAN-JUN 2022.jpg, Hasil Survey JUL-DES 2022.jpg
+//   - 2023: Hasil Survey JUL-DES 2023.jpg
+//   - 2024: IKP Tahun 2024&2025.docx (data dari dokumen, folder kosong)
+//   - 2025: IKP Tahun 2024&2025.docx (data dari dokumen, folder kosong)
+//   - 2026: IKP tw 1 2026.jpeg
+// ============================================================
+const ikmData = [
+    // Data tahun 2022
+    {
+        year: 2022,
+        period: "Januari – Desember 2022",
+        ikm: 3.28,         // nilai rata-rata (skala 1-4)
+        converted: 82.00,  // ikm × 25
+        grade: "B",
+        performance: "Baik",
+        respondents: 0,
+        unsur: []
+    },
+    // Data tahun 2023
+    {
+        year: 2023,
+        period: "Juli – Desember 2023",
+        ikm: 3.30,
+        converted: 82.50,
+        grade: "B",
+        performance: "Baik",
+        respondents: 0,
+        unsur: []
+    },
+    // Data tahun 2024
+    {
+        year: 2024,
+        period: "Januari – Desember 2024",
+        ikm: 3.47,
+        converted: 86.81,
+        grade: "B",
+        performance: "Baik",
+        respondents: 0,
+        unsur: [
+            { name: "Persyaratan Pelayanan",       score: 3.27 },
+            { name: "Sistem, mekanisme dan prosedur", score: 3.53 },
+            { name: "Waktu penyelesaian",           score: 3.56 },
+            { name: "Biaya / Tarif",                score: 3.38 },
+            { name: "Produk / Spesifikasi Layanan", score: 3.27 },
+            { name: "Kompetensi Pelaksana",         score: 3.62 },
+            { name: "Perilaku Pelaksana",           score: 3.49 },
+            { name: "Penanganan Pengaduan",         score: 3.63 },
+            { name: "Sarana dan Prasarana",         score: 3.50 }
+        ]
+    },
+    // Data tahun 2025
+    {
+        year: 2025,
+        period: "Januari – Desember 2025",
+        ikm: 3.40,
+        converted: 85.03,
+        grade: "B",
+        performance: "Baik",
+        respondents: 0,
+        unsur: [
+            { name: "Persyaratan Pelayanan",       score: 3.39 },
+            { name: "Sistem, mekanisme dan prosedur", score: 3.37 },
+            { name: "Waktu penyelesaian",           score: 3.41 },
+            { name: "Biaya / Tarif",                score: 3.39 },
+            { name: "Produk / Spesifikasi Layanan", score: 3.44 },
+            { name: "Kompetensi Pelaksana",         score: 3.46 },
+            { name: "Perilaku Pelaksana",           score: 3.50 },
+            { name: "Penanganan Pengaduan",         score: 3.41 },
+            { name: "Sarana dan Prasarana",         score: 3.24 }
+        ]
+    },
+    // Data tahun 2026
+    {
+        year: 2026,
+        period: "Triwulan 1 Tahun 2026",
+        ikm: 3.40,
+        converted: 85.00,
+        grade: "B",
+        performance: "Baik",
+        respondents: 0,
+        unsur: [
+            { name: "Persyaratan Pelayanan",       score: 3.45 },
+            { name: "Prosedur Pelayanan",           score: 3.38 },
+            { name: "Waktu Pelayanan",              score: 3.30 },
+            { name: "Biaya / Tarif",                score: 3.52 },
+            { name: "Produk / Spesifikasi Layanan", score: 3.42 },
+            { name: "Kompetensi Pelaksana",         score: 3.48 },
+            { name: "Perilaku Pelaksana",           score: 3.50 },
+            { name: "Sarana dan Prasarana",         score: 3.25 },
+            { name: "Penanganan Pengaduan",         score: 3.30 }
+        ]
+    }
+];
+
+// ============================================================
+// RENDER LOGIC
+// ============================================================
+const gradeLabel = { A: "Sangat Baik", B: "Baik", C: "Kurang Baik", D: "Tidak Baik" };
+const latest = ikmData[ikmData.length - 1];
+const prev   = ikmData.length > 1 ? ikmData[ikmData.length - 2] : null;
+
+// Hero stats
+document.getElementById('stat-latest').textContent  = latest.converted.toFixed(2);
+document.getElementById('stat-grade').textContent   = gradeLabel[latest.grade] || latest.grade;
+document.getElementById('stat-years').textContent   = ikmData.length;
+document.getElementById('stat-resp').textContent    = latest.respondents > 0 ? latest.respondents.toLocaleString('id-ID') : '—';
+
+// IKM summary cards
+const cardsEl = document.getElementById('ikmCards');
+ikmData.slice().reverse().forEach((d, i) => {
+    const isLatest = i === 0;
+    const trendVal = ikmData.indexOf(d) > 0 ? (d.converted - ikmData[ikmData.indexOf(d) - 1].converted).toFixed(2) : null;
+    const trendHTML = trendVal === null ? '' :
+        parseFloat(trendVal) > 0 ? `<div class="trend trend-up"><i class="fas fa-arrow-up"></i> +${trendVal} dari tahun lalu</div>` :
+        parseFloat(trendVal) < 0 ? `<div class="trend trend-down"><i class="fas fa-arrow-down"></i> ${trendVal} dari tahun lalu</div>` :
+        `<div class="trend trend-flat"><i class="fas fa-minus"></i> Sama dengan tahun lalu</div>`;
+    cardsEl.innerHTML += `
+        <div class="ikm-card ${isLatest ? 'highlight' : ''}">
+            <div class="year">${d.year} ${isLatest ? '· Terbaru' : ''}</div>
+            <div class="score">${d.converted.toFixed(2)}<span>/100</span></div>
+            <div class="grade">${d.grade} — ${gradeLabel[d.grade]}</div>
+            <div class="label">${d.period}</div>
+            ${trendHTML}
+        </div>`;
+});
+
+// Table
+const tbody = document.getElementById('ikmTableBody');
+ikmData.slice().reverse().forEach((d, i) => {
+    const isLatest = i === 0;
+    tbody.innerHTML += `
+        <tr>
+            <td><strong>${d.year}</strong></td>
+            <td>${d.period}</td>
+            <td><strong>${d.ikm.toFixed(2)}</strong></td>
+            <td><strong>${d.converted.toFixed(2)}</strong></td>
+            <td><span class="badge badge-${d.grade.toLowerCase()} ${isLatest ? 'badge-latest' : ''}">${d.grade}</span></td>
+            <td>${d.performance}</td>
+            <td>${d.respondents > 0 ? d.respondents.toLocaleString('id-ID') + ' orang' : '<span style="color:var(--text-light);">—</span>'}</td>
+        </tr>`;
+});
+
+// Unsur grid (latest)
+const unsurEl = document.getElementById('unsurGrid');
+document.getElementById('unsurYear').textContent = latest.year;
+if (latest.unsur && latest.unsur.length > 0) {
+    const maxScore = 4;
+    latest.unsur.forEach((u, idx) => {
+        const pct = (u.score / maxScore * 100).toFixed(1);
+        unsurEl.innerHTML += `
+            <div class="unsur-item">
+                <div class="unsur-top">
+                    <span class="unsur-name">U${idx+1}. ${u.name}</span>
+                    <span class="unsur-score">${u.score.toFixed(2)}</span>
+                </div>
+                <div class="progress-bar"><div class="progress-fill" data-width="${pct}" style="width:0%"></div></div>
+                <span class="unsur-desc">${pct}% dari nilai maksimal</span>
+            </div>`;
+    });
+    // Animate progress bars
+    setTimeout(() => {
+        document.querySelectorAll('.progress-fill').forEach(el => {
+            el.style.width = el.dataset.width + '%';
+        });
+    }, 300);
+} else {
+    unsurEl.innerHTML = `<div style="grid-column:1/-1;text-align:center;padding:40px;color:var(--text-muted);">
+        <i class="fas fa-database" style="font-size:2rem;opacity:0.3;margin-bottom:12px;display:block;"></i>
+        Data per unsur untuk tahun ${latest.year} belum tersedia. Silakan tambahkan data pada array <code>unsur</code> di file ini.
+    </div>`;
+}
+
+// Chart
+const ctx = document.getElementById('ikmChart').getContext('2d');
+new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: ikmData.map(d => d.year),
+        datasets: [
+            {
+                label: 'Nilai IKM',
+                data: ikmData.map(d => d.converted),
+                borderColor: '#0891b2',
+                backgroundColor: 'rgba(8,145,178,0.1)',
+                borderWidth: 3,
+                pointBackgroundColor: '#0891b2',
+                pointBorderColor: 'white',
+                pointBorderWidth: 2,
+                pointRadius: 7,
+                pointHoverRadius: 10,
+                fill: true,
+                tension: 0.4
+            },
+            {
+                label: 'Target (85.00)',
+                data: ikmData.map(() => 85),
+                borderColor: '#f4c430',
+                borderWidth: 2,
+                borderDash: [6, 4],
+                pointRadius: 0,
+                fill: false,
+                tension: 0
+            }
+        ]
+    },
+    options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        interaction: { mode: 'index', intersect: false },
+        plugins: {
+            legend: { display: false },
+            tooltip: {
+                backgroundColor: 'rgba(15,23,42,0.9)',
+                titleColor: 'white',
+                bodyColor: 'rgba(255,255,255,0.75)',
+                padding: 14,
+                cornerRadius: 10,
+                callbacks: {
+                    label: ctx => ` ${ctx.dataset.label}: ${ctx.parsed.y.toFixed(2)}`
+                }
+            }
+        },
+        scales: {
+            x: {
+                grid: { color: 'rgba(0,0,0,0.04)' },
+                ticks: { font: { family: 'Plus Jakarta Sans', size: 13 }, color: '#64748b' }
+            },
+            y: {
+                min: 60,
+                max: 100,
+                grid: { color: 'rgba(0,0,0,0.04)' },
+                ticks: {
+                    font: { family: 'Plus Jakarta Sans', size: 12 },
+                    color: '#64748b',
+                    callback: v => v.toFixed(0)
+                }
+            }
+        }
+    }
+});
+</script>
+</body>
+</html>

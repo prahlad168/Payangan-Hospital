@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
@@ -39,23 +39,31 @@
         .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
       
         /* Navigation */
-        .navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 20px 0; transition: all 0.4s ease; }
-        .navbar.scrolled { background: rgba(255,255,255,0.98); backdrop-filter: blur(20px); box-shadow: 0 1px 20px rgba(0,0,0,0.05); padding: 14px 0; }
+        .navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 16px 0; background: var(--primary-dark); transition: all 0.4s ease; }
+        .navbar.scrolled { background: rgba(255,255,255,0.98); backdrop-filter: blur(20px); box-shadow: 0 1px 20px rgba(0,0,0,0.05); padding: 12px 0; }
         .nav-container { display: flex; justify-content: space-between; align-items: center; max-width: 1280px; margin: 0 auto; padding: 0 24px; }
         .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
         .logo img { width: 50px; height: auto; }
         .logo-text { display: flex; flex-direction: column; }
-        .logo-text-main { font-size: 1.2rem; font-weight: 600; color: white;  }
-        .logo-text-sub { font-size: 0.6rem; color: rgba(255,255,255,0.7); font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase;  }
-        .navbar.scrolled .logo-text-main { color: var(--text-dark); }
-        .navbar.scrolled .logo-text-sub { color: var(--text-muted); }
+        .logo-text .brand-title { font-family: var(--brand-font); font-size: 1.1rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; line-height: 1.2; color: white; }
+        .logo-text .brand-tagline { font-family: 'Montserrat', sans-serif; font-size: 0.7rem; font-weight: 400; letter-spacing: 0.05em; color: rgba(255,255,255,0.7); }
+        .navbar.scrolled .logo-text .brand-title { color: var(--text-dark); }
+        .navbar.scrolled .logo-text .brand-tagline { color: var(--text-muted); }
         .nav-links { display: flex; gap: 6px; list-style: none; }
-        .nav-links a { text-decoration: none; color: rgba(255,255,255,0.9); font-size: 0.85rem; font-weight: 400; padding: 10px 16px; border-radius: 50px; display: block; transition: all 0.3s ease; }
-        .navbar.scrolled .nav-links a { color: var(--text-muted); }
-        .nav-links a:hover, .nav-links a.active { color: var(--secondary); }
+        .nav-links > li { position: relative; }
+        .nav-links a { text-decoration: none; color: rgba(255,255,255,0.95); font-size: 0.85rem; font-weight: 500; padding: 10px 16px; border-radius: 50px; display: block; transition: all 0.3s ease; background: transparent; }
+        .navbar.scrolled .nav-links a { color: var(--text-dark); font-weight: 500; }
+        .nav-links a:hover, .nav-links a.active { color: var(--primary); background: rgba(255,255,255,0.15); }
         .navbar.scrolled .nav-links a:hover, .navbar.scrolled .nav-links a.active { color: var(--primary); background: var(--bg-light); }
         .nav-cta { background: var(--secondary) !important; color: var(--text-dark) !important; font-weight: 600 !important; }
         .nav-emergency { background: #dc3545 !important; color: white !important; }
+        .mega-menu { position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(10px); background: white; border-radius: 20px; box-shadow: 0 20px 60px rgba(0,0,0,0.15); padding: 24px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; min-width: 600px; opacity: 0; visibility: hidden; transition: all 0.3s ease; z-index: 100; }
+        .nav-links li:hover > .mega-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+        .mega-menu a { padding: 12px 16px; border-radius: 12px; color: var(--text-dark) !important; font-weight: 500; display: flex; align-items: center; gap: 10px; white-space: nowrap; }
+        .mega-menu a:hover { background: var(--bg-light) !important; color: var(--primary) !important; }
+        .mega-menu a i { width: 32px; height: 32px; background: rgba(13,115,119,0.1); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: var(--primary); font-size: 0.9rem; flex-shrink: 0; }
+        .nav-dropdown > a { display: flex; align-items: center; gap: 4px; }
+        .nav-dropdown > a i { font-size: 10px; }
         .mobile-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 10px; }
         .mobile-toggle span { width: 25px; height: 2px; background: white; transition: 0.3s; }
         .navbar.scrolled .mobile-toggle span { background: var(--text-dark); }
@@ -96,8 +104,11 @@
         .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 24px; max-width: 1400px; margin: 0 auto; padding: 0 24px; }
       
         .gallery-item { position: relative; border-radius: 20px; overflow: hidden; aspect-ratio: 4/3; cursor: pointer; }
-        .gallery-item .gallery-bg { position: absolute; inset: 0; background: var(--gradient-teal); display: flex; align-items: center; justify-content: center; }
+        .gallery-item.hidden { display: none; }
+        .gallery-item:hover { transform: translateY(-4px); box-shadow: 0 18px 40px rgba(13, 115, 119, 0.16); }
+        .gallery-item .gallery-bg { position: absolute; inset: 0; background: var(--gradient-teal); display: flex; align-items: center; justify-content: center; overflow: hidden; }
         .gallery-item .gallery-bg::before { content: ''; position: absolute; inset: 0; background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); }
+        .gallery-item .gallery-bg img { width: 100%; height: 100%; object-fit: cover; object-position: center 20%; display: block; }
         .gallery-item .gallery-bg i { font-size: 60px; color: white; opacity: 0.3; }
         .gallery-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.8) 100%); display: flex; flex-direction: column; justify-content: flex-end; padding: 24px; opacity: 0; transition: all 0.4s ease; }
         .gallery-item:hover .gallery-overlay { opacity: 1; }
@@ -105,6 +116,20 @@
         .gallery-overlay p { color: rgba(255,255,255,0.8); font-size: 0.9rem; }
         .gallery-overlay .gallery-zoom { position: absolute; top: 20px; right: 20px; width: 50px; height: 50px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--primary); transition: all 0.3s; }
         .gallery-item:hover .gallery-zoom { transform: scale(1.1); }
+
+        .gallery-modal { position: fixed; inset: 0; z-index: 3000; display: none; align-items: center; justify-content: center; padding: 24px; }
+        .gallery-modal.active { display: flex; }
+        .gallery-modal-backdrop { position: absolute; inset: 0; background: rgba(2, 6, 23, 0.9); }
+        .gallery-modal-panel { position: relative; width: min(1000px, 100%); background: white; border-radius: 24px; overflow: hidden; box-shadow: 0 30px 80px rgba(0,0,0,0.35); }
+        .gallery-modal-close { position: absolute; top: 16px; right: 16px; width: 42px; height: 42px; border: none; border-radius: 50%; background: rgba(255,255,255,0.95); color: var(--text-dark); font-size: 1.3rem; cursor: pointer; z-index: 2; }
+        .gallery-modal-media { position: relative; background: #0f172a; min-height: 420px; display: flex; align-items: center; justify-content: center; }
+        .gallery-modal-media img { width: 100%; max-height: 72vh; object-fit: contain; display: block; }
+        .gallery-modal-nav { position: absolute; top: 50%; transform: translateY(-50%); width: 46px; height: 46px; border: none; border-radius: 50%; background: rgba(255,255,255,0.95); color: var(--primary); font-size: 1.5rem; cursor: pointer; z-index: 2; }
+        .gallery-modal-nav.prev { left: 16px; }
+        .gallery-modal-nav.next { right: 16px; }
+        .gallery-modal-info { padding: 20px 24px 24px; }
+        .gallery-modal-info h3 { font-size: 1.25rem; color: var(--text-dark); margin-bottom: 8px; }
+        .gallery-modal-info p { color: var(--text-muted); margin: 0; }
       
         /* Large Items */
         .gallery-item.large { grid-column: span 2; grid-row: span 2; aspect-ratio: auto; }
@@ -202,18 +227,36 @@
             <a href="index.html" class="logo">
                 <img src="img/logo-official.png" alt="Payangan Hospital">
                 <div class="logo-text">
-                    <span class="logo-text-main">Payangan Hospital</span>
-                    <span class="logo-text-sub">PAVITRAM IDAM UTTAMAM</span>
+                    <span class="brand-title">PAYANGAN HOSPITAL</span>
+                    <span class="brand-tagline">PAVITRAM IDAM UTTAMAM</span>
                 </div>
             </a>
             <ul class="nav-links">
                 <li><a href="index.html">Beranda</a></li>
-                <li><a href="about.html">Tentang</a></li>
-                <li><a href="layanan.html">Layanan</a></li>
+                <li class="nav-dropdown">
+                    <a href="about.html">Tentang <i class="fas fa-chevron-down"></i></a>
+                    <div class="mega-menu">
+                        <a href="about.html#sambutan"><i class="fas fa-user-tie"></i> Sambutan</a>
+                        <a href="about.html#sejarah"><i class="fas fa-landmark"></i> Sejarah</a>
+                        <a href="about.html#visimisi"><i class="fas fa-bullseye"></i> Visi & Misi</a>
+                        <a href="about.html#standar"><i class="fas fa-clipboard-check"></i> Standar Pelayanan</a>
+                        <a href="about.html#maklumat"><i class="fas fa-file-contract"></i> Maklumat</a>
+                        <a href="about.html#mutu"><i class="fas fa-award"></i> Mutu</a>
+                        <a href="about.html#budaya"><i class="fas fa-hands-helping"></i> Budaya Kerja</a>
+                    </div>
+                </li>
+                <li class="nav-dropdown">
+                    <a href="layanan.html">Layanan <i class="fas fa-chevron-down"></i></a>
+                    <div class="mega-menu">
+                        <a href="rawat-jalan.html"><i class="fas fa-stethoscope"></i> Rawat Jalan</a>
+                        <a href="rawat-inap.html"><i class="fas fa-procedures"></i> Rawat Inap</a>
+                        <a href="igd.html"><i class="fas fa-ambulance"></i> IGD / UGD</a>
+                    </div>
+                </li>
                 <li><a href="dokter.html">Dokter</a></li>
                 <li><a href="galeri.html" class="active">Galeri</a></li>
                 <li><a href="faq.html">FAQ</a></li>
-                    <li><a href="kontak.html">Kontak</a></li>
+                <li><a href="kontak.html">Kontak</a></li>
                 <li><a href="igd.html" class="nav-emergency"><i class="fas fa-phone"></i> IGD</a></li>
             </ul>
             <div class="mobile-toggle" onclick="toggleMenu()">
@@ -226,8 +269,18 @@
     <div class="mobile-menu" id="mobileMenu">
         <ul>
             <li><a href="index.html" onclick="toggleMenu()">Beranda</a></li>
-            <li><a href="about.html" onclick="toggleMenu()">Tentang Kami</a></li>
+            <li><a href="about.html" onclick="toggleMenu()">Tentang</a></li>
+            <li><a href="about.html#sambutan" onclick="toggleMenu()">- Sambutan</a></li>
+            <li><a href="about.html#sejarah" onclick="toggleMenu()">- Sejarah</a></li>
+            <li><a href="about.html#visimisi" onclick="toggleMenu()">- Visi Misi</a></li>
+            <li><a href="about.html#standar" onclick="toggleMenu()">- Standar Pelayanan</a></li>
+            <li><a href="about.html#maklumat" onclick="toggleMenu()">- Maklumat</a></li>
+            <li><a href="about.html#mutu" onclick="toggleMenu()">- Mutu</a></li>
+            <li><a href="about.html#budaya" onclick="toggleMenu()">- Budaya Kerja</a></li>
             <li><a href="layanan.html" onclick="toggleMenu()">Layanan</a></li>
+            <li><a href="rawat-jalan.html" onclick="toggleMenu()">- Rawat Jalan</a></li>
+            <li><a href="rawat-inap.html" onclick="toggleMenu()">- Rawat Inap</a></li>
+            <li><a href="igd.html" onclick="toggleMenu()">- IGD / UGD</a></li>
             <li><a href="dokter.html" onclick="toggleMenu()">Dokter</a></li>
             <li><a href="galeri.html" onclick="toggleMenu()">Galeri</a></li>
             <li><a href="faq.html" onclick="toggleMenu()">FAQ</a></li>
@@ -264,7 +317,7 @@
     <!-- Gallery Grid -->
     <section class="gallery-section">
         <div class="gallery-grid">
-            <div class="gallery-item large fade-in">
+            <div class="gallery-item large fade-in" data-category="Fasilitas">
                 <div class="gallery-bg" style="background: linear-gradient(135deg, #0d7377 0%, #14919b 100%);">
                     <i class="fas fa-hospital-alt"></i>
                 </div>
@@ -274,19 +327,21 @@
                 </div>
                 <div class="gallery-zoom"><i class="fas fa-search-plus"></i></div>
             </div>
-          
-            <div class="gallery-item fade-in">
-                <div class="gallery-bg" style="background: linear-gradient(135deg, #0891b2 0%, #06b6d4 100%);">
-                    <i class="fas fa-procedures"></i>
+
+            <div class="gallery-item fade-in" data-category="Kegiatan" data-images="img/optimized/gallery-koas-1.webp,img/optimized/gallery-koas-2.webp,img/optimized/gallery-koas-3.webp,img/optimized/gallery-koas-4.webp">
+                <div class="gallery-bg" style="background: linear-gradient(135deg, #0f766e 0%, #2dd4bf 100%);">
+                    <img src="img/optimized/gallery-koas-1.webp" alt="Penerimaan dokter koas dari Universitas Warmadewa di Payangan Hospital" loading="lazy" decoding="async">
                 </div>
                 <div class="gallery-overlay">
-                    <h3>Ruang Perawatan</h3>
-                    <p>Kamar perawatan modern dan nyaman</p>
+                    <h3>Penerimaan Dokter Koas</h3>
+                    <p>Dokter koas dari Universitas Warmadewa menerima kegiatan pembelajaran dan kunjungan di Payangan Hospital.</p>
                 </div>
                 <div class="gallery-zoom"><i class="fas fa-search-plus"></i></div>
             </div>
           
-            <div class="gallery-item fade-in">
+
+          
+            <div class="gallery-item fade-in" data-category="Fasilitas">
                 <div class="gallery-bg" style="background: linear-gradient(135deg, #ec4899 0%, #f472b6 100%);">
                     <i class="fas fa-ambulance"></i>
                 </div>
@@ -297,7 +352,7 @@
                 <div class="gallery-zoom"><i class="fas fa-search-plus"></i></div>
             </div>
           
-            <div class="gallery-item fade-in">
+            <div class="gallery-item fade-in" data-category="Fasilitas">
                 <div class="gallery-bg" style="background: linear-gradient(135deg, #8b5cf6 0%, #a78bfa 100%);">
                     <i class="fas fa-microscope"></i>
                 </div>
@@ -308,42 +363,42 @@
                 <div class="gallery-zoom"><i class="fas fa-search-plus"></i></div>
             </div>
           
-            <div class="gallery-item fade-in">
+            <div class="gallery-item fade-in" data-category="Ruangan" data-images="img/optimized/gallery-lt1-01042.webp,img/optimized/gallery-lt1-01043.webp,img/optimized/gallery-lt2-04472.webp">
                 <div class="gallery-bg" style="background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%);">
-                    <i class="fas fa-x-ray"></i>
+                    <img src="img/optimized/gallery-lt1-01043.webp" alt="Foto ruangan perawatan lantai 1 Payangan Hospital" loading="lazy" decoding="async">
                 </div>
                 <div class="gallery-overlay">
-                    <h3>Radiologi</h3>
-                    <p>Fasilitas radiologi lengkap</p>
+                    <h3>Ruang Perawatan Lt 1</h3>
+                    <p>Dokumentasi ruangan perawatan lantai 1</p>
                 </div>
                 <div class="gallery-zoom"><i class="fas fa-search-plus"></i></div>
             </div>
           
-            <div class="gallery-item fade-in">
+            <div class="gallery-item fade-in" data-category="Ruangan" data-images="img/optimized/gallery-lt2-04474.webp,img/optimized/gallery-lt2-04476.webp,img/optimized/gallery-lt3-04487.webp">
                 <div class="gallery-bg" style="background: linear-gradient(135deg, #10b981 0%, #34d399 100%);">
-                    <i class="fas fa-heartbeat"></i>
+                    <img src="img/optimized/gallery-lt2-04474.webp" alt="Foto ruangan perawatan lantai 2 Payangan Hospital" loading="lazy" decoding="async">
                 </div>
                 <div class="gallery-overlay">
-                    <h3>ICU</h3>
-                    <p>Intensive Care Unit</p>
+                    <h3>Ruang Perawatan Lt 2</h3>
+                    <p>Dokumentasi ruangan perawatan lantai 2</p>
                 </div>
                 <div class="gallery-zoom"><i class="fas fa-search-plus"></i></div>
             </div>
           
-            <div class="gallery-item fade-in">
+            <div class="gallery-item fade-in" data-category="Ruangan" data-images="img/optimized/gallery-lt3-04489.webp,img/optimized/gallery-lt2-04479.webp,img/optimized/gallery-lt1-01049.webp">
                 <div class="gallery-bg" style="background: linear-gradient(135deg, #6366f1 0%, #818cf8 100%);">
-                    <i class="fas fa-baby"></i>
+                    <img src="img/optimized/gallery-lt3-04489.webp" alt="Foto ruangan perawatan lantai 3 Payangan Hospital" loading="lazy" decoding="async">
                 </div>
                 <div class="gallery-overlay">
-                    <h3>NICU</h3>
-                    <p>Neonatal Intensive Care Unit</p>
+                    <h3>Ruang Perawatan Lt 3</h3>
+                    <p>Dokumentasi ruangan perawatan lantai 3</p>
                 </div>
                 <div class="gallery-zoom"><i class="fas fa-search-plus"></i></div>
             </div>
           
-            <div class="gallery-item fade-in">
+            <div class="gallery-item fade-in" data-category="Tim Medis" data-images="img/dokter/dr-angung-desy-spjp.png,img/dokter/dr-gede-agus-hendra-sujana-spog.png,img/dokter/dr-i-ketut-wahyu-tri-saputra-spot.png,img/dokter/dr-made-ayu-widyaningsih-spa.png">
                 <div class="gallery-bg" style="background: linear-gradient(135deg, #ef4444 0%, #f87171 100%);">
-                    <i class="fas fa-user-md"></i>
+                    <img src="img/dokter/dr-angung-desy-spjp.png" alt="Foto dokter spesialis Payangan Hospital">
                 </div>
                 <div class="gallery-overlay">
                     <h3>Dokter Spesialis</h3>
@@ -352,18 +407,9 @@
                 <div class="gallery-zoom"><i class="fas fa-search-plus"></i></div>
             </div>
           
-            <div class="gallery-item fade-in">
-                <div class="gallery-bg" style="background: linear-gradient(135deg, #14b8a6 0%, #2dd4bf 100%);">
-                    <i class="fas fa-stethoscope"></i>
-                </div>
-                <div class="gallery-overlay">
-                    <h3>Ruang Konsultasi</h3>
-                    <p>Ruang konsultasi dokter yang nyaman</p>
-                </div>
-                <div class="gallery-zoom"><i class="fas fa-search-plus"></i></div>
-            </div>
+
           
-            <div class="gallery-item fade-in">
+            <div class="gallery-item fade-in" data-category="Fasilitas">
                 <div class="gallery-bg" style="background: linear-gradient(135deg, #f97316 0%, #fb923c 100%);">
                     <i class="fas fa-parking"></i>
                 </div>
@@ -374,7 +420,7 @@
                 <div class="gallery-zoom"><i class="fas fa-search-plus"></i></div>
             </div>
           
-            <div class="gallery-item fade-in">
+            <div class="gallery-item fade-in" data-category="Fasilitas">
                 <div class="gallery-bg" style="background: linear-gradient(135deg, #0ea5e9 0%, #38bdf8 100%);">
                     <i class="fas fa-pills"></i>
                 </div>
@@ -385,16 +431,7 @@
                 <div class="gallery-zoom"><i class="fas fa-search-plus"></i></div>
             </div>
           
-            <div class="gallery-item fade-in">
-                <div class="gallery-bg" style="background: linear-gradient(135deg, #a855f7 0%, #c084fc 100%);">
-                    <i class="fas fa-spa"></i>
-                </div>
-                <div class="gallery-overlay">
-                    <h3>Ruang Tunggu</h3>
-                    <p>Area tunggu yang nyaman untuk keluarga</p>
-                </div>
-                <div class="gallery-zoom"><i class="fas fa-search-plus"></i></div>
-            </div>
+
         </div>
     </section>
 
@@ -464,6 +501,22 @@
             </div>
         </div>
     </section>
+
+    <div class="gallery-modal" id="galleryModal" role="dialog" aria-modal="true" aria-label="Galeri foto">
+        <div class="gallery-modal-backdrop" data-close="true"></div>
+        <div class="gallery-modal-panel">
+            <button class="gallery-modal-close" id="galleryModalClose" aria-label="Tutup galeri">×</button>
+            <div class="gallery-modal-media">
+                <button class="gallery-modal-nav prev" id="galleryPrev" aria-label="Foto sebelumnya">‹</button>
+                <img id="galleryModalImage" src="" alt="Foto galeri">
+                <button class="gallery-modal-nav next" id="galleryNext" aria-label="Foto berikutnya">›</button>
+            </div>
+            <div class="gallery-modal-info">
+                <h3 id="galleryModalTitle">Galeri Payangan Hospital</h3>
+                <p id="galleryModalCaption">Dokumentasi kegiatan dan fasilitas rumah sakit.</p>
+            </div>
+        </div>
+    </div>
 
     <!-- CTA Section -->
     <section class="cta-section">
@@ -549,7 +602,93 @@
             btn.addEventListener('click', function() {
                 document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
                 this.classList.add('active');
+
+                const category = this.textContent.trim();
+                const items = document.querySelectorAll('.gallery-item');
+
+                items.forEach(item => {
+                    const itemCategory = item.getAttribute('data-category') || 'Semua';
+                    const shouldShow = category === 'Semua' || itemCategory === category;
+                    item.classList.toggle('hidden', !shouldShow);
+                });
             });
+        });
+
+        // Gallery modal
+        const galleryModal = document.getElementById('galleryModal');
+        const galleryModalImage = document.getElementById('galleryModalImage');
+        const galleryModalTitle = document.getElementById('galleryModalTitle');
+        const galleryModalCaption = document.getElementById('galleryModalCaption');
+        const galleryPrev = document.getElementById('galleryPrev');
+        const galleryNext = document.getElementById('galleryNext');
+        const galleryClose = document.getElementById('galleryModalClose');
+        let galleryImages = [];
+        let galleryIndex = 0;
+
+        document.querySelectorAll('.gallery-item').forEach(item => {
+            item.addEventListener('click', function() {
+                const images = (this.getAttribute('data-images') || '')
+                    .split(',')
+                    .map(src => src.trim())
+                    .filter(Boolean);
+
+                const title = this.querySelector('h3')?.textContent || 'Galeri Payangan Hospital';
+                const caption = this.querySelector('p')?.textContent || 'Dokumentasi kegiatan dan fasilitas rumah sakit.';
+
+                galleryImages = images.length ? images : [this.querySelector('.gallery-bg img')?.getAttribute('src') || ''];
+                galleryIndex = 0;
+                galleryModalTitle.textContent = title;
+                galleryModalCaption.textContent = caption;
+                renderGalleryImage();
+                galleryModal.classList.add('active');
+            });
+        });
+
+        function renderGalleryImage() {
+            if (!galleryImages.length || !galleryImages[galleryIndex]) {
+                galleryModalImage.src = '';
+                galleryModalImage.alt = 'Tidak ada foto';
+                return;
+            }
+            galleryModalImage.src = galleryImages[galleryIndex];
+            galleryModalImage.alt = galleryModalTitle.textContent;
+        }
+
+        function closeGalleryModal() {
+            galleryModal.classList.remove('active');
+        }
+
+        [galleryPrev, galleryNext, galleryClose].forEach(el => {
+            el.addEventListener('click', function(event) {
+                if (event.target === galleryClose || event.currentTarget === galleryClose) {
+                    closeGalleryModal();
+                } else if (event.currentTarget === galleryPrev) {
+                    galleryIndex = (galleryIndex - 1 + galleryImages.length) % galleryImages.length;
+                    renderGalleryImage();
+                } else if (event.currentTarget === galleryNext) {
+                    galleryIndex = (galleryIndex + 1) % galleryImages.length;
+                    renderGalleryImage();
+                }
+            });
+        });
+
+        galleryModal.addEventListener('click', function(event) {
+            if (event.target.matches('.gallery-modal-backdrop')) {
+                closeGalleryModal();
+            }
+        });
+
+        document.addEventListener('keydown', function(event) {
+            if (!galleryModal.classList.contains('active')) return;
+            if (event.key === 'Escape') closeGalleryModal();
+            if (event.key === 'ArrowRight') {
+                galleryIndex = (galleryIndex + 1) % galleryImages.length;
+                renderGalleryImage();
+            }
+            if (event.key === 'ArrowLeft') {
+                galleryIndex = (galleryIndex - 1 + galleryImages.length) % galleryImages.length;
+                renderGalleryImage();
+            }
         });
 
         // Scroll animations

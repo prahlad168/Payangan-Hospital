@@ -12,6 +12,11 @@
  */
 
 /* ==========================================
+   FONT IMPORT - Montserrat (Brand Font)
+   ========================================== */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap');
+
+/* ==========================================
    BRAND CSS VARIABLES
    ========================================== */
 :root {
@@ -144,8 +149,8 @@
 .brand-title {
     font-family: var(--brand-font);
     font-size: 1.1rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
+    font-weight: 600;
+    letter-spacing: 0.05em;
     text-transform: uppercase;
     color: var(--brand-primary);
     line-height: 1.2;
@@ -477,8 +482,8 @@
 .logo-name {
     font-family: var(--brand-font);
     font-size: 1.1rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
+    font-weight: 600;
+    letter-spacing: 0.05em;
     text-transform: uppercase;
     color: var(--brand-primary);
     line-height: 1.2;
@@ -536,8 +541,8 @@
 .footer-logo-text {
     font-family: var(--brand-font);
     font-size: 1rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
+    font-weight: 600;
+    letter-spacing: 0.05em;
     text-transform: uppercase;
     color: #ffffff;
 }
