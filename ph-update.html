@@ -219,7 +219,7 @@
     <nav class="navbar" id="navbar">
         <div class="nav-container">
             <a href="index.html" class="logo">
-                <img src="img/logo-official.png" alt="Payangan Hospital">
+                <img src="img/logo-official.png" alt="Payangan Hospital" onerror="this.style.display='none'" class="brand-logo">
                 <div class="logo-text">
                      <span class="logo-text-main">PAYANGAN HOSPITAL</span>
                     <span class="logo-text-sub">PAVITRAM IDAM UTTAMAM</span>
@@ -233,7 +233,7 @@
                 <li class="has-dropdown">
                     <a href="ph-update.html" class="active">PH Update <i class="fas fa-chevron-down"></i></a>
                     <ul class="dropdown-menu">
-                        <li><a href="ph-update.html?cat=kesehatan"><i class="fas fa-heartbeat"></i> Info Kesehatan</a></li>
+                        <li><a href="ph-update.html?cat=info-kesehatan"><i class="fas fa-heartbeat"></i> Info Kesehatan</a></li>
                         <li><a href="ph-update.html?cat=teknologi"><i class="fas fa-microchip"></i> Teknologi</a></li>
                         <li><a href="ph-update.html?cat=creative"><i class="fas fa-paint-brush"></i> PH Creative</a></li>
                         <li><a href="ph-update.html?cat=pengumuman"><i class="fas fa-bullhorn"></i> Pengumuman</a></li>
@@ -258,7 +258,7 @@
             <li><a href="layanan.html" onclick="toggleMenu()">Layanan</a></li>
             <li><a href="dokter.html" onclick="toggleMenu()">Dokter</a></li>
             <li><a href="ph-update.html" onclick="toggleMenu()">PH Update</a></li>
-            <li><a href="ph-update.html?cat=kesehatan" onclick="toggleMenu()" style="padding-left:28px;font-size:0.95rem;opacity:0.85;">— Info Kesehatan</a></li>
+            <li><a href="ph-update.html?cat=info-kesehatan" onclick="toggleMenu()" style="padding-left:28px;font-size:0.95rem;opacity:0.85;">— Info Kesehatan</a></li>
             <li><a href="ph-update.html?cat=teknologi" onclick="toggleMenu()" style="padding-left:28px;font-size:0.95rem;opacity:0.85;">— Teknologi</a></li>
             <li><a href="ph-update.html?cat=creative" onclick="toggleMenu()" style="padding-left:28px;font-size:0.95rem;opacity:0.85;">— PH Creative</a></li>
             <li><a href="ph-update.html?cat=pengumuman" onclick="toggleMenu()" style="padding-left:28px;font-size:0.95rem;opacity:0.85;">— Pengumuman</a></li>
@@ -317,102 +317,7 @@
 
     <!-- Posts Grid -->
     <section class="posts-section">
-        <div class="posts-grid">
-            <article class="post-card fade-in" data-category="info-kesehatan">
-                <div class="post-image" style="background:none;padding:0;">
-                    <img src="img/PH Update/info Kesehatan/Cegah Diabetes Militus dengan CERDIK, (cek kesehatan rutin,enyahkan asap rokok,  .jpg" alt="Diabetes Melitus" style="width:100%;height:100%;object-fit:cover;">
-                    <span class="post-date"><i class="fas fa-calendar"></i> 10 Jan 2026</span>
-                </div>
-                <div class="post-content">
-                    <span class="post-category">Info Kesehatan</span>
-                    <h3><a href="info-kesehatan-1.html">Cegah Diabetes Melitus dengan CERDIK</a></h3>
-                    <p class="post-excerpt">Diabetes melitus adalah penyakit kronis yang terjadi ketika tubuh tidak mampu memproduksi atau menggunakan insulin dengan efektif. Kenali cara pencegahannya sejak dini.</p>
-                    <div class="post-footer">
-                        <div class="post-author"><div class="post-author-avatar">WA</div><span>Web Admin PH</span></div>
-                        <span class="post-read-time"><i class="fas fa-clock"></i> 6 menit</span>
-                    </div>
-                </div>
-            </article>
-
-            <article class="post-card fade-in" data-category="info-kesehatan">
-                <div class="post-image" style="background:none;padding:0;">
-                    <img src="img/PH Update/info Kesehatan/Cegah Diare, yang dapat dilakukan untuk mencegah diare .jpg" alt="Diare" style="width:100%;height:100%;object-fit:cover;">
-                    <span class="post-date"><i class="fas fa-calendar"></i> 15 Jan 2026</span>
-                </div>
-                <div class="post-content">
-                    <span class="post-category">Info Kesehatan</span>
-                    <h3><a href="info-kesehatan-2.html">Cegah Diare: Langkah Sederhana yang Bisa Dilakukan</a></h3>
-                    <p class="post-excerpt">Diare bisa dicegah dengan kebiasaan hidup bersih dan sehat. Pelajari langkah-langkah sederhana mulai dari cuci tangan hingga vaksinasi rotavirus untuk bayi.</p>
-                    <div class="post-footer">
-                        <div class="post-author"><div class="post-author-avatar">WA</div><span>Web Admin PH</span></div>
-                        <span class="post-read-time"><i class="fas fa-clock"></i> 5 menit</span>
-                    </div>
-                </div>
-            </article>
-
-            <article class="post-card fade-in" data-category="info-kesehatan">
-                <div class="post-image" style="background:none;padding:0;">
-                    <img src="img/PH Update/info Kesehatan/Etika Batuk (gunakan masker, tutup mulut dan hidung dengan lengan atas bagian dalam, tutup mulut dan hidung dengan tisu, buang tisu yg telah digunakan di tempat sampah, cuci tangan dengan sabun.jpg" alt="Etika Batuk" style="width:100%;height:100%;object-fit:cover;">
-                    <span class="post-date"><i class="fas fa-calendar"></i> 20 Jan 2026</span>
-                </div>
-                <div class="post-content">
-                    <span class="post-category">Info Kesehatan</span>
-                    <h3><a href="info-kesehatan-3.html">Etika Batuk yang Benar untuk Mencegah Penularan Penyakit</a></h3>
-                    <p class="post-excerpt">Batuk yang tidak ditutup dapat menyebarkan hingga 3.000 droplet per kali batuk. Kenali etika batuk yang benar sesuai anjuran Kemenkes dan WHO.</p>
-                    <div class="post-footer">
-                        <div class="post-author"><div class="post-author-avatar">WA</div><span>Web Admin PH</span></div>
-                        <span class="post-read-time"><i class="fas fa-clock"></i> 4 menit</span>
-                    </div>
-                </div>
-            </article>
-
-            <article class="post-card fade-in" data-category="info-kesehatan">
-                <div class="post-image" style="background:none;padding:0;">
-                    <img src="img/PH Update/info Kesehatan/Hipertensi kendalikan tekanan darah(Mengendalikan hipertensi, faktor resiko hipertensi, gejala hipertensi, mencegah hipertensi).jpg" alt="Hipertensi" style="width:100%;height:100%;object-fit:cover;">
-                    <span class="post-date"><i class="fas fa-calendar"></i> 25 Jan 2026</span>
-                </div>
-                <div class="post-content">
-                    <span class="post-category">Info Kesehatan</span>
-                    <h3><a href="info-kesehatan-4.html">Kendalikan Hipertensi: Faktor Risiko dan Cara Mencegahnya</a></h3>
-                    <p class="post-excerpt">Hipertensi adalah silent killer yang tidak menimbulkan gejala jelas. Kenali faktor risiko dan langkah pencegahan untuk tekanan darah yang lebih sehat.</p>
-                    <div class="post-footer">
-                        <div class="post-author"><div class="post-author-avatar">WA</div><span>Web Admin PH</span></div>
-                        <span class="post-read-time"><i class="fas fa-clock"></i> 6 menit</span>
-                    </div>
-                </div>
-            </article>
-
-            <article class="post-card fade-in" data-category="info-kesehatan">
-                <div class="post-image" style="background:none;padding:0;">
-                    <img src="img/PH Update/info Kesehatan/kenali gejala awal stroke  BEFAST (bslsnce, eyes,face,arms, speech,time) .jpg" alt="Stroke" style="width:100%;height:100%;object-fit:cover;">
-                    <span class="post-date"><i class="fas fa-calendar"></i> 30 Jan 2026</span>
-                </div>
-                <div class="post-content">
-                    <span class="post-category">Info Kesehatan</span>
-                    <h3><a href="info-kesehatan-5.html">Kenali Gejala Awal Stroke dengan Metode BEFAST</a></h3>
-                    <p class="post-excerpt">Stroke adalah darurat medis. Kenali gejala awal dengan metode BEFAST — Balance, Eyes, Face, Arms, Speech, Time — untuk pertolongan yang lebih cepat.</p>
-                    <div class="post-footer">
-                        <div class="post-author"><div class="post-author-avatar">WA</div><span>Web Admin PH</span></div>
-                        <span class="post-read-time"><i class="fas fa-clock"></i> 6 menit</span>
-                    </div>
-                </div>
-            </article>
-
-            <article class="post-card fade-in" data-category="inovasi-informasi">
-                <div class="post-image" style="background:none;padding:0;">
-                    <img src="img/SIVIRA.jpeg" alt="SIVIRA - Layanan Informasi Payangan Hospital" style="width:100%;height:100%;object-fit:cover;">
-                    <span class="post-date"><i class="fas fa-calendar"></i> 1 Agustus 2026</span>
-                </div>
-                <div class="post-content">
-                    <span class="post-category">Inovasi Informasi</span>
-                    <h3><a href="inovasi-informasi-sivira.html">Inovasi Informasi Payangan Hospital SIVIRA</a></h3>
-                    <p class="post-excerpt">SIVIRA merupakan inovasi layanan informasi Payangan Hospital melalui media video untuk membantu masyarakat memperoleh informasi layanan rumah sakit dengan lebih mudah dan jelas.</p>
-                    <div class="post-footer">
-                        <div class="post-author"><div class="post-author-avatar">WA</div><span>Web Admin PH</span></div>
-                        <span class="post-read-time"><i class="fas fa-clock"></i> 5 menit</span>
-                    </div>
-                </div>
-            </article>
+        <div class="posts-grid" id="newsPostsGrid">
         </div>
     </section>
 
@@ -508,7 +413,7 @@
         <div class="footer-grid">
             <div class="footer-about">
                 <div class="footer-logo">
-                    <img src="img/logo-official.png" alt="Payangan Hospital">
+                <img src="img/logo-official.png" alt="Payangan Hospital" onerror="this.style.display='none'" class="brand-logo">
                     <span>Payangan Hospital</span>
                 </div>
                 <p>Rumah Sakit Pemerintah Daerah Payangan, Gianyar, Bali. Memberikan pelayanan kesehatan berkualitas dengan pendekatan humanis dan profesional.</p>
@@ -564,22 +469,6 @@
         function toggleMenu() {
             document.getElementById('mobileMenu').classList.toggle('active');
         }
-
-        // Filter buttons
-        document.querySelectorAll('.filter-btn').forEach(btn => {
-            btn.addEventListener('click', function() {
-                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-                this.classList.add('active');
-                const filter = this.getAttribute('data-filter');
-                document.querySelectorAll('.post-card').forEach(card => {
-                    if (filter === 'semua' || card.getAttribute('data-category') === filter) {
-                        card.style.display = '';
-                    } else {
-                        card.style.display = 'none';
-                    }
-                });
-            });
-        });
 
         // Scroll animations
         const observerOptions = {
@@ -659,6 +548,7 @@ function addMsg(t,n){const d=document.getElementById('chatMsgs'),e=document.crea
 function getResp(m){const msg=m.toLowerCase();if(msg.includes('berita')||msg.includes('artikel'))return'📰 <strong>Berita & Artikel:</strong><br><br>Klik untuk melihat berita terbaru:<br><br><a href="ph-update.html" style="color:#22d3ee">📰 Berita Kesehatan →</a>';return'Terima kasih! 🙏<br><br>Kunjungi <a href="ph-update.html" style="color:#22d3ee">halaman berita</a><br>Hubungi <strong>0361 9088087</strong>'}
 </script>
 
+    <script src="js/news.js" defer></script>
     <script src="js/premium-ui.js" defer></script>
     <script src="js/mahacare-ai.js" defer></script>
 </body>

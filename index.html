@@ -2683,89 +2683,6 @@
         });
     </script>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // News Slider
-            const newsSlider = document.getElementById('newsSlider');
-            const newsDotsContainer = document.getElementById('newsDots');
-            let currentNewsIndex = 0;
-            const newsCards = newsSlider ? newsSlider.querySelectorAll('.news-card') : [];
-            const cardsPerView = () => window.innerWidth < 768 ? 1 : window.innerWidth < 1024 ? 2 : 3;
-            
-            function getCardStep() {
-                if (!newsCards.length) return 360;
-                const firstCard = newsCards[0];
-                const secondCard = newsCards[1];
-                if (secondCard) {
-                    return secondCard.getBoundingClientRect().left - firstCard.getBoundingClientRect().left;
-                }
-                return firstCard.offsetWidth;
-            }
-            
-            function createNewsDots() {
-                if (!newsDotsContainer || !newsCards.length) return;
-                const perView = cardsPerView();
-                const totalDots = Math.max(1, newsCards.length - perView + 1);
-                newsDotsContainer.innerHTML = '';
-                for (let i = 0; i < totalDots; i++) {
-                    const dot = document.createElement('span');
-                    dot.className = 'news-dot' + (i === 0 ? ' active' : '');
-                    dot.onclick = () => goToNewsSlide(i);
-                    newsDotsContainer.appendChild(dot);
-                }
-            }
-            
-            function updateNewsDots() {
-                if (!newsDotsContainer) return;
-                const dots = newsDotsContainer.querySelectorAll('.news-dot');
-                dots.forEach((dot, i) => dot.classList.toggle('active', i === currentNewsIndex));
-            }
-            
-            function getMaxIndex() {
-                const perView = cardsPerView();
-                return Math.max(0, newsCards.length - perView);
-            }
-            
-            function goToNewsSlide(index) {
-                if (!newsSlider || !newsCards.length) return;
-                const maxIndex = getMaxIndex();
-                currentNewsIndex = Math.max(0, Math.min(index, maxIndex));
-                const step = getCardStep();
-                const targetScroll = currentNewsIndex * step;
-                newsSlider.scrollTo({ left: targetScroll, behavior: 'smooth' });
-                updateNewsDots();
-            }
-            
-            function changeNewsSlide(direction) {
-                goToNewsSlide(currentNewsIndex + direction);
-            }
-            
-            if (newsSlider) {
-                createNewsDots();
-                
-                let scrollTimeout;
-                newsSlider.addEventListener('scroll', () => {
-                    if (scrollTimeout) cancelAnimationFrame(scrollTimeout);
-                    scrollTimeout = requestAnimationFrame(() => {
-                        const step = getCardStep();
-                        if (step <= 0) return;
-                        const newIndex = Math.round(newsSlider.scrollLeft / step);
-                        const maxIndex = getMaxIndex();
-                        if (newIndex !== currentNewsIndex && newIndex >= 0 && newIndex <= maxIndex) {
-                            currentNewsIndex = newIndex;
-                            updateNewsDots();
-                        }
-                    });
-                }, { passive: true });
-                
-                window.addEventListener('resize', () => {
-                    createNewsDots();
-                    goToNewsSlide(Math.min(currentNewsIndex, getMaxIndex()));
-                });
-            }
-        });
-    </script>
-
     <!-- 4. DIRECTOR WELCOME SECTION -->
     <section class="section-lg director-section" id="director">
         <div class="container">
@@ -2984,113 +2901,13 @@
                     Tetap informed dengan berita dan artikel kesehatan terbaru dari Payangan Hospital.
                 </p>
             </div>
-            <div class="news-slider-wrapper">
+<div class="news-slider-wrapper">
                 <div class="news-slider" id="newsSlider">
-                    <article class="news-card">
-                        <div class="news-card-image">
-                            <img src="img/optimized/health-diabetes.webp" alt="Diabetes Melitus" loading="lazy" decoding="async">
-                        </div>
-                        <div class="news-card-content">
-                            <div class="news-card-date">
-                                <i class="far fa-calendar"></i> 10 Jan 2026
-                            </div>
-                            <span class="news-card-category">Info Kesehatan</span>
-                            <h3 class="news-card-title"><a href="info-kesehatan-1.html">Cegah Diabetes Melitus dengan CERDIK</a></h3>
-                            <p class="news-card-excerpt">Diabetes melitus adalah penyakit kronis yang terjadi ketika tubuh tidak mampu memproduksi atau menggunakan insulin dengan efektif. Kenali cara pencegahannya sejak dini.</p>
-                            <div class="news-card-footer">
-                                <div class="news-card-author">
-                                    <div class="news-card-avatar">WA</div>
-                                    <span>Web Admin PH</span>
-                                </div>
-                                <span class="news-card-read-time"><i class="far fa-clock"></i> 6 menit</span>
-                            </div>
-                        </div>
-                    </article>
-                    <article class="news-card">
-                        <div class="news-card-image">
-                            <img src="img/optimized/health-diare.webp" alt="Diare" loading="lazy" decoding="async">
-                        </div>
-                        <div class="news-card-content">
-                            <div class="news-card-date">
-                                <i class="far fa-calendar"></i> 15 Jan 2026
-                            </div>
-                            <span class="news-card-category">Info Kesehatan</span>
-                            <h3 class="news-card-title"><a href="info-kesehatan-2.html">Cegah Diare: Langkah Sederhana yang Bisa Dilakukan</a></h3>
-                            <p class="news-card-excerpt">Diare bisa dicegah dengan kebiasaan hidup bersih dan sehat. Pelajari langkah-langkah sederhana mulai dari cuci tangan hingga vaksinasi rotavirus untuk bayi.</p>
-                            <div class="news-card-footer">
-                                <div class="news-card-author">
-                                    <div class="news-card-avatar">WA</div>
-                                    <span>Web Admin PH</span>
-                                </div>
-                                <span class="news-card-read-time"><i class="far fa-clock"></i> 5 menit</span>
-                            </div>
-                        </div>
-                    </article>
-                    <article class="news-card">
-                        <div class="news-card-image">
-                            <img src="img/optimized/health-etika-batuk.webp" alt="Etika Batuk" loading="lazy" decoding="async">
-                        </div>
-                        <div class="news-card-content">
-                            <div class="news-card-date">
-                                <i class="far fa-calendar"></i> 20 Jan 2026
-                            </div>
-                            <span class="news-card-category">Info Kesehatan</span>
-                            <h3 class="news-card-title"><a href="info-kesehatan-3.html">Etika Batuk yang Benar untuk Mencegah Penularan Penyakit</a></h3>
-                            <p class="news-card-excerpt">Batuk yang tidak ditutup dapat menyebarkan hingga 3.000 droplet per kali batuk. Kenali etika batuk yang benar sesuai anjuran Kemenkes dan WHO.</p>
-                            <div class="news-card-footer">
-                                <div class="news-card-author">
-                                    <div class="news-card-avatar">WA</div>
-                                    <span>Web Admin PH</span>
-                                </div>
-                                <span class="news-card-read-time"><i class="far fa-clock"></i> 4 menit</span>
-                            </div>
-                        </div>
-                    </article>
-                    <article class="news-card">
-                        <div class="news-card-image">
-                            <img src="img/optimized/health-hipertensi.webp" alt="Hipertensi" loading="lazy" decoding="async">
-                        </div>
-                        <div class="news-card-content">
-                            <div class="news-card-date">
-                                <i class="far fa-calendar"></i> 25 Jan 2026
-                            </div>
-                            <span class="news-card-category">Info Kesehatan</span>
-                            <h3 class="news-card-title"><a href="info-kesehatan-4.html">Kendalikan Hipertensi: Faktor Risiko dan Cara Mencegahnya</a></h3>
-                            <p class="news-card-excerpt">Hipertensi adalah silent killer yang tidak menimbulkan gejala jelas. Kenali faktor risiko dan langkah pencegahan untuk tekanan darah yang lebih sehat.</p>
-                            <div class="news-card-footer">
-                                <div class="news-card-author">
-                                    <div class="news-card-avatar">WA</div>
-                                    <span>Web Admin PH</span>
-                                </div>
-                                <span class="news-card-read-time"><i class="far fa-clock"></i> 6 menit</span>
-                            </div>
-                        </div>
-                    </article>
-                    <article class="news-card">
-                        <div class="news-card-image">
-                            <img src="img/optimized/health-stroke.webp" alt="Stroke" loading="lazy" decoding="async">
-                        </div>
-                        <div class="news-card-content">
-                            <div class="news-card-date">
-                                <i class="far fa-calendar"></i> 30 Jan 2026
-                            </div>
-                            <span class="news-card-category">Info Kesehatan</span>
-                            <h3 class="news-card-title"><a href="info-kesehatan-5.html">Kenali Gejala Awal Stroke dengan Metode BEFAST</a></h3>
-                            <p class="news-card-excerpt">Stroke adalah darurat medis. Kenali gejala awal dengan metode BEFAST — Balance, Eyes, Face, Arms, Speech, Time — untuk pertolongan yang lebih cepat.</p>
-                            <div class="news-card-footer">
-                                <div class="news-card-author">
-                                    <div class="news-card-avatar">WA</div>
-                                    <span>Web Admin PH</span>
-                                </div>
-                                <span class="news-card-read-time"><i class="far fa-clock"></i> 6 menit</span>
-                            </div>
-                        </div>
-                    </article>
                 </div>
-                <button class="news-slider-btn news-prev" onclick="changeNewsSlide(-1)" aria-label="Sebelumnya">
+                <button class="news-slider-btn news-prev" aria-label="Sebelumnya">
                     <i class="fas fa-chevron-left"></i>
                 </button>
-                <button class="news-slider-btn news-next" onclick="changeNewsSlide(1)" aria-label="Selanjutnya">
+                <button class="news-slider-btn news-next" aria-label="Selanjutnya">
                     <i class="fas fa-chevron-right"></i>
                 </button>
                 <div class="news-slider-dots" id="newsDots"></div>
@@ -3483,6 +3300,7 @@
     </script>
   
     <!-- Premium UI JavaScript -->
+    <script src="js/news.js" defer></script>
     <script src="js/premium-ui.js" defer></script>
     <!-- MahaCare AI Assistant -->
     <script src="js/mahacare-ai.js" defer></script>
