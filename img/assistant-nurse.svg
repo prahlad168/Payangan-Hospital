@@ -1,0 +1,21 @@
+<svg width="256" height="256" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+  <rect width="256" height="256" rx="128" fill="#EAF7FF"/>
+  <circle cx="128" cy="128" r="108" fill="#F8FCFF"/>
+  <circle cx="128" cy="102" r="38" fill="#F7C8A4"/>
+  <path d="M92 138c8-22 64-22 72 0l6 34c2 12-8 22-20 22h-44c-12 0-22-10-20-22l6-34Z" fill="#0F766E"/>
+  <rect x="90" y="144" width="76" height="42" rx="18" fill="#2563EB"/>
+  <rect x="102" y="154" width="52" height="24" rx="12" fill="#FFFFFF"/>
+  <rect x="102" y="154" width="52" height="24" rx="12" fill="#E8F3FF"/>
+  <path d="M118 84c-12 0-22 10-22 22v8h44v-8c0-12-10-22-22-22Z" fill="#1F2937"/>
+  <circle cx="110" cy="98" r="5" fill="#1F2937"/>
+  <circle cx="146" cy="98" r="5" fill="#1F2937"/>
+  <path d="M110 118c7 6 21 6 28 0" stroke="#A65B2B" stroke-width="4" stroke-linecap="round"/>
+  <rect x="96" y="168" width="12" height="12" rx="3" fill="#FFFFFF"/>
+  <rect x="148" y="168" width="12" height="12" rx="3" fill="#FFFFFF"/>
+  <rect x="84" y="88" width="88" height="34" rx="17" fill="#FFFFFF"/>
+  <circle cx="128" cy="104" r="10" fill="#0F766E"/>
+  <path d="M120 104h16" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round"/>
+  <path d="M128 96v16" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round"/>
+  <path d="M85 188c20-8 66-8 86 0" stroke="#38BDF8" stroke-width="8" stroke-linecap="round"/>
+  <text x="128" y="214" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#0F766E">PH</text>
+</svg>

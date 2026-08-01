@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SIVIRA merupakan inovasi layanan informasi Payangan Hospital melalui media video untuk membantu masyarakat memperoleh informasi layanan rumah sakit dengan lebih mudah dan jelas.">
+    <link rel="canonical" href="https://payanganhospital.gianyarkab.go.id/inovasi-informasi-sivira.html">
+    <meta property="og:title" content="Inovasi Informasi Payangan Hospital SIVIRA">
+    <meta property="og:description" content="SIVIRA merupakan inovasi layanan informasi Payangan Hospital melalui media video untuk membantu masyarakat memperoleh informasi layanan rumah sakit dengan lebih mudah dan jelas.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://payanganhospital.gianyarkab.go.id/inovasi-informasi-sivira.html">
+    <meta property="og:image" content="https://payanganhospital.gianyarkab.go.id/img/SIVIRA.jpeg">
+    <meta property="og:site_name" content="RS Payangan Hospital">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Inovasi Informasi Payangan Hospital SIVIRA">
+    <meta name="twitter:description" content="SIVIRA merupakan inovasi layanan informasi Payangan Hospital melalui media video untuk membantu masyarakat memperoleh informasi layanan rumah sakit dengan lebih mudah dan jelas.">
+    <meta name="twitter:image" content="https://payanganhospital.gianyarkab.go.id/img/SIVIRA.jpeg">
+    <title>Inovasi Informasi Payangan Hospital SIVIRA - Payangan Hospital</title>
+    <link rel="icon" type="image/png" href="img/logo-official.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/brand.css">
+    <style>
+        :root {
+            --primary: #0891b2; --primary-dark: #0e7490; --primary-light: #22d3ee;
+            --primary-50: #ecfeff; --primary-100: #cffafe;
+            --bg-white: #ffffff; --bg-light: #f8fafc;
+            --text-dark: #0f172a; --text-muted: #64748b;
+            --gradient-primary: linear-gradient(135deg, #0891b2 0%, #22d3ee 100%);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+            --shadow-lg: 0 10px 30px rgba(0,0,0,0.1);
+            --radius-lg: 16px; --radius-xl: 24px; --radius-full: 9999px;
+            --font-sans: 'Plus Jakarta Sans', sans-serif;
+            --font-display: 'Playfair Display', serif;
+        }
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: var(--font-sans); color: var(--text-dark); background: var(--bg-light); }
+        a { text-decoration: none; color: inherit; }
+        img { max-width: 100%; height: auto; display: block; }
+        .container { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+
+        /* HEADER */
+        .header { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(255,255,255,0.98); backdrop-filter: blur(20px); box-shadow: 0 2px 10px rgba(0,0,0,0.08); }
+        .header-inner { display: flex; align-items: center; justify-content: space-between; max-width: 1280px; margin: 0 auto; padding: 14px 24px; }
+        .logo { display: flex; align-items: center; gap: 12px; }
+        .logo img { width: 44px; height: 44px; border-radius: 10px; }
+        .logo-text { display: flex; flex-direction: column; }
+        .logo-text .brand-tagline { font-size: 0.65rem; color: var(--text-muted); letter-spacing: 0.08em; }
+        .back-btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; background: var(--primary-50); color: var(--primary); border-radius: var(--radius-full); font-size: 0.88rem; font-weight: 600; transition: all 0.3s; }
+        .back-btn:hover { background: var(--primary); color: white; }
+
+        /* HERO */
+        .article-hero { margin-top: 72px; position: relative; }
+        .article-hero img { width: 100%; max-height: 500px; object-fit: cover; object-position: center top; display: block; }
+        .article-hero-overlay { display: none; }
+        .article-hero-content { position: relative; background: white; padding: 32px 0 24px; border-top: 4px solid var(--primary); max-width: 900px; margin: 0 auto; padding-left: 24px; padding-right: 24px; }
+        .article-category { display: inline-flex; align-items: center; gap: 8px; background: var(--primary-50); color: var(--primary); border: 1px solid var(--primary-100); padding: 6px 16px; border-radius: var(--radius-full); font-size: 0.78rem; font-weight: 600; margin-bottom: 16px; }
+        .article-title { font-family: var(--font-display); font-size: clamp(1.5rem, 4vw, 2.2rem); font-weight: 700; line-height: 1.3; margin-bottom: 16px; color: var(--text-dark); }
+        .article-meta { display: flex; gap: 20px; flex-wrap: wrap; font-size: 0.85rem; color: var(--text-muted); }
+        .article-meta span { display: flex; align-items: center; gap: 6px; }
+
+        /* CONTENT */
+        .article-body { background: white; padding: 48px 0 64px; }
+        .article-content { font-size: 1.05rem; line-height: 1.85; color: #334155; }
+        .article-content h2 { font-family: var(--font-display); font-size: 1.5rem; color: var(--text-dark); margin: 36px 0 16px; }
+        .article-content h3 { font-size: 1.15rem; font-weight: 700; color: var(--text-dark); margin: 28px 0 12px; }
+        .article-content p { margin-bottom: 20px; }
+        .article-content ul, .article-content ol { padding-left: 24px; margin-bottom: 20px; }
+        .article-content li { margin-bottom: 10px; }
+        .article-content .highlight-box { background: var(--primary-50); border-left: 4px solid var(--primary); padding: 20px 24px; border-radius: 0 12px 12px 0; margin: 28px 0; }
+        .article-content .highlight-box p { margin: 0; color: var(--primary-dark); font-weight: 500; }
+        .article-content .caption { font-size: 0.85rem; color: var(--text-muted); font-style: italic; margin-top: 8px; text-align: center; }
+
+        /* AUTHOR */
+        .author-box { display: flex; align-items: center; gap: 20px; background: var(--bg-light); padding: 24px; border-radius: var(--radius-xl); margin-top: 48px; }
+        .author-avatar { width: 64px; height: 64px; border-radius: 50%; background: var(--gradient-primary); display: flex; align-items: center; justify-content: center; color: white; font-size: 1.4rem; font-weight: 700; flex-shrink: 0; }
+        .author-name { font-weight: 700; color: var(--text-dark); font-size: 1rem; }
+        .author-spec { font-size: 0.85rem; color: var(--primary); margin-top: 2px; }
+        .author-desc { font-size: 0.85rem; color: var(--text-muted); margin-top: 6px; line-height: 1.6; }
+
+        /* NAVIGASI ARTIKEL */
+        .article-nav { display: flex; gap: 16px; margin-top: 40px; }
+        .article-nav a { flex: 1; padding: 16px 20px; border-radius: var(--radius-lg); border: 2px solid var(--primary-100); transition: all 0.3s; }
+        .article-nav a:hover { border-color: var(--primary); background: var(--primary-50); }
+        .article-nav .nav-label { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; }
+        .article-nav .nav-title { font-size: 0.92rem; font-weight: 600; color: var(--text-dark); margin-top: 4px; }
+        .article-nav .next { text-align: right; }
+
+        /* BACK TO LIST */
+        .back-to-list { text-align: center; margin-top: 48px; }
+        .btn-back-list { display: inline-flex; align-items: center; gap: 10px; padding: 14px 32px; background: var(--gradient-primary); color: white; border-radius: var(--radius-full); font-weight: 600; font-size: 0.95rem; transition: all 0.3s; box-shadow: 0 4px 15px rgba(8,145,178,0.3); }
+        .btn-back-list:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(8,145,178,0.4); }
+
+        /* FOOTER */
+        footer { background: #0f172a; color: rgba(255,255,255,0.6); padding: 32px 0; text-align: center; font-size: 0.85rem; }
+        footer a { color: #22d3ee; }
+
+        @media (max-width: 768px) {
+            .article-hero { height: 320px; }
+            .article-hero-content { padding: 24px; }
+            .article-nav { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+    <div class="header-inner">
+        <div class="logo">
+            <img src="img/logo-official.png" alt="Payangan Hospital">
+            <div class="logo-text">
+                <span class="brand-title">PAYANGAN HOSPITAL</span>
+                <span class="brand-tagline">PAVITRAM IDAM UTTAMAM</span>
+            </div>
+        </div>
+        <a href="ph-update.html" class="back-btn">
+            <i class="fas fa-arrow-left"></i> Kembali ke PH Update
+        </a>
+    </div>
+</header>
+
+<!-- HERO -->
+<section class="article-hero">
+    <img src="img/SIVIRA.jpeg" alt="SIVIRA - Layanan Informasi Payangan Hospital">
+    <div class="article-hero-content">
+        <span class="article-category"><i class="fas fa-lightbulb"></i> Inovasi Informasi</span>
+        <h1 class="article-title">Inovasi Informasi Payangan Hospital SIVIRA</h1>
+        <div class="article-meta">
+            <span><i class="fas fa-user-md"></i> Web Admin PH</span>
+            <span><i class="fas fa-calendar"></i> 1 Agustus 2026</span>
+            <span><i class="fas fa-clock"></i> 5 menit baca</span>
+        </div>
+    </div>
+</section>
+
+<!-- BODY -->
+<section class="article-body">
+    <div class="container">
+        <div class="article-content">
+
+            <p>Payangan Hospital menghadirkan SIVIRA sebagai inovasi layanan informasi berbasis video untuk membantu masyarakat memperoleh informasi rumah sakit secara lebih mudah, jelas, dan menarik.</p>
+
+            <p>SIVIRA merupakan layanan informasi Payangan Hospital yang menyampaikan berbagai informasi melalui media video. Inovasi ini dikembangkan sebagai bagian dari upaya meningkatkan akses masyarakat terhadap informasi mengenai layanan dan aktivitas rumah sakit.</p>
+
+            <p>Melalui SIVIRA, informasi mengenai Payangan Hospital dikemas dalam bentuk video sehingga lebih mudah dipahami dan diakses oleh masyarakat. Format audiovisual memungkinkan informasi disampaikan secara lebih komunikatif dan menarik.</p>
+
+            <p>SIVIRA menghadirkan informasi Payangan Hospital melalui video.</p>
+
+            <p>Konten dapat mencakup informasi layanan kesehatan, fasilitas rumah sakit, alur pelayanan, edukasi kesehatan, kegiatan rumah sakit, serta berbagai informasi penting lainnya bagi masyarakat.</p>
+
+            <p>Dengan adanya SIVIRA, masyarakat dapat memperoleh informasi mengenai Payangan Hospital tanpa harus datang langsung ke rumah sakit hanya untuk mendapatkan informasi dasar mengenai layanan yang tersedia.</p>
+
+            <p>Pemanfaatan media video ini menjadi bagian dari inovasi digital Payangan Hospital dalam meningkatkan keterbukaan informasi dan membangun komunikasi yang lebih efektif dengan masyarakat.</p>
+
+            <p>Ke depan, SIVIRA akan terus dikembangkan agar dapat menjadi salah satu media informasi Payangan Hospital yang mudah diakses, informatif, dan sesuai dengan kebutuhan masyarakat.</p>
+
+            <p class="caption"><i class="fas fa-camera"></i> SIVIRA, inovasi layanan informasi Payangan Hospital melalui media video.</p>
+
+        </div>
+
+        <!-- AUTHOR BOX -->
+        <div class="author-box">
+            <div class="author-avatar">WA</div>
+            <div>
+                <div class="author-name">Web Admin PH</div>
+                <div class="author-spec">Administrator Website – Payangan Hospital</div>
+                <div class="author-desc">Tim admin website Payangan Hospital yang mengelola dan mempublikasikan konten informasi kesehatan untuk masyarakat.</div>
+            </div>
+        </div>
+
+        <!-- BACK TO LIST -->
+        <div class="back-to-list">
+            <a href="ph-update.html" class="btn-back-list">
+                <i class="fas fa-th-large"></i> Kembali ke PH Update
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <p>&copy; 2025 <a href="index.html">Payangan Hospital</a> &mdash; Jl. Payangan, Gianyar, Bali &nbsp;|&nbsp; <a href="kontak.html">Hubungi Kami</a></p>
+</footer>
+</body>
+</html>
