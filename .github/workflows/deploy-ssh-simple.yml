@@ -1,0 +1,85 @@
+name: 🚀 Simple SSH Deploy
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan -p "$SSH_PORT" -H "$SSH_HOST" >> ~/.ssh/known_hosts 2>/dev/null || true
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          SSH_HOST: ${{ secrets.SSH_HOST }}
+          SSH_PORT: ${{ secrets.SSH_PORT }}
+
+      - name: Create archive
+        run: |
+          echo "📦 Creating archive..."
+          tar czf /tmp/deploy.tar.gz \
+            --exclude='.git' \
+            --exclude='node_modules' \
+            --exclude='.github' \
+            --exclude='scripts' \
+            --exclude='*.md' \
+            --exclude='.kilo' \
+            --exclude='.vscode' \
+            --exclude='PayanganWeb.zip' \
+            --exclude='video' \
+            .
+
+      - name: Transfer archive to hosting
+        run: |
+          echo "📤 Transferring archive to server..."
+          scp -P "$SSH_PORT" -o StrictHostKeyChecking=no /tmp/deploy.tar.gz "$SSH_USER@$SSH_HOST:/tmp/deploy.tar.gz"
+        env:
+          SSH_HOST: ${{ secrets.SSH_HOST }}
+          SSH_USER: ${{ secrets.SSH_USER }}
+          SSH_PORT: ${{ secrets.SSH_PORT }}
+
+      - name: Extract and deploy on server
+        run: |
+          echo "🚀 Extracting and deploying on server..."
+          ssh -p "$SSH_PORT" -o StrictHostKeyChecking=no "$SSH_USER@$SSH_HOST" '
+            set -e
+            cd "$SSH_PATH"
+            
+            # Backup current state
+            echo "📋 Creating backup..."
+            tar czf /tmp/backup.tar.gz --exclude="*.tar.gz" . 2>/dev/null || true
+            
+            # Extract new files
+            echo "📦 Extracting new files..."
+            tar xzf /tmp/deploy.tar.gz --strip-components=0
+            
+            # Clean up
+            rm -f /tmp/deploy.tar.gz
+            rm -f /tmp/backup.tar.gz
+            
+            echo "✅ Files extracted successfully"
+            echo "📁 Deployed to: $SSH_PATH"
+          '
+        env:
+          SSH_HOST: ${{ secrets.SSH_HOST }}
+          SSH_USER: ${{ secrets.SSH_USER }}
+          SSH_PORT: ${{ secrets.SSH_PORT }}
+          SSH_PATH: ${{ secrets.SSH_PATH }}
+
+      - name: Verify deployment
+        run: |
+          echo "🔍 Verifying deployment..."
+          sleep 5
+          curl -s --max-time 15 "https://payanganhospital.gianyarkab.go.id/index.html" | head -5 || echo "⚠️ Could not verify live site"
