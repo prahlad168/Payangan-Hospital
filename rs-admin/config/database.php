@@ -7,8 +7,8 @@
 
 // Konfigurasi Database (MySQL)
 define('DB_HOST', 'localhost');
-define('DB_USER', 'payangan_rs');        // Ganti dengan username MySQL Anda
-define('DB_PASS', 'your_password_here');  // Ganti dengan password MySQL Anda
+define('DB_USER', 'payangan_admin');
+define('DB_PASS', 'Payangan_ADMIN');
 define('DB_NAME', 'payangan_hospital');
 
 // Konfigurasi Aplikasi
