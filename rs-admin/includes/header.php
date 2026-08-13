@@ -3,7 +3,7 @@
  * Header/Navbar Component - RS Payangan Hospital
  */
 
-$current_user = get_current_user();
+$current_user = rs_get_current_user();
 $current_page = basename($_SERVER['PHP_SELF'], '.php');
 ?>
 <!DOCTYPE html>

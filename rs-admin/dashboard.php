@@ -7,7 +7,7 @@ require_once 'includes/auth.php';
 require_login();
 
 $page_title = 'Dashboard';
-$current_user = get_current_user();
+$current_user = rs_get_current_user();
 
 // Get role-specific dashboard data (demo data)
 $dokter_count = 22;

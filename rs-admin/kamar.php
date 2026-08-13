@@ -8,7 +8,7 @@ require_once 'config/database.php';
 require_login();
 
 $page_title = 'Manajemen Kamar';
-$current_user = get_current_user();
+$current_user = rs_get_current_user();
 
 $db = Database::getInstance();
 $conn = $db->getConnection();

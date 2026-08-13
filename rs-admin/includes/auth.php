@@ -27,7 +27,7 @@ function is_logged_in() {
 /**
  * Get current user info
  */
-function get_current_user() {
+function rs_get_current_user() {
     if (!is_logged_in()) {
         return null;
     }
@@ -83,73 +83,8 @@ function require_role($roles) {
     
     if (!has_role($roles)) {
         http_response_code(403);
-        die('
-        <!DOCTYPE html>
-        <html>
-        <head>
-            <title>Akses Ditolak</title>
-            <style>
-                body { font-family: Arial, sans-serif; display: flex; align-items: center; justify-content: center; min-height: 100vh; margin: 0; background: #f8f9fa; }
-                .error-box { background: white; padding: 40px; border-radius: 12px; text-align: center; box-shadow: 0 10px 40px rgba(0,0,0,0.1); }
-                .error-box h1 { color: #dc2626; }
-                .error-box a { color: #1a5f5a; text-decoration: none; }
-            </style>
-        
-    <style>
-        /* ========== LOGO SHIMMER & GLOW ANIMATION ========== */
-        @keyframes shimmer {
-            0% { background-position: -200% center; }
-            100% { background-position: 200% center; }
-        }
-        @keyframes glow {
-            0%, 100% { 
-                filter: drop-shadow(0 0 8px rgba(244, 196, 48, 0.6));
-            }
-            50% { 
-                filter: drop-shadow(0 0 20px rgba(244, 196, 48, 0.9)) drop-shadow(0 0 35px rgba(244, 196, 48, 0.5));
-            }
-        }
-        .logo-shimmer-wrap {
-            position: relative;
-            display: inline-block;
-        }
-        .logo-shimmer-wrap::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(
-                90deg,
-                transparent 0%,
-                rgba(255, 255, 255, 0) 0%,
-                rgba(255, 255, 255, 0.4) 50%,
-                rgba(255, 255, 255, 0) 100%
-            );
-            background-size: 200% 100%;
-            animation: shimmer 3s ease-in-out infinite;
-            pointer-events: none;
-            z-index: 10;
-            border-radius: inherit;
-        }
-        .logo-shimmer-wrap img {
-            position: relative;
-            z-index: 1;
-            animation: glow 2s ease-in-out infinite;
-        }
-        /* ========== END LOGO ANIMATION ========== */
-    </style>
-
-</head>
-        <body>
-            <div class="error-box">
-                <h1>⛔ Akses Ditolak</h1>
-                <p>Anda tidak memiliki izin untuk mengakses halaman ini.</p>
-                <p>Silakan <a href="dashboard.php">kembali ke dashboard</a>.</p>
-            </div>
-        </body>
-        </html>');
+        require_once __DIR__ . '/access-denied.html';
+        exit;
     }
 }
 
