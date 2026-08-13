@@ -5,7 +5,6 @@
  */
 
 header('Content-Type: application/json');
-header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: GET, POST, OPTIONS');
 header('Access-Control-Allow-Headers: Content-Type');
 
@@ -36,7 +35,7 @@ if ($action === 'read') {
     ];
     
     while ($row = $result->fetch_assoc()) {
-        $row['tersedia'] = $row['kapasitas'] - $row['terpakai'];
+        $row['tersedia'] = max(0, $row['kapasitas'] - $row['terpakai']);
         $rooms[] = $row;
         
         // Update summary
@@ -81,6 +80,7 @@ if ($action === 'update' && $_SERVER['REQUEST_METHOD'] === 'POST') {
     $status = $input['status'] ?? 'available';
     
     if (!$kamar_id) {
+        http_response_code(400);
         echo json_encode(['success' => false, 'message' => 'ID kamar tidak valid']);
         exit;
     }
@@ -89,6 +89,21 @@ if ($action === 'update' && $_SERVER['REQUEST_METHOD'] === 'POST') {
     $valid_status = ['available', 'full', 'maintenance'];
     if (!in_array($status, $valid_status)) {
         $status = 'available';
+    }
+    
+    $kapasitas_result = $conn->query("SELECT kapasitas FROM kamar WHERE id = $kamar_id");
+    $kapasitas_row = $kapasitas_result->fetch_assoc();
+    $kapasitas = $kapasitas_row ? intval($kapasitas_row['kapasitas']) : 0;
+    
+    if ($terpakai < 0) {
+        http_response_code(400);
+        echo json_encode(['success' => false, 'message' => 'Jumlah terpakai tidak boleh negatif']);
+        exit;
+    }
+    if ($kapasitas > 0 && $terpakai > $kapasitas) {
+        http_response_code(400);
+        echo json_encode(['success' => false, 'message' => "Jumlah terpakai ($terpakai) melebihi kapasitas ($kapasitas)"]);
+        exit;
     }
     
     $sql = "UPDATE kamar SET terpakai = ?, status = ? WHERE id = ?";
@@ -119,6 +134,7 @@ if ($action === 'batch_update' && $_SERVER['REQUEST_METHOD'] === 'POST') {
     $updates = $input['updates'] ?? [];
     
     if (empty($updates) || !is_array($updates)) {
+        http_response_code(400);
         echo json_encode(['success' => false, 'message' => 'Data update tidak valid']);
         exit;
     }
@@ -144,6 +160,17 @@ if ($action === 'batch_update' && $_SERVER['REQUEST_METHOD'] === 'POST') {
                 $status = 'available';
             }
             
+            $kapasitas_result = $conn->query("SELECT kapasitas FROM kamar WHERE id = $kamar_id");
+            $kapasitas_row = $kapasitas_result->fetch_assoc();
+            $kapasitas = $kapasitas_row ? intval($kapasitas_row['kapasitas']) : 0;
+            
+            if ($terpakai < 0) {
+                throw new Exception("Jumlah terpakai tidak boleh negatif untuk kamar ID $kamar_id");
+            }
+            if ($kapasitas > 0 && $terpakai > $kapasitas) {
+                throw new Exception("Jumlah terpakai ($terpakai) melebihi kapasitas ($kapasitas) untuk kamar ID $kamar_id");
+            }
+            
             $stmt->bind_param("isi", $terpakai, $status, $kamar_id);
             if ($stmt->execute()) {
                 $success_count++;
@@ -163,10 +190,12 @@ if ($action === 'batch_update' && $_SERVER['REQUEST_METHOD'] === 'POST') {
         ]);
     } catch (Exception $e) {
         $conn->rollback();
+        http_response_code(400);
         echo json_encode(['success' => false, 'message' => 'Gagal batch update: ' . $e->getMessage()]);
     }
     exit;
 }
 
 // Invalid action
+http_response_code(400);
 echo json_encode(['success' => false, 'message' => 'Invalid action']);

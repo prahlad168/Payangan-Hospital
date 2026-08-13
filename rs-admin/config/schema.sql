@@ -73,7 +73,7 @@ CREATE TABLE IF NOT EXISTS kamar (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nomor VARCHAR(10) NOT NULL UNIQUE,
     lantai INT NOT NULL,
-    kelas ENUM('VVIP', 'VIP', 'Kelas 1', 'Kelas 2', 'Kelas 3', 'ICU', 'NICU') NOT NULL,
+    kelas ENUM('VVIP', 'VIP', 'Kelas 1', 'Kelas 2', 'Kelas 3', 'ICU', 'NICU', 'Isolasi Tekanan Negatif', 'Isolasi Tekanan Positif') NOT NULL,
     kapasitas INT DEFAULT 1,
     terpakai INT DEFAULT 0,
     tarif DECIMAL(12,2) NOT NULL,
@@ -268,3 +268,9 @@ INSERT INTO settings (setting_key, setting_value, description) VALUES
 -- Ganti password dengan hash yang dihasilkan oleh password_hash()
 -- Contoh: password_hash('welcome123', PASSWORD_DEFAULT)
 -- Default password: welcome123
+
+-- ================================================
+-- UPGRADE FOR EXISTING DATABASES
+-- ================================================
+-- Run this if you already have the database installed and need to add the new room categories
+ALTER TABLE kamar MODIFY COLUMN kelas ENUM('VVIP', 'VIP', 'Kelas 1', 'Kelas 2', 'Kelas 3', 'ICU', 'NICU', 'Isolasi Tekanan Negatif', 'Isolasi Tekanan Positif') NOT NULL;

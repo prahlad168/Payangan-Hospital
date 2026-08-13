@@ -4,6 +4,7 @@
  */
 
 require_once 'includes/auth.php';
+require_once 'config/database.php';
 require_login();
 
 $page_title = 'Manajemen Kamar';
@@ -24,15 +25,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
         if (!in_array($status, $valid_status)) $status = 'available';
         
         if ($kamar_id > 0) {
-            $sql = "UPDATE kamar SET terpakai = ?, status = ? WHERE id = ?";
-            $stmt = $conn->prepare($sql);
-            $stmt->bind_param("isi", $terpakai, $status, $kamar_id);
+            $kapasitas_result = $conn->query("SELECT kapasitas FROM kamar WHERE id = $kamar_id");
+            $kapasitas_row = $kapasitas_result->fetch_assoc();
+            $kapasitas = $kapasitas_row ? intval($kapasitas_row['kapasitas']) : 0;
             
-            if ($stmt->execute()) {
-                $message = '<div class="alert alert-success"><i class="fas fa-check-circle"></i> Status kamar berhasil diperbarui</div>';
-                log_activity('update_kamar', 'kamar', "Updated kamar ID: $kamar_id");
+            if ($terpakai < 0) {
+                $message = '<div class="alert alert-danger"><i class="fas fa-exclamation-circle"></i> Jumlah terpakai tidak boleh negatif</div>';
+            } elseif ($kapasitas > 0 && $terpakai > $kapasitas) {
+                $message = '<div class="alert alert-danger"><i class="fas fa-exclamation-circle"></i> Jumlah terpakai tidak boleh melebihi kapasitas (' . $kapasitas . ')</div>';
             } else {
-                $message = '<div class="alert alert-danger"><i class="fas fa-exclamation-circle"></i> Gagal memperbarui status kamar</div>';
+                $sql = "UPDATE kamar SET terpakai = ?, status = ? WHERE id = ?";
+                $stmt = $conn->prepare($sql);
+                $stmt->bind_param("isi", $terpakai, $status, $kamar_id);
+                
+                if ($stmt->execute()) {
+                    $message = '<div class="alert alert-success"><i class="fas fa-check-circle"></i> Status kamar berhasil diperbarui</div>';
+                    log_activity('update_kamar', 'kamar', "Updated kamar ID: $kamar_id");
+                } else {
+                    $message = '<div class="alert alert-danger"><i class="fas fa-exclamation-circle"></i> Gagal memperbarui status kamar</div>';
+                }
             }
         }
     }
@@ -40,25 +51,45 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
     if ($_POST['action'] === 'batch') {
         $updates = $_POST['rooms'] ?? [];
         
-        $conn->begin_transaction();
-        try {
-            $sql = "UPDATE kamar SET terpakai = ?, status = ? WHERE id = ?";
-            $stmt = $conn->prepare($sql);
-            
-            foreach ($updates as $kamar_id => $room_data) {
-                $terpakai = intval($room_data['terpakai'] ?? 0);
-                $status = $room_data['status'] ?? 'available';
-                if (!in_array($status, ['available', 'full', 'maintenance'])) $status = 'available';
-                $stmt->bind_param("isi", $terpakai, $status, $kamar_id);
-                $stmt->execute();
+        if (empty($updates)) {
+            $message = '<div class="alert alert-danger"><i class="fas fa-exclamation-circle"></i> Tidak ada data yang diperbarui</div>';
+        } else {
+            $conn->begin_transaction();
+            try {
+                $sql = "UPDATE kamar SET terpakai = ?, status = ? WHERE id = ?";
+                $stmt = $conn->prepare($sql);
+                
+                foreach ($updates as $kamar_id => $room_data) {
+                    $kamar_id = intval($kamar_id);
+                    $terpakai = intval($room_data['terpakai'] ?? 0);
+                    $status = $room_data['status'] ?? 'available';
+                    
+                    if (!in_array($status, ['available', 'full', 'maintenance'])) {
+                        $status = 'available';
+                    }
+                    
+                    $kapasitas_result = $conn->query("SELECT kapasitas FROM kamar WHERE id = $kamar_id");
+                    $kapasitas_row = $kapasitas_result->fetch_assoc();
+                    $kapasitas = $kapasitas_row ? intval($kapasitas_row['kapasitas']) : 0;
+                    
+                    if ($terpakai < 0) {
+                        throw new Exception("Jumlah terpakai tidak boleh negatif untuk kamar ID $kamar_id");
+                    }
+                    if ($kapasitas > 0 && $terpakai > $kapasitas) {
+                        throw new Exception("Jumlah terpakai ($terpakai) melebihi kapasitas ($kapasitas) untuk kamar ID $kamar_id");
+                    }
+                    
+                    $stmt->bind_param("isi", $terpakai, $status, $kamar_id);
+                    $stmt->execute();
+                }
+                
+                $conn->commit();
+                $message = '<div class="alert alert-success"><i class="fas fa-check-circle"></i> Semua status kamar berhasil diperbarui</div>';
+                log_activity('batch_update_kamar', 'kamar', "Updated all rooms");
+            } catch (Exception $e) {
+                $conn->rollback();
+                $message = '<div class="alert alert-danger"><i class="fas fa-exclamation-circle"></i> Gagal batch update: ' . $e->getMessage() . '</div>';
             }
-            
-            $conn->commit();
-            $message = '<div class="alert alert-success"><i class="fas fa-check-circle"></i> Semua status kamar berhasil diperbarui</div>';
-            log_activity('batch_update_kamar', 'kamar', "Updated all rooms");
-        } catch (Exception $e) {
-            $conn->rollback();
-            $message = '<div class="alert alert-danger"><i class="fas fa-exclamation-circle"></i> Gagal batch update: ' . $e->getMessage() . '</div>';
         }
     }
 }
