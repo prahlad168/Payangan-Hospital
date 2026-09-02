@@ -403,6 +403,11 @@
                         </tbody>
                     </table>
                 </div>
+
+                <p style="margin-top: 12px; text-align: center; font-size: 0.85rem; color: var(--text-muted);">
+                    Lihat tampilan lengkap di
+                    <a href="https://payanganhospital.gianyarkab.go.id/data-kamar/index.php?page=rawat-inap" target="_blank" rel="noopener" style="color: var(--primary); font-weight: 600; text-decoration: underline;">halaman Data Kamar Rawat Inap</a>.
+                </p>
             </div>
            
             <!-- Fasilitas -->
@@ -777,9 +782,9 @@
                     }
                 })
                 .catch(error => {
-                    container.innerHTML = '<div style="text-align: center; padding: 30px; color: var(--text-muted);"><i class="fas fa-exclamation-triangle" style="font-size: 32px; margin-bottom: 12px;"></i><p>Gagal memuat data ketersediaan</p></div>';
+                    container.innerHTML = '<div style="text-align: center; padding: 30px; color: var(--text-muted);"><i class="fas fa-exclamation-triangle" style="font-size: 32px; margin-bottom: 12px;"></i><p>Ringkasan tidak tersedia saat ini. Silakan lihat detail di <a href="https://payanganhospital.gianyarkab.go.id/data-kamar/index.php?page=rawat-inap" target="_blank" rel="noopener" style="color: var(--primary); font-weight: 600;">halaman Data Kamar</a>.</p></div>';
                     lastUpdated.innerHTML = '';
-                    document.getElementById('detail-kamar-body').innerHTML = '<tr><td colspan="9" style="padding: 20px; text-align: center; color: var(--text-muted);">Gagal memuat data</td></tr>';
+                    document.getElementById('detail-kamar-body').innerHTML = '<tr><td colspan="9" style="padding: 20px; text-align: center; color: var(--text-muted);">Lihat detail lengkap di <a href="https://payanganhospital.gianyarkab.go.id/data-kamar/index.php?page=rawat-inap" target="_blank" rel="noopener" style="color: var(--primary); font-weight: 600;">halaman Data Kamar Rawat Inap</a></td></tr>';
                 });
         }
         
