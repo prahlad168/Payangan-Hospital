@@ -87,7 +87,7 @@ Lihat jadwal lengkap di halaman <strong>Dokter</strong>'
 в—Ҹ <strong>Alamat:</strong> Jl. Raya Payangan, Gianyar, Bali<br>
 в—Ҹ <strong>Telepon:</strong> 0361 9088087<br>
 в—Ҹ <strong>WhatsApp:</strong> +62 361 9088087<br>
-в—Ҹ <strong>Email:</strong> info@rsupayangan.co.id<br><br>
+в—Ҹ <strong>Email:</strong> payanganhospital@gmail.com<br><br>
 RS Payangan terletak di jalur utama Gianyar, mudah diakses dari Denpasar dan Ubud.'
     ],
     'UGD' => [

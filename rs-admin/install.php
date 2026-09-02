@@ -354,7 +354,7 @@ $settings = [
     ['app_tagline', 'Melayani dengan Sepenuh Hati', 'Tagline'],
     ['alamat', 'Jl. Raya Payangan, Gianyar, Bali 80572', 'Alamat RS'],
     ['telepon', '0361 98087', 'Nomor Telepon'],
-    ['email', 'info@payanganhospital.id', 'Email'],
+    ['email', 'payanganhospital@gmail.com', 'Email'],
     ['antrean_prefix', 'A', 'Prefix Nomor Antrean'],
     ['jam_buka', '08:00', 'Jam Buka'],
     ['jam_tutup', '20:00', 'Jam Tutup']
