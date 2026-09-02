@@ -33,7 +33,7 @@ Apa yang bisa saya bantu hari ini?`,
             { text: 'Layanan RS', value: 'layanan rumah sakit' },
             
             { text: 'BPJS', value: 'informasi bpjs' },
-            { text: 'IGD 24 Jam', value: 'igd 24 jam' },
+            { text: 'UGD 24 Jam', value: 'UGD 24 Jam' },
             { text: 'Kontak RS', value: 'kontak rumah sakit' }
         ]
     };
@@ -80,7 +80,7 @@ Apakah ada dokter tertentu yang ingin Anda ketahui jadwalnya?`
 • Kamar ICU
 
 <strong>Pelayanan Gawat Darurat:</strong>
-• IGD 24 Jam
+• UGD 24 Jam
 • Ambulans
 • Dokter On-Call
 
@@ -111,11 +111,11 @@ RS Payangan Hospital telah<b> terakreditasi</b> dan melayani pasien BPJS Kesehat
 
 Apakah ada informasi lain tentang BPJS yang ingin Anda ketahui?`
         },
-        igd: {
+        UGD: {
             keywords: ['igd', 'darurat', 'emergency', 'gawat', '24 jam', 'ambulans'],
-            response: `🚨 <strong>IGD (Instalasi Gawat Darurat) 24 Jam</strong>
+            response: `🚨 <strong>UGD (Unit Gawat Darurat) 24 Jam</strong>
 
-<strong>Layanan IGD kami:</strong>
+<strong>Layanan UGD kami:</strong>
 • Dokter Spesialis On-Call
 • Perawat Emergensi
 • Ambulans Siaga
@@ -127,7 +127,7 @@ Apakah ada informasi lain tentang BPJS yang ingin Anda ketahui?`
 📱 <strong>WhatsApp:</strong> [Nomor RS]
 
 <strong>Catatan:</strong>
-Untuk kondisi gawat darurat, segera ke IGD atau hubungi nomor darurat di atas.
+Untuk kondisi gawat darurat, segera ke UGD atau hubungi nomor darurat di atas.
 
 Apakah Anda membutuhkan bantuan darurat?`
         },
@@ -151,7 +151,7 @@ JL. Raya Payangan, Gianyar, Bali
 <strong>Jam Operasional:</strong>
 Senin - Jumat: 07:00 - 20:00
 Sabtu: 07:00 - 14:00
-IGD: 24 Jam
+UGD: 24 Jam
 
 <strong>Google Maps:</strong>
 <a href="https://goo.gl/maps/xxxx" target="_blank">Lihat di Maps</a>`
@@ -198,7 +198,7 @@ Menjadi rumah sakit yang modern dengan sentuhan humanis
 
 <strong>Keunggulan:</strong>
 ✅ 22+ Dokter Spesialis
-✅ IGD 24 Jam
+✅ UGD 24 Jam
 ✅ Fasilitas Modern
 ✅ Harga Terjangkau
 ✅ Lokasi Strategis

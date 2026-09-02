@@ -44,7 +44,7 @@ $role_stats = [
         ['label' => 'Antrean Hari Ini', 'value' => $antrean_hari_ini, 'icon' => 'fa-clipboard-list', 'color' => '#1a5f5a', 'trend' => ''],
         ['label' => 'Menunggu', 'value' => $antrean_menunggu, 'icon' => 'fa-hourglass-half', 'color' => '#f59e0b', 'trend' => ''],
         ['label' => 'Selesai', 'value' => $antrean_hari_ini - $antrean_menunggu, 'icon' => 'fa-check-circle', 'color' => '#10b981', 'trend' => ''],
-        ['label' => 'IGD Aktif', 'value' => 3, 'icon' => 'fa-ambulance', 'color' => '#ef4444', 'trend' => ''],
+        ['label' => 'UGD Aktif', 'value' => 3, 'icon' => 'fa-ambulance', 'color' => '#ef4444', 'trend' => ''],
     ]
 ];
 
@@ -587,8 +587,8 @@ $stats = $role_stats[$current_user['role']] ?? $role_stats['karyawan'];
                 <a href="antrean.php" class="sidebar-link">
                     <i class="fas fa-clipboard-list"></i> Antrean
                 </a>
-                <a href="igd.php" class="sidebar-link">
-                    <i class="fas fa-ambulance"></i> IGD
+                <a href="UGD.php" class="sidebar-link">
+                    <i class="fas fa-ambulance"></i> UGD
                 </a>
                 <a href="rawat-inap.php" class="sidebar-link">
                     <i class="fas fa-procedures"></i> Rawat Inap
@@ -690,9 +690,9 @@ $stats = $role_stats[$current_user['role']] ?? $role_stats['karyawan'];
                             <i class="fas fa-user-plus"></i>
                             <span>Registrasi Pasien</span>
                         </a>
-                        <a href="igd.php?action=tambah" class="action-btn">
+                        <a href="UGD.php?action=tambah" class="action-btn">
                             <i class="fas fa-ambulance"></i>
-                            <span>Pasien IGD</span>
+                            <span>Pasien UGD</span>
                         </a>
                         <a href="rawat-inap.php?action=tambah" class="action-btn">
                             <i class="fas fa-bed"></i>

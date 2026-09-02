@@ -42,7 +42,7 @@ $KNOWLEDGE_BASE = [
         'keywords' => ['jam', 'buka', 'waktu', 'operasional', 'layanan'],
         'response' => 'в—Ҹ <strong>Jam Operasional RS Payangan:</strong><br>
 в—Ҹ Rawat Jalan: 08:00 - 20:00 WITA<br>
-в—Ҹ IGD: 24 jam (Setiap hari)<br>
+в—Ҹ UGD: 24 jam (Setiap hari)<br>
 в—Ҹ Apotek: 07:00 - 21:00 WITA<br>
 в—Ҹ Laboratorium: 07:00 - 19:00 WITA<br><br>
 Telepon: <strong>0361 9088087</strong>'
@@ -90,12 +90,12 @@ Lihat jadwal lengkap di halaman <strong>Dokter</strong>'
 в—Ҹ <strong>Email:</strong> info@rsupayangan.co.id<br><br>
 RS Payangan terletak di jalur utama Gianyar, mudah diakses dari Denpasar dan Ubud.'
     ],
-    'igd' => [
-        'keywords' => ['igd', 'darurat', 'emergency', 'ambulans', 'darurat'],
-        'response' => 'в—Ҹ <strong>Layanan IGD 24 Jam:</strong><br><br>
-в—Ҹ <strong>Telepon IGD:</strong> <strong>0361 9088087</strong><br>
+    'UGD' => [
+        'keywords' => ['UGD', 'darurat', 'emergency', 'ambulans', 'darurat'],
+        'response' => 'в—Ҹ <strong>Layanan UGD 24 Jam:</strong><br><br>
+в—Ҹ <strong>Telepon UGD:</strong> <strong>0361 9088087</strong><br>
 в—Ҹ <strong>WhatsApp Darurat:</strong> <strong>+62 361 9088087</strong><br><br>
-<strong>Prioritas IGD:</strong><br>
+<strong>Prioritas UGD:</strong><br>
 1. Resusitasi (Sangat darurat)<br>
 2. Emergensi<br>
 3. Urgensi<br>
@@ -106,7 +106,7 @@ RS Payangan terletak di jalur utama Gianyar, mudah diakses dari Denpasar dan Ubu
     'fasilitas' => [
         'keywords' => ['fasilitas', 'pelayanan', 'layanan', 'alat'],
         'response' => 'в—Ҹ <strong>Fasilitas RS Payangan:</strong><br><br>
-в—Ҹ IGD 24 jam dengan tim medis standby<br>
+в—Ҹ UGD 24 jam dengan tim medis standby<br>
 в—Ҹ Rawat Inap (VVIP, VIP, Kelas 1, 2, 3)<br>
 в—Ҹ Rawat Jalan 14 poli spesialis<br>
 в—Ҹ ICU & NICU<br>
@@ -202,7 +202,7 @@ switch ($action) {
             'tarif' => 'Berapa tarif konsultasi dokter?',
             'dokter' => 'Dokter apa saja yang praktik?',
             'lokasi' => 'Di mana lokasi RS Payangan?',
-            'igd' => 'Nomor telepon IGD?'
+            'UGD' => 'Nomor telepon UGD?'
         ];
         
         if (isset($quick_replies[$type])) {

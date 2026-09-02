@@ -67,7 +67,7 @@ echo "\n--- Deploying other folders ---\n";
 
 // Deploy other essential files
 $files = [
-    'index.html', 'about.html', 'dokter.html', 'igd.html', 'kontak.html',
+    'index.html', 'about.html', 'dokter.html', 'UGD.html', 'kontak.html',
     'antrean.html', 'preview.html', 'chat.html', 'webhook.php', 'deploy.php',
     'deploy-full.php', 'deploy-image.php',
     'progress/index.html', 'progress/director-report-login.html',

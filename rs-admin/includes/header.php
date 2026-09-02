@@ -517,8 +517,8 @@ $current_page = basename($_SERVER['PHP_SELF'], '.php');
                 <a href="antrean.php" class="sidebar-link <?php echo ($current_page == 'antrean') ? 'active' : ''; ?>">
                     <i class="fas fa-clipboard-list"></i> Antrean
                 </a>
-                <a href="igd.php" class="sidebar-link <?php echo ($current_page == 'igd') ? 'active' : ''; ?>">
-                    <i class="fas fa-ambulance"></i> IGD
+                <a href="UGD.php" class="sidebar-link <?php echo ($current_page == 'UGD') ? 'active' : ''; ?>">
+                    <i class="fas fa-ambulance"></i> UGD
                 </a>
                 <a href="rawat-inap.php" class="sidebar-link <?php echo ($current_page == 'rawat-inap') ? 'active' : ''; ?>">
                     <i class="fas fa-procedures"></i> Rawat Inap

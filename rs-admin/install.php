@@ -205,8 +205,8 @@ $tables[] = "CREATE TABLE IF NOT EXISTS kamar_inap (
     INDEX idx_status (status)
 ) ENGINE=InnoDB";
 
-// IGD Table
-$tables[] = "CREATE TABLE IF NOT EXISTS igd (
+// UGD Table
+$tables[] = "CREATE TABLE IF NOT EXISTS UGD (
     id INT AUTO_INCREMENT PRIMARY KEY,
     pasien_id INT,
     nik VARCHAR(16),
@@ -255,7 +255,7 @@ $tables[] = "CREATE TABLE IF NOT EXISTS settings (
 foreach ($tables as $i => $sql) {
     $table_name = match($i) {
         0 => 'users', 1 => 'dokter', 2 => 'poli', 3 => 'kamar',
-        4 => 'pasien', 5 => 'antrean', 6 => 'kamar_inap', 7 => 'igd',
+        4 => 'pasien', 5 => 'antrean', 6 => 'kamar_inap', 7 => 'UGD',
         8 => 'activity_log', 9 => 'settings'
     };
     

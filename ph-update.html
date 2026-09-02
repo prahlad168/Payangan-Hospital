@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
@@ -242,7 +242,7 @@
                 </li>
                 <li><a href="faq.html">FAQ</a></li>
                 <li><a href="kontak.html">Kontak</a></li>
-                <li><a href="igd.html" class="nav-emergency"><i class="fas fa-phone"></i> IGD</a></li>
+                <li><a href="UGD.html" class="nav-emergency"><i class="fas fa-phone"></i> UGD</a></li>
             </ul>
             <div class="mobile-toggle" onclick="toggleMenu()">
                 <span></span><span></span><span></span>
@@ -258,14 +258,14 @@
             <li><a href="layanan.html" onclick="toggleMenu()">Layanan</a></li>
             <li><a href="dokter.html" onclick="toggleMenu()">Dokter</a></li>
             <li><a href="ph-update.html" onclick="toggleMenu()">PH Update</a></li>
-            <li><a href="ph-update.html?cat=info-kesehatan" onclick="toggleMenu()" style="padding-left:28px;font-size:0.95rem;opacity:0.85;">— Info Kesehatan</a></li>
-            <li><a href="ph-update.html?cat=teknologi" onclick="toggleMenu()" style="padding-left:28px;font-size:0.95rem;opacity:0.85;">— Teknologi</a></li>
-            <li><a href="ph-update.html?cat=inovasi-informasi-teknologi" onclick="toggleMenu()" style="padding-left:28px;font-size:0.95rem;opacity:0.85;">— Inovasi Informasi dan Teknologi</a></li>
-            <li><a href="ph-update.html?cat=pengumuman" onclick="toggleMenu()" style="padding-left:28px;font-size:0.95rem;opacity:0.85;">— Pengumuman</a></li>
-            <li><a href="ph-update.html?cat=inovasi-informasi" onclick="toggleMenu()" style="padding-left:28px;font-size:0.95rem;opacity:0.85;">— Inovasi Informasi</a></li>
+            <li><a href="ph-update.html?cat=info-kesehatan" onclick="toggleMenu()" style="padding-left:28px;font-size:0.95rem;opacity:0.85;">� Info Kesehatan</a></li>
+            <li><a href="ph-update.html?cat=teknologi" onclick="toggleMenu()" style="padding-left:28px;font-size:0.95rem;opacity:0.85;">� Teknologi</a></li>
+            <li><a href="ph-update.html?cat=inovasi-informasi-teknologi" onclick="toggleMenu()" style="padding-left:28px;font-size:0.95rem;opacity:0.85;">� Inovasi Informasi dan Teknologi</a></li>
+            <li><a href="ph-update.html?cat=pengumuman" onclick="toggleMenu()" style="padding-left:28px;font-size:0.95rem;opacity:0.85;">� Pengumuman</a></li>
+            <li><a href="ph-update.html?cat=inovasi-informasi" onclick="toggleMenu()" style="padding-left:28px;font-size:0.95rem;opacity:0.85;">� Inovasi Informasi</a></li>
             <li><a href="faq.html" onclick="toggleMenu()">FAQ</a></li>
             <li><a href="kontak.html" onclick="toggleMenu()">Kontak</a></li>
-            <li><a href="igd.html" onclick="toggleMenu()">🚨 IGD 24 Jam</a></li>
+            <li><a href="UGD.html" onclick="toggleMenu()">?? UGD 24 Jam</a></li>
         </ul>
     </div>
 
@@ -427,7 +427,7 @@
             <div class="footer-col">
                 <h4>Layanan</h4>
                 <ul>
-                    <li><a href="igd.html">IGD 24 Jam</a></li>
+                    <li><a href="UGD.html">UGD 24 Jam</a></li>
                     <li><a href="rawat-jalan.html">Rawat Jalan</a></li>
                     <li><a href="rawat-inap.html">Rawat Inap</a></li>
                     <li><a href="layanan.html">Laboratorium</a></li>
@@ -524,28 +524,28 @@
 
 <div id="chat-win">
   <div class="ch-hdr">
-    <div class="ch-av">🏥</div>
-    <div class="ch-inf"><h3>Payangan Hospital Assistant</h3><p>Online • AI Agent 24/7</p></div>
+    <div class="ch-av">??</div>
+    <div class="ch-inf"><h3>Payangan Hospital Assistant</h3><p>Online � AI Agent 24/7</p></div>
     <div class="ch-dot"></div>
-    <button class="ch-cls" onclick="toggleChat()">×</button>
+    <button class="ch-cls" onclick="toggleChat()">�</button>
   </div>
   <div class="ch-msgs" id="chatMsgs">
-    <div class="ch-msg bot">Selamat datang di <strong>Payangan Hospital</strong>! 👋<br><br>Saya asisten virtual yang siap membantu Anda. Silakan tanyakan tentang:<br><br>📅 <strong>Jadwal dokter</strong><br>📝 <strong>Pendaftaran online</strong><br>🏥 <strong>Layanan poli</strong><br>📰 <strong>Berita kesehatan</strong><br>📞 <strong>Kontak RS</strong><span class="ch-time">Baru saja</span></div>
+    <div class="ch-msg bot">Selamat datang di <strong>Payangan Hospital</strong>! ??<br><br>Saya asisten virtual yang siap membantu Anda. Silakan tanyakan tentang:<br><br>?? <strong>Jadwal dokter</strong><br>?? <strong>Pendaftaran online</strong><br>?? <strong>Layanan poli</strong><br>?? <strong>Berita kesehatan</strong><br>?? <strong>Kontak RS</strong><span class="ch-time">Baru saja</span></div>
   </div>
   <div class="ch-type" id="chatTyping"><span></span><span></span><span></span></div>
   <div class="ch-inp">
     <input type="text" id="chatInput" placeholder="Ketik pesan Anda..." onkeypress="if(event.key==='Enter')sendMsg()">
-    <button class="ch-snd" onclick="sendMsg()">➤</button>
+    <button class="ch-snd" onclick="sendMsg()">?</button>
   </div>
 </div>
-<button id="chat-fab" onclick="toggleChat()">💬</button>
+<button id="chat-fab" onclick="toggleChat()">??</button>
 
 <script>
 let chatOpen=false;
 function toggleChat(){chatOpen=!chatOpen;document.getElementById('chat-win').classList.toggle('active',chatOpen)}
 function sendMsg(){const i=document.getElementById('chatInput'),m=i.value.trim();if(!m)return;addMsg(m,'user');i.value='';document.getElementById('chatTyping').classList.add('active');setTimeout(()=>{document.getElementById('chatTyping').classList.remove('active');addMsg(getResp(m),'bot')},1500)}
 function addMsg(t,n){const d=document.getElementById('chatMsgs'),e=document.createElement('div');e.className='ch-msg '+n;e.innerHTML=t+'<span class="ch-time">Baru saja</span>';d.appendChild(e);d.scrollTop=d.scrollHeight}
-function getResp(m){const msg=m.toLowerCase();if(msg.includes('berita')||msg.includes('artikel'))return'📰 <strong>Berita & Artikel:</strong><br><br>Klik untuk melihat berita terbaru:<br><br><a href="ph-update.html" style="color:#22d3ee">📰 Berita Kesehatan →</a>';return'Terima kasih! 🙏<br><br>Kunjungi <a href="ph-update.html" style="color:#22d3ee">halaman berita</a><br>Hubungi <strong>0361 9088087</strong>'}
+function getResp(m){const msg=m.toLowerCase();if(msg.includes('berita')||msg.includes('artikel'))return'?? <strong>Berita & Artikel:</strong><br><br>Klik untuk melihat berita terbaru:<br><br><a href="ph-update.html" style="color:#22d3ee">?? Berita Kesehatan ?</a>';return'Terima kasih! ??<br><br>Kunjungi <a href="ph-update.html" style="color:#22d3ee">halaman berita</a><br>Hubungi <strong>0361 9088087</strong>'}
 </script>
 
     <script src="js/news.js" defer></script>

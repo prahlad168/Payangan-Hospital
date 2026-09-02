@@ -242,7 +242,7 @@ $users_list = [
             <div class="sidebar-section">
                 <div class="sidebar-section-title">Layanan</div>
                 <a href="antrean.php" class="sidebar-link"><i class="fas fa-clipboard-list"></i> Antrean</a>
-                <a href="igd.php" class="sidebar-link"><i class="fas fa-ambulance"></i> IGD</a>
+                <a href="UGD.php" class="sidebar-link"><i class="fas fa-ambulance"></i> UGD</a>
                 <a href="rawat-inap.php" class="sidebar-link"><i class="fas fa-procedures"></i> Rawat Inap</a>
             </div>
             <?php if (has_role(['direktur', 'admin'])): ?>
