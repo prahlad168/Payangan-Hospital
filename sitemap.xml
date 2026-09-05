@@ -58,6 +58,11 @@
     <priority>0.6</priority>
     <changefreq>monthly</changefreq>
   </url>
+  <url>
+    <loc>https://payanganhospital.gianyarkab.go.id/hemodialisa.html</loc>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+  </url>
   
   <!-- News & Health Info -->
   <url>

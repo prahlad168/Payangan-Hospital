@@ -560,3 +560,17 @@
 .mobile-menu-header .logo-tagline {
     font-size: 0.45rem;
 }
+
+/* ==========================================
+   SERVICE BADGE - LAYANAN BARU
+   ========================================== */
+.badge-layanan-baru {
+    display: inline-block;
+    background: #f4c630;
+    color: #212529;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 10px;
+    vertical-align: middle;
+}
