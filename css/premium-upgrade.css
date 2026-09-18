@@ -1,13 +1,17 @@
-/**
- * ==========================================
- * PAYANGAN HOSPITAL - PREMIUM UPGRADE STYLES
- * Add-on to existing styles
- * ==========================================
- */
-
 /* ==========================================
-   1. ANIMATIONS
-   ========================================== */
+    1. ANIMATIONS
+    ========================================== */
+
+/* Animation Guidelines:
+   - All animations use cubic-bezier(0.4, 0, 0.2, 1) easing
+   - Fast: 150ms | Base: 250ms | Slow: 350ms | Smooth: 400ms
+   - Use fadeInUp for entrance animations
+   - Use scaleIn for modal/card entrance
+   - Use float for decorative elements only
+   - Prefer transform over width/height for performance
+   - Respect prefers-reduced-motion: reduce/disable animations
+   - Stagger multiple elements with delay classes (100ms, 200ms, etc.)
+*/
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -87,6 +91,15 @@
    2. PREMIUM CARD STYLES
    ========================================== */
 
+/* Color Map:
+   Primary: #0891b2 (Teal) - Brand main color
+   Primary Light: #22d3ee (Cyan) - Hover/accent states
+   Primary Dark: #0e7490 (Dark Teal) - Deep backgrounds
+   Secondary: #f4c430 (Gold) - CTAs, badges
+   Background: #ffffff, #f8fafc - Card backgrounds
+   Text: #1e293b, #475569, #64748b - Text hierarchy
+*/
+
 /* Card hover lift effect */
 .card-hover {
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -116,7 +129,7 @@
     left: 0;
     right: 0;
     height: 4px;
-    background: linear-gradient(90deg, #3b82f6, #0ea5e9, #10b981);
+    background: linear-gradient(90deg, #0891b2, #22d3ee, #10b981);
     transform: scaleX(0);
     transition: transform 0.4s ease;
 }
@@ -144,13 +157,13 @@
 }
 
 .premium-card:hover .premium-card-icon {
-    background: linear-gradient(135deg, #3b82f6, #2563eb);
+    background: linear-gradient(135deg, #0891b2, #0e7490);
     transform: scale(1.1);
 }
 
 .premium-card-icon i {
     font-size: 32px;
-    color: #3b82f6;
+    color: #0891b2;
     transition: color 0.4s ease;
 }
 
@@ -183,7 +196,7 @@
 .doctor-card:hover {
     transform: translateY(-6px);
     box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.12);
-    border-color: transparent;
+    border-color: #0891b2;
 }
 
 .doctor-card-image {
@@ -207,7 +220,7 @@
     position: absolute;
     top: 16px;
     left: 16px;
-    background: #3b82f6;
+    background: #0891b2;
     color: white;
     padding: 6px 14px;
     border-radius: 20px;
@@ -235,7 +248,7 @@
 
 .doctor-card-spec {
     font-size: 14px;
-    color: #3b82f6;
+    color: #0891b2;
     margin-bottom: 12px;
 }
 
@@ -259,7 +272,7 @@
     gap: 8px;
     width: 100%;
     padding: 12px 24px;
-    background: linear-gradient(135deg, #3b82f6, #2563eb);
+    background: linear-gradient(135deg, #0891b2, #0e7490);
     color: white;
     border-radius: 12px;
     font-size: 14px;
@@ -269,7 +282,7 @@
 
 .doctor-card-btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(59, 130, 246, 0.35);
+    box-shadow: 0 8px 20px rgba(8, 145, 178, 0.35);
 }
 
 /* Stat Counter Card */
@@ -283,8 +296,8 @@
 }
 
 .stat-card:hover {
-    border-color: #3b82f6;
-    box-shadow: 0 10px 30px -10px rgba(59, 130, 246, 0.15);
+    border-color: #0891b2;
+    box-shadow: 0 10px 30px -10px rgba(8, 145, 178, 0.15);
 }
 
 .stat-card-icon {
@@ -300,7 +313,7 @@
 
 .stat-card-icon i {
     font-size: 28px;
-    color: #3b82f6;
+    color: #0891b2;
 }
 
 .stat-card-value {
@@ -360,14 +373,14 @@
 
 /* Primary Button */
 .btn-primary-premium {
-    background: linear-gradient(135deg, #3b82f6, #2563eb);
+    background: linear-gradient(135deg, #0891b2, #22d3ee);
     color: white;
-    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.35);
+    box-shadow: 0 4px 15px rgba(8, 145, 178, 0.35);
 }
 
 .btn-primary-premium:hover {
     transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(59, 130, 246, 0.45);
+    box-shadow: 0 8px 25px rgba(8, 145, 178, 0.45);
 }
 
 /* Secondary Button */
@@ -391,7 +404,7 @@
 
 .btn-outline-premium:hover {
     background: white;
-    color: #3b82f6;
+    color: #0891b2;
 }
 
 /* Danger Button */
@@ -546,7 +559,7 @@
 }
 
 .header-premium.scrolled .nav-link-premium:hover {
-    color: #3b82f6;
+    color: #0891b2;
 }
 
 .header-inner-premium {
@@ -567,7 +580,7 @@
 .logo-icon-premium {
     width: 48px;
     height: 48px;
-    background: linear-gradient(135deg, #3b82f6, #2563eb);
+    background: linear-gradient(135deg, #0891b2, #0e7490);
     border-radius: 14px;
     display: flex;
     align-items: center;
@@ -607,7 +620,7 @@
     left: 0;
     width: 0;
     height: 2px;
-    background: #3b82f6;
+    background: #0891b2;
     transition: width 0.3s ease;
 }
 
@@ -697,7 +710,7 @@
 }
 
 .footer-social-premium a:hover {
-    background: #3b82f6;
+    background: #0891b2;
     transform: translateY(-3px);
 }
 
@@ -796,28 +809,41 @@
    8. UTILITIES
    ========================================== */
 
+/* Component Specification:
+   - .text-gradient: Gradient text using brand primary
+   - .bg-gradient-premium: Background gradient using brand primary
+   - .shadow-premium: Soft glow shadow using brand primary
+   - .border-gradient: Gradient border effect
+   - .glass: Glassmorphism effect for overlays
+*/
+
+/* Component: Text Gradient
+   Usage: <span class="text-gradient">Gradient Text</span>
+*/
 .text-gradient {
-    background: linear-gradient(135deg, #3b82f6, #0ea5e9);
+    background: linear-gradient(135deg, #0891b2, #22d3ee);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
 }
 
 .bg-gradient-premium {
-    background: linear-gradient(135deg, #3b82f6, #0ea5e9);
+    background: linear-gradient(135deg, #0891b2, #22d3ee);
 }
 
 .shadow-premium {
-    box-shadow: 0 10px 40px rgba(59, 130, 246, 0.15);
+    box-shadow: 0 10px 40px rgba(8, 145, 178, 0.15);
 }
 
 .border-gradient {
     border: 2px transparent;
     background: linear-gradient(white, white) padding-box,
-                linear-gradient(135deg, #3b82f6, #0ea5e9) border-box;
+                linear-gradient(135deg, #0891b2, #22d3ee) border-box;
 }
 
-/* Glass effect */
+/* Glass effect
+   Usage: <div class="glass">Glass content</div>
+*/
 .glass {
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(20px);
@@ -841,8 +867,8 @@
 
 .form-premium:focus {
     outline: none;
-    border-color: #3b82f6;
-    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    border-color: #0891b2;
+    box-shadow: 0 0 0 3px rgba(8, 145, 178, 0.1);
 }
 
 .form-premium::placeholder {
@@ -864,8 +890,8 @@
 }
 
 .badge-primary {
-    background: #dbeafe;
-    color: #1d4ed8;
+    background: #cffafe;
+    color: #0e7490;
 }
 
 .badge-success {
@@ -929,12 +955,11 @@
     .section-lg-premium { padding: 160px 0; }
 }
 
-/* Section Header */
-.section-header-premium {
-    text-align: center;
-    margin-bottom: 64px;
-}
-
+/* Component: Section Label (Premium)
+   Usage: <span class="section-label-premium">Label</span>
+   Followed by <h2 class="section-title-premium">Title</h2>
+   and <p class="section-subtitle-premium">Subtitle</p>
+*/
 .section-label-premium {
     display: inline-flex;
     align-items: center;
@@ -943,7 +968,7 @@
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    color: #3b82f6;
+    color: #0891b2;
     margin-bottom: 16px;
 }
 
@@ -951,10 +976,13 @@
     content: '';
     width: 32px;
     height: 2px;
-    background: #3b82f6;
+    background: #0891b2;
     border-radius: 2px;
 }
 
+/* Component: Section Title (Premium)
+   Usage: <h2 class="section-title-premium">Title <span>Accent</span></h2>
+*/
 .section-title-premium {
     font-family: 'Playfair Display', serif;
     font-size: clamp(28px, 4vw, 48px);
@@ -965,7 +993,7 @@
 }
 
 .section-title-premium span {
-    background: linear-gradient(135deg, #3b82f6, #0ea5e9);
+    background: linear-gradient(135deg, #0891b2, #22d3ee);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
