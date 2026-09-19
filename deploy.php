@@ -32,7 +32,7 @@ $files = [
     'index.html',
     'about.html',
     'dokter.html',
-    'UGD.html',
+    'ugd.html',
     'kontak.html',
     'antrean.html',
     'preview.html',
