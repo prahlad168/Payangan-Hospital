@@ -6,7 +6,7 @@
  */
 
 // Konfigurasi Database (MySQL)
-define('DB_HOST', ' https://payanganhospital.gianyarkab.go.id');
+define('DB_HOST', 'localhost');
 define('DB_USER', 'payangan_admin');
 define('DB_PASS', 'Payangan_ADMIN');
 define('DB_NAME', 'payangan_hospital');
